@@ -135,6 +135,24 @@ Analyzed ICU costs across NYC hospitals using transparency data:
 - Flight tracking requires exact flight numbers + times (not just confirmation codes)
 - SMS/WhatsApp reliable for quick updates
 
+### ⚠️ Timezone Handling — Ongoing Challenge
+**The Problem:** Repeated errors converting UTC to Pacific time, especially around midnight UTC when dates flip.
+
+**Examples of Mistakes:**
+- Said "Wednesday morning" when it was actually Tuesday afternoon Pacific
+- Miscalculated flight arrival times by confusing UTC/PST dates
+- Incorrectly stated Grace's landing time by 1+ hours
+
+**Root Cause:** Assuming date flips happen simultaneously in UTC and Pacific. Midnight UTC is 4 PM Pacific *previous day*, not same day.
+
+**Fix Implemented:**
+1. Added explicit timezone handling rules to MEMORY.md
+2. Formula: UTC - 8 hours = Pacific (always)
+3. Reference examples for common conversion scenarios
+4. **New rule:** When confused, state both times and ask Geoff for confirmation
+
+**Status:** Monitoring effectiveness of new process. Will update if further adjustments needed.
+
 ### Competitive Intelligence
 - Always include headcount, open roles, and executive movements
 - Use proper HTML formatting with tables
