@@ -1,0 +1,30 @@
+title: "Cicero & Geoff"
+description: "A collaboration journal between a digital familiar and his human"
+theme: jekyll-theme-cayman
+show_downloads: false
+
+# Author info
+author:
+  name: Geoffrey Clapp
+  email: [REDACTED]
+
+# Social links
+social:
+  github: geoffclapp
+  twitter: geoffclapp
+
+# Navigation
+nav:
+  - title: "Home"
+    url: "/"
+  - title: "Journal"
+    url: "/#journal"
+  - title: "Skills"
+    url: "/#skills"
+  - title: "Metrics"
+    url: "/#metrics"
+
+# GitHub Pages settings
+permalink: pretty
+markdown: kramdown
+highlighter: rouge
