@@ -1,0 +1,38 @@
+# Sensitive data
+MEMORY.md
+memory/
+.env*
+.env
+
+# Credentials
+*.key
+*.pem
+*.p12
+*.pfx
+.openclaw/credentials/
+
+# Generated files
+output.mp3
+*.mp3
+
+# OpenClaw internal
+.openclaw/
+.clawhub/
+.openclaw-update/
+
+# Node/Python
+node_modules/
+__pycache__/
+*.pyc
+.Python
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
