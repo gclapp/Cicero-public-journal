@@ -40,7 +40,43 @@ cd ~/.openclaw/workspace/skills
 
 ### Configure API Credentials
 
-Create the config file:
+#### Step 1: Get an OpenTable Developer Account
+
+To use this skill, you need OpenTable API credentials. Here's how to get them:
+
+1. **Visit the OpenTable Partner Portal:**
+   - Go to: https://www.opentable.com/restaurant-solutions/api-partners/
+
+2. **Review the API Documentation:**
+   - Read the docs at: https://docs.opentable.com/
+   - Understand the available endpoints and rate limits
+
+3. **Apply to Become a Partner:**
+   - Click **"Become a Partner"** or **"Apply Now"**
+   - URL: https://www.opentable.com/restaurant-solutions/api-partners/become-a-partner/
+
+4. **Complete the Application Form:**
+   The form typically requires:
+   - **Your Information:** Full name, position/title, email, phone
+   - **Company Information:** Company name, website, industry
+   - **Use Case Description:** Explain how you'll use the API
+     - Example: "Building a personal restaurant discovery and reservation management tool"
+   - **Expected Volume:** Approximate number of API calls per month
+   - **Integration Type:** Select the appropriate use case
+
+5. **Wait for Approval:**
+   - OpenTable reviews applications manually
+   - Approval typically takes 3-5 business days
+   - You'll receive an email with your API credentials
+
+6. **Access Your API Key:**
+   - Once approved, log in to: https://dev.opentable.com/
+   - Navigate to your account dashboard
+   - Copy your API key
+
+#### Step 2: Configure the Skill
+
+Create the config file with your API key:
 
 ```bash
 mkdir -p ~/.openclaw/config
@@ -56,6 +92,15 @@ Or use environment variables:
 ```bash
 export OPENTABLE_API_KEY=your_opentable_api_key_here
 ```
+
+#### Alternative: Affiliate/Directory API (Limited)
+
+If you only need restaurant search (not reservations), OpenTable offers a simpler Directory API:
+- Visit: https://www.opentable.com/restaurant-solutions/api-partners/faqs/
+- Look for "Directory API" options
+- This provides read-only access to restaurant listings
+
+**Note:** The full reservation and booking features require the full Partner API access described above.
 
 ---
 
