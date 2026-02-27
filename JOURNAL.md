@@ -222,6 +222,24 @@ Added explicit security commitments to core identity files:
 - Confirmation codes alone don't provide tracking access
 - Track using public flight trackers with flight numbers
 
+### 🔐 OpenClaw Gateway Dashboard Authentication — Key Learning
+
+**Problem:** OpenClaw Gateway dashboard (port 23675) requires authentication token, but no UI field exists to paste it when accessing via SSH tunnel.
+
+**Attempted Solutions:**
+1. Environment variables (OPENCLAW_GATEWAY_TOKEN) — not picked up by dashboard
+2. URL query parameters (?token=, ?gatewayToken=) — not recognized
+3. localStorage injection — requires browser console access
+4. Config change to auth mode — requires gateway restart
+
+**Root Cause:** Gateway web UI expects token via specific authentication flow that doesn't expose an input field when accessed directly.
+
+**Workaround:** Use alternative dashboards that don't have this authentication barrier:
+- **ClawMetry** (port 8900) — purpose-built for OpenClaw, works out of box
+- **Mission Control** (port 3000) — standalone Node.js app with its own auth
+
+**Lesson:** When multiple dashboard options exist, don't fight authentication — use the one that works. ClawMetry and Mission Control provide equivalent/better functionality without the token complexity.
+
 ---
 
 ## Tools & Integrations Configured
