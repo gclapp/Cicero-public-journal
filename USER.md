@@ -57,6 +57,7 @@ _Learn about the person you're helping. Update this as you go._
     - **Pizza:** NY slice, Neapolitan (favorites)
     - Thai food, Chinese food, steak (traditional steakhouse preferred, open to outstanding non-traditional), burgers, great salads
   - **Travel ask:** Recommendations for these cuisines when traveling
+  - **Bonus:** Always appreciates Michelin-starred restaurants
 
 ## Birthday Reminders
 - **Gift reminder:** 2 weeks before each birthday — keep reminding until Geoff confirms what gift was purchased
