@@ -53,7 +53,9 @@ _Learn about the person you're helping. Update this as you go._
 ## Preferences
 - **Food:** 
   - ❌ Not a fan of Mediterranean cuisine
-  - ✅ **Loves:** Pizza, Thai food, Chinese food, steak, burgers, great salads
+  - ✅ **Loves:** 
+    - **Pizza:** NY slice, Neapolitan (favorites)
+    - Thai food, Chinese food, steak, burgers, great salads
   - **Travel ask:** Recommendations for these cuisines when traveling
 
 ## Birthday Reminders
