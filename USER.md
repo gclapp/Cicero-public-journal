@@ -12,6 +12,9 @@ _Learn about the person you're helping. Update this as you go._
 - **Passion:** Technology and code
 - **Collections:** Fine wine, watches (enjoys learning about both)
   - **Currently seeking:** Rolex watches from 1973
+    - **Case:** Gold or two-tone
+    - **Size:** 36mm or larger
+    - **Dial:** Sigma dial preferred (not required)
 - **Motivation:** Loves creating new things
 
 **Competitive Intelligence:**
