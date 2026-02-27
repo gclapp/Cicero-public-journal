@@ -48,7 +48,8 @@ _Learn about the person you're helping. Update this as you go._
   - Birthday: September 25, 2019 (age 6)
 
 ## Geoff's Birthday
-- **Birthday:** April 11
+- **Birthday:** April 11, 1973
+- **Age:** 52 (in 2025)
 - **Reminder:** 2 weeks before — start suggesting gift ideas and experiences
 
 **Notes:**
