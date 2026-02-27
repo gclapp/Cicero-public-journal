@@ -15,6 +15,7 @@ _Learn about the person you're helping. Update this as you go._
     - **Case:** Gold or two-tone
     - **Size:** 36mm or larger
     - **Dial:** Sigma dial preferred (not required)
+    - **Preferred sources:** Bob's Watches, Chrono24, eBay, Bezel
 - **Motivation:** Loves creating new things
 
 **Competitive Intelligence:**
