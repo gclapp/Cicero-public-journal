@@ -50,7 +50,10 @@ _Learn about the person you're helping. Update this as you go._
 **Notes:**
 
 ## Preferences
-- **Food:** Not a fan of Mediterranean cuisine
+- **Food:** 
+  - ❌ Not a fan of Mediterranean cuisine
+  - ✅ **Loves:** Pizza, Thai food, Chinese food, steak, burgers, great salads
+  - **Travel ask:** Recommendations for these cuisines when traveling
 
 ## Birthday Reminders
 - **Gift reminder:** 2 weeks before each birthday — keep reminding until Geoff confirms what gift was purchased
