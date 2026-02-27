@@ -43,6 +43,10 @@ _Learn about the person you're helping. Update this as you go._
 - **Sophie Clapp** — Youngest daughter
   - Birthday: September 25, 2019 (age 6)
 
+## Geoff's Birthday
+- **Birthday:** April 11
+- **Reminder:** 2 weeks before — start suggesting gift ideas and experiences
+
 **Notes:**
 
 ## Preferences
@@ -51,6 +55,15 @@ _Learn about the person you're helping. Update this as you go._
 ## Birthday Reminders
 - **Gift reminder:** 2 weeks before each birthday — keep reminding until Geoff confirms what gift was purchased
 - **Half-birthday reminder:** 2 days before half-birthday (6 months prior to actual birthday)
+
+### Tracked Birthdays
+| Person | Birthday | Age |
+|--------|----------|-----|
+| **Geoff** | April 11 | — |
+| Grace | July 22 | 29 |
+| Mackenzie | April 26 | 20 |
+| Oliver | December 21 | 8 |
+| Sophie | September 25 | 6 |
 
 ## Context
 
