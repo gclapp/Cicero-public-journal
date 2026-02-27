@@ -11,6 +11,7 @@ _Learn about the person you're helping. Update this as you go._
 - **Background:** Computer scientist, founder (healthcare startups), venture capitalist
 - **Passion:** Technology and code
 - **Collections:** Fine wine, watches (enjoys learning about both)
+  - **Currently seeking:** Rolex watches from 1973
 - **Motivation:** Loves creating new things
 
 **Competitive Intelligence:**
