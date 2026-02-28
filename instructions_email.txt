@@ -1,0 +1,117 @@
+Subject: ClawMetry & Mission Control Dashboard - Installation Complete
+
+Hi Geoff,
+
+I've installed both observability tools you requested. Here's how to use them:
+
+═══════════════════════════════════════════════════════════════
+🔭 CLAWMETRY (Free) - Real-time Observability Dashboard
+═══════════════════════════════════════════════════════════════
+
+STATUS: ✅ Running
+URL: http://18.117.187.61:8900
+PORT: 8900
+
+WHAT IT DOES:
+- Live flow visualization - See messages → AI → tools → responses in real-time
+- Token & cost tracking per session, model, and tool
+- Sub-agent monitoring - Watch every step when I spawn sub-agents
+- Cron job dashboard - Monitor scheduled jobs and alerts
+- Session history with chat-bubble transcripts
+- Memory file browser - Track changes to SOUL.md, MEMORY.md, etc.
+- System health (uptime, disk, active sub-agents)
+
+HOW TO ACCESS:
+1. Open browser to: http://18.117.187.61:8900
+2. That's it! No login required - it reads OpenClaw workspace directly
+
+KEY FEATURES:
+🟣 Purple = Your messages entering
+🔵 Blue = Request to AI brain
+🟡 Yellow = Tool calls (exec, search, cron, etc.)
+🟢 Green = Response back to you
+🔴 Red = Errors
+
+TO RESTART:
+  sudo clawmetry --host 0.0.0.0 --port 8900
+
+TO RUN IN BACKGROUND:
+  nohup clawmetry --host 0.0.0.0 --port 8900 &
+
+═══════════════════════════════════════════════════════════════
+🎛️ MISSION CONTROL DASHBOARD ($299) - AI Agent Management
+═══════════════════════════════════════════════════════════════
+
+STATUS: ⚠️ Installed but requires configuration
+LOCATION: ~/.openclaw/workspace/skills/mission-control-dashboard/
+PRICE: $299 USD (one-time)
+
+WHAT IT DOES:
+- Department-based agent hierarchy (13 pre-built departments)
+- Sub-agent management and task assignment
+- System monitoring (CPU, Memory, Disk, GPU)
+- Secure login with session management
+- Professional Mission Control theme
+- Credits/usage tracking
+- Mobile responsive
+
+SETUP INSTRUCTIONS:
+1. Navigate to skill directory:
+   cd ~/.openclaw/workspace/skills/mission-control-dashboard/
+
+2. Install dependencies:
+   npm install
+
+3. Configure environment:
+   cp .env.example .env
+   nano .env
+   
+   Set these values:
+   SESSION_SECRET=your-random-secret-here
+   ADMIN_USERNAME=admin
+   ADMIN_PASSWORD=your-secure-password
+   PORT=3000
+
+4. Customize agents in agents.json (optional)
+
+5. Start the server:
+   npm start
+
+6. Access at: http://localhost:3000
+   Login with credentials from .env
+
+PRODUCTION DEPLOYMENT:
+   pm2 start server.js --name mission-control
+   pm2 save
+
+FOR HTTPS (Cloudflare Tunnel):
+   cloudflared tunnel --url http://localhost:3000
+
+═══════════════════════════════════════════════════════════════
+💡 WHICH TO USE?
+═══════════════════════════════════════════════════════════════
+
+CLAWMETRY (Free):
+✅ Zero configuration
+✅ Purpose-built for OpenClaw
+✅ Real-time visualization
+✅ Shows exactly what I'm doing
+✅ No login needed
+
+MISSION CONTROL ($299):
+✅ Professional multi-agent management
+✅ Department hierarchy
+✅ Team/collaboration features
+✅ More polished UI
+✅ Better for managing multiple AI agents
+
+RECOMMENDATION:
+Start with ClawMetry (it's already running!). If you need department hierarchies and team management features later, set up Mission Control.
+
+═══════════════════════════════════════════════════════════════
+
+Both tools run entirely locally - no data leaves your machine.
+
+Let me know if you need help accessing either dashboard!
+
+— Cicero

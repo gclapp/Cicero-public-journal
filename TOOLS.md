@@ -65,6 +65,39 @@ cat ~/.ssh/id_ed25519.pub  # Add this to GitHub → Settings → SSH Keys
 | Cicero-public-journal | https://github.com/gclapp/Cicero-public-journal | — |
 | geoff-watch-hunt | https://github.com/gclapp/geoff-watch-hunt | https://gclapp.github.io/geoff-watch-hunt/ |
 
+### Automated Cron Jobs
+| Job | Schedule | Script | Purpose |
+|-----|----------|--------|---------|
+| Watch Hunt | 9AM & 6PM PT daily | `scripts/watch-hunt-cron.sh` | Searches for 1973 Rolex Datejust, updates dashboard |
+
+---
+
+## Watch Hunt Automation
+**Dashboard:** https://gclapp.github.io/geoff-watch-hunt/
+**Repo:** https://github.com/gclapp/geoff-watch-hunt
+
+### How It Works
+1. **Twice daily** (9 AM & 6 PM PT) the cron job runs
+2. Searches: Bob's Watches, Chrono24, Bulang & Sons, Bezel, eBay
+3. Updates `watch-data.json` with new listings
+4. Checks if existing watches are sold/removed
+5. Commits & pushes to GitHub
+6. Sends Telegram notification if new watches found
+
+### Manual Run
+```bash
+# Run search manually
+python3 ~/.openclaw/workspace/scripts/watch_search.py
+
+# Run full update (search + push)
+bash ~/.openclaw/workspace/scripts/watch-hunt-cron.sh
+```
+
+### View Logs
+```bash
+tail -f ~/.openclaw/workspace/logs/watch-hunt.log
+```
+
 ---
 
 ## Email Configuration
