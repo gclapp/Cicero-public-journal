@@ -170,6 +170,42 @@ cat ~/.ssh/id_ed25519.pub  # Add this to GitHub → Settings → SSH Keys
 
 ---
 
+## Private Infrastructure (Planned)
+**Concept:** Private digital headquarters for Geoff & Cicero  
+**Purpose:** Secure hosting for all dashboards and tools  
+**Estimated Cost:** $8-17/month  
+**Status:** Planning phase - awaiting go-ahead
+
+### What We'll Host
+- Health/weight loss dashboard
+- Watch hunt tracker
+- Document repository
+- Agent control panel
+- File storage
+
+### Proposed Stack
+- **Hosting:** DigitalOcean VPS ($6-12/month)
+- **Domain:** TBD (geoffandcicero.com or similar)
+- **Security:** Password protection + SSL + Cloudflare
+- **Design:** Custom branded, dark mode
+
+### Security
+- Password-protected access
+- HTTPS/SSL encryption
+- Cloudflare DDoS protection
+- Automated backups
+- Firewall protection
+
+### Next Steps
+1. Choose domain name
+2. Register domain (~$12-15/year)
+3. Create DigitalOcean account
+4. I'll configure everything else
+
+**Full plan:** `private-infrastructure-plan.md`
+
+---
+
 ## Watch Hunt Automation
 **Dashboard:** https://gclapp.github.io/geoff-watch-hunt/
 **Repo:** https://github.com/gclapp/geoff-watch-hunt
