@@ -98,6 +98,25 @@ bash ~/.openclaw/workspace/scripts/watch-hunt-cron.sh
 tail -f ~/.openclaw/workspace/logs/watch-hunt.log
 ```
 
+### ⚠️ Scraping Limitations
+Most watch sites block automated scraping:
+- **Chrono24:** 403 Forbidden
+- **Bob's Watches:** 403 Forbidden  
+- **Bulang & Sons:** 403 Forbidden
+- **Bezel:** Search URL issues
+
+**Workarounds:**
+1. Use sites' saved search alerts (they email you)
+2. Manual browsing + send me links to track
+3. Future: Browser automation with Selenium
+4. Check if APIs available for partners
+
+**Current automation still useful for:**
+- Checking if tracked watches are still available
+- Updating dashboard timestamps
+- Logging activity
+- Maintaining the tracker
+
 ---
 
 ## Email Configuration
