@@ -1,0 +1,133 @@
+{
+  "baseline_date": "2026-02-28",
+  "next_report_date": "2026-03-08",
+  "schedule": "Weekly on Sundays",
+  "competitors": {
+    "Progyny": {
+      "sentiment": "Strongly Positive",
+      "emoji": "🟢",
+      "key_themes": [
+        "Smart cycle flexibility",
+        "Low out-of-pocket costs",
+        "Coverage clarity",
+        "$100K+ coverage reports",
+        "Minimal complaints"
+      ],
+      "sample_quotes": [
+        "one of the best fertility insurance coverages",
+        "over 100K in covered treatments in one year with zero issues"
+      ],
+      "watch_for_changes": [
+        "Any negative sentiment spikes",
+        "Employer switching away from Progyny",
+        "Service quality complaints"
+      ]
+    },
+    "Maven": {
+      "sentiment": "Mixed",
+      "emoji": "🟠",
+      "key_themes": [
+        "Reimbursement delays",
+        "Amazon migration friction",
+        "Process complexity",
+        "Plan variability by employer"
+      ],
+      "sample_quotes": [
+        "taken a very long time to reimburse",
+        "more complicated to navigate than Progyny"
+      ],
+      "watch_for_changes": [
+        "Improvements in reimbursement speed",
+        "Major employer wins/losses",
+        "User experience improvements"
+      ]
+    },
+    "Carrot": {
+      "sentiment": "Positive",
+      "emoji": "🟢",
+      "key_themes": [
+        "Card payment preferred",
+        "Straightforward reimbursement",
+        "No treatment restrictions",
+        "Employer-funded flexibility"
+      ],
+      "sample_quotes": [
+        "mostly easy",
+        "20k in carrot funds"
+      ],
+      "watch_for_changes": [
+        "New feature launches",
+        "Employer adoption trends",
+        "Competitive positioning"
+      ]
+    },
+    "Kindbody": {
+      "sentiment": "Negative",
+      "emoji": "🔴",
+      "key_themes": [
+        "Communication failures",
+        "Billing opacity",
+        "Clinical errors",
+        "Staff turnover",
+        "Financial distress signals"
+      ],
+      "sample_quotes": [
+        "They are awful. Clearly don't care about you",
+        "financial stuff is soooo opaque"
+      ],
+      "watch_for_changes": [
+        "Operational improvements",
+        "Leadership changes",
+        "Financial stability indicators",
+        "Clinic closures/openings"
+      ]
+    },
+    "WIN_Fertility": {
+      "sentiment": "Moderate Positive",
+      "emoji": "🟢",
+      "key_themes": [
+        "90%→100% coverage model",
+        "Medication cost efficiency",
+        "Insurance integration"
+      ],
+      "sample_quotes": [
+        "Win fertility is fantastic",
+        "$200 out-of-pocket for medications"
+      ],
+      "watch_for_changes": [
+        "New product offerings",
+        "Market positioning shifts"
+      ]
+    },
+    "Menopause_Providers": {
+      "sentiment": "Polarized",
+      "emoji": "🟡",
+      "key_themes": [
+        "Insurance integration critical",
+        "Access speed varies",
+        "Provider quality inconsistent"
+      ],
+      "providers": {
+        "Midi": "Mixed - insurance coverage praised, access delays criticized",
+        "Evernow": "Polarized - fans love it, critics cite scam concerns"
+      },
+      "watch_for_changes": [
+        "Insurance coverage expansions",
+        "Provider quality improvements",
+        "Market growth signals"
+      ]
+    }
+  },
+  "methodology": {
+    "sources": ["r/IVF", "r/Menopause", "r/infertility", "r/TryingForABaby", "r/eggfreezing", "r/queerception"],
+    "search_terms": [
+      "site:reddit.com [company] fertility benefits reviews",
+      "site:reddit.com [company] experience"
+    ],
+    "classification": "Sentiment based on post tone, upvote patterns, comment consensus"
+  },
+  "report_recipients": [
+    "geoffrey.clapp@progyny.com",
+    "[REDACTED]"
+  ]
+}

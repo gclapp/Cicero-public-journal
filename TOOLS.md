@@ -72,6 +72,104 @@ cat ~/.ssh/id_ed25519.pub  # Add this to GitHub → Settings → SSH Keys
 
 ---
 
+## Weight Loss Program 2026
+**Goal:** Lose 20 lbs in 10-12 weeks  
+**Plan:** `weight-loss-plan.md` | **Tracker:** `memory/weight-loss-2026.md`
+
+### Nutrition
+- **Calories:** 1,800-2,000/day
+- **Protein:** 150-180g/day (30-35%)
+- **Strategy:** High-protein, lower-carb, healthy fats
+- **Apps:** Lose It! (food) + Whoop (recovery/strain)
+
+### Exercise (5-6 days/week)
+- **Mon/Wed/Fri:** Strength training (45 min)
+- **Tue:** Cardio/walk (30-40 min)
+- **Thu:** Active recovery (30 min)
+- **Sat:** Fun activity/hike (60+ min)
+- **Sun:** Rest (Whoop recovery)
+
+### Reminders (Todoist)
+- **Daily:** 5 tasks (weigh-in, food log, workout, water, Whoop check)
+- **Weekly:** Sunday meal prep, progress review
+- **Monthly:** Photos, measurements
+
+### Travel-Friendly
+- Hotel gym routines (20-30 min)
+- Airport: protein bars, no sugary drinks
+- NYC trips: walking meetings, hotel mornings
+
+---
+
+## Python Learning Program 2026
+**Goal:** Write production-grade Python agents  
+**Plan:** `python-learning-plan.md` | **Tracker:** `memory/python-learning-2026.md`  
+
+### Timeline
+- **Weeks 1-2:** Python Fundamentals (Java → Python)
+- **Weeks 3-4:** Pythonic Patterns
+- **Weeks 5-6:** Agent Foundations (APIs, LLMs)
+- **Weeks 7-8:** Agent Architecture
+- **Weeks 9-10:** Production Agents
+- **Weeks 11-12:** Multi-Agent Systems
+
+### Projects
+1. Task Manager CLI
+2. Web Scraper Agent
+3. Chat Agent
+4. Email Agent
+5. Competitive Intel Agent
+6. Multi-Agent System
+
+### Weekly Commitment
+- **Mon:** New concept (1 hr)
+- **Tue:** LeetCode practice (45 min)
+- **Wed:** Project work (1 hr)
+- **Thu:** Code review with Cicero (30 min)
+- **Fri:** Integration (45 min)
+
+### Tools
+- Python 3.11+, VS Code, Git
+- OpenAI API, Virtual environments
+- GitHub for code reviews
+
+---
+
+## Health Dashboard & Weight Loss Tracking
+**Dashboard:** https://gclapp.github.io/health-dashboard/  
+**Repo:** https://github.com/gclapp/health-dashboard  
+**Data Sources:** Apple Health (primary) + Whoop (recovery/strain)  
+**Goal:** Track 20 lb weight loss with data-driven insights  
+
+### How It Works
+1. **iPhone Shortcuts** exports Apple Health data daily at 9 PM
+2. **Email sent** to [REDACTED] automatically
+3. **Python processor** parses and analyzes data
+4. **Dashboard updates** with weight trends, activity, insights
+5. **Weekly reports** emailed with progress and recommendations
+
+### Dashboard Features
+- Weight loss chart with 7-day trend
+- Daily steps and activity tracking
+- Calorie in/out dashboard
+- Sleep analysis
+- Whoop recovery integration
+- AI-generated insights ("You lose more weight when you sleep 8+ hours")
+
+### Accountability System
+- **Daily:** Todoist reminder to check dashboard
+- **Daily:** I review your data when emails arrive
+- **Sunday:** Weekly report with progress analysis
+- **Bi-weekly:** Telegram check-in on trends
+- **Immediate alerts:** If weight stalls for 5+ days
+
+### Setup Files
+- `health-dashboard/SHORTCUTS_SETUP.md` - iPhone setup guide
+- `health_processor.py` - Data parsing and analysis
+- `health-data.json` - Dashboard data file
+
+---
+
 ## Watch Hunt Automation
 **Dashboard:** https://gclapp.github.io/geoff-watch-hunt/
 **Repo:** https://github.com/gclapp/geoff-watch-hunt
