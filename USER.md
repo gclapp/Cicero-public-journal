@@ -51,9 +51,13 @@ _Learn about the person you're helping. Update this as you go._
 
 ### Christie Byrne (Lightcap)
 - **Relationship:** Friend
-- **Spouse:** Brad Lightcap
+- **Spouse:** Brad Lightcap (COO of OpenAI)
 - **Children:** Daughter Brooklyn
-- **Status:** Keep in touch with regularly
+- **Location:** San Francisco, CA
+- **Profession:** Advisor, Product Strategy at Synapticure (healthcare/virtual care)
+- **Interests:** Healthcare innovation, digital health, AI in healthcare
+- **Status:** Keep in touch with regularly (high-value connection - healthcare + AI)
+- **Social:** LinkedIn: christiebyrne | IG: christielightcap
 - **Full Profile:** [friend-profiles/christie-lightcap.md](memory/friend-profiles/christie-lightcap.md)
 
 ## Important People
