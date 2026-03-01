@@ -38,16 +38,47 @@ _Learn about the person you're helping. Update this as you go._
 
 **Hotel Loyalty:** Marriott Bonvoy (loyal user)
 
+## Friends & Social Circle
+
+### Adam Dole
+- **Location:** Malibu, CA
+- **Interests:** Surfing, healthcare innovation, social impact
+- **Profession:** Co-founder of Bento (healthcare/food security startup)
+- **Background:** Mayo Clinic, Presidential Innovation Fellow, Techstars Mentor
+- **Good for:** Casual dinners, group outings
+- **Preferred spots:** American Beauty (casual, fun, great for friends)
+- **Full Profile:** [friend-profiles/adam-dole.md](memory/friend-profiles/adam-dole.md)
+
 ## Important People
-- **Grace Keers** — Girlfriend (soon-to-be wife)
+- **Grace Keers** — Girlfriend (soon-to-be wife) — **#1 PRIORITY (after kids)**
   - Birthday: July 22, 1996 (age 29)
   - Email: keers003@gmail.com
+  - **Note:** The only person who matters to Geoff (other than the kids)
 - **Mackenzie Clapp** — Oldest daughter
   - Birthday: April 26, 2005 (age 20)
+  - **Note:** Very close to her mother (Stephanie Foster)
 - **Oliver Clapp** — Son
   - Birthday: December 21, 2017 (age 8)
 - **Sophie Clapp** — Youngest daughter
   - Birthday: September 25, 2019 (age 6)
+- **Stephanie Foster** — Ex-wife (only person Geoff has been married to), mother of Mackenzie
+  - **Location:** Nevada City, California
+  - **Relationship:** Get along fine, don't talk often
+  - **Note:** Mackenzie is very close to her
+- **Stacey Borden** — Former partner, mother of Oliver and Sophie (never legally married)
+  - **Background:** Harvard graduate, lives in Calabasas
+  - **Custody:** Geoff picks up kids Thursday 1:50pm, drops off Saturday 5pm
+  - **Alert:** Notify Geoff of any job/career changes (LinkedIn updates, news mentions)
+
+## Custody Schedule (Normal Pattern)
+**Location:** Chaparral Elementary, Calabasas
+
+| Day | Time | Action |
+|-----|------|--------|
+| Thursday | 1:50 PM | Pick up Oliver & Sophie from school |
+| Saturday | 5:00 PM | Drop off with Stacey Borden |
+
+**Note:** Exceptions occur, but this is the standard pattern. Oliver and Sophie are with Geoff Thursday 1:50pm → Saturday 5pm.
 
 ## Geoff's Birthday
 - **Birthday:** April 11, 1973
@@ -64,6 +95,12 @@ _Learn about the person you're helping. Update this as you go._
     - Thai food, Chinese food, steak (traditional steakhouse preferred, open to outstanding non-traditional), burgers, great salads
   - **Travel ask:** Recommendations for these cuisines when traveling
   - **Bonus:** Always appreciates Michelin-starred restaurants
+
+## Favorite Restaurants & Places
+
+| Place | Location | Vibe | Good For | Bring |
+|-------|----------|------|----------|-------|
+| **American Beauty** | Venice/Marina Del Rey area | Casual, fun, not fancy | Groups, friends, laid-back dinners | Adam Dole (Malibu surfer friend), groups of friends |
 
 ## Birthday Reminders
 - **Gift reminder:** 2 weeks before each birthday — keep reminding until Geoff confirms what gift was purchased

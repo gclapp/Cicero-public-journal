@@ -309,6 +309,16 @@ python3 scripts/send_email.py --to "[REDACTED]" --cc "keers003@gmail.com" --subj
   mkdir -p ~/.openclaw/config
   echo '{"api_key": "YOUR_KEY"}' > ~/.openclaw/config/opentable.json
   ```
+- **Delta Skill** — For flight tracking and SkyMiles integration (API research needed)
+- **Marriott Skill** — For Bonvoy points and hotel booking (API research needed)
+
+### 🛠️ Future Skills to Build
+| Skill | Purpose | Status | Notes |
+|-------|---------|--------|-------|
+| **Delta Airlines** | Flight status, gate changes, SkyMiles tracking | Researching | Delta has developer API at apiportal.delta.com |
+| **Marriott Bonvoy** | Hotel bookings, points balance, loyalty status | Researching | Developer portal at devportalprod.marriott.com |
+| **Beli** | Restaurant ratings and recommendations | Researching | No public API yet; may need manual export |
+| **Calendar Integration** | Automated flight/hotel detection from calendar | Planned | Google Calendar API + Gmail parsing |
 
 ---
 
