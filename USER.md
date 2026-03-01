@@ -49,6 +49,13 @@ _Learn about the person you're helping. Update this as you go._
 - **Preferred spots:** American Beauty (casual, fun, great for friends)
 - **Full Profile:** [friend-profiles/adam-dole.md](memory/friend-profiles/adam-dole.md)
 
+### Christie Byrne (Lightcap)
+- **Relationship:** Friend
+- **Spouse:** Brad Lightcap
+- **Children:** Daughter Brooklyn
+- **Status:** Keep in touch with regularly
+- **Full Profile:** [friend-profiles/christie-lightcap.md](memory/friend-profiles/christie-lightcap.md)
+
 ## Important People
 - **Grace Keers** — Girlfriend (soon-to-be wife) — **#1 PRIORITY (after kids)**
   - Birthday: July 22, 1996 (age 29)
