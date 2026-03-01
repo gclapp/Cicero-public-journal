@@ -71,6 +71,16 @@ _Learn about the person you're helping. Update this as you go._
 - **LinkedIn:** lisasuennen
 - **Full Profile:** [friend-profiles/lisa-suennen.md](memory/friend-profiles/lisa-suennen.md)
 
+### David Sobol
+- **Relationship:** Friend - Former team member at Optum
+- **Location:** Dover, MA (Boston area)
+- **Profession:** Senior VP, Operations & Value Based Care at Somatus (kidney care)
+- **Children:** 3 kids
+- **Travel Loyalty:** ✅ Delta | ✅ Marriott Bonvoy
+- **Expertise:** Value-based care, kidney care operations, healthcare strategy
+- **Status:** Strong professional bond - "World-class talent and friend" (Geoff's words)
+- **Full Profile:** [friend-profiles/david-sobol.md](memory/friend-profiles/david-sobol.md)
+
 ## Important People
 - **Grace Keers** — Girlfriend (soon-to-be wife) — **#1 PRIORITY (after kids)**
   - Birthday: July 22, 1996 (age 29)
