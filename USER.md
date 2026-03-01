@@ -60,6 +60,17 @@ _Learn about the person you're helping. Update this as you go._
 - **Social:** LinkedIn: christiebyrne | IG: christielightcap
 - **Full Profile:** [friend-profiles/christie-lightcap.md](memory/friend-profiles/christie-lightcap.md)
 
+### Lisa Suennen
+- **Relationship:** Friend
+- **Location:** San Francisco Bay Area
+- **Profession:** Healthcare VC (Canary Medical, formerly GE Ventures)
+- **Expertise:** 30+ years healthcare investing, digital health
+- **Blog:** Venture Valkyrie, Tech Tonics podcast
+- **Status:** ⚠️ **URGENT - Owe response for SF get-together**
+- **Email:** lisasuennen@venturevalkyrie.com
+- **LinkedIn:** lisasuennen
+- **Full Profile:** [friend-profiles/lisa-suennen.md](memory/friend-profiles/lisa-suennen.md)
+
 ## Important People
 - **Grace Keers** — Girlfriend (soon-to-be wife) — **#1 PRIORITY (after kids)**
   - Birthday: July 22, 1996 (age 29)
