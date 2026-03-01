@@ -81,6 +81,19 @@ _Learn about the person you're helping. Update this as you go._
 - **Status:** Strong professional bond - "World-class talent and friend" (Geoff's words)
 - **Full Profile:** [friend-profiles/david-sobol.md](memory/friend-profiles/david-sobol.md)
 
+### Steven Leist
+- **Relationship:** Friend - Direct colleague at Progyny
+- **Role:** Chief Technology Officer (CTO)
+- **Location:** New York
+- **Works With:** Geoff (CPO) - direct collaboration
+- **Reports To:** Pete Anevski (CEO)
+- **Alma Mater:** Texas A&M University (1989-1993)
+- **Degree:** Computer Engineering
+- **Texas A&M Status:** 🏆 **World's biggest Aggie fan**
+- **Family:** Wife Donna, son Olsen (named after Olsen Field baseball diamond!)
+- **Honors:** 2023 Distinguished Former Student, 12+ years Advisory Council
+- **Full Profile:** [friend-profiles/steven-leist.md](memory/friend-profiles/steven-leist.md)
+
 ## Important People
 - **Grace Keers** — Girlfriend (soon-to-be wife) — **#1 PRIORITY (after kids)**
   - Birthday: July 22, 1996 (age 29)
