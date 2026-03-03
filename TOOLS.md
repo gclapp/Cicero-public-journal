@@ -72,6 +72,50 @@ cat ~/.ssh/id_ed25519.pub  # Add this to GitHub → Settings → SSH Keys
 
 ---
 
+## Weekly Memory Consolidation
+**Status:** ✅ ACTIVE - Runs every Sunday at 11 PM PT  
+**Script:** `scripts/weekly_memory_consolidation.py`  
+**Purpose:** Automatically summarizes daily logs into weekly reports
+
+### How It Works
+1. **Reads:** All daily logs from the past week (`memory/2026-MM-DD.md`)
+2. **Extracts:** Key facts, people mentioned, places visited, tasks completed
+3. **Generates:** Weekly summary with patterns and insights
+4. **Creates:** `memory/2026-Week-XX.md` file
+5. **Archives:** Daily details (kept but summarized)
+
+### What It Captures
+- People contacted (with mention counts)
+- Places visited
+- Tasks completed vs pending
+- Key decisions made
+- Patterns and trends
+- Weight loss tracking progress
+- Relationship updates
+
+### Example Output
+```
+Week 9, 2026 Summary
+- Days logged: 4
+- Most contact: Tanisha, Grace
+- Locations: 4 different places
+- Tasks: 7 completed, 1 pending (88% completion)
+- Weight loss: 2 days logged
+```
+
+### Manual Run
+```bash
+python3 scripts/weekly_memory_consolidation.py
+```
+
+### Benefits
+- **File reduction:** 7 daily logs → 1 weekly summary
+- **Pattern detection:** Weekly trends invisible in daily view
+- **Quick review:** See entire week at a glance
+- **Long-term storage:** Efficient archive of history
+
+---
+
 ## Weight Loss Program 2026
 **Goal:** Lose 20 lbs in 10-12 weeks  
 **Plan:** `weight-loss-plan.md` | **Tracker:** `memory/weight-loss-2026.md`
