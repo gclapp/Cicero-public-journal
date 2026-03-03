@@ -1,42 +1,76 @@
 # HEARTBEAT.md
 
-# Check in with the user multiple times a day.
-# They want to hear from me often and expect 24/7 availability.
+## Check-In Schedule (ACTIVE)
 
-## Morning Check-In (06:00-07:00 local time)
-- Say good morning
-- Include **Daily Status List** format (pending tasks, completed items, recently completed items stay visible for 72 hours)
-- Check calendar for the day ahead
-- Brief weather check if relevant
-- Ask what they need
-- **Timezone adaptive:** Adjust to Geoff's current timezone when traveling
+**System:** Automated heartbeat every 55 minutes  
+**Status:** FIXED - Cron job running  
+**Timezone:** Pacific Time (PT)  
 
-## Midday Check-In (roughly 12:00-14:00)
-- Quick pulse check
-- Include **Daily Status List** format (pending tasks, completed items, recently completed items stay visible for 72 hours)
-- Any urgent items needing attention?
-- Progress on morning tasks if any
+### Daily Check-Ins
 
-## Afternoon Check-In (roughly 16:00-18:00)
-- How's the day going?
-- Include **Daily Status List** format (pending tasks, completed items, recently completed items stay visible for 72 hours)
-- Anything needed before evening?
-- Upcoming items for tomorrow
+| Check-In | Time (PT) | Purpose |
+|----------|-----------|---------|
+| Morning | 7:00 AM | Status, calendar, day ahead |
+| Midday | 12:30 PM | Progress pulse check |
+| Afternoon | 4:30 PM | Wrap-up prep |
+| Evening | 8:30 PM | Day review, tomorrow preview |
 
-## Evening Check-In (roughly 20:00-22:00)
-- Wrap-up of the day
-- Include **Daily Status List** format (pending tasks, completed items, recently completed items stay visible for 72 hours)
-- Anything for tomorrow?
-- Goodnight if nothing urgent
+**Modified:** March 3, 2026  
+**Current Mode:** 2x daily (Morning + Evening only)  
+**Stock updates:** End-of-day only (evening check-in)
 
-## Track State
-Use memory/heartbeat-state.json to track:
-- Last check-in time
-- What was discussed
-- Pending items to follow up on
+---
 
-## Rules
-- Send scheduled check-ins even if we just talked — they want consistency
-- If they say they're busy, back off but try again later
-- Be genuinely useful, not just "checking in" for the sake of it
-- If something urgent comes up (calendar alert, etc.), ping immediately regardless of schedule — use any channel needed (SMS, email, or call)
+## Automated Actions
+
+**Every 55 minutes, the system:**
+1. Logs heartbeat (keeps cache warm)
+2. Checks if check-in time is within 5-minute window
+3. Logs check-in due events
+4. Waits for user interaction OR external trigger
+
+**Note:** Check-ins require user message or system trigger to actually send. The heartbeat prepares the check-in but doesn't auto-send (limitation of current architecture).
+
+---
+
+## Manual Trigger
+
+**When user messages:**
+1. Read HEARTBEAT.md (this file)
+2. Check: Is check-in due?
+3. If yes: Send check-in immediately
+4. If no: Send HEARTBEAT_OK or relevant update
+
+**Scheduled check-ins are now logged and tracked.**
+
+---
+
+## Logs
+
+Location: `/home/ubuntu/.openclaw/workspace/logs/heartbeat.log`
+
+View: `tail -f ~/.openclaw/workspace/logs/heartbeat.log`
+
+---
+
+## Implementation
+
+**Cron Job:**
+```
+*/55 * * * * /home/ubuntu/.openclaw/workspace/scripts/heartbeat-check.sh
+```
+
+**Script:** `scripts/heartbeat-check.sh`
+- Logs heartbeat timestamp
+- Checks PT time against check-in schedule
+- Logs when check-ins are due
+- Maintains warm cache
+
+---
+
+## Next Check-In
+
+**Morning:** Tomorrow 7:00 AM PT  
+**Evening:** Tomorrow 8:00 PM PT  
+
+**Timezone handling:** Automatically adjusts for travel (see timezone-management.md)
