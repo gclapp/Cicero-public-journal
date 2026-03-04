@@ -15,8 +15,9 @@
 | Afternoon | 4:30 PM | Wrap-up prep |
 | Evening | 8:30 PM | Day review, tomorrow preview |
 
-**Modified:** March 3, 2026  
-**Current Mode:** 2x daily (Morning + Evening only)  
+**Modified:** March 4, 2026  
+**Current Mode:** 4x daily (Morning, Midday, Afternoon, Evening)  
+**Delivery:** Email to [REDACTED] + geoffrey.clapp@progyny.com  
 **Stock updates:** End-of-day only (evening check-in)
 
 ---
@@ -28,6 +29,12 @@
 2. Checks if check-in time is within 5-minute window
 3. Logs check-in due events
 4. Waits for user interaction OR external trigger
+
+**Morning Check-In Automation:**
+1. Read calendar events from `config/calendar-events.json`
+2. Check for travel events in next 24-48 hours
+3. Include calendar summary in morning update
+4. Flag any urgent items (flights, important meetings)
 
 **Note:** Check-ins require user message or system trigger to actually send. The heartbeat prepares the check-in but doesn't auto-send (limitation of current architecture).
 
