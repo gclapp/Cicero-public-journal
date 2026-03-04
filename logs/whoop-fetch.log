@@ -1,0 +1,25 @@
+🏃 Whoop Data Fetcher
+📅 2026-03-04 06:55:04
+
+📊 Fetching Whoop data for 2026-03-03...
+  ⚠️ Recovery fetch error (may be unavailable): Resource not found
+✅ Data saved to /home/ubuntu/.openclaw/workspace/data/whoop/whoop-2026-03-03.json
+   Recovery: 0 entries
+   Sleep: 1 entries
+   Workouts: 1 entries
+   Cycles: 1 entries
+
+## Whoop Daily Summary - 2026-03-03
+
+**Recovery:** No data
+
+**Sleep:** 79.0%
+- Duration: 7h 57m
+- Efficiency: 86.9%
+- Respiratory Rate: 13.4 bpm
+
+**Workouts:** 1
+- walking: Strain 4.58, 92 cal
+
+
+💾 Summary saved to /home/ubuntu/.openclaw/workspace/data/whoop/latest-summary.txt

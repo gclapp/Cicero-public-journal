@@ -1,0 +1,167 @@
+{
+  "last_updated": "2026-03-04T06:55:03.571325",
+  "total_events": 20,
+  "travel_events": 4,
+  "events": [
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, March 06 at 01:00 PM",
+      "start_raw": "2026-03-06T13:00:00-08:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, March 06 at 01:50 PM",
+      "start_raw": "2026-03-06T13:50:00-08:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Drop off Kids at Stacey's House",
+      "start": "Sunday, March 08 at 10:05 AM",
+      "start_raw": "2026-03-08T10:05:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "Non-standard weekend, dropping off on Sunday\n\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/2646564145",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, March 09 at 07:00 AM",
+      "start_raw": "2026-03-09T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to Airport",
+      "start": "Monday, March 09 at 02:50 PM",
+      "start_raw": "2026-03-09T14:50:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/23815059465274?p=8zdbaPCpgc126r8Hg0\nMeeting ID: 238 150",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Flight to Delta - Delta Air Lines 471",
+      "start": "Monday, March 09 at 05:25 PM",
+      "start_raw": "2026-03-09T17:25:00-07:00",
+      "location": "Los Angeles(LAX) - Atlanta(ATL)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: GVRJPS Delta Air Lines 471 First, Scheduled Departure Mar 9, 2026, 5:25 pm, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.), Ter",
+      "is_travel": true
+    },
+    {
+      "summary": "\u26a1\ufe0f Maven LIVE: Clawdbot Masterclass for PMs",
+      "start": "Tuesday, March 10 at 10:00 AM",
+      "start_raw": "2026-03-10T10:00:00-07:00",
+      "location": "https://maven.com/s/joinworkshop/8fe0a3b26e",
+      "description": "<span>Join Dr. Marily Nika and Dmitry Shapiro for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>Turn agents into always-on product watchdogs</b></span\n>\n<sp",
+      "is_travel": false
+    },
+    {
+      "summary": "Dog Day Afternoon",
+      "start": "Tuesday, March 10 at 04:30 PM",
+      "start_raw": "2026-03-10T16:30:00-07:00",
+      "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
+      "description": "Order number: 3819385\nThank you for your order. Confirmation is on its way to geoff.clapp@Gmail.com from boxoffice@ussecure.atgtickets.com.\nStep back into the sweltering summer of 1972, New York City\u2014",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Flight to Delta -  Delta Air Lines 763 ",
+      "start": "Tuesday, March 10 at 05:10 PM",
+      "start_raw": "2026-03-10T17:10:00-07:00",
+      "location": "Atlanta(ATL) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: GVRJPS Delta Air Lines 763 First, Scheduled Departure Mar 10, 2026, 8:10 pm, Atlanta, GA, United States of America (ATL-Hartsfield-Jackson Atlanta",
+      "is_travel": true
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, March 13 at 01:00 PM",
+      "start_raw": "2026-03-13T13:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, March 13 at 01:50 PM",
+      "start_raw": "2026-03-13T13:50:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff keep kids til 8am next day ",
+      "start": "Saturday, March 14 at 05:00 PM",
+      "start_raw": "2026-03-14T17:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to LAX",
+      "start": "Saturday, March 14 at 06:55 PM",
+      "start_raw": "2026-03-14T18:55:00-07:00",
+      "location": "",
+      "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
+      "is_travel": false
+    },
+    {
+      "summary": "Delta Air Lines flight 960 to New York (HCTGNK)",
+      "start": "Saturday, March 14 at 09:30 PM",
+      "start_raw": "2026-03-14T21:30:00-07:00",
+      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
+      "description": "Delta Air Lines flight 960 (5 hours, 30 minutes)\nConfirmation code: HCTGNK\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 9:30 PM on Saturday, ",
+      "is_travel": true
+    },
+    {
+      "summary": "Stay at Courtyard by Marriott Santa Barbara Downtown",
+      "start": "Sunday, March 15",
+      "start_raw": "2026-03-15",
+      "location": "Courtyard by Marriott Santa Barbara Downtown, Santa Barbara",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Mac Spring Break: Courtyard",
+      "start": "Sunday, March 15",
+      "start_raw": "2026-03-15",
+      "location": "Courtyard by Marriott Santa Barbara Downtown, 1601 State St, Santa Barbara, CA 93101, USA",
+      "description": "<a href=\"https://www.marriott.com/hotels/travel/sbacs-courtyard-santa-barbara-downtown\"><b><h3><b>Courtyard by Marriott Santa Barbara Downtown</b></h3></b></a><br>Confirmation\u00a0#77265901<br><br>Stay Da",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at The Algonquin Hotel Times Square, Autograph Collection",
+      "start": "Sunday, March 15",
+      "start_raw": "2026-03-15",
+      "location": "The Algonquin Hotel Times Square, Autograph Collection, New York",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Reservation at L'Artusi",
+      "start": "Sunday, March 15 at 05:00 PM",
+      "start_raw": "2026-03-15T17:00:00-07:00",
+      "location": "L'Artusi, 228 West 10th Street, (Between Bleecker St. and Hudson St.), New York, NY \n10014",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, March 16 at 07:00 AM",
+      "start_raw": "2026-03-16T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Nowon East Village",
+      "start": "Tuesday, March 17 at 06:00 PM",
+      "start_raw": "2026-03-17T18:00:00-07:00",
+      "location": "Nowon East Village, 507 E 6th St, (Between E 6th St and Ave A), New York, NY 10009",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Competitive Intelligence Monitor Cron Job
+# Runs daily at 6 AM PT (14:00 UTC) to check for new competitor articles
+
+0 14 * * * cd /home/ubuntu/.openclaw/workspace && python3 scripts/competitor_monitor.py >> logs/competitor-cron.log 2>&1
+
+# Also run blogwatcher scan separately
+30 14 * * * export PATH=$PATH:/usr/local/go/bin && blogwatcher scan >> logs/blogwatcher-cron.log 2>&1
