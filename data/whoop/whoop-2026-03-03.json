@@ -1,0 +1,31 @@
+{
+  "date": "2026-03-03",
+  "timestamp": "2026-03-04T03:31:18.300726",
+  "recovery": [],
+  "sleep": [
+    {
+      "date": "2026-03-03",
+      "score": 79.0,
+      "total_sleep_time": 28626,
+      "efficiency": 86.874626,
+      "respiratory_rate": 13.359375
+    }
+  ],
+  "workouts": [
+    {
+      "date": "2026-03-03",
+      "sport_name": "walking",
+      "strain": 4.5820107,
+      "calories": 92.41095363288719,
+      "avg_hr": 97,
+      "max_hr": 115
+    }
+  ],
+  "cycles": [
+    {
+      "date": "2026-03-03",
+      "strain": null,
+      "kilojoules": null
+    }
+  ]
+}
