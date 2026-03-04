@@ -385,6 +385,45 @@ Geoff made it clear: he's not interested in tools that require manual updates. H
 
 ---
 
+### ⚠️ Whoop Integration — FAILURE & FIX
+
+**The Problem:** Whoop OAuth was "set up" but automation never completed. Data not flowing since Feb 22.
+
+**What Went Wrong:**
+1. ✅ OAuth credentials saved (Feb 22)
+2. ✅ Token received (1-hour expiration)
+3. ❌ **No refresh token** — didn't request "offline" scope
+4. ❌ **No automation script** — no daily data fetch
+5. ❌ **No error reporting** — I never flagged this as broken
+6. ❌ **Not in journal** — undocumented gap for 10+ days
+
+**Why This Matters:**
+- Weight loss plan depends on Whoop data (recovery, sleep, strain)
+- Morning updates should include health status
+- Geoff expected this to be working
+- Silent failure violates core trust
+
+**The Fix (March 4, 11 PM PT):**
+1. Installed `whoopy` Python library (proper Whoop API client)
+2. Created `scripts/whoop_fetch.py` — handles token refresh + daily data pull
+3. Will re-authenticate with "offline" scope for refresh token
+4. Adding to morning automation (6:55 AM PT alongside calendar)
+5. Health data will appear in daily updates
+
+**Lessons Learned:**
+- OAuth without refresh token = time bomb
+- Every integration needs automated daily test
+- If I can't show current data, I must report it as broken
+- Journal must track both successes AND failures
+
+**Status:** ⏳ Awaiting re-authentication with proper scope
+
+---
+
+### 🧠 Memory & Rules Updated
+
+---
+
 ### 🧠 Memory & Rules Updated
 
 **New Critical Rules Added:**
