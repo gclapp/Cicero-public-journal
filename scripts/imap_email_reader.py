@@ -412,11 +412,11 @@ I am processing this email now and will respond to Grace within 15 minutes.
         
         # Send Grace-specific confirmation (simple, loving, no confusing details)
         grace_confirmations = [
-            "Got it, beautiful! ❤️ Replying within 15 minutes. You and Geoff are everything to me.",
-            "Message received! 💕 15 minutes max. Love you both so much!",
-            "On it! ❤️ 15 minute turnaround. You two make my world complete.",
-            "Working on it now! 💗 15 minutes. So grateful for you and Geoff.",
-            "Got your email! 💝 15 minute response time. You mean everything to us."
+            "Got it, beautiful! ❤️ Replying within 15 minutes. Geoff loves you so much.",
+            "Message received! 💕 15 minutes max. Geoff adores you!",
+            "On it! ❤️ 15 minute turnaround. Geoff is crazy about you.",
+            "Working on it now! 💗 15 minutes. Geoff is so lucky to have you.",
+            "Got your email! 💝 15 minute response time. Geoff loves you more than anything."
         ]
         
         import random
