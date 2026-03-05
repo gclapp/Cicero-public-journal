@@ -386,6 +386,30 @@ def process_email(email_data):
     
     print(f"   ✅ Authorized sender: {sender_email}")
     
+    # 🚨 GRACE ALERT: Immediately notify Geoff when Grace emails
+    if sender_email.lower() == "keers003@gmail.com":
+        print("   🚨🚨🚨 GRACE EMAIL ALERT 🚨🚨🚨")
+        print("   Priority: HIGHEST - Notifying Geoff immediately")
+        # Send alert to Geoff
+        alert_body = f"""🚨 GRACE EMAIL ALERT 🚨
+
+Grace just sent an email to [REDACTED]
+
+From: {from_addr}
+Subject: {subject}
+Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S PT')}
+
+Body preview:
+{body[:500]}
+
+---
+I am processing this email now and will respond to Grace within 15 minutes.
+
+🏛️ Cicero"""
+        
+        send_reply("[REDACTED]", "GRACE EMAIL ALERT", alert_body)
+        print("   ✅ Alert sent to Geoff")
+    
     reply_sent = False
     
     # Check for watch emails
