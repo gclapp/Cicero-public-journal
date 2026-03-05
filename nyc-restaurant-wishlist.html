@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoff's NYC Restaurant Wishlist | Theater District & Beyond</title>
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #2c3e50;
+            --accent: #ff6f00;
+            --bg: #f5f5f5;
+            --card: #ffffff;
+            --text: #333333;
+            --muted: #6c757d;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a1a2e 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.9em;
+        }
+        
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .restaurant-card {
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .restaurant-card.michelin { border-left-color: #dc3545; }
+        .restaurant-card.steakhouse { border-left-color: #6f4e37; }
+        .restaurant-card.rooftop { border-left-color: #17a2b8; }
+        .restaurant-card.classic { border-left-color: #8B0000; }
+        
+        .restaurant-header {
+            padding: 20px 20px 10px;
+        }
+        
+        .restaurant-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 0 0 5px;
+        }
+        
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+        
+        .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .badge-michelin { background: #dc3545; color: white; }
+        .badge-steakhouse { background: #6f4e37; color: white; }
+        .badge-classic { background: #8B0000; color: white; }
+        .badge-rooftop { background: #17a2b8; color: white; }
+        .badge-italian { background: #28a745; color: white; }
+        .badge-price { background: #ffc107; color: #333; }
+        
+        .restaurant-body {
+            padding: 0 20px 20px;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+        
+        .detail-icon {
+            width: 24px;
+            margin-right: 10px;
+            text-align: center;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--muted);
+            min-width: 80px;
+        }
+        
+        .detail-value {
+            color: var(--text);
+        }
+        
+        .description {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        .must-order {
+            margin: 15px 0;
+            padding: 12px 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+        
+        .must-order strong {
+            color: #856404;
+        }
+        
+        .restaurant-footer {
+            padding: 15px 20px;
+            background: #f8f9fa;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #6a0000;
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .restaurant-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🍽️ Geoff's NYC Restaurant Wishlist</h1>
+        <p>Theater District & Beyond | Steakhouses, Michelin Stars, NYC Institutions</p>
+    </div>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Total Restaurants</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Michelin Starred</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Steakhouses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">NYC Institutions</div>
+            </div>
+        </div>
+
+        <div class="restaurant-grid">
+            
+            <!-- Keens Steakhouse -->
+            <div class="restaurant-card steakhouse classic">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Keens Steakhouse</h3>
+                    <div class="badges">
+                        <span class="badge badge-steakhouse">Steakhouse</span>
+                        <span class="badge badge-classic">NYC Institution</span>
+                        <span class="badge badge-price">$$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">72 W 36th St (Garment District)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.9 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">⭐</span>
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value">NYC Institution since 1885</span>
+                    </div>
+                    <div class="description">
+                        The quintessential New York steakhouse. Famous for 90,000 clay pipes hanging from the ceiling (including Teddy Roosevelt, JFK, and Babe Ruth's pipes). Old-school, dark wood, historic atmosphere. This is where you go for the authentic NYC steakhouse experience.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> The legendary mutton chop (their signature), dry-aged steaks, scotch selection
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.keens.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/keens-steakhouse-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Gallaghers Steakhouse -->
+            <div class="restaurant-card steakhouse classic">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Gallaghers Steakhouse</h3>
+                    <div class="badges">
+                        <span class="badge badge-steakhouse">Steakhouse</span>
+                        <span class="badge badge-classic">NYC Classic</span>
+                        <span class="badge badge-price">$$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">228 West 52nd Street</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.02 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">⭐</span>
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value">Since 1927</span>
+                    </div>
+                    <div class="description">
+                        Right next door to the theater — you literally can't get closer. The iconic neon sign is a NYC landmark. Dry-aged steaks in a window display, old-school atmosphere, red leather banquettes. Where theater-goers have dined for nearly a century.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Dry-aged ribeye, classic martini
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.gallagherssteakhouse.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/gallaghers-steakhouse-manhattan-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- The Palm West Side -->
+            <div class="restaurant-card steakhouse classic">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">The Palm West Side</h3>
+                    <div class="badges">
+                        <span class="badge badge-steakhouse">Steakhouse</span>
+                        <span class="badge badge-classic">NYC Institution</span>
+                        <span class="badge badge-price">$$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">250 West 50th Street</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.13 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">⭐</span>
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value">Since the 1920s</span>
+                    </div>
+                    <div class="description">
+                        Legendary steakhouse known for steaks, lobsters, and caricatures of famous regulars on the walls. Classic power-dining spot. The Palm is a steakhouse institution with locations worldwide, but this is the original NYC vibe.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Nova Scotia lobster, dry-aged steaks
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.thepalm.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/the-palm-west-side-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Empire Steak House West -->
+            <div class="restaurant-card steakhouse">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Empire Steak House West</h3>
+                    <div class="badges">
+                        <span class="badge badge-steakhouse">Steakhouse</span>
+                        <span class="badge badge-price">$$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">237 West 54th Street</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.11 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="description">
+                        Upscale steakhouse in the Theater District. Known for prime dry-aged steaks and an extensive wine list. Elegant atmosphere perfect for pre-theater dining.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Dry-aged porterhouse, truffle mac and cheese
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.empiresteakhousenyc.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/empire-steak-house-west-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Le Bernardin -->
+            <div class="restaurant-card michelin">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Le Bernardin</h3>
+                    <div class="badges">
+                        <span class="badge badge-michelin">⭐⭐⭐ 3 Michelin Stars</span>
+                        <span class="badge badge-price">$$$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">155 W 51st St</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.2 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">⭐</span>
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value">3 Michelin Stars, 4 NYT Stars</span>
+                    </div>
+                    <div class="description">
+                        Eric Ripert's masterpiece. Three Michelin stars. Four stars from The New York Times. Consistently ranked among the best restaurants in the world. The seafood is flawless, the service is impeccable, the room is elegant but not stuffy. Ultimate splurge.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Tasting menu, any of the fish preparations
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.le-bernardin.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/le-bernardin-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Marea -->
+            <div class="restaurant-card michelin">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Marea</h3>
+                    <div class="badges">
+                        <span class="badge badge-michelin">⭐ Michelin Star</span>
+                        <span class="badge badge-italian">Italian</span>
+                        <span class="badge badge-price">$$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">240 Central Park South</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.7 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">⭐</span>
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value">1 Michelin Star, James Beard Award</span>
+                    </div>
+                    <div class="description">
+                        Michael White's flagship. Michelin-starred Italian on Central Park South. The room is stunning — Indonesian rosewood, airy, elegant. The focus is coastal Italian seafood: crudo, pasta, whole fish. This is where you go for a special occasion dinner with impeccable service.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Fusilli with red wine braised octopus, crudo selection
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.marearestaurant.com/new-york" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/marea-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Becco -->
+            <div class="restaurant-card classic">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Becco</h3>
+                    <div class="badges">
+                        <span class="badge badge-italian">Italian</span>
+                        <span class="badge badge-classic">Theater Classic</span>
+                        <span class="badge badge-price">$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">355 W 46th St (Restaurant Row)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.3 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">⭐</span>
+                        <span class="detail-label">Rating:</span>
+                        <span class="detail-value">Lidia Bastianich's institution</span>
+                    </div>
+                    <div class="description">
+                        Lidia Bastianich's Theater District institution. Fixed-price pasta tasting menu ($29.95), unlimited wine included. This is the theater crowd's go-to for reliable, affordable Italian before a show. Not Michelin-starred but a beloved NYC institution.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Sinfonia di pasta (unlimited pasta tasting), osso buco
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.becco-nyc.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/becco-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Toloache -->
+            <div class="restaurant-card">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Toloache</h3>
+                    <div class="badges">
+                        <span class="badge badge-price">$$</span>
+                        <span class="badge" style="background: #ff6f00; color: white;">Mexican</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">251 West 50th Street</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.12 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="description">
+                        Upscale Mexican with excellent margaritas and guacamole. Lively but not too loud. Great for a fun pre-show meal. Modern Mexican cuisine in an elegant setting.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Tableside guacamole, margaritas, ceviche
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.toloache.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/toloache-midtown-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Beast & Butterflies -->
+            <div class="restaurant-card rooftop">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Beast & Butterflies</h3>
+                    <div class="badges">
+                        <span class="badge badge-rooftop">Rooftop</span>
+                        <span class="badge badge-price">$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">226 W 52nd St (M Social Hotel)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.01 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="description">
+                        Literally next door to the theater. Indoor-outdoor rooftop bar with wrap-around terrace offering views of Times Square. This is your pre-show cocktail spot — close enough that you can sip a drink with a view and still make your 7:30 curtain.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Craft cocktails, Times Square views
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.msocialhotel.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/beast-and-butterflies-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- The Rickey -->
+            <div class="restaurant-card rooftop">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">The Rickey Cocktail Lounge</h3>
+                    <div class="badges">
+                        <span class="badge badge-rooftop">Rooftop</span>
+                        <span class="badge badge-price">$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">210 W 55th St (Dream Midtown)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.13 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="description">
+                        Upscale rooftop lounge with craft cocktails and city views. More of a "scene" than Beast & Butterflies, but great for a nightcap after the show. Stylish setting with panoramic Manhattan views.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Craft cocktails, skyline views
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.dreamhotels.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/the-rickey-cocktail-lounge-at-dream-midtown-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+            <!-- Bar Centrale -->
+            <div class="restaurant-card classic">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Bar Centrale</h3>
+                    <div class="badges">
+                        <span class="badge badge-classic">NYC Institution</span>
+                        <span class="badge badge-price">$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">324 W 46th St (above Tony's di Napoli)</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.4 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="description">
+                        Hidden speakeasy above Tony's di Napoli. Theater industry hangout — you'll see actors, producers, and critics here after shows. Excellent martinis, old-school NYC vibe. This is where the Broadway crowd goes.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Classic martini, post-show atmosphere
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.barnyc.com/centrale" target="_blank" class="btn btn-primary">🌐 Website</a>
+                </div>
+            </div>
+
+            <!-- Russian Samovar -->
+            <div class="restaurant-card classic">
+                <div class="restaurant-header">
+                    <h3 class="restaurant-name">Russian Samovar & Tolstoy's Lounge</h3>
+                    <div class="badges">
+                        <span class="badge badge-classic">NYC Institution</span>
+                        <span class="badge badge-price">$$$</span>
+                    </div>
+                </div>
+                <div class="restaurant-body">
+                    <div class="detail-row">
+                        <span class="detail-icon">📍</span>
+                        <span class="detail-label">Address:</span>
+                        <span class="detail-value">256 W 52nd Street</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">📏</span>
+                        <span class="detail-label">Distance:</span>
+                        <span class="detail-value">0.06 mi from August Wilson Theatre</span>
+                    </div>
+                    <div class="description">
+                        Authentic Russian restaurant with vodka infusions (40+ house-infused vodkas), caviar, and live piano. Old-world charm, open late. Mikhail Baryshnikov is a regular. Perfect for late-night post-show drinks.
+                    </div>
+                    <div class="must-order">
+                        <strong>🍽️ Must Order:</strong> Vodka flights, caviar, live piano
+                    </div>
+                </div>
+                <div class="restaurant-footer">
+                    <a href="https://www.russiansamovar.com" target="_blank" class="btn btn-primary">🌐 Website</a>
+                    <a href="https://www.opentable.com/r/russian-samovar-and-tolstoys-lounge-new-york" target="_blank" class="btn btn-secondary">📅 Reserve</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>🏛️ Created by Cicero for Geoff</p>
+            <p>Last Updated: March 5, 2026</p>
+            <p class="last-updated">Track this on GitHub: <a href="https://github.com/gclapp/nyc-restaurant-wishlist">github.com/gclapp/nyc-restaurant-wishlist</a></p>
+        </div>
+    </div>
+</body>
+</html>
