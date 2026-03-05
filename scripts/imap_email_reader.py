@@ -409,6 +409,24 @@ I am processing this email now and will respond to Grace within 15 minutes.
         
         send_reply("[REDACTED]", "GRACE EMAIL ALERT", alert_body)
         print("   ✅ Alert sent to Geoff")
+        
+        # Send Grace-specific confirmation (simple, loving, no confusing details)
+        grace_confirmations = [
+            "Got it, beautiful! ❤️ Replying within 15 minutes. You and Geoff are everything to me.",
+            "Message received! 💕 15 minutes max. Love you both so much!",
+            "On it! ❤️ 15 minute turnaround. You two make my world complete.",
+            "Working on it now! 💗 15 minutes. So grateful for you and Geoff.",
+            "Got your email! 💝 15 minute response time. You mean everything to us."
+        ]
+        
+        import random
+        grace_reply = random.choice(grace_confirmations)
+        send_reply(sender_email, f"Re: {subject}", grace_reply)
+        print("   ✅ Grace confirmation sent")
+        reply_sent = True
+        
+        # Skip normal processing for Grace - she gets special handling
+        return True
     
     reply_sent = False
     
