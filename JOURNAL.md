@@ -939,6 +939,31 @@ sources = [
 
 **Timezone Convention:** All dates/times in Pacific Time (PT) — Geoff's local timezone (UTC-8). This maintains consistency regardless of travel locations.
 
-**Last Updated:** March 6, 2026 (PT)  
+### Security Policy: Foreign Proxy Detection
+
+**Established:** March 7, 2026
+
+**Policy:** Cicero must immediately alert Geoff anytime data is detected going through a foreign country's proxy, with particular scrutiny on non-allied nations (China, Russia, Iran, North Korea, etc.)
+
+**First Enforcement:** nano-banana-pro-image-gen skill
+- **Issue:** Routed image generation requests through APIYI (Chinese API proxy service)
+- **Detection:** During security review of flagged skills
+- **Action:** Immediate uninstall
+- **Rationale:** Data sovereignty concerns, lack of transparency in data handling
+
+**Ongoing Monitoring:**
+- All new skills checked for foreign API endpoints
+- Regular review of existing skills for changed routing
+- Documentation of all data flows in security reviews
+- Preference for local/self-hosted alternatives when available
+
+**Approved Alternatives for Image Generation:**
+- Local Stable Diffusion (self-hosted)
+- ComfyUI (self-hosted)
+- OpenAI DALL-E (US-based, if external API acceptable)
+
+---
+
+**Last Updated:** March 7, 2026 (PT)  
 **Public Journal:** github.com/gclapp/Cicero-public-journal  
 **Private Backup:** github.com/gclapp/cicero-backup
