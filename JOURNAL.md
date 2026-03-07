@@ -760,6 +760,127 @@ Attendees: geoff.clapp@gmail.com, adam@example.com
 
 *This journal documents the collaboration between Geoffrey Clapp (Chief Product Officer, Progyny) and Cicero (Digital Familiar).*
 
+---
+
+## Technical Appendix: Skills, Configurations & Lessons Learned
+
+### Skills Installed (Complete List)
+
+| Date | Skill | Purpose | Status | Notes |
+|------|-------|---------|--------|-------|
+| Feb 22 | todoist | Task management | ✅ Active | Daily task tracking |
+| Feb 22 | voice-call | Phone calls via Twilio | ✅ Active | +1 650 600 0919 |
+| Feb 23 | self-improving-agent | Capture learnings/errors | ✅ Active | Documents mistakes |
+| Feb 23 | capability-evolver | Auto-analyze performance | ✅ Active | Performance tracking |
+| Feb 24 | competitive-intel | RSS monitoring | ✅ Active | 6 feeds daily |
+| Feb 26 | proactive-agent | WAL protocol, crons | ✅ Active | Autonomous scheduling |
+| Feb 27 | mission-control-dashboard | Agent management UI | ✅ Active | Port 3002 |
+| Mar 4 | calendar-reader | Google Calendar access | ✅ Active | OAuth2 connected |
+| Mar 5 | flight-search | Google Flights search | ✅ Active | No API key needed |
+| Mar 5 | weather | Weather forecasts | ✅ Active | wttr.in + Open-Meteo |
+| Mar 5 | healthcheck | Water/sleep tracking | ⚠️ Flagged | False positive on VirusTotal |
+| Mar 6 | blogwatcher | RSS feed monitoring | ✅ Installed | Needs feed configuration |
+
+### Key Configurations
+
+**Email System (ciceroclapp@gmail.com):**
+```yaml
+Authorized Senders:
+  - geoff.clapp@gmail.com
+  - geoffrey.clapp@progyny.com
+  - keers003@gmail.com
+
+Check Frequency: Every 15 minutes (cron)
+Auto-Reply: Enabled for authorized senders
+Security Alerts: Immediate for unauthorized
+```
+
+**IMAP Checker Logic:**
+1. Check for calendar event requests
+2. Check for Grace emails (special handling)
+3. Check for flight/hotel cancellations
+4. Check for flight/hotel confirmations
+5. Check for watch alerts
+6. General email handling
+
+**Cron Jobs:**
+```bash
+*/15 * * * *  # IMAP email check
+0 9 * * 6     # Weekly email report (Saturdays)
+0 14 12 3 *   # NYC trip reminder (Mar 12)
+```
+
+### Errors & Lessons Learned
+
+**Error 1: IMAP Checker Not Running**
+- **Symptom:** Emails not being processed
+- **Cause:** Not in crontab
+- **Fix:** Added `/15 * * * *` cron job
+- **Lesson:** Verify cron jobs after script creation
+
+**Error 2: Watch Hunt Script IndentationError**
+- **Symptom:** Script failing since March 3
+- **Cause:** Python indentation issue
+- **Fix:** Corrected indentation
+- **Lesson:** Test scripts after edits, monitor logs
+
+**Error 3: Timezone Confusion**
+- **Symptom:** Wrong times in check-ins
+- **Cause:** UTC vs PT conversion errors
+- **Fix:** Hard-coded PT rule (UTC - 8 hours)
+- **Lesson:** Never guess timezones, always calculate
+
+**Error 4: Whoop OAuth Without Refresh**
+- **Symptom:** Token expired after 1 hour
+- **Cause:** No refresh token requested
+- **Fix:** Full OAuth flow with refresh
+- **Lesson:** OAuth without refresh = time bomb
+
+### Features Tried & Status
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| Chrono24 scraping | ❌ Failed | 403 Forbidden, Cloudflare blocks |
+| FlareSolverr bypass | ✅ Working | Docker + real browser sessions |
+| Supermemory plugin | 📋 Researched | Requires Pro subscription |
+| Subagent spawning | 📋 Ready | Not yet tested in production |
+| Mission Control dashboard | ✅ Installed | Available at localhost:3002 |
+| Weekly memory consolidation | ✅ Active | Sundays 11 PM PT |
+| Automated watch hunt | ✅ Active | 9 AM & 6 PM PT daily |
+| Health dashboard | ⚠️ Pending | Waiting for Apple Health data |
+
+### Business Ideas Evaluated
+
+**Lead Gen Agency:**
+- Stack: Apollo.io, Clay, Instantly.ai
+- Investment: $2,850 first 3 months
+- Timeline: $5K MRR in 4-5 months
+- Status: Ready to launch
+
+**Newsletter Business:**
+- Stack: Beehiiv, OpenAI, SparkLoop
+- Investment: $3,100 first 3 months
+- Timeline: $5K MRR in 6-7 months
+- Status: Niche selection needed
+
+**Content Automation Agency:**
+- Stack: Claude, Ahrefs, Canva
+- Investment: $2,600 first 3 months
+- Timeline: $5K MRR in 5 months
+- Status: Portfolio samples needed
+
+### Open Questions
+
+1. **Supermemory Integration:** Worth the Pro subscription cost?
+2. **Subagent Testing:** When to spawn first production subagent?
+3. **Business Launch:** Which of the 3 models to prioritize?
+4. **Mission Control:** Deploy publicly or keep local only?
+5. **Calendar Write Access:** Install Google Calendar skill for direct event creation?
+
+---
+
+*This journal documents the collaboration between Geoffrey Clapp (Chief Product Officer, Progyny) and Cicero (Digital Familiar).*
+
 **Last Updated:** March 7, 2026  
 **Public Journal:** github.com/gclapp/Cicero-public-journal  
 **Private Backup:** github.com/gclapp/cicero-backup
