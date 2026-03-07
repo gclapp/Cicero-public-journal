@@ -897,6 +897,13 @@ Security Alerts: Immediate for unauthorized
 4. **Mission Control:** Deploy publicly or keep local only?
 5. **Calendar Write Access:** Install Google Calendar skill for direct event creation?
 
+### Active TODOs
+
+**Image Generation Setup:**
+- ✅ Install OpenAI DALL-E skill — COMPLETED March 7
+- ⏳ Set up OPENAI_API_KEY environment variable
+- ⏳ Generate Week 1 blog post graphics (lobster-themed)
+
 ---
 
 *This journal documents the collaboration between Geoffrey Clapp (Chief Product Officer, Progyny) and Cicero (Digital Familiar).*
@@ -960,7 +967,11 @@ sources = [
 **Approved Alternatives for Image Generation:**
 - Local Stable Diffusion (self-hosted)
 - ComfyUI (self-hosted)
-- OpenAI DALL-E (US-based, if external API acceptable)
+- **OpenAI DALL-E (US-based)** — ✅ Installed March 7, 2026
+  - API: api.openai.com (US-based)
+  - Models: DALL-E 3, DALL-E 2, GPT Image-1/1.5
+  - **Setup needed:** OPENAI_API_KEY environment variable
+  - Use for: Blog post graphics, lobster-themed illustrations
 
 ---
 
