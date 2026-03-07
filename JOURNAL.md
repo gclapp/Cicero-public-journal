@@ -830,6 +830,24 @@ Security Alerts: Immediate for unauthorized
 - **Fix:** Hard-coded PT rule (UTC - 8 hours)
 - **Lesson:** Never guess timezones, always calculate
 
+**Error 4: Location Detection in Emails**
+- **Symptom:** Check-in emails showing wrong location/timezone
+- **Cause:** Calendar parsing didn't detect travel events properly
+- **Fix:** Enhanced location detection logic (checks flights, hotels, events)
+- **Lesson:** Location awareness requires multiple data sources
+
+**Error 5: Email Format Confusion (Markdown vs HTML)**
+- **Symptom:** Calendar invites unreadable (markdown showing as raw text)
+- **Cause:** Sent markdown formatting in email body
+- **Fix:** Switched to HTML-only emails for formatted content
+- **Lesson:** Email clients don't render markdown; use HTML or plain text only
+
+**Error 6: Whoop OAuth Without Refresh**
+- **Symptom:** Token expired after 1 hour
+- **Cause:** No refresh token requested
+- **Fix:** Full OAuth flow with refresh
+- **Lesson:** OAuth without refresh = time bomb
+
 **Error 4: Whoop OAuth Without Refresh**
 - **Symptom:** Token expired after 1 hour
 - **Cause:** No refresh token requested
@@ -876,6 +894,42 @@ Security Alerts: Immediate for unauthorized
 3. **Business Launch:** Which of the 3 models to prioritize?
 4. **Mission Control:** Deploy publicly or keep local only?
 5. **Calendar Write Access:** Install Google Calendar skill for direct event creation?
+
+---
+
+*This journal documents the collaboration between Geoffrey Clapp (Chief Product Officer, Progyny) and Cicero (Digital Familiar).*
+
+### Communication Format Learned
+
+**Email Formatting:**
+- ❌ **Markdown** — Does not render in email clients
+- ✅ **HTML** — Properly formatted, styled content
+- ✅ **Plain Text** — Simple, universal compatibility
+
+**Rule:** Never use markdown in emails. Use HTML for rich content, plain text for simple messages.
+
+**Example of the Problem:**
+```
+❌ BAD (Markdown):
+**Event:** Outside Lands
+**Date:** August 7-9
+
+✅ GOOD (HTML):
+<strong>Event:</strong> Outside Lands<br>
+<strong>Date:</strong> August 7-9
+```
+
+**Location Awareness Implementation:**
+```python
+# Check multiple sources for location
+sources = [
+    calendar_events,      # Flights, hotels
+    email_content,        # Forwarded confirmations
+    explicit_user_input   # "I'm in NYC"
+]
+
+# Output: Current location + timezone + weather
+```
 
 ---
 
