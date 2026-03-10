@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🌅 Morning Check-In</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 18px;
+            margin-top: 25px;
+        }
+        .section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .weight-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .weight-current {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .chart-placeholder {
+            background: #fff;
+            border: 2px dashed #ccc;
+            padding: 40px;
+            text-align: center;
+            margin: 15px 0;
+            border-radius: 8px;
+            color: #666;
+        }
+        .whoop-box {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #2196f3;
+        }
+        .whoop-metric {
+            display: inline-block;
+            background: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .recovery-high { background: #c8e6c9; color: #2e7d32; }
+        .recovery-medium { background: #fff9c4; color: #f57f17; }
+        .recovery-low { background: #ffcdd2; color: #c62828; }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 12px;
+            color: #7f8c8d;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌅 Good Morning — Thursday, March 5</h1>
+
+        <div class="weight-box">
+            <h2>⚖️ Weight Tracking</h2>
+            <p><strong>Current Weight:</strong> <span class="weight-current">___ lbs</span></p>
+            <p><strong>Goal:</strong> 20 lbs loss by May 2026</p>
+            <p><strong>Progress:</strong> ___ lbs lost (___% of goal)</p>
+            
+            <h3>5-Day Weight Trend</h3>
+            <div class="chart-placeholder">
+                📊 5-Day Weight Graph<br>
+                <small>(Data will appear when weight entries are logged)</small>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Change</th>
+                </tr>
+                <tr>
+                    <td>Today (Mar 5)</td>
+                    <td>___ lbs</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Yesterday (Mar 4)</td>
+                    <td>___ lbs</td>
+                    <td>___</td>
+                </tr>
+                <tr>
+                    <td>Mar 3</td>
+                    <td>___ lbs</td>
+                    <td>___</td>
+                </tr>
+                <tr>
+                    <td>Mar 2</td>
+                    <td>___ lbs</td>
+                    <td>___</td>
+                </tr>
+                <tr>
+                    <td>Mar 1</td>
+                    <td>___ lbs</td>
+                    <td>___</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="whoop-box">
+            <h2>💪 Whoop Recovery</h2>
+            
+            <div class="whoop-metric recovery-high">Recovery: ___%</div>
+            <div class="whoop-metric">Sleep: ___ hrs</div>
+            <div class="whoop-metric">HRV: ___ ms</div>
+            <div class="whoop-metric">RHR: ___ bpm</div>
+            <div class="whoop-metric">Strain: ___</div>
+            
+            <p style="margin-top: 15px;"><strong>Recommendation:</strong> Based on your recovery score, today is a ___ day.</p>
+            <ul>
+                <li>Green (67-100%): Go for it — train hard, push yourself</li>
+                <li>Yellow (34-66%): Moderate — take it easier, lighter workout</li>
+                <li>Red (0-33%): Rest — prioritize sleep and recovery</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📋 Today's Focus</h2>
+            <ul>
+                <li>Weigh-in and log weight</li>
+                <li>Check Whoop recovery</li>
+                <li>Log breakfast in Lose It!</li>
+                <li>Plan workout based on recovery</li>
+                <li>Drink water throughout the day</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>⚡ Upcoming</h2>
+            <p><strong>Today:</strong> Pick up kids from school (1:30 PM / 2:00 PM)</p>
+            <p><strong>March 9:</strong> Flight to Atlanta (5:25 PM)</p>
+            <p><strong>March 16:</strong> Dog Day Afternoon play in NYC</p>
+        </div>
+
+        <div class="footer">
+            <p>🏛️ Cicero | Your Digital Familiar</p>
+            <p>Reply to this email with your weight and Whoop data to update the tracker</p>
+        </div>
+    </div>
+</body>
+</html>

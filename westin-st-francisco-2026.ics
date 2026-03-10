@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cicero//Westin St Francis//EN
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20260806T150000Z
+DTEND:20260810T110000Z
+DTSTAMP:20260307T030000Z
+ORGANIZER;CN=Cicero:MAILTO:[REDACTED]
+UID:westin-st-francisco-2026@openclaw.ai
+SUMMARY:Hotel: The Westin St. Francis San Francisco
+DESCRIPTION:The Westin St. Francis San Francisco on Union Square\n\nConfirmation #: 85048253\nAddress: 335 Powell Street\, San Francisco\, CA 94102\nPhone: +1-415-397-7000\n\nCheck-in: August 6\, 2026\nCheck-out: August 10\, 2026\n\nFor: Outside Lands Music Festival
+LOCATION:335 Powell Street\, San Francisco\, CA 94102
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Check-in at The Westin St. Francis
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

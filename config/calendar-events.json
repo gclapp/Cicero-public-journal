@@ -1,39 +1,15 @@
 {
-  "last_updated": "2026-03-04T06:55:03.571325",
-  "total_events": 20,
-  "travel_events": 4,
+  "last_updated": "2026-03-09T14:55:03.371728",
+  "total_events": 100,
+  "travel_events": 16,
   "events": [
     {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, March 06 at 01:00 PM",
-      "start_raw": "2026-03-06T13:00:00-08:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, March 06 at 01:50 PM",
-      "start_raw": "2026-03-06T13:50:00-08:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoff Drop off Kids at Stacey's House",
-      "start": "Sunday, March 08 at 10:05 AM",
-      "start_raw": "2026-03-08T10:05:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "Non-standard weekend, dropping off on Sunday\n\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/2646564145",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, March 09 at 07:00 AM",
-      "start_raw": "2026-03-09T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
+      "summary": "Stay at Renaissance Concourse Atlanta Airport Hotel",
+      "start": "Monday, March 09",
+      "start_raw": "2026-03-09",
+      "location": "Renaissance Concourse Atlanta Airport Hotel, Atlanta",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
     },
     {
       "summary": "Reserved Uber to Airport",
@@ -52,19 +28,19 @@
       "is_travel": true
     },
     {
+      "summary": "Flight to ATL (DL 471)",
+      "start": "Monday, March 09 at 05:25 PM",
+      "start_raw": "2026-03-09T17:25:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
       "summary": "\u26a1\ufe0f Maven LIVE: Clawdbot Masterclass for PMs",
       "start": "Tuesday, March 10 at 10:00 AM",
       "start_raw": "2026-03-10T10:00:00-07:00",
       "location": "https://maven.com/s/joinworkshop/8fe0a3b26e",
       "description": "<span>Join Dr. Marily Nika and Dmitry Shapiro for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>Turn agents into always-on product watchdogs</b></span\n>\n<sp",
-      "is_travel": false
-    },
-    {
-      "summary": "Dog Day Afternoon",
-      "start": "Tuesday, March 10 at 04:30 PM",
-      "start_raw": "2026-03-10T16:30:00-07:00",
-      "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
-      "description": "Order number: 3819385\nThank you for your order. Confirmation is on its way to geoff.clapp@Gmail.com from boxoffice@ussecure.atgtickets.com.\nStep back into the sweltering summer of 1972, New York City\u2014",
       "is_travel": false
     },
     {
@@ -76,17 +52,25 @@
       "is_travel": true
     },
     {
+      "summary": "\u26a1\ufe0f Maven LIVE: OpenClaw for Product managers",
+      "start": "Wednesday, March 11 at 10:00 AM",
+      "start_raw": "2026-03-11T10:00:00-07:00",
+      "location": "https://maven.com/s/joinworkshop/c85a1ea838",
+      "description": "<span>Join Aman Khan and Eric Xiao for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>The primitives for what drives Openclaw\u2019s success</b></span\n>\n<span><b>",
+      "is_travel": false
+    },
+    {
       "summary": "Pick up Sophie from School",
-      "start": "Friday, March 13 at 01:00 PM",
-      "start_raw": "2026-03-13T13:00:00-07:00",
+      "start": "Thursday, March 12 at 11:15 AM",
+      "start_raw": "2026-03-12T11:15:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
     },
     {
       "summary": "Pick up Oliver from School",
-      "start": "Friday, March 13 at 01:50 PM",
-      "start_raw": "2026-03-13T13:50:00-07:00",
+      "start": "Thursday, March 12 at 12:15 PM",
+      "start_raw": "2026-03-12T12:15:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
@@ -140,6 +124,30 @@
       "is_travel": true
     },
     {
+      "summary": "Geoffrey Clapp - The Westin New York at Times Square, 80738425",
+      "start": "Sunday, March 15",
+      "start_raw": "2026-03-15",
+      "location": "270 W 43rd Street, New York, NY, 10036, USA",
+      "description": "External Sender.\n\n Hotel (Booked) The Westin New York at Times Square 270 W 43rd Street New York, NY 10036 Phone Number: 1 212 201-2700 Fax: 1 212 201-2799 Check-in: March 15, 2026 Check-out: March 18",
+      "is_travel": true
+    },
+    {
+      "summary": "The Smith - Midtown",
+      "start": "Sunday, March 15 at 07:15 AM",
+      "start_raw": "2026-03-15T07:15:00-07:00",
+      "location": "956 2nd Avenue  New York, NY United States 10022",
+      "description": "(212) 644-2700\nThe Smith is a casual American brasserie with four upbeat locations in New York City: The Smith East Village, The Smith Midtown, The Smith Lincoln Square, and The Smith NoMad, as well a",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at The Smith - Midtown",
+      "start": "Sunday, March 15 at 07:15 AM",
+      "start_raw": "2026-03-15T07:15:00-07:00",
+      "location": "The Smith - Midtown, 956 2nd Avenue, New York, NY, 10022, United States",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
       "summary": "Reservation at L'Artusi",
       "start": "Sunday, March 15 at 05:00 PM",
       "start_raw": "2026-03-15T17:00:00-07:00",
@@ -156,11 +164,643 @@
       "is_travel": false
     },
     {
+      "summary": "Gallaghers Steakhouse - Manhattan",
+      "start": "Monday, March 16 at 02:30 PM",
+      "start_raw": "2026-03-16T14:30:00-07:00",
+      "location": "228 West 52nd Street  New York, NY United States 10019",
+      "description": "(212) 586-5000\nFounded by former Ziegfield girl Helen Gallagher and the colorful gambler and sports enthusiast Jack Solomon, Gallaghers opened as a speakeasy and steakhouse in 1927. At that time, the ",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Gallaghers Steakhouse - Manhattan",
+      "start": "Monday, March 16 at 02:30 PM",
+      "start_raw": "2026-03-16T14:30:00-07:00",
+      "location": "Gallaghers Steakhouse - Manhattan, 228 West 52nd Street, New York, NY, 10019, United States",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Dog Day Afternoon",
+      "start": "Monday, March 16 at 04:35 PM",
+      "start_raw": "2026-03-16T16:35:00-07:00",
+      "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
+      "description": "Dog Day AfternoonAugust Wilson Theatre\nMon, Mar 16, 2026 \u2022 7:30 PM ET\nMezzanine Center G106Regular\n$144.48\n$129.00 ticket price + $15.48 service fee\nMezzanine Center G107Regular\n$144.48\n$129.00 ticket",
+      "is_travel": false
+    },
+    {
       "summary": "Reservation at Nowon East Village",
       "start": "Tuesday, March 17 at 06:00 PM",
       "start_raw": "2026-03-17T18:00:00-07:00",
       "location": "Nowon East Village, 507 E 6th St, (Between E 6th St and Ave A), New York, NY 10009",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Delta Air Lines flight 707 to Los Angeles (HCTGNK)",
+      "start": "Wednesday, March 18 at 04:45 PM",
+      "start_raw": "2026-03-18T16:45:00-07:00",
+      "location": "John F. Kennedy International Airport (New York, NY 11430, United States)",
+      "description": "Delta Air Lines flight 707 (6 hours, 40 minutes)\nConfirmation code: HCTGNK\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:45 PM on Wednesday, March 18, 2026 from New Yor",
+      "is_travel": true
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, March 19 at 01:30 PM",
+      "start_raw": "2026-03-19T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, March 19 at 02:00 PM",
+      "start_raw": "2026-03-19T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Concert: Divorce",
+      "start": "Thursday, March 19 at 06:30 PM",
+      "start_raw": "2026-03-19T18:30:00-07:00",
+      "location": "Gold Diggers Bar, 5632 Santa Monica Blvd, Los Angeles, CA 90038, USA",
+      "description": "<br><table><tbody><tr><td><br><table><tbody><tr><td><h5><b>Venue details</b></h5></td></tr><tr><td>\u200a</td></tr><tr><td><table><tbody><tr><td>Venue</td><td><table><tbody><tr><td><a href=\"https://www.goo",
+      "is_travel": false
+    },
+    {
+      "summary": "Divorce",
+      "start": "Thursday, March 19 at 07:00 PM",
+      "start_raw": "2026-03-19T19:00:00-07:00",
+      "location": "5632 Santa Monica Blvd, Los Angeles, CA 90038",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Gort\u2019s 30th Birthday Weekend",
+      "start": "Friday, March 20",
+      "start_raw": "2026-03-20",
+      "location": "Trixie Motel, 210 W Stevens Rd, Palm Springs, CA 92262, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, March 20 at 01:30 PM",
+      "start_raw": "2026-03-20T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, March 20 at 02:00 PM",
+      "start_raw": "2026-03-20T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at The Lark - Santa Barbara",
+      "start": "Friday, March 20 at 05:00 PM",
+      "start_raw": "2026-03-20T17:00:00-07:00",
+      "location": "The Lark - Santa Barbara, 131 Anacapa St. Suite A, Santa Barbara, CA, 93101, United States",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at The Revere Room",
+      "start": "Saturday, March 21 at 08:45 AM",
+      "start_raw": "2026-03-21T08:45:00-07:00",
+      "location": "The Revere Room, 1759 South Jameson Lane, Montecito, CA 93108",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "The Algonquin Hotel Times Square, Autograph Collection, 95280672",
+      "start": "Sunday, March 22",
+      "start_raw": "2026-03-22",
+      "location": "59 W 44th St, New York, NY, 10036, USA",
+      "description": "External Sender.\n\n Hotel (Booked) The Algonquin Hotel Times Square, Autograph Collection 59 W 44th St New York, NY 10036 Phone Number: 1 212 840-6800 Fax: 1 212 944-1419 Check-in: March 22, 2026 Check",
+      "is_travel": true
+    },
+    {
+      "summary": "Reserve Uber to LAX",
+      "start": "Sunday, March 22 at 12:30 PM",
+      "start_raw": "2026-03-22T12:30:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/23644246860453?p=cEZAvOmILGyh2PUnQg\nMeeting ID: 236 442",
+      "is_travel": false
+    },
+    {
+      "summary": "Delta Air Lines flight 938 to New York (G959VX)",
+      "start": "Sunday, March 22 at 03:35 PM",
+      "start_raw": "2026-03-22T15:35:00-07:00",
+      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
+      "description": "Delta Air Lines flight 938 (5 hours, 17 minutes)\nConfirmation code: G959VX\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 3:35 PM on Sunday, Ma",
+      "is_travel": true
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, March 23 at 07:00 AM",
+      "start_raw": "2026-03-23T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Dog Day Afternoon Play",
+      "start": "Monday, March 23 at 04:20 PM",
+      "start_raw": "2026-03-23T16:20:00-07:00",
+      "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
+      "description": "Dog Day Afternoon\nAugust Wilson Theatre\nMon, Mar 23, 2026 \u2022 7:30 PM ET\nMezzanine Center A106\nMid Premium\n$290.08\n$259.00 ticket price + $31.08 service fee\nMezzanine Center A107\nMid Premium\n$290.08\n$25",
+      "is_travel": false
+    },
+    {
+      "summary": "Delta Air Lines 752 - Confirmation code: G9WPJ6",
+      "start": "Wednesday, March 25 at 06:25 PM",
+      "start_raw": "2026-03-25T18:25:00-07:00",
+      "location": "New York(JFK) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: G9WPJ6 Delta Air Lines 752 Business, Scheduled Departure Mar 25, 2026, 9:25 pm, New York, NY, United States of America (JFK-John F. Kennedy Intl.)",
+      "is_travel": true
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, March 26 at 01:30 PM",
+      "start_raw": "2026-03-26T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, March 26 at 02:00 PM",
+      "start_raw": "2026-03-26T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Grace\u2019s Parents Visit",
+      "start": "Thursday, March 26 at 05:00 PM",
+      "start_raw": "2026-03-26T17:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, March 27 at 01:30 PM",
+      "start_raw": "2026-03-27T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, March 27 at 02:00 PM",
+      "start_raw": "2026-03-27T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at The Tower Bar",
+      "start": "Saturday, March 28 at 07:30 PM",
+      "start_raw": "2026-03-28T19:30:00-07:00",
+      "location": "The Tower Bar, 8358 Sunset Blvd., West Hollywood, CA, 90069, United States",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, March 30 at 07:00 AM",
+      "start_raw": "2026-03-30T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Greta: Monthly Meds",
+      "start": "Wednesday, April 01",
+      "start_raw": "2026-04-01",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at JW Marriott Phoenix Desert Ridge Resort & Spa",
+      "start": "Thursday, April 02",
+      "start_raw": "2026-04-02",
+      "location": "JW Marriott Phoenix Desert Ridge Resort & Spa, Phoenix",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Flight to PHX (DL 4119)",
+      "start": "Thursday, April 02 at 08:04 AM",
+      "start_raw": "2026-04-02T08:04:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, April 02 at 01:30 PM",
+      "start_raw": "2026-04-02T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, April 02 at 02:00 PM",
+      "start_raw": "2026-04-02T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, April 03 at 01:30 PM",
+      "start_raw": "2026-04-03T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, April 03 at 02:00 PM",
+      "start_raw": "2026-04-03T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Flight to LAX (DL 3951)",
+      "start": "Sunday, April 05 at 12:10 PM",
+      "start_raw": "2026-04-05T12:10:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Delta Air Lines flight 477 to Fort Lauderdale (G3LHP8)",
+      "start": "Sunday, April 05 at 11:53 PM",
+      "start_raw": "2026-04-05T23:53:00-07:00",
+      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
+      "description": "Delta Air Lines flight 477 (4 hours, 47 minutes)\nConfirmation code: G3LHP8\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 11:53 PM on Sunday, A",
+      "is_travel": true
+    },
+    {
+      "summary": "Executive Offsite - Eau Palm Beach",
+      "start": "Monday, April 06",
+      "start_raw": "2026-04-06",
+      "location": "Eau Palm Beach\u00a0(100 S Ocean Blvd, Manalapan, FL 33462)",
+      "description": "April 7 & 8 Offsite \u2013 Palm Beach, FL\n\n  *   We will be at the Eau Palm Beach<https://www.eauresortandspa.com/> (100 S Ocean Blvd, Manalapan, FL 33462).\n\n  *   The offsite will start on Tuesday, April ",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, April 06 at 07:00 AM",
+      "start_raw": "2026-04-06T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Delta Air Lines flight 1458 to Atlanta (G3LHP8)",
+      "start": "Wednesday, April 08 at 03:30 PM",
+      "start_raw": "2026-04-08T15:30:00-07:00",
+      "location": "West Palm Beach International Airport (1000 Palm Beach International Airport, West Palm Beach, FL 33406, United States)",
+      "description": "Delta Air Lines flight 1458 (2 hours, 10 minutes)\nConfirmation code: G3LHP8\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 6:30 PM on Wednesday, April 8, 2026 from West Pa",
+      "is_travel": true
+    },
+    {
+      "summary": "Delta 311 Atlanta to LAX  (G3LHP8)",
+      "start": "Wednesday, April 08 at 06:35 PM",
+      "start_raw": "2026-04-08T18:35:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/2272764172464?p=7yVPdkwnMOEN3LwpWM\nMeeting ID: 227 276 ",
+      "is_travel": true
+    },
+    {
+      "summary": "Greta Groomer",
+      "start": "Thursday, April 09 at 08:00 AM",
+      "start_raw": "2026-04-09T08:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "Thursday, Dec 18th\n8 AM\n\nStylist:\u00a0Isidora L\nPet: Greta\nSignature Service (No Haircut)",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, April 09 at 01:30 PM",
+      "start_raw": "2026-04-09T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, April 09 at 02:00 PM",
+      "start_raw": "2026-04-09T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, April 10 at 01:30 PM",
+      "start_raw": "2026-04-10T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, April 10 at 02:00 PM",
+      "start_raw": "2026-04-10T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Happy birthday!",
+      "start": "Saturday, April 11",
+      "start_raw": "2026-04-11",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at The Ritz-Carlton Bacara, Santa Barbara",
+      "start": "Monday, April 13",
+      "start_raw": "2026-04-13",
+      "location": "8301 Hollister Avenue, Santa Barbara, CA 93117, USA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, April 13 at 07:00 AM",
+      "start_raw": "2026-04-13T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ritz-Carlton Bacara, Santa Barbara",
+      "start": "Monday, April 13 at 03:00 PM",
+      "start_raw": "2026-04-13T15:00:00-07:00",
+      "location": "The Ritz-Carlton Bacara, Santa Barbara 8301 Hollister Avenue   Santa Barbara, California, USA",
+      "description": "The Ritz-Carlton Bacara, Santa Barbara 8301 Hollister Avenue   Santa Barbara, California, USA 93117 Tel:  18059681800 Starts:2026-04-13, Ends: 2026-04-15 Confirmation number: 76816088",
+      "is_travel": false
+    },
+    {
+      "summary": "David Byrne Concert",
+      "start": "Tuesday, April 14 at 03:00 PM",
+      "start_raw": "2026-04-14T15:00:00-07:00",
+      "location": "Santa Barbara Bowl, 1122 N Milpas St, Santa Barbara, CA 93103, USA",
+      "description": "<br><br><ul><li><b><h2><b>THANKS! YOUR PURCHASE IS COMPLETE</b></h2></b></li></ul><br><br><br><br><br><br><br><br><br>Event Date<time>Tue\u00a0Apr\u00a014,\u00a02026\u00a0-\u00a07:30 PM</time><br><b>David Byrne - Spotify Pres",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, April 16 at 01:30 PM",
+      "start_raw": "2026-04-16T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, April 16 at 02:00 PM",
+      "start_raw": "2026-04-16T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Variety show DR",
+      "start": "Thursday, April 16 at 04:00 PM",
+      "start_raw": "2026-04-16T16:00:00-07:00",
+      "location": "",
+      "description": "Time TBD",
+      "is_travel": false
+    },
+    {
+      "summary": "Variety Show ",
+      "start": "Friday, April 17",
+      "start_raw": "2026-04-17",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, April 17 at 01:30 PM",
+      "start_raw": "2026-04-17T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, April 17 at 02:00 PM",
+      "start_raw": "2026-04-17T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Variety show ",
+      "start": "Saturday, April 18",
+      "start_raw": "2026-04-18",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, April 20 at 07:00 AM",
+      "start_raw": "2026-04-20T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Physcial",
+      "start": "Tuesday, April 21 at 03:15 PM",
+      "start_raw": "2026-04-21T15:15:00-07:00",
+      "location": "UCLA Jack Skirball Health Center, 26585 Agoura Rd, Calabasas, CA 91302, USA",
+      "description": "<br><br><br><br><br><br><br><a href=\"https://my.uclahealth.org/MyChart/Visits/VisitDetails?csn=WP-24Ro2K1TxTxCPf9lWuu9sL-2Fg-3D-3D-24-2BAt446YCS8WR4JNMp0v6259-2F05VkbKA2G4b0fZNh8Dk-3D&amp;rescheduled=",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, April 23 at 01:30 PM",
+      "start_raw": "2026-04-23T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, April 23 at 02:00 PM",
+      "start_raw": "2026-04-23T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, April 24 at 01:30 PM",
+      "start_raw": "2026-04-24T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, April 24 at 02:00 PM",
+      "start_raw": "2026-04-24T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, April 27 at 07:00 AM",
+      "start_raw": "2026-04-27T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, April 30 at 01:30 PM",
+      "start_raw": "2026-04-30T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, April 30 at 02:00 PM",
+      "start_raw": "2026-04-30T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Greta: Monthly Meds",
+      "start": "Friday, May 01",
+      "start_raw": "2026-05-01",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, May 01 at 01:30 PM",
+      "start_raw": "2026-05-01T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, May 01 at 02:00 PM",
+      "start_raw": "2026-05-01T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, May 04 at 07:00 AM",
+      "start_raw": "2026-05-04T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, May 07 at 01:30 PM",
+      "start_raw": "2026-05-07T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, May 07 at 02:00 PM",
+      "start_raw": "2026-05-07T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, May 08 at 01:30 PM",
+      "start_raw": "2026-05-08T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, May 08 at 02:00 PM",
+      "start_raw": "2026-05-08T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Netflix Is A Joke Presents: HASAN HATES RONNY | RONNY HATES HASAN",
+      "start": "Friday, May 08 at 07:00 PM",
+      "start_raw": "2026-05-08T19:00:00-07:00",
+      "location": "Hollywood, California",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, May 11 at 07:00 AM",
+      "start_raw": "2026-05-11T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, May 14 at 01:30 PM",
+      "start_raw": "2026-05-14T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, May 14 at 02:00 PM",
+      "start_raw": "2026-05-14T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, May 15 at 01:30 PM",
+      "start_raw": "2026-05-15T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, May 15 at 02:00 PM",
+      "start_raw": "2026-05-15T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
       "is_travel": false
     }
   ]

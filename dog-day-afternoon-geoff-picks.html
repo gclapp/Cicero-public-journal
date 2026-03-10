@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dog Day Afternoon - Theater Night in NYC (March 16) - GEOFF'S PICKS</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a2e;
+            border-bottom: 3px solid #8B0000;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 22px;
+            border-left: 4px solid #8B0000;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 18px;
+            margin-top: 25px;
+        }
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .tip-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .restaurant-card {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .restaurant-card-premium {
+            background: #fff8e1;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ff6f00;
+            border: 2px solid #ff6f00;
+        }
+        .restaurant-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .restaurant-details {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .restaurant-desc {
+            margin-top: 10px;
+        }
+        .distance {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #495057;
+            margin-left: 10px;
+        }
+        .price {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .theater-info {
+            background: #1a1a2e;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .theater-info h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+        .transport-option {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .transport-title {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #dee2e6;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #8B0000;
+        }
+        .time {
+            font-weight: bold;
+            color: #8B0000;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            text-align: center;
+        }
+        .map-link {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .map-link:hover {
+            background: #0056b3;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .badge-michelin {
+            background: #dc3545;
+            color: white;
+        }
+        .badge-classic {
+            background: #8B0000;
+            color: white;
+        }
+        .badge-steak {
+            background: #6f4e37;
+            color: white;
+        }
+        .badge-italian {
+            background: #28a745;
+            color: white;
+        }
+        .badge-rooftop {
+            background: #17a2b8;
+            color: white;
+        }
+        .badge-geoff {
+            background: #ff6f00;
+            color: white;
+            font-size: 14px;
+            padding: 5px 12px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+        .hotel-card {
+            background: #e7f3ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+        .pref-box {
+            background: #f8f9fa;
+            border: 2px solid #8B0000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .pref-box h3 {
+            margin-top: 0;
+            color: #8B0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Dog Day Afternoon<br>
+        <span style="font-size: 0.6em; color: #6c757d;">Theater Night in NYC — Monday, March 16</span></h1>
+
+        <div class="theater-info">
+            <h3>🎬 Show Details</h3>
+            <p><strong>Play:</strong> Dog Day Afternoon</p>
+            <p><strong>Date:</strong> Monday, March 16, 2026</p>
+            <p><strong>Time:</strong> 7:30 PM (Eastern)</p>
+            <p><strong>Theater:</strong> August Wilson Theatre</p>
+            <p><strong>Address:</strong> 245 W 52nd Street, New York, NY 10019</p>
+            <p><strong>Seats:</strong> Mezzanine Center G106 & G107</p>
+            <a href="https://maps.google.com/?q=August+Wilson+Theatre+245+W+52nd+St+New+York+NY" class="map-link" target="_blank">📍 Open in Google Maps</a>
+        </div>
+
+        <div class="hotel-card" style="background: #d4edda; border-left: 4px solid #28a745;">
+            <div class="restaurant-name">🏨 Your Hotel: The Westin New York at Times Square</div>
+            <div class="restaurant-details">270 W 43rd Street, New York, NY 10036 | Confirmation: 80738425</div>
+            <div class="restaurant-desc">
+                <strong>Check-in:</strong> Sunday, March 15, 2026<br>
+                <strong>Check-out:</strong> March 17, 2026<br>
+                <strong>Phone:</strong> 1-212-201-2700<br>
+                <strong>Distance to Theater:</strong> 0.6 miles (10-15 min walk or 5 min taxi)
+            </div>
+        </div>
+
+        <div class="pref-box">
+            <h3>🎯 Prioritized for Geoff's Tastes</h3>
+            <p><strong>✅ Steakhouses</strong> — Classic New York institutions<br>
+            <strong>✅ Italian</strong> — Especially Michelin-starred<br>
+            <strong>✅ Michelin Stars</strong> — Fine dining experiences<br>
+            <strong>✅ Rooftop Views</strong> — NYC skyline<br>
+            <strong>✅ NYC Institutions</strong> — Historic, iconic venues</p>
+        </div>
+
+        <h2>🥩 GEOFF'S TOP PICKS — Steakhouses & NYC Institutions</h2>
+
+        <div class="restaurant-card-premium">
+            <div class="restaurant-name">
+                Keens Steakhouse
+                <span class="badge badge-geoff">#1 GEOFF PICK</span>
+                <span class="badge badge-classic">NYC INSTITUTION</span>
+                <span class="badge badge-steak">STEAKHOUSE</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$</span> | 72 W 36th St (Garment District) | <span class="distance">0.9 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                <strong>Established 1885.</strong> This is THE classic New York steakhouse. Famous for the 90,000 clay pipes hanging from the ceiling (including pipes belonging to Teddy Roosevelt, JFK, and Babe Ruth). The <strong>mutton chop</strong> is legendary — it's their signature. Old-school, dark wood, historic, unapologetically masculine. This is where you go for a quintessential NYC steakhouse experience.
+                <br><br>
+                <strong>Perfect for:</strong> Pre-theater dinner (5:00 PM reservation recommended)<br>
+                <strong>Must-order:</strong> Mutton chop, dry-aged steaks, scotch selection<br>
+                <a href="https://www.keens.com" target="_blank">🌐 Website</a> | <a href="https://www.opentable.com/r/keens-steakhouse-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card-premium">
+            <div class="restaurant-name">
+                Gallaghers Steakhouse
+                <span class="badge badge-geoff">CLOSEST STEAKHOUSE</span>
+                <span class="badge badge-classic">NYC CLASSIC</span>
+                <span class="badge badge-steak">STEAKHOUSE</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$</span> | 228 West 52nd Street | <span class="distance">0.02 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                <strong>Since 1927.</strong> Right next door to the theater — you literally can't get closer. The iconic neon sign is a NYC landmark. Dry-aged steaks in a window display, old-school atmosphere, red leather banquettes. This is where theater-goers have dined for nearly a century.
+                <br><br>
+                <strong>Perfect for:</strong> Convenient pre-theater dinner (5:30 PM)<br>
+                <strong>Must-order:</strong> Dry-aged ribeye, classic martini<br>
+                <a href="https://www.gallagherssteakhouse.com" target="_blank">🌐 Website</a> | <a href="https://www.opentable.com/r/gallaghers-steakhouse-manhattan-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                The Palm West Side
+                <span class="badge badge-classic">NYC INSTITUTION</span>
+                <span class="badge badge-steak">STEAKHOUSE</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$</span> | 250 West 50th Street | <span class="distance">0.13 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                Legendary steakhouse known for steaks, lobsters, and caricatures of famous regulars on the walls. Classic power-dining spot since the 1920s. The Palm is a steakhouse institution with locations worldwide, but this is the original NYC vibe.
+                <br><br>
+                <a href="https://www.opentable.com/r/the-palm-west-side-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <h2>⭐ MICHELIN-STARRED ITALIAN</h2>
+
+        <div class="restaurant-card-premium">
+            <div class="restaurant-name">
+                Marea
+                <span class="badge badge-michelin">⭐ MICHELIN STAR</span>
+                <span class="badge badge-italian">ITALIAN</span>
+                <span class="badge badge-geoff">FANCY NIGHT OUT</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$</span> | 240 Central Park South | <span class="distance">0.7 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                <strong>Michael White's flagship.</strong> Michelin-starred Italian on Central Park South. The room is stunning — Indonesian rosewood, airy, elegant. The focus is coastal Italian seafood: crudo, pasta, whole fish. This is where you go when you want a <strong>special occasion dinner</strong> with impeccable service and serious food cred. James Beard Award winner.
+                <br><br>
+                <strong>Perfect for:</strong> Fancy pre-theater dinner (5:00 PM)<br>
+                <strong>Must-order:</strong> Fusilli with red wine braised octopus, crudo selection<br>
+                <a href="https://www.marearestaurant.com/new-york" target="_blank">🌐 Website</a> | <a href="https://www.opentable.com/r/marea-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Becco
+                <span class="badge badge-italian">ITALIAN</span>
+                <span class="badge badge-classic">THEATER CLASSIC</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | 355 W 46th St (Restaurant Row) | <span class="distance">0.3 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                Lidia Bastianich's Theater District institution. Fixed-price pasta tasting menu ($29.95), unlimited wine included. This is the theater crowd's go-to for reliable, affordable Italian before a show. Not Michelin-starred but a beloved NYC institution.
+                <br><br>
+                <strong>Perfect for:</strong> Pre-theater prix fixe, wine lovers<br>
+                <a href="https://www.opentable.com/r/becco-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <h2>⭐ MICHELIN-STARRED SEAFOOD (If You Want to Splurge)</h2>
+
+        <div class="restaurant-card-premium">
+            <div class="restaurant-name">
+                Le Bernardin
+                <span class="badge badge-michelin">⭐⭐⭐ 3 MICHELIN STARS</span>
+                <span class="badge badge-geoff">ULTIMATE SPLURGE</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$$</span> | 155 W 51st St | <span class="distance">0.2 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                <strong>Eric Ripert's masterpiece.</strong> Three Michelin stars. Four stars from The New York Times. Consistently ranked among the best restaurants in the world. If you want the ultimate NYC fine dining experience before your show, this is it. The seafood is flawless, the service is impeccable, the room is elegant but not stuffy. 
+                <br><br>
+                <strong>Perfect for:</strong> Once-in-a-lifetime dinner (4:30 PM seating required)<br>
+                <strong>Note:</strong> Requires early reservation, jacket required<br>
+                <a href="https://www.le-bernardin.com" target="_blank">🌐 Website</a> | <a href="https://www.opentable.com/r/le-bernardin-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <h2>🍸 ROOFTOP BARS — NYC Views</h2>
+
+        <div class="restaurant-card-premium">
+            <div class="restaurant-name">
+                Beast & Butterflies at M Social
+                <span class="badge badge-rooftop">ROOFTOP</span>
+                <span class="badge badge-geoff">CLOSEST ROOFTOP</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | 226 W 52nd St | <span class="distance">0.01 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                <strong>Literally next door to the theater.</strong> Indoor-outdoor rooftop bar with wrap-around terrace offering views of Times Square. This is your pre-show cocktail spot — close enough that you can sip a drink with a view and still make your 7:30 curtain.
+                <br><br>
+                <strong>Perfect for:</strong> Pre-theater drinks (6:00 PM)<br>
+                <strong>Views:</strong> Times Square, Midtown skyline<br>
+                <a href="https://www.opentable.com/r/beast-and-butterflies-new-york" target="_blank">📅 Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                The Rickey Cocktail Lounge at Dream Midtown
+                <span class="badge badge-rooftop">ROOFTOP</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | 210 W 55th St | <span class="distance">0.13 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                Upscale rooftop lounge with craft cocktails and city views. More of a "scene" than Beast & Butterflies, but great for a nightcap after the show.
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                The Empire Rooftop at The Empire Hotel
+                <span class="badge badge-rooftop">ROOFTOP</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | 44 W 63rd St (Lincoln Center) | <span class="distance">0.8 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                Near Lincoln Center, this rooftop has impeccable service and stylish setting. A bit further but worth it for the views and vibe.
+            </div>
+        </div>
+
+        <h2>🍸 CLASSIC NYC BARS FOR DRINKS</h2>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Bar Centrale
+                <span class="badge badge-classic">THEATER INSIDER</span>
+                <span class="badge badge-geoff">POST-SHOW</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$</span> | 324 W 46th St | <span class="distance">0.4 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                Hidden speakeasy above Tony's di Napoli. Theater industry hangout — you'll see actors, producers, and critics here after shows. Excellent martinis, old-school NYC vibe. This is where the Broadway crowd goes.
+                <br><br>
+                <strong>Perfect for:</strong> Post-show drinks (10:30 PM)
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Russian Samovar & Tolstoy's Lounge
+                <span class="badge badge-classic">NYC INSTITUTION</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$</span> | 256 W 52nd Street | <span class="distance">0.06 mi from theater</span>
+            </div>
+            <div class="restaurant-desc">
+                Authentic Russian restaurant with vodka infusions (40+ house-infused vodkas), caviar, and live piano. Old-world charm, open late. Mikhail Baryshnikov is a regular.
+                <br><br>
+                <strong>Perfect for:</strong> Late night post-show (open until 2 AM)
+            </div>
+        </div>
+
+        <h2>🎯 GEOFF'S PERFECT THEATER NIGHT</h2>
+
+        <div class="highlight-box" style="background: #ff6f00; color: white; border-left: 4px solid #8B0000;">
+            <h3 style="color: white; margin-top: 0;">🏆 THE ULTIMATE ITINERARY</h3>
+            <p><strong>4:30 PM</strong> — Taxi to <strong>Keens Steakhouse</strong> (the mutton chop awaits)<br>
+            <strong>5:00 PM</strong> — Dinner at Keens (classic NYC institution)<br>
+            <strong>6:45 PM</strong> — Taxi to theater<br>
+            <strong>7:00 PM</strong> — Arrive at August Wilson Theatre<br>
+            <strong>7:30 PM</strong> — 🎭 <strong>Dog Day Afternoon</strong> begins (Mezzanine G106 & G107)<br>
+            <strong>~10:00 PM</strong> — Show ends<br>
+            <strong>10:15 PM</strong> — Walk to <strong>Bar Centrale</strong> for post-show martinis<br>
+            <strong>11:30 PM</strong> — Taxi back to The Westin</p>
+        </div>
+
+        <div class="tip-box">
+            <h3>💡 Why Keens is Perfect for You</h3>
+            <ul>
+                <li><strong>Historic NYC institution</strong> — 140 years of history</li>
+                <li><strong>Classic steakhouse</strong> — exactly what you love</li>
+                <li><strong>The mutton chop</strong> — their legendary signature dish</li>
+                <li><strong>Scotch selection</strong> — one of the best in NYC</li>
+                <li><strong>The pipes</strong> — 90,000 clay pipes including Teddy Roosevelt's</li>
+                <li><strong>Old New York</strong> — dark wood, history, no pretension</li>
+            </ul>
+            <p><strong>Reserve for 5:00 PM</strong> to make the 7:30 show comfortably.</p>
+        </div>
+
+        <h2>⏰ Alternative Timeline (If You Want Italian)</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time">4:30 PM</div>
+                <strong>Early dinner at Marea</strong> — Michelin-starred Italian on Central Park South
+            </div>
+            <div class="timeline-item">
+                <div class="time">6:30 PM</div>
+                <strong>Pre-show cocktail at Beast & Butterflies</strong> — Rooftop, next to theater
+            </div>
+            <div class="timeline-item">
+                <div class="time">7:00 PM</div>
+                <strong>Arrive at theater</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="time">7:30 PM</div>
+                <strong>🎭 Dog Day Afternoon</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="time">~10:00 PM</div>
+                <strong>Post-show at Russian Samovar</strong> — Vodka flights, open late
+            </div>
+        </div>
+
+        <h2>📱 Reservations to Make Now</h2>
+        <table>
+            <tr>
+                <th>Priority</th>
+                <th>Restaurant</th>
+                <th>When</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>🥇 #1</td>
+                <td>Keens Steakhouse</td>
+                <td>5:00 PM</td>
+                <td><a href="https://www.opentable.com/r/keens-steakhouse-new-york" target="_blank">OpenTable</a></td>
+            </tr>
+            <tr>
+                <td>🥈 #2</td>
+                <td>Marea</td>
+                <td>5:00 PM</td>
+                <td><a href="https://www.opentable.com/r/marea-new-york" target="_blank">OpenTable</a></td>
+            </tr>
+            <tr>
+                <td>🥉 Backup</td>
+                <td>Gallaghers Steakhouse</td>
+                <td>5:30 PM</td>
+                <td><a href="https://www.opentable.com/r/gallaghers-steakhouse-manhattan-new-york" target="_blank">OpenTable</a></td>
+            </tr>
+            <tr>
+                <td>💰 Splurge</td>
+                <td>Le Bernardin</td>
+                <td>4:30 PM</td>
+                <td><a href="https://www.opentable.com/r/le-bernardin-new-york" target="_blank">OpenTable</a></td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            <p>🏛️ Created by Cicero for Geoff & Grace</p>
+            <p>Enjoy Keens — it's everything you love about New York. 🥩🎭</p>
+        </div>
+    </div>
+</body>
+</html>

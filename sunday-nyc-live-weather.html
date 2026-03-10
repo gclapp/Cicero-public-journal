@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>🗽 Sunday in NYC - March 15 (UPDATED with Live Weather)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a2e;
+            border-bottom: 3px solid #ff6f00;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 22px;
+            border-left: 4px solid #ff6f00;
+            padding-left: 15px;
+        }
+        .date-box {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #ffc107;
+        }
+        .weather-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .weather-box h3 {
+            margin-top: 0;
+            color: white;
+        }
+        .weather-hour {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+        }
+        .weather-hour:last-child {
+            border-bottom: none;
+        }
+        .activity {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .time {
+            font-weight: bold;
+            color: #ff6f00;
+            font-size: 18px;
+        }
+        .activity-title {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .details {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+        .tips {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            text-align: center;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .badge-park { background: #c8e6c9; color: #2e7d32; }
+        .badge-brunch { background: #fff3cd; color: #f57f17; }
+        .badge-classic { background: #e3f2fd; color: #1565c0; }
+        .badge-dinner { background: #f8bbd0; color: #c2185b; }
+        .temp { font-weight: bold; color: #ffd700; }
+        .weather-source {
+            font-size: 0.85em;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗽 Sunday in NYC<br>
+        <span style="font-size: 0.6em; color: #6c757d;">March 15, 2026 | Geoff & Grace</span></h1>
+
+        <div class="date-box">
+            <strong>📅 Sunday, March 15, 2026</strong><br>
+            Hotel: The Westin New York at Times Square<br>
+            Dinner: L'Artusi at 5:00 PM (West Village)
+        </div>
+
+        <div class="weather-box">
+            <h3>🌤️ Live Weather Forecast - Sunday, March 15</h3>
+            <p><em>Real-time forecast from Open-Meteo API</em></p>
+            
+            <div class="weather-hour">
+                <span><strong>10:00 AM</strong> — Brunch at The Smith</span>
+                <span class="temp">50°F | ☀️ Sunny</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>11:00 AM</strong> — Walk to Central Park</span>
+                <span class="temp">50°F | ☀️ Sunny</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>12:00 PM</strong> — Central Park stroll</span>
+                <span class="temp">50°F | ☀️ Partly Cloudy</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>1:00 PM</strong> — Park exploration</span>
+                <span class="temp">51°F | ☀️ Partly Cloudy</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>2:00 PM</strong> — High Line walk</span>
+                <span class="temp">53°F | ⛅ Partly Cloudy</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>3:00 PM</strong> — West Village</span>
+                <span class="temp">53°F | ⛅ Partly Cloudy</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>4:00 PM</strong> — Pre-dinner drinks</span>
+                <span class="temp">52°F | 🌤️ Clear</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>5:00 PM</strong> — Dinner at L'Artusi</span>
+                <span class="temp">52°F | 🌙 Clear Evening</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>6:00 PM</strong> — Post-dinner</span>
+                <span class="temp">49°F | 🌙 Clear</span>
+            </div>
+            <div class="weather-hour">
+                <span><strong>7:00 PM</strong> — Evening walk</span>
+                <span class="temp">49°F | 🌙 Clear</span>
+            </div>
+            
+            <p class="weather-source">📊 Data: Open-Meteo API | Forecast as of March 5, 2026</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                <strong>💡 What to wear:</strong> Light jacket, comfortable walking shoes. Perfect spring weather!
+            </p>
+        </div>
+
+        <h2>🌅 Morning</h2>
+
+        <div class="activity">
+            <div class="time">10:00 AM</div>
+            <div class="activity-title">Brunch at The Smith (Midtown) <span class="badge badge-brunch">BRUNCH</span></div>
+            <div class="details">
+                <p><strong>📍</strong> 956 2nd Avenue (at 51st St) | <strong>🚶</strong> 10 min walk from The Westin | <strong>☀️</strong> 50°F, sunny</p>
+                <p><strong>Why:</strong> Classic NYC brunch spot with excellent eggs Benedict, pancakes, and Bloody Marys. Lively atmosphere, perfect for starting your Sunday.</p>
+                <p><strong>Must-order:</strong> Eggs Benedict, avocado toast, brunch cocktails</p>
+                <p><a href="https://www.thesmithrestaurant.com" target="_blank">🌐 Website</a> | <a href="https://www.opentable.com/r/the-smith-midtown-new-york" target="_blank">📅 Reserve</a></p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="time">11:30 AM</div>
+            <div class="activity-title">Walk to Central Park <span class="badge badge-park">PARK</span> <span class="badge badge-classic">NYC CLASSIC</span></div>
+            <div class="details">
+                <p><strong>📍</strong> Central Park (enter at 59th St & 5th Ave) | <strong>🚶</strong> 15 min walk | <strong>☀️</strong> 50°F, sunny</p>
+                <p><strong>Why:</strong> The most iconic park in the world. Perfect for a romantic Sunday stroll, people watching, and classic NYC vibes.</p>
+                <p><strong>Walk route:</strong> Enter at Grand Army Plaza → Bethesda Terrace & Fountain → The Mall → Bow Bridge</p>
+            </div>
+        </div>
+
+        <h2>☀️ Afternoon</h2>
+
+        <div class="activity">
+            <div class="time">12:30 PM</div>
+            <div class="activity-title">Explore Central Park <span class="badge badge-park">PARK</span></div>
+            <div class="details">
+                <p><strong>🌤️</strong> 50-51°F, partly cloudy — Perfect park weather!</p>
+                <p><strong>Highlights:</strong></p>
+                <ul>
+                    <li><strong>Bethesda Terrace:</strong> Iconic fountain and architecture</li>
+                    <li><strong>The Mall:</strong> Beautiful tree-lined promenade</li>
+                    <li><strong>Bow Bridge:</strong> Most photographed spot in the park</li>
+                    <li><strong>Strawberry Fields:</strong> John Lennon memorial</li>
+                </ul>
+                <p><strong>Tip:</strong> Grab coffee at the Bethesda Fountain cafe</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="time">2:00 PM</div>
+            <div class="activity-title">Walk to West Village via High Line <span class="badge badge-classic">NYC CLASSIC</span></div>
+            <div class="details">
+                <p><strong>Route:</strong> Central Park → Columbus Circle → Walk south through Hell's Kitchen → High Line entrance (30th St) → Walk the High Line south to West Village</p>
+                <p><strong>🌤️</strong> 53°F, partly cloudy — Great walking weather</p>
+                <p><strong>Why:</strong> The High Line is a converted elevated railway turned park — unique NYC experience with art installations, gardens, and city views.</p>
+                <p><strong>Duration:</strong> 45-60 min leisurely walk</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="time">3:30 PM</div>
+            <div class="activity-title">Explore West Village <span class="badge badge-classic">NYC CLASSIC</span></div>
+            <div class="details">
+                <p><strong>🌤️</strong> 53°F, partly cloudy</p>
+                <p><strong>Why:</strong> Charming cobblestone streets, historic brownstones, boutique shops. One of the most romantic neighborhoods in NYC.</p>
+                <p><strong>Walk around:</strong> Bleecker Street, Christopher Street, Washington Square Park (if time permits)</p>
+                <p><strong>Shopping:</strong> Unique boutiques, bookstores, vintage shops</p>
+            </div>
+        </div>
+
+        <h2>🌆 Evening</h2>
+
+        <div class="activity">
+            <div class="time">4:45 PM</div>
+            <div class="activity-title">Pre-Dinner Drinks at a West Village Bar</div>
+            <div class="details">
+                <p><strong>🌤️</strong> 52°F, clear evening</p>
+                <p><strong>Option 1: Dante</strong> (52 Grove St) — Famous for Negronis, outdoor seating</p>
+                <p><strong>Option 2: Employees Only</strong> (510 Hudson St) — Speakeasy-style cocktail bar</p>
+                <p><strong>Option 3: Little Branch</strong> (20 7th Ave S) — Hidden basement speakeasy</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="time">5:00 PM</div>
+            <div class="activity-title">Dinner at L'Artusi <span class="badge badge-dinner">CONFIRMED</span></div>
+            <div class="details">
+                <p><strong>📍</strong> 228 West 10th Street (Between Bleecker & Hudson)</p>
+                <p><strong>🌙</strong> 52°F, clear evening — Perfect for after-dinner walk</p>
+                <p><strong>Why:</strong> Modern Italian, intimate atmosphere, incredible pasta. One of NYC's best date night spots.</p>
+                <p><strong>Must-order:</strong> Olive oil cake, any pasta, Italian wine</p>
+                <p><a href="https://www.lartusi.com" target="_blank">🌐 Website</a></p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <div class="time">7:00 PM</div>
+            <div class="activity-title">Post-Dinner Walk or Nightcap</div>
+            <div class="details">
+                <p><strong>🌙</strong> 49°F, clear night — Bring a light jacket</p>
+                <p><strong>Option 1:</strong> Walk through West Village at night (beautifully lit, romantic)</p>
+                <p><strong>Option 2:</strong> Nightcap at Marie's Crisis (59 Grove St) — Piano bar, sing-along, classic NYC</p>
+                <p><strong>Option 3:</strong> Head back to Times Square area for the lights</p>
+            </div>
+        </div>
+
+        <div class="tips">
+            <h3>💡 Pro Tips for Sunday</h3>
+            <ul>
+                <li><strong>Wear layers</strong> — 49°F in evening, 53°F afternoon</li>
+                <li><strong>Comfortable walking shoes</strong> — lots of walking today!</li>
+                <li><strong>Light jacket</strong> — clear skies but cool temps</li>
+                <li><strong>Brunch reservation:</strong> Book ahead — Sunday brunch is popular</li>
+                <li><strong>High Line:</strong> Free, no reservation needed</li>
+                <li><strong>West Village:</strong> Best explored without a strict plan — wander and discover</li>
+                <li><strong>L'Artusi:</strong> Already confirmed for 5:00 PM</li>
+            </ul>
+        </div>
+
+        <h2>🗺️ Summary</h2>
+        <ul>
+            <li><strong>10:00 AM</strong> — Brunch at The Smith (50°F, sunny)</li>
+            <li><strong>11:30 AM</strong> — Walk to Central Park (50°F, sunny)</li>
+            <li><strong>12:30 PM</strong> — Explore Central Park (50°F, partly cloudy)</li>
+            <li><strong>2:00 PM</strong> — High Line walk to West Village (53°F, partly cloudy)</li>
+            <li><strong>3:30 PM</strong> — Explore West Village (53°F, partly cloudy)</li>
+            <li><strong>4:45 PM</strong> — Pre-dinner drinks (52°F, clear)</li>
+            <li><strong>5:00 PM</strong> — Dinner at L'Artusi (52°F, clear evening)</li>
+            <li><strong>7:00 PM</strong> — Post-dinner walk (49°F, clear night)</li>
+        </ul>
+
+        <div class="footer">
+            <p>🏛️ Created by Cicero for Geoff & Grace</p>
+            <p>Enjoy your Sunday in NYC! 🗽🌳🥂</p>
+        </div>
+    </div>
+</body>
+</html>

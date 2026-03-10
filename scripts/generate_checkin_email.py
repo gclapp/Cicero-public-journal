@@ -99,9 +99,160 @@ def get_check_in_type():
     else:
         return None, None
 
+def get_weather_for_location(location_name):
+    """Get current weather and 2-day forecast for a location"""
+    import subprocess
+    import json
+    
+    # Map location names to wttr.in query
+    location_map = {
+        'Los Angeles, CA': 'Los+Angeles',
+        'New York, NY': 'New+York',
+        'Atlanta, GA': 'Atlanta',
+        'Scottsdale, AZ': 'Scottsdale',
+        'Portland, OR': 'Portland',
+        'Santa Barbara, CA': 'Santa+Barbara'
+    }
+    
+    query = location_map.get(location_name, 'Los+Angeles')
+    
+    try:
+        # Get weather data in JSON format
+        result = subprocess.run(
+            ['curl', '-s', f'wttr.in/{query}?format=j1'],
+            capture_output=True,
+            text=True,
+            timeout=10
+        )
+        
+        if result.returncode == 0 and result.stdout:
+            data = json.loads(result.stdout)
+            current = data['current_condition'][0]
+            forecast = data['weather']
+            
+            return {
+                'current_temp': current['temp_F'],
+                'current_condition': current['weatherDesc'][0]['value'],
+                'humidity': current['humidity'],
+                'wind': current['windspeedMiles'],
+                'tomorrow_high': forecast[0]['maxtempF'],
+                'tomorrow_low': forecast[0]['mintempF'],
+                'tomorrow_condition': forecast[0]['hourly'][4]['weatherDesc'][0]['value'],  # midday
+                'day2_high': forecast[1]['maxtempF'],
+                'day2_low': forecast[1]['mintempF'],
+                'day2_condition': forecast[1]['hourly'][4]['weatherDesc'][0]['value']
+            }
+    except Exception as e:
+        print(f"Weather fetch error: {e}")
+    
+    return None
+
+def get_location_and_weather():
+    """Determine Geoff's location based on calendar and get weather"""
+    import pytz
+    from datetime import datetime
+    
+    pt = pytz.timezone('America/Los_Angeles')
+    et = pytz.timezone('America/New_York')
+    now = datetime.now(pt)
+    
+    # Default: Los Angeles
+    location = "Los Angeles, CA"
+    timezone = "PT (Pacific Time)"
+    tz_obj = pt
+    
+    # Check calendar for travel
+    calendar_data = load_calendar()
+    if calendar_data:
+        events = calendar_data.get('events', [])
+        today_str = now.strftime('%A, %B %d')
+        
+        for event in events:
+            event_start = event.get('start', '')
+            # Check if event is today and is travel
+            if today_str in event_start or now.strftime('%Y-%m-%d') in event_start:
+                if event.get('is_travel'):
+                    location_str = event.get('location', '').lower()
+                    if 'new york' in location_str or 'jfk' in location_str or 'lga' in location_str or 'nyc' in location_str:
+                        location = "New York, NY"
+                        timezone = "ET (Eastern Time)"
+                        tz_obj = et
+                    elif 'atlanta' in location_str:
+                        location = "Atlanta, GA"
+                        timezone = "ET (Eastern Time)"
+                        tz_obj = et
+                    elif 'scottsdale' in location_str or 'phoenix' in location_str or 'arizona' in location_str:
+                        location = "Scottsdale, AZ"
+                        timezone = "MT (Mountain Time)"
+                    elif 'portland' in location_str or 'oregon' in location_str:
+                        location = "Portland, OR"
+                        timezone = "PT (Pacific Time)"
+                    elif 'santa barbara' in location_str:
+                        location = "Santa Barbara, CA"
+                        timezone = "PT (Pacific Time)"
+                # Check for hotel stays
+                elif 'stay at' in event.get('summary', '').lower():
+                    location_str = event.get('location', '').lower()
+                    if 'new york' in location_str:
+                        location = "New York, NY"
+                        timezone = "ET (Eastern Time)"
+                        tz_obj = et
+                    elif 'atlanta' in location_str:
+                        location = "Atlanta, GA"
+                        timezone = "ET (Eastern Time)"
+                        tz_obj = et
+                    elif 'scottsdale' in location_str or 'arizona' in location_str:
+                        location = "Scottsdale, AZ"
+                        timezone = "MT (Mountain Time)"
+                    elif 'santa barbara' in location_str:
+                        location = "Santa Barbara, CA"
+                        timezone = "PT (Pacific Time)"
+    
+    # Get current time in detected timezone
+    current_time = datetime.now(tz_obj).strftime('%I:%M %p')
+    
+    # Get weather for the location
+    weather = get_weather_for_location(location)
+    
+    return {
+        'location': location,
+        'timezone': timezone,
+        'current_time': current_time,
+        'weather': weather
+    }
+
 def generate_morning_update(calendar_data, whoop_data):
     """Generate morning update"""
     today = datetime.now().strftime('%A, %B %d')
+    
+    # Get location and weather
+    loc_data = get_location_and_weather()
+    
+    # Build weather HTML if available
+    weather_html = ""
+    if loc_data['weather']:
+        w = loc_data['weather']
+        weather_html = f"""
+<div class="weather-grid">
+<div class="weather-item">
+<div style="font-size: 24px;">🌡️</div>
+<div style="font-size: 20px; font-weight: bold;">{w['current_temp']}°F</div>
+<div style="font-size: 12px;">Current</div>
+<div style="font-size: 11px; opacity: 0.9;">{w['current_condition']}</div>
+</div>
+<div class="weather-item">
+<div style="font-size: 24px;">💧</div>
+<div style="font-size: 16px; font-weight: bold;">{w['humidity']}%</div>
+<div style="font-size: 12px;">Humidity</div>
+<div style="font-size: 11px; opacity: 0.9;">Wind {w['wind']} mph</div>
+</div>
+</div>
+<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+<p style="margin: 5px 0; font-size: 13px;"><strong>Forecast:</strong></p>
+<p style="margin: 3px 0; font-size: 12px;">Tomorrow: {w['tomorrow_high']}°F / {w['tomorrow_low']}°F — {w['tomorrow_condition']}</p>
+<p style="margin: 3px 0; font-size: 12px;">Day after: {w['day2_high']}°F / {w['day2_low']}°F — {w['day2_condition']}</p>
+</div>
+"""
     
     html = f"""<html>
 <head>
@@ -117,10 +268,22 @@ h2 {{ color: #34495e; font-size: 18px; margin-top: 25px; }}
 .checklist li {{ padding: 5px 0; }}
 .checklist li:before {{ content: "☐ "; color: #3498db; }}
 .footer {{ margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #7f8c8d; }}
+.location-box {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 15px 0; }}
+.location-box h2 {{ color: white; margin-top: 0; }}
+.weather-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }}
+.weather-item {{ background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; text-align: center; }}
 </style>
 </head>
 <body>
 <h1>🌅 Good Morning — {today}</h1>
+
+<div class="location-box">
+<h2>📍 Where I Think You Are</h2>
+<p style="font-size: 20px; margin: 10px 0;"><strong>{loc_data['location']}</strong></p>
+<p style="margin: 5px 0;">🕐 Current time: {loc_data['current_time']} {loc_data['timezone']}</p>
+<p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">(Based on your calendar)</p>
+{weather_html}
+</div>
 """
     
     # Health section
@@ -209,16 +372,40 @@ def generate_midday_update(calendar_data):
     """Generate midday pulse check"""
     today = datetime.now().strftime('%A, %B %d')
     
+    # Get location and weather
+    loc_data = get_location_and_weather()
+    
+    # Build weather HTML if available
+    weather_html = ""
+    if loc_data['weather']:
+        w = loc_data['weather']
+        weather_html = f"""
+<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+<p style="margin: 5px 0; font-size: 14px;">🌡️ {w['current_temp']}°F — {w['current_condition']}</p>
+<p style="margin: 3px 0; font-size: 12px; opacity: 0.9;">Next 2 days: {w['tomorrow_high']}°/{w['tomorrow_low']}°F, {w['day2_high']}°/{w['day2_low']}°F</p>
+</div>
+"""
+    
     html = f"""<html>
 <head>
 <style>
 body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }}
 h1 {{ color: #2c3e50; font-size: 24px; border-bottom: 2px solid #f39c12; padding-bottom: 10px; }}
 .section {{ background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; }}
+.location-box {{ background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 8px; margin: 15px 0; }}
+.location-box h2 {{ color: white; margin-top: 0; }}
 </style>
 </head>
 <body>
 <h1>☀️ Midday Check-In — {today}</h1>
+
+<div class="location-box">
+<h2>📍 Where I Think You Are</h2>
+<p style="font-size: 20px; margin: 10px 0;"><strong>{loc_data['location']}</strong></p>
+<p style="margin: 5px 0;">🕐 Current time: {loc_data['current_time']} {loc_data['timezone']}</p>
+<p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">(Based on your calendar)</p>
+{weather_html}
+</div>
 
 <div class="section">
 <h2>📊 Progress Pulse</h2>
@@ -264,16 +451,40 @@ def generate_afternoon_update(calendar_data):
     """Generate afternoon wrap-up prep"""
     today = datetime.now().strftime('%A, %B %d')
     
+    # Get location and weather
+    loc_data = get_location_and_weather()
+    
+    # Build weather HTML if available
+    weather_html = ""
+    if loc_data['weather']:
+        w = loc_data['weather']
+        weather_html = f"""
+<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+<p style="margin: 5px 0; font-size: 14px;">🌡️ {w['current_temp']}°F — {w['current_condition']}</p>
+<p style="margin: 3px 0; font-size: 12px; opacity: 0.9;">Next 2 days: {w['tomorrow_high']}°/{w['tomorrow_low']}°F, {w['day2_high']}°/{w['day2_low']}°F</p>
+</div>
+"""
+
     html = f"""<html>
 <head>
 <style>
 body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }}
 h1 {{ color: #2c3e50; font-size: 24px; border-bottom: 2px solid #9b59b6; padding-bottom: 10px; }}
 .section {{ background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; }}
+.location-box {{ background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 20px; border-radius: 8px; margin: 15px 0; }}
+.location-box h2 {{ color: white; margin-top: 0; }}
 </style>
 </head>
 <body>
 <h1>🌤️ Afternoon Check-In — {today}</h1>
+
+<div class="location-box">
+<h2>📍 Where I Think You Are</h2>
+<p style="font-size: 20px; margin: 10px 0;"><strong>{loc_data['location']}</strong></p>
+<p style="margin: 5px 0;">🕐 Current time: {loc_data['current_time']} {loc_data['timezone']}</p>
+<p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">(Based on your calendar)</p>
+{weather_html}
+</div>
 
 <div class="section">
 <h2>📝 Wrap-Up Prep</h2>
@@ -308,9 +519,26 @@ h1 {{ color: #2c3e50; font-size: 24px; border-bottom: 2px solid #9b59b6; padding
 
 def generate_evening_update(calendar_data, whoop_data):
     """Generate evening review"""
-    today = datetime.now().strftime('%A, %B %d')
-    tomorrow = (datetime.now() + timedelta(days=1)).strftime('%A, %B %d')
+    import pytz
+    pt = pytz.timezone('America/Los_Angeles')
+    now_pt = datetime.now(pt)
+    today = now_pt.strftime('%A, %B %d')
+    tomorrow = (now_pt + timedelta(days=1)).strftime('%A, %B %d')
     
+    # Get location and weather
+    loc_data = get_location_and_weather()
+    
+    # Build weather HTML if available
+    weather_html = ""
+    if loc_data['weather']:
+        w = loc_data['weather']
+        weather_html = f"""
+<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
+<p style="margin: 5px 0; font-size: 14px;">🌡️ {w['current_temp']}°F — {w['current_condition']}</p>
+<p style="margin: 3px 0; font-size: 12px; opacity: 0.9;">Tomorrow: {w['tomorrow_high']}°/{w['tomorrow_low']}°F — {w['tomorrow_condition']}</p>
+</div>
+"""
+
     html = f"""<html>
 <head>
 <style>
@@ -318,10 +546,20 @@ body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans
 h1 {{ color: #2c3e50; font-size: 24px; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; }}
 .section {{ background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0; }}
 .event {{ background: white; padding: 12px; margin: 10px 0; border-left: 4px solid #3498db; border-radius: 4px; }}
+.location-box {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 15px 0; }}
+.location-box h2 {{ color: white; margin-top: 0; }}
 </style>
 </head>
 <body>
 <h1>🌙 Evening Check-In — {today}</h1>
+
+<div class="location-box">
+<h2>📍 Where I Think You Are</h2>
+<p style="font-size: 20px; margin: 10px 0;"><strong>{loc_data['location']}</strong></p>
+<p style="margin: 5px 0;">🕐 Current time: {loc_data['current_time']} {loc_data['timezone']}</p>
+<p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">(Based on your calendar)</p>
+{weather_html}
+</div>
 
 <div class="section">
 <h2>📋 Day Review</h2>
@@ -341,8 +579,8 @@ h1 {{ color: #2c3e50; font-size: 24px; border-bottom: 2px solid #2c3e50; padding
 """
     
     if calendar_data:
-        tomorrow_events = [e for e in calendar_data.get('events', []) 
-                          if tomorrow in e.get('start', '')]
+        tomorrow_events = [e for e in calendar_data.get('events', [])
+                          if tomorrow in e.get('start', '') or e.get('start', '').startswith(tomorrow.split(',')[0])]
         
         if tomorrow_events:
             for event in tomorrow_events:

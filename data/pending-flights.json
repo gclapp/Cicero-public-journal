@@ -1,0 +1,111 @@
+{
+  "flights": [
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "G3LHP8",
+      "flight_number": null,
+      "departure": {
+        "date": "Sunday, April 5, 2026",
+        "time": "11:53 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-04T23:45:04.499900"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "G3LHP8",
+      "flight_number": null,
+      "departure": {
+        "date": "Sunday, April 5, 2026",
+        "time": "11:53 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-04T23:45:05.407317"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "G3LHP8",
+      "flight_number": null,
+      "departure": {
+        "date": "Wednesday, April 8, 2026",
+        "time": "6:30 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-04T23:45:06.465056"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "G3LHP8",
+      "flight_number": null,
+      "departure": {
+        "date": "Wednesday, April 8, 2026",
+        "time": "6:30 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-04T23:45:07.391732"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": null,
+      "flight_number": "960",
+      "departure": {},
+      "arrival": {},
+      "extracted_at": "2026-03-07T02:57:47.456391"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "G959VX",
+      "flight_number": null,
+      "departure": {
+        "date": "Sunday, March 22, 2026",
+        "time": "3:35 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-07T02:57:48.548550"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "G959VX",
+      "flight_number": null,
+      "departure": {
+        "date": "Sunday, March 22, 2026",
+        "time": "3:35 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-07T02:57:49.806308"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": null,
+      "flight_number": null,
+      "departure": {
+        "date": "Fri, Mar 6, 2026",
+        "time": "9:05\u202fPM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-07T05:09:13.065406"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": null,
+      "flight_number": null,
+      "departure": {
+        "date": "Thursday, August 6, 2026",
+        "time": "4:25pm"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-07T05:30:02.355638"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": null,
+      "flight_number": null,
+      "departure": {
+        "date": "Fri, Mar 6, 2026",
+        "time": "9:24\u202fPM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-07T05:30:03.496294"
+    }
+  ]
+}

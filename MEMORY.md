@@ -45,6 +45,28 @@
 
 **Failed Example:** Whoop OAuth set up Feb 22, but no automation built. Token expired after 1 hour, no refresh token requested, no daily fetch script, no error reported. Silent failure for 10+ days.
 
+### Cron Job Persistence (March 8, 2026) — CRITICAL
+**Rule:** System updates and restarts can silently wipe cron jobs. This breaks automations without warning.
+
+**Prevention:**
+1. **Backup before updates** — `bash scripts/cron-backup.sh backup`
+2. **Verify after updates** — `bash scripts/cron-backup.sh verify`
+3. **Restore if missing** — `bash scripts/cron-backup.sh restore`
+
+**What was lost (March 5-8, 2026):**
+- Watch hunt (2x daily searches)
+- Calendar refresh (daily sync)
+- Weekly security audit
+- Reddit weekly report
+- Heartbeat system (check-ins)
+
+**Impact:** 3 days of missed automations, no check-ins, no watch alerts
+
+**Solution implemented:**
+- Backup script: `scripts/cron-backup.sh`
+- Backup location: `config/cron-backups/`
+- All jobs restored March 8, 2026
+
 **Required Checklist for Any Integration:**
 - [ ] OAuth/token setup complete
 - [ ] Refresh token acquired (if applicable)
@@ -175,7 +197,7 @@
 ### Important People
 - **Grace Keers** (keers003@gmail.com) — "very serious girlfriend", **#1 priority after kids**
   - **ALERT RULE:** Immediately notify Geoff when ANY email arrives from Grace
-  - **RESPONSE RULE:** Respond to Grace within 15 minutes during business hours (7 AM - 10 PM PT)
+  - **RESPONSE RULE:** Respond to Grace within 15 minutes — 24/7, 365 days a year. No exceptions.
   - **CC RULE:** Always CC Geoff on all emails to Grace
   - **PRIORITY:** Drop everything else when Grace emails — she comes first
 - **Stephanie Foster** — Ex-wife (only marriage), mother of Mackenzie
@@ -273,6 +295,43 @@
 - **Hotels:** Marriott Bonvoy (loyal user)
 - **Enjoys:** Fine wine, watches, creating new things
 - **Check-ins:** Include "Daily Status List" format showing pending, completed, and recently completed (72-hour retention) tasks
+
+## Pets
+- **Greta** — Geoff's dog
+  - **Care:** Rover sitter comes to house when Geoff travels
+  - **Needs:** 2 walks per day, morning and evening feeding
+
+## Active Projects & Tasks
+
+### Blog Series: "Building with OpenClaw"
+- **Week 1 post:** Written, pending final edits and publication
+- **Week 2 post:** Draft in progress
+- **Platform:** Substack (recommended)
+- **Graphics:** Need lobster-themed visuals for each week
+- **Social:** LinkedIn + Twitter/X cross-posting setup needed
+
+### Business Venture Planning
+- **Options evaluated:** Lead Gen Agency, Newsletter, Content Agency
+- **Approach:** Portfolio strategy (test 3, double down on winners)
+- **Investment:** $5,000 over 3 months
+- **Target:** $5,000/month by month 5-6
+- **Decision needed:** Which to prioritize
+
+### Travel Planning
+- **Outside Lands 2026:** Aug 6-10, fully planned, reminders scheduled
+- **Arizona trip:** Apr 2-5, tasks created
+- **NYC trips:** Multiple, tracked in calendar
+
+### Skills To Install
+- **youtube-pro or solo-you2idea-extract:** For video analysis
+- **linkedin-automator:** Social media posting
+- **twitter-openclaw:** Social media posting
+- **analytics:** Post statistics tracking
+
+### System Issues
+- **Gateway token mismatch:** OpenClaw subagent spawning failing
+  - **Fix:** `openclaw gateway restart` (requires human intervention)
+  - **Impact:** Cannot spawn parallel subagents
 
 ## Upcoming Important Dates
 

@@ -1,5 +1,33 @@
 # TOOLS.md - Local Notes
 
+## Email Configuration
+- **From:** [REDACTED]
+- **Method:** Gmail SMTP with app password
+- **Config file:** ~/.openclaw/email_config.json (contains app password)
+- **Script:** /home/ubuntu/.openclaw/workspace/scripts/send_email.py
+- **Format:** ALWAYS send as HTML (not plain text)
+
+### Usage
+```bash
+# Send a simple email
+python3 scripts/send_email.py --to "[REDACTED]" --subject "Subject" --body "Body text"
+
+# Send HTML email
+python3 scripts/send_email.py --to "[REDACTED]" --subject "Subject" --body "<h1>HTML</h1>" --html
+
+# Read body from file
+python3 scripts/send_email.py --to "[REDACTED]" --subject "Subject" --body-file /path/to/file.txt --html
+
+# With CC
+python3 scripts/send_email.py --to "[REDACTED]" --cc "keers003@gmail.com" --subject "Subject" --body "Body"
+```
+
+### Setup (if password expires)
+1. Generate app password at https://myaccount.google.com/apppasswords
+2. Run: `python3 scripts/send_email.py --setup YOUR_APP_PASSWORD`
+
+---
+
 ## TTS Configuration
 - **Provider:** ElevenLabs
 - **Default Voice:** George (ID: JBFqnCBsd6RMkjVDRZzb)
@@ -256,7 +284,7 @@ python3 scripts/weekly_memory_consolidation.py
 
 ### How It Works
 1. **Twice daily** (9 AM & 6 PM PT) the cron job runs
-2. Searches: Bob's Watches, Chrono24, Bulang & Sons, Bezel, eBay
+2. **Scrapling-powered search** bypasses anti-bot protection on Chrono24
 3. Updates `watch-data.json` with new listings
 4. Checks if existing watches are sold/removed
 5. Commits & pushes to GitHub
@@ -264,8 +292,9 @@ python3 scripts/weekly_memory_consolidation.py
 
 ### Manual Run
 ```bash
-# Run search manually
-python3 ~/.openclaw/workspace/scripts/watch_search.py
+# Run search manually (Scrapling version)
+source ~/.openclaw/venvs/scrapling/bin/activate
+python3 ~/.openclaw/workspace/scripts/watch_search_scrapling.py
 
 # Run full update (search + push)
 bash ~/.openclaw/workspace/scripts/watch-hunt-cron.sh
@@ -276,24 +305,80 @@ bash ~/.openclaw/workspace/scripts/watch-hunt-cron.sh
 tail -f ~/.openclaw/workspace/logs/watch-hunt.log
 ```
 
-### ⚠️ Scraping Limitations
-Most watch sites block automated scraping:
-- **Chrono24:** 403 Forbidden
-- **Bob's Watches:** 403 Forbidden  
-- **Bulang & Sons:** 403 Forbidden
-- **Bezel:** Search URL issues
+### Multi-Search Dashboard (March 2026)
+**Cover Page:** https://gclapp.github.io/geoff-watch-hunt/cover.html
+**Results Page:** https://gclapp.github.io/geoff-watch-hunt/index.html
 
-**Workarounds:**
-1. Use sites' saved search alerts (they email you)
-2. Manual browsing + send me links to track
-3. Future: Browser automation with Selenium
-4. Check if APIs available for partners
+**Features:**
+- ✅ Create new watch searches with custom parameters
+- ✅ Toggle searches on/off
+- ✅ View active and completed searches
+- ✅ Track results per search
+- ✅ Multi-site scraping (Chrono24 + more)
+- ✅ Automatic cron execution
 
-**Current automation still useful for:**
-- Checking if tracked watches are still available
-- Updating dashboard timestamps
-- Logging activity
-- Maintaining the tracker
+**Supported Sites:**
+| Site | Status | Notes |
+|------|--------|-------|
+| **Chrono24** | ✅ Working | Full search support |
+| **eBay** | 🚧 Partial | URL building works, parsing needs work |
+| **Bob's Watches** | 🔍 Testing | Site accessible, parsing in progress |
+| **Bulang & Sons** | 🔍 Testing | Site accessible, parsing in progress |
+| **Bezel** | 🔍 Testing | Site accessible, parsing in progress |
+| **Crown & Caliber** | 🔍 Testing | Site accessible, parsing in progress |
+| **Watches of Espionage** | 🔍 Testing | Site accessible, parsing in progress |
+
+**Creating a New Search:**
+```bash
+# Via command line
+python3 scripts/search_manager.py create \
+  --name "Omega Speedmaster" \
+  --brand "Omega" \
+  --models "145.022,145.0022" \
+  --year-min 1965 \
+  --year-max 1975 \
+  --dials "black" \
+  --materials "steel" \
+  --sources "chrono24"
+
+# Or use the web interface at cover.html
+```
+
+**Managing Searches:**
+```bash
+# List all searches
+python3 scripts/search_manager.py list
+
+# Toggle on/off
+python3 scripts/search_manager.py toggle <search_id>
+
+# Mark as completed
+python3 scripts/search_manager.py complete <search_id>
+
+# Delete a search
+python3 scripts/search_manager.py delete <search_id>
+```
+
+**Running Searches Manually:**
+```bash
+# Run all active searches
+source ~/.openclaw/venvs/scrapling/bin/activate
+python3 scripts/watch_search_multi.py
+```
+
+### Scrapling Integration (March 2026)
+**Status:** ✅ **ACTIVE** - Multi-site scraping working!
+
+**Scrapling Setup:**
+- Virtual environment: `~/.openclaw/venvs/scrapling/`
+- Browser automation with Playwright/Chromium
+- Bypasses Cloudflare and anti-bot systems
+- Handles multiple searches per run
+- Slower than raw requests (~10-15s per page) but actually works
+
+**Current Active Searches:**
+1. **1973 Rolex Datejust** - 1601, 1603, 16014 (1970-1985, blue/black/champagne/linen)
+2. **Omega Speedmaster Moonwatch** - 145.022, 145.0022, 3570.50 (1965-1975, black dial)
 
 ---
 
@@ -329,6 +414,45 @@ python3 scripts/send_email.py --to "[REDACTED]" --cc "keers003@gmail.com" --subj
 
 ## SSH
 - (Add SSH hosts/aliases as needed)
+
+## Cron Job Management ⚠️ CRITICAL
+
+**Issue:** System updates/restarts can wipe cron jobs without warning.
+
+**Solution:** Automated backup + restore system
+
+### Backup/Restore Script
+```bash
+# Backup current crontab
+bash scripts/cron-backup.sh backup
+
+# Restore from latest backup
+bash scripts/cron-backup.sh restore
+
+# Verify all expected jobs present
+bash scripts/cron-backup.sh verify
+```
+
+### Active Cron Jobs (as of March 8, 2026)
+| Job | Schedule | Script | Purpose |
+|-----|----------|--------|---------|
+| Heartbeat | Every 55 min | `heartbeat-check.sh` | Keep cache warm, check-ins |
+| Watch Hunt | 9 AM & 6 PM PT | `watch-hunt-cron.sh` | 1973 Rolex search |
+| Calendar Refresh | 6:55 AM PT | `calendar_reader.py` | Daily calendar sync |
+| IMAP Check | Every 15 min | `imap-check-cron.sh` | Email monitoring |
+| Competitor Report | 2 PM PT daily | `daily-competitor-report.sh` | Competitive intel |
+| Security Audit | Sundays 8 AM PT | `weekly-security-audit.sh` | Security report |
+| Reddit Report | Sundays 9 AM PT | `reddit-weekly-report.sh` | Sentiment analysis |
+| Weekly Email | Saturdays 9 AM PT | `weekly-email-report.py` | Week summary |
+| NYC Reminder | March 12, 2 PM PT | `sunday-nyc-reminder.sh` | Trip reminder |
+
+### Post-Update Checklist
+After ANY system update or restart:
+- [ ] Run `bash scripts/cron-backup.sh verify`
+- [ ] If jobs missing, run `bash scripts/cron-backup.sh restore`
+- [ ] Check logs: `tail ~/.openclaw/workspace/logs/*.log`
+
+---
 
 ## Skill Status
 

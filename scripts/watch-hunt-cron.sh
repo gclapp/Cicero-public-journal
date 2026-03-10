@@ -18,8 +18,9 @@ cd "$REPO_DIR"
 # Pull latest changes first (in case of manual updates)
 git pull origin main >> "$LOG_FILE" 2>&1 || true
 
-# Run the Python watch search script
-python3 "$HOME/.openclaw/workspace/scripts/watch_search.py" >> "$LOG_FILE" 2>&1
+# Activate the Scrapling virtual environment and run the multi-search scraper
+source "$HOME/.openclaw/venvs/scrapling/bin/activate"
+python3 "$HOME/.openclaw/workspace/scripts/watch_search_multi.py" >> "$LOG_FILE" 2>&1
 
 # Check if there are changes
 if git diff --quiet watch-data.json; then

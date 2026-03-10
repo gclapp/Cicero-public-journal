@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cicero//Outside Lands Flight//EN
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20260807T050000Z
+DTEND:20260807T080000Z
+DTSTAMP:20260307T051000Z
+ORGANIZER;CN=Cicero:MAILTO:[REDACTED]
+UID:outside-lands-flight-lax-sfo@openclaw.ai
+SUMMARY:Flight to San Francisco - Outside Lands
+DESCRIPTION:Delta flight to San Francisco for Outside Lands Music Festival\n\nRoute: LAX to SFO\nDate: August 6\, 2026\nDeparture: 9:05 PM PT\nAirline: Delta\nPassenger: Geoffrey J Clapp\nSkyMiles: #9446540677\n\nTrip: Outside Lands Music Festival\nFestival Dates: August 7-9\, 2026\nHotel: The Westin St. Francis (check-in Aug 6)
+LOCATION:Los Angeles International Airport (LAX)
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Flight to San Francisco - Leave for LAX
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

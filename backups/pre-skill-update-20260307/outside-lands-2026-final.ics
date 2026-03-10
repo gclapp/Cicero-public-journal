@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cicero//Outside Lands 2026//EN
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20260807T120000Z
+DTEND:20260810T040000Z
+DTSTAMP:20260307T030000Z
+ORGANIZER;CN=Cicero:MAILTO:[REDACTED]
+UID:outside-lands-2026-vip@openclaw.ai
+SUMMARY:Outside Lands 2026 - VIP (3-Day Festival)
+DESCRIPTION:Outside Lands Music Festival 2026\n\nVIP Ticket Access - 3 Day Passes\nLocation: Golden Gate Park\nSan Francisco\n\nOrder #: 173803719\nTotal: $3,162.90\n\nTravelers: Geoff & Grace\n\nHotel: The Westin St. Francis San Francisco\n335 Powell Street\nCheck-in: August 6\nCheck-out: August 10
+LOCATION:Golden Gate Park\, San Francisco\, CA
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Outside Lands starts today!
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

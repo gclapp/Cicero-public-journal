@@ -120,9 +120,15 @@ def get_upcoming_events(days=14, max_results=20):
 
 def main():
     """Main function to fetch and display calendar"""
-    print("📅 Fetching upcoming events...")
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--days', type=int, default=90, help='Number of days to look ahead')
+    parser.add_argument('--max', type=int, default=100, help='Maximum events to fetch')
+    args = parser.parse_args()
     
-    events = get_upcoming_events(days=14, max_results=20)
+    print(f"📅 Fetching upcoming events ({args.days} days ahead)...")
+    
+    events = get_upcoming_events(days=args.days, max_results=args.max)
     
     if not events:
         print("No upcoming events found.")

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dog Day Afternoon - Theater Night in NYC</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a2e;
+            border-bottom: 3px solid #8B0000;
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+            font-size: 22px;
+            border-left: 4px solid #8B0000;
+            padding-left: 15px;
+        }
+        h3 {
+            color: #34495e;
+            font-size: 18px;
+            margin-top: 25px;
+        }
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .tip-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .restaurant-card {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+        }
+        .restaurant-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .restaurant-details {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .restaurant-desc {
+            margin-top: 10px;
+        }
+        .distance {
+            display: inline-block;
+            background: #e9ecef;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #495057;
+            margin-left: 10px;
+        }
+        .price {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .theater-info {
+            background: #1a1a2e;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .theater-info h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+        .transport-option {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .transport-title {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #dee2e6;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #8B0000;
+        }
+        .time {
+            font-weight: bold;
+            color: #8B0000;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e9ecef;
+            font-size: 14px;
+            color: #6c757d;
+            text-align: center;
+        }
+        .map-link {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .map-link:hover {
+            background: #0056b3;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .badge-recommended {
+            background: #d4edda;
+            color: #155724;
+        }
+        .badge-quick {
+            background: #fff3cd;
+            color: #856404;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Dog Day Afternoon<br>
+        <span style="font-size: 0.6em; color: #6c757d;">Theater Night in NYC — Tuesday, March 10</span></h1>
+
+        <div class="theater-info">
+            <h3>🎬 Show Details</h3>
+            <p><strong>Play:</strong> Dog Day Afternoon</p>
+            <p><strong>Date:</strong> Tuesday, March 10, 2026</p>
+            <p><strong>Time:</strong> 4:30 PM</p>
+            <p><strong>Theater:</strong> August Wilson Theatre</p>
+            <p><strong>Address:</strong> 245 W 52nd Street, New York, NY 10019</p>
+            <p><strong>Order #:</strong> 3819385</p>
+            <a href="https://maps.google.com/?q=August+Wilson+Theatre+245+W+52nd+St+New+York+NY" class="map-link" target="_blank">📍 Open in Google Maps</a>
+        </div>
+
+        <h2>✈️ Getting There from Atlanta</h2>
+        
+        <div class="highlight-box">
+            <strong>Your Travel Flow:</strong><br>
+            Renaissance Concourse Atlanta Airport Hotel → ATL Airport → LGA/JFK/EWR → NYC Hotel → Theater
+        </div>
+
+        <h3>Step 1: Atlanta to NYC Flight</h3>
+        <div class="transport-option">
+            <div class="transport-title">Monday, March 9 — Delta Flight 471</div>
+            <p><strong>Departure:</strong> 5:25 PM from LAX (Los Angeles)</p>
+            <p><strong>Arrival:</strong> Atlanta (ATL)</p>
+            <p><strong>Stay:</strong> Renaissance Concourse Atlanta Airport Hotel (night of March 9)</p>
+            <p><strong>Confirmation:</strong> GVRJPS</p>
+        </div>
+
+        <div class="transport-option">
+            <div class="transport-title">Tuesday, March 10 — Delta Flight 763</div>
+            <p><strong>Departure:</strong> 5:10 PM from Atlanta (ATL)</p>
+            <p><strong>Arrival:</strong> Los Angeles (LAX)</p>
+            <p><em>Wait — this shows you RETURNING to LA on Tuesday evening. Let me check if there's an earlier flight to NYC...</em></p>
+        </div>
+
+        <div class="tip-box">
+            <strong>⚠️ Check Your Itinerary</strong><br>
+            Your calendar shows a flight FROM Atlanta TO Los Angeles on Tuesday at 5:10 PM — but your play is in New York at 4:30 PM the same day. You may need to:
+            <ul>
+                <li>Fly Atlanta → NYC (LGA/JFK/EWR) earlier on Tuesday</li>
+                <li>Or fly Monday night to NYC and stay there</li>
+            </ul>
+            <strong>Please verify your flight details — this timing doesn't work as currently shown.</strong>
+        </div>
+
+        <h2>🚕 Getting to the Theater (Once in NYC)</h2>
+
+        <h3>From NYC Airports to August Wilson Theatre</h3>
+        <table>
+            <tr>
+                <th>Airport</th>
+                <th>Travel Time</th>
+                <th>Best Option</th>
+                <th>Cost Estimate</th>
+            </tr>
+            <tr>
+                <td><strong>LGA</strong> (LaGuardia)</td>
+                <td>45-60 min</td>
+                <td>Yellow cab / Uber</td>
+                <td>$40-60</td>
+            </tr>
+            <tr>
+                <td><strong>JFK</strong></td>
+                <td>60-90 min</td>
+                <td>AirTrain + Taxi or Uber</td>
+                <td>$60-80</td>
+            </tr>
+            <tr>
+                <td><strong>EWR</strong> (Newark)</td>
+                <td>60-90 min</td>
+                <td>AirTrain + NJ Transit + Taxi</td>
+                <td>$50-70</td>
+            </tr>
+        </table>
+
+        <h3>From Manhattan Hotels to Theater</h3>
+        <div class="transport-option">
+            <div class="transport-title">🚕 Taxi / Uber / Lyft</div>
+            <p>Fastest and easiest. 10-20 minutes from most Midtown hotels.</p>
+            <p><strong>Cost:</strong> $15-25 depending on traffic</p>
+        </div>
+
+        <div class="transport-option">
+            <div class="transport-title">🚇 Subway</div>
+            <p><strong>Lines:</strong> C/E to 50th St, 1 to 50th St, or N/Q/R/W to 49th St</p>
+            <p>Walk 2-3 blocks to 52nd St. Budget 30-40 minutes total.</p>
+            <p><strong>Cost:</strong> $2.90 per ride</p>
+        </div>
+
+        <div class="transport-option">
+            <div class="transport-title">🚶 Walking</div>
+            <p>If you're staying in Midtown/Hell's Kitchen, it's very walkable.</p>
+            <p>From Times Square: 10-15 min walk</p>
+            <p>From Hudson Yards: 15-20 min walk</p>
+        </div>
+
+        <h2>🍽️ Pre-Theater Dinner Recommendations</h2>
+        <p style="color: #6c757d; font-style: italic;">All within walking distance of August Wilson Theatre (245 W 52nd St)</p>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Gallaghers Steakhouse
+                <span class="badge badge-recommended">RECOMMENDED</span>
+                <span class="distance">0.02 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$</span> | Steakhouse | 228 West 52nd Street
+            </div>
+            <div class="restaurant-desc">
+                Classic New York steakhouse since 1927. Dry-aged steaks, old-school atmosphere, perfect for a special theater night. Iconic neon sign out front.
+                <br><br>
+                <strong>Perfect for:</strong> Pre-theater dinner, classic NYC experience
+                <br>
+                <a href="https://www.opentable.com/r/gallaghers-steakhouse-manhattan-new-york" target="_blank">Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Toloache
+                <span class="badge badge-recommended">RECOMMENDED</span>
+                <span class="distance">0.12 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | Mexican | 251 West 50th Street
+            </div>
+            <div class="restaurant-desc">
+                Upscale Mexican with excellent margaritas and guacamole. Lively but not too loud. Great for a fun pre-show meal.
+                <br><br>
+                <strong>Perfect for:</strong> Casual but special dinner, great cocktails
+                <br>
+                <a href="https://www.opentable.com/r/toloache-midtown-new-york" target="_blank">Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                The Palm West Side
+                <span class="distance">0.13 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$$</span> | Steakhouse | 250 West 50th Street
+            </div>
+            <div class="restaurant-desc">
+                Legendary steakhouse known for steaks, lobsters, and caricatures of famous regulars on the walls. Classic power-dining spot.
+                <br><br>
+                <strong>Perfect for:</strong> Business dinner, classic steakhouse vibe
+                <br>
+                <a href="https://www.opentable.com/r/the-palm-west-side-new-york" target="_blank">Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Saar Indian Bistro
+                <span class="distance">0.07 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$</span> | Indian | 241 West 51st Street
+            </div>
+            <div class="restaurant-desc">
+                Modern Indian cuisine in an elegant setting. Good for something different from the usual theater district options.
+                <br><br>
+                <strong>Perfect for:</strong> Something unique, flavorful, quieter atmosphere
+                <br>
+                <a href="https://www.opentable.com/r/saar-indian-bistro-new-york" target="_blank">Reserve on OpenTable</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Danji
+                <span class="badge badge-recommended">CRITIC'S PICK</span>
+                <span class="distance">0.5 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | Korean | 346 W 52nd St
+            </div>
+            <div class="restaurant-desc">
+                Michelin-recommended Korean small plates. Inventive, flavorful, great for sharing. Featured in Eater and Infatuation.
+                <br><br>
+                <strong>Perfect for:</strong> Adventurous eaters, sharing plates, unique experience
+                <br>
+                <a href="https://www.opentable.com" target="_blank">Check availability</a>
+            </div>
+        </div>
+
+        <h2>🍸 Pre or Post-Theater Drinks</h2>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                The Rickey Cocktail Lounge at Dream Midtown
+                <span class="badge badge-recommended">ROOFTOP VIEWS</span>
+                <span class="distance">0.13 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | Cocktail Bar | 210 W 55th St
+            </div>
+            <div class="restaurant-desc">
+                Upscale rooftop lounge with craft cocktails and city views. Great for a pre-show drink or nightcap.
+                <br><br>
+                <strong>Best for:</strong> Cocktails with a view, date night vibe
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                Russian Samovar & Tolstoy's Lounge
+                <span class="distance">0.06 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$$</span> | Russian | 256 W 52nd Street
+            </div>
+            <div class="restaurant-desc">
+                Authentic Russian restaurant with vodka infusions, caviar, and live piano. Old-world charm.
+                <br><br>
+                <strong>Best for:</strong> Unique experience, vodka flights, post-show late night
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-name">
+                McHale's Bar & Grill
+                <span class="badge badge-quick">QUICK BITE</span>
+                <span class="distance">0.07 mi</span>
+            </div>
+            <div class="restaurant-details">
+                <span class="price">$$</span> | Comfort Food | 251 W 51st St
+            </div>
+            <div class="restaurant-desc">
+                Casual Irish pub with solid burgers, beer, and a relaxed vibe. Good for a quick pre-show beer.
+                <br><br>
+                <strong>Best for:</strong> Casual drink, no reservations needed
+            </div>
+        </div>
+
+        <h2>⏰ Suggested Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time">2:00 PM</div>
+                <strong>Arrive in NYC</strong> (depending on flight)
+            </div>
+            <div class="timeline-item">
+                <div class="time">2:30 PM</div>
+                <strong>Check into hotel / drop bags</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="time">3:00 PM</div>
+                <strong>Pre-theater drinks</strong> (optional)
+            </div>
+            <div class="timeline-item">
+                <div class="time">3:30 PM</div>
+                <strong>Early dinner</strong> (if eating before show)
+            </div>
+            <div class="timeline-item">
+                <div class="time">4:00 PM</div>
+                <strong>Head to theater</strong> (allow time for security, finding seats)
+            </div>
+            <div class="timeline-item">
+                <div class="time">4:30 PM</div>
+                <strong>🎭 Dog Day Afternoon begins</strong>
+            </div>
+            <div class="timeline-item">
+                <div class="time">~7:00 PM</div>
+                <strong>Show ends</strong> (typical runtime ~2.5 hours)
+            </div>
+            <div class="timeline-item">
+                <div class="time">7:30 PM</div>
+                <strong>Post-show dinner or drinks</strong>
+            </div>
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Pro Tips for Theater Night</strong>
+            <ul>
+                <li><strong>Arrive early:</strong> Theaters can have security lines. Aim for 4:00 PM.</li>
+                <li><strong>Dress code:</strong> Business casual to dressy. No strict code but people tend to dress up.</li>
+                <li><strong>Pre-theater menus:</strong> Many restaurants offer prix fixe pre-theater menus (usually until 6 PM).</li>
+                <li><strong>Post-show:</strong> Restaurants get busy after 7:30 PM — make reservations.</li>
+                <li><strong>Weather:</strong> March in NYC can be chilly. Bring a coat.</li>
+                <li><strong>Phone:</strong> Silence it before the show. Photos prohibited during performance.</li>
+            </ul>
+        </div>
+
+        <h2>🗺️ Theater District Map</h2>
+        <p>The August Wilson Theatre is in the heart of the Theater District:</p>
+        <ul>
+            <li><strong>8th Avenue:</strong> 1 block west — major subway hub</li>
+            <li><strong>Broadway:</strong> 2 blocks east — Times Square area</li>
+            <li><strong>9th Avenue:</strong> 1 block west — Hell's Kitchen restaurant row</li>
+            <li><strong>Central Park:</strong> 6 blocks north</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>🎯 My Top Recommendation:</strong><br><br>
+            If it were me, I'd do:<br>
+            <strong>3:30 PM</strong> — Early dinner at <strong>Gallaghers Steakhouse</strong> (classic NYC, walking distance)<br>
+            <strong>4:15 PM</strong> — Walk to theater (2 minutes)<br>
+            <strong>4:30 PM</strong> — Enjoy the show!<br>
+            <strong>7:30 PM</strong> — Post-show drinks at <strong>The Rickey</strong> for rooftop views
+        </div>
+
+        <div class="footer">
+            <p>🏛️ Created by Cicero for Geoff & Grace</p>
+            <p>Have a wonderful night at the theater! 🎭</p>
+        </div>
+    </div>
+</body>
+</html>

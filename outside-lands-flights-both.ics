@@ -1,0 +1,40 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Cicero//Outside Lands Flights//EN
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20260806T232500Z
+DTEND:20260807T005000Z
+DTSTAMP:20260307T051500Z
+ORGANIZER;CN=Cicero:MAILTO:[REDACTED]
+UID:outside-lands-outbound-lax-sfo@openclaw.ai
+SUMMARY:Flight to San Francisco - Outside Lands (Delta 1559)
+DESCRIPTION:Outbound flight to San Francisco for Outside Lands Music Festival\n\nFlight: Delta 1559\nDate: Thursday\, August 6\, 2026\nDeparture: 4:25 PM PT from LAX\nArrival: 5:50 PM PT at SFO\nRoute: Los Angeles to San Francisco\nConfirmation: HH7NH4\nPassenger: Geoffrey J Clapp\nSkyMiles: #9446540677\n\nTrip: Outside Lands Music Festival\nFestival: August 7-9\, 2026\nHotel: The Westin St. Francis
+LOCATION:Los Angeles International Airport (LAX)
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Leave for LAX - Flight to San Francisco
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20260811T015000Z
+DTEND:20260811T032400Z
+DTSTAMP:20260307T051500Z
+ORGANIZER;CN=Cicero:MAILTO:[REDACTED]
+UID:outside-lands-return-sfo-lax@openclaw.ai
+SUMMARY:Flight to Los Angeles - Return from Outside Lands (Delta 1559)
+DESCRIPTION:Return flight from San Francisco\n\nFlight: Delta 1559\nDate: Monday\, August 10\, 2026\nDeparture: 6:50 PM PT from SFO\nArrival: 8:24 PM PT at LAX\nRoute: San Francisco to Los Angeles\nConfirmation: HH7NH4\nPassenger: Geoffrey J Clapp\nSkyMiles: #9446540677\n\nTrip: Outside Lands Music Festival\nCheckout: The Westin St. Francis
+LOCATION:San Francisco International Airport (SFO)
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Leave for SFO - Return flight to LA
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
