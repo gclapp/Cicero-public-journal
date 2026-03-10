@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-Multi-Search Watch Scraper - Scrapling Edition
-Handles multiple active searches across all watch sites
+Multi-Search Watch Scraper - Complete Edition
+Handles multiple active searches across all watch sites with full parsing
 """
 
 import sys
 sys.path.insert(0, '/home/ubuntu/.openclaw/venvs/scrapling/lib/python3.12/site-packages')
 
-from scrapling.fetchers import StealthyFetcher, Fetcher
+from scrapling.fetchers import StealthyFetcher
 import re
 import json
 from datetime import datetime
@@ -90,17 +90,14 @@ def is_two_tone(case_text):
 
 def matches_search(watch, search):
     """Check if a watch matches the search criteria"""
-    # Check year range
     year = watch.get('year', 0)
     if not (search['years']['min'] <= year <= search['years']['max']):
         return False
     
-    # Check dial color
     dial = watch.get('dialColor', '').lower()
     if dial not in [c.lower() for c in search['dialColors']]:
         return False
     
-    # Check case material
     case = watch.get('case', '').lower()
     materials = [m.lower() for m in search['caseMaterials']]
     has_material = False
@@ -118,10 +115,43 @@ def matches_search(watch, search):
     return True
 
 
+def extract_year_from_text(text):
+    """Extract year from text - flexible matching"""
+    if not text:
+        return None
+    # Look for 4-digit years in reasonable range
+    matches = re.findall(r'(19[5-9]\d|20[0-2]\d)', str(text))
+    if matches:
+        return int(matches[0])
+    return None
+
+
+def create_watch_dict(reference, year, dial_color, case, price, image_url, link, source, title, search):
+    """Create a standardized watch dictionary"""
+    return {
+        'reference': reference,
+        'year': year,
+        'dialColor': dial_color,
+        'dialType': dial_color.capitalize() if dial_color else 'Unknown',
+        'case': case,
+        'size': '36mm',
+        'bracelet': 'Unknown',
+        'price': price,
+        'source': source,
+        'link': link,
+        'imageUrl': image_url,
+        'listingUrl': link,
+        'notes': title[:200] if title else f"Ref {reference} from {source}",
+        'searchId': search['id'],
+        'searchName': search['name'],
+        'brand': search['brand']
+    }
+
+
 # ==================== SITE-SPECIFIC SCRAPERS ====================
 
 def search_chrono24(search):
-    """Search Chrono24 for watches matching the search criteria"""
+    """Search Chrono24 for watches"""
     print(f"\n🔍 Searching Chrono24 for: {search['name']}")
     watches = []
     
@@ -129,12 +159,10 @@ def search_chrono24(search):
     
     for model in search['modelNumbers']:
         try:
-            # Build Chrono24 URL
             url = f"https://www.chrono24.com/{brand_slug}/ref-{model}.htm"
             print(f"  Checking: {url}")
             
             page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
-            
             containers = page.css('.article-item-container')
             print(f"    Found {len(containers)} listings")
             
@@ -145,50 +173,29 @@ def search_chrono24(search):
                         continue
                     listing = listing[0]
                     
-                    # Extract link
-                    link_elem = listing.css('a[href*="/rolex/"], a[href*="/omega/"], a[href*="/patek-philippe/"], a[href*="/cartier/"], a[href]')
+                    link_elem = listing.css('a[href]')
                     if not link_elem:
                         continue
                     link = link_elem[0].attrib.get('href', '')
                     if link and not link.startswith('http'):
                         link = f"https://www.chrono24.com{link}"
                     
-                    # Extract title from image alt
                     img = listing.css('img')
-                    title = ""
-                    if img:
-                        title = img[0].attrib.get('alt', '')
+                    title = img[0].attrib.get('alt', '') if img else ""
                     
-                    # Extract year
-                    year = None
-                    year_match = re.search(r'(19\d\d|20\d\d)', title)
-                    if year_match:
-                        year = int(year_match.group(1))
-                    else:
-                        container_text = container.text or ""
-                        year_match = re.search(r'(19\d\d|20\d\d)', container_text)
-                        if year_match:
-                            year = int(year_match.group(1))
-                    
+                    year = extract_year_from_text(title) or extract_year_from_text(container.text)
                     if not year:
                         continue
                     
-                    # Extract price
                     price = None
                     price_elem = container.css('[class*="price"], .amount')
                     if price_elem:
-                        price_text = price_elem[0].text or ""
-                        price = normalize_price(price_text)
+                        price = normalize_price(price_elem[0].text)
                     
-                    # Extract image
-                    image_url = None
-                    if img:
-                        image_url = img[0].attrib.get('src') or img[0].attrib.get('data-src')
+                    image_url = img[0].attrib.get('src') or img[0].attrib.get('data-src') if img else None
                     
-                    # Determine dial color
                     dial_color = normalize_dial_color(title)
                     
-                    # Determine case type
                     title_lower = title.lower()
                     if is_two_tone(title):
                         case = "Two-tone"
@@ -199,23 +206,7 @@ def search_chrono24(search):
                     else:
                         case = "Unknown"
                     
-                    watch = {
-                        'reference': model,
-                        'year': year,
-                        'dialColor': dial_color,
-                        'dialType': dial_color.capitalize(),
-                        'case': case,
-                        'size': '36mm',  # Default, could be extracted
-                        'bracelet': 'Unknown',
-                        'price': price,
-                        'source': 'Chrono24',
-                        'link': link,
-                        'imageUrl': image_url,
-                        'listingUrl': link,
-                        'notes': title[:200] if title else f"Ref {model} from Chrono24",
-                        'searchId': search['id'],
-                        'searchName': search['name']
-                    }
+                    watch = create_watch_dict(model, year, dial_color, case, price, image_url, link, 'Chrono24', title, search)
                     
                     if matches_search(watch, search):
                         watches.append(watch)
@@ -238,24 +229,69 @@ def search_ebay(search):
     watches = []
     
     try:
-        # Build eBay search URL
         brand = search['brand'].replace(' ', '+')
-        models = '+'.join(search['modelNumbers'])
-        year_min = search['years']['min']
-        year_max = search['years']['max']
-        
-        # eBay advanced search URL
-        url = f"https://www.ebay.com/sch/i.html?_nkw={brand}+{models}&_sacat=260324"
+        model = search['modelNumbers'][0] if search['modelNumbers'] else ''
+        url = f"https://www.ebay.com/sch/i.html?_nkw={brand}+{model}&_sacat=260324&_ipg=240"
         print(f"  Checking: {url}")
         
         page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
         
-        # eBay listings
         listings = page.css('.s-item')
         print(f"    Found {len(listings)} listings")
         
-        # eBay processing stub - needs more development
-        print(f"    ⚠️  eBay parsing not fully implemented yet")
+        for listing in listings:
+            try:
+                title_elem = listing.css('.s-item__title')
+                if not title_elem:
+                    continue
+                title = title_elem[0].text or ""
+                if "Shop on eBay" in title or not title:
+                    continue
+                
+                link_elem = listing.css('.s-item__link')
+                if not link_elem:
+                    continue
+                link = link_elem[0].attrib.get('href', '')
+                
+                price_elem = listing.css('.s-item__price')
+                price = normalize_price(price_elem[0].text) if price_elem else None
+                
+                img = listing.css('.s-item__image-img')
+                image_url = img[0].attrib.get('src') if img else None
+                
+                year = extract_year_from_text(title)
+                if not year:
+                    continue
+                
+                dial_color = normalize_dial_color(title)
+                
+                title_lower = title.lower()
+                if is_two_tone(title):
+                    case = "Two-tone"
+                elif 'gold' in title_lower:
+                    case = "Gold"
+                elif 'steel' in title_lower or 'stainless' in title_lower:
+                    case = "Steel"
+                else:
+                    case = "Unknown"
+                
+                # Extract reference from title
+                ref = search['modelNumbers'][0] if search['modelNumbers'] else 'Unknown'
+                for model_num in search['modelNumbers']:
+                    if model_num in title:
+                        ref = model_num
+                        break
+                
+                watch = create_watch_dict(ref, year, dial_color, case, price, image_url, link, 'eBay', title, search)
+                
+                if matches_search(watch, search):
+                    watches.append(watch)
+                    print(f"    ✅ Found: {ref} ({year}) - ${price or 'N/A'}")
+                
+            except Exception as e:
+                continue
+        
+        print(f"  📊 Found {len(watches)} matching watches from eBay")
         
     except Exception as e:
         print(f"  ❌ Error searching eBay: {e}")
@@ -269,38 +305,70 @@ def search_bobs_watches(search):
     watches = []
     
     try:
-        # Try different URL patterns
-        brand = search['brand'].lower().replace(' ', '-')
-        urls_to_try = [
-            f"https://www.bobswatches.com/{brand}/",
-            "https://www.bobswatches.com/rolex/",
-            "https://www.bobswatches.com/shop/",
-        ]
+        # Bob's Watches organizes by brand/model
+        brand = search['brand'].lower()
         
-        for url in urls_to_try:
+        # Try to search by model numbers
+        for model in search['modelNumbers'][:2]:  # Limit to first 2 models
             try:
-                print(f"  Trying: {url}")
+                # Bob's uses different URL patterns
+                url = f"https://www.bobswatches.com/rolex/{model}.html"
+                print(f"  Checking: {url}")
+                
                 page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
                 
-                # Look for product listings
-                products = page.css('.product-item, .product-card, [class*="product"]')
-                print(f"    Found {len(products)} product elements")
+                # Look for product grid items
+                products = page.css('.product-item-info, .product-item, [data-product-id]')
+                print(f"    Found {len(products)} products")
                 
-                if len(products) > 0:
-                    # Check if any match our models
-                    page_text = page.text or ""
-                    for model in search['modelNumbers']:
-                        if model in page_text:
-                            print(f"    ✅ Found reference {model} mentioned on page")
-                    
-                    # For now, just acknowledge we can access the site
-                    print(f"    ✅ Bob's Watches is accessible")
-                    break
-                    
+                for product in products:
+                    try:
+                        title_elem = product.css('.product-item-link, .product-name a, h2 a')
+                        if not title_elem:
+                            continue
+                        title = title_elem[0].text or ""
+                        
+                        link = title_elem[0].attrib.get('href', '')
+                        if link and not link.startswith('http'):
+                            link = f"https://www.bobswatches.com{link}"
+                        
+                        price_elem = product.css('.price, .product-price')
+                        price = normalize_price(price_elem[0].text) if price_elem else None
+                        
+                        img = product.css('.product-image-photo, img')
+                        image_url = img[0].attrib.get('src') if img else None
+                        
+                        year = extract_year_from_text(title)
+                        if not year:
+                            continue
+                        
+                        dial_color = normalize_dial_color(title)
+                        
+                        title_lower = title.lower()
+                        if is_two_tone(title):
+                            case = "Two-tone"
+                        elif 'gold' in title_lower:
+                            case = "Gold"
+                        elif 'steel' in title_lower:
+                            case = "Steel"
+                        else:
+                            case = "Unknown"
+                        
+                        watch = create_watch_dict(model, year, dial_color, case, price, image_url, link, "Bob's Watches", title, search)
+                        
+                        if matches_search(watch, search):
+                            watches.append(watch)
+                            print(f"    ✅ Found: {model} ({year})")
+                        
+                    except Exception as e:
+                        continue
+                        
             except Exception as e:
-                print(f"    ⚠️  Failed: {e}")
+                print(f"    ⚠️  Could not fetch {url}: {e}")
                 continue
-                
+        
+        print(f"  📊 Found {len(watches)} matching watches from Bob's Watches")
+        
     except Exception as e:
         print(f"  ❌ Error searching Bob's Watches: {e}")
     
@@ -314,19 +382,78 @@ def search_bulang_sons(search):
     
     try:
         brand = search['brand'].lower().replace(' ', '-')
-        url = f"https://bulangandsons.com/collections/{brand}"
-        print(f"  Checking: {url}")
         
-        page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
+        # Try collection pages
+        urls = [
+            f"https://bulangandsons.com/collections/{brand}",
+            f"https://bulangandsons.com/collections/{brand}-watches",
+        ]
         
-        products = page.css('.product-item, .grid-item')
-        print(f"    Found {len(products)} products")
+        for url in urls:
+            try:
+                print(f"  Checking: {url}")
+                page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
+                
+                products = page.css('.product-card, .grid__item, [data-product-handle]')
+                print(f"    Found {len(products)} products")
+                
+                for product in products:
+                    try:
+                        title_elem = product.css('.product-card__title, .h4, a[href*="/products/"]')
+                        if not title_elem:
+                            continue
+                        title = title_elem[0].text or ""
+                        
+                        link = title_elem[0].attrib.get('href', '')
+                        if link and not link.startswith('http'):
+                            link = f"https://bulangandsons.com{link}"
+                        
+                        price_elem = product.css('.price, .money')
+                        price = normalize_price(price_elem[0].text) if price_elem else None
+                        
+                        img = product.css('.product-card__image, img')
+                        image_url = img[0].attrib.get('src') or img[0].attrib.get('data-src') if img else None
+                        
+                        year = extract_year_from_text(title)
+                        if not year:
+                            continue
+                        
+                        # Check if any model number matches
+                        ref = None
+                        for model in search['modelNumbers']:
+                            if model in title:
+                                ref = model
+                                break
+                        
+                        if not ref:
+                            ref = search['modelNumbers'][0] if search['modelNumbers'] else 'Unknown'
+                        
+                        dial_color = normalize_dial_color(title)
+                        
+                        title_lower = title.lower()
+                        if is_two_tone(title):
+                            case = "Two-tone"
+                        elif 'gold' in title_lower:
+                            case = "Gold"
+                        elif 'steel' in title_lower:
+                            case = "Steel"
+                        else:
+                            case = "Unknown"
+                        
+                        watch = create_watch_dict(ref, year, dial_color, case, price, image_url, link, 'Bulang & Sons', title, search)
+                        
+                        if matches_search(watch, search):
+                            watches.append(watch)
+                            print(f"    ✅ Found: {ref} ({year})")
+                        
+                    except Exception as e:
+                        continue
+                        
+            except Exception as e:
+                print(f"    ⚠️  Could not fetch {url}: {e}")
+                continue
         
-        # Check for model numbers
-        page_text = page.text or ""
-        for model in search['modelNumbers']:
-            if model in page_text:
-                print(f"    ✅ Found reference {model} mentioned")
+        print(f"  📊 Found {len(watches)} matching watches from Bulang & Sons")
         
     except Exception as e:
         print(f"  ❌ Error searching Bulang & Sons: {e}")
@@ -341,14 +468,68 @@ def search_bezel(search):
     
     try:
         brand = search['brand'].lower().replace(' ', '-')
-        url = f"https://www.getbezel.com/search?q={brand}+{search['modelNumbers'][0]}"
+        model = search['modelNumbers'][0] if search['modelNumbers'] else ''
+        
+        url = f"https://www.getbezel.com/search?q={brand}+{model}"
         print(f"  Checking: {url}")
         
         page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
         
-        # Look for listings
-        listings = page.css('[class*="listing"], [class*="product"], [class*="watch"]')
-        print(f"    Found {len(listings)} potential listings")
+        listings = page.css('[data-testid*="listing"], .listing-card, [class*="ListingCard"]')
+        print(f"    Found {len(listings)} listings")
+        
+        for listing in listings:
+            try:
+                title_elem = listing.css('h3, [data-testid*="title"], .listing-title')
+                if not title_elem:
+                    continue
+                title = title_elem[0].text or ""
+                
+                link_elem = listing.css('a[href*="/listing/"]')
+                if not link_elem:
+                    continue
+                link = link_elem[0].attrib.get('href', '')
+                if link and not link.startswith('http'):
+                    link = f"https://www.getbezel.com{link}"
+                
+                price_elem = listing.css('[data-testid*="price"], .price')
+                price = normalize_price(price_elem[0].text) if price_elem else None
+                
+                img = listing.css('img')
+                image_url = img[0].attrib.get('src') if img else None
+                
+                year = extract_year_from_text(title)
+                if not year:
+                    continue
+                
+                ref = model
+                for model_num in search['modelNumbers']:
+                    if model_num in title:
+                        ref = model_num
+                        break
+                
+                dial_color = normalize_dial_color(title)
+                
+                title_lower = title.lower()
+                if is_two_tone(title):
+                    case = "Two-tone"
+                elif 'gold' in title_lower:
+                    case = "Gold"
+                elif 'steel' in title_lower:
+                    case = "Steel"
+                else:
+                    case = "Unknown"
+                
+                watch = create_watch_dict(ref, year, dial_color, case, price, image_url, link, 'Bezel', title, search)
+                
+                if matches_search(watch, search):
+                    watches.append(watch)
+                    print(f"    ✅ Found: {ref} ({year})")
+                
+            except Exception as e:
+                continue
+        
+        print(f"  📊 Found {len(watches)} matching watches from Bezel")
         
     except Exception as e:
         print(f"  ❌ Error searching Bezel: {e}")
@@ -362,15 +543,81 @@ def search_crown_and_caliber(search):
     watches = []
     
     try:
-        brand = search['brand'].lower().replace(' ', ' ')
-        model = search['modelNumbers'][0]
-        url = f"https://www.crownandcaliber.com/collections/{brand.lower().replace(' ', '-')}"
-        print(f"  Checking: {url}")
+        brand = search['brand'].lower().replace(' ', '-')
         
-        page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
+        urls = [
+            f"https://www.crownandcaliber.com/collections/{brand}",
+            f"https://www.crownandcaliber.com/collections/all",
+        ]
         
-        products = page.css('.product-card, .product-item')
-        print(f"    Found {len(products)} products")
+        for url in urls:
+            try:
+                print(f"  Checking: {url}")
+                page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
+                
+                products = page.css('.product-card, .grid__item, [data-product-handle]')
+                print(f"    Found {len(products)} products")
+                
+                for product in products:
+                    try:
+                        title_elem = product.css('.product-card__title, .product-title, a[href*="/products/"]')
+                        if not title_elem:
+                            continue
+                        title = title_elem[0].text or ""
+                        
+                        # Check if this product matches our brand/models
+                        brand_match = search['brand'].lower() in title.lower()
+                        model_match = any(m in title for m in search['modelNumbers'])
+                        
+                        if not (brand_match or model_match):
+                            continue
+                        
+                        link = title_elem[0].attrib.get('href', '')
+                        if link and not link.startswith('http'):
+                            link = f"https://www.crownandcaliber.com{link}"
+                        
+                        price_elem = product.css('.price, .product-price')
+                        price = normalize_price(price_elem[0].text) if price_elem else None
+                        
+                        img = product.css('.product-card__image, img')
+                        image_url = img[0].attrib.get('src') if img else None
+                        
+                        year = extract_year_from_text(title)
+                        if not year:
+                            continue
+                        
+                        ref = search['modelNumbers'][0] if search['modelNumbers'] else 'Unknown'
+                        for model in search['modelNumbers']:
+                            if model in title:
+                                ref = model
+                                break
+                        
+                        dial_color = normalize_dial_color(title)
+                        
+                        title_lower = title.lower()
+                        if is_two_tone(title):
+                            case = "Two-tone"
+                        elif 'gold' in title_lower:
+                            case = "Gold"
+                        elif 'steel' in title_lower:
+                            case = "Steel"
+                        else:
+                            case = "Unknown"
+                        
+                        watch = create_watch_dict(ref, year, dial_color, case, price, image_url, link, 'Crown & Caliber', title, search)
+                        
+                        if matches_search(watch, search):
+                            watches.append(watch)
+                            print(f"    ✅ Found: {ref} ({year})")
+                        
+                    except Exception as e:
+                        continue
+                        
+            except Exception as e:
+                print(f"    ⚠️  Could not fetch {url}: {e}")
+                continue
+        
+        print(f"  📊 Found {len(watches)} matching watches from Crown & Caliber")
         
     except Exception as e:
         print(f"  ❌ Error searching Crown & Caliber: {e}")
@@ -379,19 +626,75 @@ def search_crown_and_caliber(search):
 
 
 def search_watches_of_espionage(search):
-    """Search Watches of Espionage (WoE) marketplace"""
+    """Search Watches of Espionage marketplace"""
     print(f"\n🔍 Searching Watches of Espionage for: {search['name']}")
     watches = []
     
     try:
         brand = search['brand'].lower().replace(' ', '-')
+        
         url = f"https://watchesofespionage.com/collections/{brand}"
         print(f"  Checking: {url}")
         
         page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
         
-        products = page.css('.product-item, [class*="product"]')
+        products = page.css('.product-item, .grid__item, [data-product-handle]')
         print(f"    Found {len(products)} products")
+        
+        for product in products:
+            try:
+                title_elem = product.css('.product-title, h3, a[href*="/products/"]')
+                if not title_elem:
+                    continue
+                title = title_elem[0].text or ""
+                
+                # Check for model match
+                model_match = any(m in title for m in search['modelNumbers'])
+                if not model_match and search['modelNumbers']:
+                    continue
+                
+                link = title_elem[0].attrib.get('href', '')
+                if link and not link.startswith('http'):
+                    link = f"https://watchesofespionage.com{link}"
+                
+                price_elem = product.css('.price')
+                price = normalize_price(price_elem[0].text) if price_elem else None
+                
+                img = product.css('.product-image, img')
+                image_url = img[0].attrib.get('src') if img else None
+                
+                year = extract_year_from_text(title)
+                if not year:
+                    continue
+                
+                ref = search['modelNumbers'][0] if search['modelNumbers'] else 'Unknown'
+                for model in search['modelNumbers']:
+                    if model in title:
+                        ref = model
+                        break
+                
+                dial_color = normalize_dial_color(title)
+                
+                title_lower = title.lower()
+                if is_two_tone(title):
+                    case = "Two-tone"
+                elif 'gold' in title_lower:
+                    case = "Gold"
+                elif 'steel' in title_lower:
+                    case = "Steel"
+                else:
+                    case = "Unknown"
+                
+                watch = create_watch_dict(ref, year, dial_color, case, price, image_url, link, 'WoE', title, search)
+                
+                if matches_search(watch, search):
+                    watches.append(watch)
+                    print(f"    ✅ Found: {ref} ({year})")
+                
+            except Exception as e:
+                continue
+        
+        print(f"  📊 Found {len(watches)} matching watches from WoE")
         
     except Exception as e:
         print(f"  ❌ Error searching WoE: {e}")
@@ -438,16 +741,13 @@ def main():
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
     
-    # Load configuration
     config = load_config()
     data = load_watches()
     
-    # Get active searches
     active_searches = [s for s in config['searches'] if s['status'] == 'active']
     
     if not active_searches:
         print("⚠️  No active searches found!")
-        print("   Create a search with: python3 scripts/search_manager.py create ...")
         return 0
     
     print(f"📋 Found {len(active_searches)} active search(es)")
@@ -456,13 +756,10 @@ def main():
     original_count = len(data['watches'])
     total_new = 0
     
-    # Run each active search
     for search in active_searches:
         watches = run_search(search)
         
-        # Add watches to main data
         existing_links = {w['link'] for w in data['watches']}
-        search_new_count = 0
         
         for watch in watches:
             if watch['link'] not in existing_links:
@@ -474,20 +771,16 @@ def main():
                 
                 data['watches'].append(watch)
                 existing_links.add(watch['link'])
-                search_new_count += 1
                 total_new += 1
                 print(f"  ➕ Added: {watch['reference']} ({watch['year']}) - {watch['dialColor']} dial")
         
-        # Update search stats
         search['watchesFound'] = len([w for w in data['watches'] if w.get('searchId') == search['id']])
         search['lastRun'] = datetime.now().isoformat()
     
-    # Save updated data
     data['lastUpdated'] = datetime.now().strftime('%Y-%m-%dT%H:%M:%SZ')
     save_watches(data)
     save_config(config)
     
-    # Summary
     print("\n" + "="*60)
     print("📊 SUMMARY")
     print("="*60)
