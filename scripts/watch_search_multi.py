@@ -702,6 +702,166 @@ def search_watches_of_espionage(search):
     return watches
 
 
+def search_watchrecon(search):
+    """Search WatchRecon - watch forum aggregator"""
+    print(f"\n🔍 Searching WatchRecon for: {search['name']}")
+    watches = []
+    
+    try:
+        for model in search['modelNumbers'][:2]:
+            try:
+                query = f"{search['brand']} {model}".replace(' ', '+')
+                url = f"https://www.watchrecon.com/?query={query}"
+                print(f"  Checking: {url}")
+                
+                page = StealthyFetcher.fetch(url, headless=True, network_idle=True, timeout=60000)
+                
+                listings = page.css('.listing-item, [data-listing-id], .search-result')
+                print(f"    Found {len(listings)} listings")
+                
+                for listing in listings[:15]:
+                    try:
+                        title_elem = listing.css('.listing-title, .title, h3, a')
+                        if not title_elem:
+                            continue
+                        title = title_elem[0].text or ""
+                        
+                        link_elem = listing.css('a[href*="/listing/"], a[href]')
+                        if not link_elem:
+                            continue
+                        link = link_elem[0].attrib.get('href', '')
+                        if link and not link.startswith('http'):
+                            link = f"https://www.watchrecon.com{link}"
+                        
+                        price_elem = listing.css('.price, .listing-price')
+                        price = normalize_price(price_elem[0].text) if price_elem else None
+                        
+                        year = extract_year_from_text(title)
+                        if not year:
+                            continue
+                        
+                        ref = model
+                        for model_num in search['modelNumbers']:
+                            if model_num in title:
+                                ref = model_num
+                                break
+                        
+                        dial_color = normalize_dial_color(title)
+                        
+                        title_lower = title.lower()
+                        if is_two_tone(title):
+                            case = "Two-tone"
+                        elif 'gold' in title_lower:
+                            case = "Gold"
+                        elif 'steel' in title_lower:
+                            case = "Steel"
+                        else:
+                            case = "Unknown"
+                        
+                        watch = create_watch_dict(ref, year, dial_color, case, price, None, link, 'WatchRecon', title, search)
+                        
+                        if matches_search(watch, search):
+                            watches.append(watch)
+                            print(f"    ✅ Found: {ref} ({year})")
+                        
+                    except Exception as e:
+                        continue
+                        
+            except Exception as e:
+                print(f"    ⚠️  Error with model {model}: {e}")
+                continue
+        
+        print(f"  📊 Found {len(watches)} matching watches from WatchRecon")
+        
+    except Exception as e:
+        print(f"  ❌ Error searching WatchRecon: {e}")
+    
+    return watches
+
+
+def search_reddit_watchexchange(search):
+    """Search Reddit r/Watchexchange via Pushshift API"""
+    print(f"\n🔍 Searching Reddit r/Watchexchange for: {search['name']}")
+    watches = []
+    
+    try:
+        import requests
+        
+        for model in search['modelNumbers'][:2]:
+            try:
+                query = f"{search['brand']} {model}"
+                # Use Pushshift API to search Reddit
+                url = f"https://api.pullpush.io/reddit/search/submission/?q={query}&subreddit=Watchexchange&size=25&sort=desc"
+                print(f"  Checking API for: {query}")
+                
+                response = requests.get(url, timeout=30)
+                if response.status_code != 200:
+                    print(f"    ⚠️  API returned {response.status_code}")
+                    continue
+                
+                data = response.json()
+                posts = data.get('data', [])
+                print(f"    Found {len(posts)} posts")
+                
+                for post in posts:
+                    try:
+                        title = post.get('title', '')
+                        if not title or '[WTS]' not in title:
+                            continue
+                        
+                        year = extract_year_from_text(title)
+                        if not year:
+                            continue
+                        
+                        # Check if year is in range
+                        if not (search['years']['min'] <= year <= search['years']['max']):
+                            continue
+                        
+                        link = f"https://reddit.com{post.get('permalink', '')}"
+                        
+                        # Try to extract price from title
+                        price_match = re.search(r'\$([\d,]+)', title)
+                        price = f"${price_match.group(1)}" if price_match else None
+                        
+                        ref = model
+                        for model_num in search['modelNumbers']:
+                            if model_num in title:
+                                ref = model_num
+                                break
+                        
+                        dial_color = normalize_dial_color(title)
+                        
+                        title_lower = title.lower()
+                        if is_two_tone(title):
+                            case = "Two-tone"
+                        elif 'gold' in title_lower:
+                            case = "Gold"
+                        elif 'steel' in title_lower:
+                            case = "Steel"
+                        else:
+                            case = "Unknown"
+                        
+                        watch = create_watch_dict(ref, year, dial_color, case, price, None, link, 'Reddit r/Watchexchange', title, search)
+                        
+                        if matches_search(watch, search):
+                            watches.append(watch)
+                            print(f"    ✅ Found: {ref} ({year}) - {price or 'Price in post'}")
+                        
+                    except Exception as e:
+                        continue
+                        
+            except Exception as e:
+                print(f"    ⚠️  Error with model {model}: {e}")
+                continue
+        
+        print(f"  📊 Found {len(watches)} matching watches from Reddit")
+        
+    except Exception as e:
+        print(f"  ❌ Error searching Reddit: {e}")
+    
+    return watches
+
+
 # ==================== MAIN FUNCTIONS ====================
 
 def run_search(search):
@@ -731,6 +891,10 @@ def run_search(search):
             all_watches.extend(search_crown_and_caliber(search))
         elif source == 'woe':
             all_watches.extend(search_watches_of_espionage(search))
+        elif source == 'watchrecon':
+            all_watches.extend(search_watchrecon(search))
+        elif source == 'reddit_watchexchange':
+            all_watches.extend(search_reddit_watchexchange(search))
     
     return all_watches
 

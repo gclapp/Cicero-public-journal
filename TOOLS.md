@@ -320,13 +320,13 @@ tail -f ~/.openclaw/workspace/logs/watch-hunt.log
 **Supported Sites:**
 | Site | Status | Notes |
 |------|--------|-------|
-| **Chrono24** | ✅ Working | Full search support |
-| **eBay** | 🚧 Partial | URL building works, parsing needs work |
-| **Bob's Watches** | 🔍 Testing | Site accessible, parsing in progress |
-| **Bulang & Sons** | 🔍 Testing | Site accessible, parsing in progress |
-| **Bezel** | 🔍 Testing | Site accessible, parsing in progress |
-| **Crown & Caliber** | 🔍 Testing | Site accessible, parsing in progress |
-| **Watches of Espionage** | 🔍 Testing | Site accessible, parsing in progress |
+| **Chrono24** | ✅ Complete | Full parsing implemented |
+| **eBay** | ✅ Complete | Full parsing for listings, prices, images |
+| **Bob's Watches** | ✅ Complete | Product grid parsing, price extraction |
+| **Bulang & Sons** | ✅ Complete | Collection page scraping |
+| **Bezel** | ✅ Complete | Listing card parsing |
+| **Crown & Caliber** | ✅ Complete | Product card extraction |
+| **Watches of Espionage** | ✅ Complete | Collection scraping |
 
 **Creating a New Search:**
 ```bash
