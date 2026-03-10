@@ -317,16 +317,18 @@ tail -f ~/.openclaw/workspace/logs/watch-hunt.log
 - ✅ Multi-site scraping (Chrono24 + more)
 - ✅ Automatic cron execution
 
-**Supported Sites:**
+**Supported Sites (9 Total):**
 | Site | Status | Notes |
 |------|--------|-------|
-| **Chrono24** | ✅ Complete | Full parsing implemented |
-| **eBay** | ✅ Complete | Full parsing for listings, prices, images |
-| **Bob's Watches** | ✅ Complete | Product grid parsing, price extraction |
-| **Bulang & Sons** | ✅ Complete | Collection page scraping |
+| **Chrono24** | ✅ Complete | Full parsing, most reliable |
+| **eBay** | ✅ Complete | Full parsing, large inventory |
+| **Bob's Watches** | ✅ Complete | Product grid parsing |
+| **Bulang & Sons** | ✅ Complete | Collection scraping |
 | **Bezel** | ✅ Complete | Listing card parsing |
-| **Crown & Caliber** | ✅ Complete | Product card extraction |
+| **Crown & Caliber** | ✅ Complete | Product extraction |
 | **Watches of Espionage** | ✅ Complete | Collection scraping |
+| **WatchRecon** | ✅ Complete | Forum aggregator |
+| **Reddit r/Watchexchange** | ✅ Complete | API-based, [WTS] posts only |
 
 **Creating a New Search:**
 ```bash
