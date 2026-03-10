@@ -22,6 +22,9 @@ git pull origin main >> "$LOG_FILE" 2>&1 || true
 source "$HOME/.openclaw/venvs/scrapling/bin/activate"
 python3 "$HOME/.openclaw/workspace/scripts/watch_search_multi.py" >> "$LOG_FILE" 2>&1
 
+# Download images for new watches
+python3 "$HOME/.openclaw/workspace/scripts/download_watch_images.py" >> "$LOG_FILE" 2>&1
+
 # Check if there are changes
 if git diff --quiet watch-data.json; then
     echo "[$DATE] No new watches found." >> "$LOG_FILE"
