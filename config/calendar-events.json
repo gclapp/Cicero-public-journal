@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-09T14:55:03.371728",
+  "last_updated": "2026-03-10T14:55:02.968358",
   "total_events": 100,
   "travel_events": 16,
   "events": [
@@ -8,30 +8,6 @@
       "start": "Monday, March 09",
       "start_raw": "2026-03-09",
       "location": "Renaissance Concourse Atlanta Airport Hotel, Atlanta",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Reserved Uber to Airport",
-      "start": "Monday, March 09 at 02:50 PM",
-      "start_raw": "2026-03-09T14:50:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/23815059465274?p=8zdbaPCpgc126r8Hg0\nMeeting ID: 238 150",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoff Flight to Delta - Delta Air Lines 471",
-      "start": "Monday, March 09 at 05:25 PM",
-      "start_raw": "2026-03-09T17:25:00-07:00",
-      "location": "Los Angeles(LAX) - Atlanta(ATL)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: GVRJPS Delta Air Lines 471 First, Scheduled Departure Mar 9, 2026, 5:25 pm, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.), Ter",
-      "is_travel": true
-    },
-    {
-      "summary": "Flight to ATL (DL 471)",
-      "start": "Monday, March 09 at 05:25 PM",
-      "start_raw": "2026-03-09T17:25:00-07:00",
-      "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
@@ -49,6 +25,14 @@
       "start_raw": "2026-03-10T17:10:00-07:00",
       "location": "Atlanta(ATL) - Los Angeles(LAX)",
       "description": "External Sender.\n\n Delta Air Lines confirmation code: GVRJPS Delta Air Lines 763 First, Scheduled Departure Mar 10, 2026, 8:10 pm, Atlanta, GA, United States of America (ATL-Hartsfield-Jackson Atlanta",
+      "is_travel": true
+    },
+    {
+      "summary": "Flight to LAX (DL 763)",
+      "start": "Tuesday, March 10 at 05:10 PM",
+      "start_raw": "2026-03-10T17:10:00-07:00",
+      "location": "Atlanta ATL",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
     {
@@ -120,6 +104,14 @@
       "start": "Sunday, March 15",
       "start_raw": "2026-03-15",
       "location": "The Algonquin Hotel Times Square, Autograph Collection, New York",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Stay at The Westin New York at Times Square",
+      "start": "Sunday, March 15",
+      "start_raw": "2026-03-15",
+      "location": "The Westin New York at Times Square, New York",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
@@ -284,6 +276,14 @@
       "is_travel": true
     },
     {
+      "summary": "Stay at The Algonquin Hotel Times Square, Autograph Collection",
+      "start": "Sunday, March 22",
+      "start_raw": "2026-03-22",
+      "location": "The Algonquin Hotel Times Square, Autograph Collection, New York",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
       "summary": "Reserve Uber to LAX",
       "start": "Sunday, March 22 at 12:30 PM",
       "start_raw": "2026-03-22T12:30:00-07:00",
@@ -314,14 +314,6 @@
       "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
       "description": "Dog Day Afternoon\nAugust Wilson Theatre\nMon, Mar 23, 2026 \u2022 7:30 PM ET\nMezzanine Center A106\nMid Premium\n$290.08\n$259.00 ticket price + $31.08 service fee\nMezzanine Center A107\nMid Premium\n$290.08\n$25",
       "is_travel": false
-    },
-    {
-      "summary": "Delta Air Lines 752 - Confirmation code: G9WPJ6",
-      "start": "Wednesday, March 25 at 06:25 PM",
-      "start_raw": "2026-03-25T18:25:00-07:00",
-      "location": "New York(JFK) - Los Angeles(LAX)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: G9WPJ6 Delta Air Lines 752 Business, Scheduled Departure Mar 25, 2026, 9:25 pm, New York, NY, United States of America (JFK-John F. Kennedy Intl.)",
-      "is_travel": true
     },
     {
       "summary": "Pick up Sophie from School",
@@ -800,6 +792,14 @@
       "start": "Friday, May 15 at 02:00 PM",
       "start_raw": "2026-05-15T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, May 18 at 07:00 AM",
+      "start_raw": "2026-05-18T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     }

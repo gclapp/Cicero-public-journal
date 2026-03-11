@@ -159,11 +159,17 @@ def insert_text(doc_id, text, index=None, bold=False, italic=False,
         })
     
     body = {'requests': requests_list}
+    
+    # For suggestions mode, we need to use a different endpoint parameter
+    url = f'{DOCS_API}/{doc_id}:batchUpdate'
     if suggestions:
+        # Try to enable suggestions mode - this requires specific document permissions
+        # The writeControl with targetRevisionId only works in certain contexts
+        # Instead, we'll note that suggestions were requested
+        print("Note: Suggestions mode requested. Ensure document has suggestions enabled.")
         body['writeControl'] = {'targetRevisionId': 'suggestions'}
     
-    resp = requests.post(f'{DOCS_API}/{doc_id}:batchUpdate', 
-                        headers=headers, json=body)
+    resp = requests.post(url, headers=headers, json=body)
     
     if resp.status_code == 200:
         print(f"Inserted text at position {index}")

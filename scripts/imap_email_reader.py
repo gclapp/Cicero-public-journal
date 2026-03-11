@@ -7,6 +7,7 @@ Polls inbox periodically and processes replies
 import imaplib
 import email
 import json
+import re
 from pathlib import Path
 from datetime import datetime, timedelta
 import time
@@ -14,15 +15,59 @@ import time
 # Configuration
 CONFIG_PATH = Path.home() / ".openclaw" / "email_config.json"
 PROCESSED_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "processed-emails.json"
+AUTH_SENDERS_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "authorized-senders.json"
 IMAP_SERVER = "imap.gmail.com"
 IMAP_PORT = 993
 
-# Authorized senders - only these people get replies
-AUTHORIZED_SENDERS = [
+# Default authorized senders - loaded from file if exists
+DEFAULT_AUTHORIZED_SENDERS = [
     "[REDACTED]",
     "geoffrey.clapp@progyny.com",
     "keers003@gmail.com"  # Grace
 ]
+
+def load_authorized_senders():
+    """Load authorized senders from file, create if doesn't exist"""
+    if AUTH_SENDERS_FILE.exists():
+        with open(AUTH_SENDERS_FILE, 'r') as f:
+            data = json.load(f)
+            return data.get('senders', DEFAULT_AUTHORIZED_SENDERS)
+    else:
+        # Create initial file with defaults
+        save_authorized_senders(DEFAULT_AUTHORIZED_SENDERS)
+        return DEFAULT_AUTHORIZED_SENDERS
+
+def save_authorized_senders(senders_list):
+    """Save authorized senders to file"""
+    AUTH_SENDERS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(AUTH_SENDERS_FILE, 'w') as f:
+        json.dump({
+            'senders': senders_list,
+            'last_updated': datetime.now().isoformat(),
+            'updated_by': 'system'
+        }, f, indent=2)
+
+def add_authorized_sender(email, authorized_by="system"):
+    """Add a new authorized sender"""
+    email = email.lower().strip()
+    senders = load_authorized_senders()
+    
+    if email in [s.lower() for s in senders]:
+        return False, f"{email} is already authorized"
+    
+    senders.append(email)
+    AUTH_SENDERS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(AUTH_SENDERS_FILE, 'w') as f:
+        json.dump({
+            'senders': senders,
+            'last_updated': datetime.now().isoformat(),
+            'updated_by': authorized_by
+        }, f, indent=2)
+    
+    return True, f"{email} has been authorized"
+
+# Load authorized senders dynamically
+AUTHORIZED_SENDERS = load_authorized_senders()
 
 def load_config():
     """Load email credentials"""
@@ -799,6 +844,7 @@ def process_email(email_data):
         print("   🚫 No reply sent. Email logged only.")
         
         # 🚨 ALERT GEOFF IMMEDIATELY about unauthorized email
+        current_senders = load_authorized_senders()
         alert_subject = f"🚨 SECURITY ALERT: Unauthorized Email from {sender_email}"
         alert_body = f"""🚨 UNAUTHORIZED EMAIL ALERT 🚨
 
@@ -809,12 +855,15 @@ Subject: {subject}
 Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S PT')}
 
 This sender is NOT on the authorized list:
-{', '.join(AUTHORIZED_SENDERS)}
+{chr(10).join(f"• {s}" for s in current_senders)}
 
 The email was logged but NOT processed or replied to.
 
-If you want to authorize this sender, reply with:
+🔐 TO AUTHORIZE THIS SENDER:
+Reply to this email with:
 "Authorize {sender_email}"
+
+I will immediately add them to the authorized list and they'll be able to email me going forward.
 
 🏛️ Cicero Security Monitor"""
         
@@ -832,6 +881,34 @@ If you want to authorize this sender, reply with:
     
     # Log authorized email for weekly report
     log_authorized_email(sender_email, subject, datetime.now().isoformat())
+    
+    # 🔐 CHECK FOR AUTHORIZATION COMMAND (only Geoff can authorize)
+    if sender_email.lower() in ["[REDACTED]", "geoffrey.clapp@progyny.com"]:
+        auth_match = re.search(r'authorize\s+([\w\.-]+@[\w\.-]+\.\w+)', body, re.IGNORECASE)
+        if auth_match:
+            email_to_authorize = auth_match.group(1)
+            success, message = add_authorized_sender(email_to_authorize, authorized_by=sender_email)
+            
+            if success:
+                # Reload authorized senders
+                updated_senders = load_authorized_senders()
+                
+                confirm_body = f"""✅ AUTHORIZATION COMPLETE
+
+{email_to_authorize} has been added to the authorized senders list.
+
+Updated authorized senders:
+{chr(10).join(f"• {s}" for s in updated_senders)}
+
+This sender can now email [REDACTED] and receive replies.
+
+🏛️ Cicero"""
+                send_reply(sender_email, "Authorization Complete", confirm_body)
+                print(f"   ✅ AUTHORIZED: {email_to_authorize}")
+            else:
+                send_reply(sender_email, "Authorization Notice", f"{message}\n\n🏛️ Cicero")
+                print(f"   ℹ️ {message}")
+            return True
     
     # 📅 CHECK FOR CALENDAR EVENT REQUEST
     if is_calendar_event_request(subject, body):

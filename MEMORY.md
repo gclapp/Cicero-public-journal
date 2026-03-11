@@ -86,6 +86,26 @@
 
 **Applies to:** All projects, automations, cron jobs, and scripts I depend on.
 
+### Instruction Receipt & Handling Protocol (March 11, 2026) — CRITICAL
+**Rule:** When receiving instructions from Geoff, I must:
+1. **Acknowledge receipt** — Confirm I understood the request
+2. **Clarify if ambiguous** — Ask questions if instructions are unclear
+3. **Confirm execution** — State what I'm about to do before doing it
+4. **Report completion** — Confirm when done, or report blockers
+5. **Proactive follow-up** — If I can't execute immediately, set a reminder to check
+
+**Example Failure:** "Manually recheck emails from me today" was not followed by:
+- Acknowledgment of what "recheck" means
+- Confirmation of which inbox to check
+- Report of what was found (or not found)
+- Clarification when zero emails were found
+
+**Required for:** All instructions, especially those involving:
+- Email processing
+- Authorization changes
+- Data re-processing
+- Manual checks or overrides
+
 ## System Configuration Changes Log
 
 ### 2026-03-04 — Calendar Integration & Automation Push
@@ -333,6 +353,24 @@
   - **Fix:** `openclaw gateway restart` (requires human intervention)
   - **Impact:** Cannot spawn parallel subagents
 
+### Social Media 2FA Backup Codes (March 11, 2026)
+**Status:** Twitter/X 2FA enabled ✅ | LinkedIn 2FA pending
+
+**Twitter/X Backup Code:**
+- Purpose: Single-use backup for login if authenticator unavailable
+- Storage: `~/.openclaw/config/sensitive-credentials.json` (secure, 600 permissions)
+- Generated: March 11, 2026
+
+**Instructions:**
+- Use this code if you can't receive text messages or access authenticator app
+- One-time use only — generate new backup codes after use
+- Generate additional backup codes at: https://x.com/settings/security
+
+**Note:** All sensitive credentials (API keys, backup codes, tokens) stored in:
+- `~/.openclaw/config/sensitive-credentials.json`
+- File permissions: 600 (owner read/write only)
+- Never committed to GitHub
+
 ## Upcoming Important Dates
 
 ### Power Outage - March 11, 2026
@@ -351,3 +389,22 @@
 | Mackenzie | April 26, 2005 | 21st (2026) |
 | Oliver | December 21, 2017 | 9th (2026) |
 | Sophie | September 25, 2019 | 7th (2026) |
+
+## Automated Routines
+
+### Daily GitHub & Journal Sync (March 11, 2026)
+**Schedule:** 11:59 AM PT and 11:59 PM PT daily  
+**Purpose:** 
+1. Commit any uncommitted changes to GitHub
+2. Create public journal entries for any private entries not yet published
+
+**Implementation:**
+- Cron job: `59 11,23 * * *` (11:59 AM and 11:59 PM PT)
+- Script: `scripts/daily-github-sync.sh`
+- Actions:
+  - `git add .` → `git commit -m "[timestamp] Daily sync"` → `git push`
+  - Check for private journal entries without public counterparts
+  - Generate sanitized public versions
+  - Commit to public-journal repo
+
+**Status:** ⏳ Pending setup

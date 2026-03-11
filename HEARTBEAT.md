@@ -3,7 +3,7 @@
 ## Check-In Schedule (ACTIVE)
 
 **System:** Automated heartbeat every 55 minutes  
-**Status:** FIXED - Cron job running  
+**Status:** FIXED - Cron job running + pending check-in system active  
 **Timezone:** Pacific Time (PT)  
 
 ### Daily Check-Ins
@@ -40,13 +40,31 @@
 
 ---
 
-## Manual Trigger
+## Pending Check-In Detection
 
 **When user messages:**
 1. Read HEARTBEAT.md (this file)
-2. Check: Is check-in due?
-3. If yes: Send check-in immediately
-4. If no: Send HEARTBEAT_OK or relevant update
+2. Run `python3 scripts/deliver_checkin.py` to check for pending check-ins
+3. If pending: Script sends email + returns Telegram message for delivery
+4. Send Telegram message via `message` tool
+5. If no pending: Send HEARTBEAT_OK or relevant update
+
+**Check-in delivery flow:**
+- Cron job queues check-in → writes to `pending-checkin.json` (includes both Telegram text + HTML email)
+- Next user message → runs `deliver_checkin.py`:
+  - **Email:** Sent immediately to [REDACTED] (CC: geoffrey.clapp@progyny.com)
+  - **Telegram:** Message returned for delivery via `message` tool
+- This bridges the gap between cron (no message access) and main session (has message access)
+
+**Email Subjects:**
+- Morning: "Cicero Check-In: Morning — Monday, March 11"
+- Midday: "Cicero Check-In: Midday — Monday, March 11"
+- Afternoon: "Cicero Check-In: Afternoon — Monday, March 11"
+- Evening: "Cicero Check-In: Evening — Monday, March 11"
+
+**Scripts:**
+- `scripts/heartbeat_sender.py` — Queues check-ins (called by cron)
+- `scripts/deliver_checkin.py` — Delivers pending check-ins (called by main session)
 
 **Scheduled check-ins are now logged and tracked.**
 
