@@ -56,72 +56,150 @@ def send_telegram_message(message):
     return True
 
 def generate_morning_update():
-    """Generate morning check-in content"""
+    """Generate comprehensive morning check-in with all data sources"""
     pt_now = get_pt_time()
     
-    # Read calendar events if available
+    # Read calendar events
     calendar_file = Path("/home/ubuntu/.openclaw/workspace/config/calendar-events.json")
     calendar_info = ""
+    location = "Unknown"
     
     if calendar_file.exists():
         try:
             with open(calendar_file) as f:
                 events = json.load(f)
             if events:
-                calendar_info = "\n\n📅 **Today's Calendar:**\n"
-                for event in events[:3]:  # Top 3 events
+                calendar_info = "\n📅 **Today's Calendar:**\n"
+                for event in events[:5]:  # Top 5 events
                     calendar_info += f"• {event.get('summary', 'Event')}\n"
+                    # Try to detect location from events
+                    if event.get('location'):
+                        location = event.get('location')
         except:
             pass
     
-    message = f"""🌅 **Morning Check-In** — {pt_now.strftime('%A, %B %d')}
-
-Good morning! Here's your day ahead:{calendar_info}
-
-What's your focus for today?"""
+    if not calendar_info:
+        calendar_info = "\n📅 **Today's Calendar:** No events scheduled.\n"
     
-    return message
-
-def generate_midday_checkin():
-    """Generate midday check-in content"""
-    pt_now = get_pt_time()
+    # Get Whoop health data
+    whoop_info = ""
+    whoop_file = Path("/home/ubuntu/.openclaw/workspace/data/whoop/latest-summary.txt")
+    if whoop_file.exists():
+        try:
+            with open(whoop_file) as f:
+                whoop_data = f.read()
+            if whoop_data and "No Whoop data" not in whoop_data:
+                whoop_info = f"\n💪 **Health (Whoop):**\n{whoop_data[:300]}...\n"
+        except:
+            pass
     
-    message = f"""☀️ **Midday Pulse Check** — {pt_now.strftime('%I:%M %p')}
-
-How's the day going? Any blockers or wins to share?"""
+    if not whoop_info:
+        whoop_info = "\n💪 **Health:** Whoop data not available.\n"
     
-    return message
-
-def generate_afternoon_checkin():
-    """Generate afternoon check-in content"""
-    pt_now = get_pt_time()
-    
-    message = f"""🌤️ **Afternoon Wrap-Up Prep** — {pt_now.strftime('%I:%M %p')}
-
-What's left to close out today? Anything you need to defer to tomorrow?"""
-    
-    return message
-
-def generate_evening_checkin():
-    """Generate evening check-in content"""
-    pt_now = get_pt_time()
-    
-    # Check for stock updates (end of day)
+    # Get stock prices
     stock_info = ""
-    stock_file = Path("/home/ubuntu/.openclaw/workspace/logs/stock-update.json")
+    stock_file = Path("/home/ubuntu/.openclaw/workspace/data/stock-update.json")
     if stock_file.exists():
         try:
             with open(stock_file) as f:
                 stock_data = json.load(f)
             if stock_data.get('pgny_price'):
-                stock_info = f"\n\n📈 **PGNY:** ${stock_data['pgny_price']:.2f} ({stock_data.get('change', 'N/A')})"
+                stock_info = f"\n📈 **Markets:**\n• PGNY: ${stock_data['pgny_price']:.2f} ({stock_data.get('change', 'N/A')})\n"
         except:
             pass
     
+    if not stock_info:
+        stock_info = "\n📈 **Markets:** Stock data not available.\n"
+    
+    # Get weather (simplified - would need weather API integration)
+    weather_info = "\n🌤️ **Weather:** Check your weather app for today's forecast.\n"
+    
+    # Detect location from calendar or default
+    location_info = f"\n📍 **Location:** {location}\n"
+    
+    message = f"""🌅 **Morning Check-In** — {pt_now.strftime('%A, %B %d')}
+
+Good morning! Here's your day ahead:
+{calendar_info}{whoop_info}{stock_info}{weather_info}{location_info}
+What's your focus for today?"""
+    
+    return message
+
+def generate_midday_checkin():
+    """Generate midday check-in with all data"""
+    pt_now = get_pt_time()
+    
+    # Import the comprehensive data fetchers
+    try:
+        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
+        from fetch_todoist_tasks import get_todoist_summary
+        from fetch_stock_data import get_stock_summary
+        todoist_summary = get_todoist_summary()
+        stock_summary = get_stock_summary()
+    except:
+        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
+        stock_summary = "📈 **Markets:** Stock data unavailable\n"
+    
+    message = f"""☀️ **Midday Pulse Check** — {pt_now.strftime('%I:%M %p')}
+
+How's the day going? Any blockers or wins to share?
+
+{todoist_summary}
+{stock_summary}
+What's your focus for the rest of the day?"""
+    
+    return message
+
+def generate_afternoon_checkin():
+    """Generate afternoon check-in with all data"""
+    pt_now = get_pt_time()
+    
+    # Import the comprehensive data fetchers
+    try:
+        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
+        from fetch_todoist_tasks import get_todoist_summary
+        from fetch_stock_data import get_stock_summary
+        todoist_summary = get_todoist_summary()
+        stock_summary = get_stock_summary()
+    except:
+        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
+        stock_summary = "📈 **Markets:** Stock data unavailable\n"
+    
+    message = f"""🌤️ **Afternoon Wrap-Up Prep** — {pt_now.strftime('%I:%M %p')}
+
+What's left to close out today? Anything you need to defer to tomorrow?
+
+{todoist_summary}
+{stock_summary}
+Ready to wrap up strong?"""
+    
+    return message
+
+def generate_evening_checkin():
+    """Generate evening check-in with all data"""
+    pt_now = get_pt_time()
+    
+    # Import the comprehensive data fetchers
+    try:
+        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
+        from fetch_todoist_tasks import get_todoist_summary
+        from fetch_stock_data import get_stock_summary
+        from fetch_weather import get_weather_summary
+        todoist_summary = get_todoist_summary()
+        stock_summary = get_stock_summary()
+        weather_summary = get_weather_summary()
+    except:
+        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
+        stock_summary = "📈 **Markets:** Stock data unavailable\n"
+        weather_summary = "🌤️ **Weather:** Data unavailable\n"
+    
     message = f"""🌙 **Evening Review** — {pt_now.strftime('%A, %B %d')}
 
-How did today go? Any highlights or lessons learned?{stock_info}
+How did today go? Any highlights or lessons learned?
 
+{todoist_summary}
+{stock_summary}
+{weather_summary}
 Tomorrow's looking good. Rest well! 🦞"""
     
     return message

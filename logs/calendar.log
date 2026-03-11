@@ -1215,3 +1215,23 @@
    - Delta 311 Atlanta to LAX  (G3LHP8) on Wednesday, April 08 at 06:35 PM
 
 💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json
+📅 Fetching upcoming events (90 days ahead)...
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 166, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 131, in main
+    events = get_upcoming_events(days=args.days, max_results=args.max)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 72, in get_upcoming_events
+    service = get_calendar_service()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 62, in get_calendar_service
+    creds.refresh(Request())
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/google/oauth2/credentials.py", line 412, in refresh
+    ) = reauth.refresh_grant(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/google/oauth2/reauth.py", line 370, in refresh_grant
+    _client._handle_error_response(response_data, retryable_error)
+  File "/home/ubuntu/.local/lib/python3.12/site-packages/google/oauth2/_client.py", line 69, in _handle_error_response
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})

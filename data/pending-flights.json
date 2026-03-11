@@ -106,6 +106,37 @@
       },
       "arrival": {},
       "extracted_at": "2026-03-07T05:30:03.496294"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HKZ4LV",
+      "flight_number": "742",
+      "departure": {
+        "time": "7:00 am"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-11T21:00:03.106361"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HKZ4LV",
+      "flight_number": "742",
+      "departure": {
+        "time": "7:00 am"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-11T21:00:05.083683"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "GAO7LP",
+      "flight_number": null,
+      "departure": {
+        "date": "Saturday, May 16, 2026",
+        "time": "9:59 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-11T21:00:06.964617"
     }
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-03-11T15:37:58.823918",
+  "stocks": {
+    "PGNY": {
+      "symbol": "PGNY",
+      "price": 17.425,
+      "change": 17.425,
+      "change_percent": 0,
+      "previous_close": 0,
+      "timestamp": "2026-03-11T15:37:58.969807"
+    },
+    "AAPL": {
+      "symbol": "AAPL",
+      "price": 260.4,
+      "change": 260.4,
+      "change_percent": 0,
+      "previous_close": 0,
+      "timestamp": "2026-03-11T15:37:59.097121"
+    },
+    "NVDA": {
+      "symbol": "NVDA",
+      "price": 185.538,
+      "change": 185.538,
+      "change_percent": 0,
+      "previous_close": 0,
+      "timestamp": "2026-03-11T15:37:59.250056"
+    }
+  },
+  "indices": {
+    "S&P 500": {
+      "symbol": "^GSPC",
+      "price": 6761.6,
+      "change": 6761.6,
+      "change_percent": 0,
+      "previous_close": 0,
+      "timestamp": "2026-03-11T15:37:59.372860"
+    },
+    "Dow Jones": {
+      "symbol": "^DJI",
+      "price": 47295.27,
+      "change": 47295.27,
+      "change_percent": 0,
+      "previous_close": 0,
+      "timestamp": "2026-03-11T15:37:59.517489"
+    }
+  }
+}

@@ -1,2 +1,130 @@
 [2026-03-11 11:59:01 UTC] Starting daily GitHub sync...
 [2026-03-11 11:59:01 UTC] Uncommitted changes found, committing...
+[main c20d50b] Daily sync: 20260311-115901
+ Committer: Ubuntu <ubuntu@ip-172-31-4-228.us-east-2.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 99 files changed, 5780 insertions(+), 99 deletions(-)
+ create mode 100644 config/authorized-senders.json
+ create mode 100644 docs/HUMAN_IN_THE_LOOP_SETUP.md
+ create mode 100644 docs/SUBSTACK_CHANGE_NAME.md
+ create mode 100644 docs/SUBSTACK_CONVERT_ACCOUNT.md
+ create mode 100644 docs/SUBSTACK_DASHBOARD_TO_SETTINGS.md
+ create mode 100644 docs/SUBSTACK_DESCRIPTION_OPTIONS.md
+ create mode 100644 docs/SUBSTACK_FIND_CREATE.md
+ create mode 100644 docs/SUBSTACK_NAMES.md
+ create mode 100644 docs/SUBSTACK_SETUP.md
+ create mode 100644 docs/app-specific-passwords-guide.md
+ create mode 100644 docs/content-calendar-weeks-1-2.md
+ create mode 100644 docs/email-authorization-system.md
+ create mode 100644 docs/multi-agent-research.md
+ create mode 100644 docs/social-media-automation-setup.md
+ create mode 100644 docs/social-media-skills-needed.md
+ create mode 100644 logs/github-sync.log
+ create mode 100644 logs/pending-checkin.json
+ mode change 100644 => 100755 scripts/add_week1_final.py
+ mode change 100644 => 100755 scripts/add_week1_sections.py
+ mode change 100644 => 100755 scripts/add_week1_weekbyweek.py
+ mode change 100644 => 100755 scripts/calendar_auth.py
+ mode change 100644 => 100755 scripts/calendar_auth_complete.py
+ mode change 100644 => 100755 scripts/calendar_auth_start.py
+ mode change 100644 => 100755 scripts/calendar_intelligence.py
+ mode change 100644 => 100755 scripts/calendar_reader.py
+ mode change 100644 => 100755 scripts/chrono24_flaresolverr.py
+ mode change 100644 => 100755 scripts/chrono24_search.py
+ mode change 100644 => 100755 scripts/competitor_email.py
+ mode change 100644 => 100755 scripts/competitor_monitor.py
+ create mode 100755 scripts/content_analytics_collector.py
+ mode change 100644 => 100755 scripts/create_blog_system_post.py
+ mode change 100644 => 100755 scripts/create_blog_system_post_2.py
+ create mode 100755 scripts/daily-github-sync.sh
+ create mode 100755 scripts/deliver_checkin.py
+ mode change 100644 => 100755 scripts/download_chrono24_images.py
+ mode change 100644 => 100755 scripts/download_images_flaresolverr.py
+ mode change 100644 => 100755 scripts/download_real_images.py
+ mode change 100644 => 100755 scripts/elevenlabs_tts.py
+ create mode 100755 scripts/export_to_substack.py
+ mode change 100644 => 100755 scripts/final_image_attempt.py
+ create mode 100755 scripts/fix_week1_grammar.py
+ mode change 100644 => 100755 scripts/flight_task_creator.py
+ mode change 100644 => 100755 scripts/gdocs_auth_setup.py
+ mode change 100644 => 100755 scripts/gdocs_comments.py
+ mode change 100644 => 100755 scripts/gdocs_editor.py
+ mode change 100644 => 100755 scripts/gdocs_simple.py
+ create mode 100755 scripts/gdocs_track_changes.py
+ mode change 100644 => 100755 scripts/gdocs_track_changes_simple.py
+ mode change 100644 => 100755 scripts/generate_morning_update.py
+ mode change 100644 => 100755 scripts/health_webhook_server.py
+ create mode 100755 scripts/heartbeat_sender.py
+ create mode 100755 scripts/linkedin_browser_post.py
+ mode change 100644 => 100755 scripts/rss_monitor.py
+ mode change 100644 => 100755 scripts/screenshot_watches.py
+ mode change 100644 => 100755 scripts/send_email.py
+ mode change 100644 => 100755 scripts/setup_calendar.py
+ mode change 100644 => 100755 scripts/setup_playwright.py
+ create mode 100755 scripts/social_media_poster.py
+ create mode 100755 scripts/sync_public_journal.py
+ mode change 100644 => 100755 scripts/test_scrapling.py
+ mode change 100644 => 100755 scripts/test_scrapling_inspect.py
+ mode change 100644 => 100755 scripts/test_scrapling_working.py
+ mode change 100644 => 100755 scripts/travel_automation.py
+ create mode 100755 scripts/twitter_browser_post.py
+ create mode 100644 scripts/twitter_login_setup.sh
+ mode change 100644 => 100755 scripts/voice_samples.py
+ mode change 100644 => 100755 scripts/watch_search_scrapling.py
+ mode change 100644 => 100755 scripts/weekly_memory_consolidation.py
+ mode change 100644 => 100755 scripts/whoop_auth.py
+ mode change 100644 => 100755 scripts/whoop_exchange.py
+ mode change 100644 => 100755 scripts/whoop_fetch.py
+ create mode 100644 skills/linkedin-content/SKILL.md
+ create mode 100644 skills/linkedin-content/_meta.json
+ create mode 100644 skills/linkedin-writer/README.md
+ create mode 100644 skills/linkedin-writer/SKILL.md
+ create mode 100644 skills/linkedin-writer/_meta.json
+To https://github.com/gclapp/cicero-backup.git
+   30681a6..c20d50b  main -> main
+[2026-03-11 11:59:01 UTC] ✅ GitHub sync complete
+[2026-03-11 11:59:01 UTC] Checking for journal entries to publish...
+✅ Synced: 2026-02-22.md
+✅ Synced: 2026-03-11.md
+✅ Synced: 2026-02-26.md
+✅ Synced: 2026-02-27.md
+✅ Synced: 2026-02-23.md
+✅ Synced: 2026-02-28.md
+✅ Synced: 2026-03-10.md
+✅ Synced: 2026-03-07.md
+✅ Synced: 2026-03-08.md
+✅ Synced: 2026-03-04.md
+
+📊 Synced 10 new journal entries
+[2026-03-11 11:59:01 UTC] Updating content analytics...
+📊 Content Analytics Report
+Generated: 2026-03-11 11:59
+
+📈 Last 7 Days Summary:
+• Total Posts: 0
+• Total Impressions: 0
+• Total Engagements: 0
+• Avg Engagement Rate: 0.00%
+
+By Platform:
+
+👥 Current Followers:
+  Linkedin: 0
+  Twitter: 0
+  Substack: 0
+
+[2026-03-11 11:59:01 UTC] Daily sync complete
+---
+[2026-03-11 23:59:01 UTC] Starting daily GitHub sync...
+[2026-03-11 23:59:01 UTC] Uncommitted changes found, committing...

@@ -1,19 +1,13 @@
 {
-  "timestamp": "2026-03-11T04:25:15.929911",
-  "checkin_type": "test",
-  "message": "\ud83e\uddea **Test Check-In** \u2014 Wednesday, March 11\n\nThis is a test of the dual-channel delivery system.\n\n\u2705 Telegram: You should see this message\n\u2705 Email: Check your inbox ([REDACTED])\n\nIf both arrived, the system is working! \ud83e\udd9e",
-  "html_message": "<!DOCTYPE html>\n<html>\n<head><meta charset=\"UTF-8\"></head>\n<body style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;\">\n    <div style=\"border-bottom: 2px solid #4a90d9; padding-bottom: 10px; margin-bottom: 20px;\">\n        <h2 style=\"margin: 0; color: #4a90d9;\">\ud83e\uddea Test Check-In</h2>\n        <p style=\"margin: 5px 0 0 0; color: #666;\">Wednesday, March 11, 2026</p>\n    </div>\n    <div style=\"background: #f9f9f9; padding: 20px; border-radius: 8px;\">\n        <p>This is a <strong>test</strong> of the dual-channel delivery system.</p>\n        <ul>\n            <li>\u2705 <strong>Telegram:</strong> You should see this message</li>\n            <li>\u2705 <strong>Email:</strong> Check your inbox ([REDACTED])</li>\n        </ul>\n        <p>If both arrived, the system is working! \ud83e\udd9e</p>\n    </div>\n    <div style=\"margin-top: 30px; font-size: 12px; color: #666; border-top: 1px solid #ddd; padding-top: 15px;\">\n        <p>\u2014<br><em>Cicero \ud83c\udfdb\ufe0f</em></p>\n    </div>\n</body>\n</html>",
-  "subject": "\ud83e\uddea TEST: Cicero Check-In \u2014 Wednesday, March 11",
-  "pt_time": "2026-03-11 21:25:00",
-  "sent": true,
+  "timestamp": "2026-03-11T23:55:01.533928",
+  "checkin_type": "afternoon",
+  "message": "\ud83c\udf24\ufe0f **Afternoon Wrap-Up Prep** \u2014 04:55 PM\n\nWhat's left to close out today? Anything you need to defer to tomorrow?\n\n\ud83d\udccb **Tasks:** No P1 or due-today tasks\n\n\ud83d\udcc8 **Markets**\n\n**Indices:**\n\ud83d\udfe2 S&P 500: 6,761.60 (+0.00%)\n\ud83d\udfe2 Dow Jones: 47,295.27 (+0.00%)\n\n**Your Watchlist:**\n\ud83d\udfe2 **PGNY:** $17.43 (+17.43, +0.00%)\n\ud83d\udfe2 AAPL: $260.40 (+260.40%)\n\ud83d\udfe2 NVDA: $185.54 (+185.54%)\n\nReady to wrap up strong?",
+  "html_message": "<!DOCTYPE html>\n<html>\n<head>\n    <meta charset=\"UTF-8\">\n    <style>\n        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }\n        .header { border-bottom: 2px solid #4a90d9; padding-bottom: 10px; margin-bottom: 20px; }\n        .content { background: #f9f9f9; padding: 20px; border-radius: 8px; }\n        .footer { margin-top: 30px; font-size: 12px; color: #666; border-top: 1px solid #ddd; padding-top: 15px; }\n    </style>\n</head>\n<body>\n    <div class=\"header\">\n        <h2 style=\"margin: 0; color: #4a90d9;\">Cicero Check-In</h2>\n        <p style=\"margin: 5px 0 0 0; color: #666;\">Wednesday, March 11, 2026</p>\n    </div>\n    <div class=\"content\">\n        \ud83c\udf24\ufe0f <strong>Afternoon Wrap-Up Prep<strong> \u2014 04:55 PM<br><br>What's left to close out today? Anything you need to defer to tomorrow?<br><br>\ud83d\udccb <strong>Tasks:<strong> No P1 or due-today tasks<br><br>\ud83d\udcc8 <strong>Markets<strong><br><br><strong>Indices:<strong><br>\ud83d\udfe2 S&P 500: 6,761.60 (+0.00%)<br>\ud83d\udfe2 Dow Jones: 47,295.27 (+0.00%)<br><br><strong>Your Watchlist:<strong><br>\ud83d\udfe2 <strong>PGNY:<strong> $17.43 (+17.43, +0.00%)<br>\ud83d\udfe2 AAPL: $260.40 (+260.40%)<br>\ud83d\udfe2 NVDA: $185.54 (+185.54%)<br><br>Ready to wrap up strong?<br><br>\u2014<br><em>Cicero \ud83c\udfdb\ufe0f</em>\n    </div>\n    <div class=\"footer\">\n        <p>This is an automated check-in from Cicero \ud83c\udfdb\ufe0f</p>\n        <p>To respond, message me on Telegram: <a href=\"https://t.me/geoffclapp\">@geoffclapp</a></p>\n        <p style=\"font-size: 11px; color: #999; margin-top: 10px;\">This email was sent from an unmonitored address. Replies will not be received.</p>\n    </div>\n</body>\n</html>",
+  "subject": "Cicero Check-In: Afternoon \u2014 Wednesday, March 11",
+  "pt_time": "2026-03-11 16:55:01",
+  "sent": false,
   "channels": [
     "telegram",
     "email"
-  ],
-  "delivered_at": "2026-03-11T04:25:19.552150",
-  "delivery_results": {
-    "telegram": false,
-    "email": true,
-    "timestamp": "2026-03-11T04:25:18.127454"
-  }
+  ]
 }
