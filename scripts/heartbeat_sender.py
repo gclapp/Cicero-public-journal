@@ -7,6 +7,7 @@ Called by heartbeat-check.sh when a check-in is due
 import os
 import sys
 import json
+import re
 from datetime import datetime
 from pathlib import Path
 
@@ -38,6 +39,22 @@ def get_checkin_type(hour, minute):
     else:
         return None
 
+def markdown_to_html(text):
+    """Convert markdown-style formatting to proper HTML"""
+    # Convert **bold** to <strong>bold</strong>
+    # Use a regex to properly handle paired asterisks
+    result = text
+    
+    # Handle bold text - replace **text** with <strong>text</strong>
+    # Use a loop to handle multiple occurrences
+    while '**' in result:
+        result = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', result, count=1)
+    
+    # Convert newlines to <br> tags
+    result = result.replace('\n', '<br>')
+    
+    return result
+
 def send_telegram_message(message):
     """Send message via Telegram bot using OpenClaw's message tool"""
     # This will be called via the OpenClaw gateway
@@ -59,24 +76,40 @@ def generate_morning_update():
     """Generate comprehensive morning check-in with all data sources"""
     pt_now = get_pt_time()
     
+    # Import the comprehensive data fetchers
+    try:
+        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
+        from fetch_todoist_tasks import get_todoist_summary
+        from fetch_stock_data import get_stock_summary
+        from fetch_weather import get_weather_summary
+        todoist_summary = get_todoist_summary()
+        stock_summary = get_stock_summary()
+        weather_summary = get_weather_summary()
+    except Exception as e:
+        print(f"Error fetching data: {e}")
+        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
+        stock_summary = "📈 **Markets:** Stock data unavailable\n"
+        weather_summary = "🌤️ **Weather:** Data unavailable\n"
+    
     # Read calendar events
     calendar_file = Path("/home/ubuntu/.openclaw/workspace/config/calendar-events.json")
     calendar_info = ""
-    location = "Unknown"
+    location = "Los Angeles"  # Default
     
     if calendar_file.exists():
         try:
             with open(calendar_file) as f:
                 events = json.load(f)
-            if events:
+            if events and events.get('events'):
                 calendar_info = "\n📅 **Today's Calendar:**\n"
-                for event in events[:5]:  # Top 5 events
-                    calendar_info += f"• {event.get('summary', 'Event')}\n"
+                for event in events['events'][:5]:  # Top 5 events
+                    summary = event.get('summary', 'Event')
+                    calendar_info += f"• {summary}\n"
                     # Try to detect location from events
                     if event.get('location'):
                         location = event.get('location')
-        except:
-            pass
+        except Exception as e:
+            print(f"Error reading calendar: {e}")
     
     if not calendar_info:
         calendar_info = "\n📅 **Today's Calendar:** No events scheduled.\n"
@@ -89,38 +122,24 @@ def generate_morning_update():
             with open(whoop_file) as f:
                 whoop_data = f.read()
             if whoop_data and "No Whoop data" not in whoop_data:
-                whoop_info = f"\n💪 **Health (Whoop):**\n{whoop_data[:300]}...\n"
-        except:
-            pass
-    
-    if not whoop_info:
+                whoop_info = f"\n💪 **Health (Whoop):**\n{whoop_data[:400]}...\n"
+            else:
+                whoop_info = "\n💪 **Health:** Whoop data not available yet.\n"
+        except Exception as e:
+            whoop_info = "\n💪 **Health:** Whoop data unavailable.\n"
+    else:
         whoop_info = "\n💪 **Health:** Whoop data not available.\n"
-    
-    # Get stock prices
-    stock_info = ""
-    stock_file = Path("/home/ubuntu/.openclaw/workspace/data/stock-update.json")
-    if stock_file.exists():
-        try:
-            with open(stock_file) as f:
-                stock_data = json.load(f)
-            if stock_data.get('pgny_price'):
-                stock_info = f"\n📈 **Markets:**\n• PGNY: ${stock_data['pgny_price']:.2f} ({stock_data.get('change', 'N/A')})\n"
-        except:
-            pass
-    
-    if not stock_info:
-        stock_info = "\n📈 **Markets:** Stock data not available.\n"
-    
-    # Get weather (simplified - would need weather API integration)
-    weather_info = "\n🌤️ **Weather:** Check your weather app for today's forecast.\n"
-    
-    # Detect location from calendar or default
-    location_info = f"\n📍 **Location:** {location}\n"
     
     message = f"""🌅 **Morning Check-In** — {pt_now.strftime('%A, %B %d')}
 
+📍 **Location:** {location}
+
 Good morning! Here's your day ahead:
-{calendar_info}{whoop_info}{stock_info}{weather_info}{location_info}
+{calendar_info}
+{todoist_summary}
+{stock_summary}
+{weather_summary}
+{whoop_info}
 What's your focus for today?"""
     
     return message
@@ -136,7 +155,8 @@ def generate_midday_checkin():
         from fetch_stock_data import get_stock_summary
         todoist_summary = get_todoist_summary()
         stock_summary = get_stock_summary()
-    except:
+    except Exception as e:
+        print(f"Error fetching data: {e}")
         todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
         stock_summary = "📈 **Markets:** Stock data unavailable\n"
     
@@ -161,7 +181,8 @@ def generate_afternoon_checkin():
         from fetch_stock_data import get_stock_summary
         todoist_summary = get_todoist_summary()
         stock_summary = get_stock_summary()
-    except:
+    except Exception as e:
+        print(f"Error fetching data: {e}")
         todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
         stock_summary = "📈 **Markets:** Stock data unavailable\n"
     
@@ -188,7 +209,8 @@ def generate_evening_checkin():
         todoist_summary = get_todoist_summary()
         stock_summary = get_stock_summary()
         weather_summary = get_weather_summary()
-    except:
+    except Exception as e:
+        print(f"Error fetching data: {e}")
         todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
         stock_summary = "📈 **Markets:** Stock data unavailable\n"
         weather_summary = "🌤️ **Weather:** Data unavailable\n"
@@ -205,12 +227,10 @@ Tomorrow's looking good. Rest well! 🦞"""
     return message
 
 def generate_html_email(checkin_type, telegram_message, pt_now):
-    """Generate HTML version of check-in for email"""
+    """Generate HTML version of check-in for email with proper formatting"""
     
-    # Convert markdown-style bold to HTML
-    html_body = telegram_message.replace('**', '<strong>').replace('**', '</strong>')
-    # Convert newlines to <br>
-    html_body = html_body.replace('\n', '<br>')
+    # Convert markdown to HTML properly
+    html_body = markdown_to_html(telegram_message)
     
     # Add signature
     html_body += "<br><br>—<br><em>Cicero 🏛️</em>"
@@ -220,24 +240,31 @@ def generate_html_email(checkin_type, telegram_message, pt_now):
 <head>
     <meta charset="UTF-8">
     <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }}
-        .header {{ border-bottom: 2px solid #4a90d9; padding-bottom: 10px; margin-bottom: 20px; }}
-        .content {{ background: #f9f9f9; padding: 20px; border-radius: 8px; }}
-        .footer {{ margin-top: 30px; font-size: 12px; color: #666; border-top: 1px solid #ddd; padding-top: 15px; }}
+        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5; }}
+        .container {{ background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
+        .header {{ border-bottom: 3px solid #4a90d9; padding-bottom: 15px; margin-bottom: 25px; }}
+        .header h2 {{ margin: 0; color: #4a90d9; font-size: 26px; font-weight: 600; }}
+        .header p {{ margin: 8px 0 0 0; color: #666; font-size: 16px; }}
+        .content {{ font-size: 15px; color: #444; }}
+        .content strong {{ color: #222; font-weight: 600; }}
+        .footer {{ margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; font-size: 13px; color: #666; text-align: center; }}
+        .footer a {{ color: #4a90d9; text-decoration: none; }}
     </style>
 </head>
 <body>
-    <div class="header">
-        <h2 style="margin: 0; color: #4a90d9;">Cicero Check-In</h2>
-        <p style="margin: 5px 0 0 0; color: #666;">{pt_now.strftime('%A, %B %d, %Y')}</p>
-    </div>
-    <div class="content">
-        {html_body}
-    </div>
-    <div class="footer">
-        <p>This is an automated check-in from Cicero 🏛️</p>
-        <p>To respond, message me on Telegram: <a href="https://t.me/geoffclapp">@geoffclapp</a></p>
-        <p style="font-size: 11px; color: #999; margin-top: 10px;">This email was sent from an unmonitored address. Replies will not be received.</p>
+    <div class="container">
+        <div class="header">
+            <h2>Cicero Check-In</h2>
+            <p>{pt_now.strftime('%A, %B %d, %Y')}</p>
+        </div>
+        <div class="content">
+            {html_body}
+        </div>
+        <div class="footer">
+            <p>This is an automated check-in from Cicero 🏛️</p>
+            <p>To respond, message me on Telegram: <a href="https://t.me/geoffclapp">@geoffclapp</a></p>
+            <p style="font-size: 11px; color: #999; margin-top: 10px;">This email was sent from an unmonitored address. Replies will not be received.</p>
+        </div>
     </div>
 </body>
 </html>"""

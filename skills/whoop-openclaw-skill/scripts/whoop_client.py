@@ -36,7 +36,18 @@ class WhoopClient:
         # Try file first
         if os.path.exists(self.token_file):
             with open(self.token_file, 'r') as f:
-                return f.read().strip()
+                content = f.read().strip()
+                # Check if it's a JSON file with tokens
+                try:
+                    token_data = json.loads(content)
+                    if 'access_token' in token_data:
+                        # Save refresh token for later use
+                        self._refresh_token_value = token_data.get('refresh_token')
+                        return token_data['access_token']
+                except json.JSONDecodeError:
+                    # Plain text token
+                    pass
+                return content
         
         # Try environment variable
         token = os.getenv('WHOOP_API_TOKEN')
@@ -47,18 +58,41 @@ class WhoopClient:
     
     def _refresh_token(self):
         """Refresh expired access token using refresh token"""
-        refresh_token_file = Path(self.token_file).parent / ".whoop_refresh_token"
+        refresh_token = None
         
-        if not refresh_token_file.exists():
+        # Try to get refresh token from instance variable (set during _load_token)
+        if hasattr(self, '_refresh_token_value') and self._refresh_token_value:
+            refresh_token = self._refresh_token_value
+        
+        # Fallback to separate refresh token file
+        if not refresh_token:
+            refresh_token_file = Path(self.token_file).parent / ".whoop_refresh_token"
+            if refresh_token_file.exists():
+                refresh_token = refresh_token_file.read_text().strip()
+        
+        if not refresh_token:
             raise ValueError("No refresh token found. Please re-authorize via OAuth.")
         
-        refresh_token = refresh_token_file.read_text().strip()
+        # Load client credentials from config file
+        config_file = Path(self.token_file).parent / "whoop-config.json"
+        client_id = None
+        client_secret = None
+        if config_file.exists():
+            with open(config_file) as f:
+                config = json.load(f)
+                client_id = config.get('client_id')
+                client_secret = config.get('client_secret')
         
         # Refresh token endpoint
         data = {
             "grant_type": "refresh_token",
             "refresh_token": refresh_token
         }
+        
+        # Add client credentials if available
+        if client_id and client_secret:
+            data["client_id"] = client_id
+            data["client_secret"] = client_secret
         
         response = requests.post("https://api.prod.whoop.com/oauth/oauth2/token", data=data)
         
@@ -67,10 +101,23 @@ class WhoopClient:
             new_access_token = token_data.get("access_token")
             new_refresh_token = token_data.get("refresh_token")
             
-            # Save new tokens
-            Path(self.token_file).write_text(new_access_token)
-            if new_refresh_token:
-                refresh_token_file.write_text(new_refresh_token)
+            # Save new tokens - if token_file is JSON format, update it
+            token_file_path = Path(self.token_file)
+            try:
+                with open(token_file_path) as f:
+                    existing = json.load(f)
+                # It's a JSON file, update it
+                existing['access_token'] = new_access_token
+                if new_refresh_token:
+                    existing['refresh_token'] = new_refresh_token
+                with open(token_file_path, 'w') as f:
+                    json.dump(existing, f, indent=2)
+            except json.JSONDecodeError:
+                # Plain text file
+                token_file_path.write_text(new_access_token)
+                if new_refresh_token:
+                    refresh_token_file_path = token_file_path.parent / ".whoop_refresh_token"
+                    refresh_token_file_path.write_text(new_refresh_token)
             
             # Update current session token
             self.token = new_access_token
@@ -106,9 +153,16 @@ class WhoopClient:
         """Get recovery data"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            # Whoop API expects ISO format with time
+            if isinstance(start_date, datetime):
+                params["start"] = start_date.isoformat()
+            else:
+                params["start"] = f"{start_date}T00:00:00.000Z"
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                params["end"] = end_date.isoformat()
+            else:
+                params["end"] = f"{end_date}T23:59:59.999Z"
         
         return self._make_request("recovery", params=params)
     
@@ -116,9 +170,15 @@ class WhoopClient:
         """Get sleep data (v2 activity endpoint)"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            if isinstance(start_date, datetime):
+                params["start"] = start_date.isoformat()
+            else:
+                params["start"] = f"{start_date}T00:00:00.000Z"
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                params["end"] = end_date.isoformat()
+            else:
+                params["end"] = f"{end_date}T23:59:59.999Z"
         
         return self._make_activity_request("sleep", params=params)
     
@@ -145,9 +205,15 @@ class WhoopClient:
         """Get physiological cycle data (strain, calories, HR, HRV)"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            if isinstance(start_date, datetime):
+                params["start"] = start_date.isoformat()
+            else:
+                params["start"] = f"{start_date}T00:00:00.000Z"
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                params["end"] = end_date.isoformat()
+            else:
+                params["end"] = f"{end_date}T23:59:59.999Z"
         
         return self._make_request("cycle", params=params)
     
@@ -163,9 +229,15 @@ class WhoopClient:
         """Get workout data (v2 activity endpoint)"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            if isinstance(start_date, datetime):
+                params["start"] = start_date.isoformat()
+            else:
+                params["start"] = f"{start_date}T00:00:00.000Z"
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                params["end"] = end_date.isoformat()
+            else:
+                params["end"] = f"{end_date}T23:59:59.999Z"
         
         return self._make_activity_request("workout", params=params)
     
