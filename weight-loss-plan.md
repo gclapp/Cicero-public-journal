@@ -302,6 +302,48 @@ You get insights: "High recovery + calorie deficit = weight loss happening"
 
 ---
 
+## 🔴 RECOVERY-BASED WEIGHT LOSS PROTOCOL
+
+### Phase 0: Recovery Restoration (Days 1-5)
+**Trigger:** Whoop recovery < 50%
+**Goal:** Get body ready for weight loss
+
+| Metric | Target | Why |
+|--------|--------|-----|
+| Sleep | 8+ hours | Cortisol reduction |
+| Calories | 2,000-2,200 | Maintenance (not deficit) |
+| Protein | 150g | Muscle preservation |
+| Water | 1 gallon | Detox and recovery |
+| Exercise | Walking only | No additional stress |
+| Alcohol | ZERO | Impairs recovery |
+| Whoop | 24/7 wear | Accurate data |
+
+**Exit criteria:** Recovery > 50% for 2 consecutive days
+
+### Phase 1: Gentle Deficit (Days 6-14)
+**Trigger:** Recovery 50-65%
+**Goal:** Ease into weight loss
+
+| Metric | Target |
+|--------|--------|
+| Sleep | 7.5+ hours |
+| Calories | 1,900-2,000 (slight deficit) |
+| Protein | 160g |
+| Exercise | 2 strength + walking |
+
+### Phase 2: Full Program (Week 3+)
+**Trigger:** Recovery > 65% consistently
+**Goal:** Aggressive but sustainable weight loss
+
+| Metric | Target |
+|--------|--------|
+| Sleep | 7+ hours |
+| Calories | 1,800-1,900 |
+| Protein | 170-180g |
+| Exercise | Full program (4-5 days/week) |
+
+---
+
 ## 📋 TODOIST SETUP
 
 I'll create a project called "Weight Loss 2026" with recurring tasks:
@@ -327,7 +369,15 @@ I'll create a project called "Weight Loss 2026" with recurring tasks:
 
 ## 🚨 EXPECTATIONS & REALITY
 
-### Week 1-2: Water Weight Drop
+### CRITICAL: Recovery-First Protocol
+**If Whoop recovery < 50%: DO NOT START WEIGHT LOSS YET**
+- Focus: Sleep, hydration, light movement only
+- Calories: Maintenance (2,000-2,200)
+- Exercise: Walking only
+- Alcohol: ZERO
+- Duration: Until recovery > 50% for 2 consecutive days
+
+### Week 1-2: Water Weight Drop (Only if recovery > 50%)
 - Expect: 3-5 lbs (mostly water)
 - Feel: Hungry as body adjusts
 - Energy: May dip temporarily

@@ -64,7 +64,9 @@ def save_daily_summary():
         if sleep_record:
             score = sleep_record.get('score', {})
             performance = score.get('sleep_performance_percentage', 'N/A')
-            duration_ms = score.get('total_in_bed_time_milli', 0)
+            # Duration is in stage_summary, not directly in score
+            stage_summary = score.get('stage_summary', {})
+            duration_ms = stage_summary.get('total_in_bed_time_milli', 0)
             hours = duration_ms / (1000 * 60 * 60) if duration_ms else 0
             efficiency = score.get('sleep_efficiency_percentage', 'N/A')
             
