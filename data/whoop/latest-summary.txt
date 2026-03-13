@@ -1,16 +1,5 @@
-## Whoop Daily Summary - 2026-03-12
+## Whoop Daily Summary - 2026-03-13
 
-**Recovery:** 29.0%
-- HRV: 22.329748 ms
-- RHR: 74.0 bpm
+**Error:** Token expired and refresh failed: No refresh token found. Please re-authorize via OAuth.
 
-**Sleep:** 46.0%
-- Duration: 6.0 hours
-- Efficiency: 80.22049%
-
-**Strain:** 4.157737
-- Calories: 1631 kcal
-
-**Workouts:** 2
-- Unknown: Strain 6.74735, 208 cal
-- Unknown: Strain 4.442452, 63 cal
+Please check Whoop OAuth token.

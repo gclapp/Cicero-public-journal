@@ -15,6 +15,7 @@ import subprocess
 # Paths
 FEEDS_FILE = os.path.expanduser("~/.openclaw/workspace/config/competitor-feeds.json")
 SEEN_FILE = os.path.expanduser("~/.openclaw/workspace/config/competitor-seen.json")
+SENT_COUNT_FILE = os.path.expanduser("~/.openclaw/workspace/config/competitor-sent-count.json")
 OUTPUT_FILE = os.path.expanduser("~/.openclaw/workspace/config/competitor-new-articles.json")
 LOG_FILE = os.path.expanduser("~/.openclaw/workspace/logs/competitor-monitor.log")
 
@@ -51,6 +52,32 @@ def save_seen(seen):
     os.makedirs(os.path.dirname(SEEN_FILE), exist_ok=True)
     with open(SEEN_FILE, 'w') as f:
         json.dump(list(seen), f)
+
+def load_sent_counts():
+    """Load article send counts (tracks how many times each article was sent)"""
+    if os.path.exists(SENT_COUNT_FILE):
+        with open(SENT_COUNT_FILE, 'r') as f:
+            return json.load(f)
+    return {}
+
+def save_sent_counts(counts):
+    """Save article send counts"""
+    os.makedirs(os.path.dirname(SENT_COUNT_FILE), exist_ok=True)
+    with open(SENT_COUNT_FILE, 'w') as f:
+        json.dump(counts, f)
+
+def can_send_article(article_id, sent_counts):
+    """
+    Check if article can be sent (max 2 times).
+    Returns True if article hasn't been sent 2+ times yet.
+    """
+    count = sent_counts.get(article_id, 0)
+    return count < 2
+
+def increment_sent_count(article_id, sent_counts):
+    """Increment the send count for an article"""
+    sent_counts[article_id] = sent_counts.get(article_id, 0) + 1
+    return sent_counts
 
 def article_id(entry):
     """Generate unique ID for an article"""
@@ -120,7 +147,9 @@ def main():
     
     feeds = load_feeds()
     seen = load_seen()
+    sent_counts = load_sent_counts()
     all_new = []
+    skipped_duplicates = 0
     
     for name, url in feeds.items():
         log(f"Scanning: {name}")
@@ -130,16 +159,26 @@ def main():
         if new_articles:
             log(f"  Found {len(new_articles)} new articles")
             for article in new_articles:
+                # Check if we've already sent this article 2+ times
+                if not can_send_article(article['id'], sent_counts):
+                    log(f"  ⚠️ Skipping (already sent 2x): {article['title'][:50]}...")
+                    skipped_duplicates += 1
+                    seen.add(article['id'])  # Mark as seen so we don't check again
+                    continue
+                
                 priority, category = categorize_article(article['title'], article['summary'])
                 article['priority'] = priority
                 article['category'] = category
                 all_new.append(article)
                 seen.add(article['id'])
+                # Increment send count for this article
+                sent_counts = increment_sent_count(article['id'], sent_counts)
         else:
             log(f"  No new articles")
     
-    # Save updated seen list
+    # Save updated seen list and sent counts
     save_seen(seen)
+    save_sent_counts(sent_counts)
     
     # Sort by priority
     priority_order = {'high': 0, 'medium': 1, 'low': 2}
@@ -151,19 +190,28 @@ def main():
         with open(OUTPUT_FILE, 'w') as f:
             json.dump(all_new, f, indent=2)
         log(f"✅ Saved {len(all_new)} new articles to {OUTPUT_FILE}")
+        if skipped_duplicates > 0:
+            log(f"⚠️ Skipped {skipped_duplicates} articles (already sent 2x max)")
         
         # Print summary for cron/email
         print(f"\n{'='*60}")
         print(f"COMPETITIVE INTELLIGENCE ALERT: {len(all_new)} new articles")
+        if skipped_duplicates > 0:
+            print(f"(Skipped {skipped_duplicates} duplicate articles - max 2 sends reached)")
         print(f"{'='*60}")
         for article in all_new:
             badge = "🔴" if article['priority'] == 'high' else "🟡" if article['priority'] == 'medium' else "⚪"
-            print(f"\n{badge} [{article['source']}] {article['title']}")
+            send_count = sent_counts.get(article['id'], 1)
+            count_indicator = f" [send {send_count}/2]" if send_count > 1 else ""
+            print(f"\n{badge} [{article['source']}] {article['title']}{count_indicator}")
             print(f"   Priority: {article['priority'].upper()} | Category: {article['category']}")
             print(f"   {article['link'][:80]}...")
         print(f"\n{'='*60}")
     else:
-        log("✅ No new articles found")
+        if skipped_duplicates > 0:
+            log(f"⚠️ No new articles to send (skipped {skipped_duplicates} duplicates - max 2 sends reached)")
+        else:
+            log("✅ No new articles found")
     
     # Also try blogwatcher for any other configured blogs
     log("\nChecking blogwatcher feeds...")

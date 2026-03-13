@@ -1,0 +1,13 @@
+[2026-03-13 22:15:48] ============================================================
+[2026-03-13 22:15:48] SYSTEM HEALTH CHECK
+[2026-03-13 22:15:48] ============================================================
+[2026-03-13 22:15:48] 
+📋 Checking Todoist...
+[2026-03-13 22:15:49]   ✅ Todoist: 50 tasks
+[2026-03-13 22:15:49] 
+📅 Checking Google Calendar...
+[2026-03-13 22:15:49]   🔴 Calendar: Token file does not exist
+[2026-03-13 22:15:49]   📝 ACTION: User needs to authenticate
+[2026-03-13 22:15:49] 
+🌤️ Checking Weather...
+[2026-03-13 22:15:49]   ✅ Weather skill installed

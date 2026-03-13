@@ -22,6 +22,50 @@
 
 ---
 
+## ⚠️ CRITICAL: Comprehensive System Health Check (Every Heartbeat)
+
+**On EVERY heartbeat message, I MUST run `scripts/system_health_check.py` and include the results in my response.**
+
+### Systems to Check (in order):
+
+1. **Todoist** - Must show task count
+2. **Google Calendar** - Must verify token age (<7 days) and connectivity
+3. **Weather** - Must fetch current LA weather
+4. **Whoop** - Check if configured
+5. **Health Dashboard** - Verify availability
+6. **Watch Hunt** - Verify availability
+7. **Competitive Intelligence** - Check cron status
+
+### If ANY system fails:
+
+1. **Attempt automatic recovery:**
+   - Reset stale OAuth tokens
+   - Re-run authentication flows
+   - Restart services if needed
+
+2. **If automatic recovery fails:**
+   - Include 🔴 ACTION REQUIRED in response
+   - Provide specific manual steps
+   - Include auth URLs if applicable
+
+3. **Never silently skip a failing system**
+
+### Token Reset Commands:
+```bash
+# Clear calendar token
+rm ~/.openclaw/credentials/calendar-token.pickle
+# Then re-run: python3 scripts/calendar_reader.py
+```
+
+### Weather Command:
+```bash
+openclaw weather "Los Angeles"
+```
+
+**This check is MANDATORY on every heartbeat — do not skip.**
+
+---
+
 ## Automated Actions
 
 **Every 55 minutes, the system:**
@@ -31,10 +75,13 @@
 4. Waits for user interaction OR external trigger
 
 **Morning Check-In Automation:**
-1. Read calendar events from `config/calendar-events.json`
-2. Check for travel events in next 24-48 hours
-3. Include calendar summary in morning update
-4. Flag any urgent items (flights, important meetings)
+1. Run system health check
+2. Read calendar events from `config/calendar-events.json`
+3. Check for travel events in next 24-48 hours
+4. Include calendar summary in morning update
+5. Include weather in morning update
+6. Flag any urgent items (flights, important meetings)
+7. Include Todoist task count
 
 **Note:** Check-ins require user message or system trigger to actually send. The heartbeat prepares the check-in but doesn't auto-send (limitation of current architecture).
 
