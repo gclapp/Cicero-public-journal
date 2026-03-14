@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-03-14T05:02:57.606682",
+  "checks": {
+    "todoist": {
+      "status": "ok",
+      "tasks": 50
+    },
+    "calendar": {
+      "status": "missing",
+      "error": "Token file does not exist",
+      "action_required": true,
+      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly"
+    },
+    "weather_skill": {
+      "status": "ok"
+    },
+    "whoop": {
+      "status": "configured"
+    },
+    "health_dashboard": {
+      "status": "available",
+      "url": "https://gclapp.github.io/health-dashboard/"
+    },
+    "watch_hunt": {
+      "status": "available",
+      "url": "https://gclapp.github.io/geoff-watch-hunt/"
+    },
+    "competitive_intel": {
+      "status": "active"
+    }
+  },
+  "action_required": [
+    {
+      "service": "calendar",
+      "error": "Token file does not exist",
+      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly"
+    }
+  ]
+}
