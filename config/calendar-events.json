@@ -1,64 +1,8 @@
 {
-  "last_updated": "2026-03-10T14:55:02.968358",
+  "last_updated": "2026-03-14T05:58:50.010086",
   "total_events": 100,
-  "travel_events": 16,
+  "travel_events": 14,
   "events": [
-    {
-      "summary": "Stay at Renaissance Concourse Atlanta Airport Hotel",
-      "start": "Monday, March 09",
-      "start_raw": "2026-03-09",
-      "location": "Renaissance Concourse Atlanta Airport Hotel, Atlanta",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "\u26a1\ufe0f Maven LIVE: Clawdbot Masterclass for PMs",
-      "start": "Tuesday, March 10 at 10:00 AM",
-      "start_raw": "2026-03-10T10:00:00-07:00",
-      "location": "https://maven.com/s/joinworkshop/8fe0a3b26e",
-      "description": "<span>Join Dr. Marily Nika and Dmitry Shapiro for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>Turn agents into always-on product watchdogs</b></span\n>\n<sp",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoff Flight to Delta -  Delta Air Lines 763 ",
-      "start": "Tuesday, March 10 at 05:10 PM",
-      "start_raw": "2026-03-10T17:10:00-07:00",
-      "location": "Atlanta(ATL) - Los Angeles(LAX)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: GVRJPS Delta Air Lines 763 First, Scheduled Departure Mar 10, 2026, 8:10 pm, Atlanta, GA, United States of America (ATL-Hartsfield-Jackson Atlanta",
-      "is_travel": true
-    },
-    {
-      "summary": "Flight to LAX (DL 763)",
-      "start": "Tuesday, March 10 at 05:10 PM",
-      "start_raw": "2026-03-10T17:10:00-07:00",
-      "location": "Atlanta ATL",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "\u26a1\ufe0f Maven LIVE: OpenClaw for Product managers",
-      "start": "Wednesday, March 11 at 10:00 AM",
-      "start_raw": "2026-03-11T10:00:00-07:00",
-      "location": "https://maven.com/s/joinworkshop/c85a1ea838",
-      "description": "<span>Join Aman Khan and Eric Xiao for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>The primitives for what drives Openclaw\u2019s success</b></span\n>\n<span><b>",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, March 12 at 11:15 AM",
-      "start_raw": "2026-03-12T11:15:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, March 12 at 12:15 PM",
-      "start_raw": "2026-03-12T12:15:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
     {
       "summary": "Geoff keep kids til 8am next day ",
       "start": "Saturday, March 14 at 05:00 PM",
@@ -74,6 +18,14 @@
       "location": "",
       "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
       "is_travel": false
+    },
+    {
+      "summary": "Flight to JFK (DL 960)",
+      "start": "Saturday, March 14 at 09:30 PM",
+      "start_raw": "2026-03-14T21:30:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
     },
     {
       "summary": "Delta Air Lines flight 960 to New York (HCTGNK)",
@@ -188,14 +140,6 @@
       "is_travel": false
     },
     {
-      "summary": "Delta Air Lines flight 707 to Los Angeles (HCTGNK)",
-      "start": "Wednesday, March 18 at 04:45 PM",
-      "start_raw": "2026-03-18T16:45:00-07:00",
-      "location": "John F. Kennedy International Airport (New York, NY 11430, United States)",
-      "description": "Delta Air Lines flight 707 (6 hours, 40 minutes)\nConfirmation code: HCTGNK\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:45 PM on Wednesday, March 18, 2026 from New Yor",
-      "is_travel": true
-    },
-    {
       "summary": "Pick up Sophie from School",
       "start": "Thursday, March 19 at 01:30 PM",
       "start_raw": "2026-03-19T13:30:00-07:00",
@@ -209,6 +153,14 @@
       "start_raw": "2026-03-19T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Jovie Sitter/Nanny - Geoffrey Clapp and Ross Cope",
+      "start": "Thursday, March 19 at 04:30 PM",
+      "start_raw": "2026-03-19T16:30:00-07:00",
+      "location": "+1 650-776-7054",
+      "description": "Event Name: Nanny-Sitter 1-1 Consult\n\nThis 1-1 consult will be to discuss your nanny/sitter needs\n\nLocation: +1 650-776-7054\n\nPlease share where you live (City and Zip): Calabasas 91302\n\nShare a bit a",
       "is_travel": false
     },
     {
@@ -233,6 +185,14 @@
       "start_raw": "2026-03-20",
       "location": "Trixie Motel, 210 W Stevens Rd, Palm Springs, CA 92262, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at Moxy Santa Barbara",
+      "start": "Friday, March 20",
+      "start_raw": "2026-03-20",
+      "location": "12 East Montecito Street, Santa Barbara, CA 93101, USA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -273,14 +233,6 @@
       "start_raw": "2026-03-22",
       "location": "59 W 44th St, New York, NY, 10036, USA",
       "description": "External Sender.\n\n Hotel (Booked) The Algonquin Hotel Times Square, Autograph Collection 59 W 44th St New York, NY 10036 Phone Number: 1 212 840-6800 Fax: 1 212 944-1419 Check-in: March 22, 2026 Check",
-      "is_travel": true
-    },
-    {
-      "summary": "Stay at The Algonquin Hotel Times Square, Autograph Collection",
-      "start": "Sunday, March 22",
-      "start_raw": "2026-03-22",
-      "location": "The Algonquin Hotel Times Square, Autograph Collection, New York",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
     {
@@ -548,6 +500,14 @@
       "is_travel": false
     },
     {
+      "summary": "Oliver School Conference",
+      "start": "Tuesday, April 14 at 10:45 AM",
+      "start_raw": "2026-04-14T10:45:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/2295499520144?p=5ol3T2nhI1jlV8y7lW\nMeeting ID: 229 549 ",
+      "is_travel": false
+    },
+    {
       "summary": "David Byrne Concert",
       "start": "Tuesday, April 14 at 03:00 PM",
       "start_raw": "2026-04-14T15:00:00-07:00",
@@ -660,6 +620,14 @@
       "is_travel": false
     },
     {
+      "summary": "Dinner with Cass + Andrew",
+      "start": "Saturday, April 25 at 06:00 PM",
+      "start_raw": "2026-04-25T18:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, April 27 at 07:00 AM",
       "start_raw": "2026-04-27T07:00:00-07:00",
@@ -764,6 +732,14 @@
       "is_travel": false
     },
     {
+      "summary": "Save The Date: Titan Table Talks, The BIG ONE",
+      "start": "Tuesday, May 12 at 09:00 AM",
+      "start_raw": "2026-05-12T09:00:00-07:00",
+      "location": "https://us04web.zoom.us/j/3923156843?pwd=MHdadlBjdW9sQjFZNnBOSGxRUGkzUT09",
+      "description": "Link to join:\u00a0<u><a href=\"https://us04web.zoom.us/j/3923156843?pwd=MHdadlBjdW9sQjFZNnBOSGxRUGkzUT09\" target=\"_blank\">https://us04web.zoom.us/j/3923156843?pwd=MHdadlBjdW9sQjFZNnBOSGxRUGkzUT09</a></u><b",
+      "is_travel": false
+    },
+    {
       "summary": "Pick up Sophie from School",
       "start": "Thursday, May 14 at 01:30 PM",
       "start_raw": "2026-05-14T13:30:00-07:00",
@@ -796,10 +772,34 @@
       "is_travel": false
     },
     {
+      "summary": "Delta Air Lines flight 960 to New York (GAO7LP)",
+      "start": "Saturday, May 16 at 09:59 PM",
+      "start_raw": "2026-05-16T21:59:00-07:00",
+      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
+      "description": "Delta Air Lines flight 960 (5 hours, 18 minutes)\nConfirmation code: GAO7LP\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 9:59 PM on Saturday, ",
+      "is_travel": true
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, May 18 at 07:00 AM",
       "start_raw": "2026-05-18T07:00:00-07:00",
       "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
+      "start": "Thursday, May 21 at 04:00 AM",
+      "start_raw": "2026-05-21T04:00:00-07:00",
+      "location": "New York(JFK) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: HKZ4LV Delta Air Lines 742 Business, Scheduled Departure May 21, 2026, 7:00 am, New York, NY, United States of America (JFK-John F. Kennedy Intl.)",
+      "is_travel": true
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, May 21 at 01:30 PM",
+      "start_raw": "2026-05-21T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
     }

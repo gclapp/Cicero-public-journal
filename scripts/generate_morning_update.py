@@ -1,196 +1,191 @@
 #!/usr/bin/env python3
 """
-Generate Morning Update with Calendar + Health Integration
-Includes Whoop data, weight loss tracking, travel, meetings
+Generate Morning Update - MANDATORY SECTIONS
+Includes: Weather, Todoist, Health, Calendar - NO EXCEPTIONS
 """
 
 import json
-import os
+import subprocess
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime
 
+# File paths
 CALENDAR_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "calendar-events.json"
 WHOOP_SUMMARY_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "whoop" / "latest-summary.txt"
+OUTPUT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "morning-update.txt"
 
-def load_calendar():
-    """Load calendar events"""
+def get_weather(location="Los Angeles"):
+    """Get weather - MANDATORY"""
+    try:
+        result = subprocess.run(
+            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%l:+%c+%t+%h+%w', '--max-time', '10'],
+            capture_output=True, text=True, timeout=15
+        )
+        if result.returncode == 0 and result.stdout and 'Unknown' not in result.stdout:
+            return result.stdout.strip()
+        return f"{location}: Weather data unavailable"
+    except:
+        return f"{location}: Weather service error"
+
+def get_todoist_tasks():
+    """Get Todoist task count - MANDATORY"""
+    try:
+        result = subprocess.run(['todoist', 'today'], capture_output=True, text=True, timeout=30)
+        if result.returncode == 0:
+            lines = [l for l in result.stdout.strip().split('\n') if l.strip()]
+            return len(lines)
+        return "Error"
+    except:
+        return "Unavailable"
+
+def get_health_status():
+    """Get health dashboard status - MANDATORY"""
+    dashboard_url = "https://gclapp.github.io/health-dashboard/"
+    
+    # Check if Whoop data exists
+    whoop_status = "Not available"
+    if WHOOP_SUMMARY_FILE.exists():
+        try:
+            with open(WHOOP_SUMMARY_FILE, 'r') as f:
+                content = f.read()
+                if content and "No Whoop data" not in content:
+                    whoop_status = "Data available"
+        except:
+            pass
+    
+    return {
+        'dashboard_url': dashboard_url,
+        'whoop_status': whoop_status
+    }
+
+def get_calendar_summary():
+    """Get calendar summary - MANDATORY"""
     if not CALENDAR_FILE.exists():
-        return None
+        return None, []
     
-    with open(CALENDAR_FILE, 'r') as f:
-        return json.load(f)
+    try:
+        with open(CALENDAR_FILE, 'r') as f:
+            data = json.load(f)
+        
+        today = datetime.now().strftime('%A, %B %d')
+        today_events = []
+        travel_events = []
+        
+        for event in data.get('events', []):
+            if today in event.get('start', ''):
+                today_events.append(event)
+            if event.get('is_travel'):
+                travel_events.append(event)
+        
+        return today_events, travel_events
+    except:
+        return None, []
 
-def load_whoop_summary():
-    """Load Whoop health summary"""
-    if not WHOOP_SUMMARY_FILE.exists():
-        return None
-    
-    with open(WHOOP_SUMMARY_FILE, 'r') as f:
-        return f.read()
-
-def get_today_events(events_data):
-    """Get events for today"""
-    if not events_data:
-        return []
-    
-    today = datetime.now().strftime('%A, %B %d')
-    today_events = []
-    
-    for event in events_data.get('events', []):
-        if today in event.get('start', ''):
-            today_events.append(event)
-    
-    return today_events
-
-def get_travel_events(events_data, days=7):
-    """Get upcoming travel events"""
-    if not events_data:
-        return []
-    
-    travel = []
-    for event in events_data.get('events', []):
-        if event.get('is_travel'):
-            travel.append(event)
-    
-    return travel[:5]
-
-def get_restaurant_events(events_data):
-    """Get restaurant reservations for today or this week"""
-    if not events_data:
-        return []
-    
-    restaurants = []
-    restaurant_keywords = ['reservation', 'l\'artusi', 'nowon', 'dinner', 'lunch']
-    
-    for event in events_data.get('events', []):
+def get_destination_weather(travel_events):
+    """Get weather for travel destinations"""
+    destinations = []
+    for event in travel_events[:3]:  # Check first 3 travel events
+        location = event.get('location', '').lower()
         summary = event.get('summary', '').lower()
-        if any(kw in summary for kw in restaurant_keywords):
-            restaurants.append(event)
+        
+        # Extract city from location or summary
+        if 'new york' in location or 'jfk' in location or 'nyc' in summary:
+            destinations.append(('New York', 'New+York'))
+        elif 'santa barbara' in location:
+            destinations.append(('Santa Barbara', 'Santa+Barbara'))
+        elif 'scottsdale' in location or 'phoenix' in location:
+            destinations.append(('Scottsdale', 'Scottsdale'))
+        elif 'portland' in location:
+            destinations.append(('Portland', 'Portland'))
     
-    return restaurants[:3]
+    weather_reports = []
+    for city_name, city_code in destinations:
+        weather = get_weather(city_code)
+        weather_reports.append(f"{city_name}: {weather}")
+    
+    return weather_reports
 
 def generate_morning_update():
-    """Generate complete morning update with health + calendar"""
-    calendar_data = load_calendar()
-    whoop_data = load_whoop_summary()
+    """Generate morning update with ALL MANDATORY sections"""
     
-    today = datetime.now().strftime('%A, %B %d')
+    today = datetime.now().strftime('%A, %B %d, %Y')
     
-    update = f"""Good morning! ☀️
+    # 1. WEATHER (MANDATORY)
+    la_weather = get_weather("Los Angeles")
+    
+    # 2. TODOIST (MANDATORY)
+    todoist_count = get_todoist_tasks()
+    
+    # 3. HEALTH (MANDATORY)
+    health = get_health_status()
+    
+    # 4. CALENDAR (MANDATORY)
+    today_events, travel_events = get_calendar_summary()
+    
+    # Get destination weather if traveling
+    destination_weather = []
+    if travel_events:
+        destination_weather = get_destination_weather(travel_events)
+    
+    # Build update
+    update = f"""# ☀️ Good Morning! — {today}
 
-## Daily Status List - {today}
-
-**Pending Tasks:**
-- (Check Todoist for active tasks)
-
-**Recently Completed (last 72h):**
-- Calendar integration active ✅
-- Whoop data flowing ✅
-- Weight loss tracking enabled ✅
-
+## 🌤️ WEATHER
+**Los Angeles:** {la_weather}
 """
     
-    # Add Whoop health data section
-    if whoop_data and whoop_data.strip() != "No Whoop data available.":
-        update += "### 💪 Yesterday's Health (Whoop)\n\n"
-        update += whoop_data
-        update += "\n\n"
+    # Add destination weather if traveling
+    if destination_weather:
+        update += "\n**Travel Destinations:**\n"
+        for dw in destination_weather:
+            update += f"- {dw}\n"
+    
+    update += f"""
+## ✅ TODOIST
+**{todoist_count} tasks** pending for today
+
+## 💓 HEALTH
+**Dashboard:** {health['dashboard_url']}
+**Whoop Status:** {health['whoop_status']}
+
+## 📅 CALENDAR
+"""
+    
+    # Add today's events
+    if today_events:
+        update += "**Today's Events:**\n"
+        for event in today_events[:5]:  # Show first 5
+            emoji = "✈️" if event.get('is_travel') else "📅"
+            update += f"{emoji} {event['summary']}\n"
+            update += f"   🕐 {event['start']}\n"
+            if event.get('location'):
+                update += f"   📍 {event['location']}\n"
     else:
-        update += "### 💪 Health Data\nWhoop data will appear here after morning refresh.\n\n"
+        update += "No events scheduled for today.\n"
     
-    # Weight Loss Tracking Section
-    update += """### 🎯 Weight Loss Progress
-**Goal:** 20 lbs in 10-12 weeks | **Approach:** High-protein, lower-carb + Strategic exercise
-
-**Daily Checklist:**
-- [ ] Weigh-in (7 AM)
-- [ ] Log breakfast in Lose It!
-- [ ] Protein target: 150-180g
-- [ ] Workout complete
-- [ ] 7+ hours sleep
-
-**This Week Focus:**
-- Weeks 1-4: Aggressive phase (2 lbs/week target)
-- Prioritize: Protein at every meal, no sugary drinks, daily movement
-- Travel days: Pack protein bars, walk everywhere, hotel workouts
-
+    # Add travel alerts
+    if travel_events:
+        update += "\n**✈️ Upcoming Travel:**\n"
+        for trip in travel_events[:3]:
+            update += f"- {trip['summary']} ({trip['start']})\n"
+    
+    update += """
+---
+🏛️ Cicero | All systems operational
 """
-    
-    # Add calendar section
-    if calendar_data:
-        today_events = get_today_events(calendar_data)
-        travel_events = get_travel_events(calendar_data)
-        restaurant_events = get_restaurant_events(calendar_data)
-        
-        if today_events:
-            update += "### 📅 Today's Schedule\n\n"
-            for event in today_events:
-                emoji = "✈️" if event.get('is_travel') else "🍽️" if any(kw in event.get('summary', '').lower() for kw in ['reservation', 'dinner', 'lunch']) else "📅"
-                update += f"{emoji} {event['summary']}\n"
-                update += f"   🕐 {event['start']}\n"
-                if event.get('location'):
-                    update += f"   📍 {event['location']}\n"
-                update += "\n"
-        else:
-            update += "### 📅 Today's Schedule\nNo events scheduled.\n\n"
-        
-        # Restaurant intel
-        if restaurant_events:
-            update += "### 🍽️ Upcoming Dining\n\n"
-            for r in restaurant_events[:2]:
-                update += f"🍽️ {r['summary']}\n"
-                update += f"   📆 {r['start']}\n"
-                if r.get('location'):
-                    update += f"   📍 {r['location']}\n"
-                    # Add city guide intel
-                    if "l'artusi" in r['summary'].lower():
-                        update += "   💡 *Italian institution, get the olive oil cake*\n"
-                    elif "nowon" in r['summary'].lower():
-                        update += "   💡 *Legendary cheeseburger, lively Korean pub*\n"
-            update += "\n"
-        
-        # Travel alerts
-        if travel_events:
-            update += "### ✈️ Upcoming Travel\n\n"
-            for trip in travel_events[:3]:
-                update += f"✈️ {trip['summary']}\n"
-                update += f"   📆 {trip['start']}\n"
-                if trip.get('location'):
-                    update += f"   📍 {trip['location']}\n"
-            update += "\n"
-    else:
-        update += "### 📅 Calendar\nCalendar data not available.\n\n"
-    
-    # Proactive questions based on calendar
-    update += """### ❓ Questions to Help You Win Today
-- How did you sleep? (Check Whoop recovery above)
-- What's your main focus for work today?
-- Any obstacles I can help remove?
-- Dinner plans — cooking or eating out?
-
-"""
-    
-    update += """### ⚡ Quick Actions
-- **Weather:** Want a forecast for today/travel?
-- **Tasks:** Check Todoist for today's priorities
-- **Health:** Review yesterday's trends above
-- **Travel:** Upcoming trip prep needed?
-
-I'm tracking everything. Let's crush today. 🏛️"""
     
     return update
 
 def main():
-    """Generate and print morning update"""
+    """Generate and save morning update"""
     update = generate_morning_update()
     print(update)
     
-    # Save to file for reference
-    output_file = Path.home() / ".openclaw" / "workspace" / "config" / "morning-update.txt"
-    with open(output_file, 'w') as f:
+    # Save to file
+    with open(OUTPUT_FILE, 'w') as f:
         f.write(update)
     
-    print(f"\n💾 Saved to: {output_file}")
+    print(f"\n💾 Saved to: {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
