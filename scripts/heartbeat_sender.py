@@ -104,9 +104,14 @@ def generate_morning_update():
                 calendar_info = "\n📅 **Today's Calendar:**\n"
                 for event in events['events'][:5]:  # Top 5 events
                     summary = event.get('summary', 'Event')
+                    # Skip events that are for Mackenzie only (not Geoff)
+                    if 'Mac ' in summary and 'Courtyard' in summary:
+                        continue  # This is Mackenzie's reservation, not Geoff's
+                    if 'Mackenzie' in summary and 'Courtyard' in summary:
+                        continue  # This is Mackenzie's reservation, not Geoff's
                     calendar_info += f"• {summary}\n"
-                    # Try to detect location from events
-                    if event.get('location'):
+                    # Try to detect location from events (but not Mackenzie's hotels)
+                    if event.get('location') and 'Courtyard' not in event.get('location', ''):
                         location = event.get('location')
         except Exception as e:
             print(f"Error reading calendar: {e}")
