@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-15T11:31:32.356522",
+  "last_updated": "2026-03-15T23:27:39.937088",
   "total_events": 100,
   "travel_events": 13,
   "events": [
@@ -44,22 +44,6 @@
       "is_travel": true
     },
     {
-      "summary": "The Smith - Midtown",
-      "start": "Sunday, March 15 at 07:15 AM",
-      "start_raw": "2026-03-15T07:15:00-07:00",
-      "location": "956 2nd Avenue  New York, NY United States 10022",
-      "description": "(212) 644-2700\nThe Smith is a casual American brasserie with four upbeat locations in New York City: The Smith East Village, The Smith Midtown, The Smith Lincoln Square, and The Smith NoMad, as well a",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at The Smith - Midtown",
-      "start": "Sunday, March 15 at 07:15 AM",
-      "start_raw": "2026-03-15T07:15:00-07:00",
-      "location": "The Smith - Midtown, 956 2nd Avenue, New York, NY 10022",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
       "summary": "Reservation at L'Artusi",
       "start": "Sunday, March 15 at 05:00 PM",
       "start_raw": "2026-03-15T17:00:00-07:00",
@@ -87,7 +71,7 @@
       "summary": "Reservation at Gallaghers Steakhouse - Manhattan",
       "start": "Monday, March 16 at 02:30 PM",
       "start_raw": "2026-03-16T14:30:00-07:00",
-      "location": "Gallaghers Steakhouse - Manhattan, 228 West 52nd Street, New York, NY, 10019, United States",
+      "location": "Gallaghers Steakhouse - Manhattan, 228 West 52nd Street, New York, NY 10019",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
@@ -799,6 +783,22 @@
       "summary": "Pick up Oliver from School",
       "start": "Friday, May 22 at 02:00 PM",
       "start_raw": "2026-05-22T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, May 25 at 07:00 AM",
+      "start_raw": "2026-05-25T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, May 28 at 01:30 PM",
+      "start_raw": "2026-05-28T13:30:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
