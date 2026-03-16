@@ -105,12 +105,66 @@ def get_destination_weather(travel_events):
     
     return weather_reports
 
+def detect_current_location(calendar_events):
+    """Detect Geoff's current location from calendar and time"""
+    from datetime import datetime, timezone, timedelta
+    
+    # Manual timezone offsets (UTC-7 for PT, UTC-4 for ET during DST)
+    # PT = UTC-7, ET = UTC-4
+    utc_now = datetime.now(timezone.utc)
+    pt_offset = timedelta(hours=-7)
+    et_offset = timedelta(hours=-4)
+    
+    now_pt = utc_now + pt_offset
+    now_et = utc_now + et_offset
+    now_utc = utc_now
+    
+    # Default location
+    location = "Los Angeles"
+    timezone = "PT"
+    
+    # Check for travel events to determine location
+    for event in calendar_events:
+        if event.get('is_travel'):
+            summary = event.get('summary', '').lower()
+            location_str = event.get('location', '').lower()
+            
+            # If flight to NYC and it's after flight time, he's in NYC
+            if ('jfk' in summary or 'new york' in summary) and 'flight' in summary:
+                # Check if flight has arrived (assume 6 hour flight)
+                # For now, if we see NYC travel, assume he's there
+                location = "New York City"
+                timezone = "ET"
+            elif 'santa barbara' in location_str:
+                location = "Santa Barbara"
+                timezone = "PT"
+    
+    # Manual override: If current hour suggests evening ET and morning PT, check
+    # This is a simple heuristic - in production you'd check actual flight times
+    if now_et.hour < 6 and now_pt.hour < 3:  # Very early morning
+        pass  # Keep default
+    
+    return {
+        'city': location,
+        'timezone': timezone,
+        'pt_time': now_pt.strftime('%I:%M %p'),
+        'et_time': now_et.strftime('%I:%M %p'),
+        'utc_time': now_utc.strftime('%H:%M UTC')
+    }
+
 def generate_morning_update():
     """Generate morning update with ALL MANDATORY sections"""
     
     today = datetime.now().strftime('%A, %B %d, %Y')
     
-    # 1. WEATHER (MANDATORY)
+    # 4. CALENDAR (MANDATORY) - Get first for location detection
+    today_events, travel_events = get_calendar_summary()
+    
+    # Detect current location
+    location_info = detect_current_location(travel_events)
+    
+    # 1. WEATHER (MANDATORY) - Get weather for current location + LA
+    current_weather = get_weather(location_info['city'])
     la_weather = get_weather("Los Angeles")
     
     # 2. TODOIST (MANDATORY)
@@ -118,9 +172,6 @@ def generate_morning_update():
     
     # 3. HEALTH (MANDATORY)
     health = get_health_status()
-    
-    # 4. CALENDAR (MANDATORY)
-    today_events, travel_events = get_calendar_summary()
     
     # Get destination weather if traveling
     destination_weather = []
@@ -130,7 +181,12 @@ def generate_morning_update():
     # Build update
     update = f"""# ☀️ Good Morning! — {today}
 
+## 📍 CURRENT LOCATION
+**City:** {location_info['city']}
+**Time:** {location_info['pt_time']} PT | {location_info['et_time']} ET | {location_info['utc_time']}
+
 ## 🌤️ WEATHER
+**{location_info['city']}:** {current_weather}
 **Los Angeles:** {la_weather}
 """
     
