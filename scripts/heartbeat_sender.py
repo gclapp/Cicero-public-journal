@@ -161,7 +161,12 @@ def generate_midday_checkin():
         todoist_summary = get_todoist_summary()
         stock_summary = get_stock_summary()
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        import traceback
+        error_msg = f"Error fetching data: {e}\n{traceback.format_exc()}"
+        print(error_msg)
+        # Log to file for debugging
+        with open('/home/ubuntu/.openclaw/workspace/logs/heartbeat_errors.log', 'a') as f:
+            f.write(f"[{datetime.now().isoformat()}] Midday check-in error:\n{error_msg}\n\n")
         todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
         stock_summary = "📈 **Markets:** Stock data unavailable\n"
     

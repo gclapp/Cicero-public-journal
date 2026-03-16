@@ -16,8 +16,11 @@ def run_todoist_command(args):
         if '--json' not in args:
             args = args + ['--json']
         
+        # Use full path to todoist to ensure it works in cron jobs
+        todoist_path = '/home/ubuntu/.npm-global/bin/todoist'
+        
         result = subprocess.run(
-            ['todoist'] + args,
+            [todoist_path] + args,
             capture_output=True,
             text=True,
             timeout=30
