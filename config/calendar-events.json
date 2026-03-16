@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-16T20:16:51.637175",
+  "last_updated": "2026-03-16T23:56:45.497662",
   "total_events": 100,
   "travel_events": 12,
   "events": [
@@ -26,22 +26,6 @@
       "location": "270 W 43rd Street, New York, NY, 10036, USA",
       "description": "External Sender.\n\n Hotel (Booked) The Westin New York at Times Square 270 W 43rd Street New York, NY 10036 Phone Number: 1 212 201-2700 Fax: 1 212 201-2799 Check-in: March 15, 2026 Check-out: March 18",
       "is_travel": true
-    },
-    {
-      "summary": "Gallaghers Steakhouse - Manhattan",
-      "start": "Monday, March 16 at 02:30 PM",
-      "start_raw": "2026-03-16T14:30:00-07:00",
-      "location": "228 West 52nd Street  New York, NY United States 10019",
-      "description": "(212) 586-5000\nFounded by former Ziegfield girl Helen Gallagher and the colorful gambler and sports enthusiast Jack Solomon, Gallaghers opened as a speakeasy and steakhouse in 1927. At that time, the ",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at Gallaghers Steakhouse - Manhattan",
-      "start": "Monday, March 16 at 02:30 PM",
-      "start_raw": "2026-03-16T14:30:00-07:00",
-      "location": "Gallaghers Steakhouse - Manhattan, 228 West 52nd Street, New York, NY 10019",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
     },
     {
       "summary": "Dog Day Afternoon",
@@ -801,6 +785,22 @@
       "start_raw": "2026-06-01",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, June 01 at 07:00 AM",
+      "start_raw": "2026-06-01T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Greta Groomer",
+      "start": "Thursday, June 04 at 08:00 AM",
+      "start_raw": "2026-06-04T08:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "Thursday, Dec 18th\n8 AM\n\nStylist:\u00a0Isidora L\nPet: Greta\nSignature Service (No Haircut)",
       "is_travel": false
     }
   ]
