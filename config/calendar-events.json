@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-16T23:56:45.497662",
+  "last_updated": "2026-03-17T11:53:36.758172",
   "total_events": 100,
   "travel_events": 12,
   "events": [
@@ -26,14 +26,6 @@
       "location": "270 W 43rd Street, New York, NY, 10036, USA",
       "description": "External Sender.\n\n Hotel (Booked) The Westin New York at Times Square 270 W 43rd Street New York, NY 10036 Phone Number: 1 212 201-2700 Fax: 1 212 201-2799 Check-in: March 15, 2026 Check-out: March 18",
       "is_travel": true
-    },
-    {
-      "summary": "Dog Day Afternoon",
-      "start": "Monday, March 16 at 04:35 PM",
-      "start_raw": "2026-03-16T16:35:00-07:00",
-      "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
-      "description": "Dog Day AfternoonAugust Wilson Theatre\nMon, Mar 16, 2026 \u2022 7:30 PM ET\nMezzanine Center G106Regular\n$144.48\n$129.00 ticket price + $15.48 service fee\nMezzanine Center G107Regular\n$144.48\n$129.00 ticket",
-      "is_travel": false
     },
     {
       "summary": "Reservation at Nowon East Village",
@@ -801,6 +793,14 @@
       "start_raw": "2026-06-04T08:00:00-07:00",
       "location": "23675 Park Capri, Calabasas, CA 91302, USA",
       "description": "Thursday, Dec 18th\n8 AM\n\nStylist:\u00a0Isidora L\nPet: Greta\nSignature Service (No Haircut)",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, June 04 at 01:30 PM",
+      "start_raw": "2026-06-04T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
       "is_travel": false
     }
   ]
