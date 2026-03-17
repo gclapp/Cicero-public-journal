@@ -2492,3 +2492,403 @@ EOFError: EOF when reading a line
    - Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV on Thursday, May 21 at 04:00 AM
 
 💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json
+/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py:76: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow()
+📅 Fetching upcoming events (90 days ahead)...
+
+📊 Found 100 upcoming events:
+============================================================
+
+📅 Mac Spring Break: Courtyard
+   📆 Sunday, March 15
+   📍 Courtyard by Marriott Santa Barbara Downtown, 1601 State St, Santa Barbara, CA 93101, USA
+
+✈️ Stay at The Westin New York at Times Square
+   📆 Sunday, March 15
+   📍 The Westin New York at Times Square, New York
+
+✈️ Geoffrey Clapp - The Westin New York at Times Square, 80738425
+   📆 Sunday, March 15
+   📍 270 W 43rd Street, New York, NY, 10036, USA
+
+📅 Reservation at Nowon East Village
+   📆 Tuesday, March 17 at 06:00 PM
+   📍 Nowon East Village, 507 E 6th St, (Between E 6th St and Ave A), New York, NY 10009
+
+📅 Pick up Sophie from School
+   📆 Thursday, March 19 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, March 19 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Jovie Sitter/Nanny - Geoffrey Clapp and Ross Cope
+   📆 Thursday, March 19 at 04:30 PM
+   📍 +1 650-776-7054
+
+📅 Concert: Divorce
+   📆 Thursday, March 19 at 06:30 PM
+   📍 Gold Diggers Bar, 5632 Santa Monica Blvd, Los Angeles, CA 90038, USA
+
+📅 Divorce
+   📆 Thursday, March 19 at 07:00 PM
+   📍 5632 Santa Monica Blvd, Los Angeles, CA 90038
+
+📅 Gort’s 30th Birthday Weekend
+   📆 Friday, March 20
+   📍 Trixie Motel, 210 W Stevens Rd, Palm Springs, CA 92262, USA
+
+📅 Stay at Moxy Santa Barbara
+   📆 Friday, March 20
+   📍 12 East Montecito Street, Santa Barbara, CA 93101, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, March 20 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, March 20 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Reservation at The Lark - Santa Barbara
+   📆 Friday, March 20 at 05:00 PM
+   📍 The Lark - Santa Barbara, 131 Anacapa St. Suite A, Santa Barbara, CA, 93101, United States
+
+📅 Reservation at The Revere Room
+   📆 Saturday, March 21 at 08:45 AM
+   📍 The Revere Room, 1759 South Jameson Lane, Montecito, CA 93108
+
+✈️ The Algonquin Hotel Times Square, Autograph Collection, 95280672
+   📆 Sunday, March 22
+   📍 59 W 44th St, New York, NY, 10036, USA
+
+📅 Reserve Uber to LAX
+   📆 Sunday, March 22 at 12:30 PM
+   📍 Microsoft Teams Meeting
+
+✈️ Delta Air Lines flight 938 to New York (G959VX)
+   📆 Sunday, March 22 at 03:35 PM
+   📍 Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)
+
+📅 Ollie Consult Call
+   📆 Monday, March 23 at 07:00 AM
+
+📅 Dog Day Afternoon Play
+   📆 Monday, March 23 at 04:20 PM
+   📍 August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)
+
+📅 Pick up Sophie from School
+   📆 Thursday, March 26 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, March 26 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Grace’s Parents Visit
+   📆 Thursday, March 26 at 05:00 PM
+
+📅 Pick up Sophie from School
+   📆 Friday, March 27 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, March 27 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Reservation at The Tower Bar
+   📆 Saturday, March 28 at 07:30 PM
+   📍 The Tower Bar, 8358 Sunset Blvd., West Hollywood, CA, 90069, United States
+
+📅 Ollie Consult Call
+   📆 Monday, March 30 at 07:00 AM
+
+📅 Greta: Monthly Meds
+   📆 Wednesday, April 01
+
+📅 Stay at JW Marriott Phoenix Desert Ridge Resort & Spa
+   📆 Thursday, April 02
+   📍 JW Marriott Phoenix Desert Ridge Resort & Spa, Phoenix
+
+✈️ Flight to PHX (DL 4119)
+   📆 Thursday, April 02 at 08:04 AM
+
+📅 Pick up Sophie from School
+   📆 Thursday, April 02 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, April 02 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, April 03 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, April 03 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+✈️ Flight to LAX (DL 3951)
+   📆 Sunday, April 05 at 12:10 PM
+
+✈️ Delta Air Lines flight 477 to Fort Lauderdale (G3LHP8)
+   📆 Sunday, April 05 at 11:53 PM
+   📍 Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)
+
+📅 Executive Offsite - Eau Palm Beach
+   📆 Monday, April 06
+   📍 Eau Palm Beach (100 S Ocean Blvd, Manalapan, FL 33462)
+
+📅 Ollie Consult Call
+   📆 Monday, April 06 at 07:00 AM
+
+✈️ Delta Air Lines flight 1458 to Atlanta (G3LHP8)
+   📆 Wednesday, April 08 at 03:30 PM
+   📍 West Palm Beach International Airport (1000 Palm Beach International Airport, West Palm Beach, FL 33406, United States)
+
+✈️ Delta 311 Atlanta to LAX  (G3LHP8)
+   📆 Wednesday, April 08 at 06:35 PM
+   📍 Microsoft Teams Meeting
+
+📅 Greta Groomer
+   📆 Thursday, April 09 at 08:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Thursday, April 09 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, April 09 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, April 10 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, April 10 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Happy birthday!
+   📆 Saturday, April 11
+
+📅 Stay at The Ritz-Carlton Bacara, Santa Barbara
+   📆 Monday, April 13
+   📍 8301 Hollister Avenue, Santa Barbara, CA 93117, USA
+
+📅 Ollie Consult Call
+   📆 Monday, April 13 at 07:00 AM
+
+📅 Ritz-Carlton Bacara, Santa Barbara
+   📆 Monday, April 13 at 03:00 PM
+   📍 The Ritz-Carlton Bacara, Santa Barbara 8301 Hollister Avenue   Santa Barbara, California, USA
+
+📅 Oliver School Conference
+   📆 Tuesday, April 14 at 10:45 AM
+   📍 Microsoft Teams Meeting
+
+📅 David Byrne Concert
+   📆 Tuesday, April 14 at 03:00 PM
+   📍 Santa Barbara Bowl, 1122 N Milpas St, Santa Barbara, CA 93103, USA
+
+📅 Pick up Sophie from School
+   📆 Thursday, April 16 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, April 16 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Variety show DR
+   📆 Thursday, April 16 at 04:00 PM
+
+📅 Variety Show 
+   📆 Friday, April 17
+
+📅 Pick up Sophie from School
+   📆 Friday, April 17 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, April 17 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Variety show 
+   📆 Saturday, April 18
+
+📅 Ollie Consult Call
+   📆 Monday, April 20 at 07:00 AM
+
+📅 Geoff Physcial
+   📆 Tuesday, April 21 at 03:15 PM
+   📍 UCLA Jack Skirball Health Center, 26585 Agoura Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Thursday, April 23 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, April 23 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, April 24 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, April 24 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Dinner with Cass + Andrew
+   📆 Saturday, April 25 at 06:00 PM
+
+📅 Ollie Consult Call
+   📆 Monday, April 27 at 07:00 AM
+
+📅 Pick up Sophie from School
+   📆 Thursday, April 30 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, April 30 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Friday, May 01
+
+📅 Pick up Sophie from School
+   📆 Friday, May 01 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 01 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Ollie Consult Call
+   📆 Monday, May 04 at 07:00 AM
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 07 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 07 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 08 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 08 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Netflix Is A Joke Presents: HASAN HATES RONNY | RONNY HATES HASAN
+   📆 Friday, May 08 at 07:00 PM
+   📍 Hollywood, California
+
+📅 Ollie Consult Call
+   📆 Monday, May 11 at 07:00 AM
+
+📅 Save The Date: Titan Table Talks, The BIG ONE
+   📆 Tuesday, May 12 at 09:00 AM
+   📍 https://us04web.zoom.us/j/3923156843?pwd=MHdadlBjdW9sQjFZNnBOSGxRUGkzUT09
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 14 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 14 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 15 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 15 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+✈️ Flight to Kennedy Intl (DL 960)
+   📆 Saturday, May 16 at 09:15 PM
+   📍 Los Angeles Intl LAX
+
+✈️ Delta Air Lines flight 960 to New York (GAO7LP)
+   📆 Saturday, May 16 at 09:59 PM
+   📍 Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)
+
+📅 Ollie Consult Call
+   📆 Monday, May 18 at 07:00 AM
+
+✈️ Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV
+   📆 Thursday, May 21 at 04:00 AM
+   📍 New York(JFK) - Los Angeles(LAX)
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 21 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 21 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 22 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 22 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Ollie Consult Call
+   📆 Monday, May 25 at 07:00 AM
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 28 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 28 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 29 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 29 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Monday, June 01
+
+📅 Ollie Consult Call
+   📆 Monday, June 01 at 07:00 AM
+
+📅 Greta Groomer
+   📆 Thursday, June 04 at 08:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Thursday, June 04 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+✈️ TRAVEL SUMMARY: 12 trip(s) detected
+   - Stay at The Westin New York at Times Square on Sunday, March 15
+   - Geoffrey Clapp - The Westin New York at Times Square, 80738425 on Sunday, March 15
+   - The Algonquin Hotel Times Square, Autograph Collection, 95280672 on Sunday, March 22
+   - Delta Air Lines flight 938 to New York (G959VX) on Sunday, March 22 at 03:35 PM
+   - Flight to PHX (DL 4119) on Thursday, April 02 at 08:04 AM
+   - Flight to LAX (DL 3951) on Sunday, April 05 at 12:10 PM
+   - Delta Air Lines flight 477 to Fort Lauderdale (G3LHP8) on Sunday, April 05 at 11:53 PM
+   - Delta Air Lines flight 1458 to Atlanta (G3LHP8) on Wednesday, April 08 at 03:30 PM
+   - Delta 311 Atlanta to LAX  (G3LHP8) on Wednesday, April 08 at 06:35 PM
+   - Flight to Kennedy Intl (DL 960) on Saturday, May 16 at 09:15 PM
+   - Delta Air Lines flight 960 to New York (GAO7LP) on Saturday, May 16 at 09:59 PM
+   - Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV on Thursday, May 21 at 04:00 AM
+
+💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json
