@@ -116,7 +116,7 @@ def get_stock_summary():
     for symbol, s in stocks.items():
         if symbol != 'PGNY':
             emoji = "🟢" if s['change'] >= 0 else "🔴"
-            summary += f"{emoji} {symbol}: ${s['price']:.2f} ({s['change']:+.2f}%)\n"
+            summary += f"{emoji} {symbol}: ${s['price']:.2f} ({s['change']:+.2f}, {s['change_percent']:+.2f}%)\n"
     
     return summary
 
