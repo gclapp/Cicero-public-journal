@@ -110,7 +110,6 @@ def detect_current_location(calendar_events):
     from datetime import datetime, timezone, timedelta
     
     # Manual timezone offsets (UTC-7 for PT, UTC-4 for ET during DST)
-    # PT = UTC-7, ET = UTC-4
     utc_now = datetime.now(timezone.utc)
     pt_offset = timedelta(hours=-7)
     et_offset = timedelta(hours=-4)
@@ -118,35 +117,77 @@ def detect_current_location(calendar_events):
     now_pt = utc_now + pt_offset
     now_et = utc_now + et_offset
     now_utc = utc_now
+    current_hour_pt = now_pt.hour
     
-    # Default location
+    # Default: Los Angeles (home base)
     location = "Los Angeles"
     timezone = "PT"
+    status = "Home"
     
-    # Check for travel events to determine location
+    # Look for today's flights first
+    today_str = now_pt.strftime('%A, %B %d')
+    
     for event in calendar_events:
-        if event.get('is_travel'):
-            summary = event.get('summary', '').lower()
-            location_str = event.get('location', '').lower()
+        if not event.get('is_travel'):
+            continue
             
-            # If flight to NYC and it's after flight time, he's in NYC
-            if ('jfk' in summary or 'new york' in summary) and 'flight' in summary:
-                # Check if flight has arrived (assume 6 hour flight)
-                # For now, if we see NYC travel, assume he's there
+        summary = event.get('summary', '').lower()
+        location_str = event.get('location', '').lower()
+        event_date = event.get('start', '')
+        
+        # Check if flight is today
+        is_today = today_str in event_date
+        
+        # Flight to NYC (JFK/LGA/EWR)
+        if 'flight' in summary and ('jfk' in summary or 'new york' in summary or 'lga' in summary or 'ewr' in summary):
+            if is_today:
+                # Flight to NYC today - check if departed or arrived
+                # Assume flight is ~6 hours, if it's afternoon PT, likely arrived
+                if current_hour_pt >= 14:  # After 2 PM PT
+                    location = "New York City"
+                    timezone = "ET"
+                    status = "Arrived"
+                else:
+                    status = "Flying to NYC"
+            else:
+                # Flight was on a previous day - still in NYC
                 location = "New York City"
                 timezone = "ET"
-            elif 'santa barbara' in location_str:
+                status = "In NYC"
+                
+        # Flight to LA (LAX/BUR)
+        elif 'flight' in summary and ('lax' in summary or 'los angeles' in summary or 'bur' in summary):
+            if is_today:
+                # Flight to LA today
+                if current_hour_pt >= 20:  # After 8 PM PT
+                    location = "Los Angeles"
+                    timezone = "PT"
+                    status = "Arrived"
+                else:
+                    location = "In Transit"
+                    timezone = "PT"
+                    status = "Flying to LA"
+            else:
+                location = "Los Angeles"
+                timezone = "PT"
+                status = "Home"
+    
+    # Check for hotel stays as backup indicator
+    for event in calendar_events:
+        summary = event.get('summary', '').lower()
+        if 'hotel' in summary or 'stay at' in summary:
+            if 'new york' in summary or 'westin' in summary or 'algonquin' in summary:
+                if location == "Los Angeles":  # Only override if not already set by flight
+                    location = "New York City"
+                    timezone = "ET"
+            elif 'santa barbara' in summary:
                 location = "Santa Barbara"
                 timezone = "PT"
-    
-    # Manual override: If current hour suggests evening ET and morning PT, check
-    # This is a simple heuristic - in production you'd check actual flight times
-    if now_et.hour < 6 and now_pt.hour < 3:  # Very early morning
-        pass  # Keep default
     
     return {
         'city': location,
         'timezone': timezone,
+        'status': status,
         'pt_time': now_pt.strftime('%I:%M %p'),
         'et_time': now_et.strftime('%I:%M %p'),
         'utc_time': now_utc.strftime('%H:%M UTC')

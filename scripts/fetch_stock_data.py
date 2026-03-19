@@ -49,7 +49,7 @@ def fetch_stock_price(symbol):
 
 def fetch_all_stocks():
     """Fetch all stocks in watchlist + indices"""
-    watchlist = ['PGNY', 'AAPL', 'NVDA']  # Progyny, Apple, NVIDIA
+    watchlist = ['PGNY', 'AAPL', 'NVDA', 'OMDA']  # Progyny, Apple, NVIDIA, Omada
     indices = ['^GSPC', '^DJI']  # S&P 500, Dow Jones
     
     results = {
