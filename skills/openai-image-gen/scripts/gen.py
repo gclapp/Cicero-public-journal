@@ -189,24 +189,14 @@ def main(argv: list[str]) -> int:
             "size": args.size,
             "quality": args.quality,
             "n": 1,
+            "response_format": "b64_json",
         }
         data = _post_json(url=url, api_key=api_key, payload=payload, timeout_s=args.timeout)
-        
-        # Handle both URL and b64_json responses
-        image_data = (data.get("data") or [{}])[0]
-        b64 = image_data.get("b64_json")
-        image_url = image_data.get("url")
-        
-        if b64:
-            png = base64.b64decode(b64)
-        elif image_url:
-            # Download from URL
-            import urllib.request
-            with urllib.request.urlopen(image_url, timeout=args.timeout) as resp:
-                png = resp.read()
-        else:
+        b64 = (data.get("data") or [{}])[0].get("b64_json")
+        if not b64:
             raise SystemExit(f"unexpected response: {json.dumps(data, indent=2)[:1200]}")
 
+        png = base64.b64decode(b64)
         filename = f"{i:02d}-{_slug(prompt)}.png"
         path = os.path.join(out_dir, filename)
         with open(path, "wb") as f:

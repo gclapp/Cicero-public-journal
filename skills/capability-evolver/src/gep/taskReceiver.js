@@ -187,6 +187,60 @@ function localDifficultyEstimate(task) {
 }
 
 // ---------------------------------------------------------------------------
+// Commitment deadline estimation -- based on task difficulty
+// ---------------------------------------------------------------------------
+
+const MIN_COMMITMENT_MS = 5 * 60 * 1000;       // 5 min (Hub minimum)
+const MAX_COMMITMENT_MS = 24 * 60 * 60 * 1000;  // 24 h  (Hub maximum)
+
+const DIFFICULTY_DURATION_MAP = [
+  { threshold: 0.3, durationMs: 15 * 60 * 1000 },   // low:       15 min
+  { threshold: 0.5, durationMs: 30 * 60 * 1000 },   // medium:    30 min
+  { threshold: 0.7, durationMs: 60 * 60 * 1000 },   // high:      60 min
+  { threshold: 1.0, durationMs: 120 * 60 * 1000 },  // very high: 120 min
+];
+
+/**
+ * Estimate a reasonable commitment deadline for a task.
+ * Returns an ISO-8601 date string or null if estimation fails.
+ *
+ * @param {object} task - task from Hub
+ * @returns {string|null}
+ */
+function estimateCommitmentDeadline(task) {
+  if (!task) return null;
+
+  var difficulty = (task.complexity_score != null)
+    ? Number(task.complexity_score)
+    : localDifficultyEstimate(task);
+
+  var durationMs = DIFFICULTY_DURATION_MAP[DIFFICULTY_DURATION_MAP.length - 1].durationMs;
+  for (var i = 0; i < DIFFICULTY_DURATION_MAP.length; i++) {
+    if (difficulty <= DIFFICULTY_DURATION_MAP[i].threshold) {
+      durationMs = DIFFICULTY_DURATION_MAP[i].durationMs;
+      break;
+    }
+  }
+
+  durationMs = Math.max(MIN_COMMITMENT_MS, Math.min(MAX_COMMITMENT_MS, durationMs));
+
+  var deadline = new Date(Date.now() + durationMs);
+
+  if (task.expires_at) {
+    var expiresAt = new Date(task.expires_at);
+    if (!isNaN(expiresAt.getTime()) && expiresAt < deadline) {
+      var remaining = expiresAt.getTime() - Date.now();
+      if (remaining < MIN_COMMITMENT_MS) return null;
+      var adjusted = new Date(expiresAt.getTime() - 60000);
+      if (adjusted.getTime() - Date.now() < MIN_COMMITMENT_MS) return null;
+      deadline = adjusted;
+    }
+  }
+
+  return deadline.toISOString();
+}
+
+// ---------------------------------------------------------------------------
 // Score a single task for this agent
 // ---------------------------------------------------------------------------
 
@@ -290,9 +344,10 @@ function selectBestTask(tasks, memoryEvents) {
 /**
  * Claim a task on the Hub.
  * @param {string} taskId
+ * @param {{ commitment_deadline?: string }} [opts]
  * @returns {boolean} true if claim succeeded
  */
-async function claimTask(taskId) {
+async function claimTask(taskId, opts) {
   const nodeId = getNodeId();
   if (!nodeId || !taskId) return false;
 
@@ -301,10 +356,15 @@ async function claimTask(taskId) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 5000);
 
+    const body = { task_id: taskId, node_id: nodeId };
+    if (opts && opts.commitment_deadline) {
+      body.commitment_deadline = opts.commitment_deadline;
+    }
+
     const res = await fetch(url, {
       method: 'POST',
       headers: buildAuthHeaders(),
-      body: JSON.stringify({ task_id: taskId, node_id: nodeId }),
+      body: JSON.stringify(body),
       signal: controller.signal,
     });
     clearTimeout(timer);
@@ -419,6 +479,40 @@ async function completeWorkerTask(assignmentId, resultAssetId) {
   }
 }
 
+/**
+ * Atomic claim+complete for deferred worker tasks.
+ * Called from solidify after a successful evolution cycle so we never hold
+ * an assignment that might expire before completion.
+ *
+ * @param {string} taskId
+ * @param {string} resultAssetId - sha256:... of the published capsule
+ * @returns {{ ok: boolean, assignment_id?: string, error?: string }}
+ */
+async function claimAndCompleteWorkerTask(taskId, resultAssetId) {
+  const nodeId = getNodeId();
+  if (!nodeId || !taskId || !resultAssetId) {
+    return { ok: false, error: 'missing_params' };
+  }
+
+  const assignment = await claimWorkerTask(taskId);
+  if (!assignment) {
+    return { ok: false, error: 'claim_failed' };
+  }
+
+  const assignmentId = assignment.id || assignment.assignment_id;
+  if (!assignmentId) {
+    return { ok: false, error: 'no_assignment_id' };
+  }
+
+  const completed = await completeWorkerTask(assignmentId, resultAssetId);
+  if (!completed) {
+    console.warn(`[WorkerPool] Claimed assignment ${assignmentId} but complete failed -- will expire on Hub`);
+    return { ok: false, error: 'complete_failed', assignment_id: assignmentId };
+  }
+
+  return { ok: true, assignment_id: assignmentId };
+}
+
 module.exports = {
   fetchTasks,
   selectBestTask,
@@ -429,4 +523,6 @@ module.exports = {
   taskToSignals,
   claimWorkerTask,
   completeWorkerTask,
+  claimAndCompleteWorkerTask,
+  estimateCommitmentDeadline,
 };

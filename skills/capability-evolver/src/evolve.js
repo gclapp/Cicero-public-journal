@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const { execSync } = require('child_process');
-const { getRepoRoot, getMemoryDir, getSessionScope } = require('./gep/paths');
+const { getRepoRoot, getWorkspaceRoot, getMemoryDir, getSessionScope } = require('./gep/paths');
 const { extractSignals } = require('./gep/signals');
 const {
   loadGenes,
@@ -30,7 +30,7 @@ const {
   memoryGraphPath,
 } = memoryAdapter;
 const { readStateForSolidify, writeStateForSolidify } = require('./gep/solidify');
-const { fetchTasks, selectBestTask, claimTask, taskToSignals, claimWorkerTask } = require('./gep/taskReceiver');
+const { fetchTasks, selectBestTask, claimTask, taskToSignals, claimWorkerTask, estimateCommitmentDeadline } = require('./gep/taskReceiver');
 const { generateQuestions } = require('./gep/questionGenerator');
 const { buildMutation, isHighRiskMutationAllowed } = require('./gep/mutation');
 const { selectPersonalityForRun } = require('./gep/personality');
@@ -39,6 +39,8 @@ const { getEvolutionDir } = require('./gep/paths');
 const { shouldReflect, buildReflectionContext, recordReflection } = require('./gep/reflection');
 const { loadNarrativeSummary } = require('./gep/narrativeMemory');
 const { maybeReportIssue } = require('./gep/issueReporter');
+const { resolveStrategy } = require('./gep/strategy');
+const { expandSignals } = require('./gep/learningSignals');
 
 const REPO_ROOT = getRepoRoot();
 
@@ -59,12 +61,15 @@ const IS_RANDOM_DRIFT = ARGS.includes('--drift') || String(process.env.RANDOM_DR
 const MEMORY_DIR = getMemoryDir();
 const AGENT_NAME = process.env.AGENT_NAME || 'main';
 const AGENT_SESSIONS_DIR = path.join(os.homedir(), `.openclaw/agents/${AGENT_NAME}/sessions`);
+const CURSOR_TRANSCRIPTS_DIR = process.env.EVOLVER_CURSOR_TRANSCRIPTS_DIR || '';
 const TODAY_LOG = path.join(MEMORY_DIR, new Date().toISOString().split('T')[0] + '.md');
 
 // Ensure memory directory exists so state/cache writes work.
 try {
   if (!fs.existsSync(MEMORY_DIR)) fs.mkdirSync(MEMORY_DIR, { recursive: true });
-} catch (e) {}
+} catch (e) {
+  console.warn('[Evolver] Failed to create MEMORY_DIR (may cause downstream errors):', e && e.message || e);
+}
 
 function formatSessionLog(jsonlContent) {
   const result = [];
@@ -158,77 +163,177 @@ function formatSessionLog(jsonlContent) {
   return result.join('\n');
 }
 
-function readRealSessionLog() {
+function formatCursorTranscript(raw) {
+  const lines = raw.split('\n');
+  const result = [];
+  let skipUntilNextBlock = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Keep user messages and assistant text responses
+    if (trimmed === 'user:' || trimmed.startsWith('A:')) {
+      skipUntilNextBlock = false;
+      result.push(trimmed);
+      continue;
+    }
+
+    // Tool call lines: keep as compact markers, skip their parameter block
+    if (trimmed.startsWith('[Tool call]')) {
+      skipUntilNextBlock = true;
+      result.push(`[Tool call] ${trimmed.replace('[Tool call]', '').trim()}`);
+      continue;
+    }
+
+    // Tool result markers: skip their content (usually large and noisy)
+    if (trimmed.startsWith('[Tool result]')) {
+      skipUntilNextBlock = true;
+      continue;
+    }
+
+    if (skipUntilNextBlock) continue;
+
+    // Keep user query content and assistant text (skip XML tags like <user_query>)
+    if (trimmed.startsWith('<') && trimmed.endsWith('>')) continue;
+    if (trimmed) {
+      result.push(trimmed.slice(0, 300));
+    }
+  }
+
+  return result.join('\n');
+}
+
+function readCursorTranscripts() {
+  if (!CURSOR_TRANSCRIPTS_DIR) return '';
   try {
-    if (!fs.existsSync(AGENT_SESSIONS_DIR)) return '[NO SESSION LOGS FOUND]';
+    if (!fs.existsSync(CURSOR_TRANSCRIPTS_DIR)) return '';
 
     const now = Date.now();
-    const ACTIVE_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+    const ACTIVE_WINDOW_MS = 24 * 60 * 60 * 1000;
     const TARGET_BYTES = 120000;
-    const PER_SESSION_BYTES = 20000; // Read tail of each active session
+    const PER_FILE_BYTES = 20000;
+    const RECENCY_GUARD_MS = 30 * 1000;
 
-    // Session scope isolation: when EVOLVER_SESSION_SCOPE is set,
-    // only read sessions whose filenames contain the scope identifier.
-    // This prevents cross-channel/cross-project memory contamination.
-    const sessionScope = getSessionScope();
-
-    // Find ALL active sessions (modified in last 24h), sorted newest first
     let files = fs
-      .readdirSync(AGENT_SESSIONS_DIR)
-      .filter(f => f.endsWith('.jsonl') && !f.includes('.lock'))
+      .readdirSync(CURSOR_TRANSCRIPTS_DIR)
+      .filter(f => f.endsWith('.txt') || f.endsWith('.jsonl'))
       .map(f => {
         try {
-          const st = fs.statSync(path.join(AGENT_SESSIONS_DIR, f));
+          const st = fs.statSync(path.join(CURSOR_TRANSCRIPTS_DIR, f));
           return { name: f, time: st.mtime.getTime(), size: st.size };
         } catch (e) {
           return null;
         }
       })
       .filter(f => f && (now - f.time) < ACTIVE_WINDOW_MS)
-      .sort((a, b) => b.time - a.time); // Newest first
+      .sort((a, b) => b.time - a.time);
 
-    if (files.length === 0) return '[NO JSONL FILES]';
+    if (files.length === 0) return '';
 
-    // Skip evolver's own sessions to avoid self-reference loops
-    let nonEvolverFiles = files.filter(f => !f.name.startsWith('evolver_hand_'));
-
-    // Session scope filter: when scope is active, only include sessions
-    // whose filename contains the scope string (e.g., channel_123456.jsonl).
-    // If no sessions match the scope, fall back to all non-evolver sessions
-    // (graceful degradation -- better to evolve with global context than not at all).
-    if (sessionScope && nonEvolverFiles.length > 0) {
-      const scopeLower = sessionScope.toLowerCase();
-      const scopedFiles = nonEvolverFiles.filter(f => f.name.toLowerCase().includes(scopeLower));
-      if (scopedFiles.length > 0) {
-        nonEvolverFiles = scopedFiles;
-        console.log(`[SessionScope] Filtered to ${scopedFiles.length} session(s) matching scope "${sessionScope}".`);
-      } else {
-        console.log(`[SessionScope] No sessions match scope "${sessionScope}". Using all ${nonEvolverFiles.length} session(s) (fallback).`);
-      }
+    // Skip the most recently modified file if it was touched in the last 30s --
+    // it is likely the current active session that triggered this evolver run,
+    // reading it would cause self-referencing signal noise.
+    if (files.length > 1 && (now - files[0].time) < RECENCY_GUARD_MS) {
+      files = files.slice(1);
     }
 
-    const activeFiles = nonEvolverFiles.length > 0 ? nonEvolverFiles : files.slice(0, 1);
-
-    // Read from multiple active sessions (up to 6) to get a full picture
-    const maxSessions = Math.min(activeFiles.length, 6);
+    const maxFiles = Math.min(files.length, 6);
     const sections = [];
     let totalBytes = 0;
 
-    for (let i = 0; i < maxSessions && totalBytes < TARGET_BYTES; i++) {
-      const f = activeFiles[i];
+    for (let i = 0; i < maxFiles && totalBytes < TARGET_BYTES; i++) {
+      const f = files[i];
       const bytesLeft = TARGET_BYTES - totalBytes;
-      const readSize = Math.min(PER_SESSION_BYTES, bytesLeft);
-      const raw = readRecentLog(path.join(AGENT_SESSIONS_DIR, f.name), readSize);
-      const formatted = formatSessionLog(raw);
-      if (formatted.trim()) {
-        sections.push(`--- SESSION (${f.name}) ---\n${formatted}`);
-        totalBytes += formatted.length;
+      const readSize = Math.min(PER_FILE_BYTES, bytesLeft);
+      const raw = readRecentLog(path.join(CURSOR_TRANSCRIPTS_DIR, f.name), readSize);
+      if (raw.trim() && !raw.startsWith('[MISSING]')) {
+        const formatted = formatCursorTranscript(raw);
+        if (formatted.trim()) {
+          sections.push(`--- CURSOR SESSION (${f.name}) ---\n${formatted}`);
+          totalBytes += formatted.length;
+        }
       }
     }
 
-    let content = sections.join('\n\n');
+    return sections.join('\n\n');
+  } catch (e) {
+    console.warn(`[CursorTranscripts] Read failed: ${e.message}`);
+    return '';
+  }
+}
 
-    return content;
+function readRealSessionLog() {
+  try {
+    // Primary source: OpenClaw session logs (.jsonl)
+    if (fs.existsSync(AGENT_SESSIONS_DIR)) {
+      const now = Date.now();
+      const ACTIVE_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+      const TARGET_BYTES = 120000;
+      const PER_SESSION_BYTES = 20000;
+
+      const sessionScope = getSessionScope();
+
+      let files = fs
+        .readdirSync(AGENT_SESSIONS_DIR)
+        .filter(f => f.endsWith('.jsonl') && !f.includes('.lock'))
+        .map(f => {
+          try {
+            const st = fs.statSync(path.join(AGENT_SESSIONS_DIR, f));
+            return { name: f, time: st.mtime.getTime(), size: st.size };
+          } catch (e) {
+            return null;
+          }
+        })
+        .filter(f => f && (now - f.time) < ACTIVE_WINDOW_MS)
+        .sort((a, b) => b.time - a.time);
+
+      if (files.length > 0) {
+        let nonEvolverFiles = files.filter(f => !f.name.startsWith('evolver_hand_'));
+
+        if (sessionScope && nonEvolverFiles.length > 0) {
+          const scopeLower = sessionScope.toLowerCase();
+          const scopedFiles = nonEvolverFiles.filter(f => f.name.toLowerCase().includes(scopeLower));
+          if (scopedFiles.length > 0) {
+            nonEvolverFiles = scopedFiles;
+            console.log(`[SessionScope] Filtered to ${scopedFiles.length} session(s) matching scope "${sessionScope}".`);
+          } else {
+            console.log(`[SessionScope] No sessions match scope "${sessionScope}". Using all ${nonEvolverFiles.length} session(s) (fallback).`);
+          }
+        }
+
+        const activeFiles = nonEvolverFiles.length > 0 ? nonEvolverFiles : files.slice(0, 1);
+
+        const maxSessions = Math.min(activeFiles.length, 6);
+        const sections = [];
+        let totalBytes = 0;
+
+        for (let i = 0; i < maxSessions && totalBytes < TARGET_BYTES; i++) {
+          const f = activeFiles[i];
+          const bytesLeft = TARGET_BYTES - totalBytes;
+          const readSize = Math.min(PER_SESSION_BYTES, bytesLeft);
+          const raw = readRecentLog(path.join(AGENT_SESSIONS_DIR, f.name), readSize);
+          const formatted = formatSessionLog(raw);
+          if (formatted.trim()) {
+            sections.push(`--- SESSION (${f.name}) ---\n${formatted}`);
+            totalBytes += formatted.length;
+          }
+        }
+
+        if (sections.length > 0) {
+          return sections.join('\n\n');
+        }
+      }
+    }
+
+    // Fallback: Cursor agent-transcripts (.txt)
+    const cursorContent = readCursorTranscripts();
+    if (cursorContent) {
+      console.log('[SessionFallback] Using Cursor agent-transcripts as session source.');
+      return cursorContent;
+    }
+
+    return '[NO SESSION LOGS FOUND]';
   } catch (e) {
     return `[ERROR READING SESSION LOGS: ${e.message}]`;
   }
@@ -247,6 +352,73 @@ function readRecentLog(filePath, size = 10000) {
   } catch (e) {
     return `[ERROR READING ${filePath}: ${e.message}]`;
   }
+}
+
+function computeAdaptiveStrategyPolicy(opts) {
+  const recentEvents = Array.isArray(opts && opts.recentEvents) ? opts.recentEvents : [];
+  const selectedGene = opts && opts.selectedGene ? opts.selectedGene : null;
+  const signals = Array.isArray(opts && opts.signals) ? opts.signals : [];
+  const baseStrategy = resolveStrategy({ signals: signals });
+
+  const tail = recentEvents.slice(-8);
+  let repairStreak = 0;
+  for (let i = tail.length - 1; i >= 0; i--) {
+    if (tail[i] && tail[i].intent === 'repair') repairStreak++;
+    else break;
+  }
+  let failureStreak = 0;
+  for (let i = tail.length - 1; i >= 0; i--) {
+    if (tail[i] && tail[i].outcome && tail[i].outcome.status === 'failed') failureStreak++;
+    else break;
+  }
+
+  const antiPatterns = selectedGene && Array.isArray(selectedGene.anti_patterns) ? selectedGene.anti_patterns.slice(-5) : [];
+  const learningHistory = selectedGene && Array.isArray(selectedGene.learning_history) ? selectedGene.learning_history.slice(-6) : [];
+  const signalTags = new Set(expandSignals(signals, ''));
+  const overlappingAntiPatterns = antiPatterns.filter(function (ap) {
+    return ap && Array.isArray(ap.learning_signals) && ap.learning_signals.some(function (tag) {
+      return signalTags.has(String(tag));
+    });
+  });
+  const hardFailures = overlappingAntiPatterns.filter(function (ap) { return ap && ap.mode === 'hard'; }).length;
+  const softFailures = overlappingAntiPatterns.filter(function (ap) { return ap && ap.mode !== 'hard'; }).length;
+  const recentSuccesses = learningHistory.filter(function (x) { return x && x.outcome === 'success'; }).length;
+
+  const stagnation = signals.includes('stable_success_plateau') ||
+    signals.includes('evolution_saturation') ||
+    signals.includes('empty_cycle_loop_detected') ||
+    failureStreak >= 3 ||
+    repairStreak >= 3;
+
+  const forceInnovate = stagnation && !signals.includes('log_error');
+  const highRiskGene = hardFailures >= 1 || (softFailures >= 2 && recentSuccesses === 0);
+  const cautiousExecution = highRiskGene || failureStreak >= 2;
+
+  let blastRadiusMaxFiles = selectedGene && selectedGene.constraints && Number.isFinite(Number(selectedGene.constraints.max_files))
+    ? Number(selectedGene.constraints.max_files)
+    : 12;
+  if (cautiousExecution) blastRadiusMaxFiles = Math.max(2, Math.min(blastRadiusMaxFiles, 6));
+  else if (forceInnovate) blastRadiusMaxFiles = Math.max(3, Math.min(blastRadiusMaxFiles, 10));
+
+  const directives = [];
+  directives.push('Base strategy: ' + baseStrategy.label + ' (' + baseStrategy.description + ')');
+  if (forceInnovate) directives.push('Force strategy shift: prefer innovate over repeating repair/optimize.');
+  if (highRiskGene) directives.push('Selected gene is high risk for current signals; keep blast radius narrow and prefer smallest viable change.');
+  if (failureStreak >= 2) directives.push('Recent failure streak detected; avoid repeating recent failed approach.');
+  directives.push('Target max files for this cycle: ' + blastRadiusMaxFiles + '.');
+
+  return {
+    name: baseStrategy.name,
+    label: baseStrategy.label,
+    description: baseStrategy.description,
+    forceInnovate: forceInnovate,
+    cautiousExecution: cautiousExecution,
+    highRiskGene: highRiskGene,
+    repairStreak: repairStreak,
+    failureStreak: failureStreak,
+    blastRadiusMaxFiles: blastRadiusMaxFiles,
+    directives: directives,
+  };
 }
 
 function checkSystemHealth() {
@@ -389,7 +561,7 @@ function clearDormantHypothesis() {
 }
 // Read MEMORY.md and USER.md from the WORKSPACE root (not the evolver plugin dir).
 // This avoids symlink breakage if the target file is temporarily deleted.
-const WORKSPACE_ROOT = process.env.OPENCLAW_WORKSPACE || path.resolve(REPO_ROOT, '../..');
+const WORKSPACE_ROOT = getWorkspaceRoot();
 const ROOT_MEMORY = path.join(WORKSPACE_ROOT, 'MEMORY.md');
 const DIR_MEMORY = path.join(MEMORY_DIR, 'MEMORY.md');
 const MEMORY_FILE = fs.existsSync(ROOT_MEMORY) ? ROOT_MEMORY : (fs.existsSync(DIR_MEMORY) ? DIR_MEMORY : ROOT_MEMORY);
@@ -1041,11 +1213,21 @@ async function run() {
       try {
         const { tryReadMemoryGraphEvents } = require('./gep/memoryGraph');
         taskMemoryEvents = tryReadMemoryGraphEvents(1000);
-      } catch {}
+      } catch (e) {
+        console.warn('[TaskReceiver] MemoryGraph read failed (task selection proceeds without history):', e && e.message || e);
+      }
       const best = selectBestTask(hubTasks, taskMemoryEvents);
       if (best) {
         const alreadyClaimed = best.status === 'claimed';
-        const claimed = alreadyClaimed || await claimTask(best.id || best.task_id);
+        let claimed = alreadyClaimed;
+        if (!alreadyClaimed) {
+          const commitDeadline = estimateCommitmentDeadline(best);
+          claimed = await claimTask(best.id || best.task_id, commitDeadline ? { commitment_deadline: commitDeadline } : undefined);
+          if (claimed && commitDeadline) {
+            best._commitment_deadline = commitDeadline;
+            console.log(`[Commitment] Deadline set: ${commitDeadline}`);
+          }
+        }
         if (claimed) {
           activeTask = best;
           const taskSignals = taskToSignals(best);
@@ -1060,7 +1242,30 @@ async function run() {
     console.log(`[TaskReceiver] Fetch/claim failed (non-fatal): ${e.message}`);
   }
 
-  // --- Worker Pool: claim tasks from heartbeat available_work ---
+  // --- Commitment: check for overdue tasks from heartbeat ---
+  // If Hub reported overdue tasks, prioritize resuming them by injecting their
+  // signals at the front. This does not change activeTask selection (the overdue
+  // task should already be claimed/active from a previous cycle).
+  try {
+    const { consumeOverdueTasks } = require('./gep/a2aProtocol');
+    const overdueTasks = consumeOverdueTasks();
+    if (overdueTasks.length > 0) {
+      for (const ot of overdueTasks) {
+        const otId = ot.task_id || ot.id;
+        if (activeTask && (activeTask.id === otId || activeTask.task_id === otId)) {
+          console.warn(`[Commitment] Active task "${activeTask.title || otId}" is OVERDUE -- prioritizing completion.`);
+          signals.unshift('overdue_task', 'urgent');
+          break;
+        }
+      }
+    }
+  } catch (e) {
+    console.warn('[Commitment] Overdue task check failed (non-fatal):', e && e.message || e);
+  }
+
+  // --- Worker Pool: select task from heartbeat available_work (deferred claim) ---
+  // Only remember the best task and inject its signals; actual claim+complete
+  // happens atomically in solidify.js after a successful evolution cycle.
   if (!activeTask && process.env.WORKER_ENABLED === '1') {
     try {
       const { consumeAvailableWork } = require('./gep/a2aProtocol');
@@ -1070,23 +1275,22 @@ async function run() {
         try {
           const { tryReadMemoryGraphEvents } = require('./gep/memoryGraph');
           taskMemoryEvents = tryReadMemoryGraphEvents(1000);
-        } catch {}
+        } catch (e) {
+          console.warn('[WorkerPool] MemoryGraph read failed (task selection proceeds without history):', e && e.message || e);
+        }
         const best = selectBestTask(workerTasks, taskMemoryEvents);
         if (best) {
-          const assignment = await claimWorkerTask(best.id || best.task_id);
-          if (assignment) {
-            activeTask = best;
-            activeTask._worker_assignment_id = assignment.id || assignment.assignment_id || null;
-            const taskSignals = taskToSignals(best);
-            for (const sig of taskSignals) {
-              if (!signals.includes(sig)) signals.unshift(sig);
-            }
-            console.log(`[WorkerPool] Claimed worker task: "${best.title || best.id}" assignment=${activeTask._worker_assignment_id} (${taskSignals.length} signals injected)`);
+          activeTask = best;
+          activeTask._worker_pending = true;
+          const taskSignals = taskToSignals(best);
+          for (const sig of taskSignals) {
+            if (!signals.includes(sig)) signals.unshift(sig);
           }
+          console.log(`[WorkerPool] Selected worker task (deferred claim): "${best.title || best.id}" (${taskSignals.length} signals injected)`);
         }
       }
     } catch (e) {
-      console.log(`[WorkerPool] Claim failed (non-fatal): ${e.message}`);
+      console.log(`[WorkerPool] Task selection failed (non-fatal): ${e.message}`);
     }
   }
 
@@ -1144,11 +1348,14 @@ async function run() {
   const newCandidates = extractCapabilityCandidates({
     recentSessionTranscript: recentMasterLog,
     signals,
+    recentFailedCapsules: readRecentFailedCapsules(50),
   });
   for (const c of newCandidates) {
     try {
       appendCandidateJsonl(c);
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[Candidates] Failed to persist candidate:', e && e.message || e);
+    }
   }
   const recentCandidates = readRecentCandidates(20);
   const capabilityCandidatesPreview = renderCandidatesPreview(recentCandidates.slice(-8), 1600);
@@ -1211,7 +1418,9 @@ async function run() {
         2
       )}\n\`\`\``;
     }
-  } catch (e) {}
+  } catch (e) {
+    console.warn('[ExternalCandidates] Preview build failed (non-fatal):', e && e.message || e);
+  }
 
   // Search-First Evolution: query Hub for reusable solutions before local reasoning.
   let hubHit = null;
@@ -1269,6 +1478,15 @@ async function run() {
     console.log('[FailedCapsules] Read failed (non-fatal): ' + e.message);
   }
 
+  // Heartbeat hints: novelty score and capability gaps for diversity-directed drift
+  var heartbeatNovelty = null;
+  var heartbeatCapGaps = [];
+  try {
+    var { getNoveltyHint, getCapabilityGaps: getCapGaps } = require('./gep/a2aProtocol');
+    heartbeatNovelty = getNoveltyHint();
+    heartbeatCapGaps = getCapGaps() || [];
+  } catch (e) {}
+
   const { selectedGene, capsuleCandidates, selector } = selectGeneAndCapsule({
     genes,
     capsules,
@@ -1276,6 +1494,8 @@ async function run() {
     memoryAdvice,
     driftEnabled: IS_RANDOM_DRIFT,
     failedCapsules: recentFailedCapsules,
+    capabilityGaps: heartbeatCapGaps,
+    noveltyScore: heartbeatNovelty && Number.isFinite(heartbeatNovelty.score) ? heartbeatNovelty.score : null,
   });
 
   const selectedBy = memoryAdvice && memoryAdvice.preferredGeneId ? 'memory_graph+selector' : 'selector';
@@ -1283,6 +1503,11 @@ async function run() {
     ? capsuleCandidates.map(c => (c && c.id ? String(c.id) : null)).filter(Boolean)
     : [];
   const selectedCapsuleId = capsulesUsed.length ? capsulesUsed[0] : null;
+  const strategyPolicy = computeAdaptiveStrategyPolicy({
+    recentEvents,
+    selectedGene,
+    signals,
+  });
 
   // Personality selection (natural selection + small mutation when triggered).
   // This state is persisted in MEMORY_DIR and is treated as an evolution control surface (not role-play).
@@ -1313,9 +1538,9 @@ async function run() {
     tailAvgScore >= 0.7;
   const forceInnovation =
     String(process.env.FORCE_INNOVATION || process.env.EVOLVE_FORCE_INNOVATION || '').toLowerCase() === 'true';
-  const mutationInnovateMode = !!IS_RANDOM_DRIFT || !!innovationPressure || !!forceInnovation;
+  const mutationInnovateMode = !!IS_RANDOM_DRIFT || !!innovationPressure || !!forceInnovation || !!strategyPolicy.forceInnovate;
   const mutationSignals = innovationPressure ? [...(Array.isArray(signals) ? signals : []), 'stable_success_plateau'] : signals;
-  const mutationSignalsEffective = forceInnovation
+  const mutationSignalsEffective = (forceInnovation || strategyPolicy.forceInnovate)
     ? [...(Array.isArray(mutationSignals) ? mutationSignals : []), 'force_innovation']
     : mutationSignals;
 
@@ -1382,7 +1607,6 @@ async function run() {
   try {
     const runId = `run_${Date.now()}`;
     const parentEventId = getLastEventId();
-    const selectedBy = memoryAdvice && memoryAdvice.preferredGeneId ? 'memory_graph+selector' : 'selector';
 
     // Baseline snapshot (before any edits).
     let baselineUntracked = [];
@@ -1399,7 +1623,9 @@ async function run() {
         .split('\n')
         .map(l => l.trim())
         .filter(Boolean);
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[SolidifyState] Failed to read baseline untracked files:', e && e.message || e);
+    }
 
     try {
       const out = execSync('git rev-parse HEAD', {
@@ -1410,12 +1636,17 @@ async function run() {
         windowsHide: true,
       });
       baselineHead = String(out || '').trim() || null;
-    } catch (e) {}
+    } catch (e) {
+      console.warn('[SolidifyState] Failed to read git HEAD:', e && e.message || e);
+    }
 
-    const maxFiles =
-      selectedGene && selectedGene.constraints && Number.isFinite(Number(selectedGene.constraints.max_files))
-        ? Number(selectedGene.constraints.max_files)
-        : 12;
+    const maxFiles = strategyPolicy && Number.isFinite(Number(strategyPolicy.blastRadiusMaxFiles))
+      ? Number(strategyPolicy.blastRadiusMaxFiles)
+      : (
+        selectedGene && selectedGene.constraints && Number.isFinite(Number(selectedGene.constraints.max_files))
+          ? Number(selectedGene.constraints.max_files)
+          : 12
+      );
     const blastRadiusEstimate = {
       files: Number.isFinite(maxFiles) && maxFiles > 0 ? maxFiles : 0,
       lines: Number.isFinite(maxFiles) && maxFiles > 0 ? Math.round(maxFiles * 80) : 0,
@@ -1449,9 +1680,12 @@ async function run() {
         baseline_untracked: baselineUntracked,
         baseline_git_head: baselineHead,
         blast_radius_estimate: blastRadiusEstimate,
+        strategy_policy: strategyPolicy,
         active_task_id: activeTask ? (activeTask.id || activeTask.task_id || null) : null,
         active_task_title: activeTask ? (activeTask.title || null) : null,
         worker_assignment_id: activeTask ? (activeTask._worker_assignment_id || null) : null,
+        worker_pending: activeTask ? (activeTask._worker_pending || false) : false,
+        commitment_deadline: activeTask ? (activeTask._commitment_deadline || null) : null,
         applied_lessons: hubLessons.map(function(l) { return l.lesson_id; }).filter(Boolean),
         hub_lessons: hubLessons,
       };
@@ -1584,6 +1818,7 @@ ${mutationDirective}
         capabilityCandidatesPreview,
         externalCandidatesPreview,
         hubMatchedBlock,
+        strategyPolicy,
         failedCapsules: recentFailedCapsules,
         hubLessons,
       });
@@ -1672,5 +1907,5 @@ ${mutationDirective}
   }
 }
 
-module.exports = { run };
+module.exports = { run, computeAdaptiveStrategyPolicy };
 

@@ -1,3 +1,6 @@
+const { scoreTagOverlap } = require('./learningSignals');
+const { captureEnvFingerprint } = require('./envFingerprint');
+
 function matchPatternToSignals(pattern, signals) {
   if (!pattern || !signals || signals.length === 0) return false;
   const p = String(pattern);
@@ -30,12 +33,54 @@ function matchPatternToSignals(pattern, signals) {
 function scoreGene(gene, signals) {
   if (!gene || gene.type !== 'Gene') return 0;
   const patterns = Array.isArray(gene.signals_match) ? gene.signals_match : [];
-  if (patterns.length === 0) return 0;
+  var tagScore = scoreTagOverlap(gene, signals);
+  if (patterns.length === 0) return tagScore > 0 ? tagScore * 0.6 : 0;
   let score = 0;
   for (const pat of patterns) {
     if (matchPatternToSignals(pat, signals)) score += 1;
   }
-  return score;
+  return score + (tagScore * 0.6);
+}
+
+function getEpigeneticBoostLocal(gene, envFingerprint) {
+  if (!gene || !Array.isArray(gene.epigenetic_marks)) return 0;
+  const platform = envFingerprint && envFingerprint.platform ? String(envFingerprint.platform) : '';
+  const arch = envFingerprint && envFingerprint.arch ? String(envFingerprint.arch) : '';
+  const nodeVersion = envFingerprint && envFingerprint.node_version ? String(envFingerprint.node_version) : '';
+  const envContext = [platform, arch, nodeVersion].filter(Boolean).join('/') || 'unknown';
+  const mark = gene.epigenetic_marks.find(function (m) { return m && m.context === envContext; });
+  return mark ? Number(mark.boost) || 0 : 0;
+}
+
+function scoreGeneLearning(gene, signals, envFingerprint) {
+  if (!gene || gene.type !== 'Gene') return 0;
+  var boost = 0;
+
+  var history = Array.isArray(gene.learning_history) ? gene.learning_history.slice(-8) : [];
+  for (var i = 0; i < history.length; i++) {
+    var entry = history[i];
+    if (!entry) continue;
+    if (entry.outcome === 'success') boost += 0.12;
+    else if (entry.mode === 'hard') boost -= 0.22;
+    else if (entry.mode === 'soft') boost -= 0.08;
+  }
+
+  boost += getEpigeneticBoostLocal(gene, envFingerprint);
+
+  if (Array.isArray(gene.anti_patterns) && gene.anti_patterns.length > 0) {
+    var overlapPenalty = 0;
+    var signalTags = new Set(require('./learningSignals').expandSignals(signals, ''));
+    var recentAntiPatterns = gene.anti_patterns.slice(-6);
+    for (var j = 0; j < recentAntiPatterns.length; j++) {
+      var anti = recentAntiPatterns[j];
+      if (!anti || !Array.isArray(anti.learning_signals)) continue;
+      var overlap = anti.learning_signals.some(function (tag) { return signalTags.has(String(tag)); });
+      if (overlap) overlapPenalty += anti.mode === 'hard' ? 0.4 : 0.18;
+    }
+    boost -= overlapPenalty;
+  }
+
+  return Math.max(-1.5, Math.min(1.5, boost));
 }
 
 // Population-size-dependent drift intensity.
@@ -79,6 +124,10 @@ function selectGene(genes, signals, opts) {
   const driftEnabled = !!(opts && opts.driftEnabled);
   const preferredGeneId = opts && typeof opts.preferredGeneId === 'string' ? opts.preferredGeneId : null;
 
+  // Diversity-directed drift: capability_gaps from Hub heartbeat
+  var capabilityGaps = opts && Array.isArray(opts.capabilityGaps) ? opts.capabilityGaps : [];
+  var noveltyScore = opts && Number.isFinite(Number(opts.noveltyScore)) ? Number(opts.noveltyScore) : null;
+
   // Compute continuous drift intensity based on effective population size
   var driftIntensity = computeDriftIntensity({
     driftEnabled: driftEnabled,
@@ -90,16 +139,18 @@ function selectGene(genes, signals, opts) {
   var DISTILLED_PREFIX = 'gene_distilled_';
   var DISTILLED_SCORE_FACTOR = 0.8;
 
+  const envFingerprint = captureEnvFingerprint();
   const scored = genesList
     .map(g => {
       var s = scoreGene(g, signals);
+      s += scoreGeneLearning(g, signals, envFingerprint);
       if (s > 0 && g.id && String(g.id).startsWith(DISTILLED_PREFIX)) s *= DISTILLED_SCORE_FACTOR;
       return { gene: g, score: s };
     })
     .filter(x => x.score > 0)
     .sort((a, b) => b.score - a.score);
 
-  if (scored.length === 0) return { selected: null, alternatives: [], driftIntensity: driftIntensity };
+  if (scored.length === 0) return { selected: null, alternatives: [], driftIntensity: driftIntensity, driftMode: 'none' };
 
   // Memory graph preference: only override when the preferred gene is already a match candidate.
   if (preferredGeneId) {
@@ -111,27 +162,68 @@ function selectGene(genes, signals, opts) {
         selected: preferred.gene,
         alternatives: filteredRest.slice(0, 4).map(x => x.gene),
         driftIntensity: driftIntensity,
+        driftMode: 'memory_preferred',
       };
     }
   }
 
   // Low-efficiency suppression: do not repeat low-confidence paths unless drift is active.
   const filtered = useDrift ? scored : scored.filter(x => x.gene && !bannedGeneIds.has(x.gene.id));
-  if (filtered.length === 0) return { selected: null, alternatives: scored.slice(0, 4).map(x => x.gene), driftIntensity: driftIntensity };
+  if (filtered.length === 0) return { selected: null, alternatives: scored.slice(0, 4).map(x => x.gene), driftIntensity: driftIntensity, driftMode: 'none' };
 
-  // Stochastic selection under drift: with probability proportional to driftIntensity,
-  // pick a random gene from the top candidates instead of always picking the best.
+  // Diversity-directed drift: when capability gaps are available, prefer genes that
+  // cover gap areas instead of pure random selection. This replaces the blind
+  // random drift with an informed exploration toward under-covered capabilities.
   var selectedIdx = 0;
+  var driftMode = 'selection';
   if (driftIntensity > 0 && filtered.length > 1 && Math.random() < driftIntensity) {
-    // Weighted random selection from top candidates (favor higher-scoring but allow lower)
-    var topN = Math.min(filtered.length, Math.max(2, Math.ceil(filtered.length * driftIntensity)));
-    selectedIdx = Math.floor(Math.random() * topN);
+    if (capabilityGaps.length > 0) {
+      // Directed drift: score each candidate by how well its signals_match
+      // covers the capability gap dimensions
+      var gapScores = filtered.map(function(entry, idx) {
+        var g = entry.gene;
+        var patterns = Array.isArray(g.signals_match) ? g.signals_match : [];
+        var gapHits = 0;
+        for (var gi = 0; gi < capabilityGaps.length && gi < 5; gi++) {
+          var gapSignal = capabilityGaps[gi];
+          if (typeof gapSignal === 'string' && patterns.some(function(p) { return matchPatternToSignals(p, [gapSignal]); })) {
+            gapHits++;
+          }
+        }
+        return { idx: idx, gapHits: gapHits, baseScore: entry.score };
+      });
+
+      var hasGapHits = gapScores.some(function(gs) { return gs.gapHits > 0; });
+      if (hasGapHits) {
+        // Sort by gap coverage first, then by base score
+        gapScores.sort(function(a, b) {
+          return b.gapHits - a.gapHits || b.baseScore - a.baseScore;
+        });
+        selectedIdx = gapScores[0].idx;
+        driftMode = 'diversity_directed';
+      } else {
+        // No gap match: fall back to novelty-weighted random selection
+        var topN = Math.min(filtered.length, Math.max(2, Math.ceil(filtered.length * driftIntensity)));
+        // If novelty score is low (agent is too similar to others), increase exploration range
+        if (noveltyScore != null && noveltyScore < 0.3 && topN < filtered.length) {
+          topN = Math.min(filtered.length, topN + 1);
+        }
+        selectedIdx = Math.floor(Math.random() * topN);
+        driftMode = 'random_weighted';
+      }
+    } else {
+      // No capability gap data: original random drift behavior
+      var topN = Math.min(filtered.length, Math.max(2, Math.ceil(filtered.length * driftIntensity)));
+      selectedIdx = Math.floor(Math.random() * topN);
+      driftMode = 'random';
+    }
   }
 
   return {
     selected: filtered[selectedIdx].gene,
     alternatives: filtered.filter(function(_, i) { return i !== selectedIdx; }).slice(0, 4).map(x => x.gene),
     driftIntensity: driftIntensity,
+    driftMode: driftMode,
   };
 }
 
@@ -182,7 +274,7 @@ function banGenesFromFailedCapsules(failedCapsules, signals, existingBans) {
   return bans;
 }
 
-function selectGeneAndCapsule({ genes, capsules, signals, memoryAdvice, driftEnabled, failedCapsules }) {
+function selectGeneAndCapsule({ genes, capsules, signals, memoryAdvice, driftEnabled, failedCapsules, capabilityGaps, noveltyScore }) {
   const bannedGeneIds =
     memoryAdvice && memoryAdvice.bannedGeneIds instanceof Set ? memoryAdvice.bannedGeneIds : new Set();
   const preferredGeneId = memoryAdvice && memoryAdvice.preferredGeneId ? memoryAdvice.preferredGeneId : null;
@@ -197,6 +289,8 @@ function selectGeneAndCapsule({ genes, capsules, signals, memoryAdvice, driftEna
     bannedGeneIds: effectiveBans,
     preferredGeneId,
     driftEnabled: !!driftEnabled,
+    capabilityGaps: Array.isArray(capabilityGaps) ? capabilityGaps : [],
+    noveltyScore: Number.isFinite(Number(noveltyScore)) ? Number(noveltyScore) : null,
   });
   const capsule = selectCapsule(capsules, signals);
   const selector = buildSelectorDecision({

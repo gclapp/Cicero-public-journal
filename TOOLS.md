@@ -278,6 +278,69 @@ python3 scripts/weekly_memory_consolidation.py
 
 ---
 
+## Stock Price Tracker (30-Day Rolling)
+**Script:** `/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py`  
+**History File:** `/home/ubuntu/.openclaw/workspace/data/stock-history.json`  
+**Current Data:** `/home/ubuntu/.openclaw/workspace/data/stock-data.json`  
+**Schedule:** Daily at 6 PM PT
+
+### Tracked Stocks
+| Symbol | Company | Priority |
+|--------|---------|----------|
+| **PGNY** | Progyny | High (Geoff's company) |
+| AAPL | Apple | Medium |
+| NVDA | NVIDIA | Medium |
+| OMDA | Omada Health | Medium |
+
+### Features
+- ✅ 30-day rolling price history (JSON storage)
+- ✅ 30-day change percentage calculation
+- ✅ Daily closing price tracking
+- ✅ Market indices (S&P 500, Dow Jones)
+- ✅ Formatted summary for check-ins
+
+### Manual Run
+```bash
+# Fetch current prices and update history
+python3 scripts/fetch_stock_data.py
+
+# Get summary only (if data exists)
+python3 -c "from scripts.fetch_stock_data import get_stock_summary; print(get_stock_summary())"
+```
+
+### Output Format
+```
+📈 **Markets (30-Day View)**
+
+**Indices:**
+🟢 S&P 500: 6,624.70 (+0.00% today)
+🟢 Dow Jones: 46,225.15 (+0.00% today)
+
+**Your Watchlist (30-Day Change):**
+🟢 **PGNY:** $17.87 (+5.23% / 30d)
+🟢 AAPL: $249.94 (+2.15% / 30d)
+🔴 NVDA: $180.40 (-1.82% / 30d)
+🟢 OMDA: $14.11 (+3.45% / 15d)
+```
+
+### History Data Structure
+```json
+{
+  "metadata": {
+    "stocks": ["PGNY", "AAPL", "NVDA", "OMDA"],
+    "max_days": 30
+  },
+  "history": {
+    "PGNY": [
+      {"date": "2026-03-19", "price": 17.87},
+      {"date": "2026-03-18", "price": 17.65}
+    ]
+  }
+}
+```
+
+---
+
 ## Watch Hunt Automation
 **Dashboard:** https://gclapp.github.io/geoff-watch-hunt/
 **Repo:** https://github.com/gclapp/geoff-watch-hunt
@@ -435,7 +498,7 @@ bash scripts/cron-backup.sh restore
 bash scripts/cron-backup.sh verify
 ```
 
-### Active Cron Jobs (as of March 8, 2026)
+### Active Cron Jobs (as of March 19, 2026)
 | Job | Schedule | Script | Purpose |
 |-----|----------|--------|---------|
 | Heartbeat | Every 55 min | `heartbeat-check.sh` | Keep cache warm, check-ins |
@@ -446,6 +509,7 @@ bash scripts/cron-backup.sh verify
 | Security Audit | Sundays 8 AM PT | `weekly-security-audit.sh` | Security report |
 | Reddit Report | Sundays 9 AM PT | `reddit-weekly-report.sh` | Sentiment analysis |
 | Weekly Email | Saturdays 9 AM PT | `weekly-email-report.py` | Week summary |
+| Stock Tracker | 6 PM PT daily | `fetch_stock_data.py` | 30-day rolling prices |
 | NYC Reminder | March 12, 2 PM PT | `sunday-nyc-reminder.sh` | Trip reminder |
 
 ### Post-Update Checklist

@@ -1,0 +1,39 @@
+{
+  "metadata": {
+    "created": "2026-03-19T00:00:00",
+    "description": "30-day rolling stock price history",
+    "stocks": [
+      "PGNY",
+      "AAPL",
+      "NVDA",
+      "OMDA"
+    ],
+    "max_days": 30
+  },
+  "history": {
+    "PGNY": [
+      {
+        "date": "2026-03-19",
+        "price": 17.87
+      }
+    ],
+    "AAPL": [
+      {
+        "date": "2026-03-19",
+        "price": 249.94
+      }
+    ],
+    "NVDA": [
+      {
+        "date": "2026-03-19",
+        "price": 180.4
+      }
+    ],
+    "OMDA": [
+      {
+        "date": "2026-03-19",
+        "price": 14.11
+      }
+    ]
+  }
+}

@@ -1,8 +1,9 @@
+#!/usr/bin/env node
 const evolve = require('./src/evolve');
 const { solidify } = require('./src/gep/solidify');
 const path = require('path');
-// Hardened Env Loading: Ensure .env is loaded before anything else
-try { require('dotenv').config({ path: path.resolve(__dirname, './.env') }); } catch (e) { console.warn('[Evolver] Warning: dotenv not found or failed to load .env'); }
+const { getRepoRoot } = require('./src/gep/paths');
+try { require('dotenv').config({ path: path.join(getRepoRoot(), '.env') }); } catch (e) { console.warn('[Evolver] Warning: dotenv not found or failed to load .env'); }
 const fs = require('fs');
 const { spawn } = require('child_process');
 
@@ -21,6 +22,33 @@ function readJsonSafe(p) {
   } catch (e) {
     return null;
   }
+}
+
+/**
+ * Mark a pending evolution run as rejected (state-only, no git rollback).
+ * @param {string} statePath - Path to evolution_solidify_state.json
+ * @returns {boolean} true if a pending run was found and rejected
+ */
+function rejectPendingRun(statePath) {
+  try {
+    const state = readJsonSafe(statePath);
+    if (state && state.last_run && state.last_run.run_id) {
+      state.last_solidify = {
+        run_id: state.last_run.run_id,
+        rejected: true,
+        reason: 'loop_bridge_disabled_autoreject_no_rollback',
+        timestamp: new Date().toISOString(),
+      };
+      const tmp = `${statePath}.tmp`;
+      fs.writeFileSync(tmp, JSON.stringify(state, null, 2) + '\n', 'utf8');
+      fs.renameSync(tmp, statePath);
+      return true;
+    }
+  } catch (e) {
+    console.warn('[Loop] Failed to clear pending run state: ' + (e.message || e));
+  }
+
+  return false;
 }
 
 function isPendingSolidify(state) {
@@ -79,6 +107,16 @@ async function main() {
   const isLoop = args.includes('--loop') || args.includes('--mad-dog');
 
   if (command === 'run' || command === '/evolve' || isLoop) {
+    if (isLoop) {
+        const originalLog = console.log;
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        function ts() { return '[' + new Date().toISOString() + ']'; }
+        console.log = (...args) => { originalLog.call(console, ts(), ...args); };
+        console.warn = (...args) => { originalWarn.call(console, ts(), ...args); };
+        console.error = (...args) => { originalError.call(console, ts(), ...args); };
+    }
+
     console.log('Starting capability evolver...');
     
     if (isLoop) {
@@ -89,8 +127,10 @@ async function main() {
         process.on('SIGTERM', () => { releaseLock(); process.exit(); });
 
         process.env.EVOLVE_LOOP = 'true';
-        process.env.EVOLVE_BRIDGE = 'false';
-        console.log('Loop mode enabled (internal daemon).');
+        if (!process.env.EVOLVE_BRIDGE) {
+          process.env.EVOLVE_BRIDGE = 'false';
+        }
+        console.log(`Loop mode enabled (internal daemon, bridge=${process.env.EVOLVE_BRIDGE}).`);
 
         const { getEvolutionDir } = require('./src/gep/paths');
         const solidifyStatePath = path.join(getEvolutionDir(), 'evolution_solidify_state.json');
@@ -136,6 +176,16 @@ async function main() {
           try {
             await evolve.run();
             ok = true;
+
+            if (String(process.env.EVOLVE_BRIDGE || '').toLowerCase() === 'false') {
+              const stAfterRun = readJsonSafe(solidifyStatePath);
+              if (isPendingSolidify(stAfterRun)) {
+                const cleared = rejectPendingRun(solidifyStatePath);
+                if (cleared) {
+                  console.warn('[Loop] Auto-rejected pending run because bridge is disabled in loop mode (state only, no rollback).');
+                }
+              }
+            }
           } catch (error) {
             const msg = error && error.message ? String(error.message) : String(error);
             console.error(`Evolution cycle failed: ${msg}`);
@@ -232,16 +282,29 @@ async function main() {
 
       if (res && res.ok && !dryRun) {
         try {
-          const { shouldDistill, prepareDistillation } = require('./src/gep/skillDistiller');
-          if (shouldDistill()) {
-            const dr = prepareDistillation();
-            if (dr && dr.ok && dr.promptPath) {
-              console.log('\n[DISTILL_REQUEST]');
-              console.log('Distillation prompt ready. Read the prompt file, process it with your LLM,');
-              console.log('save the LLM response to a file, then run:');
-              console.log('  node index.js distill --response-file=<path_to_llm_response>');
-              console.log('Prompt file: ' + dr.promptPath);
-              console.log('[/DISTILL_REQUEST]');
+          const { shouldDistill, prepareDistillation, autoDistill } = require('./src/gep/skillDistiller');
+          const { readStateForSolidify } = require('./src/gep/solidify');
+          const solidifyState = readStateForSolidify();
+          const count = solidifyState.solidify_count || 0;
+          const autoDistillInterval = 5;
+          const autoTrigger = count > 0 && count % autoDistillInterval === 0;
+
+          if (autoTrigger || shouldDistill()) {
+            const auto = autoDistill();
+            if (auto && auto.ok && auto.gene) {
+              console.log('[Distiller] Auto-distilled gene: ' + auto.gene.id);
+            } else {
+              const dr = prepareDistillation();
+              if (dr && dr.ok && dr.promptPath) {
+                const trigger = autoTrigger ? `auto (every ${autoDistillInterval} solidifies, count=${count})` : 'threshold';
+                console.log('\n[DISTILL_REQUEST]');
+                console.log(`Distillation triggered: ${trigger}`);
+                console.log('Read the prompt file, process it with your LLM,');
+                console.log('save the LLM response to a file, then run:');
+                console.log('  node index.js distill --response-file=<path_to_llm_response>');
+                console.log('Prompt file: ' + dr.promptPath);
+                console.log('[/DISTILL_REQUEST]');
+              }
             }
           }
         } catch (e) {
@@ -249,6 +312,9 @@ async function main() {
         }
       }
 
+      if (res && res.hubReviewPromise) {
+        await res.hubReviewPromise;
+      }
       process.exit(res && res.ok ? 0 : 2);
     } catch (error) {
       console.error('[SOLIDIFY] Error:', error);
@@ -374,6 +440,9 @@ async function main() {
         const st = res && res.ok ? 'SUCCESS' : 'FAILED';
         console.log(`[SOLIDIFY] ${st}`);
         if (res && res.gene) console.log(JSON.stringify(res.gene, null, 2));
+        if (res && res.hubReviewPromise) {
+          await res.hubReviewPromise;
+        }
         process.exit(res && res.ok ? 0 : 2);
       } catch (error) {
         console.error('[SOLIDIFY] Error:', error);
@@ -390,7 +459,9 @@ async function main() {
           const s = readJsonSafe(sp);
           if (s && s.last_run) {
             s.last_solidify = { run_id: s.last_run.run_id, rejected: true, timestamp: new Date().toISOString() };
-            fs.writeFileSync(sp, JSON.stringify(s, null, 2));
+            const tmpReject = `${sp}.tmp`;
+            fs.writeFileSync(tmpReject, JSON.stringify(s, null, 2) + '\n', 'utf8');
+            fs.renameSync(tmpReject, sp);
           }
         }
         console.log('[Review] Changes rolled back.');
@@ -401,6 +472,112 @@ async function main() {
     } else {
       console.log('\nTo approve and solidify:  node index.js review --approve');
       console.log('To reject and rollback:   node index.js review --reject');
+    }
+
+  } else if (command === 'fetch') {
+    let skillId = null;
+    const eqFlag = args.find(a => typeof a === 'string' && (a.startsWith('--skill=') || a.startsWith('-s=')));
+    if (eqFlag) {
+      skillId = eqFlag.split('=').slice(1).join('=');
+    } else {
+      const sIdx = args.indexOf('-s');
+      const longIdx = args.indexOf('--skill');
+      const flagIdx = sIdx !== -1 ? sIdx : longIdx;
+      if (flagIdx !== -1 && args[flagIdx + 1] && !String(args[flagIdx + 1]).startsWith('-')) {
+        skillId = args[flagIdx + 1];
+      }
+    }
+    if (!skillId) {
+      const positional = args[1];
+      if (positional && !String(positional).startsWith('-')) skillId = positional;
+    }
+
+    if (!skillId) {
+      console.error('Usage: evolver fetch --skill <skill_id>');
+      console.error('       evolver fetch -s <skill_id>');
+      process.exit(1);
+    }
+
+    const { getHubUrl, getNodeId, buildHubHeaders, sendHelloToHub, getHubNodeSecret } = require('./src/gep/a2aProtocol');
+
+    const hubUrl = getHubUrl();
+    if (!hubUrl) {
+      console.error('[fetch] A2A_HUB_URL is not configured.');
+      console.error('Set it via environment variable or .env file:');
+      console.error('  export A2A_HUB_URL=https://evomap.ai');
+      process.exit(1);
+    }
+
+    try {
+      if (!getHubNodeSecret()) {
+        console.log('[fetch] No node_secret found. Sending hello to Hub to register...');
+        const helloResult = await sendHelloToHub();
+        if (!helloResult || !helloResult.ok) {
+          console.error('[fetch] Failed to register with Hub:', helloResult && helloResult.error || 'unknown');
+          process.exit(1);
+        }
+        console.log('[fetch] Registered as ' + getNodeId());
+      }
+
+      const endpoint = hubUrl.replace(/\/+$/, '') + '/a2a/skill/store/' + encodeURIComponent(skillId) + '/download';
+      const nodeId = getNodeId();
+
+      console.log('[fetch] Downloading skill: ' + skillId);
+
+      const resp = await fetch(endpoint, {
+        method: 'POST',
+        headers: buildHubHeaders(),
+        body: JSON.stringify({ sender_id: nodeId }),
+        signal: AbortSignal.timeout(30000),
+      });
+
+      if (!resp.ok) {
+        const body = await resp.text().catch(() => '');
+        let msg = 'HTTP ' + resp.status;
+        try { const j = JSON.parse(body); msg = j.error || j.message || msg; } catch (_) {}
+        console.error('[fetch] Download failed: ' + msg);
+        if (resp.status === 404) console.error('  Skill not found or not publicly available.');
+        if (resp.status === 401) console.error('  Authentication failed. Try deleting ~/.evomap/node_secret and retry.');
+        if (resp.status === 402) console.error('  Insufficient credits.');
+        process.exit(1);
+      }
+
+      const data = await resp.json();
+      const outFlag = args.find(a => typeof a === 'string' && a.startsWith('--out='));
+      const safeId = String(data.skill_id || skillId).replace(/[^a-zA-Z0-9_\-\.]/g, '_');
+      const outDir = outFlag
+        ? outFlag.slice('--out='.length)
+        : path.join('.', 'skills', safeId);
+
+      if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
+      if (data.content) {
+        fs.writeFileSync(path.join(outDir, 'SKILL.md'), data.content, 'utf8');
+      }
+
+      const bundled = Array.isArray(data.bundled_files) ? data.bundled_files : [];
+      for (const file of bundled) {
+        if (!file || !file.name || typeof file.content !== 'string') continue;
+        const safeName = path.basename(file.name);
+        fs.writeFileSync(path.join(outDir, safeName), file.content, 'utf8');
+      }
+
+      console.log('[fetch] Skill downloaded to: ' + outDir);
+      console.log('  Name:    ' + (data.name || skillId));
+      console.log('  Version: ' + (data.version || '?'));
+      console.log('  Files:   SKILL.md' + (bundled.length > 0 ? ', ' + bundled.map(f => f.name).join(', ') : ''));
+      if (data.already_purchased) {
+        console.log('  Cost:    free (already purchased)');
+      } else {
+        console.log('  Cost:    ' + (data.credit_cost || 0) + ' credits');
+      }
+    } catch (error) {
+      if (error && error.name === 'TimeoutError') {
+        console.error('[fetch] Request timed out. Check your network and A2A_HUB_URL.');
+      } else {
+        console.error('[fetch] Error:', error && error.message || error);
+      }
+      process.exit(1);
     }
 
   } else if (command === 'asset-log') {
@@ -447,7 +624,10 @@ async function main() {
     }
 
   } else {
-    console.log(`Usage: node index.js [run|/evolve|solidify|review|distill|asset-log] [--loop]
+    console.log(`Usage: node index.js [run|/evolve|solidify|review|distill|fetch|asset-log] [--loop]
+  - fetch flags:
+    - --skill=<id> | -s <id>   (skill ID to download)
+    - --out=<dir>              (output directory, default: ./skills/<skill_id>)
   - solidify flags:
     - --dry-run
     - --no-rollback
@@ -470,3 +650,10 @@ async function main() {
 if (require.main === module) {
   main();
 }
+
+module.exports = {
+  main,
+  readJsonSafe,
+  rejectPendingRun,
+  isPendingSolidify,
+};

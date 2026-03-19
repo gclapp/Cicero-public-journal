@@ -100,7 +100,9 @@ function loadGenes() {
         }
       });
     }
-  } catch(e) {}
+  } catch(e) {
+    console.warn('[AssetStore] Failed to read genes.jsonl:', e && e.message || e);
+  }
 
   // Combine and deduplicate by ID (JSONL takes precedence if newer, but here we just merge)
   const combined = [...jsonGenes, ...jsonlGenes];
@@ -124,7 +126,9 @@ function loadCapsules() {
         }
       });
     }
-  } catch(e) {}
+  } catch(e) {
+    console.warn('[AssetStore] Failed to read capsules.jsonl:', e && e.message || e);
+  }
   
   // Combine and deduplicate by ID
   const combined = [...legacy, ...jsonlCapsules];
@@ -144,7 +148,10 @@ function getLastEventId() {
     if (lines.length === 0) return null;
     const last = JSON.parse(lines[lines.length - 1]);
     return last && typeof last.id === 'string' ? last.id : null;
-  } catch { return null; }
+  } catch (e) {
+    console.warn('[AssetStore] Failed to read last event ID:', e && e.message || e);
+    return null;
+  }
 }
 
 function readAllEvents() {
@@ -155,7 +162,10 @@ function readAllEvents() {
     return raw.split('\n').map(l => l.trim()).filter(Boolean).map(l => {
       try { return JSON.parse(l); } catch { return null; }
     }).filter(Boolean);
-  } catch { return []; }
+  } catch (e) {
+    console.warn('[AssetStore] Failed to read events.jsonl:', e && e.message || e);
+    return [];
+  }
 }
 
 function appendEventJsonl(eventObj) {
@@ -177,31 +187,72 @@ function readRecentCandidates(limit = 20) {
   try {
     const p = candidatesPath();
     if (!fs.existsSync(p)) return [];
-    const raw = fs.readFileSync(p, 'utf8');
-    const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
-    return lines.slice(Math.max(0, lines.length - limit)).map(l => {
-      try { return JSON.parse(l); } catch { return null; }
-    }).filter(Boolean);
-  } catch { return []; }
+    const stat = fs.statSync(p);
+    if (stat.size < 1024 * 1024) {
+      const raw = fs.readFileSync(p, 'utf8');
+      const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+      return lines.slice(-limit).map(l => {
+        try { return JSON.parse(l); } catch { return null; }
+      }).filter(Boolean);
+    }
+    // Large file (>1MB): only read the tail to avoid OOM.
+    const fd = fs.openSync(p, 'r');
+    try {
+      const chunkSize = Math.min(stat.size, limit * 4096);
+      const buf = Buffer.alloc(chunkSize);
+      fs.readSync(fd, buf, 0, chunkSize, stat.size - chunkSize);
+      const lines = buf.toString('utf8').split('\n').map(l => l.trim()).filter(Boolean);
+      return lines.slice(-limit).map(l => {
+        try { return JSON.parse(l); } catch { return null; }
+      }).filter(Boolean);
+    } finally {
+      fs.closeSync(fd);
+    }
+  } catch (e) {
+    console.warn('[AssetStore] Failed to read candidates.jsonl:', e && e.message || e);
+    return [];
+  }
 }
 
 function readRecentExternalCandidates(limit = 50) {
   try {
     const p = externalCandidatesPath();
     if (!fs.existsSync(p)) return [];
-    const raw = fs.readFileSync(p, 'utf8');
-    const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
-    return lines.slice(Math.max(0, lines.length - limit)).map(l => {
-      try { return JSON.parse(l); } catch { return null; }
-    }).filter(Boolean);
-  } catch { return []; }
+    const stat = fs.statSync(p);
+    if (stat.size < 1024 * 1024) {
+      const raw = fs.readFileSync(p, 'utf8');
+      const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+      return lines.slice(-limit).map(l => {
+        try { return JSON.parse(l); } catch { return null; }
+      }).filter(Boolean);
+    }
+    const fd = fs.openSync(p, 'r');
+    try {
+      const chunkSize = Math.min(stat.size, limit * 4096);
+      const buf = Buffer.alloc(chunkSize);
+      fs.readSync(fd, buf, 0, chunkSize, stat.size - chunkSize);
+      const lines = buf.toString('utf8').split('\n').map(l => l.trim()).filter(Boolean);
+      return lines.slice(-limit).map(l => {
+        try { return JSON.parse(l); } catch { return null; }
+      }).filter(Boolean);
+    } finally {
+      fs.closeSync(fd);
+    }
+  } catch (e) {
+    console.warn('[AssetStore] Failed to read external_candidates.jsonl:', e && e.message || e);
+    return [];
+  }
 }
 
 // Safety net: ensure schema_version and asset_id are present before writing.
 function ensureSchemaFields(obj) {
   if (!obj || typeof obj !== 'object') return obj;
   if (!obj.schema_version) obj.schema_version = SCHEMA_VERSION;
-  if (!obj.asset_id) { try { obj.asset_id = computeAssetId(obj); } catch (e) {} }
+  if (!obj.asset_id) {
+    try { obj.asset_id = computeAssetId(obj); } catch (e) {
+      console.warn('[AssetStore] Failed to compute asset ID:', e && e.message || e);
+    }
+  }
   return obj;
 }
 
@@ -256,6 +307,7 @@ function readRecentFailedCapsules(limit) {
     var list = Array.isArray(current.failed_capsules) ? current.failed_capsules : [];
     return list.slice(Math.max(0, list.length - n));
   } catch (e) {
+    console.warn('[AssetStore] Failed to read failed_capsules.json:', e && e.message || e);
     return [];
   }
 }

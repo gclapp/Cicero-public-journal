@@ -134,10 +134,14 @@ ENSURE VALID JSON SYNTAX (escape quotes in strings).
 
 3. Gene (The Knowledge)
    - Reuse/update existing ID if possible. Create new only if novel pattern.
+   - ID MUST be descriptive: gene_<descriptive_name> (e.g., gene_retry_on_timeout)
+   - NEVER use timestamps, random numbers, or tool names (cursor, vscode, etc.) in IDs
+   - summary MUST be a clear human-readable sentence describing what the Gene does
    {
      "type": "Gene",
      "schema_version": "1.5.0",
-     "id": "gene_<name>",
+     "id": "gene_<descriptive_name>",
+     "summary": "<clear description of what this gene does>",
      "category": "repair|optimize|innovate",
      "signals_match": ["<pattern>"],
      "preconditions": ["<condition>"],
@@ -262,6 +266,7 @@ function buildGepPrompt({
   recentHistory,
   failedCapsules,
   hubLessons,
+  strategyPolicy,
 }) {
   const parentValue = parentEventId ? `"${parentEventId}"` : 'null';
   const selectedGeneId = selectedGene && selectedGene.id ? selectedGene.id : 'gene_<name>';
@@ -285,6 +290,15 @@ ACTIVE STRATEGY (Generic):
 3. Apply minimal, safe changes.
 4. Validate changes strictly.
 5. Solidify knowledge.
+`.trim();
+  }
+  let strategyPolicyBlock = '';
+  if (strategyPolicy && Array.isArray(strategyPolicy.directives) && strategyPolicy.directives.length > 0) {
+    strategyPolicyBlock = `
+ADAPTIVE STRATEGY POLICY:
+${strategyPolicy.directives.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+${strategyPolicy.forceInnovate ? 'You MUST prefer INNOVATE unless a critical blocking error is present.' : ''}
+${strategyPolicy.cautiousExecution ? 'You MUST reduce blast radius and avoid broad refactors in this cycle.' : ''}
 `.trim();
   }
   
@@ -380,6 +394,7 @@ II. Directives & Logic
 
 2. Selection: Selected Gene "${selectedGeneId}".
 ${strategyBlock}
+${strategyPolicyBlock ? '\n' + strategyPolicyBlock : ''}
 
 3. Execution: Apply changes (tool calls). Repair/Optimize: small/reversible. Innovate: new skills in \`skills/<name>/\`.
 4. Validation: Run gene's validation steps. Fail = ROLLBACK.
@@ -439,24 +454,33 @@ When creating a new skill in skills/<name>/:
    |- assets/           (optional: templates, data files)
    Creating an empty directory or a directory missing index.js = FAILED.
    Do NOT create unnecessary files (README.md, CHANGELOG.md, INSTALLATION_GUIDE.md, etc.).
-2. SKILL.MD FRONTMATTER: Every SKILL.md MUST start with YAML frontmatter:
+2. SKILL NAMING (CRITICAL):
+   a) <name> MUST be descriptive kebab-case (e.g., "log-rotation", "retry-handler", "cache-manager")
+   b) NEVER use timestamps, random numbers, tool names (cursor, vscode), or UUIDs as names
+   c) Names like "cursor-1773331925711", "skill-12345", "fix-1" = FAILED
+   d) Name must be 2-6 descriptive words separated by hyphens, conveying what the skill does
+   e) Good: "http-retry-with-backoff", "log-file-rotation", "config-validator"
+   f) Bad: "cursor-auto-1234", "new-skill", "test-skill", "my-skill"
+3. SKILL.MD FRONTMATTER: Every SKILL.md MUST start with YAML frontmatter:
    ---
    name: <skill-name>
    description: <what it does and when to use it>
    ---
+   The name MUST follow the naming rules above.
    The description is the triggering mechanism -- include WHAT the skill does and WHEN to use it.
-3. CONCISENESS: SKILL.md body should be under 500 lines. Keep instructions lean.
+   Description must be a clear, complete sentence (min 20 chars). Generic descriptions = FAILED.
+4. CONCISENESS: SKILL.md body should be under 500 lines. Keep instructions lean.
    Only include information the agent does not already know. Move detailed reference
    material to references/ files, not into SKILL.md itself.
-4. EXPORT VERIFICATION: Every exported function must be importable.
+5. EXPORT VERIFICATION: Every exported function must be importable.
    Run: node -e "const s = require('./skills/<name>'); console.log(Object.keys(s))"
    If this fails, the skill is broken. Fix before solidify.
-5. NO HARDCODED SECRETS: Never embed API keys, tokens, or secrets in code.
+6. NO HARDCODED SECRETS: Never embed API keys, tokens, or secrets in code.
    Use process.env or .env references. Hardcoded App ID, App Secret, Bearer tokens = FAILED.
-6. TEST BEFORE SOLIDIFY: Actually run the skill's core function to verify it works:
+7. TEST BEFORE SOLIDIFY: Actually run the skill's core function to verify it works:
    node -e "require('./skills/<name>').main ? require('./skills/<name>').main() : console.log('ok')"
    Scripts in scripts/ must also be tested by executing them.
-7. ATOMIC CREATION: Create ALL files for a skill in a single cycle.
+8. ATOMIC CREATION: Create ALL files for a skill in a single cycle.
    Do not create a directory in one cycle and fill it in the next.
    Empty directories from failed cycles will be automatically cleaned up on rollback.
 

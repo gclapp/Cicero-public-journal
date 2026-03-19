@@ -43,6 +43,7 @@ case "${1:-backup}" in
 7. Reddit weekly report - Sundays 9 AM PT
 8. Weekly email report - Saturdays 9 AM PT
 9. NYC reminder - March 12 at 2 PM PT
+10. Stock price fetch with 30-day history - 6 PM PT daily
 EXPECTED
         ;;
     *)
