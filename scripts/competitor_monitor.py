@@ -32,7 +32,9 @@ def load_feeds():
     """Load competitor feeds configuration"""
     default_feeds = {
         "Maven - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632355",
-        # Add more feeds here as needed
+        "Progyny - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632356",
+        "Carrot - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632357",
+        "KindBody - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632358",
     }
     
     if os.path.exists(FEEDS_FILE):

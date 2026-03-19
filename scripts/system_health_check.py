@@ -133,19 +133,19 @@ def check_competitive_intel():
     return {'status': 'unknown'}
 
 def get_weather():
-    """Get current weather for LA"""
+    """Get current weather for LA using wttr.in"""
     try:
-        # Use the weather skill
+        # Use wttr.in directly (no API key needed)
         result = subprocess.run(
-            ['openclaw', 'weather', 'Los Angeles'],
+            ['curl', '-s', 'wttr.in/Los+Angeles?format=%l:+%c+%t+%h+%w'],
             capture_output=True,
             text=True,
-            timeout=30
+            timeout=15
         )
-        if result.returncode == 0:
+        if result.returncode == 0 and result.stdout.strip():
             return result.stdout.strip()
         return None
-    except:
+    except Exception as e:
         return None
 
 def run_health_check():

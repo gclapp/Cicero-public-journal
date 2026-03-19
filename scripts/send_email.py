@@ -84,7 +84,8 @@ def main():
     parser.add_argument('--subject', help='Email subject')
     parser.add_argument('--body', help='Email body')
     parser.add_argument('--body-file', help='Read body from file')
-    parser.add_argument('--html', action='store_true', help='Send as HTML')
+    parser.add_argument('--html', action='store_true', default=True, help='Send as HTML (default)')
+    parser.add_argument('--plain', action='store_true', help='Send as plain text')
     parser.add_argument('--cc', help='CC recipients (comma-separated)')
     
     args = parser.parse_args()
@@ -107,7 +108,9 @@ def main():
         print("❌ Error: Must provide --body or --body-file")
         sys.exit(1)
     
-    send_email(args.to, args.subject, body, html=args.html, cc=args.cc)
+    # Default to HTML unless --plain is specified
+    is_html = not args.plain
+    send_email(args.to, args.subject, body, html=is_html, cc=args.cc)
 
 if __name__ == "__main__":
     main()
