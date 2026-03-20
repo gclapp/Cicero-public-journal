@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-03-19T23:14:40.326205",
+  "last_updated": "2026-03-20T07:30:08.959934",
   "total_events": 100,
   "travel_events": 10,
   "events": [
@@ -9,30 +9,6 @@
       "start_raw": "2026-03-15",
       "location": "Courtyard by Marriott Santa Barbara Downtown, 1601 State St, Santa Barbara, CA 93101, USA",
       "description": "<a href=\"https://www.marriott.com/hotels/travel/sbacs-courtyard-santa-barbara-downtown\"><b><h3><b>Courtyard by Marriott Santa Barbara Downtown</b></h3></b></a><br>Confirmation\u00a0#77265901<br><br>Stay Da",
-      "is_travel": false
-    },
-    {
-      "summary": "Jovie Sitter/Nanny - Geoffrey Clapp and Ross Cope",
-      "start": "Thursday, March 19 at 04:30 PM",
-      "start_raw": "2026-03-19T16:30:00-07:00",
-      "location": "+1 650-776-7054",
-      "description": "Event Name: Nanny-Sitter 1-1 Consult\n\nThis 1-1 consult will be to discuss your nanny/sitter needs\n\nLocation: +1 650-776-7054\n\nPlease share where you live (City and Zip): Calabasas 91302\n\nShare a bit a",
-      "is_travel": false
-    },
-    {
-      "summary": "Concert: Divorce",
-      "start": "Thursday, March 19 at 06:30 PM",
-      "start_raw": "2026-03-19T18:30:00-07:00",
-      "location": "Gold Diggers Bar, 5632 Santa Monica Blvd, Los Angeles, CA 90038, USA",
-      "description": "<br><table><tbody><tr><td><br><table><tbody><tr><td><h5><b>Venue details</b></h5></td></tr><tr><td>\u200a</td></tr><tr><td><table><tbody><tr><td>Venue</td><td><table><tbody><tr><td><a href=\"https://www.goo",
-      "is_travel": false
-    },
-    {
-      "summary": "Divorce",
-      "start": "Thursday, March 19 at 07:00 PM",
-      "start_raw": "2026-03-19T19:00:00-07:00",
-      "location": "5632 Santa Monica Blvd, Los Angeles, CA 90038",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -800,6 +776,30 @@
       "start": "Monday, June 08 at 07:00 AM",
       "start_raw": "2026-06-08T07:00:00-07:00",
       "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, June 11 at 01:30 PM",
+      "start_raw": "2026-06-11T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, June 11 at 02:00 PM",
+      "start_raw": "2026-06-11T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, June 12 at 01:30 PM",
+      "start_raw": "2026-06-12T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
     }
