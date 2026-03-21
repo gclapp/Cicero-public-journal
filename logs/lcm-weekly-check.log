@@ -1,0 +1,57 @@
+[2026-03-21 09:00:01] ============================================================
+[2026-03-21 09:00:01] WEEKLY LCM HEALTH CHECK
+[2026-03-21 09:00:01] ============================================================
+[2026-03-21 09:00:01] 
+📊 Checking LCM database...
+[2026-03-21 09:00:01]   ✅ Database exists: 1.25 MB
+[2026-03-21 09:00:01]   ⚠️ Database query error: [Errno 2] No such file or directory: 'sqlite3'
+[2026-03-21 09:00:01] 
+🔧 Checking environment variables...
+[2026-03-21 09:00:01]   ⚠️ Some environment variables not set
+[2026-03-21 09:00:01]      ❌ LCM_FRESH_TAIL_COUNT=not_set
+[2026-03-21 09:00:01]      ❌ LCM_INCREMENTAL_MAX_DEPTH=not_set
+[2026-03-21 09:00:01]      ❌ LCM_CONTEXT_THRESHOLD=not_set
+[2026-03-21 09:00:01] 
+🔌 Checking LCM plugin status...
+[2026-03-21 09:00:01]   ⚠️ Could not check plugin status: [Errno 2] No such file or directory: 'openclaw'
+[2026-03-21 09:00:01] 
+📁 Checking log files...
+[2026-03-21 09:00:01]   ⚠️ LCM log not found
+[2026-03-21 09:00:01] 
+============================================================
+[2026-03-21 09:00:01] ⚠️ Some checks returned warnings
+[2026-03-21 09:00:01] ============================================================
+[2026-03-21 09:00:01] 
+📄 Report saved to: /home/ubuntu/.openclaw/workspace/config/lcm-weekly-report.json
+[2026-03-21 09:00:01] 
+📧 Sending summary email...
+[2026-03-21 09:00:02]   ✅ Summary email sent to [REDACTED]
+[2026-03-21 09:00:01] ============================================================
+[2026-03-21 09:00:01] WEEKLY LCM HEALTH CHECK
+[2026-03-21 09:00:01] ============================================================
+[2026-03-21 09:00:01] 
+📊 Checking LCM database...
+[2026-03-21 09:00:01]   ✅ Database exists: 1.25 MB
+[2026-03-21 09:00:01]   ⚠️ Database query error: [Errno 2] No such file or directory: 'sqlite3'
+[2026-03-21 09:00:01] 
+🔧 Checking environment variables...
+[2026-03-21 09:00:01]   ⚠️ Some environment variables not set
+[2026-03-21 09:00:01]      ❌ LCM_FRESH_TAIL_COUNT=not_set
+[2026-03-21 09:00:01]      ❌ LCM_INCREMENTAL_MAX_DEPTH=not_set
+[2026-03-21 09:00:01]      ❌ LCM_CONTEXT_THRESHOLD=not_set
+[2026-03-21 09:00:01] 
+🔌 Checking LCM plugin status...
+[2026-03-21 09:00:01]   ⚠️ Could not check plugin status: [Errno 2] No such file or directory: 'openclaw'
+[2026-03-21 09:00:01] 
+📁 Checking log files...
+[2026-03-21 09:00:01]   ⚠️ LCM log not found
+[2026-03-21 09:00:01] 
+============================================================
+[2026-03-21 09:00:01] ⚠️ Some checks returned warnings
+[2026-03-21 09:00:01] ============================================================
+[2026-03-21 09:00:01] 
+📄 Report saved to: /home/ubuntu/.openclaw/workspace/config/lcm-weekly-report.json
+[2026-03-21 09:00:01] 
+📧 Sending summary email...
+[2026-03-21 09:00:02]   ✅ Summary email sent to [REDACTED]
+LCM weekly check failed at Sat Mar 21 09:00:02 UTC 2026

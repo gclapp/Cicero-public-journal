@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-03-21T09:00:01.204643",
+  "checks": {
+    "database": {
+      "status": "ok",
+      "size_mb": 1.25,
+      "query_error": "[Errno 2] No such file or directory: 'sqlite3'"
+    },
+    "environment": {
+      "LCM_FRESH_TAIL_COUNT": "not_set",
+      "LCM_INCREMENTAL_MAX_DEPTH": "not_set",
+      "LCM_CONTEXT_THRESHOLD": "not_set"
+    },
+    "plugin": {
+      "status": "error",
+      "error": "[Errno 2] No such file or directory: 'openclaw'"
+    },
+    "logs": {
+      "status": "not_found"
+    }
+  },
+  "status": "warning"
+}
