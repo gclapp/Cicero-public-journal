@@ -1,105 +1,115 @@
 #!/usr/bin/env python3
-"""
-Calendar Authorization - Complete flow with PKCE
-"""
-
+"""Calendar auth with PKCE - generates URL and accepts code"""
+import sys
+import json
 import pickle
-import base64
-import hashlib
 import secrets
+import hashlib
+import base64
 from pathlib import Path
 from google_auth_oauthlib.flow import Flow
+from google.auth.transport.requests import Request
+from googleapiclient.discovery import build
 
 CREDENTIALS_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-credentials.json"
 TOKEN_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-token.pickle"
-VERIFIER_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-verifier.txt"
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
 def generate_pkce():
-    """Generate PKCE verifier and challenge"""
-    verifier = base64.urlsafe_b64encode(secrets.token_bytes(32)).rstrip(b'=').decode('ascii')
-    challenge = base64.urlsafe_b64encode(
-        hashlib.sha256(verifier.encode()).digest()
-    ).rstrip(b'=').decode('ascii')
-    return verifier, challenge
-
-def step1_generate_url():
-    """Generate authorization URL"""
-    verifier, challenge = generate_pkce()
+    """Generate PKCE code verifier and challenge"""
+    code_verifier = base64.urlsafe_b64encode(
+        secrets.token_bytes(32)
+    ).decode('utf-8').rstrip('=')
     
-    # Save verifier for step 2
-    with open(VERIFIER_FILE, 'w') as f:
-        f.write(verifier)
+    code_challenge = base64.urlsafe_b64encode(
+        hashlib.sha256(code_verifier.encode()).digest()
+    ).decode('utf-8').rstrip('=')
+    
+    return code_verifier, code_challenge
+
+def save_pkce(code_verifier):
+    """Save code verifier to file"""
+    pkce_file = Path.home() / ".openclaw" / "credentials" / "calendar-pkce.json"
+    with open(pkce_file, 'w') as f:
+        json.dump({'code_verifier': code_verifier}, f)
+
+def load_pkce():
+    """Load code verifier from file"""
+    pkce_file = Path.home() / ".openclaw" / "credentials" / "calendar-pkce.json"
+    if pkce_file.exists():
+        with open(pkce_file, 'r') as f:
+            data = json.load(f)
+            return data.get('code_verifier')
+    return None
+
+def generate_auth_url():
+    """Generate authorization URL with PKCE"""
+    code_verifier, code_challenge = generate_pkce()
+    save_pkce(code_verifier)
     
     flow = Flow.from_client_secrets_file(
         str(CREDENTIALS_FILE),
         scopes=SCOPES,
-        redirect_uri='urn:ietf:wg:oauth:2.0:oob')
+        redirect_uri='urn:ietf:wg:oauth:2.0:oob'
+    )
     
     auth_url, _ = flow.authorization_url(
         prompt='consent',
         access_type='offline',
-        code_challenge=challenge,
+        code_challenge=code_challenge,
         code_challenge_method='S256'
     )
     
-    print("="*70)
-    print("🔗 Open this URL in your browser:")
-    print("="*70)
-    print(auth_url)
-    print("="*70)
-    print("\nAfter granting access, run:")
-    print(f"python3 {Path(__file__)} STEP2 'YOUR_CODE_HERE'")
+    return auth_url
 
-def step2_exchange_code(code):
+def exchange_code(auth_code):
     """Exchange authorization code for token"""
-    # Load verifier
-    if not VERIFIER_FILE.exists():
-        print("❌ Verifier not found. Run STEP1 first.")
-        return
+    code_verifier = load_pkce()
     
-    with open(VERIFIER_FILE, 'r') as f:
-        verifier = f.read().strip()
+    if not code_verifier:
+        print("❌ Error: No code verifier found. Run with --url first.")
+        return False
     
     flow = Flow.from_client_secrets_file(
         str(CREDENTIALS_FILE),
         scopes=SCOPES,
-        redirect_uri='urn:ietf:wg:oauth:2.0:oob')
+        redirect_uri='urn:ietf:wg:oauth:2.0:oob'
+    )
     
-    print("Fetching token...")
-    flow.fetch_token(code=code, code_verifier=verifier)
-    
-    # Save credentials
-    with open(TOKEN_FILE, 'wb') as f:
-        pickle.dump(flow.credentials, f)
-    
-    # Clean up verifier
-    VERIFIER_FILE.unlink()
-    
-    print("✅ Calendar access granted and saved!")
-    print(f"Token saved to: {TOKEN_FILE}")
-    print("\nTesting calendar access...")
-    
-    # Quick test
-    from googleapiclient.discovery import build
-    service = build('calendar', 'v3', credentials=flow.credentials)
-    events_result = service.events().list(
-        calendarId='primary',
-        maxResults=5,
-        singleEvents=True,
-        orderBy='startTime'
-    ).execute()
-    events = events_result.get('items', [])
-    print(f"✅ Successfully connected! Found {len(events)} upcoming events.")
+    try:
+        flow.fetch_token(code=auth_code, code_verifier=code_verifier)
+        
+        # Save credentials
+        with open(TOKEN_FILE, 'wb') as f:
+            pickle.dump(flow.credentials, f)
+        
+        print("✅ Token saved successfully!")
+        print(f"Location: {TOKEN_FILE}")
+        
+        # Verify by making a test call
+        service = build('calendar', 'v3', credentials=flow.credentials)
+        calendars = service.calendarList().list().execute()
+        print(f"✅ Verified! Access to {len(calendars.get('items', []))} calendars")
+        
+        return True
+        
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        return False
 
 if __name__ == "__main__":
-    import sys
-    
-    if len(sys.argv) == 1:
-        step1_generate_url()
-    elif len(sys.argv) >= 3 and sys.argv[1] == 'STEP2':
-        step2_exchange_code(sys.argv[2])
-    else:
+    if len(sys.argv) < 2:
         print("Usage:")
-        print(f"  python3 {Path(__file__)}              # Generate auth URL")
-        print(f"  python3 {Path(__file__)} STEP2 'CODE' # Exchange code for token")
+        print("  python3 calendar_auth.py --url       # Generate auth URL")
+        print("  python3 calendar_auth.py <CODE>      # Exchange code for token")
+        sys.exit(1)
+    
+    if sys.argv[1] == '--url':
+        url = generate_auth_url()
+        print("\n" + "="*70)
+        print("🔗 Open this URL in your browser:")
+        print("="*70)
+        print(url)
+        print("\nThen run: python3 calendar_auth.py <CODE>")
+    else:
+        exchange_code(sys.argv[1])

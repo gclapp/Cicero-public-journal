@@ -1,0 +1,56 @@
+{
+  "rss_feeds": {
+    "Maven - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632355",
+    "Carrot - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632356",
+    "KindBody - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632357",
+    "WIN Fertility - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632358",
+    "Pomelo Health - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632359",
+    "Progyny - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/5785400901697479238",
+    "Fertility Benefits News": "https://news.google.com/rss/search?q=fertility+benefits+industry",
+    "Healthcare Startup News": "https://news.google.com/rss/search?q=healthcare+startup+funding",
+    "FemTech News": "https://news.google.com/rss/search?q=femtech+women+health"
+  },
+  "linkedin_companies": {
+    "Maven": {
+      "company_id": "maven-clinic",
+      "priority": "high",
+      "exec_team": ["Kate Ryder", "Samantha Wertheimer", "Nisha Gopal", "Shaina Harris"]
+    },
+    "Carrot": {
+      "company_id": "carrot-fertility",
+      "priority": "high",
+      "exec_team": ["Tammy Sun", "Juli Insinger", "Rachel Simmons"]
+    },
+    "KindBody": {
+      "company_id": "kindbody",
+      "priority": "high",
+      "exec_team": ["Gina Bartasi", "Stephanie Gorman", "Anate Brauer"]
+    },
+    "WIN Fertility": {
+      "company_id": "win-fertility",
+      "priority": "medium",
+      "exec_team": ["Roger Shedlin", "Kimberly Maloni"]
+    },
+    "Progyny": {
+      "company_id": "progyny",
+      "priority": "bellwether",
+      "exec_team": ["Pete Anevski", "Geoffrey Clapp", "Janet Choi", "Steven Leist"]
+    }
+  },
+  "job_boards": {
+    "maven": "https://boards.greenhouse.io/mavenclinic",
+    "carrot": "https://boards.greenhouse.io/carrotfertility",
+    "kindbody": "https://jobs.lever.co/kindbody",
+    "winfertility": "https://www.winfertility.com/careers",
+    "progyny": "https://boards.greenhouse.io/progyny"
+  },
+  "web_search_queries": [
+    "Maven Clinic funding OR acquisition OR partnership 2026",
+    "Carrot Fertility funding OR acquisition OR partnership 2026",
+    "KindBody funding OR acquisition OR partnership 2026",
+    "WIN Fertility funding OR acquisition OR partnership 2026",
+    "fertility benefits industry news 2026",
+    "femtech funding 2026",
+    "women's health startup funding 2026"
+  ]
+}

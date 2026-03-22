@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-03-20T14:55:03.507359",
+  "last_updated": "2026-03-22T15:35:19.341481",
   "total_events": 100,
-  "travel_events": 10,
+  "travel_events": 14,
   "events": [
     {
       "summary": "Mac Spring Break: Courtyard",
@@ -9,54 +9,6 @@
       "start_raw": "2026-03-15",
       "location": "Courtyard by Marriott Santa Barbara Downtown, 1601 State St, Santa Barbara, CA 93101, USA",
       "description": "<a href=\"https://www.marriott.com/hotels/travel/sbacs-courtyard-santa-barbara-downtown\"><b><h3><b>Courtyard by Marriott Santa Barbara Downtown</b></h3></b></a><br>Confirmation\u00a0#77265901<br><br>Stay Da",
-      "is_travel": false
-    },
-    {
-      "summary": "Gort\u2019s 30th Birthday Weekend",
-      "start": "Friday, March 20",
-      "start_raw": "2026-03-20",
-      "location": "Trixie Motel, 210 W Stevens Rd, Palm Springs, CA 92262, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Stay at Moxy Santa Barbara",
-      "start": "Friday, March 20",
-      "start_raw": "2026-03-20",
-      "location": "12 East Montecito Street, Santa Barbara, CA 93101, USA",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, March 20 at 01:30 PM",
-      "start_raw": "2026-03-20T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, March 20 at 02:00 PM",
-      "start_raw": "2026-03-20T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at The Lark - Santa Barbara",
-      "start": "Friday, March 20 at 05:00 PM",
-      "start_raw": "2026-03-20T17:00:00-07:00",
-      "location": "The Lark - Santa Barbara, 131 Anacapa St. Suite A, Santa Barbara, CA 93101",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at The Revere Room",
-      "start": "Saturday, March 21 at 08:45 AM",
-      "start_raw": "2026-03-21T08:45:00-07:00",
-      "location": "The Revere Room, 1759 South Jameson Lane, Montecito, CA 93108",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -84,6 +36,14 @@
       "is_travel": true
     },
     {
+      "summary": "Geoffrey Clapp - Fairfield Inn & Suites by Marriott Nashville near Vanderbilt, 72895304",
+      "start": "Monday, March 23",
+      "start_raw": "2026-03-23",
+      "location": "109 29TH AVE N, Nashville, TN, 37203, USA",
+      "description": "External Sender.\n\n Hotel (Booked) Fairfield Inn & Suites by Marriott Nashville near Vanderbilt 109 29TH AVE N Nashville, TN 37203 Phone Number: 1 629 216-2331 Fax: 1 629 216-2341 Check-in: March 23, 2",
+      "is_travel": false
+    },
+    {
       "summary": "Stay at Fairfield by Marriott Inn & Suites Nashville Near Vanderbilt",
       "start": "Monday, March 23",
       "start_raw": "2026-03-23",
@@ -100,12 +60,36 @@
       "is_travel": false
     },
     {
-      "summary": "Dog Day Afternoon Play",
-      "start": "Monday, March 23 at 04:20 PM",
-      "start_raw": "2026-03-23T16:20:00-07:00",
-      "location": "August Wilson Theatre (245 W 52nd St, New York, NY 10019, United States)",
-      "description": "Dog Day Afternoon\nAugust Wilson Theatre\nMon, Mar 23, 2026 \u2022 7:30 PM ET\nMezzanine Center A106\nMid Premium\n$290.08\n$259.00 ticket price + $31.08 service fee\nMezzanine Center A107\nMid Premium\n$290.08\n$25",
-      "is_travel": false
+      "summary": "Delta Air Lines flight 5609 to Nashville (HSKBR4)",
+      "start": "Monday, March 23 at 04:50 PM",
+      "start_raw": "2026-03-23T16:50:00-07:00",
+      "location": "La Guardia Airport (East Elmhurst, New York, NY 11371, United States)",
+      "description": "Delta Air Lines flight 5609 (2 hours, 41 minutes)\nConfirmation code: HSKBR4\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:50 PM on Monday, M",
+      "is_travel": true
+    },
+    {
+      "summary": "Geoffrey Clapp - Moxy NYC Times Square",
+      "start": "Wednesday, March 25",
+      "start_raw": "2026-03-25",
+      "location": "485 7th Avenue, New York, NY, 10018, USA",
+      "description": "External Sender.\n\n Hotel (Booked) Moxy NYC Times Square 485 7th Avenue New York, NY 10018 Phone Number: 1 212 967-6699 Fax: 1 212 784-9081 Check-in: March 25, 2026 Check-out: March 26, 2026 # of night",
+      "is_travel": true
+    },
+    {
+      "summary": "Delta Air Lines flight 5642 to New York (HR7K4L)",
+      "start": "Wednesday, March 25 at 04:05 AM",
+      "start_raw": "2026-03-25T04:05:00-07:00",
+      "location": "Nashville Metropolitan Airport (1 Terminal Dr, Nashville, TN 37214, United States)",
+      "description": "Delta Air Lines flight 5642 (2 hours, 26 minutes)\nConfirmation code: HR7K4L\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 6:05 AM on Wednesday",
+      "is_travel": true
+    },
+    {
+      "summary": "Delta Air Lines flight 742 to Los Angeles (HCTGNK)",
+      "start": "Thursday, March 26 at 04:00 AM",
+      "start_raw": "2026-03-26T04:00:00-07:00",
+      "location": "John F. Kennedy International Airport (New York, NY 11430, United States)",
+      "description": "Delta Air Lines flight 742 (6 hours, 18 minutes)\nConfirmation code: HCTGNK\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:00 AM on Thursday, March 26, 2026 from New York",
+      "is_travel": true
     },
     {
       "summary": "Pick up Sophie from School",
@@ -801,6 +785,22 @@
       "start_raw": "2026-06-12T13:30:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, June 12 at 02:00 PM",
+      "start_raw": "2026-06-12T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "John Turner Birthday",
+      "start": "Sunday, June 14 at 12:00 AM",
+      "start_raw": "2026-06-14T00:00:00-07:00",
+      "location": "",
+      "description": "When: Occurs every June 14 effective 6/14/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
       "is_travel": false
     }
   ]

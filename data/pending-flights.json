@@ -148,6 +148,83 @@
       },
       "arrival": {},
       "extracted_at": "2026-03-14T16:15:02.740828"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HSKBR4",
+      "flight_number": null,
+      "departure": {
+        "date": "Monday, March 23, 2026",
+        "time": "7:50 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:15:04.512492"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HSKBR4",
+      "flight_number": null,
+      "departure": {
+        "date": "Monday, March 23, 2026",
+        "time": "7:50 PM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:15:05.578438"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HR7K4L",
+      "flight_number": null,
+      "departure": {
+        "date": "Wednesday, March 25, 2026",
+        "time": "6:05 AM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:15:06.637673"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HR7K4L",
+      "flight_number": null,
+      "departure": {
+        "date": "Wednesday, March 25, 2026",
+        "time": "6:05 AM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:15:07.731254"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HR7K4L",
+      "flight_number": null,
+      "departure": {
+        "date": "Wednesday, March 25, 2026",
+        "time": "6:05 AM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:30:04.313964"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HCTGNK",
+      "flight_number": null,
+      "departure": {
+        "date": "Thursday, March 26, 2026",
+        "time": "7:00 AM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:30:05.274636"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "HCTGNK",
+      "flight_number": null,
+      "departure": {
+        "date": "Thursday, March 26, 2026",
+        "time": "7:00 AM"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-22T15:30:06.217591"
     }
   ]
 }

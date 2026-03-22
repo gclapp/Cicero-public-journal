@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """
-heartbeat_sender.py - Sends scheduled check-ins via Telegram
+heartbeat_sender.py - Sends scheduled check-ins (HTML format)
 Called by heartbeat-check.sh when a check-in is due
+Uses the format locked on March 22, 2026
 """
 
 import os
 import sys
 import json
 import re
-from datetime import datetime
+import subprocess
+from datetime import datetime, timedelta
 from pathlib import Path
 
 # Add workspace to path for imports
@@ -39,247 +41,408 @@ def get_checkin_type(hour, minute):
     else:
         return None
 
-def markdown_to_html(text):
-    """Convert markdown-style formatting to proper HTML"""
-    # Convert **bold** to <strong>bold</strong>
-    # Use a regex to properly handle paired asterisks
-    result = text
-    
-    # Handle bold text - replace **text** with <strong>text</strong>
-    # Use a loop to handle multiple occurrences
-    while '**' in result:
-        result = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', result, count=1)
-    
-    # Convert newlines to <br> tags
-    result = result.replace('\n', '<br>')
-    
-    return result
-
-def send_telegram_message(message):
-    """Send message via Telegram bot using OpenClaw's message tool"""
-    # This will be called via the OpenClaw gateway
-    # For now, we'll use a marker file that the main session can detect
-    
-    checkin_file = Path("/home/ubuntu/.openclaw/workspace/logs/pending-checkin.json")
-    checkin_file.parent.mkdir(parents=True, exist_ok=True)
-    
-    with open(checkin_file, 'w') as f:
-        json.dump({
-            "timestamp": datetime.utcnow().isoformat(),
-            "message": message,
-            "sent": False
-        }, f, indent=2)
-    
-    return True
-
-def generate_morning_update():
-    """Generate comprehensive morning check-in with all data sources"""
-    pt_now = get_pt_time()
-    
-    # Import the comprehensive data fetchers
+def get_weather(location="Los Angeles"):
+    """Get weather with emoji in Fahrenheit"""
     try:
-        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from fetch_todoist_tasks import get_todoist_summary
-        from fetch_stock_data import get_stock_summary
-        from fetch_weather import get_weather_summary
-        todoist_summary = get_todoist_summary()
-        stock_summary = get_stock_summary()
-        weather_summary = get_weather_summary()
-    except Exception as e:
-        print(f"Error fetching data: {e}")
-        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
-        stock_summary = "📈 **Markets:** Stock data unavailable\n"
-        weather_summary = "🌤️ **Weather:** Data unavailable\n"
-    
-    # Read calendar events
-    calendar_file = Path("/home/ubuntu/.openclaw/workspace/config/calendar-events.json")
-    calendar_info = ""
-    location = "Los Angeles"  # Default
-    
-    if calendar_file.exists():
-        try:
-            with open(calendar_file) as f:
-                events = json.load(f)
-            if events and events.get('events'):
-                calendar_info = "\n📅 **Today's Calendar:**\n"
-                for event in events['events'][:5]:  # Top 5 events
-                    summary = event.get('summary', 'Event')
-                    # Skip events that are for Mackenzie only (not Geoff)
-                    if 'Mac ' in summary and 'Courtyard' in summary:
-                        continue  # This is Mackenzie's reservation, not Geoff's
-                    if 'Mackenzie' in summary and 'Courtyard' in summary:
-                        continue  # This is Mackenzie's reservation, not Geoff's
-                    calendar_info += f"• {summary}\n"
-                    # Try to detect location from events (but not Mackenzie's hotels)
-                    if event.get('location') and 'Courtyard' not in event.get('location', ''):
-                        location = event.get('location')
-        except Exception as e:
-            print(f"Error reading calendar: {e}")
-    
-    if not calendar_info:
-        calendar_info = "\n📅 **Today's Calendar:** No events scheduled.\n"
-    
-    # Get Whoop health data
-    whoop_info = ""
+        result = subprocess.run(
+            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?u&format=%c+%f', '--max-time', '10'],
+            capture_output=True, text=True, timeout=15
+        )
+        if result.returncode == 0 and result.stdout:
+            # wttr.in returns "emoji +XX°F", clean it up
+            weather = result.stdout.strip()
+            # Remove the + sign if present
+            weather = weather.replace('+', '')
+            return weather
+        return f"🌤️ --°F"
+    except:
+        return f"🌤️ --°F"
+
+def get_todoist_count():
+    """Get Todoist task count"""
+    try:
+        result = subprocess.run(['todoist', 'today'], capture_output=True, text=True, timeout=30)
+        if result.returncode == 0:
+            lines = [l for l in result.stdout.strip().split('\n') if l.strip()]
+            return len(lines)
+        return "--"
+    except:
+        return "--"
+
+def get_whoop_recovery():
+    """Get latest Whoop recovery"""
     whoop_file = Path("/home/ubuntu/.openclaw/workspace/data/whoop/latest-summary.txt")
     if whoop_file.exists():
         try:
-            with open(whoop_file) as f:
-                whoop_data = f.read()
-            if whoop_data and "No Whoop data" not in whoop_data:
-                whoop_info = f"\n💪 **Health (Whoop):**\n{whoop_data[:400]}...\n"
-            else:
-                whoop_info = "\n💪 **Health:** Whoop data not available yet.\n"
+            with open(whoop_file, 'r') as f:
+                content = f.read()
+                import re
+                match = re.search(r'(\d+)%', content)
+                if match:
+                    return int(match.group(1))
+        except:
+            pass
+    return None
+
+def get_latest_weight():
+    """Get latest weight from tracker - parse from table"""
+    weight_file = Path("/home/ubuntu/.openclaw/workspace/memory/weight-loss-2026.md")
+    if weight_file.exists():
+        try:
+            with open(weight_file, 'r') as f:
+                content = f.read()
+            import re
+            # Look for weight table entries: | Mar 22 | 237.0 | ...
+            # Pattern: | Date | Weight | ...
+            table_rows = re.findall(r'\|\s*(\w{3,4}\s+\d{1,2})\s*\|\s*(\d{3}(?:\.\d)?)\s*\|', content)
+            if table_rows:
+                # Get the last (most recent) entry
+                latest = table_rows[-1]
+                return float(latest[1])
         except Exception as e:
-            whoop_info = "\n💪 **Health:** Whoop data unavailable.\n"
+            print(f"Error parsing weight: {e}")
+            pass
+    return None
+
+def get_system_status():
+    """Get system health status"""
+    status = {
+        'calendar': 'Unknown',
+        'whoop': 'Unknown',
+        'email': 'Unknown',
+        'cron_jobs': []
+    }
+    
+    # Check token health
+    token_file = Path("/home/ubuntu/.openclaw/workspace/logs/token-health.json")
+    if token_file.exists():
+        try:
+            with open(token_file, 'r') as f:
+                data = json.load(f)
+                for token in data.get('tokens', []):
+                    name = token.get('name', '')
+                    healthy = token.get('healthy', False)
+                    if 'Calendar' in name:
+                        status['calendar'] = '✅ Healthy' if healthy else '❌ Issue'
+                    elif 'Whoop' in name and 'Refresh' not in name:
+                        status['whoop'] = '✅ Healthy' if healthy else '❌ Issue'
+                    elif 'Gmail' in name:
+                        status['email'] = '✅ Healthy' if healthy else '❌ Issue'
+        except:
+            pass
+    
+    # Check cron jobs
+    try:
+        result = subprocess.run(['crontab', '-l'], capture_output=True, text=True, timeout=10)
+        if result.returncode == 0:
+            cron_lines = result.stdout.strip().split('\n')
+            active_jobs = []
+            for line in cron_lines:
+                if line.strip() and not line.startswith('#'):
+                    if 'heartbeat' in line:
+                        active_jobs.append('Heartbeat')
+                    elif 'competitor' in line:
+                        active_jobs.append('Competitive Intel')
+                    elif 'whoop' in line:
+                        active_jobs.append('Whoop Fetch')
+                    elif 'calendar' in line:
+                        active_jobs.append('Calendar Sync')
+            status['cron_jobs'] = active_jobs if active_jobs else ['None found']
+    except:
+        status['cron_jobs'] = ['Error checking']
+    
+    return status
+
+def get_calendar_data():
+    """Get calendar events"""
+    calendar_file = Path("/home/ubuntu/.openclaw/workspace/config/calendar-events.json")
+    if not calendar_file.exists():
+        return [], []
+    
+    try:
+        with open(calendar_file, 'r') as f:
+            data = json.load(f)
+        
+        today = datetime.now().strftime('%A, %B %d')
+        today_events = []
+        travel_events = []
+        
+        for event in data.get('events', []):
+            event_date = event.get('start', '')
+            if today in event_date:
+                today_events.append(event)
+            if event.get('is_travel'):
+                travel_events.append(event)
+        
+        return today_events, travel_events
+    except:
+        return [], []
+
+def detect_location_and_travel(calendar_events):
+    """Detect current location and upcoming travel"""
+    pt_now = get_pt_time()
+    today_str = pt_now.strftime('%A, %B %d')
+    
+    location = "Los Angeles"
+    state = "CA"
+    status = "Home"
+    upcoming_flight = None
+    
+    for event in calendar_events:
+        if not event.get('is_travel'):
+            continue
+            
+        summary = event.get('summary', '').lower()
+        event_date = event.get('start', '')
+        is_today = today_str in event_date
+        
+        if 'flight' in summary:
+            if 'jfk' in summary or 'new york' in summary or 'lga' in summary:
+                if is_today:
+                    upcoming_flight = {
+                        'route': 'LAX → JFK',
+                        'time': event.get('start', 'TBD'),
+                        'type': 'departure'
+                    }
+                    status = "Traveling to NYC"
+                location = "New York City"
+                state = "NY"
+            elif 'lax' in summary or 'los angeles' in summary:
+                if is_today:
+                    upcoming_flight = {
+                        'route': '→ LAX',
+                        'time': event.get('start', 'TBD'),
+                        'type': 'arrival'
+                    }
+                    status = "Returning to LA"
+    
+    return {
+        'city': location,
+        'state': state,
+        'status': status,
+        'upcoming_flight': upcoming_flight
+    }
+
+def get_week_travel_destinations(all_events, pt_now):
+    """Get list of cities being traveled to in the next 7 days"""
+    destinations = []
+    
+    for i in range(7):
+        day = pt_now + timedelta(days=i)
+        day_str = day.strftime('%A, %B %d')
+        
+        for event in all_events:
+            if not event.get('is_travel'):
+                continue
+            
+            event_date = event.get('start', '')
+            if day_str not in event_date:
+                continue
+            
+            summary = event.get('summary', '').lower()
+            location = event.get('location', '').lower()
+            
+            # Detect destination city
+            if 'jfk' in summary or 'new york' in summary or 'lga' in summary or 'nyc' in location:
+                if 'New York' not in [d['name'] for d in destinations]:
+                    destinations.append({'name': 'New York', 'code': 'New+York'})
+            elif 'lax' in summary or 'los angeles' in summary:
+                if 'Los Angeles' not in [d['name'] for d in destinations]:
+                    destinations.append({'name': 'Los Angeles', 'code': 'Los+Angeles'})
+            elif 'atl' in summary or 'atlanta' in summary:
+                if 'Atlanta' not in [d['name'] for d in destinations]:
+                    destinations.append({'name': 'Atlanta', 'code': 'Atlanta'})
+            elif 'sfo' in summary or 'san francisco' in summary:
+                if 'San Francisco' not in [d['name'] for d in destinations]:
+                    destinations.append({'name': 'San Francisco', 'code': 'San+Francisco'})
+            elif 'phx' in summary or 'phoenix' in summary or 'scottsdale' in summary:
+                if 'Scottsdale' not in [d['name'] for d in destinations]:
+                    destinations.append({'name': 'Scottsdale', 'code': 'Scottsdale'})
+            elif 'pdx' in summary or 'portland' in summary:
+                if 'Portland' not in [d['name'] for d in destinations]:
+                    destinations.append({'name': 'Portland', 'code': 'Portland'})
+    
+    # Always include LA and NYC as defaults if no travel detected
+    if not destinations:
+        destinations = [
+            {'name': 'Los Angeles', 'code': 'Los+Angeles'},
+            {'name': 'New York', 'code': 'New+York'}
+        ]
+    
+    return destinations
+
+def generate_html_email(checkin_type, pt_now):
+    """Generate HTML check-in using the locked format from March 22, 2026"""
+    
+    today_str = pt_now.strftime('%A, %B %d, %Y')
+    today_events, travel_events = get_calendar_data()
+    location_info = detect_location_and_travel(travel_events)
+    
+    # Get travel destinations for the week and fetch weather for each
+    week_destinations = get_week_travel_destinations(travel_events, pt_now)
+    destination_weather = []
+    for dest in week_destinations[:4]:  # Max 4 cities
+        weather = get_weather(dest['code'])
+        destination_weather.append({'name': dest['name'], 'weather': weather})
+    
+    # Get other data
+    todoist_count = get_todoist_count()
+    whoop_recovery = get_whoop_recovery()
+    latest_weight = get_latest_weight()
+    
+    # Whoop status color
+    whoop_color = "#16a34a"  # green
+    whoop_status = "Good"
+    if whoop_recovery:
+        if whoop_recovery < 50:
+            whoop_color = "#dc2626"  # red
+            whoop_status = "Low"
+        elif whoop_recovery < 70:
+            whoop_color = "#ea580c"  # orange
+            whoop_status = "Moderate"
+    
+    # Header based on check-in type
+    if checkin_type == "morning":
+        header_title = "☀️ Good Morning!"
+    elif checkin_type == "midday":
+        header_title = "☀️ Midday Check-In"
+    elif checkin_type == "afternoon":
+        header_title = "🌤️ Afternoon Check-In"
     else:
-        whoop_info = "\n💪 **Health:** Whoop data not available.\n"
+        header_title = "🌙 Evening Check-In"
     
-    message = f"""🌅 **Morning Check-In** — {pt_now.strftime('%A, %B %d')}
-
-📍 **Location:** {location}
-
-Good morning! Here's your day ahead:
-{calendar_info}
-{todoist_summary}
-{stock_summary}
-{weather_summary}
-{whoop_info}
-What's your focus for today?"""
-    
-    return message
-
-def generate_midday_checkin():
-    """Generate midday check-in with all data"""
-    pt_now = get_pt_time()
-    
-    # Import the comprehensive data fetchers
-    try:
-        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from fetch_todoist_tasks import get_todoist_summary
-        from fetch_stock_data import get_stock_summary
-        todoist_summary = get_todoist_summary()
-        stock_summary = get_stock_summary()
-    except Exception as e:
-        import traceback
-        error_msg = f"Error fetching data: {e}\n{traceback.format_exc()}"
-        print(error_msg)
-        # Log to file for debugging
-        with open('/home/ubuntu/.openclaw/workspace/logs/heartbeat_errors.log', 'a') as f:
-            f.write(f"[{datetime.now().isoformat()}] Midday check-in error:\n{error_msg}\n\n")
-        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
-        stock_summary = "📈 **Markets:** Stock data unavailable\n"
-    
-    message = f"""☀️ **Midday Pulse Check** — {pt_now.strftime('%I:%M %p')}
-
-How's the day going? Any blockers or wins to share?
-
-{todoist_summary}
-{stock_summary}
-What's your focus for the rest of the day?"""
-    
-    return message
-
-def generate_afternoon_checkin():
-    """Generate afternoon check-in with all data"""
-    pt_now = get_pt_time()
-    
-    # Import the comprehensive data fetchers
-    try:
-        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from fetch_todoist_tasks import get_todoist_summary
-        from fetch_stock_data import get_stock_summary
-        todoist_summary = get_todoist_summary()
-        stock_summary = get_stock_summary()
-    except Exception as e:
-        print(f"Error fetching data: {e}")
-        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
-        stock_summary = "📈 **Markets:** Stock data unavailable\n"
-    
-    message = f"""🌤️ **Afternoon Wrap-Up Prep** — {pt_now.strftime('%I:%M %p')}
-
-What's left to close out today? Anything you need to defer to tomorrow?
-
-{todoist_summary}
-{stock_summary}
-Ready to wrap up strong?"""
-    
-    return message
-
-def generate_evening_checkin():
-    """Generate evening check-in with all data"""
-    pt_now = get_pt_time()
-    
-    # Import the comprehensive data fetchers
-    try:
-        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from fetch_todoist_tasks import get_todoist_summary
-        from fetch_stock_data import get_stock_summary
-        from fetch_weather import get_weather_summary
-        todoist_summary = get_todoist_summary()
-        stock_summary = get_stock_summary()
-        weather_summary = get_weather_summary()
-    except Exception as e:
-        print(f"Error fetching data: {e}")
-        todoist_summary = "📋 **Tasks:** Todoist data unavailable\n"
-        stock_summary = "📈 **Markets:** Stock data unavailable\n"
-        weather_summary = "🌤️ **Weather:** Data unavailable\n"
-    
-    message = f"""🌙 **Evening Review** — {pt_now.strftime('%A, %B %d')}
-
-How did today go? Any highlights or lessons learned?
-
-{todoist_summary}
-{stock_summary}
-{weather_summary}
-Tomorrow's looking good. Rest well! 🦞"""
-    
-    return message
-
-def generate_html_email(checkin_type, telegram_message, pt_now):
-    """Generate HTML version of check-in for email with proper formatting"""
-    
-    # Convert markdown to HTML properly
-    html_body = markdown_to_html(telegram_message)
-    
-    # Add signature
-    html_body += "<br><br>—<br><em>Cicero 🏛️</em>"
-    
-    html_template = f"""<!DOCTYPE html>
+    html = f'''<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5; }}
-        .container {{ background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }}
-        .header {{ border-bottom: 3px solid #4a90d9; padding-bottom: 15px; margin-bottom: 25px; }}
-        .header h2 {{ margin: 0; color: #4a90d9; font-size: 26px; font-weight: 600; }}
-        .header p {{ margin: 8px 0 0 0; color: #666; font-size: 16px; }}
-        .content {{ font-size: 15px; color: #444; }}
-        .content strong {{ color: #222; font-weight: 600; }}
-        .footer {{ margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; font-size: 13px; color: #666; text-align: center; }}
-        .footer a {{ color: #4a90d9; text-decoration: none; }}
+        body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; }}
+        .header {{ background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 25px; text-align: center; }}
+        .header h1 {{ margin: 0; font-size: 28px; }}
+        .header p {{ margin: 10px 0 0 0; opacity: 0.9; }}
+        .location {{ background: #dbeafe; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; color: #1e40af; }}
+        .section {{ margin: 20px 0; padding: 20px; border-left: 4px solid #3b82f6; background: #f8fafc; }}
+        .section h2 {{ margin-top: 0; color: #1e40af; }}
+        .weather {{ display: flex; justify-content: space-around; background: #f3f4f6; padding: 15px; margin: 15px 0; border-radius: 8px; }}
+        .weather-city {{ text-align: center; }}
+        .weather-temp {{ font-size: 24px; font-weight: bold; }}
+        .travel-alert {{ background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; }}
+        .travel-alert h3 {{ margin-top: 0; color: #b45309; }}
+        .flight {{ background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }}
+        .flight-time {{ font-size: 24px; font-weight: bold; color: #1e40af; }}
+        .hotel {{ background: #f0fdf4; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #16a34a; }}
+        .stats {{ display: flex; justify-content: space-around; background: #eff6ff; padding: 15px; margin: 15px 0; border-radius: 8px; }}
+        .stat {{ text-align: center; }}
+        .stat-number {{ font-size: 24px; font-weight: bold; color: #1e40af; }}
+        .stat-label {{ font-size: 11px; color: #666; }}
+        .week-view {{ background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }}
+        .day {{ padding: 10px; border-bottom: 1px solid #e5e7eb; }}
+        .day:last-child {{ border-bottom: none; }}
+        .day-date {{ font-weight: bold; color: #1e40af; }}
+        .flight-badge {{ display: inline-block; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 10px; }}
+        .early-flight {{ background: #fef2f2; color: #dc2626; }}
+        .footer {{ background: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 30px; }}
+        a {{ color: #3b82f6; }}
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>Cicero Check-In</h2>
-            <p>{pt_now.strftime('%A, %B %d, %Y')}</p>
-        </div>
-        <div class="content">
-            {html_body}
-        </div>
-        <div class="footer">
-            <p>This is an automated check-in from Cicero 🏛️</p>
-            <p>To respond, message me on Telegram: <a href="https://t.me/geoffclapp">@geoffclapp</a></p>
-            <p style="font-size: 11px; color: #999; margin-top: 10px;">This email was sent from an unmonitored address. Replies will not be received.</p>
+    <div class="header">
+        <h1>{header_title}</h1>
+        <p>{today_str}</p>
+    </div>
+
+    <div class="location">
+        📍 {location_info['city']}, {location_info['state']} — {location_info['status']}
+    </div>
+
+    <div class="weather">
+        {''.join([f'<div class="weather-city"><div class="weather-temp">{d["weather"]}</div><div>{d["name"]}</div></div>' for d in destination_weather])}
+    </div>
+'''
+    
+    # Add travel alert if there's a flight today
+    if location_info.get('upcoming_flight'):
+        flight = location_info['upcoming_flight']
+        html += f'''
+    <div class="travel-alert">
+        <h3>✈️ TODAY'S TRAVEL</h3>
+        <div class="flight">
+            <div class="flight-time">{flight['time']}</div>
+            <p><strong>{flight['route']}</strong></p>
         </div>
     </div>
-</body>
-</html>"""
+'''
     
-    return html_template
+    # Stats section
+    html += f'''
+    <div class="section">
+        <h2>📊 At a Glance</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">{todoist_count}</div>
+                <div class="stat-label">TODOIST TASKS</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: {whoop_color};">{whoop_recovery if whoop_recovery else '--'}%</div>
+                <div class="stat-label">WHOOP RECOVERY</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">{latest_weight if latest_weight else '--'}</div>
+                <div class="stat-label">LBS</div>
+            </div>
+        </div>
+    </div>
+'''
+    
+    # Week ahead view (ALWAYS show for all check-ins)
+    html += '''
+    <div class="section">
+        <h2>This Week</h2>
+        <div class="week-view">
+'''
+    for i in range(7):
+        day = pt_now + timedelta(days=i)
+        day_str = day.strftime('%A, %B %d')
+        html += f'''            <div class="day">
+                <span class="day-date">{day_str}</span>
+            </div>
+'''
+    html += '''        </div>
+    </div>
+'''
+    
+    # System Status section
+    system_status = get_system_status()
+    html += f'''
+    <div class="section">
+        <h2>⚙️ System Status</h2>
+        <p><strong>Calendar:</strong> {system_status['calendar']}</p>
+        <p><strong>Whoop:</strong> {system_status['whoop']}</p>
+        <p><strong>Email:</strong> {system_status['email']}</p>
+        <p><strong>Active Jobs:</strong> {', '.join(system_status['cron_jobs'][:4])}</p>
+    </div>
+'''
+    
+    # Health section
+    html += f'''
+    <div class="section">
+        <h2>💓 Health</h2>
+        <p><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">https://gclapp.github.io/health-dashboard/</a></p>
+        <p><strong>Whoop:</strong> <span style="color: {whoop_color};">{whoop_recovery}% recovery</span> ({whoop_status})</p>
+        <p><strong>Latest weight:</strong> {latest_weight if latest_weight else '--'} lbs</p>
+    </div>
+'''
+    
+    # Footer
+    html += f'''
+    <div class="footer">
+        <p>🏛️ Cicero | All systems operational</p>
+        <p>Last updated: {pt_now.strftime('%B %d, %Y %I:%M %p PT')}</p>
+    </div>
+</body>
+</html>
+'''
+    
+    return html
 
 def main():
     pt_now = get_pt_time()
@@ -289,43 +452,31 @@ def main():
         print(f"No check-in due at {pt_now.strftime('%I:%M %p PT')}")
         sys.exit(0)
     
-    # Generate appropriate message
-    if checkin_type == "morning":
-        message = generate_morning_update()
-    elif checkin_type == "midday":
-        message = generate_midday_checkin()
-    elif checkin_type == "afternoon":
-        message = generate_afternoon_checkin()
-    elif checkin_type == "evening":
-        message = generate_evening_checkin()
-    else:
-        message = f"Check-in: {checkin_type}"
+    # Generate HTML email using the new format
+    html_message = generate_html_email(checkin_type, pt_now)
     
     # Write to pending check-in file
     checkin_file = Path("/home/ubuntu/.openclaw/workspace/logs/pending-checkin.json")
     checkin_file.parent.mkdir(parents=True, exist_ok=True)
     
-    # Generate HTML email version
-    html_message = generate_html_email(checkin_type, message, pt_now)
-    
     with open(checkin_file, 'w') as f:
         json.dump({
             "timestamp": datetime.utcnow().isoformat(),
             "checkin_type": checkin_type,
-            "message": message,
+            "message": f"{checkin_type.title()} check-in — see HTML email",  # Telegram gets simple message
             "html_message": html_message,
-            "subject": f"Cicero Check-In: {checkin_type.title()} — {pt_now.strftime('%A, %B %d')}",
+            "subject": f"☀️ {checkin_type.title()} Check-In — {pt_now.strftime('%A, %B %d, %Y')}",
             "pt_time": pt_now.strftime('%Y-%m-%d %H:%M:%S'),
             "sent": False,
             "channels": ["telegram", "email"]
         }, f, indent=2)
     
-    print(f"Check-in queued: {checkin_type} at {pt_now.strftime('%I:%M %p PT')} (Telegram + Email)")
+    print(f"✅ {checkin_type.title()} check-in queued: {pt_now.strftime('%I:%M %p PT')}")
     
     # Log it
     log_file = Path("/home/ubuntu/.openclaw/workspace/logs/heartbeat.log")
     with open(log_file, 'a') as f:
-        f.write(f"[{datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC] Check-in queued: {checkin_type}\n")
+        f.write(f"[{datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC] {checkin_type.title()} check-in queued\n")
 
 if __name__ == "__main__":
     main()

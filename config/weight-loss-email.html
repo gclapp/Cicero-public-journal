@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #16a34a, #15803d); color: white; padding: 25px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        .stats { display: flex; justify-content: space-around; background: #f0fdf4; padding: 20px; margin: 20px 0; border-radius: 8px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 32px; font-weight: bold; color: #16a34a; }
+        .stat-label { font-size: 12px; color: #666; text-transform: uppercase; }
+        .section { margin: 25px 0; padding: 20px; border-left: 4px solid #16a34a; background: #f9fafb; }
+        .section h2 { margin-top: 0; color: #166534; }
+        .highlight { background: #fef3c7; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+        .success { color: #16a34a; font-weight: bold; }
+        .warning { color: #ea580c; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th { background: #166534; color: white; padding: 10px; text-align: left; }
+        td { padding: 10px; border-bottom: 1px solid #e5e7eb; }
+        tr:hover { background: #f0fdf4; }
+        .checklist { list-style: none; padding: 0; }
+        .checklist li { padding: 8px 0; padding-left: 30px; position: relative; }
+        .checklist li:before { content: "☐"; position: absolute; left: 0; color: #16a34a; font-size: 18px; }
+        .checklist li.done:before { content: "✅"; }
+        .footer { background: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 30px; }
+        .progress-bar { background: #e5e7eb; height: 20px; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { background: linear-gradient(90deg, #16a34a, #22c55e); height: 100%; width: 38%; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏋️ Weight Loss Program 2026</h1>
+        <p>Goal: 20 lbs | Started: Feb 28, 2026 | Managed by Cicero</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number">7.6</div>
+            <div class="stat-label">Lbs Lost</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">38%</div>
+            <div class="stat-label">To Goal</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">1.1</div>
+            <div class="stat-label">Lbs/Week</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">237.0</div>
+            <div class="stat-label">Current</div>
+        </div>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+    <p style="text-align: center; font-size: 12px; color: #666;">Progress to 20 lb goal</p>
+
+    <div class="section">
+        <h2>📊 Latest Weigh-In</h2>
+        <p><span class="success">🎉 New Low!</span> <strong>237.0 lbs</strong> (March 22)</p>
+        <p>Down <span class="highlight">1.8 lbs</span> from last weigh-in — excellent momentum!</p>
+        <p><strong>Total progress:</strong> 7.6 lbs since Feb 8 (244.6 → 237.0)</p>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Program Overview</h2>
+        <p><strong>Approach:</strong> High-protein, lower-carb + Strategic exercise + Whoop integration</p>
+        
+        <h3>Nutrition Targets</h3>
+        <ul>
+            <li><strong>Calories:</strong> 1,800-2,000/day</li>
+            <li><strong>Protein:</strong> 150-180g/day (30-35%)</li>
+            <li><strong>Carbs:</strong> 20-25% (complex only)</li>
+            <li><strong>Fats:</strong> 40-45% (healthy fats)</li>
+        </ul>
+
+        <h3>Exercise Schedule</h3>
+        <ul>
+            <li><strong>Mon/Wed/Fri:</strong> Strength training (45 min)</li>
+            <li><strong>Tue:</strong> Cardio/walk (30-40 min)</li>
+            <li><strong>Thu:</strong> Active recovery/yoga (30 min)</li>
+            <li><strong>Sat:</strong> Fun activity/hike (60+ min)</li>
+            <li><strong>Sun:</strong> Rest (Whoop recovery focus)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📈 Weight History</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Weight</th>
+                <th>Change</th>
+                <th>Notes</th>
+            </tr>
+            <tr style="background: #f0fdf4;">
+                <td>Mar 22</td>
+                <td><strong>237.0</strong></td>
+                <td class="success">-1.8</td>
+                <td>🎉 New low!</td>
+            </tr>
+            <tr>
+                <td>Mar 19</td>
+                <td>238.8</td>
+                <td>-0.3</td>
+                <td>Post-travel</td>
+            </tr>
+            <tr>
+                <td>Mar 14</td>
+                <td>239.1</td>
+                <td>+0.2</td>
+                <td>Pre-travel</td>
+            </tr>
+            <tr>
+                <td>Mar 12</td>
+                <td>238.9</td>
+                <td class="success">-2.1</td>
+                <td>🎉 Previous low</td>
+            </tr>
+            <tr>
+                <td>Feb 8</td>
+                <td>244.6</td>
+                <td>—</td>
+                <td>Starting point</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>✅ Daily Habits Checklist</h2>
+        <ul class="checklist">
+            <li>Weigh-in (morning)</li>
+            <li>Log all food in Lose It!</li>
+            <li>Hit protein target (150-180g)</li>
+            <li>Complete workout</li>
+            <li>Drink 8+ glasses water</li>
+            <li>Check Whoop recovery</li>
+            <li>7+ hours sleep</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🧳 Travel Strategy (This Week)</h2>
+        <p><strong>Busy travel week:</strong> LA → NYC → Nashville → NYC → LA</p>
+        
+        <h3>Travel Rules</h3>
+        <ul>
+            <li>✈️ Pack protein bars for flights</li>
+            <li>🚫 No sugary drinks at airports</li>
+            <li>🚶 Walk everywhere (easy 10k steps)</li>
+            <li>🍽 Focus meals on protein + vegetables</li>
+            <li>🏨 Hotel gym: 20-min morning sessions</li>
+        </ul>
+        
+        <p><span class="warning">⚠️ Note:</span> Two very early flights (4 AM departures Wed & Thu) — plan sleep accordingly.</p>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Success Metrics</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Target</th>
+                <th>Current</th>
+            </tr>
+            <tr>
+                <td>Weight Loss</td>
+                <td>20 lbs</td>
+                <td class="success">7.6 lbs ✅</td>
+            </tr>
+            <tr>
+                <td>Weekly Pace</td>
+                <td>1.5-2 lbs</td>
+                <td class="success">1.1 lbs ✅</td>
+            </tr>
+            <tr>
+                <td>Whoop Recovery</td>
+                <td>75%+</td>
+                <td>60% (improving)</td>
+            </tr>
+            <tr>
+                <td>Sleep</td>
+                <td>7+ hours</td>
+                <td>Tracking</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📱 App Integration</h2>
+        <ul>
+            <li><strong>Whoop:</strong> Recovery, strain, sleep tracking ✅</li>
+            <li><strong>Lose It!:</strong> Food logging ✅</li>
+            <li><strong>Apple Health:</strong> Central data hub ✅</li>
+            <li><strong>Todoist:</strong> Daily reminders ✅</li>
+        </ul>
+        <p><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">https://gclapp.github.io/health-dashboard/</a></p>
+    </div>
+
+    <div class="section" style="background: #fef3c7; border-left-color: #f59e0b;">
+        <h2>🎯 THIS WEEK'S GOAL: Lose 2.4 lbs by Saturday 5 PM</h2>
+        <p><strong>Target:</strong> 237.0 → <span class="highlight">234.6 lbs</span> by Saturday, March 28 at 5:00 PM</p>
+        
+        <h3>📋 The Math</h3>
+        <ul>
+            <li><strong>2.4 lbs in 6 days</strong> = 0.4 lbs/day deficit</li>
+            <li><strong>Required daily deficit:</strong> ~1,400 calories</li>
+            <li><strong>Current burn:</strong> ~2,800-3,000 calories/day (BMR + activity)</li>
+            <li><strong>Target intake:</strong> 1,600-1,700 calories/day</li>
+        </ul>
+        
+        <h3>🎯 Action Plan</h3>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Calories</th>
+                <th>Focus</th>
+            </tr>
+            <tr>
+                <td>Sun (Travel)</td>
+                <td>1,700</td>
+                <td>Airport protein, no alcohol</td>
+            </tr>
+            <tr>
+                <td>Mon (NYC)</td>
+                <td>1,600</td>
+                <td>Walking + hotel gym</td>
+            </tr>
+            <tr>
+                <td>Tue (Nashville)</td>
+                <td>1,600</td>
+                <td>Strength training</td>
+            </tr>
+            <tr>
+                <td>Wed (Travel)</td>
+                <td>1,700</td>
+                <td>Early flight — pack food</td>
+            </tr>
+            <tr>
+                <td>Thu (LA)</td>
+                <td>1,600</td>
+                <td>Back home — strict day</td>
+            </tr>
+            <tr>
+                <td>Fri</td>
+                <td>1,600</td>
+                <td>Final push</td>
+            </tr>
+            <tr style="background: #f0fdf4;">
+                <td><strong>Sat 5 PM</strong></td>
+                <td>—</td>
+                <td><strong>🎯 Weigh-in: 234.6 lbs</strong></td>
+            </tr>
+        </table>
+        
+        <h3>⚡ Accelerators</h3>
+        <ul>
+            <li><strong>10k steps daily</strong> (easy in NYC — walk everywhere)</li>
+            <li><strong>No alcohol</strong> until Saturday</li>
+            <li><strong>200g protein daily</strong> (higher than normal — muscle preservation)</li>
+            <li><strong>3L water daily</strong> (reduces water retention)</li>
+            <li><strong>Early sleep</strong> (Wed/Thu 4 AM flights — nap before, not after)</li>
+        </ul>
+    </div>
+
+    <div class="section" style="background: #ede9fe; border-left-color: #7c3aed;">
+        <h2>🧠 Cortisol, Stress & Weight Loss</h2>
+        <p><strong>Key Insight:</strong> Your March 15 Whoop data showed <span class="warning">8% recovery</span> — the worst of the month. This coincided with travel stress and likely elevated cortisol.</p>
+        
+        <h3>How Cortisol Affects Weight Loss</h3>
+        <ul>
+            <li><strong>Elevated cortisol</strong> = increased appetite, cravings for sugar/carbs</li>
+            <li><strong>Chronic stress</strong> = body holds onto fat (survival mode)</li>
+            <li><strong>Poor sleep</strong> = cortisol spike + reduced willpower</li>
+            <li><strong>Travel stress</strong> = disrupted circadian rhythm + inflammation</li>
+        </ul>
+        
+        <h3>Your Recovery Pattern (March 11-22)</h3>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Sleep</th>
+                <th>Recovery</th>
+                <th>Notes</th>
+            </tr>
+            <tr style="background: #fef2f2;">
+                <td>Mar 15</td>
+                <td>—</td>
+                <td><span class="warning">8%</span></td>
+                <td>🔴 Critical low</td>
+            </tr>
+            <tr>
+                <td>Mar 19</td>
+                <td>2h 52m</td>
+                <td>34%</td>
+                <td>Travel day</td>
+            </tr>
+            <tr>
+                <td>Mar 20</td>
+                <td>6h 3m</td>
+                <td>47%</td>
+                <td>Improving</td>
+            </tr>
+            <tr>
+                <td>Mar 21</td>
+                <td>6h 38m</td>
+                <td>76%</td>
+                <td>Peak recovery</td>
+            </tr>
+            <tr style="background: #f0fdf4;">
+                <td>Mar 22</td>
+                <td>8h 33m</td>
+                <td>60%</td>
+                <td>Good momentum</td>
+            </tr>
+        </table>
+        
+        <h3>🎯 Cortisol Management for This Week</h3>
+        <p><strong>Goal:</strong> Keep recovery 60%+ to minimize cortisol and maximize fat loss</p>
+        
+        <h4>Stress Reduction Tactics</h4>
+        <ul>
+            <li><strong>Sleep priority:</strong> 7+ hours despite travel (earplugs, eye mask)</li>
+            <li><strong>Morning light:</strong> 10 min outdoor light within 30 min of waking</li>
+            <li><strong>Post-flight:</strong> 5-min walk outside before checking into hotel</li>
+            <li><strong>Pre-bed:</strong> No screens 30 min before sleep (blue light = cortisol)</li>
+            <li><strong>Breathing:</strong> 4-7-8 breathing before sleep (4 sec in, 7 hold, 8 out)</li>
+        </ul>
+        
+        <h4>Travel-Specific Cortisol Hacks</h4>
+        <ul>
+            <li><strong>Pack your own food</strong> — airport food = inflammation</li>
+            <li><strong>Compression socks</strong> — reduces travel inflammation</li>
+            <li><strong>Magnesium before bed</strong> — natural cortisol reducer</li>
+            <li><strong>Hydrate aggressively</strong> — 500ml water per flight hour</li>
+            <li><strong>No caffeine after 2 PM</strong> — protects sleep quality</li>
+        </ul>
+        
+        <h3>The Cortisol-Weight Connection</h3>
+        <p><strong>Why this matters for your 2.4 lb goal:</strong></p>
+        <ul>
+            <li>High cortisol = water retention (masks fat loss on scale)</li>
+            <li>High cortisol = cravings (harder to hit calorie targets)</li>
+            <li>High cortisol = poor sleep (recovery crashes, appetite spikes)</li>
+        </ul>
+        <p><span class="highlight">Managing stress = managing weight.</span> Your Whoop recovery is the best leading indicator.</p>
+        
+        <p><strong>Target for this week:</strong> Keep Whoop recovery above 60% every day. If it drops below 50%, prioritize sleep over workouts.</p>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Long-Term Milestones</h2>
+        <ul>
+            <li><strong>235 lbs:</strong> 9.6 lbs lost (next mini-goal)</li>
+            <li><strong>230 lbs:</strong> Halfway point (14.6 lbs)</li>
+            <li><strong>225 lbs:</strong> 19.6 lbs lost</li>
+            <li><strong>224 lbs:</strong> 🎉 GOAL REACHED!</li>
+        </ul>
+        <p><em>At current pace (~1.1 lbs/week): Goal reached by mid-May 2026</em></p>
+    </div>
+
+    <div class="footer">
+        <p>🏛️ Managed by Cicero | Last Updated: March 22, 2026</p>
+        <p>Questions? Reply to this email or message me on Telegram.</p>
+    </div>
+</body>
+</html>

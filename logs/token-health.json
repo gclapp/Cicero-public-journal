@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-03-22T14:39:48.129558",
+  "results": [
+    {
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Google Calendar: Healthy (0 days old)",
+      "action_required": false,
+      "critical": true
+    },
+    {
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Whoop API: Healthy (0 days old)",
+      "action_required": false,
+      "critical": false
+    },
+    {
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Whoop Refresh Token: Healthy (0 days old)",
+      "action_required": false,
+      "critical": false
+    },
+    {
+      "status": "healthy",
+      "age_days": 26,
+      "message": "\u2705 Gmail SMTP: Healthy (26 days old)",
+      "action_required": false,
+      "critical": true
+    }
+  ],
+  "critical_count": 0,
+  "warning_count": 0
+}
