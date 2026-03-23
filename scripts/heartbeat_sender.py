@@ -271,6 +271,101 @@ def get_week_travel_destinations(all_events, pt_now):
     
     return destinations
 
+def get_today_events_detailed(pt_now, all_events):
+    """Get detailed breakdown of today's events by category"""
+    today_str = pt_now.strftime('%A, %B %d')
+    
+    result = {
+        'flights': [],
+        'hotels': [],
+        'important': [],
+        'meetings': []
+    }
+    
+    for event in all_events:
+        event_date = event.get('start', '')
+        if today_str not in event_date:
+            continue
+        
+        summary = event.get('summary', '').lower()
+        location = event.get('location', '').lower()
+        
+        # Detect flights
+        if 'flight' in summary:
+            flight_info = {
+                'time': event.get('start', 'TBD'),
+                'route': 'TBD',
+                'details': event.get('location', '')
+            }
+            if 'jfk' in summary or 'new york' in summary or 'lga' in summary:
+                flight_info['route'] = 'LAX → JFK'
+            elif 'lax' in summary or 'los angeles' in summary:
+                flight_info['route'] = '→ LAX'
+            elif 'atl' in summary or 'atlanta' in summary:
+                flight_info['route'] = '→ ATL'
+            elif 'sfo' in summary or 'san francisco' in summary:
+                flight_info['route'] = '→ SFO'
+            result['flights'].append(flight_info)
+        
+        # Detect hotels - check both summary and description for hotel keywords
+        elif any(word in summary for word in ['hotel', 'stay at', 'check-in', 'checkout', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'algonquin', 'moxy', 'jw marriott']):
+            # Extract hotel name from summary
+            hotel_name = event.get('summary', '')
+            # Clean up common prefixes
+            for prefix in ['Stay at ', 'Hotel: ', 'Geoffrey Clapp - ', 'Mac Spring Break: ']:
+                hotel_name = hotel_name.replace(prefix, '')
+            # Clean up confirmation numbers (8+ digit numbers)
+            hotel_name = re.sub(r'\d{8,}', '', hotel_name).strip()
+            # Clean up trailing commas
+            hotel_name = hotel_name.rstrip(',').strip()
+            
+            result['hotels'].append({
+                'name': hotel_name,
+                'location': event.get('location', ''),
+                'raw_summary': event.get('summary', '')
+            })
+        
+        # Detect important dates (birthdays, anniversaries)
+        elif any(word in summary for word in ['birthday', 'anniversary', 'graduation']):
+            event_type = 'Birthday' if 'birthday' in summary else 'Anniversary' if 'anniversary' in summary else 'Event'
+            name = event.get('summary', '').replace('birthday', '').replace('Birthday', '').strip()
+            result['important'].append({
+                'type': event_type,
+                'name': name,
+                'note': event.get('description', '')[:100]
+            })
+    
+    return result
+
+def get_day_events(day_date, all_events):
+    """Get event indicators for a specific day"""
+    day_str = day_date.strftime('%A, %B %d')
+    
+    result = {
+        'flight': False,
+        'hotel': False,
+        'birthday': False,
+        'travel': False
+    }
+    
+    for event in all_events:
+        event_date = event.get('start', '')
+        if day_str not in event_date:
+            continue
+        
+        summary = event.get('summary', '').lower()
+        
+        if 'flight' in summary:
+            result['flight'] = True
+            result['travel'] = True
+        elif any(word in summary for word in ['hotel', 'stay at', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'algonquin', 'moxy', 'jw marriott']):
+            result['hotel'] = True
+            result['travel'] = True
+        elif 'birthday' in summary:
+            result['birthday'] = True
+    
+    return result
+
 def generate_html_email(checkin_type, pt_now):
     """Generate HTML check-in using the locked format from March 22, 2026"""
     
@@ -359,17 +454,45 @@ def generate_html_email(checkin_type, pt_now):
     </div>
 '''
     
-    # Add travel alert if there's a flight today
-    if location_info.get('upcoming_flight'):
-        flight = location_info['upcoming_flight']
-        html += f'''
-    <div class="travel-alert">
-        <h3>✈️ TODAY'S TRAVEL</h3>
-        <div class="flight">
-            <div class="flight-time">{flight['time']}</div>
-            <p><strong>{flight['route']}</strong></p>
+    # Get today's detailed calendar events
+    today_events_detailed = get_today_events_detailed(pt_now, travel_events)
+    
+    # PRIORITY SECTION: Today's Travel & Important Events (at the top)
+    if today_events_detailed['flights'] or today_events_detailed['hotels'] or today_events_detailed['important']:
+        html += '''
+    <div class="section" style="border-left-color: #dc2626; background: #fef2f2;">
+        <h2>🔔 TODAY'S PRIORITIES</h2>
+'''
+        
+        # Flights (highest priority)
+        for flight in today_events_detailed['flights']:
+            html += f'''
+        <div class="flight" style="margin: 10px 0; padding: 15px; background: white; border-radius: 8px; border-left: 4px solid #dc2626;">
+            <div style="font-size: 24px; font-weight: bold; color: #dc2626;">✈️ {flight['time']}</div>
+            <p style="margin: 5px 0; font-size: 16px;"><strong>{flight['route']}</strong></p>
+            <p style="margin: 5px 0; color: #666;">{flight.get('details', '')}</p>
         </div>
-    </div>
+'''
+        
+        # Hotels
+        for hotel in today_events_detailed['hotels']:
+            html += f'''
+        <div style="margin: 10px 0; padding: 12px; background: #f0fdf4; border-radius: 8px; border-left: 4px solid #16a34a;">
+            <strong>🏨 HOTEL:</strong> {hotel['name']}<br>
+            <span style="color: #666;">{hotel.get('location', '')}</span>
+        </div>
+'''
+        
+        # Important events (birthdays, anniversaries, etc.)
+        for event in today_events_detailed['important']:
+            html += f'''
+        <div style="margin: 10px 0; padding: 12px; background: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <strong>🎉 {event['type']}:</strong> {event['name']}<br>
+            <span style="color: #666;">{event.get('note', '')}</span>
+        </div>
+'''
+        
+        html += '''    </div>
 '''
     
     # Stats section
@@ -393,7 +516,7 @@ def generate_html_email(checkin_type, pt_now):
     </div>
 '''
     
-    # Week ahead view (ALWAYS show for all check-ins)
+    # Week ahead view with event indicators
     html += '''
     <div class="section">
         <h2>This Week</h2>
@@ -402,8 +525,20 @@ def generate_html_email(checkin_type, pt_now):
     for i in range(7):
         day = pt_now + timedelta(days=i)
         day_str = day.strftime('%A, %B %d')
+        day_events = get_day_events(day, travel_events)
+        
+        event_badges = []
+        if day_events['flight']:
+            event_badges.append('<span style="background: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">✈️ FLIGHT</span>')
+        if day_events['hotel']:
+            event_badges.append('<span style="background: #16a34a; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🏨 HOTEL</span>')
+        if day_events['birthday']:
+            event_badges.append('<span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🎂 BDAY</span>')
+        
+        badges_html = ''.join(event_badges)
+        
         html += f'''            <div class="day">
-                <span class="day-date">{day_str}</span>
+                <span class="day-date">{day_str}</span>{badges_html}
             </div>
 '''
     html += '''        </div>

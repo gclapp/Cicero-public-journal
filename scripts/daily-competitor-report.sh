@@ -81,14 +81,15 @@ if [ -f config/competitor-new-articles.json ] && [ -s config/competitor-new-arti
     
     # Check if email HTML was generated
     if [ -f config/competitor-email.html ]; then
-        # Send the email
+        # Send the email to Geoff and Steven
         python3 scripts/send_email.py \
             --to "geoffrey.clapp@progyny.com" \
+            --cc "steven.leist@progyny.com" \
             --subject "Competitive Intelligence Report - $(date '+%B %d, %Y')" \
             --body-file config/competitor-email.html \
             --html
         
-        echo "[$(date)] Competitive report sent ($TOTAL_COUNT articles)" >> logs/competitor-reports.log
+        echo "[$(date)] Competitive report sent to Geoff + Steven ($TOTAL_COUNT articles)" >> logs/competitor-reports.log
     fi
 else
     echo "[$(date)] No new competitive intelligence to report" >> logs/competitor-reports.log

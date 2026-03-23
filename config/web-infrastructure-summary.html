@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 30px; text-align: center; }
+        .header h1 { margin: 0; font-size: 32px; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; font-size: 16px; }
+        .section { margin: 25px 0; padding: 25px; background: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .section h2 { margin-top: 0; color: #1e3a8a; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+        .section h3 { color: #2563eb; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th { background: #1e3a8a; color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+        tr:hover { background: #f8fafc; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+        .badge-primary { background: #dbeafe; color: #1e40af; }
+        .badge-success { background: #d1fae5; color: #065f46; }
+        .badge-warning { background: #fef3c7; color: #92400e; }
+        .code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 14px; }
+        .highlight { background: #eff6ff; padding: 15px; border-left: 4px solid #3b82f6; margin: 15px 0; }
+        .footer { background: #1f2937; color: white; padding: 20px; text-align: center; font-size: 12px; margin-top: 30px; }
+        ul { padding-left: 20px; }
+        li { margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏛️ Cicero's Web Search & Scraping Infrastructure</h1>
+        <p>Technical Architecture Summary — March 23, 2026</p>
+    </div>
+
+    <div class="section">
+        <h2>📊 Executive Summary</h2>
+        <p>This document outlines the complete web search and scraping infrastructure powering Cicero's competitive intelligence, watch hunting, and research capabilities. The system uses a hybrid approach combining APIs, headless browsers, and specialized scraping tools.</p>
+        
+        <div class="highlight">
+            <strong>Core Philosophy:</strong> Use APIs when available (reliable, fast), fallback to browser automation when necessary (handles anti-bot protection), and always respect rate limits.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🔍 Web Search Capabilities</h2>
+        
+        <h3>1. Brave Search API (Primary)</h3>
+        <table>
+            <tr><th>Attribute</th><th>Details</th></tr>
+            <tr><td><strong>Provider</strong></td><td>Brave Search API</td></tr>
+            <tr><td><strong>API Key</strong></td><td><span class="code">BSAQvzsdCTmv48KVZCYZxO2Uc2-Wgbf</span></td></tr>
+            <tr><td><strong>Endpoint</strong></td><td><span class="code">api.search.brave.com/res/v1/web/search</span></td></tr>
+            <tr><td><strong>Rate Limit</strong></td><td>2,000 queries/month (free tier)</td></tr>
+            <tr><td><strong>Headers</strong></td><td><span class="code">X-Subscription-Token</span></td></tr>
+            <tr><td><strong>Use Cases</strong></td><td>Competitive intelligence, news monitoring, LinkedIn search</td></tr>
+        </table>
+
+        <h3>2. OpenClaw Web Search Tool</h3>
+        <table>
+            <tr><th>Attribute</th><th>Details</th></tr>
+            <tr><td><strong>Tool Name</strong></td><td><span class="code">web_search</span></td></tr>
+            <tr><td><strong>Provider</strong></td><td>Brave Search (via OpenClaw)</td></tr>
+            <tr><td><strong>Parameters</strong></td><td>query, count, country, language, freshness</td></tr>
+            <tr><td><strong>Features</strong></td><td>Region-specific, time-filtered, localized results</td></tr>
+            <tr><td><strong>Use Cases</strong></td><td>Quick searches, research, trend analysis</td></tr>
+        </table>
+
+        <h3>3. Web Fetch Tool</h3>
+        <table>
+            <tr><th>Attribute</th><th>Details</th></tr>
+            <tr><td><strong>Tool Name</strong></td><td><span class="code">web_fetch</span></td></tr>
+            <tr><td><strong>Function</strong></td><td>Extract readable content from URLs</td></tr>
+            <tr><td><strong>Output</strong></td><td>Markdown or plain text</td></tr>
+            <tr><td><strong>Use Cases</strong></td><td>Article extraction, content summarization</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🤖 Web Scraping Infrastructure</h2>
+
+        <h3>1. Scrapling (Primary Browser Automation)</h3>
+        <table>
+            <tr><th>Attribute</th><th>Details</th></tr>
+            <tr><td><strong>Library</strong></td><td>Scrapling (Python)</td></tr>
+            <tr><td><strong>Virtual Environment</strong></td><td><span class="code">~/.openclaw/venvs/scrapling/</span></td></tr>
+            <tr><td><strong>Browser</strong></td><td>Playwright + Chromium</td></tr>
+            <tr><td><strong>Key Features</strong></td><td>Cloudflare bypass, anti-bot protection evasion</td></tr>
+            <tr><td><strong>Speed</strong></td><td>~10-15s per page (slower but reliable)</td></tr>
+            <tr><td><strong>Use Cases</strong></td><td>Watch hunting (Chrono24, eBay, Bob's Watches)</td></tr>
+        </table>
+
+        <div class="highlight">
+            <strong>Why Scrapling?</strong> Traditional requests-based scraping fails on modern sites with Cloudflare protection. Scrapling uses real browser automation to bypass these defenses.
+        </div>
+
+        <h3>2. Requests + BeautifulSoup (Legacy)</h3>
+        <table>
+            <tr><th>Attribute</th><th>Details</th></tr>
+            <tr><td><strong>Library</strong></td><td>requests + bs4</td></tr>
+            <tr><td><strong>Speed</strong></td><td>Fast (~1-2s per page)</td></tr>
+            <tr><td><strong>Limitations</strong></td><td>Blocked by Cloudflare, CAPTCHA triggers</td></tr>
+            <tr><td><strong>Use Cases</strong></td><td>Simple sites without bot protection</td></tr>
+        </table>
+
+        <h3>3. Feedparser (RSS Monitoring)</h3>
+        <table>
+            <tr><th>Attribute</th><th>Details</th></tr>
+            <tr><td><strong>Library</strong></td><td>feedparser (Python)</td></tr>
+            <tr><td><strong>Use Cases</strong></td><td>Google Alerts, news feeds, blog monitoring</td></tr>
+            <tr><td><strong>Reliability</strong></td><td>High (structured data)</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🎯 Active Scraping Targets</h2>
+        
+        <h3>Watch Hunt (9 Sites)</h3>
+        <table>
+            <tr><th>Site</th><th>Method</th><th>Status</th></tr>
+            <tr><td>Chrono24</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>eBay</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Bob's Watches</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></td></tr>
+            <tr><td>Bulang & Sons</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Bezel</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Crown & Caliber</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Watches of Espionage</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>WatchRecon</td><td>Scrapling</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Reddit r/Watchexchange</td><td>PRAW API</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+        </table>
+
+        <h3>Competitive Intelligence</h3>
+        <table>
+            <tr><th>Source</th><th>Method</th><th>Status</th></tr>
+            <tr><td>Google Alerts (RSS)</td><td>feedparser</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Brave Web Search</td><td>API</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>LinkedIn Monitoring</td><td>Brave Search</td><td><span class="badge badge-success">✅ Active</span></td></tr>
+            <tr><td>Job Boards</td><td>Scrapling</td><td><span class="badge badge-warning">⏳ Pending</span></td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>🔧 Key Scripts & Tools</h2>
+        
+        <table>
+            <tr><th>Script</th><th>Purpose</th><th>Location</th></tr>
+            <tr><td><span class="code">watch_search_multi.py</span></td><td>Multi-site watch scraping</td><td>scripts/</td></tr>
+            <tr><td><span class="code">competitor_intelligence_v2.py</span></td><td>Competitive intel aggregator</td><td>scripts/</td></tr>
+            <tr><td><span class="code">linkedin_monitor.py</span></td><td>LinkedIn exec monitoring</td><td>scripts/</td></tr>
+            <tr><td><span class="code">web_search</span></td><td>OpenClaw search tool</td><td>Built-in</td></tr>
+            <tr><td><span class="code">web_fetch</span></td><td>Content extraction</td><td>Built-in</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ Configuration Files</h2>
+        
+        <table>
+            <tr><th>File</th><th>Purpose</th><th>Location</th></tr>
+            <tr><td><span class="code">competitive-intelligence-config.json</span></td><td>RSS feeds, search queries, LinkedIn targets</td><td>config/</td></tr>
+            <tr><td><span class="code">sensitive-credentials.json</span></td><td>API keys (Brave, Twitter)</td><td>config/</td></tr>
+            <tr><td><span class="code">watch-searches.json</span></td><td>Active watch hunt parameters</td><td>config/</td></tr>
+            <tr><td><span class="code">competitor-seen-v2.json</span></td><td>Deduplication tracking</td><td>config/</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>📈 Rate Limits & Best Practices</h2>
+        
+        <h3>Current Limits</h3>
+        <ul>
+            <li><strong>Brave Search API:</strong> 2,000 queries/month (free tier)</li>
+            <li><strong>Scrapling Browser:</strong> ~4 pages/minute (to avoid detection)</li>
+            <li><strong>Watch Hunt:</strong> 2x daily (9 AM & 6 PM PT)</li>
+            <li><strong>Competitive Intel:</strong> 2x daily (7 AM & 2 PM PT)</li>
+        </ul>
+
+        <h3>Anti-Detection Measures</h3>
+        <ul>
+            <li>Random delays between requests (1-3 seconds)</li>
+            <li>Real browser headers and user agents</li>
+            <li>Session persistence with cookies</li>
+            <li>Headless browser with stealth plugins</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🚀 Future Enhancements</h2>
+        
+        <table>
+            <tr><th>Enhancement</th><th>Status</th><th>Priority</th></tr>
+            <tr><td>LinkedIn API integration</td><td><span class="badge badge-warning">⏳ Planned</span></td><td>High</td></tr>
+            <tr><td>Job board scraping (Greenhouse, Lever)</td><td><span class="badge badge-warning">⏳ Planned</span></td><td>Medium</td></tr>
+            <tr><td>Twitter/X monitoring</td><td><span class="badge badge-warning">⏳ Research</span></td><td>Medium</td></tr>
+            <tr><td>Glassdoor sentiment tracking</td><td><span class="badge badge-warning">⏳ Planned</span></td><td>Low</td></tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <p>Generated by Cicero on March 23, 2026 | OpenClaw Workspace</p>
+        <p>For questions or updates, contact: [REDACTED]</p>
+    </div>
+</body>
+</html>

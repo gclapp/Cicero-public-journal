@@ -19,6 +19,7 @@ from pathlib import Path
 # Paths
 CONFIG_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitive-intelligence-config.json"
 SEEN_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-seen-v2.json"
+SENT_COUNT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-sent-count-v2.json"
 ARTICLES_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-articles-v2.json"
 LOG_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "competitor-v2.log"
 
@@ -49,13 +50,36 @@ def save_seen(seen):
     with open(SEEN_FILE, 'w') as f:
         json.dump(seen, f, indent=2)
 
+def load_sent_counts():
+    """Load article send counts (tracks how many times each article was sent) - ported from v1"""
+    if SENT_COUNT_FILE.exists():
+        with open(SENT_COUNT_FILE) as f:
+            return json.load(f)
+    return {}
+
+def save_sent_counts(counts):
+    """Save article send counts"""
+    SENT_COUNT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SENT_COUNT_FILE, 'w') as f:
+        json.dump(counts, f, indent=2)
+
+def can_send_article(article_id, sent_counts):
+    """Check if article can be sent (max 2 times) - ported from v1"""
+    count = sent_counts.get(article_id, 0)
+    return count < 2
+
+def increment_sent_count(article_id, sent_counts):
+    """Increment the send count for an article"""
+    sent_counts[article_id] = sent_counts.get(article_id, 0) + 1
+    save_sent_counts(sent_counts)
+
 def article_id(entry):
     """Generate unique ID for article"""
     content = f"{entry.get('link', '')}:{entry.get('title', '')}"
     return hashlib.md5(content.encode()).hexdigest()
 
-def is_stale_article(published_str, max_age_days=7):
-    """Check if article is too old to report"""
+def is_stale_article(published_str, max_age_days=30):
+    """Check if article is too old to report (default: 30 days)"""
     try:
         # Try various date formats
         for fmt in ["%a, %d %b %Y %H:%M:%S %Z", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"]:
@@ -127,7 +151,7 @@ def search_web_for_news(config):
         try:
             url = "https://api.search.brave.com/res/v1/news/search"
             headers = {"X-Subscription-Token": api_key}
-            params = {"q": query, "count": 5, "freshness": "week"}
+            params = {"q": query, "count": 5, "freshness": "month"}
             
             response = requests.get(url, headers=headers, params=params, timeout=30)
             
@@ -273,11 +297,25 @@ def main():
     log(f"   Found {len(job_updates)} job postings")
     all_new.extend(job_updates)
     
-    # Categorize all articles
+    # Categorize all articles and apply send limit (max 2 sends per article)
+    sent_counts = load_sent_counts()
+    filtered_articles = []
+    
     for article in all_new:
+        # Check if we've already sent this article 2+ times
+        if not can_send_article(article['id'], sent_counts):
+            log(f"   Skipping {article['id'][:8]}... (already sent 2 times)")
+            continue
+        
         priority, category = categorize_article(article)
         article['priority'] = priority
         article['category'] = category
+        filtered_articles.append(article)
+        
+        # Increment send count
+        increment_sent_count(article['id'], sent_counts)
+    
+    all_new = filtered_articles
     
     # Save and report
     if all_new:

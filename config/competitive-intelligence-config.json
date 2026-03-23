@@ -46,11 +46,20 @@
   },
   "web_search_queries": [
     "Maven Clinic funding OR acquisition OR partnership 2026",
+    "Maven Intelligence AI product launch 2026",
+    "Maven Clinic AI OR orchestration OR platform 2026",
     "Carrot Fertility funding OR acquisition OR partnership 2026",
     "KindBody funding OR acquisition OR partnership 2026",
     "WIN Fertility funding OR acquisition OR partnership 2026",
     "fertility benefits industry news 2026",
     "femtech funding 2026",
     "women's health startup funding 2026"
-  ]
+  ],
+  "priority_tracking": {
+    "Maven Intelligence": {
+      "priority": "critical",
+      "search_terms": ["Maven Intelligence", "Maven AI", "Maven orchestration", "Maven platform"],
+      "alert_on": ["launch", "release", "announcement", "partnership", "integration"]
+    }
+  }
 }

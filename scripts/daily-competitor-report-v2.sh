@@ -35,6 +35,7 @@ if [ -f "$ARTICLES_FILE" ] || [ -f "$LINKEDIN_FILE" ]; then
     
     python3 "$SCRIPT_DIR/send_email.py" \
         --to "[REDACTED],geoffrey.clapp@progyny.com" \
+        --cc "steven.leist@progyny.com" \
         --subject "Competitive Intelligence Report - $(date '+%A, %B %d')" \
         --body-file "$EMAIL_FILE" \
         --html >> "$LOG_FILE" 2>&1 || true

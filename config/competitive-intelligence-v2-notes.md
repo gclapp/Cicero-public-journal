@@ -97,9 +97,49 @@ Get key at: https://brave.com/search/api/
 - 7:00 AM PT — Morning report
 - 2:00 PM PT — Afternoon update
 
+## Consolidation to v2 Only (March 23, 2026)
+
+### Completed
+1. ✅ **Removed v1 from cron** — v2 is now the only system
+2. ✅ **Ported deduplication logic** from v1 (max 2 sends per article)
+3. ✅ **Added send count tracking** — `competitor-sent-count-v2.json`
+4. ✅ **Steven Leist added** to email distribution
+
+### What v1 Had That v2 Now Has
+- ✅ All Google Alerts RSS feeds
+- ✅ Deduplication with max 2 send limit
+- ✅ Plus: Web search, LinkedIn monitoring, job tracking
+
+## LinkedIn Monitoring Status
+
+### Current Implementation
+- Uses **Brave web search API** to find LinkedIn posts and executive news
+- Searches for: executive names + company + "LinkedIn"
+- Catches: public posts, news mentions, job changes
+
+### Limitations
+- ❌ Requires **BRAVE_API_KEY** environment variable
+- ❌ May miss private/non-public LinkedIn posts
+- ❌ Rate limited by Brave API (free tier: 2000 queries/month)
+
+### To Enable LinkedIn Monitoring
+```bash
+# Get free API key at https://brave.com/search/api/
+export BRAVE_API_KEY="your-key-here"
+# Add to ~/.bashrc for persistence
+```
+
+### Executives Being Monitored
+| Company | Executives |
+|---------|------------|
+| Maven | Kate Ryder, Samantha Wertheimer, Nisha Gopal, Shaina Harris |
+| Carrot | Tammy Sun, Juli Insinger, Rachel Simmons |
+| KindBody | Gina Bartasi, Stephanie Gorman, Anate Brauer |
+| WIN Fertility | Roger Shedlin, Kimberly Maloni |
+
 ## Next Steps
 
-1. **Add Brave API key** for web search functionality
+1. **Add Brave API key** for web search + LinkedIn functionality
 2. **Review first few reports** to ensure quality
 3. **Add more LinkedIn sources** if needed (company pages, specific executives)
 4. **Tune priority thresholds** based on feedback

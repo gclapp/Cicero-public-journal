@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-03-22T15:35:19.341481",
+  "last_updated": "2026-03-23T00:40:17.475734",
   "total_events": 100,
-  "travel_events": 14,
+  "travel_events": 15,
   "events": [
     {
       "summary": "Mac Spring Break: Courtyard",
@@ -18,14 +18,6 @@
       "location": "59 W 44th St, New York, NY, 10036, USA",
       "description": "External Sender.\n\n Hotel (Booked) The Algonquin Hotel Times Square, Autograph Collection 59 W 44th St New York, NY 10036 Phone Number: 1 212 840-6800 Fax: 1 212 944-1419 Check-in: March 22, 2026 Check",
       "is_travel": true
-    },
-    {
-      "summary": "Reserve Uber to LAX",
-      "start": "Sunday, March 22 at 12:30 PM",
-      "start_raw": "2026-03-22T12:30:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/23644246860453?p=cEZAvOmILGyh2PUnQg\nMeeting ID: 236 442",
-      "is_travel": false
     },
     {
       "summary": "Delta Air Lines flight 938 to New York (G959VX)",
@@ -60,11 +52,35 @@
       "is_travel": false
     },
     {
+      "summary": "Review Auction Email: Odysseus White Gold / Grey / Rubber",
+      "start": "Monday, March 23 at 09:00 AM",
+      "start_raw": "2026-03-23T09:00:00-07:00",
+      "location": "",
+      "description": "Follow up on the email thread: An auction you're following is ending soon | Odysseus White Gold / Grey / Rubber. The auction ends at 9:20am PDT.",
+      "is_travel": false
+    },
+    {
+      "summary": "Follow up on 1984 Day-Date 36 Yellow Gold / Champagne / President auction",
+      "start": "Monday, March 23 at 09:00 AM",
+      "start_raw": "2026-03-23T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Delta Air Lines flight 5609 to Nashville (HSKBR4)",
       "start": "Monday, March 23 at 04:50 PM",
       "start_raw": "2026-03-23T16:50:00-07:00",
       "location": "La Guardia Airport (East Elmhurst, New York, NY 11371, United States)",
       "description": "Delta Air Lines flight 5609 (2 hours, 41 minutes)\nConfirmation code: HSKBR4\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:50 PM on Monday, M",
+      "is_travel": true
+    },
+    {
+      "summary": "Flight to BNA (DL 5609)",
+      "start": "Monday, March 23 at 04:50 PM",
+      "start_raw": "2026-03-23T16:50:00-07:00",
+      "location": "LaGuardia LGA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
     {
@@ -785,22 +801,6 @@
       "start_raw": "2026-06-12T13:30:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, June 12 at 02:00 PM",
-      "start_raw": "2026-06-12T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "John Turner Birthday",
-      "start": "Sunday, June 14 at 12:00 AM",
-      "start_raw": "2026-06-14T00:00:00-07:00",
-      "location": "",
-      "description": "When: Occurs every June 14 effective 6/14/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
       "is_travel": false
     }
   ]
