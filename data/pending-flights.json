@@ -225,6 +225,28 @@
       },
       "arrival": {},
       "extracted_at": "2026-03-22T15:30:06.217591"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "GI48CA",
+      "flight_number": "5828",
+      "departure": {
+        "time": "7:30 am",
+        "airport": "LGA"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-23T21:15:04.192880"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": "GI48CA",
+      "flight_number": "5828",
+      "departure": {
+        "time": "7:30 am",
+        "airport": "LGA"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-23T21:15:05.241224"
     }
   ]
 }

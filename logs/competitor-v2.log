@@ -88,3 +88,45 @@
 [2026-03-23 00:54:52]    Found 0 job postings
 [2026-03-23 00:54:52] 
 ✅ Total new articles: 25
+[2026-03-23 14:00:01] ======================================================================
+[2026-03-23 14:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-23 14:00:01] ======================================================================
+[2026-03-23 14:00:01] 
+1. Scanning RSS feeds...
+[2026-03-23 14:00:06]    Found 7 new articles from RSS
+[2026-03-23 14:00:06] 
+2. Searching web for competitive news...
+[2026-03-23 14:00:06] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-23 14:00:06]    Found 0 new articles from web search
+[2026-03-23 14:00:06] 
+3. Checking LinkedIn updates...
+[2026-03-23 14:00:06] LinkedIn monitoring: 5 companies configured
+[2026-03-23 14:00:06] Note: LinkedIn API integration required for full functionality
+[2026-03-23 14:00:06]    Found 0 LinkedIn updates
+[2026-03-23 14:00:06] 
+4. Checking job boards...
+[2026-03-23 14:00:06] Job board monitoring: 5 companies
+[2026-03-23 14:00:06]    Found 0 job postings
+[2026-03-23 14:00:06] 
+✅ Total new articles: 7
+[2026-03-23 21:00:01] ======================================================================
+[2026-03-23 21:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-23 21:00:01] ======================================================================
+[2026-03-23 21:00:01] 
+1. Scanning RSS feeds...
+[2026-03-23 21:00:07]    Found 3 new articles from RSS
+[2026-03-23 21:00:07] 
+2. Searching web for competitive news...
+[2026-03-23 21:00:07] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-23 21:00:07]    Found 0 new articles from web search
+[2026-03-23 21:00:07] 
+3. Checking LinkedIn updates...
+[2026-03-23 21:00:07] LinkedIn monitoring: 5 companies configured
+[2026-03-23 21:00:07] Note: LinkedIn API integration required for full functionality
+[2026-03-23 21:00:07]    Found 0 LinkedIn updates
+[2026-03-23 21:00:07] 
+4. Checking job boards...
+[2026-03-23 21:00:07] Job board monitoring: 5 companies
+[2026-03-23 21:00:07]    Found 0 job postings
+[2026-03-23 21:00:07] 
+✅ Total new articles: 3

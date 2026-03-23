@@ -1,30 +1,14 @@
 {
-  "last_updated": "2026-03-23T00:40:17.475734",
+  "last_updated": "2026-03-23T14:55:04.523491",
   "total_events": 100,
-  "travel_events": 15,
+  "travel_events": 14,
   "events": [
-    {
-      "summary": "Mac Spring Break: Courtyard",
-      "start": "Sunday, March 15",
-      "start_raw": "2026-03-15",
-      "location": "Courtyard by Marriott Santa Barbara Downtown, 1601 State St, Santa Barbara, CA 93101, USA",
-      "description": "<a href=\"https://www.marriott.com/hotels/travel/sbacs-courtyard-santa-barbara-downtown\"><b><h3><b>Courtyard by Marriott Santa Barbara Downtown</b></h3></b></a><br>Confirmation\u00a0#77265901<br><br>Stay Da",
-      "is_travel": false
-    },
     {
       "summary": "The Algonquin Hotel Times Square, Autograph Collection, 95280672",
       "start": "Sunday, March 22",
       "start_raw": "2026-03-22",
       "location": "59 W 44th St, New York, NY, 10036, USA",
       "description": "External Sender.\n\n Hotel (Booked) The Algonquin Hotel Times Square, Autograph Collection 59 W 44th St New York, NY 10036 Phone Number: 1 212 840-6800 Fax: 1 212 944-1419 Check-in: March 22, 2026 Check",
-      "is_travel": true
-    },
-    {
-      "summary": "Delta Air Lines flight 938 to New York (G959VX)",
-      "start": "Sunday, March 22 at 03:35 PM",
-      "start_raw": "2026-03-22T15:35:00-07:00",
-      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
-      "description": "Delta Air Lines flight 938 (5 hours, 17 minutes)\nConfirmation code: G959VX\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 3:35 PM on Sunday, Ma",
       "is_travel": true
     },
     {
@@ -41,14 +25,6 @@
       "start_raw": "2026-03-23",
       "location": "109 29th Avenue North, Nashville, Tennessee 37203, United States",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, March 23 at 07:00 AM",
-      "start_raw": "2026-03-23T07:00:00-07:00",
-      "location": "",
-      "description": "",
       "is_travel": false
     },
     {
@@ -801,6 +777,30 @@
       "start_raw": "2026-06-12T13:30:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, June 12 at 02:00 PM",
+      "start_raw": "2026-06-12T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "John Turner Birthday",
+      "start": "Sunday, June 14 at 12:00 AM",
+      "start_raw": "2026-06-14T00:00:00-07:00",
+      "location": "",
+      "description": "When: Occurs every June 14 effective 6/14/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
+      "is_travel": false
+    },
+    {
+      "summary": "Ken Clapp Birthday",
+      "start": "Monday, June 15 at 12:00 AM",
+      "start_raw": "2026-06-15T00:00:00-07:00",
+      "location": "",
+      "description": "When: Occurs every June 15 effective 6/15/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
       "is_travel": false
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-22T14:39:48.129558",
+  "timestamp": "2026-03-23T14:25:01.723954",
   "results": [
     {
       "status": "healthy",
@@ -10,22 +10,22 @@
     },
     {
       "status": "healthy",
-      "age_days": 0,
-      "message": "\u2705 Whoop API: Healthy (0 days old)",
+      "age_days": 1,
+      "message": "\u2705 Whoop API: Healthy (1 days old)",
       "action_required": false,
       "critical": false
     },
     {
       "status": "healthy",
-      "age_days": 0,
-      "message": "\u2705 Whoop Refresh Token: Healthy (0 days old)",
+      "age_days": 1,
+      "message": "\u2705 Whoop Refresh Token: Healthy (1 days old)",
       "action_required": false,
       "critical": false
     },
     {
       "status": "healthy",
-      "age_days": 26,
-      "message": "\u2705 Gmail SMTP: Healthy (26 days old)",
+      "age_days": 27,
+      "message": "\u2705 Gmail SMTP: Healthy (27 days old)",
       "action_required": false,
       "critical": true
     }

@@ -61,3 +61,149 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to [REDACTED],geoffrey.clapp@progyny.com
 [2026-03-22 21:00:06] ✅ Email sent
 [2026-03-22 21:00:06] Complete
+[2026-03-23 14:00:01] Starting competitive intelligence v2...
+[2026-03-23 14:00:01] Step 1: RSS + Web search...
+[2026-03-23 14:00:01] ======================================================================
+[2026-03-23 14:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-23 14:00:01] ======================================================================
+[2026-03-23 14:00:01] 
+1. Scanning RSS feeds...
+[2026-03-23 14:00:06]    Found 7 new articles from RSS
+[2026-03-23 14:00:06] 
+2. Searching web for competitive news...
+[2026-03-23 14:00:06] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-23 14:00:06]    Found 0 new articles from web search
+[2026-03-23 14:00:06] 
+3. Checking LinkedIn updates...
+[2026-03-23 14:00:06] LinkedIn monitoring: 5 companies configured
+[2026-03-23 14:00:06] Note: LinkedIn API integration required for full functionality
+[2026-03-23 14:00:06]    Found 0 LinkedIn updates
+[2026-03-23 14:00:06] 
+4. Checking job boards...
+[2026-03-23 14:00:06] Job board monitoring: 5 companies
+[2026-03-23 14:00:06]    Found 0 job postings
+[2026-03-23 14:00:06] 
+✅ Total new articles: 7
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 7 NEW SIGNALS
+======================================================================
+🔴 Critical: 1 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Healthcare Startup News] Startup Baba gets $6.5M in seed funding for patient advocate platform featuring humans - Crain's New York Business
+   https://news.google.com/rss/articles/CBMipwFBVV95cUxQVE1idWF6cFhBZkRSR...
+
+🟡 [Healthcare Startup News] Maternal Health Startup Raises $5.7M to Expand Doula Network Nationwide - MedCity News
+   https://news.google.com/rss/articles/CBMic0FVX3lxTE9lcjlTOVZyMlEyYTl5S...
+
+🟡 [Healthcare Startup News] Turquoise Health raises $40M to power healthcare contracts, payments - Fierce Healthcare
+   https://news.google.com/rss/articles/CBMirAFBVV95cUxNX1RQS1VpVEVsdDVJO...
+
+🟡 [FemTech News] Endometrics Wins First Prize in NIH Endometriosis Diagnostics Challenge - Femtech Insider
+   https://news.google.com/rss/articles/CBMioAFBVV95cUxNZGJJY0ZVNVQwV3ZYX...
+
+🟡 [FemTech News] Investing in Femtech - UNICEF
+   https://news.google.com/rss/articles/CBMiYkFVX3lxTE9MNDFQdmo4UVkyRkFGQ...
+
+🟡 [FemTech News] Maven Clinic Introduces Maven Intelligence, an AI Orchestration Layer for Women’s and Family Health - Femtech Insider
+   https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNjBQS3llU05BNFNnM...
+
+🟡 [FemTech News] Menstrual blood for diagnostics, cancer test without radiation: how far femtech innovations have come - LIGA.net
+   https://news.google.com/rss/articles/CBMi5AFBVV95cUxOcHRRQW5CNUJxTnlhT...
+
+======================================================================
+[2026-03-23 14:00:06] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-23 14:00:06] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 57
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-23 14:00:06] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-23 14:00:08] ✅ Email sent
+[2026-03-23 14:00:08] Complete
+[2026-03-23 21:00:01] Starting competitive intelligence v2...
+[2026-03-23 21:00:01] Step 1: RSS + Web search...
+[2026-03-23 21:00:01] ======================================================================
+[2026-03-23 21:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-23 21:00:01] ======================================================================
+[2026-03-23 21:00:01] 
+1. Scanning RSS feeds...
+[2026-03-23 21:00:07]    Found 3 new articles from RSS
+[2026-03-23 21:00:07] 
+2. Searching web for competitive news...
+[2026-03-23 21:00:07] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-23 21:00:07]    Found 0 new articles from web search
+[2026-03-23 21:00:07] 
+3. Checking LinkedIn updates...
+[2026-03-23 21:00:07] LinkedIn monitoring: 5 companies configured
+[2026-03-23 21:00:07] Note: LinkedIn API integration required for full functionality
+[2026-03-23 21:00:07]    Found 0 LinkedIn updates
+[2026-03-23 21:00:07] 
+4. Checking job boards...
+[2026-03-23 21:00:07] Job board monitoring: 5 companies
+[2026-03-23 21:00:07]    Found 0 job postings
+[2026-03-23 21:00:07] 
+✅ Total new articles: 3
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 3 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 1
+======================================================================
+
+🟡 [FemTech News] India's Digital Health Market: Women's Health & NCDs Drive Growth - Whalesbook
+   https://news.google.com/rss/articles/CBMi4AFBVV95cUxNODI4X2ZJVGp6cDhNT...
+
+🟡 [FemTech News] Grove Collaborative Launches “The Unplastic Shop” to Help Reduce Exposure to Endocrine-Disrupting Chemicals - Femtech Insider
+   https://news.google.com/rss/articles/CBMizgFBVV95cUxNWWc0VDZQYkVjbTNDS...
+
+🟡 [FemTech News] Researcher investigates regulatory and ethical challenges in femtech innovation - Medical Xpress
+   https://news.google.com/rss/articles/CBMiekFVX3lxTE5fbHpub1VVckE5MGoxR...
+
+======================================================================
+[2026-03-23 21:00:07] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-23 21:00:07] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 60
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-23 21:00:07] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-23 21:00:09] ✅ Email sent
+[2026-03-23 21:00:09] Complete
