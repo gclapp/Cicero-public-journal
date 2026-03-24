@@ -1,24 +1,8 @@
 {
-  "last_updated": "2026-03-23T14:55:04.523491",
+  "last_updated": "2026-03-24T21:58:00.285842",
   "total_events": 100,
-  "travel_events": 14,
+  "travel_events": 12,
   "events": [
-    {
-      "summary": "The Algonquin Hotel Times Square, Autograph Collection, 95280672",
-      "start": "Sunday, March 22",
-      "start_raw": "2026-03-22",
-      "location": "59 W 44th St, New York, NY, 10036, USA",
-      "description": "External Sender.\n\n Hotel (Booked) The Algonquin Hotel Times Square, Autograph Collection 59 W 44th St New York, NY 10036 Phone Number: 1 212 840-6800 Fax: 1 212 944-1419 Check-in: March 22, 2026 Check",
-      "is_travel": true
-    },
-    {
-      "summary": "Geoffrey Clapp - Fairfield Inn & Suites by Marriott Nashville near Vanderbilt, 72895304",
-      "start": "Monday, March 23",
-      "start_raw": "2026-03-23",
-      "location": "109 29TH AVE N, Nashville, TN, 37203, USA",
-      "description": "External Sender.\n\n Hotel (Booked) Fairfield Inn & Suites by Marriott Nashville near Vanderbilt 109 29TH AVE N Nashville, TN 37203 Phone Number: 1 629 216-2331 Fax: 1 629 216-2341 Check-in: March 23, 2",
-      "is_travel": false
-    },
     {
       "summary": "Stay at Fairfield by Marriott Inn & Suites Nashville Near Vanderbilt",
       "start": "Monday, March 23",
@@ -26,38 +10,6 @@
       "location": "109 29th Avenue North, Nashville, Tennessee 37203, United States",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
-    },
-    {
-      "summary": "Review Auction Email: Odysseus White Gold / Grey / Rubber",
-      "start": "Monday, March 23 at 09:00 AM",
-      "start_raw": "2026-03-23T09:00:00-07:00",
-      "location": "",
-      "description": "Follow up on the email thread: An auction you're following is ending soon | Odysseus White Gold / Grey / Rubber. The auction ends at 9:20am PDT.",
-      "is_travel": false
-    },
-    {
-      "summary": "Follow up on 1984 Day-Date 36 Yellow Gold / Champagne / President auction",
-      "start": "Monday, March 23 at 09:00 AM",
-      "start_raw": "2026-03-23T09:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Delta Air Lines flight 5609 to Nashville (HSKBR4)",
-      "start": "Monday, March 23 at 04:50 PM",
-      "start_raw": "2026-03-23T16:50:00-07:00",
-      "location": "La Guardia Airport (East Elmhurst, New York, NY 11371, United States)",
-      "description": "Delta Air Lines flight 5609 (2 hours, 41 minutes)\nConfirmation code: HSKBR4\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:50 PM on Monday, M",
-      "is_travel": true
-    },
-    {
-      "summary": "Flight to BNA (DL 5609)",
-      "start": "Monday, March 23 at 04:50 PM",
-      "start_raw": "2026-03-23T16:50:00-07:00",
-      "location": "LaGuardia LGA",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
     },
     {
       "summary": "Geoffrey Clapp - Moxy NYC Times Square",
@@ -68,12 +20,44 @@
       "is_travel": true
     },
     {
+      "summary": "Reserved Uber",
+      "start": "Wednesday, March 25 at 01:45 AM",
+      "start_raw": "2026-03-25T01:45:00-07:00",
+      "location": "",
+      "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
+      "is_travel": false
+    },
+    {
       "summary": "Delta Air Lines flight 5642 to New York (HR7K4L)",
       "start": "Wednesday, March 25 at 04:05 AM",
       "start_raw": "2026-03-25T04:05:00-07:00",
       "location": "Nashville Metropolitan Airport (1 Terminal Dr, Nashville, TN 37214, United States)",
       "description": "Delta Air Lines flight 5642 (2 hours, 26 minutes)\nConfirmation code: HR7K4L\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 6:05 AM on Wednesday",
       "is_travel": true
+    },
+    {
+      "summary": "Flight to LGA (DL 5642)",
+      "start": "Wednesday, March 25 at 04:05 AM",
+      "start_raw": "2026-03-25T04:05:00-07:00",
+      "location": "Nashville BNA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Reserved Uber from LGA to PGNY HQ",
+      "start": "Wednesday, March 25 at 06:20 AM",
+      "start_raw": "2026-03-25T06:20:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserve Uber Moxy to JFK",
+      "start": "Thursday, March 26 at 01:15 AM",
+      "start_raw": "2026-03-26T01:15:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
     },
     {
       "summary": "Delta Air Lines flight 742 to Los Angeles (HCTGNK)",
@@ -193,6 +177,22 @@
       "start_raw": "2026-04-03T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at T\u00eda Carmen - Phoenix",
+      "start": "Friday, April 03 at 06:15 PM",
+      "start_raw": "2026-04-03T18:15:00-07:00",
+      "location": "T\u00eda Carmen - Phoenix, 5350 E Marriott Dr, Phoenix, AZ, 85054-6147, United States",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
+      "is_travel": false
+    },
+    {
+      "summary": "Dinner - Hula\u2019s Modern Tiki (NO RESERVATION)",
+      "start": "Saturday, April 04 at 06:00 PM",
+      "start_raw": "2026-04-04T18:00:00-07:00",
+      "location": "HULA'S Modern Tiki High Street, 5450 E High St #101, Phoenix, AZ 85054, USA",
+      "description": "This place looks really fun but doesn\u2019t take reservations. 5 minute drive from hotel. We can always skip if it\u2019s not right on the day",
       "is_travel": false
     },
     {

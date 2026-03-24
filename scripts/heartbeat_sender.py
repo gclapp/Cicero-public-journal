@@ -69,8 +69,34 @@ def get_todoist_count():
     except:
         return "--"
 
+def validate_whoop_token():
+    """Check if Whoop token is valid by making a test API call"""
+    try:
+        import requests
+        token_file = Path.home() / '.whoop_token'
+        if not token_file.exists():
+            return False
+        
+        token = token_file.read_text().strip()
+        headers = {'Authorization': f'Bearer {token}'}
+        
+        response = requests.get(
+            'https://api.prod.whoop.com/developer/v2/recovery',
+            headers=headers,
+            params={'limit': 1},
+            timeout=10
+        )
+        
+        return response.status_code == 200
+    except:
+        return False
+
 def get_whoop_recovery():
-    """Get latest Whoop recovery"""
+    """Get latest Whoop recovery - only if token is valid"""
+    # First check if token is valid
+    if not validate_whoop_token():
+        return None
+    
     whoop_file = Path("/home/ubuntu/.openclaw/workspace/data/whoop/latest-summary.txt")
     if whoop_file.exists():
         try:
@@ -119,15 +145,15 @@ def get_system_status():
         try:
             with open(token_file, 'r') as f:
                 data = json.load(f)
-                for token in data.get('tokens', []):
-                    name = token.get('name', '')
-                    healthy = token.get('healthy', False)
-                    if 'Calendar' in name:
-                        status['calendar'] = '✅ Healthy' if healthy else '❌ Issue'
-                    elif 'Whoop' in name and 'Refresh' not in name:
-                        status['whoop'] = '✅ Healthy' if healthy else '❌ Issue'
-                    elif 'Gmail' in name:
-                        status['email'] = '✅ Healthy' if healthy else '❌ Issue'
+                for result in data.get('results', []):
+                    message = result.get('message', '')
+                    is_healthy = result.get('status') == 'healthy'
+                    if 'Google Calendar' in message:
+                        status['calendar'] = '✅ Healthy' if is_healthy else '❌ Issue'
+                    elif 'Whoop API' in message and 'Refresh' not in message:
+                        status['whoop'] = '✅ Healthy' if is_healthy else '❌ Issue'
+                    elif 'Gmail' in message:
+                        status['email'] = '✅ Healthy' if is_healthy else '❌ Issue'
         except:
             pass
     
@@ -385,16 +411,21 @@ def generate_html_email(checkin_type, pt_now):
     whoop_recovery = get_whoop_recovery()
     latest_weight = get_latest_weight()
     
-    # Whoop status color
-    whoop_color = "#16a34a"  # green
-    whoop_status = "Good"
+    # Whoop status color and display
     if whoop_recovery:
+        whoop_display = f"{whoop_recovery}%"
+        whoop_color = "#16a34a"  # green
+        whoop_status = "Good"
         if whoop_recovery < 50:
             whoop_color = "#dc2626"  # red
             whoop_status = "Low"
         elif whoop_recovery < 70:
             whoop_color = "#ea580c"  # orange
             whoop_status = "Moderate"
+    else:
+        whoop_display = "No data"
+        whoop_color = "#6b7280"  # gray
+        whoop_status = "Unavailable"
     
     # Header based on check-in type
     if checkin_type == "morning":
@@ -505,7 +536,7 @@ def generate_html_email(checkin_type, pt_now):
                 <div class="stat-label">TODOIST TASKS</div>
             </div>
             <div class="stat">
-                <div class="stat-number" style="color: {whoop_color};">{whoop_recovery if whoop_recovery else '--'}%</div>
+                <div class="stat-number" style="color: {whoop_color};">{whoop_display}</div>
                 <div class="stat-label">WHOOP RECOVERY</div>
             </div>
             <div class="stat">
@@ -562,7 +593,7 @@ def generate_html_email(checkin_type, pt_now):
     <div class="section">
         <h2>💓 Health</h2>
         <p><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">https://gclapp.github.io/health-dashboard/</a></p>
-        <p><strong>Whoop:</strong> <span style="color: {whoop_color};">{whoop_recovery}% recovery</span> ({whoop_status})</p>
+        <p><strong>Whoop:</strong> <span style="color: {whoop_color};">{whoop_display} recovery</span> ({whoop_status})</p>
         <p><strong>Latest weight:</strong> {latest_weight if latest_weight else '--'} lbs</p>
     </div>
 '''

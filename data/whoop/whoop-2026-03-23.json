@@ -1,0 +1,22 @@
+{
+  "date": "2026-03-23",
+  "timestamp": "2026-03-24T21:57:05.118752",
+  "recovery": [],
+  "sleep": [
+    {
+      "date": "2026-03-23",
+      "score": 47.0,
+      "total_sleep_time": 13959,
+      "efficiency": 88.729706,
+      "respiratory_rate": 13.925781
+    }
+  ],
+  "workouts": [],
+  "cycles": [
+    {
+      "date": "2026-03-23",
+      "strain": null,
+      "kilojoules": null
+    }
+  ]
+}

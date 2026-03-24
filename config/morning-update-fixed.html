@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 25px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        .location { background: #dbeafe; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; color: #1e40af; }
+        .section { margin: 20px 0; padding: 20px; border-left: 4px solid #3b82f6; background: #f8fafc; }
+        .section h2 { margin-top: 0; color: #1e40af; }
+        .weather { display: flex; justify-content: space-around; background: #f3f4f6; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .weather-city { text-align: center; }
+        .weather-temp { font-size: 24px; font-weight: bold; }
+        .travel-alert { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; }
+        .travel-alert h3 { margin-top: 0; color: #b45309; }
+        .flight { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .flight-time { font-size: 24px; font-weight: bold; color: #1e40af; }
+        .hotel { background: #f0fdf4; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #16a34a; }
+        .stats { display: flex; justify-content: space-around; background: #eff6ff; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 24px; font-weight: bold; color: #1e40af; }
+        .stat-label { font-size: 11px; color: #666; }
+        .week-view { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .day { padding: 10px; border-bottom: 1px solid #e5e7eb; }
+        .day:last-child { border-bottom: none; }
+        .day-date { font-weight: bold; color: #1e40af; }
+        .flight-badge { display: inline-block; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 10px; }
+        .early-flight { background: #fef2f2; color: #dc2626; }
+        .footer { background: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 30px; }
+        a { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>☀️ Good Morning!</h1>
+        <p>Tuesday, March 24, 2026</p>
+    </div>
+
+    <div class="location">
+        📍 New York City, NY — Home
+    </div>
+
+    <div class="weather">
+        <div class="weather-city"><div class="weather-temp">☀️   42°F</div><div>New York</div></div><div class="weather-city"><div class="weather-temp">🌫  79°F</div><div>Los Angeles</div></div>
+    </div>
+
+    <div class="section">
+        <h2>📊 At a Glance</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">50</div>
+                <div class="stat-label">TODOIST TASKS</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: #6b7280;">No data</div>
+                <div class="stat-label">WHOOP RECOVERY</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">237.0</div>
+                <div class="stat-label">LBS</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>This Week</h2>
+        <div class="week-view">
+            <div class="day">
+                <span class="day-date">Tuesday, March 24</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Wednesday, March 25</span><span style="background: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">✈️ FLIGHT</span><span style="background: #16a34a; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🏨 HOTEL</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Thursday, March 26</span><span style="background: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">✈️ FLIGHT</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Friday, March 27</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Saturday, March 28</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Sunday, March 29</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Monday, March 30</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ System Status</h2>
+        <p><strong>Calendar:</strong> ✅ Healthy</p>
+        <p><strong>Whoop:</strong> ✅ Healthy</p>
+        <p><strong>Email:</strong> ✅ Healthy</p>
+        <p><strong>Active Jobs:</strong> Heartbeat, Calendar Sync, Whoop Fetch, Whoop Fetch</p>
+    </div>
+
+    <div class="section">
+        <h2>💓 Health</h2>
+        <p><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">https://gclapp.github.io/health-dashboard/</a></p>
+        <p><strong>Whoop:</strong> <span style="color: #6b7280;">No data recovery</span> (Unavailable)</p>
+        <p><strong>Latest weight:</strong> 237.0 lbs</p>
+    </div>
+
+    <div class="footer">
+        <p>🏛️ Cicero | All systems operational</p>
+        <p>Last updated: March 24, 2026 03:04 PM PT</p>
+    </div>
+</body>
+</html>

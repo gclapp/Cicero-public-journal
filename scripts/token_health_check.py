@@ -42,6 +42,34 @@ TOKENS = {
     }
 }
 
+def validate_whoop_token():
+    """Actually try to use the Whoop token to verify it works"""
+    try:
+        import requests
+        token_file = Path.home() / '.whoop_token'
+        if not token_file.exists():
+            return False, "Token file not found"
+        
+        token = token_file.read_text().strip()
+        headers = {'Authorization': f'Bearer {token}'}
+        
+        # Try to fetch recovery data
+        response = requests.get(
+            'https://api.prod.whoop.com/developer/v2/recovery',
+            headers=headers,
+            params={'limit': 1},
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            return True, "Token valid"
+        elif response.status_code == 401:
+            return False, "Token expired (401)"
+        else:
+            return False, f"API error {response.status_code}"
+    except Exception as e:
+        return False, f"Validation error: {str(e)}"
+
 def check_token_health(token_key):
     """Check health of a specific token"""
     config = TOKENS[token_key]
@@ -59,7 +87,19 @@ def check_token_health(token_key):
     mtime = datetime.fromtimestamp(path.stat().st_mtime)
     age_days = (datetime.now() - mtime).days
     
-    # Check if token needs attention
+    # For Whoop, actually validate the token works
+    if token_key == 'whoop':
+        is_valid, validation_msg = validate_whoop_token()
+        if not is_valid:
+            return {
+                'status': 'invalid',
+                'age_days': age_days,
+                'message': f"🔴 {config['name']}: {validation_msg} — RE-AUTH REQUIRED",
+                'action_required': True,
+                'critical': True  # Upgrade to critical since it's actually broken
+            }
+    
+    # Check if token needs attention based on age
     if age_days > config['alert_threshold_days']:
         return {
             'status': 'stale',

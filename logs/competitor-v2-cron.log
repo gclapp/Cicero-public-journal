@@ -207,3 +207,137 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-03-23 21:00:09] ✅ Email sent
 [2026-03-23 21:00:09] Complete
+[2026-03-24 14:00:01] Starting competitive intelligence v2...
+[2026-03-24 14:00:01] Step 1: RSS + Web search...
+[2026-03-24 14:00:02] ======================================================================
+[2026-03-24 14:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-03-24 14:00:02] ======================================================================
+[2026-03-24 14:00:02] 
+1. Scanning RSS feeds...
+[2026-03-24 14:00:05]    Found 4 new articles from RSS
+[2026-03-24 14:00:05] 
+2. Searching web for competitive news...
+[2026-03-24 14:00:05] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-24 14:00:05]    Found 0 new articles from web search
+[2026-03-24 14:00:05] 
+3. Checking LinkedIn updates...
+[2026-03-24 14:00:05] LinkedIn monitoring: 5 companies configured
+[2026-03-24 14:00:05] Note: LinkedIn API integration required for full functionality
+[2026-03-24 14:00:05]    Found 0 LinkedIn updates
+[2026-03-24 14:00:05] 
+4. Checking job boards...
+[2026-03-24 14:00:05] Job board monitoring: 5 companies
+[2026-03-24 14:00:05]    Found 0 job postings
+[2026-03-24 14:00:05] 
+✅ Total new articles: 4
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 4 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Fertility Benefits News] Carrot Fertility COO on leading a fertility benefits company - Healthcare Brew
+   https://news.google.com/rss/articles/CBMinwFBVV95cUxNNzYyRFBtQzcxLXhuQ...
+
+🟡 [FemTech News] Femtech Market to Reach $26.1 Billion, Globally, by 2033 at 15.2% CAGR: Allied Market Research - Yahoo Finance
+   https://news.google.com/rss/articles/CBMie0FVX3lxTE1iTlRsN1lRRnNpNFhLN...
+
+🟡 [FemTech News] Université Paris Cité, pioneering partner in the launch of the “Femtech Île-de-France’’ Fund - Université Paris Cité
+   https://news.google.com/rss/articles/CBMivAFBVV95cUxPVTEtcm4wSkhkS2tlW...
+
+🟡 [FemTech News] 1337 Ventures names Top 10 FemTech startups for INNO4HER 2026 - Citizens Journal
+   https://news.google.com/rss/articles/CBMiiwFBVV95cUxNMkhncW9JbUhQWm5rb...
+
+======================================================================
+[2026-03-24 14:00:05] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-24 14:00:05] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 64
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-24 14:00:05] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-24 14:00:08] ✅ Email sent
+[2026-03-24 14:00:08] Complete
+[2026-03-24 21:00:01] Starting competitive intelligence v2...
+[2026-03-24 21:00:01] Step 1: RSS + Web search...
+[2026-03-24 21:00:01] ======================================================================
+[2026-03-24 21:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-24 21:00:01] ======================================================================
+[2026-03-24 21:00:01] 
+1. Scanning RSS feeds...
+[2026-03-24 21:00:04]    Found 2 new articles from RSS
+[2026-03-24 21:00:04] 
+2. Searching web for competitive news...
+[2026-03-24 21:00:04] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-24 21:00:04]    Found 0 new articles from web search
+[2026-03-24 21:00:04] 
+3. Checking LinkedIn updates...
+[2026-03-24 21:00:04] LinkedIn monitoring: 5 companies configured
+[2026-03-24 21:00:04] Note: LinkedIn API integration required for full functionality
+[2026-03-24 21:00:04]    Found 0 LinkedIn updates
+[2026-03-24 21:00:04] 
+4. Checking job boards...
+[2026-03-24 21:00:04] Job board monitoring: 5 companies
+[2026-03-24 21:00:04]    Found 0 job postings
+[2026-03-24 21:00:04] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 2 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Healthcare Startup News] Fierce Healthcare Fundraising Tracker '26: Doctronic picks up $40M; Latent Health closes $80M series A - Fierce Healthcare
+   https://news.google.com/rss/articles/CBMijgFBVV95cUxQaFJTdWtYZzBuMHVUL...
+
+🔴 [Healthcare Startup News] The Week’s 10 Biggest Funding Rounds: Space Tech, AI Infrastructure Lead Fundraises - Crunchbase News
+   https://news.google.com/rss/articles/CBMijgFBVV95cUxNbU82c0pESnljWEE0Q...
+
+======================================================================
+[2026-03-24 21:00:04] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-24 21:00:05] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 66
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-24 21:00:05] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-24 21:00:06] ✅ Email sent
+[2026-03-24 21:00:06] Complete
