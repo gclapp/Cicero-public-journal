@@ -341,3 +341,143 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-03-24 21:00:06] ✅ Email sent
 [2026-03-24 21:00:06] Complete
+[2026-03-25 14:00:01] Starting competitive intelligence v2...
+[2026-03-25 14:00:01] Step 1: RSS + Web search...
+[2026-03-25 14:00:01] ======================================================================
+[2026-03-25 14:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-25 14:00:01] ======================================================================
+[2026-03-25 14:00:01] 
+1. Scanning RSS feeds...
+[2026-03-25 14:00:05]    Found 5 new articles from RSS
+[2026-03-25 14:00:05] 
+2. Searching web for competitive news...
+[2026-03-25 14:00:05] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-25 14:00:05]    Found 0 new articles from web search
+[2026-03-25 14:00:05] 
+3. Checking LinkedIn updates...
+[2026-03-25 14:00:05] LinkedIn monitoring: 5 companies configured
+[2026-03-25 14:00:05] Note: LinkedIn API integration required for full functionality
+[2026-03-25 14:00:05]    Found 0 LinkedIn updates
+[2026-03-25 14:00:05] 
+4. Checking job boards...
+[2026-03-25 14:00:05] Job board monitoring: 5 companies
+[2026-03-25 14:00:05]    Found 0 job postings
+[2026-03-25 14:00:05] 
+✅ Total new articles: 5
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 5 NEW SIGNALS
+======================================================================
+🔴 Critical: 2 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Healthcare Startup News] Nutrition startup Fullife Healthcare raises Rs 300-Cr in funding to fuel global expansion - Business Review Live
+   https://news.google.com/rss/articles/CBMivgFBVV95cUxQazFaR3JTZ0gxU3lxa...
+
+🔴 [Healthcare Startup News] Somerset Indus closes $288 mn fund, eyes larger healthcare investments - Business Standard
+   https://news.google.com/rss/articles/CBMizgFBVV95cUxOR1czbU9YcjVEUGY1V...
+
+🟠 [Fertility Benefits News] Progyny Inc stock faces uncertainty amid fertility benefits sector shifts and biotech peer pressures - AD HOC NEWS
+   https://news.google.com/rss/articles/CBMixgFBVV95cUxPMlN0ZEJtU1dTdzdRS...
+
+🟡 [Healthcare Startup News] Doctronic raises $40 million as race to apply AI in clinical care heats up - statnews.com
+   https://news.google.com/rss/articles/CBMiigFBVV95cUxNTUtEQ3pnYmx1alNxM...
+
+🟡 [FemTech News] Maven Clinic Returns to its Roots with Direct-to-Consumer Platform - Femtech Insider
+   https://news.google.com/rss/articles/CBMimgFBVV95cUxQajBzRVA5SE1CbkwyM...
+
+======================================================================
+[2026-03-25 14:00:05] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-25 14:00:05] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 71
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-25 14:00:05] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-25 14:00:08] ✅ Email sent
+[2026-03-25 14:00:08] Complete
+[2026-03-25 21:00:01] Starting competitive intelligence v2...
+[2026-03-25 21:00:01] Step 1: RSS + Web search...
+[2026-03-25 21:00:01] ======================================================================
+[2026-03-25 21:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-25 21:00:01] ======================================================================
+[2026-03-25 21:00:01] 
+1. Scanning RSS feeds...
+[2026-03-25 21:00:05]    Found 3 new articles from RSS
+[2026-03-25 21:00:05] 
+2. Searching web for competitive news...
+[2026-03-25 21:00:05] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-25 21:00:05]    Found 0 new articles from web search
+[2026-03-25 21:00:05] 
+3. Checking LinkedIn updates...
+[2026-03-25 21:00:05] LinkedIn monitoring: 5 companies configured
+[2026-03-25 21:00:05] Note: LinkedIn API integration required for full functionality
+[2026-03-25 21:00:05]    Found 0 LinkedIn updates
+[2026-03-25 21:00:05] 
+4. Checking job boards...
+[2026-03-25 21:00:05] Job board monitoring: 5 companies
+[2026-03-25 21:00:05]    Found 0 job postings
+[2026-03-25 21:00:05] 
+✅ Total new articles: 3
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 3 NEW SIGNALS
+======================================================================
+🔴 Critical: 1 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Healthcare Startup News] Qualified Health locks in $125M in fresh funding to scale enterprise AI at health systems - Fierce Healthcare
+   https://news.google.com/rss/articles/CBMivwFBVV95cUxPMllocW1jY3RTcUo5a...
+
+🟡 [Healthcare Startup News] Free Grants and Programs for Small Business - U.S. Chamber of Commerce
+   https://news.google.com/rss/articles/CBMijwFBVV95cUxPd1JjTnpZT2h6QW9CV...
+
+🟡 [FemTech News] Bonafide Health Launches Noctera, a Hormone-Free Sleep Supplement for Menopausal Women - Femtech Insider
+   https://news.google.com/rss/articles/CBMiswFBVV95cUxNWnZuUlVQcE5iYm5tQ...
+
+======================================================================
+[2026-03-25 21:00:05] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-25 21:00:05] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 74
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-25 21:00:05] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-25 21:00:08] ✅ Email sent
+[2026-03-25 21:00:08] Complete
