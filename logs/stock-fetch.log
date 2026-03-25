@@ -304,3 +304,54 @@ Detailed summary:
    ├─ Today: +13.90 (+0.00%)
    └─ 30-Day: -1.49% (6d history)
 
+Fetching stock data with 30-day history...
+✅ PGNY: $18.05 (30d: +1.01%)
+✅ AAPL: $251.64 (30d: +0.68%)
+✅ NVDA: $175.20 (30d: -2.88%)
+✅ OMDA: $13.40 (30d: -5.03%)
+✅ S&P 500: 6,556.37 (+0.00%)
+✅ Dow Jones: 46,124.06 (+0.00%)
+
+==================================================
+Stock summary for check-in:
+==================================================
+📈 **Markets (30-Day View)**
+
+**Indices:**
+🟢 S&P 500: 6,556.37 (+0.00% today)
+🟢 Dow Jones: 46,124.06 (+0.00% today)
+
+**Your Watchlist (30-Day Change):**
+🟢 **PGNY:** $18.05 (+1.01% / 7d)
+🟢 AAPL: $251.64 (+0.68% / 7d)
+🔴 NVDA: $175.20 (-2.88% / 7d)
+🔴 OMDA: $13.40 (-5.03% / 7d)
+
+
+==================================================
+Detailed summary:
+==================================================
+📈 **Stock Market Update**
+
+**Market Indices:**
+🟢 S&P 500: 6,556.37 (+6556.37, +0.00% today)
+🟢 Dow Jones: 46,124.06 (+46124.06, +0.00% today)
+
+**Watchlist (30-Day Rolling):**
+
+🟢 **PGNY:** $18.05
+   ├─ Today: +18.05 (+0.00%)
+   └─ 30-Day: +1.01% (7d history)
+
+🟢 **AAPL:** $251.64
+   ├─ Today: +251.64 (+0.00%)
+   └─ 30-Day: +0.68% (7d history)
+
+🔴 **NVDA:** $175.20
+   ├─ Today: +175.20 (+0.00%)
+   └─ 30-Day: -2.88% (7d history)
+
+🔴 **OMDA:** $13.40
+   ├─ Today: +13.40 (+0.00%)
+   └─ 30-Day: -5.03% (7d history)
+
