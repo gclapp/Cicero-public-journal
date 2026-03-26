@@ -481,3 +481,137 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-03-25 21:00:08] ✅ Email sent
 [2026-03-25 21:00:08] Complete
+[2026-03-26 14:00:01] Starting competitive intelligence v2...
+[2026-03-26 14:00:01] Step 1: RSS + Web search...
+[2026-03-26 14:00:02] ======================================================================
+[2026-03-26 14:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-03-26 14:00:02] ======================================================================
+[2026-03-26 14:00:02] 
+1. Scanning RSS feeds...
+[2026-03-26 14:00:06]    Found 2 new articles from RSS
+[2026-03-26 14:00:06] 
+2. Searching web for competitive news...
+[2026-03-26 14:00:06] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-26 14:00:06]    Found 0 new articles from web search
+[2026-03-26 14:00:06] 
+3. Checking LinkedIn updates...
+[2026-03-26 14:00:06] LinkedIn monitoring: 5 companies configured
+[2026-03-26 14:00:06] Note: LinkedIn API integration required for full functionality
+[2026-03-26 14:00:06]    Found 0 LinkedIn updates
+[2026-03-26 14:00:06] 
+4. Checking job boards...
+[2026-03-26 14:00:06] Job board monitoring: 5 companies
+[2026-03-26 14:00:06]    Found 0 job postings
+[2026-03-26 14:00:06] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 1 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🔴 [FemTech News] Arizona Femtech Startup Prickly Pear Health Expands Pre-Seed Funding to more than $600K With Investment From Emmeline Ventures - PR Newswire
+   https://news.google.com/rss/articles/CBMijgJBVV95cUxNOWxzcmd3bktHQ1k2c...
+
+🟠 [Healthcare Startup News] Buzzy AI doctor startup raises funds, will meet FDA - statnews.com
+   https://news.google.com/rss/articles/CBMihgFBVV95cUxPNlZkQ2hXSG1yX2thb...
+
+======================================================================
+[2026-03-26 14:00:06] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-26 14:00:06] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 76
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-26 14:00:06] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-26 14:00:08] ✅ Email sent
+[2026-03-26 14:00:08] Complete
+[2026-03-26 21:00:01] Starting competitive intelligence v2...
+[2026-03-26 21:00:01] Step 1: RSS + Web search...
+[2026-03-26 21:00:01] ======================================================================
+[2026-03-26 21:00:01] Starting Enhanced Competitive Intelligence Scan
+[2026-03-26 21:00:01] ======================================================================
+[2026-03-26 21:00:01] 
+1. Scanning RSS feeds...
+[2026-03-26 21:00:08]    Found 4 new articles from RSS
+[2026-03-26 21:00:08] 
+2. Searching web for competitive news...
+[2026-03-26 21:00:08] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-03-26 21:00:08]    Found 0 new articles from web search
+[2026-03-26 21:00:08] 
+3. Checking LinkedIn updates...
+[2026-03-26 21:00:08] LinkedIn monitoring: 5 companies configured
+[2026-03-26 21:00:08] Note: LinkedIn API integration required for full functionality
+[2026-03-26 21:00:08]    Found 0 LinkedIn updates
+[2026-03-26 21:00:08] 
+4. Checking job boards...
+[2026-03-26 21:00:08] Job board monitoring: 5 companies
+[2026-03-26 21:00:08]    Found 0 job postings
+[2026-03-26 21:00:08] 
+✅ Total new articles: 4
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 4 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 1
+======================================================================
+
+🟡 [FemTech News] Femtech World Awards announces deadline extension - FemTech World
+   https://news.google.com/rss/articles/CBMijwFBVV95cUxPa051LVhqNlh0elp5X...
+
+🟡 [Healthcare Startup News] Tom Brady’s eMed Health Startup Scores $2 Billion Valuation - PYMNTS.com
+   https://news.google.com/rss/articles/CBMirwFBVV95cUxOUkEtX3JhcjNUbUo1T...
+
+🟡 [Healthcare Startup News] Boston healthcare startup Clasp raises $20M to double staff, expand retention model - The Business Journals
+   https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNGR3Y2syUWFwY3Npc...
+
+🟡 [Healthcare Startup News] Midtown startup raises $41M for behavioral health provider AI tool - Crain's New York Business
+   https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUEdWY1d5eFFuOW5lS...
+
+======================================================================
+[2026-03-26 21:00:08] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 0 updates
+   Carrot: 0 updates
+   KindBody: 0 updates
+   WIN Fertility: 0 updates
+
+2. Searching for executive job changes...
+   Found 0 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-03-26 21:00:08] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 80
+   LinkedIn updates: 30
+   Executive summary: 1034 chars
+[2026-03-26 21:00:09] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-26 21:00:10] ✅ Email sent
+[2026-03-26 21:00:10] Complete

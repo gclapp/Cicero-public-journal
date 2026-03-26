@@ -1,24 +1,8 @@
 {
-  "last_updated": "2026-03-25T14:55:03.897850",
+  "last_updated": "2026-03-26T14:55:04.366934",
   "total_events": 100,
   "travel_events": 11,
   "events": [
-    {
-      "summary": "Stay at Fairfield by Marriott Inn & Suites Nashville Near Vanderbilt",
-      "start": "Monday, March 23",
-      "start_raw": "2026-03-23",
-      "location": "109 29th Avenue North, Nashville, Tennessee 37203, United States",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Stay at Fairfield by Marriott Inn & Suites Nashville Near Vanderbilt",
-      "start": "Tuesday, March 24",
-      "start_raw": "2026-03-24",
-      "location": "109 29th Avenue North, Nashville, Tennessee 37203, United States",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
     {
       "summary": "Geoffrey Clapp - Moxy NYC Times Square",
       "start": "Wednesday, March 25",
@@ -26,14 +10,6 @@
       "location": "485 7th Avenue, New York, NY, 10018, USA",
       "description": "External Sender.\n\n Hotel (Booked) Moxy NYC Times Square 485 7th Avenue New York, NY 10018 Phone Number: 1 212 967-6699 Fax: 1 212 784-9081 Check-in: March 25, 2026 Check-out: March 26, 2026 # of night",
       "is_travel": true
-    },
-    {
-      "summary": "Reserve Uber Moxy to JFK",
-      "start": "Thursday, March 26 at 01:15 AM",
-      "start_raw": "2026-03-26T01:15:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
     },
     {
       "summary": "Delta Air Lines flight 742 to Los Angeles (HCTGNK)",
@@ -799,6 +775,30 @@
       "summary": "Pick up Sophie from School",
       "start": "Thursday, June 18 at 01:30 PM",
       "start_raw": "2026-06-18T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, June 18 at 02:00 PM",
+      "start_raw": "2026-06-18T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, June 19 at 01:30 PM",
+      "start_raw": "2026-06-19T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, June 19 at 02:00 PM",
+      "start_raw": "2026-06-19T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
