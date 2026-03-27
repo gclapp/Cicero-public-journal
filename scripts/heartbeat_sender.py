@@ -91,6 +91,28 @@ def validate_whoop_token():
     except:
         return False
 
+def run_token_health_check():
+    """Run token health check and return summary"""
+    try:
+        result = subprocess.run(
+            ['python3', '/home/ubuntu/.openclaw/workspace/scripts/token_health_check.py'],
+            capture_output=True, text=True, timeout=30
+        )
+        # Parse the output for critical issues
+        output = result.stdout
+        
+        critical_count = output.count('🔴')
+        warning_count = output.count('🟡')
+        
+        if critical_count > 0:
+            return f"🔴 {critical_count} critical token issues"
+        elif warning_count > 0:
+            return f"🟡 {warning_count} token warnings"
+        else:
+            return "✅ All tokens healthy"
+    except Exception as e:
+        return f"⚠️ Token check failed: {str(e)}"
+
 def get_whoop_recovery():
     """Get latest Whoop recovery - only if token is valid"""
     # First check if token is valid
@@ -573,6 +595,17 @@ def generate_html_email(checkin_type, pt_now):
             </div>
 '''
     html += '''        </div>
+    </div>
+'''
+    
+    # Token Health section (NEW - mandatory)
+    token_health = run_token_health_check()
+    token_color = "#16a34a" if "✅" in token_health else "#dc2626" if "🔴" in token_health else "#ea580c"
+    html += f'''
+    <div class="section">
+        <h2>🔐 Token Health</h2>
+        <p style="color: {token_color}; font-weight: bold;">{token_health}</p>
+        <p style="font-size: 12px; color: #666;">Monitored: Google Calendar, Google Docs, Whoop API, Gmail SMTP</p>
     </div>
 '''
     

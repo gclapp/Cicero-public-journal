@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-03-27T23:21:55.986285",
+  "results": [
+    {
+      "name": "Google Calendar",
+      "status": "refreshed",
+      "message": "\u2705 Google Calendar: Auto-refreshed (Auto-refreshed successfully)",
+      "action_required": false,
+      "critical": true,
+      "auto_refreshed": true,
+      "age_days": 0
+    },
+    {
+      "name": "Google Docs",
+      "status": "stale",
+      "message": "\u26a0\ufe0f Google Docs: 17 days old",
+      "action_required": true,
+      "critical": true,
+      "auto_refreshed": false,
+      "age_days": 17,
+      "refresh_failed": "Refresh failed: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
+    },
+    {
+      "name": "Whoop API",
+      "status": "healthy",
+      "message": "\u2705 Whoop API: Healthy (5 days)",
+      "action_required": false,
+      "critical": true,
+      "auto_refreshed": false,
+      "age_days": 5,
+      "refresh_failed": "API error 400: {\"error\":\"invalid_request\",\"error_description\":\"The request is missing a required parameter, include"
+    },
+    {
+      "name": "Gmail SMTP",
+      "status": "healthy",
+      "message": "\u2705 Gmail SMTP: Healthy (31 days)",
+      "action_required": false,
+      "critical": true,
+      "auto_refreshed": false,
+      "age_days": 31
+    }
+  ],
+  "refreshed_count": 1,
+  "critical_count": 1
+}

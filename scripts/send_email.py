@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Gmail SMTP Email Sender
-Usage: python3 send_email.py --to "recipient@example.com" --subject "Subject" --body "Body text" [--html]
+Gmail SMTP Email Sender - Auto-converts markdown to HTML
+Usage: python3 send_email.py --to "recipient@example.com" --subject "Subject" --body "Body text"
+
+ALWAYS sends HTML (markdown auto-converted). Use --plain for plain text only.
 """
 
 import os
@@ -9,6 +11,7 @@ import sys
 import argparse
 import smtplib
 import json
+import re
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
@@ -40,6 +43,176 @@ def setup_app_password(password):
     save_config(config)
     print(f"✅ App password saved to {CONFIG_PATH}")
 
+def markdown_to_html(text):
+    """Convert markdown to HTML"""
+    html = text
+    
+    # Escape HTML entities first
+    html = html.replace('&', '&amp;')
+    html = html.replace('<', '&lt;')
+    html = html.replace('>', '&gt;')
+    
+    # Headers (h1-h6)
+    html = re.sub(r'^###### (.+)$', r'<h6>\1</h6>', html, flags=re.MULTILINE)
+    html = re.sub(r'^##### (.+)$', r'<h5>\1</h5>', html, flags=re.MULTILINE)
+    html = re.sub(r'^#### (.+)$', r'<h4>\1</h4>', html, flags=re.MULTILINE)
+    html = re.sub(r'^### (.+)$', r'<h3>\1</h3>', html, flags=re.MULTILINE)
+    html = re.sub(r'^## (.+)$', r'<h2>\1</h2>', html, flags=re.MULTILINE)
+    html = re.sub(r'^# (.+)$', r'<h1>\1</h1>', html, flags=re.MULTILINE)
+    
+    # Bold and italic
+    html = re.sub(r'\*\*\*(.+?)\*\*\*', r'<strong><em>\1</em></strong>', html)
+    html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', html)
+    html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', html)
+    html = re.sub(r'_(.+?)_', r'<em>\1</em>', html)
+    
+    # Code inline
+    html = re.sub(r'`([^`]+)`', r'<code>\1</code>', html)
+    
+    # Code blocks
+    html = re.sub(r'```(\w+)?\n(.*?)```', r'<pre><code>\2</code></pre>', html, flags=re.DOTALL)
+    
+    # Links [text](url)
+    html = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2">\1</a>', html)
+    
+    # Images ![alt](url)
+    html = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" />', html)
+    
+    # Horizontal rules
+    html = re.sub(r'^---+$', r'<hr>', html, flags=re.MULTILINE)
+    html = re.sub(r'^\*\*\*+$', r'<hr>', html, flags=re.MULTILINE)
+    
+    # Blockquotes
+    lines = html.split('\n')
+    in_quote = False
+    result = []
+    for line in lines:
+        if line.startswith('&gt; '):
+            if not in_quote:
+                result.append('<blockquote>')
+                in_quote = True
+            result.append(line[5:])
+        else:
+            if in_quote:
+                result.append('</blockquote>')
+                in_quote = False
+            result.append(line)
+    if in_quote:
+        result.append('</blockquote>')
+    html = '\n'.join(result)
+    
+    # Lists
+    lines = html.split('\n')
+    in_ul = False
+    in_ol = False
+    result = []
+    for line in lines:
+        ul_match = re.match(r'^[\*\-\+] (.+)$', line)
+        ol_match = re.match(r'^\d+\. (.+)$', line)
+        
+        if ul_match:
+            if not in_ul:
+                result.append('<ul>')
+                in_ul = True
+            if in_ol:
+                result.append('</ol>')
+                in_ol = False
+            result.append(f'<li>{ul_match.group(1)}</li>')
+        elif ol_match:
+            if not in_ol:
+                result.append('<ol>')
+                in_ol = True
+            if in_ul:
+                result.append('</ul>')
+                in_ul = False
+            result.append(f'<li>{ol_match.group(1)}</li>')
+        else:
+            if in_ul:
+                result.append('</ul>')
+                in_ul = False
+            if in_ol:
+                result.append('</ol>')
+                in_ol = False
+            result.append(line)
+    
+    if in_ul:
+        result.append('</ul>')
+    if in_ol:
+        result.append('</ol>')
+    html = '\n'.join(result)
+    
+    # Tables (simple format)
+    lines = html.split('\n')
+    in_table = False
+    result = []
+    header_row = False
+    
+    for i, line in enumerate(lines):
+        if '|' in line and not in_table:
+            # Check if next line is separator
+            if i + 1 < len(lines) and re.match(r'^[\|\-\:\s]+$', lines[i + 1]):
+                in_table = True
+                header_row = True
+                result.append('<table>')
+                result.append('<thead>')
+                cells = [c.strip() for c in line.split('|') if c.strip()]
+                result.append('<tr>' + ''.join(f'<th>{c}</th>' for c in cells) + '</tr>')
+                result.append('</thead>')
+                result.append('<tbody>')
+            else:
+                result.append(line)
+        elif in_table and '|' in line:
+            if re.match(r'^[\|\-\:\s]+$', line):
+                continue  # Skip separator line
+            cells = [c.strip() for c in line.split('|') if c.strip()]
+            if cells:
+                result.append('<tr>' + ''.join(f'<td>{c}</td>' for c in cells) + '</tr>')
+        elif in_table and '|' not in line:
+            in_table = False
+            result.append('</tbody>')
+            result.append('</table>')
+            result.append(line)
+        else:
+            result.append(line)
+    
+    if in_table:
+        result.append('</tbody>')
+        result.append('</table>')
+    html = '\n'.join(result)
+    
+    # Paragraphs (wrap non-tag lines)
+    lines = html.split('\n')
+    result = []
+    in_para = False
+    
+    for line in lines:
+        stripped = line.strip()
+        if not stripped:
+            if in_para:
+                result.append('</p>')
+                in_para = False
+            result.append('')
+        elif stripped.startswith('<') and stripped.endswith('>'):
+            if in_para:
+                result.append('</p>')
+                in_para = False
+            result.append(line)
+        else:
+            if not in_para:
+                result.append('<p>')
+                in_para = True
+            result.append(line)
+    
+    if in_para:
+        result.append('</p>')
+    
+    html = '\n'.join(result)
+    
+    # Line breaks within paragraphs
+    html = re.sub(r'<p>(.+?)\n(.+?)</p>', r'<p>\1<br>\2</p>', html, flags=re.DOTALL)
+    
+    return html
+
 def send_email(to, subject, body, html=False, cc=None):
     """Send email via Gmail SMTP"""
     config = load_config()
@@ -61,9 +234,38 @@ def send_email(to, subject, body, html=False, cc=None):
         msg['Cc'] = cc
         to = [to] + cc.split(',')
     
-    # Attach body
-    content_type = 'html' if html else 'plain'
-    msg.attach(MIMEText(body, content_type))
+    # Convert markdown to HTML if not already HTML
+    if html:
+        # Check if body already looks like HTML
+        if '<html>' in body or '<body>' in body or '<p>' in body:
+            html_body = body
+        else:
+            # Convert markdown to HTML
+            html_body = markdown_to_html(body)
+            # Wrap in basic HTML structure
+            html_body = f'''<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {{ font-family: Georgia, serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; padding: 20px; }}
+h1 {{ color: #1a1a1a; }}
+h2 {{ color: #2a2a2a; border-bottom: 2px solid #eee; padding-bottom: 10px; }}
+h3 {{ color: #3a3a3a; }}
+table {{ border-collapse: collapse; width: 100%; margin: 20px 0; }}
+th, td {{ padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }}
+th {{ background: #f5f5f5; }}
+code {{ background: #f5f5f5; padding: 2px 6px; border-radius: 3px; }}
+pre {{ background: #f5f5f5; padding: 15px; overflow-x: auto; }}
+blockquote {{ border-left: 4px solid #ddd; padding-left: 20px; color: #666; }}
+</style>
+</head>
+<body>
+{html_body}
+</body>
+</html>'''
+        msg.attach(MIMEText(html_body, 'html'))
+    else:
+        msg.attach(MIMEText(body, 'plain'))
     
     # Send via SMTP
     try:
@@ -78,14 +280,14 @@ def send_email(to, subject, body, html=False, cc=None):
         return False
 
 def main():
-    parser = argparse.ArgumentParser(description='Send email via Gmail')
+    parser = argparse.ArgumentParser(description='Send email via Gmail (HTML by default)')
     parser.add_argument('--setup', metavar='PASSWORD', help='Set up Gmail app password')
     parser.add_argument('--to', help='Recipient email address')
     parser.add_argument('--subject', help='Email subject')
     parser.add_argument('--body', help='Email body')
     parser.add_argument('--body-file', help='Read body from file')
-    parser.add_argument('--html', action='store_true', default=True, help='Send as HTML (default)')
-    parser.add_argument('--plain', action='store_true', help='Send as plain text')
+    parser.add_argument('--html', action='store_true', default=True, help='Send as HTML (default, auto-converts markdown)')
+    parser.add_argument('--plain', action='store_true', help='Send as plain text (no conversion)')
     parser.add_argument('--cc', help='CC recipients (comma-separated)')
     
     args = parser.parse_args()
@@ -108,7 +310,7 @@ def main():
         print("❌ Error: Must provide --body or --body-file")
         sys.exit(1)
     
-    # Default to HTML unless --plain is specified
+    # Default to HTML with markdown conversion unless --plain specified
     is_html = not args.plain
     send_email(args.to, args.subject, body, html=is_html, cc=args.cc)
 

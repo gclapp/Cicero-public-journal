@@ -19,6 +19,13 @@ TOKENS = {
         'auto_refresh': True,
         'critical': True
     },
+    'gdocs': {
+        'path': Path.home() / '.openclaw' / 'credentials' / 'gdocs-token.pickle',
+        'name': 'Google Docs',
+        'alert_threshold_days': 6,
+        'auto_refresh': True,
+        'critical': True
+    },
     'whoop': {
         'path': Path.home() / '.whoop_token',
         'name': 'Whoop API',
@@ -41,6 +48,36 @@ TOKENS = {
         'critical': True
     }
 }
+
+def validate_gdocs_token():
+    """Check if Google Docs token can be refreshed"""
+    try:
+        import pickle
+        from google.auth.transport.requests import Request
+        
+        token_path = Path.home() / '.openclaw' / 'credentials' / 'gdocs-token.pickle'
+        if not token_path.exists():
+            return False
+        
+        with open(token_path, 'rb') as f:
+            creds = pickle.load(f)
+        
+        if creds.valid:
+            return True
+        
+        if creds.expired and creds.refresh_token:
+            try:
+                creds.refresh(Request())
+                # Save refreshed token
+                with open(token_path, 'wb') as f:
+                    pickle.dump(creds, f)
+                return True
+            except Exception:
+                return False
+        
+        return False
+    except Exception:
+        return False
 
 def validate_whoop_token():
     """Actually try to use the Whoop token to verify it works"""
@@ -97,6 +134,18 @@ def check_token_health(token_key):
                 'message': f"🔴 {config['name']}: {validation_msg} — RE-AUTH REQUIRED",
                 'action_required': True,
                 'critical': True  # Upgrade to critical since it's actually broken
+            }
+    
+    # For Google Docs, check if token can be refreshed
+    if token_key == 'gdocs':
+        can_refresh = validate_gdocs_token()
+        if not can_refresh:
+            return {
+                'status': 'invalid',
+                'age_days': age_days,
+                'message': f"🔴 {config['name']}: Token expired and cannot refresh — RE-AUTH REQUIRED",
+                'action_required': True,
+                'critical': True
             }
     
     # Check if token needs attention based on age

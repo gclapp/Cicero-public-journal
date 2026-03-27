@@ -1,48 +1,8 @@
 {
-  "last_updated": "2026-03-26T14:55:04.366934",
-  "total_events": 100,
-  "travel_events": 11,
+  "last_updated": "2026-03-27T14:55:04.353109",
+  "total_events": 98,
+  "travel_events": 8,
   "events": [
-    {
-      "summary": "Geoffrey Clapp - Moxy NYC Times Square",
-      "start": "Wednesday, March 25",
-      "start_raw": "2026-03-25",
-      "location": "485 7th Avenue, New York, NY, 10018, USA",
-      "description": "External Sender.\n\n Hotel (Booked) Moxy NYC Times Square 485 7th Avenue New York, NY 10018 Phone Number: 1 212 967-6699 Fax: 1 212 784-9081 Check-in: March 25, 2026 Check-out: March 26, 2026 # of night",
-      "is_travel": true
-    },
-    {
-      "summary": "Delta Air Lines flight 742 to Los Angeles (HCTGNK)",
-      "start": "Thursday, March 26 at 04:00 AM",
-      "start_raw": "2026-03-26T04:00:00-07:00",
-      "location": "John F. Kennedy International Airport (New York, NY 11430, United States)",
-      "description": "Delta Air Lines flight 742 (6 hours, 18 minutes)\nConfirmation code: HCTGNK\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:00 AM on Thursday, March 26, 2026 from New York",
-      "is_travel": true
-    },
-    {
-      "summary": "Flight to LAX (DL 742)",
-      "start": "Thursday, March 26 at 04:00 AM",
-      "start_raw": "2026-03-26T04:00:00-07:00",
-      "location": "Kennedy Intl JFK",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, March 26 at 01:30 PM",
-      "start_raw": "2026-03-26T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, March 26 at 02:00 PM",
-      "start_raw": "2026-03-26T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
     {
       "summary": "Grace\u2019s Parents Visit",
       "start": "Thursday, March 26 at 05:00 PM",
@@ -800,6 +760,30 @@
       "start": "Friday, June 19 at 02:00 PM",
       "start_raw": "2026-06-19T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Veronica Tan's birthday",
+      "start": "Sunday, June 21",
+      "start_raw": "2026-06-21",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Veronica Birthday",
+      "start": "Sunday, June 21",
+      "start_raw": "2026-06-21",
+      "location": "",
+      "description": " ",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, June 22 at 07:00 AM",
+      "start_raw": "2026-06-22T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     }
