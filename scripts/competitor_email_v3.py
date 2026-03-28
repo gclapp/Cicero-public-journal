@@ -67,6 +67,45 @@ def get_company_from_article(article):
     
     return 'General'
 
+def generate_trend_summary(critical, high, medium, reddit_posts, progyny_mentions):
+    """Generate executive summary of key trends"""
+    summary_parts = []
+    
+    total_signals = len(critical) + len(high) + len(medium)
+    
+    # Signal count summary
+    if total_signals == 0:
+        summary_parts.append("No new competitive signals in the last 24 hours.")
+    else:
+        summary_parts.append(f"{total_signals} new signals detected: {len(critical)} critical, {len(high)} high priority, {len(medium)} medium priority.")
+    
+    # Reddit activity
+    if reddit_posts:
+        summary_parts.append(f"Reddit monitoring shows {len(reddit_posts)} relevant discussions across fertility communities.")
+    
+    # Progyny mentions
+    if progyny_mentions:
+        summary_parts.append(f"Progyny mentioned {len(progyny_mentions)} times — monitor brand sentiment.")
+    
+    # Key themes from critical/high
+    themes = []
+    for article in critical + high:
+        title = article.get('title', '').lower()
+        if 'funding' in title or 'raised' in title:
+            themes.append("funding activity")
+        elif 'ai' in title or 'artificial intelligence' in title:
+            themes.append("AI investments")
+        elif 'partnership' in title:
+            themes.append("strategic partnerships")
+        elif 'acquisition' in title:
+            themes.append("M&A activity")
+    
+    if themes:
+        unique_themes = list(set(themes))[:2]
+        summary_parts.append(f"Key themes: {', '.join(unique_themes)}.")
+    
+    return " ".join(summary_parts) if summary_parts else "Monitoring active. No significant developments."
+
 def generate_importance_summary(article):
     """Generate 'why it matters' summary"""
     title = article.get('title', '').lower()
@@ -164,6 +203,10 @@ def generate_html_email():
     
     today_str = datetime.now().strftime('%A, %B %d, %Y')
     
+    # Generate executive summary
+    total_signals = len(critical) + len(high) + len(medium)
+    trend_summary = generate_trend_summary(critical, high, medium, reddit_posts, progyny_mentions)
+    
     html = f"""<!DOCTYPE html>
 <html>
 <head>
@@ -175,6 +218,12 @@ def generate_html_email():
         .header {{ border-bottom: 2px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 30px; }}
         .header h1 {{ margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }}
         .header p {{ margin: 8px 0 0 0; color: #666; font-size: 14px; }}
+        
+        .exec-summary {{ background: #f8f9fa; padding: 20px; margin: 20px 0; 
+                       border-left: 4px solid #1a1a1a; border-radius: 0 4px 4px 0; }}
+        .exec-summary h2 {{ margin: 0 0 12px 0; font-size: 14px; font-weight: 600; 
+                           text-transform: uppercase; letter-spacing: 0.5px; color: #333; }}
+        .exec-summary p {{ margin: 0; font-size: 14px; line-height: 1.6; color: #444; }}
         
         .section-title {{ font-size: 12px; font-weight: 600; text-transform: uppercase; 
                          letter-spacing: 1px; color: #666; margin: 30px 0 15px 0;
@@ -230,6 +279,11 @@ def generate_html_email():
         <div class="header">
             <h1>Competitive Intelligence Report</h1>
             <p>{today_str} | 24-Hour Window</p>
+        </div>
+        
+        <div class="exec-summary">
+            <h2>📊 Executive Summary</h2>
+            <p>{trend_summary}</p>
         </div>
         
         <div class="stats">

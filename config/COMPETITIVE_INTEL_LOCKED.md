@@ -18,11 +18,26 @@
 - **Glassdoor:** Employee satisfaction ratings (Progyny baseline)
 - **LinkedIn:** Executive posts (when available)
 
-### 3. Content Rules (LOCKED)
-- **Article age limit:** 30 days max
-- **Send limit:** 2 times per article max
-- **FemTech relevance:** Must score >25
-- **Priority:** Critical (funding, acquisitions) → High (launches, hires) → Medium (general)
+### 3. Content Rules (LOCKED) — NON-NEGOTIABLE
+
+| Rule | Value | Why |
+|------|-------|-----|
+| **Article age limit** | 30 days max | Stale news is useless |
+| **Send limit** | 2 times per article max | Don't spam repeats |
+| **Dates required** | YES — every article must show date | Context matters |
+| **Exec summary** | YES — top of every email | Your request, locked in |
+| **FemTech relevance** | Must score >25 | Filter noise |
+
+**Priority Scoring:**
+- **Critical:** Funding, acquisitions, major partnerships, executive departures
+- **High:** Product launches, significant hires, policy changes  
+- **Medium:** General news, minor updates, industry context
+
+**⚠️ NEVER BREAK THESE RULES:**
+- Never send article >30 days old
+- Never send same article >2 times
+- Never skip the executive summary
+- Never omit dates
 
 ### 4. Schedule (LOCKED)
 - **7:00 AM PT** — Morning report
@@ -81,6 +96,10 @@ These elements are LOCKED:
 - Content filtering rules
 - Schedule
 - File locations
+- **Executive summary at top** (your specific request)
+- **30-day age limit** (your specific request)
+- **2-send maximum** (your specific request)
+- **Dates on every article** (your specific request)
 
 If something needs changing:
 1. Tell Geoff first
@@ -100,6 +119,9 @@ If something needs changing:
 | Glassdoor | ✅ Active | 2026-03-28 |
 | LinkedIn | ⚠️ Limited | 2026-03-28 |
 | Cron | ✅ Scheduled | Daily 7AM/2PM PT |
+| Exec Summary | ✅ Added | 2026-03-28 |
+| Age Filter | ✅ 30 days | 2026-03-28 |
+| Send Limit | ✅ 2 max | 2026-03-28 |
 
 ---
 
@@ -107,10 +129,19 @@ If something needs changing:
 
 All code backed up to:
 - **GitHub:** https://github.com/gclapp/cicero-backup
-- **Commit:** 320a110 (March 28, 2026)
+- **Commit:** 6f5d752 (March 28, 2026)
 - **Cron backup:** `config/cron-backups/crontab-20260328-054424.txt`
 
 ---
+
+## 📝 RULES CHECKLIST (Before Every Send)
+
+- [ ] Executive summary at top?
+- [ ] All articles ≤30 days old?
+- [ ] No article sent >2 times?
+- [ ] Dates shown on every article?
+- [ ] My summary included?
+- [ ] Progyny mentions highlighted?
 
 **The system is locked, documented, and backed up.**
 **Reports will generate automatically twice daily.**
