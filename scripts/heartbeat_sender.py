@@ -69,6 +69,54 @@ def get_todoist_count():
     except:
         return "--"
 
+def get_stock_summary():
+    """Get stock summary for watchlist"""
+    try:
+        result = subprocess.run(
+            ['python3', '/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py', '--summary'],
+            capture_output=True, text=True, timeout=30
+        )
+        if result.returncode == 0:
+            return result.stdout.strip()
+        return "Stock data unavailable"
+    except:
+        return "Stock data unavailable"
+
+def get_custody_status(pt_now, calendar_events=None):
+    """Determine if Geoff has the kids based on custody schedule and calendar events"""
+    # First check calendar for pickup/dropoff events
+    if calendar_events:
+        today_str = pt_now.strftime('%A, %B %d')
+        for event in calendar_events:
+            event_date = event.get('start', '')
+            summary = event.get('summary', '').lower()
+            
+            # Check for pickup events today
+            if today_str in event_date:
+                if any(word in summary for word in ['pick up', 'pickup', 'get oliver', 'get sophie', 'chaparral']):
+                    return True, "Picked up Oliver & Sophie today"
+                if any(word in summary for word in ['drop off', 'dropoff', 'stacey']):
+                    return False, "Dropped off kids today"
+    
+    # Fallback to standard custody schedule: Pick up Thursday 1:50 PM, drop off Saturday 5:00 PM
+    weekday = pt_now.weekday()  # 0=Monday, 3=Thursday, 5=Saturday
+    hour = pt_now.hour
+    
+    # Thursday after 1:50 PM = has kids
+    if weekday == 3 and hour >= 14:
+        return True, "With Oliver & Sophie (custody weekend)"
+    
+    # Friday = has kids
+    if weekday == 4:
+        return True, "With Oliver & Sophie (custody weekend)"
+    
+    # Saturday before 5:00 PM = has kids
+    if weekday == 5 and hour < 17:
+        return True, "With Oliver & Sophie (custody weekend)"
+    
+    # All other times = no kids
+    return False, "Home (solo)"
+
 def validate_whoop_token():
     """Check if Whoop token is valid by making a test API call"""
     try:
@@ -227,15 +275,18 @@ def get_calendar_data():
         return [], []
 
 def detect_location_and_travel(calendar_events):
-    """Detect current location and upcoming travel"""
+    """Detect current location and upcoming travel - includes custody status"""
     pt_now = get_pt_time()
     today_str = pt_now.strftime('%A, %B %d')
     
-    location = "Los Angeles"
+    # Default: Home in Calabasas/LA
+    location = "Calabasas"
     state = "CA"
     status = "Home"
     upcoming_flight = None
+    has_travel_today = False
     
+    # Check for travel events today
     for event in calendar_events:
         if not event.get('is_travel'):
             continue
@@ -245,30 +296,50 @@ def detect_location_and_travel(calendar_events):
         is_today = today_str in event_date
         
         if 'flight' in summary:
-            if 'jfk' in summary or 'new york' in summary or 'lga' in summary:
-                if is_today:
+            if is_today:
+                has_travel_today = True
+                if 'jfk' in summary or 'new york' in summary or 'lga' in summary:
                     upcoming_flight = {
                         'route': 'LAX → JFK',
                         'time': event.get('start', 'TBD'),
                         'type': 'departure'
                     }
                     status = "Traveling to NYC"
-                location = "New York City"
-                state = "NY"
-            elif 'lax' in summary or 'los angeles' in summary:
-                if is_today:
+                    location = "New York City"
+                    state = "NY"
+                elif 'lax' in summary or 'los angeles' in summary:
                     upcoming_flight = {
                         'route': '→ LAX',
                         'time': event.get('start', 'TBD'),
                         'type': 'arrival'
                     }
                     status = "Returning to LA"
+                    location = "Los Angeles"
+                    state = "CA"
+                elif 'sfo' in summary or 'san francisco' in summary:
+                    upcoming_flight = {
+                        'route': '→ SFO',
+                        'time': event.get('start', 'TBD'),
+                        'type': 'arrival'
+                    }
+                    status = "Traveling to SF"
+                    location = "San Francisco"
+                    state = "CA"
+    
+    # If no travel today, check custody schedule (using calendar events if available)
+    if not has_travel_today:
+        has_kids, custody_status = get_custody_status(pt_now, calendar_events)
+        if has_kids:
+            status = custody_status
+        else:
+            status = "Home (solo)"
     
     return {
         'city': location,
         'state': state,
         'status': status,
-        'upcoming_flight': upcoming_flight
+        'upcoming_flight': upcoming_flight,
+        'has_kids': get_custody_status(pt_now, calendar_events)[0]
     }
 
 def get_week_travel_destinations(all_events, pt_now):
@@ -595,6 +666,16 @@ def generate_html_email(checkin_type, pt_now):
             </div>
 '''
     html += '''        </div>
+    </div>
+'''
+    
+    # Stocks section (only for morning and evening check-ins)
+    if checkin_type in ['morning', 'evening']:
+        stock_summary = get_stock_summary()
+        html += f'''
+    <div class="section">
+        <h2>📈 Stocks (30-Day)</h2>
+        <pre style="background: #f3f4f6; padding: 15px; border-radius: 8px; font-size: 13px; overflow-x: auto;">{stock_summary}</pre>
     </div>
 '''
     

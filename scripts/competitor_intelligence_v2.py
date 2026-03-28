@@ -63,8 +63,16 @@ def save_sent_counts(counts):
     with open(SENT_COUNT_FILE, 'w') as f:
         json.dump(counts, f, indent=2)
 
-def can_send_article(article_id, sent_counts):
-    """Check if article can be sent (max 2 times) - ported from v1"""
+def can_send_article(article_id, sent_counts, config=None):
+    """Check if article can be sent (strict: only once if strict_deduplication enabled)"""
+    if config is None:
+        config = load_config()
+    
+    # Strict mode: article only sent once ever
+    if config.get('filters', {}).get('strict_deduplication', True):
+        return sent_counts.get(article_id, 0) == 0
+    
+    # Legacy mode: max 2 times
     count = sent_counts.get(article_id, 0)
     return count < 2
 
@@ -78,8 +86,12 @@ def article_id(entry):
     content = f"{entry.get('link', '')}:{entry.get('title', '')}"
     return hashlib.md5(content.encode()).hexdigest()
 
-def is_stale_article(published_str, max_age_days=30):
-    """Check if article is too old to report (default: 30 days)"""
+def is_stale_article(published_str, max_age_days=None):
+    """Check if article is too old to report (default: 3 days for strict freshness)"""
+    if max_age_days is None:
+        config = load_config()
+        max_age_days = config.get('filters', {}).get('max_article_age_days', 3)
+    
     try:
         # Try various date formats
         for fmt in ["%a, %d %b %Y %H:%M:%S %Z", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d"]:
@@ -183,11 +195,57 @@ def search_web_for_news(config):
     save_seen(seen)
     return new_articles
 
+def score_femtech_relevance(article, config=None):
+    """Score how relevant an article is to FemTech/women's health (0-100)"""
+    if config is None:
+        config = load_config()
+    
+    title = article.get('title', '').lower()
+    summary = article.get('summary', '').lower()
+    combined = title + " " + summary
+    
+    score = 0
+    
+    # FemTech keywords (high weight)
+    femtech_keywords = config.get('filters', {}).get('femtech_keywords', [
+        'femtech', "women's health", 'fertility', 'menopause', 'maternity',
+        'pregnancy', 'ivf', 'egg freezing', 'surrogacy'
+    ])
+    
+    for keyword in femtech_keywords:
+        if keyword in combined:
+            score += 15
+    
+    # Competitor mentions (high weight)
+    competitors = ['maven', 'carrot', 'kindbody', 'pomelo', 'midi', 'evernow', 
+                   'pacify', 'progyny', 'win fertility']
+    for comp in competitors:
+        if comp in combined:
+            score += 20
+    
+    # Funding signals (medium weight)
+    funding = ['funding', 'series', 'raised', 'investment', 'venture']
+    for term in funding:
+        if term in combined:
+            score += 10
+    
+    # Exclude irrelevant topics
+    exclude_keywords = config.get('filters', {}).get('exclude_keywords', [])
+    for exclude in exclude_keywords:
+        if exclude in combined:
+            score -= 50  # Heavy penalty
+    
+    return min(score, 100)  # Cap at 100
+
 def categorize_article(article):
     """Categorize article by signal type and priority"""
     title = article.get('title', '').lower()
     summary = article.get('summary', '').lower()
     combined = title + " " + summary
+    
+    # Calculate FemTech relevance
+    femtech_score = score_femtech_relevance(article)
+    article['femtech_score'] = femtech_score
     
     # Critical signals
     critical = ['acquisition', 'acquires', 'merger', 'ipo', 'series a', 'series b', 'series c', 
@@ -285,11 +343,20 @@ def main():
     log(f"   Found {len(web_articles)} new articles from web search")
     all_new.extend(web_articles)
     
-    # 3. LinkedIn monitoring (placeholder)
-    log("\n3. Checking LinkedIn updates...")
-    linkedin_updates = check_linkedin_for_updates(config)
-    log(f"   Found {len(linkedin_updates)} LinkedIn updates")
-    all_new.extend(linkedin_updates)
+    # 3. LinkedIn executive post monitoring
+    log("\n3. Checking LinkedIn executive posts...")
+    try:
+        import subprocess
+        result = subprocess.run(
+            ['python3', '/home/ubuntu/.openclaw/workspace/scripts/linkedin_exec_monitor.py'],
+            capture_output=True, text=True, timeout=60
+        )
+        if result.returncode == 0:
+            log("   ✓ LinkedIn executive scan complete")
+        else:
+            log(f"   ⚠ LinkedIn scan issue (may need Brave API key)")
+    except Exception as e:
+        log(f"   ⚠ LinkedIn scan error: {e}")
     
     # 4. Job board monitoring (placeholder)
     log("\n4. Checking job boards...")
@@ -297,14 +364,24 @@ def main():
     log(f"   Found {len(job_updates)} job postings")
     all_new.extend(job_updates)
     
-    # Categorize all articles and apply send limit (max 2 sends per article)
+    # Categorize all articles and apply strict filtering
     sent_counts = load_sent_counts()
+    config = load_config()
     filtered_articles = []
     
     for article in all_new:
-        # Check if we've already sent this article 2+ times
-        if not can_send_article(article['id'], sent_counts):
-            log(f"   Skipping {article['id'][:8]}... (already sent 2 times)")
+        # Check if we've already sent this article (strict: only once)
+        if not can_send_article(article['id'], sent_counts, config):
+            log(f"   Skipping {article['id'][:8]}... (already sent)")
+            continue
+        
+        # Calculate FemTech relevance
+        femtech_score = score_femtech_relevance(article, config)
+        article['femtech_score'] = femtech_score
+        
+        # Skip low-relevance articles (< 20 score)
+        if femtech_score < 20:
+            log(f"   Skipping {article['id'][:8]}... (low FemTech relevance: {femtech_score})")
             continue
         
         priority, category = categorize_article(article)
@@ -314,6 +391,20 @@ def main():
         
         # Increment send count
         increment_sent_count(article['id'], sent_counts)
+    
+    # Sort by priority and FemTech score, then limit to max articles
+    max_articles = config.get('filters', {}).get('max_articles_per_report', 7)
+    
+    def sort_key(article):
+        priority_order = {'critical': 0, 'high': 1, 'medium': 2, 'low': 3}
+        return (priority_order.get(article['priority'], 4), -article.get('femtech_score', 0))
+    
+    filtered_articles.sort(key=sort_key)
+    
+    # Limit to top articles
+    if len(filtered_articles) > max_articles:
+        log(f"   Limiting from {len(filtered_articles)} to {max_articles} articles (top priority)")
+        filtered_articles = filtered_articles[:max_articles]
     
     all_new = filtered_articles
     
@@ -333,10 +424,10 @@ def main():
         print(f"🔴 Critical: {len(critical)} | 🟠 High: {len(high)} | 🟡 Medium: {len(medium)}")
         print(f"{'='*70}")
         
-        for article in sorted(all_new, 
-                              key=lambda x: {'critical': 0, 'high': 1, 'medium': 2, 'low': 3}.get(x['priority'], 4)):
+        for article in all_new:
             badge = "🔴" if article['priority'] == 'critical' else "🟠" if article['priority'] == 'high' else "🟡"
-            print(f"\n{badge} [{article['source']}] {article['title']}")
+            femtech_badge = f" (FemTech: {article.get('femtech_score', 0)})"
+            print(f"\n{badge} [{article['source']}] {article['title']}{femtech_badge}")
             print(f"   {article['link'][:70]}...")
         
         print(f"\n{'='*70}")

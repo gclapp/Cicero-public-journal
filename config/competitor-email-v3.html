@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+               line-height: 1.5; color: #1a1a1a; max-width: 680px; margin: 0 auto; background: #fafafa; }
+        .container { background: white; padding: 40px; }
+        .header { border-bottom: 2px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 30px; }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+        .header p { margin: 8px 0 0 0; color: #666; font-size: 14px; }
+        
+        .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; 
+                         letter-spacing: 1px; color: #666; margin: 30px 0 15px 0;
+                         border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
+        
+        .article { margin: 20px 0; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
+        .article:last-child { border-bottom: none; }
+        
+        .article-header { display: flex; align-items: center; margin-bottom: 12px; }
+        .logo { width: 24px; height: 24px; margin-right: 10px; border-radius: 4px; }
+        .company { font-size: 11px; font-weight: 600; text-transform: uppercase; 
+                   letter-spacing: 0.5px; color: #999; }
+        
+        .priority { display: inline-flex; align-items: center; margin-left: auto; }
+        .priority-dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+        .priority-critical { background: #dc2626; }
+        .priority-high { background: #ea580c; }
+        .priority-medium { background: #ca8a04; }
+        .priority-label { font-size: 11px; font-weight: 500; text-transform: uppercase; color: #666; }
+        
+        .title { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+        .title a { color: #1a1a1a; text-decoration: none; }
+        .title a:hover { text-decoration: underline; }
+        
+        .meta { font-size: 12px; color: #999; margin-bottom: 10px; }
+        .summary { font-size: 14px; color: #444; margin-bottom: 12px; }
+        
+        .why-matters { font-size: 13px; color: #555; padding: 12px 16px; 
+                       background: #f8f8f8; border-left: 3px solid #ddd; }
+        
+        .progyny-section { background: #fafafa; padding: 20px; margin: 20px 0; 
+                           border: 1px solid #e5e5e5; border-radius: 4px; }
+        .progyny-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; 
+                         color: #1a1a1a; }
+        .mention { padding: 12px 0; border-bottom: 1px solid #eee; }
+        .mention:last-child { border-bottom: none; padding-bottom: 0; }
+        .mention-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+        .mention-title a { color: #2563eb; text-decoration: none; }
+        .mention-meta { font-size: 11px; color: #999; }
+        
+        .stats { display: flex; gap: 30px; margin: 20px 0; padding: 15px 0; 
+                 border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 28px; font-weight: 600; color: #1a1a1a; }
+        .stat-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
+        
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e5e5;
+                  font-size: 12px; color: #999; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Competitive Intelligence Report</h1>
+            <p>Saturday, March 28, 2026 | 24-Hour Window</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Critical</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">High</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Medium</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Progyny Mentions</div>
+            </div>
+        </div>
+
+        <div class="section-title">What the Market is Saying About Progyny</div>
+        <div class="progyny-section">
+<div class="progyny-title">📢 Recent Mentions</div>
+            <div class="mention">
+                <div class="mention-title"><a href="https://nationaltoday.com/us/ny/new-york/news/2026/03/27/fort-washington-investment-advisors-boosts-stake-in-progyny/">Fort Washington Investment Advisors Boosts Stake in Progyny - NYC Today...</a></div>
+                <div class="mention-meta">News | 0 upvotes</div>
+            </div>
+
+            <div class="mention">
+                <div class="mention-title"><a href="https://www.stocktitan.net/sec-filings/PGNY/schedule-13g-a-progyny-inc-amended-passive-investment-disclosure-1692e385770e.html">Progyny filing: Vanguard reports 0 shares (Amend. No.5) | PGNY SEC Filing - Form...</a></div>
+                <div class="mention-meta">News | 0 upvotes</div>
+            </div>
+
+            <div class="mention">
+                <div class="mention-title"><a href="https://finance.yahoo.com/news/why-progyny-pgny-shares-trading-192132322.html">Why Progyny (PGNY) Shares Are Trading Lower Today...</a></div>
+                <div class="mention-meta">News | 0 upvotes</div>
+            </div>
+<div class="progyny-title" style="margin-top: 20px;">👔 Executive News</div>
+            <div class="mention">
+                <div class="mention-title"><a href="https://www.quiverquant.com/news/Progyny,+Inc.+CEO+Pete+Anevski+Recognized+as+Champion+for+Women%E2%80%99s+Health+by+World+Economic+Forum">Progyny, Inc. CEO Pete Anevski Recognized as Champion for Women’s Health by Worl...</a></div>
+                <div class="mention-meta">Pete Anevski • </div>
+            </div>
+
+            <div class="mention">
+                <div class="mention-title"><a href="https://www.crainsnewyork.com/recognitions/notable-in-health-care/2024/pete-anevski/">Pete Anevski - Crain's New York Business...</a></div>
+                <div class="mention-meta">Pete Anevski • </div>
+            </div>
+</div><div class="section-title">🟠 High Priority</div>
+        <div class="article">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=carrotfertility.com&sz=64" alt="Carrot" class="logo" onerror="this.style.display='none'">
+                <span class="company">Carrot</span>
+                <span class="priority">
+                    <span class="priority-dot priority-high"></span>
+                    <span class="priority-label">High</span>
+                </span>
+            </div>
+            <div class="title"><a href="https://www.prnewswire.com/news-releases/carrot-presents-ai-powered-metabolic-fertility-research-at-national-conference-on-womens-health-hosted-by-the-us-department-of-health-and-human-services-302718003.html">Carrot Presents AI-Powered Metabolic-Fertility Research at National Conference on Women's Health Hosted by HHS</a></div>
+            <div class="meta">Carrot Fertility / PR Newswire • 2026-03-18</div>
+            <div class="summary">Carrot introduced 'Sprints' — first program combining generative AI with continuous wearable biometrics to optimize metabolic health before pregnancy. Proposes 'Premester' clinical framework for preco...</div>
+            <div class="why-matters">🤖 <strong>AI arms race:</strong> Technology investment may become table stakes. Assess differentiation strategy.</div>
+        </div>
+
+        <div class="article">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=kindbody.com&sz=64" alt="KindBody" class="logo" onerror="this.style.display='none'">
+                <span class="company">KindBody</span>
+                <span class="priority">
+                    <span class="priority-dot priority-high"></span>
+                    <span class="priority-label">High</span>
+                </span>
+            </div>
+            <div class="title"><a href="https://www.prnewswire.com/news-releases/future-family-partners-with-kindbody-to-expand-access-to-fertility-care-through-innovative-financing-solutions-302716844.html">Future Family Partners with Kindbody to Expand Access to Fertility Care Through Innovative Financing Solutions</a></div>
+            <div class="meta">Kindbody / PR Newswire • 2026-03-18</div>
+            <div class="summary">Future Family (fertility financing platform) partnered with Kindbody to offer personalized financing for IVF, IUI, egg freezing, medications, genetic testing, and donor services across Kindbody's nati...</div>
+            <div class="why-matters">🤝 <strong>Ecosystem play:</strong> Partnerships expand reach and integration. Monitor for competitive moats.</div>
+        </div>
+
+        <div class="article">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
+                <span class="company">Maven</span>
+                <span class="priority">
+                    <span class="priority-dot priority-high"></span>
+                    <span class="priority-label">High</span>
+                </span>
+            </div>
+            <div class="title"><a href="https://www.prnewswire.com/news-releases/maven-clinic-introduces-maven-intelligence-an-ai-powered-orchestration-layer-for-womens-and-family-health-302715171.html">Maven Clinic Introduces Maven Intelligence, an AI-Powered Orchestration Layer for Women's and Family Health</a></div>
+            <div class="meta">Maven Clinic / PR Newswire • 2026-03-17</div>
+            <div class="summary">Maven Clinic launched Maven Intelligence, an AI-powered orchestration layer embedded across its virtual clinic, care programs, and benefits platform. Built on OpenAI and Google LLMs with business asso...</div>
+            <div class="why-matters">🤖 <strong>AI arms race:</strong> Technology investment may become table stakes. Assess differentiation strategy.</div>
+        </div>
+<div class="section-title">🟡 Medium Priority</div>
+        <div class="article">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=carrotfertility.com&sz=64" alt="Carrot" class="logo" onerror="this.style.display='none'">
+                <span class="company">Carrot</span>
+                <span class="priority">
+                    <span class="priority-dot priority-medium"></span>
+                    <span class="priority-label">Medium</span>
+                </span>
+            </div>
+            <div class="title"><a href="https://www.cnn.com/2026/03/18/health/hhs-womens-summit-kff-heatlh-news">Asima Ahmad (Carrot co-founder) featured at Trump administration women's health summit</a></div>
+            <div class="meta">CNN • 2026-03-18</div>
+            <div class="summary">Carrot co-founder Dr. Asima Ahmad presented at HHS National Conference on Women's Health. Carrot gaining visibility at federal level....</div>
+            <div class="why-matters">🤖 <strong>AI arms race:</strong> Technology investment may become table stakes. Assess differentiation strategy.</div>
+        </div>
+
+        <div class="article">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
+                <span class="company">Maven</span>
+                <span class="priority">
+                    <span class="priority-dot priority-medium"></span>
+                    <span class="priority-label">Medium</span>
+                </span>
+            </div>
+            <div class="title"><a href="https://www.mavenclinic.com/post/press-release-fertility-family-building">Maven Clinic expands award-winning Fertility & Family Building solution with focus on natural conception</a></div>
+            <div class="meta">Maven Clinic • 2026-03-17</div>
+            <div class="summary">Maven expands fertility and family building solution with new focus on natural conception support. MAXIS GBN partnership mentioned for global expansion....</div>
+            <div class="why-matters">🤝 <strong>Ecosystem play:</strong> Partnerships expand reach and integration. Monitor for competitive moats.</div>
+        </div>
+
+        <div class="article">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=carrotfertility.com&sz=64" alt="Carrot" class="logo" onerror="this.style.display='none'">
+                <span class="company">Carrot</span>
+                <span class="priority">
+                    <span class="priority-dot priority-medium"></span>
+                    <span class="priority-label">Medium</span>
+                </span>
+            </div>
+            <div class="title"><a href="https://www.healthcare-brew.com/stories/2026/03/16/carrot-fertility-coo-fertility-benefits-company">Carrot Fertility COO Brooke Quinn on leading a fertility benefits company</a></div>
+            <div class="meta">Healthcare Brew • 2026-03-16</div>
+            <div class="summary">Profile of Carrot COO Brooke Quinn. Company has raised tens of millions selling benefits to employers and large health plans. Insight into leadership and company direction....</div>
+            <div class="why-matters">💰 <strong>Capital signal:</strong> New funding indicates growth acceleration and potential competitive pressure.</div>
+        </div>
+<div class="section-title">💬 Reddit Intelligence</div><p style="color: #666; font-size: 13px; margin-bottom: 20px;">Recent discussions from fertility communities (via PullPush)</p><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #16a34a; margin-bottom: 10px;">📢 Progyny Mentions</div>
+            <div style="padding: 10px; background: #f0fdf4; border-radius: 6px; margin-bottom: 8px;">
+                <div style="font-size: 13px; font-weight: 500;"><a href="https://progyny.com/smart-benefits/talk-to-employer/?utm_campaign=talktohr&amp;utm_source=reddit&amp;utm_medium=paid&amp;utm_term=b2c">Raising the topic of fertility &amp; family building benefits at work can be tou...</a></div>
+                <div style="font-size: 11px; color: #666;">r/u_Progyny • ⬆️ 1</div>
+            </div>
+            
+            <div style="padding: 10px; background: #f0fdf4; border-radius: 6px; margin-bottom: 8px;">
+                <div style="font-size: 13px; font-weight: 500;"><a href="https://progyny.com/smart-benefits/talk-to-employer/?utm_campaign=talktohr&amp;utm_source=reddit&amp;utm_medium=paid&amp;utm_term=b2c">You shouldn’t have to navigate the complex fertility journey alone. Progyny’s Ta...</a></div>
+                <div style="font-size: 11px; color: #666;">r/u_Progyny • ⬆️ 1</div>
+            </div>
+            
+            <div style="padding: 10px; background: #f0fdf4; border-radius: 6px; margin-bottom: 8px;">
+                <div style="font-size: 13px; font-weight: 500;"><a href="https://www.reddit.com/r/ATT/comments/1kcjs7r/fertility_benefits/">Fertility Benefits...</a></div>
+                <div style="font-size: 11px; color: #666;">r/ATT • ⬆️ 1</div>
+            </div>
+            </div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #ea580c; margin-bottom: 10px;">🔍 Maven Mentions</div>
+                <div style="padding: 10px; background: #fff7ed; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 500;"><a href="https://www.reddit.com/r/TTC_PCOS/comments/1jylvzn/having_a_hard_time_putting_my_trust_in_the_re/">Having a hard time putting my trust in the RE...</a></div>
+                    <div style="font-size: 11px; color: #666;">r/TTC_PCOS • ⬆️ 1</div>
+                </div>
+                
+                <div style="padding: 10px; background: #fff7ed; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 500;"><a href="https://www.reddit.com/r/IVF/comments/1jfwfyk/how_does_maven_work/">How does Maven work?...</a></div>
+                    <div style="font-size: 11px; color: #666;">r/IVF • ⬆️ 3</div>
+                </div>
+                </div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #ea580c; margin-bottom: 10px;">🔍 Carrot Mentions</div>
+                <div style="padding: 10px; background: #fff7ed; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 500;"><a href="https://www.reddit.com/r/YourHealthwitJack/comments/1kay3ey/root_vegetables_superfoods_for_sexual_health/">Root Vegetables: Superfoods for Sexual Health &amp; Overall Wellness...</a></div>
+                    <div style="font-size: 11px; color: #666;">r/YourHealthwitJack • ⬆️ 1</div>
+                </div>
+                
+                <div style="padding: 10px; background: #fff7ed; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 500;"><a href="https://v.redd.it/mcxmbow9klue1">Aquaponics vs sandponics (iAvs) + aeroponics...</a></div>
+                    <div style="font-size: 11px; color: #666;">r/agriculturalresearch • ⬆️ 1</div>
+                </div>
+                </div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #ea580c; margin-bottom: 10px;">🔍 Kindbody Mentions</div>
+                <div style="padding: 10px; background: #fff7ed; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 500;"><a href="https://www.reddit.com/r/tryingtoconceive/comments/1k81emg/fertility_journey_what_do_you_wish_youd/">Fertility Journey - What do you wish you'd asked/known/advocated for?...</a></div>
+                    <div style="font-size: 11px; color: #666;">r/tryingtoconceive • ⬆️ 3</div>
+                </div>
+                
+                <div style="padding: 10px; background: #fff7ed; border-radius: 6px; margin-bottom: 8px;">
+                    <div style="font-size: 13px; font-weight: 500;"><a href="https://www.reddit.com/r/DOR/comments/1jymxwx/precipitous_fall_in_amh_should_my_doctor_have_set/">Precipitous fall in AMH -- should my doctor have set better expectations?...</a></div>
+                    <div style="font-size: 11px; color: #666;">r/DOR • ⬆️ 1</div>
+                </div>
+                </div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #1e40af; margin-bottom: 10px;">📊 Market Sentiment</div><ul style="font-size: 13px; line-height: 1.6;"><li>Insurance coverage questions prevalent</li></ul></div>
+    <div class="section-title">📊 Glassdoor Satisfaction Comparison</div>
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;">
+        <thead>
+            <tr style="background: #1a1a1a; color: white;">
+                <th style="padding: 12px; text-align: left; font-weight: 600;">Company</th>
+                <th style="padding: 12px; text-align: center; font-weight: 600;">Rating</th>
+                <th style="padding: 12px; text-align: center; font-weight: 600;">Reviews</th>
+                <th style="padding: 12px; text-align: center; font-weight: 600;">Recommend</th>
+                <th style="padding: 12px; text-align: center; font-weight: 600;">CEO Approval</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr style="border-bottom: 1px solid #e5e5e5; background: #f0fdf4;">
+                <td style="padding: 12px; font-weight: 600;">Progyny</td>
+                <td style="padding: 12px; text-align: center; font-weight: 700; color: #16a34a;">4.2</td>
+                <td style="padding: 12px; text-align: center; color: #666;">156</td>
+                <td style="padding: 12px; text-align: center; color: #666;">78%</td>
+                <td style="padding: 12px; text-align: center; color: #666;">82%</td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #e5e5e5; ">
+                <td style="padding: 12px; font-weight: 600;">Maven Clinic</td>
+                <td style="padding: 12px; text-align: center; font-weight: 700; color: #16a34a;">4.0</td>
+                <td style="padding: 12px; text-align: center; color: #666;">89</td>
+                <td style="padding: 12px; text-align: center; color: #666;">72%</td>
+                <td style="padding: 12px; text-align: center; color: #666;">75%</td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #e5e5e5; ">
+                <td style="padding: 12px; font-weight: 600;">Carrot Fertility</td>
+                <td style="padding: 12px; text-align: center; font-weight: 700; color: #ea580c;">3.8</td>
+                <td style="padding: 12px; text-align: center; color: #666;">67</td>
+                <td style="padding: 12px; text-align: center; color: #666;">68%</td>
+                <td style="padding: 12px; text-align: center; color: #666;">70%</td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #e5e5e5; ">
+                <td style="padding: 12px; font-weight: 600;">Kindbody</td>
+                <td style="padding: 12px; text-align: center; font-weight: 700; color: #ea580c;">3.5</td>
+                <td style="padding: 12px; text-align: center; color: #666;">45</td>
+                <td style="padding: 12px; text-align: center; color: #666;">62%</td>
+                <td style="padding: 12px; text-align: center; color: #666;">65%</td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #e5e5e5; ">
+                <td style="padding: 12px; font-weight: 600;">WIN Fertility</td>
+                <td style="padding: 12px; text-align: center; font-weight: 700; color: #dc2626;">3.2</td>
+                <td style="padding: 12px; text-align: center; color: #666;">34</td>
+                <td style="padding: 12px; text-align: center; color: #666;">55%</td>
+                <td style="padding: 12px; text-align: center; color: #666;">58%</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+        <div class="footer">
+            Generated by Cicero • Competitive Intelligence System<br>
+            Sources: RSS Feeds, Web Search, Reddit, LinkedIn, Glassdoor
+        </div>
+    </div>
+</body>
+</html>

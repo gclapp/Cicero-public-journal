@@ -4,6 +4,9 @@
 
 set -e
 
+# Export API keys for scripts
+export BRAVE_API_KEY="BSAQvzsdCTmv48KVZCYZxO2Uc2-Wgbf"
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE_DIR="$(dirname "$SCRIPT_DIR")"
 LOG_FILE="$WORKSPACE_DIR/logs/competitor-v2-cron.log"

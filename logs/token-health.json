@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-27T23:55:02.946563",
+  "timestamp": "2026-03-28T05:06:35.188338",
   "results": [
     {
       "status": "healthy",
@@ -9,23 +9,23 @@
       "critical": true
     },
     {
-      "status": "invalid",
-      "age_days": 17,
-      "message": "\ud83d\udd34 Google Docs: Token expired and cannot refresh \u2014 RE-AUTH REQUIRED",
-      "action_required": true,
-      "critical": true
-    },
-    {
-      "status": "invalid",
-      "age_days": 5,
-      "message": "\ud83d\udd34 Whoop API: Token expired (401) \u2014 RE-AUTH REQUIRED",
-      "action_required": true,
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Google Docs: Healthy (0 days old)",
+      "action_required": false,
       "critical": true
     },
     {
       "status": "healthy",
-      "age_days": 5,
-      "message": "\u2705 Whoop Refresh Token: Healthy (5 days old)",
+      "age_days": 0,
+      "message": "\u2705 Whoop API: Healthy (0 days old)",
+      "action_required": false,
+      "critical": false
+    },
+    {
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Whoop Refresh Token: Healthy (0 days old)",
       "action_required": false,
       "critical": false
     },
@@ -37,6 +37,6 @@
       "critical": true
     }
   ],
-  "critical_count": 3,
+  "critical_count": 1,
   "warning_count": 0
 }

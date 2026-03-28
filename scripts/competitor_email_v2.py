@@ -12,6 +12,7 @@ from pathlib import Path
 
 ARTICLES_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-articles-v2.json"
 LINKEDIN_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-updates.json"
+LINKEDIN_POSTS_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-executive-posts.json"
 EMAIL_OUTPUT = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-email-v2.html"
 
 def load_articles():
@@ -27,6 +28,75 @@ def load_linkedin_updates():
         with open(LINKEDIN_FILE) as f:
             return json.load(f)
     return []
+
+def load_linkedin_executive_posts():
+    """Load LinkedIn executive posts"""
+    if LINKEDIN_POSTS_FILE.exists():
+        with open(LINKEDIN_POSTS_FILE) as f:
+            data = json.load(f)
+            return data.get('posts', [])
+    return []
+
+def get_company_logo_url(company_name):
+    """Get logo URL for a company"""
+    # Map company names to their domains for favicon lookup
+    company_domains = {
+        'Maven': 'mavenclinic.com',
+        'Carrot': 'carrotfertility.com',
+        'KindBody': 'kindbody.com',
+        'WIN Fertility': 'winfertility.com',
+        'Pomelo Health': 'pomelohealth.com',
+        'Pomelo': 'pomelohealth.com',
+        'Midi Health': 'midi-health.com',
+        'Midi': 'midi-health.com',
+        'Evernow': 'evernow.com',
+        'Pacify': 'pacify.com',
+        'Progyny': 'progyny.com'
+    }
+    
+    domain = company_domains.get(company_name, f"{company_name.lower().replace(' ', '')}.com")
+    return f"https://www.google.com/s2/favicons?domain={domain}&sz=64"
+
+def get_company_from_article(article):
+    """Extract company name from article title/summary/source"""
+    title = article.get('title', '').lower()
+    summary = article.get('summary', '').lower()
+    source = article.get('source', '').lower()
+    combined = title + ' ' + summary + ' ' + source
+    
+    companies = {
+        'Maven': ['maven', 'maven clinic'],
+        'Carrot': ['carrot', 'carrot fertility'],
+        'KindBody': ['kindbody', 'kind body'],
+        'WIN Fertility': ['win fertility', 'winfertility'],
+        'Pomelo': ['pomelo', 'pomelo health'],
+        'Midi': ['midi', 'midi health'],
+        'Evernow': ['evernow'],
+        'Pacify': ['pacify'],
+        'Progyny': ['progyny']
+    }
+    
+    for company, keywords in companies.items():
+        for keyword in keywords:
+            if keyword in combined:
+                return company
+    
+    # Check if article is from a specific company feed
+    feed_sources = {
+        'Maven News': 'Maven',
+        'Carrot News': 'Carrot',
+        'KindBody News': 'KindBody',
+        'WIN Fertility News': 'WIN Fertility',
+        'Pomelo News': 'Pomelo',
+        'Midi News': 'Midi',
+        'Evernow News': 'Evernow'
+    }
+    
+    for feed_name, company in feed_sources.items():
+        if feed_name.lower() in source:
+            return company
+    
+    return 'General'
 
 def generate_importance_summary(article):
     """Generate 1-2 sentence summary of why this article is important"""
@@ -136,6 +206,10 @@ def generate_email():
     recent_articles = [a for a in articles if datetime.fromisoformat(a.get('found_at', '2000-01-01').replace('Z', '+00:00').replace('+00:00', '')) > cutoff or 'found_at' not in a]
     recent_linkedin = [u for u in linkedin_updates if datetime.fromisoformat(u.get('found_at', '2000-01-01').replace('Z', '+00:00').replace('+00:00', '')) > cutoff or 'found_at' not in u]
     
+    # Load LinkedIn executive posts
+    executive_posts = load_linkedin_executive_posts()
+    recent_exec_posts = [p for p in executive_posts if datetime.fromisoformat(p.get('found_at', '2000-01-01').replace('Z', '+00:00').replace('+00:00', '')) > cutoff or 'found_at' not in p]
+    
     # Categorize
     critical = [a for a in recent_articles if a.get('priority') == 'critical']
     high = [a for a in recent_articles if a.get('priority') == 'high']
@@ -182,6 +256,9 @@ def generate_email():
         .stat-number {{ font-size: 32px; font-weight: bold; color: #1e40af; }}
         .stat-label {{ font-size: 12px; color: #6b7280; text-transform: uppercase; }}
         .trend-item {{ margin: 12px 0; padding: 12px; background: white; border-radius: 6px; border-left: 3px solid #3b82f6; }}
+        .company-header {{ display: flex; align-items: center; margin-bottom: 12px; }}
+        .company-logo {{ width: 32px; height: 32px; margin-right: 12px; border-radius: 4px; }}
+        .company-name {{ font-size: 14px; font-weight: bold; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; }}
     </style>
 </head>
 <body>
@@ -219,13 +296,29 @@ def generate_email():
     </div>
 """
     
+    # Glassdoor satisfaction data
+    try:
+        import sys
+        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
+        from glassdoor_fetcher import generate_glassdoor_html
+        glassdoor_html = generate_glassdoor_html()
+        html += glassdoor_html
+    except Exception as e:
+        html += f"<!-- Glassdoor data unavailable: {e} -->"
+    
     # Critical signals
     if critical:
         html += "<h2>🔴 Critical Signals</h2>"
         for article in critical:
             importance = generate_importance_summary(article)
+            company = get_company_from_article(article)
+            logo_url = get_company_logo_url(company)
             html += f"""
     <div class="section critical">
+        <div class="company-header">
+            <img src="{logo_url}" alt="{company}" class="company-logo" onerror="this.style.display='none'">
+            <span class="company-name">{company}</span>
+        </div>
         <span class="badge badge-critical">Critical</span>
         <span class="badge">{article.get('category', 'general')}</span>
         <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
@@ -235,14 +328,39 @@ def generate_email():
     </div>
 """
     
+    # LinkedIn Executive Posts
+    if recent_exec_posts:
+        html += "<h2>💬 LinkedIn Executive Posts</h2>"
+        for post in recent_exec_posts[:5]:  # Top 5 most recent
+            company = post.get('company', 'Unknown')
+            logo_url = get_company_logo_url(company)
+            html += f"""
+    <div class="section exec">
+        <div class="company-header">
+            <img src="{logo_url}" alt="{company}" class="company-logo" onerror="this.style.display='none'">
+            <span class="company-name">{company}</span>
+        </div>
+        <span class="badge badge-exec">LinkedIn</span>
+        <div class="title">{post.get('executive', 'Unknown')} - {company}</div>
+        <div class="meta"><a href="{post.get('url', '#')}">View on LinkedIn</a></div>
+        <div class="summary">{post.get('description', '')[:400]}...</div>
+        <div class="importance">📢 <strong>Why it matters:</strong> Executive posts reveal strategic priorities, company culture, and upcoming initiatives before they're officially announced.</div>
+    </div>
+"""
+    
     # Job changes
     if job_changes:
         html += "<h2>💼 Executive Job Changes</h2>"
         for update in job_changes:
+            company = update.get('company', 'Unknown')
+            logo_url = get_company_logo_url(company)
             html += f"""
     <div class="section job-change">
+        <div class="company-header">
+            <img src="{logo_url}" alt="{company}" class="company-logo" onerror="this.style.display='none'">
+            <span class="company-name">{company}</span>
+        </div>
         <span class="badge badge-job">Job Change</span>
-        <span class="badge">{update.get('company', 'Unknown')}</span>
         <div class="title"><a href="{update.get('link', '#')}">{update.get('title', 'No title')}</a></div>
         <div class="meta">{update.get('published', 'Recent')}</div>
         <div class="summary">{update.get('description', '')}</div>
@@ -270,8 +388,14 @@ def generate_email():
         html += "<h2>🟠 High Priority Signals</h2>"
         for article in high:
             importance = generate_importance_summary(article)
+            company = get_company_from_article(article)
+            logo_url = get_company_logo_url(company)
             html += f"""
     <div class="section high">
+        <div class="company-header">
+            <img src="{logo_url}" alt="{company}" class="company-logo" onerror="this.style.display='none'">
+            <span class="company-name">{company}</span>
+        </div>
         <span class="badge badge-high">High</span>
         <span class="badge">{article.get('category', 'general')}</span>
         <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
@@ -301,8 +425,14 @@ def generate_email():
         html += "<h2>🟡 Medium Priority</h2>"
         for article in medium:
             importance = generate_importance_summary(article)
+            company = get_company_from_article(article)
+            logo_url = get_company_logo_url(company)
             html += f"""
     <div class="section medium">
+        <div class="company-header">
+            <img src="{logo_url}" alt="{company}" class="company-logo" onerror="this.style.display='none'">
+            <span class="company-name">{company}</span>
+        </div>
         <span class="badge badge-medium">Medium</span>
         <span class="badge">{article.get('category', 'general')}</span>
         <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
@@ -331,7 +461,7 @@ def generate_email():
     <p style="font-size: 12px; color: #6b7280; text-align: center;">
         Generated by Cicero Competitive Intelligence System | 
         Sources: Google Alerts, Brave Search, LinkedIn Monitoring | 
-        30-Day Window | Max 2 Sends per Article
+        Focus: FemTech & Women's Health | Max 7 Articles | Strict Deduplication
     </p>
 </body>
 </html>
