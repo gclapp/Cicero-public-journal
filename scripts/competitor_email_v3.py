@@ -354,14 +354,15 @@ def generate_html_email():
         </div>
 """
     
-    # Reddit Intel - Use new collector
+    # Reddit Intel - Use new collector with comprehensive monitoring
     try:
         import sys
         sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from reddit_intel_collector import format_reddit_for_email
-        reddit_html = format_reddit_for_email()
+        from reddit_intel_collector import format_for_email
+        reddit_html = format_for_email()
         html += reddit_html
     except Exception as e:
+        html += f"<!-- Reddit intel error: {e} -->"
         # Fallback to old method
         if reddit_posts:
             html += '<div class="section-title">💬 Reddit Intelligence</div>'

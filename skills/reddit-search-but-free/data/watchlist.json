@@ -2,19 +2,58 @@
   "subreddits": [
     {
       "name": "infertility",
-      "note": "Patient experiences with fertility benefits"
+      "note": "Patient experiences with fertility benefits - HIGH PRIORITY"
     },
     {
       "name": "IVF",
-      "note": "IVF treatment discussions and benefit experiences"
+      "note": "IVF treatment discussions and benefit experiences - HIGH PRIORITY"
     },
     {
       "name": "TTC",
-      "note": "Trying to conceive - benefit coverage questions"
+      "note": "Trying to conceive - benefit coverage questions - HIGH PRIORITY"
     },
     {
       "name": "Menopause",
-      "note": "Menopause care and benefits"
+      "note": "Menopause care and benefits - CRITICAL for competitor intel"
+    },
+    {
+      "name": "tryingtoconceive",
+      "note": "Alternative TTC community"
+    },
+    {
+      "name": "pregnant",
+      "note": "Pregnancy benefits and coverage"
+    },
+    {
+      "name": "BabyBumps",
+      "note": "Pregnancy community discussions"
+    },
+    {
+      "name": "Parenting",
+      "note": "Family building benefits"
+    },
+    {
+      "name": "womenshealth",
+      "note": "Women's health benefits broadly"
+    },
+    {
+      "name": "HealthInsurance",
+      "note": "Insurance coverage discussions"
     }
-  ]
+  ],
+  "search_terms": {
+    "primary": ["Progyny"],
+    "competitors": ["Maven Clinic", "Carrot Fertility", "Kindbody", "WIN Fertility"],
+    "industry": [
+      "fertility benefits",
+      "fertility coverage",
+      "IVF insurance",
+      "IVF coverage",
+      "fertility employer",
+      "egg freezing benefits",
+      "fertility treatment cost",
+      "menopause benefits",
+      "family building benefits"
+    ]
+  }
 }
