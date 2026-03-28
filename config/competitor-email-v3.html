@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
                line-height: 1.5; color: #1a1a1a; max-width: 680px; margin: 0 auto; background: #fafafa; }
         .container { background: white; padding: 40px; }
         .header { border-bottom: 2px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 30px; }
-        .header h1 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.5px; }
+        .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
         .header p { margin: 8px 0 0 0; color: #666; font-size: 14px; }
         
-        .exec-summary { background: #f8f9fa; padding: 20px; margin: 20px 0; 
-                       border-left: 4px solid #1a1a1a; border-radius: 0 4px 4px 0; }
-        .exec-summary h2 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; 
-                           text-transform: uppercase; letter-spacing: 0.5px; color: #333; }
-        .exec-summary p { margin: 0; font-size: 14px; line-height: 1.6; color: #444; }
+        .exec-summary { background: #f0f7ff; padding: 20px; margin: 20px 0; 
+                       border-left: 4px solid #0066cc; border-radius: 0 4px 4px 0; }
+        .exec-summary h2 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #0066cc; }
+        .exec-summary p { margin: 0; font-size: 14px; line-height: 1.6; color: #333; }
+        
+        .stats { display: flex; gap: 30px; margin: 20px 0; padding: 15px 0; 
+                 border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 28px; font-weight: 600; color: #1a1a1a; }
+        .stat-label { font-size: 11px; color: #999; text-transform: uppercase; }
         
         .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; 
                          letter-spacing: 1px; color: #666; margin: 30px 0 15px 0;
                          border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
         
         .article { margin: 20px 0; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
-        .article:last-child { border-bottom: none; }
-        
         .article-header { display: flex; align-items: center; margin-bottom: 12px; }
         .logo { width: 24px; height: 24px; margin-right: 10px; border-radius: 4px; }
-        .company { font-size: 11px; font-weight: 600; text-transform: uppercase; 
-                   letter-spacing: 0.5px; color: #999; }
+        .company { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #999; }
         
         .priority { display: inline-flex; align-items: center; margin-left: auto; }
         .priority-dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
@@ -35,31 +37,22 @@
         .priority-medium { background: #ca8a04; }
         .priority-label { font-size: 11px; font-weight: 500; text-transform: uppercase; color: #666; }
         
-        .title { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+        .title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
         .title a { color: #1a1a1a; text-decoration: none; }
-        .title a:hover { text-decoration: underline; }
-        
         .meta { font-size: 12px; color: #999; margin-bottom: 10px; }
         .summary { font-size: 14px; color: #444; margin-bottom: 12px; }
-        
         .why-matters { font-size: 13px; color: #555; padding: 12px 16px; 
                        background: #f8f8f8; border-left: 3px solid #ddd; }
         
         .progyny-section { background: #fafafa; padding: 20px; margin: 20px 0; 
                            border: 1px solid #e5e5e5; border-radius: 4px; }
-        .progyny-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; 
-                         color: #1a1a1a; }
+        .progyny-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a; }
         .mention { padding: 12px 0; border-bottom: 1px solid #eee; }
-        .mention:last-child { border-bottom: none; padding-bottom: 0; }
+        .mention:last-child { border-bottom: none; }
         .mention-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
         .mention-title a { color: #2563eb; text-decoration: none; }
         .mention-meta { font-size: 11px; color: #999; }
-        
-        .stats { display: flex; gap: 30px; margin: 20px 0; padding: 15px 0; 
-                 border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 28px; font-weight: 600; color: #1a1a1a; }
-        .stat-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; }
+        .mention-summary { font-size: 12px; color: #666; font-style: italic; margin-top: 4px; }
         
         .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e5e5;
                   font-size: 12px; color: #999; text-align: center; }
@@ -74,7 +67,7 @@
         
         <div class="exec-summary">
             <h2>📊 Executive Summary</h2>
-            <p>No new competitive signals in the last 24 hours. Progyny mentioned 5 times — monitor brand sentiment.</p>
+            <p>No new competitive signals in the last 24 hours. Progyny: 5 mentions — monitor sentiment.</p>
         </div>
         
         <div class="stats">
@@ -95,35 +88,35 @@
                 <div class="stat-label">Progyny Mentions</div>
             </div>
         </div>
-
-        <div class="section-title">What the Market is Saying About Progyny</div>
-        <div class="progyny-section">
-<div class="progyny-title">📢 Recent Mentions</div>
+<div class="section-title">What the Market is Saying About Progyny</div><div class="progyny-section"><div class="progyny-title">📢 Recent Mentions</div>
             <div class="mention">
                 <div class="mention-title"><a href="https://nationaltoday.com/us/ny/new-york/news/2026/03/27/fort-washington-investment-advisors-boosts-stake-in-progyny/">Fort Washington Investment Advisors Boosts Stake in Progyny - NYC Today...</a></div>
-                <div class="mention-meta">News | 0 upvotes</div>
+                <div class="mention-meta">News |  | ⬆️ 0</div>
+                <div class="mention-summary">Patient discussion about fertility benefits.</div>
             </div>
-
+                
             <div class="mention">
                 <div class="mention-title"><a href="https://www.stocktitan.net/sec-filings/PGNY/schedule-13g-a-progyny-inc-amended-passive-investment-disclosure-1692e385770e.html">Progyny filing: Vanguard reports 0 shares (Amend. No.5) | PGNY SEC Filing - Form...</a></div>
-                <div class="mention-meta">News | 0 upvotes</div>
+                <div class="mention-meta">News |  | ⬆️ 0</div>
+                <div class="mention-summary">Patient discussion about fertility benefits.</div>
             </div>
-
+                
             <div class="mention">
                 <div class="mention-title"><a href="https://finance.yahoo.com/news/why-progyny-pgny-shares-trading-192132322.html">Why Progyny (PGNY) Shares Are Trading Lower Today...</a></div>
-                <div class="mention-meta">News | 0 upvotes</div>
+                <div class="mention-meta">News |  | ⬆️ 0</div>
+                <div class="mention-summary">Patient discussion about fertility benefits.</div>
             </div>
-<div class="progyny-title" style="margin-top: 20px;">👔 Executive News</div>
+                <div class="progyny-title" style="margin-top: 20px;">👔 Executive News</div>
             <div class="mention">
                 <div class="mention-title"><a href="https://www.quiverquant.com/news/Progyny,+Inc.+CEO+Pete+Anevski+Recognized+as+Champion+for+Women%E2%80%99s+Health+by+World+Economic+Forum">Progyny, Inc. CEO Pete Anevski Recognized as Champion for Women’s Health by Worl...</a></div>
                 <div class="mention-meta">Pete Anevski • </div>
             </div>
-
+                
             <div class="mention">
                 <div class="mention-title"><a href="https://www.crainsnewyork.com/recognitions/notable-in-health-care/2024/pete-anevski/">Pete Anevski - Crain's New York Business...</a></div>
                 <div class="mention-meta">Pete Anevski • </div>
             </div>
-</div><div class="section-title">💬 Reddit Intelligence</div><p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Patient and community discussions from 10 subreddits</p><div style="margin-bottom: 25px; padding: 15px; background: #064e3b; border-radius: 8px; border-left: 4px solid #16a34a;"><div style="font-weight: 600; color: #16a34a; margin-bottom: 12px; font-size: 16px;">📢 PROGYNY MENTIONS</div>
+                </div><div class="section-title">💬 Reddit Intelligence</div><p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Patient and community discussions from 10 subreddits</p><div style="margin-bottom: 25px; padding: 15px; background: #064e3b; border-radius: 8px; border-left: 4px solid #16a34a;"><div style="font-weight: 600; color: #16a34a; margin-bottom: 12px; font-size: 16px;">📢 PROGYNY MENTIONS</div>
             <div style="padding: 12px; background: #065f46; border-radius: 6px; margin-bottom: 10px;">
                 <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px;"><a href="https://www.reddit.com/r/IVF/comments/1kp10oh/does_progyny_cover_omnitropehgh/" style="color: #6ee7b7; text-decoration: none;">Does Progyny cover Omnitrope/HGH?...</a></div>
                 <div style="font-size: 12px; color: #9ca3af;">r/IVF • ⬆️ 1 • 💬 0 comments</div>
@@ -188,7 +181,7 @@
                     <div style="font-size: 13px;"><a href="https://www.reddit.com/r/IncestRPnsfw/comments/1kpgo7d/22f4m_older_men_just_do_it_better/" style="color: #e5e5e5; text-decoration: none;">22[F4M] Older Men just do it better!...</a></div>
                     <div style="font-size: 11px; color: #737373;">r/IncestRPnsfw • ⬆️ 1</div>
                 </div>
-                </div></div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #3b82f6; margin-bottom: 12px; font-size: 16px;">📊 MARKET SENTIMENT & TRENDS</div><div style="padding: 15px; background: #172554; border-radius: 8px;"><ul style="font-size: 13px; line-height: 1.8; color: #bfdbfe; margin: 0; padding-left: 20px;"><li><strong>Insurance questions prevalent:</strong> 2 discussions about coverage</li><li><strong>Employer benefits active:</strong> 1 posts about workplace benefits</li></ul></div></div><div style="font-size: 12px; color: #737373; text-align: center; padding-top: 10px; border-top: 1px solid #262626;">Monitored: r/infertility, r/IVF, r/TTC, r/Menopause, r/tryingtoconceive, r/pregnant, r/BabyBumps, r/Parenting, r/womenshealth, r/HealthInsurance<br>Total posts analyzed: 163 • Last updated: 2026-03-28 05:49</div>
+                </div></div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #3b82f6; margin-bottom: 12px; font-size: 16px;">📊 MARKET SENTIMENT & TRENDS</div><div style="padding: 15px; background: #172554; border-radius: 8px;"><ul style="font-size: 13px; line-height: 1.8; color: #bfdbfe; margin: 0; padding-left: 20px;"><li><strong>Insurance questions prevalent:</strong> 2 discussions about coverage</li><li><strong>Employer benefits active:</strong> 1 posts about workplace benefits</li></ul></div></div><div style="font-size: 12px; color: #737373; text-align: center; padding-top: 10px; border-top: 1px solid #262626;">Monitored: r/infertility, r/IVF, r/TTC, r/Menopause, r/tryingtoconceive, r/pregnant, r/BabyBumps, r/Parenting, r/womenshealth, r/HealthInsurance<br>Total posts analyzed: 163 • Last updated: 2026-03-28 05:55</div>
     <div class="section-title">📊 Glassdoor Satisfaction Comparison</div>
     <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;">
         <thead>
@@ -252,3 +245,4 @@
     </div>
 </body>
 </html>
+    
