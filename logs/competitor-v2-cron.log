@@ -814,3 +814,70 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-03-28 14:00:32] ✅ Email sent
 [2026-03-28 14:00:32] Complete
+[2026-03-28 21:00:02] Starting competitive intelligence v2...
+[2026-03-28 21:00:02] Step 1: RSS + Web search...
+[2026-03-28 21:00:02] ======================================================================
+[2026-03-28 21:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-03-28 21:00:02] ======================================================================
+[2026-03-28 21:00:02] 
+1. Scanning RSS feeds...
+[2026-03-28 21:00:06]    Found 0 new articles from RSS
+[2026-03-28 21:00:06] 
+2. Searching web for competitive news...
+[2026-03-28 21:00:07]    Found 1 new articles from web search
+[2026-03-28 21:00:07] 
+3. Checking LinkedIn executive posts...
+[2026-03-28 21:00:12]    ✓ LinkedIn executive scan complete
+[2026-03-28 21:00:12] 
+4. Checking job boards...
+[2026-03-28 21:00:12] Job board monitoring: 8 companies
+[2026-03-28 21:00:12]    Found 0 job postings
+[2026-03-28 21:00:12] 
+✅ Total new articles: 1
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 1 NEW SIGNALS
+======================================================================
+🔴 Critical: 1 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Web Search: Maven Clinic funding OR acquis...] Pentagon formalizes Palantir's Maven AI as a core military system with multi-year funding — platform's investment grows to $13 billion from $480 million in 2024 | Tom's Hardware (FemTech: 40)
+   https://www.tomshardware.com/tech-industry/artificial-intelligence/pen...
+
+======================================================================
+[2026-03-28 21:00:12] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 10 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ Found 3 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 2
+   Executive News: 1
+   Company Posts: 0
+[2026-03-28 21:00:29] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 96
+   LinkedIn updates: 3
+   Executive summary: 1034 chars
+[2026-03-28 21:00:29] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-03-28 21:00:31] ✅ Email sent
+[2026-03-28 21:00:31] Complete

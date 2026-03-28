@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-28T14:43:45.378810",
+  "timestamp": "2026-03-28T23:55:02.743077",
   "results": [
     {
       "status": "healthy",
@@ -16,11 +16,11 @@
       "critical": true
     },
     {
-      "status": "healthy",
+      "status": "invalid",
       "age_days": 0,
-      "message": "\u2705 Whoop API: Healthy (0 days old)",
-      "action_required": false,
-      "critical": false
+      "message": "\ud83d\udd34 Whoop API: Token expired (401) \u2014 RE-AUTH REQUIRED",
+      "action_required": true,
+      "critical": true
     },
     {
       "status": "healthy",
@@ -37,6 +37,6 @@
       "critical": true
     }
   ],
-  "critical_count": 1,
+  "critical_count": 2,
   "warning_count": 0
 }

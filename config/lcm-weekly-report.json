@@ -1,23 +1,31 @@
 {
-  "timestamp": "2026-03-28T09:00:01.273262",
+  "timestamp": "2026-03-28T15:33:46.736975",
   "checks": {
+    "lcm_parameters": {
+      "fresh_tail_count": "not_configured",
+      "incremental_max_depth": "not_configured",
+      "context_threshold": "not_configured",
+      "reserve_tokens": 40000,
+      "keep_recent_tokens": 40000,
+      "source": "lcm.yaml"
+    },
     "database": {
       "status": "ok",
-      "size_mb": 16.31,
-      "query_error": "[Errno 2] No such file or directory: 'sqlite3'"
-    },
-    "environment": {
-      "LCM_FRESH_TAIL_COUNT": "not_set",
-      "LCM_INCREMENTAL_MAX_DEPTH": "not_set",
-      "LCM_CONTEXT_THRESHOLD": "not_set"
+      "size_mb": 17.36,
+      "path": "/home/ubuntu/.openclaw/lcm.db",
+      "last_modified": "2026-03-28T15:05:59.779857",
+      "conversations": 4,
+      "total_summaries": 59,
+      "summary_depths": {
+        "depth_0": 58,
+        "depth_1": 1
+      },
+      "query_status": "success"
     },
     "plugin": {
-      "status": "error",
-      "error": "[Errno 2] No such file or directory: 'openclaw'"
-    },
-    "logs": {
-      "status": "not_found"
+      "status": "registered",
+      "enabled": true
     }
   },
-  "status": "warning"
+  "status": "ok"
 }
