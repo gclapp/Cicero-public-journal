@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-03-21T09:00:01.204643",
+  "timestamp": "2026-03-28T09:00:01.273262",
   "checks": {
     "database": {
       "status": "ok",
-      "size_mb": 1.25,
+      "size_mb": 16.31,
       "query_error": "[Errno 2] No such file or directory: 'sqlite3'"
     },
     "environment": {
