@@ -1,330 +1,608 @@
 #!/usr/bin/env python3
 """
-Competitive Intelligence Email Generator v3.1
-Clean, professional design with executive summary
+Competitive Intelligence Email Generator v3.2
+Executive summary at top, proper date filtering, no duplicates
 """
 
 import json
+import re
+import requests
 from datetime import datetime, timedelta
 from pathlib import Path
+from email.utils import parsedate_to_datetime
+from bs4 import BeautifulSoup
 
 ARTICLES_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-articles-v2.json"
-LINKEDIN_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-updates.json"
-LINKEDIN_POSTS_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-executive-posts.json"
-REDDIT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "reddit-competitive-intel.json"
 PROGYNY_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "progyny-sentiment.json"
+REDDIT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "reddit-competitive-intel.json"
+SENT_COUNT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-sent-count-v3.json"
 EMAIL_OUTPUT = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-email-v3.html"
 
 def load_json(filepath):
-    """Load JSON file"""
     if filepath.exists():
         with open(filepath) as f:
             return json.load(f)
     return {}
 
-def get_company_logo_url(company_name):
-    """Get logo URL for a company"""
-    company_domains = {
-        'Maven': 'mavenclinic.com',
-        'Carrot': 'carrotfertility.com',
-        'KindBody': 'kindbody.com',
-        'WIN Fertility': 'winfertility.com',
-        'Pomelo Health': 'pomelohealth.com',
-        'Pomelo': 'pomelohealth.com',
-        'Midi Health': 'midi-health.com',
-        'Midi': 'midi-health.com',
-        'Evernow': 'evernow.com',
-        'Pacify': 'pacify.com',
-        'Progyny': 'progyny.com'
-    }
-    domain = company_domains.get(company_name, f"{company_name.lower().replace(' ', '')}.com")
-    return f"https://www.google.com/s2/favicons?domain={domain}&sz=64"
+def scrape_date_from_url(url):
+    """Scrape actual publication date from article"""
+    try:
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        response = requests.get(url, headers=headers, timeout=8)
+        if response.status_code != 200:
+            return None
+        
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Try meta tags first
+        for meta in soup.find_all('meta'):
+            prop = meta.get('property', '').lower()
+            name = meta.get('name', '').lower()
+            if any(x in prop or x in name for x in ['published_time', 'date', 'pubdate']):
+                content = meta.get('content', '')
+                if content:
+                    try:
+                        dt = parsedate_to_datetime(content)
+                        return dt.strftime('%b %d, %Y')
+                    except:
+                        pass
+        
+        # Try time tags
+        for time in soup.find_all('time'):
+            datetime_attr = time.get('datetime', '')
+            if datetime_attr:
+                try:
+                    dt = parsedate_to_datetime(datetime_attr)
+                    return dt.strftime('%b %d, %Y')
+                except:
+                    pass
+        
+        # Look for date patterns in text
+        text = soup.get_text()
+        patterns = [
+            r'((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},?\s+202[0-6])',
+            r'(\d{1,2}\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+202[0-6])',
+        ]
+        for pattern in patterns:
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                return match.group(1)
+        
+        return None
+    except:
+        return None
 
-def get_company_from_article(article):
-    """Extract company name from article"""
+def parse_article_date(article):
+    """Get best date for article, scraping if necessary"""
+    # Try published field
+    pub = article.get('published', '')
+    if pub:
+        try:
+            dt = parsedate_to_datetime(pub)
+            return dt
+        except:
+            try:
+                return datetime.fromisoformat(pub.replace('Z', '+00:00').replace('+00:00', ''))
+            except:
+                pass
+    
+    # Try scraping from URL
+    url = article.get('link', '')
+    if url:
+        scraped = scrape_date_from_url(url)
+        if scraped:
+            try:
+                return datetime.strptime(scraped, '%b %d, %Y')
+            except:
+                pass
+    
+    # Fallback to found_at
+    found = article.get('found_at', '')
+    if found:
+        try:
+            return datetime.fromisoformat(found.replace('Z', '+00:00').replace('+00:00', ''))
+        except:
+            pass
+    
+    return None
+
+def is_within_30_days(article):
+    """Check if article is within 30 days"""
+    article_date = parse_article_date(article)
+    if not article_date:
+        return False
+    cutoff = datetime.now() - timedelta(days=30)
+    if article_date.tzinfo:
+        article_date = article_date.replace(tzinfo=None)
+    return article_date >= cutoff
+
+def format_article_date(article):
+    """Format date for display"""
+    dt = parse_article_date(article)
+    if dt:
+        return dt.strftime('%b %d, %Y')
+    return 'Date unknown'
+
+def can_send_article(article_id):
+    """Check if article can be sent (max 2 times)"""
+    counts = load_json(SENT_COUNT_FILE)
+    return counts.get(article_id, 0) < 2
+
+def increment_sent_count(article_id):
+    """Track sends"""
+    counts = load_json(SENT_COUNT_FILE)
+    counts[article_id] = counts.get(article_id, 0) + 1
+    SENT_COUNT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SENT_COUNT_FILE, 'w') as f:
+        json.dump(counts, f, indent=2)
+
+def generate_reddit_html():
+    """Generate Reddit intelligence section"""
+    try:
+        # Try both possible Reddit data files
+        REDDIT_FILES = [
+            Path.home() / ".openclaw" / "workspace" / "config" / "reddit-competitive-intel.json",
+            Path.home() / ".openclaw" / "workspace" / "config" / "reddit-intelligence.json"
+        ]
+        
+        data = None
+        for reddit_file in REDDIT_FILES:
+            if reddit_file.exists():
+                with open(reddit_file) as f:
+                    data = json.load(f)
+                break
+        
+        if not data:
+            return '<!-- No Reddit data -->'
+        
+        # Handle different data structures
+        all_mentions = []
+        cutoff = datetime.now() - timedelta(days=30)
+        
+        def is_recent(entry):
+            """Check if entry is within 30 days"""
+            date_field = entry.get('created', entry.get('created_utc', entry.get('date', entry.get('found_at', ''))))
+            if not date_field:
+                return True  # Include if no date
+            try:
+                if isinstance(date_field, (int, float)):
+                    dt = datetime.fromtimestamp(date_field)
+                else:
+                    dt = datetime.fromisoformat(str(date_field).replace('Z', '+00:00').replace('+00:00', ''))
+                return dt >= cutoff
+            except:
+                return True  # Include if can't parse
+        
+        # Structure 1: {company: {mentions: [...]}}
+        if isinstance(data, dict) and any(isinstance(v, dict) for v in data.values()):
+            companies = ['Progyny', 'Maven', 'Carrot', 'Kindbody']
+            for company in companies:
+                company_data = data.get(company, {})
+                if isinstance(company_data, dict):
+                    mentions = company_data.get('mentions', [])
+                    for m in mentions[:3]:
+                        if is_recent(m):
+                            m['company'] = company
+                            all_mentions.append(m)
+        
+        # Structure 2: {posts: [...]}
+        elif isinstance(data, dict) and 'posts' in data:
+            posts = data.get('posts', [])
+            for post in posts[:10]:
+                if is_recent(post):
+                    post['company'] = post.get('company', 'General')
+                    all_mentions.append(post)
+        
+        # Structure 3: Direct list
+        elif isinstance(data, list):
+            for post in data[:10]:
+                if isinstance(post, dict) and is_recent(post):
+                    post['company'] = post.get('company', 'General')
+                    all_mentions.append(post)
+        
+        if not all_mentions:
+            # Return empty section with message instead of comment
+            return '''
+        <div class="section">
+            <h2>🔍 Reddit Intelligence</h2>
+            <p style="font-size: 13px; color: #666;">No Reddit discussions found in the last 30 days.</p>
+        </div>
+'''
+        
+        html = '''
+        <div class="section">
+            <h2>🔍 Reddit Intelligence</h2>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Community discussions and sentiment</p>
+'''
+        
+        for mention in all_mentions[:10]:  # Top 10 total
+            title = mention.get('title', 'No title')
+            subreddit = mention.get('subreddit', mention.get('source', 'Unknown'))
+            score = mention.get('score', mention.get('upvotes', 0))
+            url = mention.get('url', mention.get('permalink', '#'))
+            company = mention.get('company', '')
+            
+            html += f'''
+            <div class="mention" style="margin-bottom: 12px; padding: 10px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-size: 13px; font-weight: 500; margin-bottom: 4px;">
+                    <span style="background: #e5e7eb; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-right: 8px;">{company}</span>
+                    <a href="{url}" style="color: #1a1a1a; text-decoration: none;">{title[:80]}...</a>
+                </div>
+                <div style="font-size: 12px; color: #666;">r/{subreddit} • ⬆️ {score}</div>
+            </div>
+'''
+        
+        html += '</div>'
+        return html
+    except Exception as e:
+        return f'<!-- Reddit error: {e} -->'
+
+def generate_linkedin_html():
+    """Generate executive web mentions section (placeholder for proper LinkedIn scraping)"""
+    try:
+        LINKEDIN_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-updates.json"
+        if not LINKEDIN_FILE.exists():
+            return '<!-- No executive data -->'
+        
+        with open(LINKEDIN_FILE) as f:
+            data = json.load(f)
+        
+        # Handle both list format and dict with posts key
+        if isinstance(data, list):
+            updates = data
+        else:
+            updates = data.get('posts', []) or data.get('updates', [])
+        
+        if not updates:
+            return '''
+        <div class="section">
+            <h2>💼 Executive Web Mentions</h2>
+            <p style="font-size: 13px; color: #666;">No recent executive mentions found.</p>
+            <p style="font-size: 11px; color: #999; margin-top: 10px;"><em>Note: Proper LinkedIn post scraping with dates requires browser automation — on todo list.</em></p>
+        </div>
+'''
+        
+        html = '''
+        <div class="section">
+            <h2>💼 Executive Web Mentions</h2>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Recent web mentions of monitored executives</p>
+'''
+        
+        for update in updates[:5]:  # Top 5 updates
+            if not isinstance(update, dict):
+                continue
+            author = update.get('executive', update.get('author', 'Unknown'))
+            company = update.get('company', '')
+            content = update.get('description', update.get('content', ''))[:200]
+            url = update.get('link', update.get('url', '#'))
+            source = 'LinkedIn' if 'linkedin.com' in url else 'Web'
+            
+            html += f'''
+            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-weight: 600; font-size: 14px;">{author}</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">{company} • Source: {source}</div>
+                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">{content}...</div>
+                <a href="{url}" style="font-size: 12px; color: #2563eb;">View →</a>
+            </div>
+'''
+        
+        html += '''
+            <p style="font-size: 11px; color: #999; margin-top: 15px; padding-top: 10px; border-top: 1px solid #e5e7eb;">
+                <em>Note: These are web search results mentioning executives. Proper LinkedIn post scraping with dates requires browser automation — on todo list.</em>
+            </p>
+        </div>'''
+        return html
+    except Exception as e:
+        return f'<!-- Executive mentions error: {e} -->'
+
+def generate_glassdoor_html():
+    """Generate Glassdoor satisfaction table"""
+    try:
+        import sys
+        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
+        from glassdoor_fetcher import load_existing
+        data = load_existing()
+        
+        if not data:
+            return '<!-- No Glassdoor data -->'
+        
+        html = '''
+        <div class="section">
+            <h2>🏢 Employee Satisfaction (Glassdoor)</h2>
+            <table style="width:100%; border-collapse: collapse; font-size: 13px;">
+                <tr style="background: #1e40af; color: white;">
+                    <th style="padding: 10px; text-align: left;">Company</th>
+                    <th style="padding: 10px; text-align: center;">Rating</th>
+                    <th style="padding: 10px; text-align: center;">Reviews</th>
+                    <th style="padding: 10px; text-align: center;">Recommend</th>
+                    <th style="padding: 10px; text-align: center;">CEO Approval</th>
+                </tr>
+'''
+        
+        companies = ['Progyny', 'Maven Clinic', 'Carrot Fertility', 'Kindbody', 'WIN Fertility']
+        for i, company in enumerate(companies):
+            info = data.get(company, {})
+            if not info:
+                continue
+            
+            rating = info.get('overall_rating', 'N/A')
+            reviews = info.get('total_reviews', 'N/A')
+            recommend = info.get('recommend_to_friend', 'N/A')
+            ceo = info.get('approve_of_ceo', 'N/A')
+            
+            # Color code ratings
+            try:
+                rating_val = float(rating) if rating != 'N/A' else 0
+                rating_color = '#16a34a' if rating_val >= 4.0 else '#ea580c' if rating_val >= 3.0 else '#dc2626'
+            except:
+                rating_color = '#666'
+            
+            bg = '#f8fafc' if i % 2 == 0 else 'white'
+            html += f'''
+                <tr style="background: {bg};">
+                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">{company}</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: {rating_color}; font-weight: 600;">{rating}</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">{reviews}</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">{recommend}</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">{ceo}</td>
+                </tr>
+'''
+        
+        html += '</table></div>'
+        return html
+    except Exception as e:
+        return f'<!-- Glassdoor error: {e} -->'
+
+def is_article_relevant(article):
+    """Check if article is relevant to FemTech/Women's Health"""
     title = article.get('title', '').lower()
     summary = article.get('summary', '').lower()
     combined = title + ' ' + summary
+    
+    relevant_terms = [
+        'femtech', 'women\'s health', 'womens health', 'female health',
+        'fertility', 'infertility', 'ivf', 'egg freezing', 'pregnancy',
+        'maternity', 'menopause', 'menstrual', 'pcos', 'endometriosis',
+        'maternal', 'family building', 'progyny', 'maven', 'carrot', 'kindbody',
+        'surrogacy', 'reproductive', 'gynecology', 'obgyn', 'doula', 'midwife',
+    ]
+    
+    for term in relevant_terms:
+        if term in combined:
+            return True
+    
+    # Exclude generic terms unless women-specific
+    exclude_generic = ['recruitment', 'staffing', 'hiring', 'job', 'behavioral health']
+    for term in exclude_generic:
+        if term in combined and not any(w in combined for w in ['women', 'female', 'maternal', 'fertility']):
+            return False
+    
+    return True
+
+def get_company_from_article(article):
+    """Determine company from article content"""
+    combined = (article.get('title', '') + ' ' + article.get('summary', '')).lower()
     
     companies = {
         'Maven': ['maven', 'maven clinic'],
         'Carrot': ['carrot', 'carrot fertility'],
-        'KindBody': ['kindbody', 'kind body'],
-        'WIN Fertility': ['win fertility', 'winfertility'],
-        'Pomelo': ['pomelo', 'pomelo health'],
-        'Midi': ['midi', 'midi health'],
-        'Evernow': ['evernow'],
-        'Pacify': ['pacify'],
-        'Progyny': ['progyny']
+        'Kindbody': ['kindbody'],
+        'Progyny': ['progyny', 'pgny'],
+        'Future Family': ['future family'],
+        'Sword Health': ['sword health', 'sword'],
+        'Oura': ['oura'],
+        'Flo Health': ['flo health', 'flo'],
     }
     
-    for company, keywords in companies.items():
-        for keyword in keywords:
-            if keyword in combined:
-                return company
+    for company, terms in companies.items():
+        if any(term in combined for term in terms):
+            return company
+    
     return 'General'
 
-def generate_trend_summary(critical, high, medium, reddit_posts, progyny_mentions):
-    """Generate executive summary of key trends"""
-    summary_parts = []
-    total_signals = len(critical) + len(high) + len(medium)
+def generate_detailed_summary(articles):
+    """Generate detailed 2-3 sentence summary for a set of articles"""
+    if not articles:
+        return ""
     
-    if total_signals == 0:
-        summary_parts.append("No new competitive signals in the last 24 hours.")
-    else:
-        summary_parts.append(f"{total_signals} new signals: {len(critical)} critical, {len(high)} high, {len(medium)} medium priority.")
+    # Group by company
+    by_company = {}
+    for a in articles:
+        company = get_company_from_article(a)
+        by_company[company] = by_company.get(company, [])
+        by_company[company].append(a)
     
-    if reddit_posts:
-        summary_parts.append(f"Reddit: {len(reddit_posts)} discussions across fertility communities.")
-    
-    if progyny_mentions:
-        summary_parts.append(f"Progyny: {len(progyny_mentions)} mentions — monitor sentiment.")
+    # Identify key themes
+    all_text = ' '.join([a.get('title','') + ' ' + a.get('summary','') for a in articles]).lower()
     
     themes = []
-    for article in critical + high:
-        title = article.get('title', '').lower()
-        if 'funding' in title or 'raised' in title:
-            themes.append("funding activity")
-        elif 'ai' in title or 'artificial intelligence' in title:
-            themes.append("AI investments")
-        elif 'partnership' in title:
-            themes.append("partnerships")
-        elif 'acquisition' in title:
-            themes.append("M&A")
+    
+    # AI theme
+    ai_keywords = ['ai', 'artificial intelligence', 'machine learning', 'platform', 'algorithm', 'predictive']
+    if any(k in all_text for k in ai_keywords):
+        ai_companies = [c for c, arts in by_company.items() if any(any(k in (a.get('title','')+a.get('summary','')).lower() for k in ai_keywords) for a in arts)]
+        if ai_companies:
+            themes.append(f"AI and machine learning innovation from {', '.join(ai_companies[:3])}, signaling a competitive race to automate care coordination and improve patient outcomes through predictive analytics.")
+    
+    # Funding theme
+    if any(k in all_text for k in ['funding', 'raises', 'million', 'investment', 'series']):
+        funded = [a for a in articles if any(k in (a.get('title','')+a.get('summary','')).lower() for k in ['funding', 'raises', 'million'])]
+        if funded:
+            companies_funded = list(set([get_company_from_article(a) for a in funded]))[:3]
+            themes.append(f"Significant capital deployment into the sector with fresh funding rounds from {', '.join(companies_funded)}, indicating investor confidence and likely acceleration of market expansion efforts.")
+    
+    # Partnership theme
+    if any(k in all_text for k in ['partnership', 'partners', 'collaboration', 'signs', 'deal']):
+        partnered = [a for a in articles if any(k in (a.get('title','')+a.get('summary','')).lower() for k in ['partnership', 'partners', 'collaboration'])]
+        if partnered:
+            companies_partnered = list(set([get_company_from_article(a) for a in partnered]))[:3]
+            themes.append(f"Strategic partnership activity from {', '.join(companies_partnered)}, suggesting market consolidation and expansion into new employer segments or geographic markets.")
+    
+    # Product launch theme
+    if any(k in all_text for k in ['launch', 'introduces', 'unveils', 'new product', 'new service']):
+        launched = [a for a in articles if any(k in (a.get('title','')+a.get('summary','')).lower() for k in ['launch', 'introduces', 'unveils'])]
+        if launched:
+            companies_launched = list(set([get_company_from_article(a) for a in launched]))[:3]
+            themes.append(f"New product and service launches from {', '.join(companies_launched)}, representing competitive positioning moves to capture market share and differentiate offerings.")
+    
+    # Market expansion
+    if any(k in all_text for k in ['expands', 'expansion', 'new market', 'international', 'global']):
+        expanded = [a for a in articles if any(k in (a.get('title','')+a.get('summary','')).lower() for k in ['expands', 'expansion', 'new market'])]
+        if expanded:
+            companies_expanded = list(set([get_company_from_article(a) for a in expanded]))[:3]
+            themes.append(f"Geographic and market expansion efforts by {', '.join(companies_expanded)}, indicating growth ambitions and potential competitive pressure in new territories.")
+    
+    # Regulatory/Policy
+    if any(k in all_text for k in ['legislation', 'policy', 'regulation', 'mandate', 'coverage', 'benefit']):
+        themes.append("Regulatory and policy developments that could impact market dynamics, coverage requirements, and competitive positioning across the sector.")
     
     if themes:
-        unique_themes = list(set(themes))[:2]
-        summary_parts.append(f"Themes: {', '.join(unique_themes)}.")
+        return ' '.join(themes[:3])  # Max 3 themes
     
-    return " ".join(summary_parts) if summary_parts else "Monitoring active. No significant developments."
+    return f"Competitive activity observed across {len(by_company)} companies with {len(articles)} total signals in the reporting period."
 
-def generate_importance_summary(article):
-    """Generate 'why it matters' summary"""
-    title = article.get('title', '').lower()
-    summary = article.get('summary', '').lower()
-    combined = title + ' ' + summary
+def generate_executive_summary(critical, high, medium, progyny_mentions):
+    """Generate comprehensive executive summary"""
+    all_articles = critical + high + medium
     
-    if 'funding' in combined or 'raised' in combined or 'series' in combined:
-        return "💰 <strong>Capital signal:</strong> New funding indicates growth acceleration."
-    elif 'ai' in combined or 'artificial intelligence' in combined:
-        return "🤖 <strong>AI investment:</strong> Technology competition heating up."
-    elif 'partnership' in combined or 'partner' in combined:
-        return "🤝 <strong>Partnership:</strong> Ecosystem expansion and integration play."
-    elif 'acquisition' in combined or 'acquire' in combined:
-        return "🏢 <strong>M&A:</strong> Market consolidation reshaping landscape."
-    elif 'launch' in combined or 'product' in combined:
-        return "🚀 <strong>Product:</strong> New offerings signal competitive pressure."
-    else:
-        return "📊 <strong>Market signal:</strong> Track for pattern analysis."
+    if not all_articles and not progyny_mentions:
+        return "No significant competitive activity detected in the last 30 days."
+    
+    summary_parts = []
+    
+    # Overall landscape summary
+    if all_articles:
+        detailed = generate_detailed_summary(all_articles)
+        summary_parts.append(detailed)
+    
+    # Volume context
+    companies = {}
+    for article in all_articles:
+        company = get_company_from_article(article)
+        companies[company] = companies.get(company, 0) + 1
+    
+    top_companies = sorted(companies.items(), key=lambda x: x[1], reverse=True)[:3]
+    if top_companies:
+        company_str = ', '.join([f"{c} ({n})" for c, n in top_companies])
+        summary_parts.append(f"Most active competitors: {company_str}.")
+    
+    # Progyny context
+    if progyny_mentions:
+        summary_parts.append(f"Progyny tracked in {len(progyny_mentions)} news/social mentions, indicating sustained market visibility and ongoing competitive interest.")
+    
+    return ' '.join(summary_parts)
 
 def generate_html_email():
-    """Generate clean, professional HTML email"""
+    """Generate competitive intelligence email"""
     
-    # Load all data
+    # Load data
     articles_data = load_json(ARTICLES_FILE)
-    linkedin_posts = load_json(LINKEDIN_POSTS_FILE)
-    reddit_data = load_json(REDDIT_FILE)
     progyny_data = load_json(PROGYNY_FILE)
+    reddit_data = load_json(REDDIT_FILE)
     
-    # Time cutoffs
-    now = datetime.now()
-    cutoff_24h = now - timedelta(hours=24)
-    cutoff_30d = now - timedelta(days=30)
+    articles_list = articles_data if isinstance(articles_data, list) else articles_data.get('articles', [])
     
-    # Process articles
-    articles_list = []
-    if isinstance(articles_data, list):
-        articles_list = articles_data
-    elif isinstance(articles_data, dict):
-        articles_list = articles_data.get('articles', [])
-    
-    # Load sent counts
-    sent_count_file = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-sent-count-v2.json"
-    sent_counts = load_json(sent_count_file)
-    
-    recent_articles = []
+    # Filter articles
+    filtered = []
     for article in articles_list:
         if not isinstance(article, dict):
             continue
-        
-        # Check age (30 days max)
-        found_at_str = article.get('found_at', '2000-01-01')
-        try:
-            found_at = datetime.fromisoformat(found_at_str.replace('Z', '+00:00').replace('+00:00', ''))
-            if found_at < cutoff_30d:
-                continue
-        except:
+        if not is_article_relevant(article):
+            continue
+        if not is_within_30_days(article):
+            continue
+        if not can_send_article(article.get('id', '')):
             continue
         
-        # Check send count (2 max) - but show all articles under 30 days for visibility
-        article_id = article.get('id', '')
-        send_count = sent_counts.get(article_id, 0)
-        
-        # Include article if under 30 days old (regardless of send count for display)
-        # But mark if it's new or repeated
-        article['_send_count'] = send_count
-        article['_is_new'] = send_count < 2
-        recent_articles.append(article)
-        
-        # Increment count for new articles
-        if send_count < 2:
-            sent_counts[article_id] = send_count + 1
+        filtered.append(article)
+        increment_sent_count(article.get('id', ''))
     
-    # Save sent counts
-    with open(sent_count_file, 'w') as f:
-        json.dump(sent_counts, f, indent=2)
+    # Categorize
+    critical = [a for a in filtered if a.get('priority') == 'critical'][:5]
+    high = [a for a in filtered if a.get('priority') == 'high'][:5]
+    medium = [a for a in filtered if a.get('priority') == 'medium'][:10]
     
-    # Helper to format article dates
-    def format_article_date(article):
-        """Extract and format date from article"""
-        # Try published date first (RSS format)
-        pub_date = article.get('published', '')
-        if pub_date:
-            try:
-                # Parse RSS date format: "Wed, 18 Mar 2026 22:06:58 GMT"
-                from email.utils import parsedate_to_datetime
-                dt = parsedate_to_datetime(pub_date)
-                return dt.strftime('%b %d, %Y')
-            except:
-                pass
-            try:
-                # Try ISO format
-                dt = datetime.fromisoformat(pub_date.replace('Z', '+00:00').replace('+00:00', ''))
-                return dt.strftime('%b %d, %Y')
-            except:
-                pass
-        
-        # Fallback to found_at
-        found_at = article.get('found_at', '')
-        if found_at:
-            try:
-                dt = datetime.fromisoformat(found_at.replace('Z', '+00:00').replace('+00:00', ''))
-                return dt.strftime('%b %d, %Y')
-            except:
-                pass
-        
-        return 'Recent'
+    # Process Progyny mentions with date filtering
+    progyny_mentions_raw = progyny_data.get('mentions', [])
+    progyny_mentions = []
+    for m in progyny_mentions_raw:
+        if is_within_30_days(m):
+            progyny_mentions.append(m)
+    progyny_mentions = progyny_mentions[:5]
     
-    # Categorize - include ALL articles under 30 days, sorted by priority and date
-    # Sort by found_at descending (newest first)
-    recent_articles_sorted = sorted(
-        recent_articles, 
-        key=lambda x: x.get('found_at', '2000-01-01'), 
-        reverse=True
-    )
+    # Generate executive summary
+    exec_summary = generate_executive_summary(critical, high, medium, progyny_mentions)
     
-    critical = [a for a in recent_articles_sorted if a.get('priority') == 'critical'][:5]
-    high = [a for a in recent_articles_sorted if a.get('priority') == 'high'][:5]
-    medium = [a for a in recent_articles_sorted if a.get('priority') in ('medium', 'low')]
+    today = datetime.now().strftime('%A, %B %d, %Y')
     
-    # Get other data
-    progyny_mentions = progyny_data.get('mentions', [])[:5]
-    exec_news = progyny_data.get('executive_news', [])[:3]
-    reddit_posts = reddit_data.get('posts', [])[:5]
-    exec_posts = linkedin_posts.get('posts', [])[:3] if isinstance(linkedin_posts, dict) else []
-    
-    # Hard-coded Reddit posts about Progyny (from previous scans)
-    # These are important patient sentiment signals
-    progyny_reddit_posts = [
-        {
-            "title": "Is Progyny scammy or just incompetent? Their billing practices seem slimey",
-            "subreddit": "r/IVF",
-            "date": "2025-05-09",
-            "score": 1,
-            "url": "https://reddit.com/r/IVF/comments/1kiooao/is_progyny_scammy_or_just_incompetent_their/",
-            "summary": "Patient describes billing issues: insurance paid labwork in full per EOB, but Progyny sent separate bill claiming it goes toward deductible. Plan has no co-insurance for labwork. Additional bill for consultation where not all codes were billed to insurance.",
-            "sentiment": "negative",
-            "severity": "high",
-            "action_needed": "⚠️ Billing coordination issue - flag for customer success team"
-        },
-        {
-            "title": "Does Progyny cover Omnitrope/HGH?",
-            "subreddit": "r/IVF",
-            "date": "2025-05-17",
-            "score": 1,
-            "url": "https://reddit.com/r/IVF/comments/1kp10oh/does_progyny_cover_omnitropehgh/",
-            "summary": "Patient asking how to get Omnitrope/HGH/Saizen covered. Common question about medication coverage.",
-            "sentiment": "neutral",
-            "severity": "low",
-            "action_needed": "📋 Coverage question - consider FAQ/documentation update"
-        }
-    ]
-    
-    # Generate summary
-    trend_summary = generate_trend_summary(critical, high, medium, reddit_posts, progyny_mentions)
-    today_str = now.strftime('%A, %B %d, %Y')
-    
-    # Build HTML
     html = f"""<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <style>
         body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-               line-height: 1.5; color: #1a1a1a; max-width: 680px; margin: 0 auto; background: #fafafa; }}
+               line-height: 1.5; color: #1a1a1a; max-width: 700px; margin: 0 auto; background: #fafafa; }}
         .container {{ background: white; padding: 40px; }}
-        .header {{ border-bottom: 2px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 30px; }}
+        
+        .header {{ background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; 
+                   padding: 30px; margin: -40px -40px 30px -40px; }}
         .header h1 {{ margin: 0; font-size: 24px; font-weight: 600; }}
-        .header p {{ margin: 8px 0 0 0; color: #666; font-size: 14px; }}
+        .header p {{ margin: 8px 0 0 0; opacity: 0.9; font-size: 14px; }}
         
-        .exec-summary {{ background: #f0f7ff; padding: 20px; margin: 20px 0; 
-                       border-left: 4px solid #0066cc; border-radius: 0 4px 4px 0; }}
-        .exec-summary h2 {{ margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #0066cc; }}
-        .exec-summary p {{ margin: 0; font-size: 14px; line-height: 1.6; color: #333; }}
+        .exec-summary {{ background: #f0f7ff; border-left: 4px solid #1e40af; 
+                        padding: 20px; margin: 25px 0; }}
+        .exec-summary h2 {{ margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; 
+                           letter-spacing: 1px; color: #1e40af; }}
+        .exec-summary p {{ margin: 0; font-size: 15px; line-height: 1.6; }}
         
-        .stats {{ display: flex; gap: 30px; margin: 20px 0; padding: 15px 0; 
-                 border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }}
-        .stat {{ text-align: center; }}
-        .stat-number {{ font-size: 28px; font-weight: 600; color: #1a1a1a; }}
-        .stat-label {{ font-size: 11px; color: #999; text-transform: uppercase; }}
+        .stats {{ display: flex; gap: 20px; margin: 20px 0; justify-content: center; }}
+        .stat {{ text-align: center; background: #f8fafc; padding: 15px 25px; border-radius: 8px; }}
+        .stat-number {{ font-size: 28px; font-weight: 600; color: #1e40af; }}
+        .stat-label {{ font-size: 11px; color: #666; text-transform: uppercase; }}
         
-        .section-title {{ font-size: 12px; font-weight: 600; text-transform: uppercase; 
-                         letter-spacing: 1px; color: #666; margin: 30px 0 15px 0;
-                         border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }}
+        .section {{ margin: 30px 0; }}
+        .section h2 {{ font-size: 16px; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; 
+                      padding-bottom: 8px; margin-bottom: 15px; }}
         
-        .article {{ margin: 20px 0; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }}
-        .article-header {{ display: flex; align-items: center; margin-bottom: 12px; }}
-        .logo {{ width: 24px; height: 24px; margin-right: 10px; border-radius: 4px; }}
-        .company {{ font-size: 11px; font-weight: 600; text-transform: uppercase; color: #999; }}
+        .article {{ padding: 15px 0; border-bottom: 1px solid #f0f0f0; }}
+        .article:last-child {{ border-bottom: none; }}
+        .article-header {{ display: flex; align-items: center; margin-bottom: 8px; }}
+        .company {{ font-size: 11px; font-weight: 600; text-transform: uppercase; 
+                   color: #666; letter-spacing: 0.5px; }}
+        .priority {{ margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 4px; }}
+        .priority-critical {{ background: #fef2f2; color: #dc2626; }}
+        .priority-high {{ background: #fff7ed; color: #ea580c; }}
+        .priority-medium {{ background: #fefce8; color: #ca8a04; }}
         
-        .priority {{ display: inline-flex; align-items: center; margin-left: auto; }}
-        .priority-dot {{ width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }}
-        .priority-critical {{ background: #dc2626; }}
-        .priority-high {{ background: #ea580c; }}
-        .priority-medium {{ background: #ca8a04; }}
-        .priority-label {{ font-size: 11px; font-weight: 500; text-transform: uppercase; color: #666; }}
-        
-        .title {{ font-size: 16px; font-weight: 600; margin-bottom: 6px; }}
+        .title {{ font-weight: 600; font-size: 15px; margin-bottom: 4px; }}
         .title a {{ color: #1a1a1a; text-decoration: none; }}
-        .meta {{ font-size: 12px; color: #999; margin-bottom: 10px; }}
-        .summary {{ font-size: 14px; color: #444; margin-bottom: 12px; }}
-        .why-matters {{ font-size: 13px; color: #555; padding: 12px 16px; 
-                       background: #f8f8f8; border-left: 3px solid #ddd; }}
+        .title a:hover {{ text-decoration: underline; }}
+        .meta {{ font-size: 12px; color: #999; margin-bottom: 8px; }}
+        .summary {{ font-size: 13px; color: #555; }}
+        .why-matters {{ font-size: 12px; color: #444; background: #f8f9fa; 
+                       padding: 10px 12px; border-radius: 4px; margin-top: 8px; }}
         
-        .progyny-section {{ background: #fafafa; padding: 20px; margin: 20px 0; 
-                           border: 1px solid #e5e5e5; border-radius: 4px; }}
-        .progyny-title {{ font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a; }}
-        .mention {{ padding: 12px 0; border-bottom: 1px solid #eee; }}
+        .progyny-section {{ background: #f8fafc; padding: 20px; margin: 20px 0; 
+                           border-radius: 8px; border: 1px solid #e5e7eb; }}
+        .mention {{ padding: 10px 0; border-bottom: 1px solid #e5e7eb; }}
         .mention:last-child {{ border-bottom: none; }}
-        .mention-title {{ font-size: 13px; font-weight: 500; margin-bottom: 4px; }}
-        .mention-title a {{ color: #2563eb; text-decoration: none; }}
+        .mention-title {{ font-weight: 500; font-size: 13px; }}
+        .mention-title a {{ color: #1e40af; text-decoration: none; }}
         .mention-meta {{ font-size: 11px; color: #999; }}
-        .mention-summary {{ font-size: 12px; color: #666; font-style: italic; margin-top: 4px; }}
         
-        .footer {{ margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e5e5;
-                  font-size: 12px; color: #999; text-align: center; }}
+        .footer {{ margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; 
+                  text-align: center; font-size: 12px; color: #999; }}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Competitive Intelligence Report</h1>
-            <p>{today_str} | 24-Hour Window</p>
+            <h1>🏛️ Competitive Intelligence Report</h1>
+            <p>{today} | 30-Day Window | FemTech & Women's Health Focus</p>
         </div>
         
         <div class="exec-summary">
             <h2>📊 Executive Summary</h2>
-            <p>{trend_summary}</p>
+            <p>{exec_summary}</p>
         </div>
         
         <div class="stats">
@@ -347,227 +625,118 @@ def generate_html_email():
         </div>
 """
     
-    # Progyny Section
-    if progyny_mentions or exec_news or progyny_reddit_posts:
-        html += '<div class="section-title">What the Market is Saying About Progyny</div><div class="progyny-section">'
-        
-        # Reddit Sentiment Analysis (PRIORITY)
-        if progyny_reddit_posts:
-            html += '<div class="progyny-title">🚨 Reddit Patient Sentiment (Action Required)</div>'
-            for post in progyny_reddit_posts:
-                # Format date
-                post_date = post.get('date', 'Recent')
-                try:
-                    dt = datetime.strptime(post_date, '%Y-%m-%d')
-                    post_date = dt.strftime('%b %d, %Y')
-                except:
-                    pass
-                
-                # Color coding based on sentiment
-                sentiment_color = '#16a34a' if post['sentiment'] == 'positive' else '#ea580c' if post['sentiment'] == 'neutral' else '#dc2626'
-                sentiment_bg = '#f0fdf4' if post['sentiment'] == 'positive' else '#fff7ed' if post['sentiment'] == 'neutral' else '#fef2f2'
-                severity_badge = ''
-                if post['severity'] == 'high':
-                    severity_badge = '<span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">HIGH</span>'
-                elif post['severity'] == 'medium':
-                    severity_badge = '<span style="background:#ea580c;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">MEDIUM</span>'
-                
-                html += f'''
-            <div class="mention" style="background:{sentiment_bg};border-left:4px solid {sentiment_color};padding:15px;margin:10px 0;border-radius:4px;">
-                <div class="mention-title"><a href="{post['url']}">{post['title']}</a>{severity_badge}</div>
-                <div class="mention-meta">{post['subreddit']} • {post_date} • ⬆️ {post['score']}</div>
-                <div class="summary" style="margin:8px 0;font-size:13px;color:#444;">{post['summary'][:200]}...</div>
-                <div style="font-size:12px;color:#666;font-weight:600;margin-top:8px;">{post['action_needed']}</div>
-            </div>
-                '''
-        
-        if progyny_mentions:
-            html += '<div class="progyny-title">📢 News Mentions</div>'
-            for mention in progyny_mentions[:3]:
-                source = mention.get('subreddit', mention.get('source', 'News'))
-                
-                # Parse date
-                mention_date_raw = mention.get('created_utc', mention.get('published', mention.get('date', None)))
-                mention_date = 'Recent'
-                if isinstance(mention_date_raw, (int, float)):
-                    mention_date = datetime.fromtimestamp(mention_date_raw).strftime('%b %d, %Y')
-                elif isinstance(mention_date_raw, str):
-                    try:
-                        # Try parsing ISO format
-                        dt = datetime.fromisoformat(mention_date_raw.replace('Z', '+00:00').replace('+00:00', ''))
-                        mention_date = dt.strftime('%b %d, %Y')
-                    except:
-                        mention_date = mention_date_raw[:10] if len(mention_date_raw) > 10 else mention_date_raw
-                
-                html += f'''
-            <div class="mention">
-                <div class="mention-title"><a href="{mention.get('url', '#')}">{mention.get('title', 'No title')[:80]}...</a></div>
-                <div class="mention-meta">{source} • {mention_date}</div>
-            </div>
-                '''
-        
-        if exec_news:
-            html += '<div class="progyny-title" style="margin-top: 20px;">👔 Executive News</div>'
-            for news in exec_news[:2]:
-                pub_date = news.get('published', 'Recent')
-                html += f'''
-            <div class="mention">
-                <div class="mention-title"><a href="{news.get('url', '#')}">{news.get('headline', 'No headline')[:80]}...</a></div>
-                <div class="mention-meta">{news.get('executive', '')} • {pub_date}</div>
-            </div>
-                '''
-        html += '</div>'
-    
     # Critical Signals
     if critical:
-        html += '<div class="section-title">🔴 Critical Signals</div>'
+        html += '<div class="section"><h2>🔴 Critical Signals</h2>'
         for article in critical:
             company = get_company_from_article(article)
-            logo_url = get_company_logo_url(company)
-            importance = generate_importance_summary(article)
-            pub_date = format_article_date(article)
-            is_new = article.get('_is_new', False)
-            new_badge = '<span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">NEW</span>' if is_new else ''
+            date = format_article_date(article)
             html += f'''
-        <div class="article">
-            <div class="article-header">
-                <img src="{logo_url}" alt="{company}" class="logo" onerror="this.style.display='none'">
-                <span class="company">{company}</span>
-                <span class="priority">
-                    <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>{new_badge}
-                </span>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">{company}</span>
+                    <span class="priority priority-critical">Critical</span>
+                </div>
+                <div class="title"><a href="{article.get('link', '#')}">{article.get('title', '')}</a></div>
+                <div class="meta">{article.get('source', 'Unknown')} • {date}</div>
+                <div class="summary">{article.get('summary', '')[:200]}...</div>
             </div>
-            <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
-            <div class="meta">{article.get('source', 'Unknown')} • {pub_date}</div>
-            <div class="summary">{article.get('summary', '')[:200]}...</div>
-            <div class="why-matters">{importance}</div>
-        </div>
-            '''
+'''
+        html += '</div>'
     
     # High Priority
     if high:
-        html += '<div class="section-title">🟠 High Priority</div>'
+        html += '<div class="section"><h2>🟠 High Priority</h2>'
         for article in high:
             company = get_company_from_article(article)
-            logo_url = get_company_logo_url(company)
-            importance = generate_importance_summary(article)
-            pub_date = format_article_date(article)
-            is_new = article.get('_is_new', False)
-            new_badge = '<span style="background:#ea580c;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">NEW</span>' if is_new else ''
+            date = format_article_date(article)
             html += f'''
-        <div class="article">
-            <div class="article-header">
-                <img src="{logo_url}" alt="{company}" class="logo" onerror="this.style.display='none'">
-                <span class="company">{company}</span>
-                <span class="priority">
-                    <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>{new_badge}
-                </span>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">{company}</span>
+                    <span class="priority priority-high">High</span>
+                </div>
+                <div class="title"><a href="{article.get('link', '#')}">{article.get('title', '')}</a></div>
+                <div class="meta">{article.get('source', 'Unknown')} • {date}</div>
+                <div class="summary">{article.get('summary', '')[:200]}...</div>
             </div>
-            <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
-            <div class="meta">{article.get('source', 'Unknown')} • {pub_date}</div>
-            <div class="summary">{article.get('summary', '')[:200]}...</div>
-            <div class="why-matters">{importance}</div>
-        </div>
-            '''
+'''
+        html += '</div>'
     
     # Medium Priority
     if medium:
-        html += '<div class="section-title">🟡 Medium Priority</div>'
-        for article in medium[:10]:  # Limit to 10 medium priority
+        html += '<div class="section"><h2>🟡 Medium Priority</h2>'
+        for article in medium:
             company = get_company_from_article(article)
-            logo_url = get_company_logo_url(company)
-            importance = generate_importance_summary(article)
-            pub_date = format_article_date(article)
-            is_new = article.get('_is_new', False)
-            new_badge = '<span style="background:#ca8a04;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">NEW</span>' if is_new else ''
+            date = format_article_date(article)
             html += f'''
-        <div class="article">
-            <div class="article-header">
-                <img src="{logo_url}" alt="{company}" class="logo" onerror="this.style.display='none'">
-                <span class="company">{company}</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>{new_badge}
-                </span>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">{company}</span>
+                    <span class="priority priority-medium">Medium</span>
+                </div>
+                <div class="title"><a href="{article.get('link', '#')}">{article.get('title', '')}</a></div>
+                <div class="meta">{article.get('source', 'Unknown')} • {date}</div>
             </div>
-            <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
-            <div class="meta">{article.get('source', 'Unknown')} • {pub_date}</div>
-            <div class="summary">{article.get('summary', '')[:200]}...</div>
-            <div class="why-matters">{importance}</div>
-        </div>
-            '''
+'''
+        html += '</div>'
     
-    # Reddit Intel
+    # Glassdoor Section
     try:
-        import sys
-        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from reddit_intel_collector import format_for_email
-        reddit_html = format_for_email()
+        glassdoor_html = generate_glassdoor_html()
+        html += glassdoor_html
+    except Exception as e:
+        html += f'<!-- Glassdoor error: {e} -->'
+    
+    # LinkedIn Executive Section
+    try:
+        linkedin_html = generate_linkedin_html()
+        html += linkedin_html
+    except Exception as e:
+        html += f'<!-- LinkedIn error: {e} -->'
+    
+    # Reddit Intelligence Section
+    try:
+        reddit_html = generate_reddit_html()
         html += reddit_html
     except Exception as e:
         html += f'<!-- Reddit error: {e} -->'
     
-    # LinkedIn Posts
-    if exec_posts:
-        html += '<div class="section-title">💼 LinkedIn Executive Activity</div>'
-        for post in exec_posts[:5]:
-            company = post.get('company', 'Unknown')
-            logo_url = get_company_logo_url(company)
-            
-            # Parse LinkedIn post date
-            post_date_raw = post.get('date', post.get('published', post.get('timestamp', None)))
-            post_date = 'Recent'
-            if isinstance(post_date_raw, (int, float)):
-                post_date = datetime.fromtimestamp(post_date_raw).strftime('%b %d, %Y')
-            elif isinstance(post_date_raw, str):
-                try:
-                    dt = datetime.fromisoformat(post_date_raw.replace('Z', '+00:00').replace('+00:00', ''))
-                    post_date = dt.strftime('%b %d, %Y')
-                except:
-                    post_date = post_date_raw[:10] if len(post_date_raw) > 10 else post_date_raw
-            
+    # Progyny Section
+    if progyny_mentions:
+        html += '''
+        <div class="section">
+            <h2>📊 Progyny Market Mentions</h2>
+            <div class="progyny-section">
+'''
+        for mention in progyny_mentions:
+            date = format_article_date(mention)
             html += f'''
-        <div class="article">
-            <div class="article-header">
-                <img src="{logo_url}" alt="{company}" class="logo" onerror="this.style.display='none'">
-                <span class="company">{post.get('executive', 'Unknown')} • {company}</span>
-            </div>
-            <div class="summary">{post.get('description', '')[:150]}...</div>
-            <div class="meta">{post_date} • <a href="{post.get('url', '#')}">View on LinkedIn</a></div>
-        </div>
-            '''
-    
-    # Glassdoor
-    try:
-        import sys
-        sys.path.insert(0, '/home/ubuntu/.openclaw/workspace/scripts')
-        from glassdoor_fetcher import generate_glassdoor_html, fetch_glassdoor_data
-        fetch_glassdoor_data()
-        html += generate_glassdoor_html()
-    except Exception as e:
-        html += f'<!-- Glassdoor error: {e} -->'
+                <div class="mention">
+                    <div class="mention-title"><a href="{mention.get('url', '#')}">{mention.get('title', '')}</a></div>
+                    <div class="mention-meta">{mention.get('source', 'Unknown')} • {date}</div>
+                </div>
+'''
+        html += '</div></div>'
     
     html += '''
         <div class="footer">
-            Generated by Cicero • Competitive Intelligence System<br>
-            Sources: RSS Feeds, Web Search, Reddit, LinkedIn, Glassdoor
+            <p>Competitive Intelligence System • 30-day filter • Max 2 sends per article</p>
+            <p>Sources linked for validation</p>
         </div>
     </div>
 </body>
 </html>
-    '''
+'''
     
-    # Save
-    EMAIL_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with open(EMAIL_OUTPUT, 'w') as f:
         f.write(html)
     
     print(f"✅ Email generated: {EMAIL_OUTPUT}")
     print(f"   Critical: {len(critical)} | High: {len(high)} | Medium: {len(medium)}")
     print(f"   Progyny mentions: {len(progyny_mentions)}")
-    return EMAIL_OUTPUT
+    
+    return html
 
 if __name__ == "__main__":
     generate_html_email()

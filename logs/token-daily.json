@@ -1,45 +1,43 @@
 {
-  "timestamp": "2026-03-27T23:21:55.986285",
+  "timestamp": "2026-03-28T07:15:02.653677",
   "results": [
     {
       "name": "Google Calendar",
+      "status": "healthy",
+      "message": "\u2705 Google Calendar: Healthy (0 days)",
+      "action_required": false,
+      "critical": true,
+      "auto_refreshed": false,
+      "age_days": 0
+    },
+    {
+      "name": "Google Docs",
+      "status": "healthy",
+      "message": "\u2705 Google Docs: Healthy (0 days)",
+      "action_required": false,
+      "critical": true,
+      "auto_refreshed": false,
+      "age_days": 0
+    },
+    {
+      "name": "Whoop API",
       "status": "refreshed",
-      "message": "\u2705 Google Calendar: Auto-refreshed (Auto-refreshed successfully)",
+      "message": "\u2705 Whoop API: Auto-refreshed (Auto-refreshed successfully)",
       "action_required": false,
       "critical": true,
       "auto_refreshed": true,
       "age_days": 0
     },
     {
-      "name": "Google Docs",
-      "status": "stale",
-      "message": "\u26a0\ufe0f Google Docs: 17 days old",
-      "action_required": true,
-      "critical": true,
-      "auto_refreshed": false,
-      "age_days": 17,
-      "refresh_failed": "Refresh failed: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
-    },
-    {
-      "name": "Whoop API",
-      "status": "healthy",
-      "message": "\u2705 Whoop API: Healthy (5 days)",
-      "action_required": false,
-      "critical": true,
-      "auto_refreshed": false,
-      "age_days": 5,
-      "refresh_failed": "API error 400: {\"error\":\"invalid_request\",\"error_description\":\"The request is missing a required parameter, include"
-    },
-    {
       "name": "Gmail SMTP",
       "status": "healthy",
-      "message": "\u2705 Gmail SMTP: Healthy (31 days)",
+      "message": "\u2705 Gmail SMTP: Healthy (32 days)",
       "action_required": false,
       "critical": true,
       "auto_refreshed": false,
-      "age_days": 31
+      "age_days": 32
     }
   ],
   "refreshed_count": 1,
-  "critical_count": 1
+  "critical_count": 0
 }

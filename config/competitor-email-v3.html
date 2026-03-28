@@ -1,73 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-               line-height: 1.5; color: #1a1a1a; max-width: 680px; margin: 0 auto; background: #fafafa; }
+               line-height: 1.5; color: #1a1a1a; max-width: 700px; margin: 0 auto; background: #fafafa; }
         .container { background: white; padding: 40px; }
-        .header { border-bottom: 2px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 30px; }
+        
+        .header { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; 
+                   padding: 30px; margin: -40px -40px 30px -40px; }
         .header h1 { margin: 0; font-size: 24px; font-weight: 600; }
-        .header p { margin: 8px 0 0 0; color: #666; font-size: 14px; }
+        .header p { margin: 8px 0 0 0; opacity: 0.9; font-size: 14px; }
         
-        .exec-summary { background: #f0f7ff; padding: 20px; margin: 20px 0; 
-                       border-left: 4px solid #0066cc; border-radius: 0 4px 4px 0; }
-        .exec-summary h2 { margin: 0 0 12px 0; font-size: 14px; font-weight: 600; color: #0066cc; }
-        .exec-summary p { margin: 0; font-size: 14px; line-height: 1.6; color: #333; }
+        .exec-summary { background: #f0f7ff; border-left: 4px solid #1e40af; 
+                        padding: 20px; margin: 25px 0; }
+        .exec-summary h2 { margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; 
+                           letter-spacing: 1px; color: #1e40af; }
+        .exec-summary p { margin: 0; font-size: 15px; line-height: 1.6; }
         
-        .stats { display: flex; gap: 30px; margin: 20px 0; padding: 15px 0; 
-                 border-top: 1px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; }
-        .stat { text-align: center; }
-        .stat-number { font-size: 28px; font-weight: 600; color: #1a1a1a; }
-        .stat-label { font-size: 11px; color: #999; text-transform: uppercase; }
+        .stats { display: flex; gap: 20px; margin: 20px 0; justify-content: center; }
+        .stat { text-align: center; background: #f8fafc; padding: 15px 25px; border-radius: 8px; }
+        .stat-number { font-size: 28px; font-weight: 600; color: #1e40af; }
+        .stat-label { font-size: 11px; color: #666; text-transform: uppercase; }
         
-        .section-title { font-size: 12px; font-weight: 600; text-transform: uppercase; 
-                         letter-spacing: 1px; color: #666; margin: 30px 0 15px 0;
-                         border-bottom: 1px solid #e5e5e5; padding-bottom: 8px; }
+        .section { margin: 30px 0; }
+        .section h2 { font-size: 16px; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; 
+                      padding-bottom: 8px; margin-bottom: 15px; }
         
-        .article { margin: 20px 0; padding: 20px 0; border-bottom: 1px solid #f0f0f0; }
-        .article-header { display: flex; align-items: center; margin-bottom: 12px; }
-        .logo { width: 24px; height: 24px; margin-right: 10px; border-radius: 4px; }
-        .company { font-size: 11px; font-weight: 600; text-transform: uppercase; color: #999; }
+        .article { padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .article:last-child { border-bottom: none; }
+        .article-header { display: flex; align-items: center; margin-bottom: 8px; }
+        .company { font-size: 11px; font-weight: 600; text-transform: uppercase; 
+                   color: #666; letter-spacing: 0.5px; }
+        .priority { margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+        .priority-critical { background: #fef2f2; color: #dc2626; }
+        .priority-high { background: #fff7ed; color: #ea580c; }
+        .priority-medium { background: #fefce8; color: #ca8a04; }
         
-        .priority { display: inline-flex; align-items: center; margin-left: auto; }
-        .priority-dot { width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
-        .priority-critical { background: #dc2626; }
-        .priority-high { background: #ea580c; }
-        .priority-medium { background: #ca8a04; }
-        .priority-label { font-size: 11px; font-weight: 500; text-transform: uppercase; color: #666; }
-        
-        .title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+        .title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
         .title a { color: #1a1a1a; text-decoration: none; }
-        .meta { font-size: 12px; color: #999; margin-bottom: 10px; }
-        .summary { font-size: 14px; color: #444; margin-bottom: 12px; }
-        .why-matters { font-size: 13px; color: #555; padding: 12px 16px; 
-                       background: #f8f8f8; border-left: 3px solid #ddd; }
+        .title a:hover { text-decoration: underline; }
+        .meta { font-size: 12px; color: #999; margin-bottom: 8px; }
+        .summary { font-size: 13px; color: #555; }
+        .why-matters { font-size: 12px; color: #444; background: #f8f9fa; 
+                       padding: 10px 12px; border-radius: 4px; margin-top: 8px; }
         
-        .progyny-section { background: #fafafa; padding: 20px; margin: 20px 0; 
-                           border: 1px solid #e5e5e5; border-radius: 4px; }
-        .progyny-title { font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a; }
-        .mention { padding: 12px 0; border-bottom: 1px solid #eee; }
+        .progyny-section { background: #f8fafc; padding: 20px; margin: 20px 0; 
+                           border-radius: 8px; border: 1px solid #e5e7eb; }
+        .mention { padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
         .mention:last-child { border-bottom: none; }
-        .mention-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
-        .mention-title a { color: #2563eb; text-decoration: none; }
+        .mention-title { font-weight: 500; font-size: 13px; }
+        .mention-title a { color: #1e40af; text-decoration: none; }
         .mention-meta { font-size: 11px; color: #999; }
-        .mention-summary { font-size: 12px; color: #666; font-style: italic; margin-top: 4px; }
         
-        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e5e5;
-                  font-size: 12px; color: #999; text-align: center; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; 
+                  text-align: center; font-size: 12px; color: #999; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Competitive Intelligence Report</h1>
-            <p>Saturday, March 28, 2026 | 24-Hour Window</p>
+            <h1>🏛️ Competitive Intelligence Report</h1>
+            <p>Saturday, March 28, 2026 | 30-Day Window | FemTech & Women's Health Focus</p>
         </div>
         
         <div class="exec-summary">
             <h2>📊 Executive Summary</h2>
-            <p>58 new signals: 5 critical, 5 high, 48 medium priority. Progyny: 5 mentions — monitor sentiment. Themes: AI investments, funding activity.</p>
+            <p>AI and machine learning innovation from General, Flo Health, Progyny, signaling a competitive race to automate care coordination and improve patient outcomes through predictive analytics. Significant capital deployment into the sector with fresh funding rounds from General, Carrot, indicating investor confidence and likely acceleration of market expansion efforts. Strategic partnership activity from General, Kindbody, Maven, suggesting market consolidation and expansion into new employer segments or geographic markets. Most active competitors: General (9), Carrot (2), Flo Health (1). Progyny tracked in 5 news/social mentions, indicating sustained market visibility and ongoing competitive interest.</p>
         </div>
         
         <div class="stats">
@@ -80,7 +78,7 @@
                 <div class="stat-label">High</div>
             </div>
             <div class="stat">
-                <div class="stat-number">48</div>
+                <div class="stat-number">5</div>
                 <div class="stat-label">Medium</div>
             </div>
             <div class="stat">
@@ -88,472 +86,284 @@
                 <div class="stat-label">Progyny Mentions</div>
             </div>
         </div>
-<div class="section-title">What the Market is Saying About Progyny</div><div class="progyny-section"><div class="progyny-title">🚨 Reddit Patient Sentiment (Action Required)</div>
-            <div class="mention" style="background:#fef2f2;border-left:4px solid #dc2626;padding:15px;margin:10px 0;border-radius:4px;">
-                <div class="mention-title"><a href="https://reddit.com/r/IVF/comments/1kiooao/is_progyny_scammy_or_just_incompetent_their/">Is Progyny scammy or just incompetent? Their billing practices seem slimey</a><span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">HIGH</span></div>
-                <div class="mention-meta">r/IVF • May 09, 2025 • ⬆️ 1</div>
-                <div class="summary" style="margin:8px 0;font-size:13px;color:#444;">Patient describes billing issues: insurance paid labwork in full per EOB, but Progyny sent separate bill claiming it goes toward deductible. Plan has no co-insurance for labwork. Additional bill for c...</div>
-                <div style="font-size:12px;color:#666;font-weight:600;margin-top:8px;">⚠️ Billing coordination issue - flag for customer success team</div>
-            </div>
-                
-            <div class="mention" style="background:#fff7ed;border-left:4px solid #ea580c;padding:15px;margin:10px 0;border-radius:4px;">
-                <div class="mention-title"><a href="https://reddit.com/r/IVF/comments/1kp10oh/does_progyny_cover_omnitropehgh/">Does Progyny cover Omnitrope/HGH?</a></div>
-                <div class="mention-meta">r/IVF • May 17, 2025 • ⬆️ 1</div>
-                <div class="summary" style="margin:8px 0;font-size:13px;color:#444;">Patient asking how to get Omnitrope/HGH/Saizen covered. Common question about medication coverage....</div>
-                <div style="font-size:12px;color:#666;font-weight:600;margin-top:8px;">📋 Coverage question - consider FAQ/documentation update</div>
-            </div>
-                <div class="progyny-title">📢 News Mentions</div>
-            <div class="mention">
-                <div class="mention-title"><a href="https://nationaltoday.com/us/ny/new-york/news/2026/03/27/fort-washington-investment-advisors-boosts-stake-in-progyny/">Fort Washington Investment Advisors Boosts Stake in Progyny - NYC Today...</a></div>
-                <div class="mention-meta">News • </div>
-            </div>
-                
-            <div class="mention">
-                <div class="mention-title"><a href="https://www.stocktitan.net/sec-filings/PGNY/schedule-13g-a-progyny-inc-amended-passive-investment-disclosure-1692e385770e.html">Progyny filing: Vanguard reports 0 shares (Amend. No.5) | PGNY SEC Filing - Form...</a></div>
-                <div class="mention-meta">News • </div>
-            </div>
-                
-            <div class="mention">
-                <div class="mention-title"><a href="https://finance.yahoo.com/news/why-progyny-pgny-shares-trading-192132322.html">Why Progyny (PGNY) Shares Are Trading Lower Today...</a></div>
-                <div class="mention-meta">News • </div>
-            </div>
-                <div class="progyny-title" style="margin-top: 20px;">👔 Executive News</div>
-            <div class="mention">
-                <div class="mention-title"><a href="https://www.quiverquant.com/news/Progyny,+Inc.+CEO+Pete+Anevski+Recognized+as+Champion+for+Women%E2%80%99s+Health+by+World+Economic+Forum">Progyny, Inc. CEO Pete Anevski Recognized as Champion for Women’s Health by Worl...</a></div>
-                <div class="mention-meta">Pete Anevski • </div>
-            </div>
-                
-            <div class="mention">
-                <div class="mention-title"><a href="https://www.crainsnewyork.com/recognitions/notable-in-health-care/2024/pete-anevski/">Pete Anevski - Crain's New York Business...</a></div>
-                <div class="mention-meta">Pete Anevski • </div>
-            </div>
-                </div><div class="section-title">🔴 Critical Signals</div>
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
-                <span class="company">Maven</span>
-                <span class="priority">
-                    <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://www.prnewswire.com/news-releases/maven-clinic-announces-90-million-series-e-round-of-funding-amidst-seismic-changes-in-womens-and-family-health-301676406.html">Maven Clinic Announces $90 Million Series E Round of Funding Amidst Seismic Changes in Women's and Family Health</a></div>
-            <div class="meta">Web Search: Maven Clinic funding OR acquis... • Mar 28, 2026</div>
-            <div class="summary">/PRNewswire/ -- Maven Clinic, the largest virtual clinic in women's and family health, today announced that it has raised a $90 million Series E funding round......</div>
-            <div class="why-matters">💰 <strong>Capital signal:</strong> New funding indicates growth acceleration.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
-                <span class="company">Maven</span>
-                <span class="priority">
-                    <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://tomshardware.com/tech-industry/artificial-intelligence/pentagon-formalizes-palantirs-maven-ai-as-a-core-military-system-with-multi-year-funding-platforms-investment-grows-to-usd13-billion-from-usd480-million-in-2024">Pentagon formalizes Palantir's Maven AI as a core military system with multi-year funding — platform's investment grows to $13 billion from $480 million in 2024 | Tom's Hardware</a></div>
-            <div class="meta">Web Search: Maven Clinic funding OR acquis... • Mar 28, 2026</div>
-            <div class="summary">The Pentagon is spending $13.4 billion on AI this year alone....</div>
-            <div class="why-matters">💰 <strong>Capital signal:</strong> New funding indicates growth acceleration.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOLW1qdTd1RXlDVmt0R2xIcmwzNXI0N0dsVXJtOFZXWjRSVTE3QVRleXpTYm1JMDNlZWdQUm5jMlBlalZ3cFhodG54WVFVbDd2OTJuTFBGc3k4eUJJV3Vrclg3SExDX1F6QXhUUDY5UmdMUXhRY1BVRXN2S2pKeUdaRGwtWUNYR2d3cklmM1ROd2Q0LXhramxnSC1fLVRHR3ZnWTU0dGNkOUJNQ1p3bEd0d2d3X3NsQlpnaXRMdEtjMXZEWExMRnlhRFNKaVFOWUd4T0FPQThZaXA0UlhKQWc?oc=5">Flo Health’s Record-Breaking Run: $200M Raised, 77M Users, and a Unicorn Status That Changed Femtech Forever - netnewsledger.com</a></div>
-            <div class="meta">FemTech News • Mar 18, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOLW1qdTd1RXlDVmt0R2xIcmwzNXI0N0dsVXJtOFZXWjRSVTE3QVRleXpTYm1JMDNlZWdQUm5jMlBlalZ3cFhodG54WVFVbDd2OTJuTFBGc3k4eUJJV3Vrclg3SExDX1F6QXhUUDY5Um...</div>
-            <div class="why-matters">💰 <strong>Capital signal:</strong> New funding indicates growth acceleration.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPbGlfUE1vYk91TmhKMXFNalBLUjVaU1FkU05lQ0NoRnJoQklNbFpmdG9LQkprTWRvMHhmZ1FxMTNhVkpBSlNyaW1sVDlKTkFFTnJ2TjRhRl85TFpIcDFSZXFER3A2OFBNeHhMa1hOQzZCVHp4MEphdkliTkdBWkxsbzRFdjdsQk5kMUtEMG92NnhkV3RsU0HSAZYBQVVfeXFMT2xpX1BNb2JPdU5oSjFxTWpQS1I1WlNRZFNOZUNDaEZyaEJJTWxaZnRvS0JKa01kbzB4ZmdRcTEzYVZKQUpTcmltbFQ5Sk5BRU5ydk40YUZfOUxaSHAxUmVxREdwNjhQTXh4TGtYTkM2QlR6eDBKYXZJYk5HQVpMbG80RXY3bEJOZDFLRDBvdjZ4ZFd0bFNB?oc=5">Senegalese e-health startup Eyone raises $1.7m funding - - Disrupt Africa</a></div>
-            <div class="meta">Healthcare Startup News • Mar 12, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxPbGlfUE1vYk91TmhKMXFNalBLUjVaU1FkU05lQ0NoRnJoQklNbFpmdG9LQkprTWRvMHhmZ1FxMTNhVkpBSlNyaW1sVDlKTkFFTnJ2TjRhRl85TFpIcDFSZXFER3A2OFBNeHhMa1hOQz...</div>
-            <div class="why-matters">💰 <strong>Capital signal:</strong> New funding indicates growth acceleration.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPZ1hjejJEbG1NWXNrY05PODRvZ0s5cWhhTUU0REItNDBScVdDVEtuMnVLNFN3bXg0V25RakhyMXIxc2FwelhEMzc0VmQzM0FfOXNsMEdLRjZDaEtKdE5qUXVCUkJSZTdDUVdjX0JGc1l1WTN4bmp1ckRXUGFFLVFrbkI1Y1NjaXh1OGt2M0tXaGQ2OUJiQ2ZNb1RERlMwemRsbTVoQkswa1J4TDl5Wm00bGdya1JoS1MtZUd4cHUza3hnZk9YUnA3eUw5cw?oc=5">Healthcare recruitment startup Clasp secures $20 million in Series B funding - Staffing Industry Analysts</a></div>
-            <div class="meta">Healthcare Startup News • Mar 27, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMiywFBVV95cUxPZ1hjejJEbG1NWXNrY05PODRvZ0s5cWhhTUU0REItNDBScVdDVEtuMnVLNFN3bXg0V25RakhyMXIxc2FwelhEMzc0VmQzM0FfOXNsMEdLRjZDaEtKdE5qUXVCUkJSZTdDUVdjX0JGc1...</div>
-            <div class="why-matters">💰 <strong>Capital signal:</strong> New funding indicates growth acceleration.</div>
-        </div>
-            <div class="section-title">🟠 High Priority</div>
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://www.foxbusiness.com/lifestyle/costco-enters-fertility-care-massive-discounts-members-through-new-healthcare-partnerships">Costco enters fertility care with massive discounts for members through new healthcare partnerships</a></div>
-            <div class="meta">Web Search: Carrot Fertility funding OR pa... • Mar 28, 2026</div>
-            <div class="summary">Costco enters fertility care with massive discounts on IVF, egg freezing and medications through new partnership with Sesame and IVI RMA North America....</div>
-            <div class="why-matters">🤝 <strong>Partnership:</strong> Ecosystem expansion and integration play.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
-                <span class="company">Maven</span>
-                <span class="priority">
-                    <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://www.military.com/feature/2026/03/22/pentagon-expands-palantirs-role-ai-contract.html">Pentagon Expands Use of Palantir AI in New Defense Contract | Military.com</a></div>
-            <div class="meta">Web Search: Maven Intelligence AI launch 2... • Mar 28, 2026</div>
-            <div class="summary">The Pentagon is expanding Palantir’s Maven AI into a long-term military program, raising questions about reliance on private contractors and the role of AI in targeting decisions....</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNV2hGNDI4V3RZc3M2SElabDBROG9HMWg0OFJWRzhQcGRrbWVHYUppY0Ntd0Q0dWtONGxCTnFRSDBXNVdoZDNBVm1STTVicTVtM1NTZUJoV0NiQ3pVeU13cGhlMldVYzhzc2laeHZYalJBVHdvQkVINmRvQUxXOTJwRXZxUGF6Y3plRTZkNUJkcUZBNDNCYlRMU3l4b2pHd3B4QlVHemgtczREXzhfa2xKRjVXcDJuTWJmSmxCclZ6bVJYVzZBM3NfMmU1NktIZGFSMVVMNVpQNHFtbG9KNFZXaXk1RWp2d9IB6wFBVV95cUxQSjl3MG40UnlGQ1hFSE9kMjVHWmItdnBRakM1Z0l5MjNLS1pWU0hlZFRhREQ4Z055LVBzVV9iZG9XY09qR0R5OEpPZ3BXRzg4UEdvdHczSXR4TzFUbzNzVk5rSFQxZC1iV0ZvTmNVUnp6QlU2RmoySVRWWnlWTGRZRE5tbmRGRlNEbllxblFpMVB4ejV4YkVBSk05ZmQwaFZCTmNPMktRcHRDTnk5Mzk3RlBoVGVETjF0REF0d2RDd0tTQXVHb2lSQ3puZHdudERKVDJtbVJEb2h3eUw3T0pPU0pMSndMcEVCdUVB?oc=5">Nutrition startup Fullife Healthcare raises Rs 300 crore from Elev8 Venture Partners - The Economic Times</a></div>
-            <div class="meta">Healthcare Startup News • Mar 25, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNV2hGNDI4V3RZc3M2SElabDBROG9HMWg0OFJWRzhQcGRrbWVHYUppY0Ntd0Q0dWtONGxCTnFRSDBXNVdoZDNBVm1STTVicTVtM1NTZUJoV0NiQ3pVeU13cGhlMldVYzhzc2laeHZYal...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPNlZkQ2hXSG1yX2thbmktUGtpQmNJcHhFV2JadmVHaUE0UmRtd3hXdjFHajkxR2JNR0t5VV9rZXg0X0ZsdzNFakdSNU8xZ2VHVm1peEIzZlhUNUNUWGszbUNha2NWN2YwVHBMdU1YRG9QM00yVlFjY1V4eUpzekJwZG5UT3FoZw?oc=5">Buzzy AI doctor startup raises funds, will meet FDA - statnews.com</a></div>
-            <div class="meta">Healthcare Startup News • Mar 24, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPNlZkQ2hXSG1yX2thbmktUGtpQmNJcHhFV2JadmVHaUE0UmRtd3hXdjFHajkxR2JNR0t5VV9rZXg0X0ZsdzNFakdSNU8xZ2VHVm1peEIzZlhUNUNUWGszbUNha2NWN2YwVHBMdU1YRG...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=progyny.com&sz=64" alt="Progyny" class="logo" onerror="this.style.display='none'">
-                <span class="company">Progyny</span>
-                <span class="priority">
-                    <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPMlN0ZEJtU1dTdzdRS0dRNG9JWWdiZURBc21IdXAxNzZYZ256MXdlTDhISVdGVzRWSENudW43UmNxZjNrMklEQ0stOFdpOGh5SEJLUUlrcHRDQnNoaXVzNWxadmljSGdaWDl4NlI5RFAwUUFZX3ZOU0pYRm5aS01vMm9QODFOa3NxZ2pCWXlkdnBzMjJxcGFrQWxxMlNZblBlMkhuQ25kdlh0WEJpMjFuM2x1VUM0YkJzanJRV1YwVElaM0xMNXc?oc=5">Progyny Inc stock faces uncertainty amid fertility benefits sector shifts and biotech peer pressures - AD HOC NEWS</a></div>
-            <div class="meta">Fertility Benefits News • Mar 25, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPMlN0ZEJtU1dTdzdRS0dRNG9JWWdiZURBc21IdXAxNzZYZ256MXdlTDhISVdGVzRWSENudW43UmNxZjNrMklEQ0stOFdpOGh5SEJLUUlrcHRDQnNoaXVzNWxadmljSGdaWDl4NlI5RF...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            <div class="section-title">🟡 Medium Priority</div>
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
-                <span class="company">Maven</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://www.wired.com/story/project-maven-katrina-manson-book-excerpt/">Meet the Gods of AI Warfare | WIRED</a></div>
-            <div class="meta">Web Search: Maven Intelligence AI launch 2... • Mar 28, 2026</div>
-            <div class="summary">By the time of Whitworth’s retirement in mid-November 2025, his agency had accredited two AI models, one used by Maven and one by another (unidentified) intelligence agency. In January 2026, the secon...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=mavenclinic.com&sz=64" alt="Maven" class="logo" onerror="this.style.display='none'">
-                <span class="company">Maven</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://www.npr.org/2026/03/26/nx-s1-5762019/americas-first-ai-fueled-war-is-unfolding-right-now-in-iran-this-is-how-we-got-here">America's first AI-fueled war is unfolding right now in Iran. This is how we got here</a></div>
-            <div class="meta">Web Search: Maven Intelligence AI launch 2... • Mar 28, 2026</div>
-            <div class="summary">Bloomberg journalist Katrina Manson discusses the Pentagon's secretive campaign to build America's AI warfare capabilities and the obsessive Marine colonel behind it. Her new book is Project Maven....</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNNUV5ZGdwTWdYTzdqWW9LenV2M1NHWEZPUzZ5Q25ab0t2QWdqVW14WWwwbW5wUl9Qa21kVEFKN1htamlNYlVGMElpQWZkeDc2aEVsWHFTMVhHUDUycTFtYXlZVXhIZWY3YU5pc3dYRjdpSlZJUkVtUUtTUmRaVWk3anpCWXV0a2U0R1BqcjhKdldhdm5XUWc?oc=5">Exclusive: Blossom Health raises $20 million to bring an AI ‘copilot’ to psychiatry - Fortune</a></div>
-            <div class="meta">Healthcare Startup News • Mar 26, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNNUV5ZGdwTWdYTzdqWW9LenV2M1NHWEZPUzZ5Q25ab0t2QWdqVW14WWwwbW5wUl9Qa21kVEFKN1htamlNYlVGMElpQWZkeDc2aEVsWHFTMVhHUDUycTFtYXlZVXhIZWY3YU5pc3dYRj...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSzJwLTY5SS1vWmZGUFk3WGhCMEViRnE0Z1hMQ0o4N0tMWHdZZWZnMFE4TWZVallvSkt0cldwSmgzQjhzMU1qS2g4SFh0UUNmaUI4VE5BNjV4X2VkSzhoS3ZEM3Nud3NfRHc3MzVKMDFpTThDbkF1RmYwOWdvVm4zYk4wcTFhSEhW?oc=5">Why it’s time to close the female health gap - The Straits Times</a></div>
-            <div class="meta">FemTech News • Mar 02, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSzJwLTY5SS1vWmZGUFk3WGhCMEViRnE0Z1hMQ0o4N0tMWHdZZWZnMFE4TWZVallvSkt0cldwSmgzQjhzMU1qS2g4SFh0UUNmaUI4VE5BNjV4X2VkSzhoS3ZEM3Nud3NfRHc3MzVKMD...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPLWF6dmdZWEMxakU0RHhKcWhmM05lRkhmLW12YWl6bjV2U0V4amRnQ3BXNm9hcTVqNHBuNC1IOE5xYW1uNGp6YnRzV1JGMnhuS1BONzNlZFdfa0VBc2l3R25XRldrbEpUT2lvZzgza0UwUGJiZEVEb1N2NlV3bUc1OGlaUk5RbWQxbi0yVlVmZFhOTGZnM0dUWjdZOVA3NHhLSC1PZ3hlOEZBUUFIQmJ0eXhrb2VPV05ENzZ2QmJGUWg5M0t0NEE?oc=5">Sword Health Expands Bloom Into a Full Life-Stage Women’s Health Platform, Launches Menopause Program - Femtech Insider</a></div>
-            <div class="meta">FemTech News • Mar 06, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPLWF6dmdZWEMxakU0RHhKcWhmM05lRkhmLW12YWl6bjV2U0V4amRnQ3BXNm9hcTVqNHBuNC1IOE5xYW1uNGp6YnRzV1JGMnhuS1BONzNlZFdfa0VBc2l3R25XRldrbEpUT2lvZzgza0...</div>
-            <div class="why-matters">🚀 <strong>Product:</strong> New offerings signal competitive pressure.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFB4RUI4dTNmaVpEYXN2M1RSV0xKMl9yUDRObmIySkhhN3J2UkFwRGpMbmJpQTJLdDN4NlM4ZU1NOFRrcGFUSU04VDFqaDFWdEU2Q2JDb0hhdkhHQUV6MkpYcHNMU3pZSFNnb0tXazRRUlA4RVFVLTVrLXhZazk?oc=5">Blossom Health raises $20 million to put AI copilots alongside psychiatrists - The Next Web</a></div>
-            <div class="meta">Healthcare Startup News • Mar 26, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTFB4RUI4dTNmaVpEYXN2M1RSV0xKMl9yUDRObmIySkhhN3J2UkFwRGpMbmJpQTJLdDN4NlM4ZU1NOFRrcGFUSU04VDFqaDFWdEU2Q2JDb0hhdkhHQUV6MkpYcHNMU3pZSFNnb0tXazRRUl...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPa051LVhqNlh0elp5X0NrQnF5NkJDSm5fNW5mM2taQTJ4RTNOMmNiQzlLMmlYWTg2aGdyWjFJSkdXTEczWVdZSVV1UFZNRVJsNnBpSUM2V0NlVWJGVnk0RjhBOUJ2cGtvQ0NRMkFqVVB0eVpfb0M4ZXRQRDZLeG93UnpicnBfZDMyWUZVWXk5dw?oc=5">Femtech World Awards announces deadline extension - FemTech World</a></div>
-            <div class="meta">FemTech News • Mar 17, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPa051LVhqNlh0elp5X0NrQnF5NkJDSm5fNW5mM2taQTJ4RTNOMmNiQzlLMmlYWTg2aGdyWjFJSkdXTEczWVdZSVV1UFZNRVJsNnBpSUM2V0NlVWJGVnk0RjhBOUJ2cGtvQ0NRMkFqVV...</div>
-            <div class="why-matters">📊 <strong>Market signal:</strong> Track for pattern analysis.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUEdWY1d5eFFuOW5lSE5YT1FqZjgyS24tWE1uLWFTY3NNMUtGaG5UdEpGWW5xaUFlSWpfT3hTX2FDSGVZZEtlN0NEaHpTdDkyQ1Fqek5POWk1SUhHcHNVaUozYWRualNNeVhYbnZVNFB1aG56X2xlWUNpOGZSS1NCMEVVek1FR1Y2T0RMWWw2OW9KS3E2UVZHQzVnRFdJNW11azljbFhaS1M?oc=5">Midtown startup raises $41M for behavioral health provider AI tool - Crain's New York Business</a></div>
-            <div class="meta">Healthcare Startup News • Mar 03, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUEdWY1d5eFFuOW5lSE5YT1FqZjgyS24tWE1uLWFTY3NNMUtGaG5UdEpGWW5xaUFlSWpfT3hTX2FDSGVZZEtlN0NEaHpTdDkyQ1Fqek5POWk1SUhHcHNVaUozYWRualNNeVhYbnZVNF...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNGR3Y2syUWFwY3NpcGFKN3RqYW45LWdGcnk5MVdWTGtWZmNaWm9NR3NmRHF0Q0NHVkhjb05EOExoVHd3azhKRWNhV0FZOWs2enVGTl84dk1VS1R3a0NxekhPS0lOX0ZDYXNnQldtRnprV1djRlpuYzd2TVRLN054XzA2V2ZXSlY3?oc=5">Boston healthcare startup Clasp raises $20M to double staff, expand retention model - The Business Journals</a></div>
-            <div class="meta">Healthcare Startup News • Mar 26, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNGR3Y2syUWFwY3NpcGFKN3RqYW45LWdGcnk5MVdWTGtWZmNaWm9NR3NmRHF0Q0NHVkhjb05EOExoVHd3azhKRWNhV0FZOWs2enVGTl84dk1VS1R3a0NxekhPS0lOX0ZDYXNnQldtRn...</div>
-            <div class="why-matters">🤖 <strong>AI investment:</strong> Technology competition heating up.</div>
-        </div>
-            
-        <div class="article">
-            <div class="article-header">
-                <img src="https://www.google.com/s2/favicons?domain=general.com&sz=64" alt="General" class="logo" onerror="this.style.display='none'">
-                <span class="company">General</span>
-                <span class="priority">
-                    <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
-                </span>
-            </div>
-            <div class="title"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOUkEtX3JhcjNUbUo1T2h0YWxpYktlWFBGV0tReWRlakhQQTU0T1N6bm1RVWtOZG9MdXlFWGpvbTZnZURCeTNETk5yX2lqUFV6aE5QQW5KZUx3NUZwek52Y29KNEtTci1XOS1hVHhhT21MelVBSGs2ekd0Tm02cXA1N3dHOWpLUEFxVFY0TzR3ZlNqdTU3a3lnTXFPN2pPOFVUV1B3Rk8xZXRhZXhBbTlR?oc=5">Tom Brady’s eMed Health Startup Scores $2 Billion Valuation - PYMNTS.com</a></div>
-            <div class="meta">Healthcare Startup News • Mar 26, 2026</div>
-            <div class="summary"><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOUkEtX3JhcjNUbUo1T2h0YWxpYktlWFBGV0tReWRlakhQQTU0T1N6bm1RVWtOZG9MdXlFWGpvbTZnZURCeTNETk5yX2lqUFV6aE5QQW5KZUx3NUZwek52Y29KNEtTci1XOS1hVHhhT2...</div>
-            <div class="why-matters">📊 <strong>Market signal:</strong> Track for pattern analysis.</div>
-        </div>
-            <div class="section-title">💬 Reddit Intelligence</div><p style="color: #9ca3af; font-size: 13px; margin-bottom: 20px;">Patient and community discussions from 10 subreddits</p><div style="margin-bottom: 25px; padding: 15px; background: #064e3b; border-radius: 8px; border-left: 4px solid #16a34a;"><div style="font-weight: 600; color: #16a34a; margin-bottom: 12px; font-size: 16px;">📢 PROGYNY MENTIONS</div>
-            <div style="padding: 12px; background: #065f46; border-radius: 6px; margin-bottom: 10px;">
-                <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px;"><a href="https://www.reddit.com/r/IVF/comments/1kp10oh/does_progyny_cover_omnitropehgh/" style="color: #6ee7b7; text-decoration: none;">Does Progyny cover Omnitrope/HGH?...</a></div>
-                <div style="font-size: 12px; color: #9ca3af;">r/IVF • ⬆️ 1 • 💬 0 comments</div>
-            </div>
-            
-            <div style="padding: 12px; background: #065f46; border-radius: 6px; margin-bottom: 10px;">
-                <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px;"><a href="https://www.reddit.com/r/IVF/comments/1kiooao/is_progyny_scammy_or_just_incompetent_their/" style="color: #6ee7b7; text-decoration: none;">Is Progyny scammy or just incompetent? Their billing practices seem slimey...</a></div>
-                <div style="font-size: 12px; color: #9ca3af;">r/IVF • ⬆️ 1 • 💬 0 comments</div>
-            </div>
-            
-            <div style="padding: 12px; background: #065f46; border-radius: 6px; margin-bottom: 10px;">
-                <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px;"><a href="https://www.signalbloom.ai/news/PGNY/progyny-q1-revenue-climbs-165-adj-eps-up-cautious-guidance-tempers-outlook" style="color: #6ee7b7; text-decoration: none;">$PGNY Progyny Q1 Revenue Climbs 16.5%, Adj. EPS Up; Cautious Guidance Tempers Outlook...</a></div>
-                <div style="font-size: 12px; color: #9ca3af;">r/SignalBloom • ⬆️ 1 • 💬 0 comments</div>
-            </div>
-            
-            <div style="padding: 12px; background: #065f46; border-radius: 6px; margin-bottom: 10px;">
-                <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px;"><a href="https://quantisnow.com/i/progyny-inc-announces-first-quarter-2025-results-6027544?utm_source=reddit" style="color: #6ee7b7; text-decoration: none;">Progyny, Inc. Announces First Quarter 2025 Results...</a></div>
-                <div style="font-size: 12px; color: #9ca3af;">r/Quantisnow • ⬆️ 1 • 💬 0 comments</div>
-            </div>
-            
-            <div style="padding: 12px; background: #065f46; border-radius: 6px; margin-bottom: 10px;">
-                <div style="font-size: 14px; font-weight: 500; margin-bottom: 6px;"><a href="https://www.reddit.com/r/getagraph/comments/1khq863/buy_signal_progyny_inc_8_may_2025_0931_usd2310/" style="color: #6ee7b7; text-decoration: none;">Buy Signal Progyny Inc - 8 May 2025 @ 09:31 -&gt; USD23.10...</a></div>
-                <div style="font-size: 12px; color: #9ca3af;">r/getagraph • ⬆️ 1 • 💬 0 comments</div>
-            </div>
-            </div><div style="margin-bottom: 25px;"><div style="font-weight: 600; color: #ea580c; margin-bottom: 12px; font-size: 16px;">🔍 COMPETITOR MENTIONS</div><div style="margin-bottom: 15px; padding: 12px; background: #1f1f1f; border-radius: 6px;"><div style="font-weight: 600; color: #fb923c; margin-bottom: 8px;">Maven Clinic</div>
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/RemoteJobs/comments/1kgr2na/hottest_remote_jobs_hiring_right_now_top_30_picks/" style="color: #e5e5e5; text-decoration: none;">Hottest Remote Jobs Hiring Right Now (Top 30 Picks)...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/RemoteJobs • ⬆️ 1</div>
+<div class="section"><h2>🔴 Critical Signals</h2>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-critical">Critical</span>
                 </div>
-                
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/WFHJobs/comments/1kgr0y0/hottest_remote_jobs_hiring_right_now_top_30_picks/" style="color: #e5e5e5; text-decoration: none;">Hottest Remote Jobs Hiring Right Now (Top 30 Picks)...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/WFHJobs • ⬆️ 0</div>
-                </div>
-                </div><div style="margin-bottom: 15px; padding: 12px; background: #1f1f1f; border-radius: 6px;"><div style="font-weight: 600; color: #fb923c; margin-bottom: 8px;">Carrot Fertility</div>
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/Hydro101/comments/1kd0ttg/whats_the_easiest_vegetable_to_grow_indoors_top_7/" style="color: #e5e5e5; text-decoration: none;">What's The Easiest Vegetable To Grow Indoors? (Top 7 Choices)...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/Hydro101 • ⬆️ 1</div>
-                </div>
-                
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/doulas/comments/1kb4cto/madriellacertified_doulas_eligible_for_carrot/" style="color: #e5e5e5; text-decoration: none;">Madriella-certified doulas - eligible for Carrot Fertility or Maven reiumbursement?...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/doulas • ⬆️ 1</div>
-                </div>
-                </div><div style="margin-bottom: 15px; padding: 12px; background: #1f1f1f; border-radius: 6px;"><div style="font-weight: 600; color: #fb923c; margin-bottom: 8px;">Kindbody</div>
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/IVF/comments/1khz5kp/kindbody_disgusting/" style="color: #e5e5e5; text-decoration: none;">Kindbody disgusting...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/IVF • ⬆️ 1</div>
-                </div>
-                
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/infertility/comments/1kfgvnw/schrafs_and_kindbody_price_of_meds/" style="color: #e5e5e5; text-decoration: none;">Schrafs and kindbody price of meds...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/infertility • ⬆️ 1</div>
-                </div>
-                </div><div style="margin-bottom: 15px; padding: 12px; background: #1f1f1f; border-radius: 6px;"><div style="font-weight: 600; color: #fb923c; margin-bottom: 8px;">WIN Fertility</div>
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/CelebDPP/comments/1kpsyup/m4f_18_ways_your_favorite_celebrity_can_be_a_free/" style="color: #e5e5e5; text-decoration: none;">[M4F] 18 Ways Your Favorite Celebrity Can be a Free Use Cumdump 🩷...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/CelebDPP • ⬆️ 1</div>
-                </div>
-                
-                <div style="padding: 8px; background: #262626; border-radius: 4px; margin-bottom: 6px;">
-                    <div style="font-size: 13px;"><a href="https://www.reddit.com/r/IncestRPnsfw/comments/1kpgo7d/22f4m_older_men_just_do_it_better/" style="color: #e5e5e5; text-decoration: none;">22[F4M] Older Men just do it better!...</a></div>
-                    <div style="font-size: 11px; color: #737373;">r/IncestRPnsfw • ⬆️ 1</div>
-                </div>
-                </div></div><div style="margin-bottom: 20px;"><div style="font-weight: 600; color: #3b82f6; margin-bottom: 12px; font-size: 16px;">📊 MARKET SENTIMENT & TRENDS</div><div style="padding: 15px; background: #172554; border-radius: 8px;"><ul style="font-size: 13px; line-height: 1.8; color: #bfdbfe; margin: 0; padding-left: 20px;"><li><strong>Insurance questions prevalent:</strong> 2 discussions about coverage</li><li><strong>Employer benefits active:</strong> 1 posts about workplace benefits</li></ul></div></div><div style="font-size: 12px; color: #737373; text-align: center; padding-top: 10px; border-top: 1px solid #262626;">Monitored: r/infertility, r/IVF, r/TTC, r/Menopause, r/tryingtoconceive, r/pregnant, r/BabyBumps, r/Parenting, r/womenshealth, r/HealthInsurance<br>Total posts analyzed: 163 • Last updated: 2026-03-28 06:05</div>
-    <div class="section-title">📊 Glassdoor Satisfaction Comparison</div>
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px;">
-        <thead>
-            <tr style="background: #1a1a1a; color: white;">
-                <th style="padding: 12px; text-align: left; font-weight: 600;">Company</th>
-                <th style="padding: 12px; text-align: center; font-weight: 600;">Rating</th>
-                <th style="padding: 12px; text-align: center; font-weight: 600;">Reviews</th>
-                <th style="padding: 12px; text-align: center; font-weight: 600;">Recommend</th>
-                <th style="padding: 12px; text-align: center; font-weight: 600;">CEO Approval</th>
-            </tr>
-        </thead>
-        <tbody>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPMllocW1jY3RTcUo5azM1YkxORjduNDJzcGkxVzBNMHpJV0tQWDNhdl9JSUNwS2hNZS1wRGs5YWU0RklWQUdiNmNFUlFUTmtUelBmZmMyam9ZSExDSGk4QTdydV9wNlFtdjFlUlNuMjdqZjJIdm03bnhCUGlLbDFtRm5pUXhaQmNKaGZCYjh1NGswSUFVR3FycGZoZHUtVkk5cEFNUzZoQWVRV3h2TWVkSUFqQXBhTVJHZ181aTNBVQ?oc=5">Qualified Health locks in $125M in fresh funding to scale enterprise AI at health systems - Fierce Healthcare</a></div>
+                <div class="meta">Healthcare Startup News • Mar 25, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxPMllocW1jY3RTcUo5azM1YkxORjduNDJzcGkxVzBNMHpJV0tQWDNhdl9JSUNwS2hNZS1wRGs5YWU0RklWQUdiNmNFUlFUTmtUelBmZmMyam9ZSExDSGk4QTdydV9wNlFtdjFlUlNuMj...</div>
+            </div>
 
-            <tr style="border-bottom: 1px solid #e5e5e5; background: #f0fdf4;">
-                <td style="padding: 12px; font-weight: 600;">Progyny</td>
-                <td style="padding: 12px; text-align: center; font-weight: 700; color: #16a34a;">4.2</td>
-                <td style="padding: 12px; text-align: center; color: #666;">156</td>
-                <td style="padding: 12px; text-align: center; color: #666;">78%</td>
-                <td style="padding: 12px; text-align: center; color: #666;">82%</td>
-            </tr>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-critical">Critical</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQazFaR3JTZ0gxU3lxaDYyS2pKNnk2dS1mR3dfZUQ0V1AwZWdMQ0VzRUQtT2ZDS3BTYnRjTjhNeUNjejNVcjcweUtKaFU5RVZzQXo0ZFo5ZjBENlk0MGpnRDRvTHhJN2IyUnZtZVA1SkU2SHp1b0tDOXFwbFhQekdEYnF0bWdSZWhwSU43dEdubHUyWTBuMmx0eEp4S0UyX3NmcWJZM0hITkFENDdHZ3gtSXJaa0ZTMEIwTWRQOE1n?oc=5">Nutrition startup Fullife Healthcare raises Rs 300-Cr in funding to fuel global expansion - Business Review Live</a></div>
+                <div class="meta">Healthcare Startup News • Mar 25, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQazFaR3JTZ0gxU3lxaDYyS2pKNnk2dS1mR3dfZUQ0V1AwZWdMQ0VzRUQtT2ZDS3BTYnRjTjhNeUNjejNVcjcweUtKaFU5RVZzQXo0ZFo5ZjBENlk0MGpnRDRvTHhJN2IyUnZtZVA1Sk...</div>
+            </div>
 
-            <tr style="border-bottom: 1px solid #e5e5e5; ">
-                <td style="padding: 12px; font-weight: 600;">Maven Clinic</td>
-                <td style="padding: 12px; text-align: center; font-weight: 700; color: #16a34a;">4.0</td>
-                <td style="padding: 12px; text-align: center; color: #666;">89</td>
-                <td style="padding: 12px; text-align: center; color: #666;">72%</td>
-                <td style="padding: 12px; text-align: center; color: #666;">75%</td>
-            </tr>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">Flo Health</span>
+                    <span class="priority priority-critical">Critical</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOLW1qdTd1RXlDVmt0R2xIcmwzNXI0N0dsVXJtOFZXWjRSVTE3QVRleXpTYm1JMDNlZWdQUm5jMlBlalZ3cFhodG54WVFVbDd2OTJuTFBGc3k4eUJJV3Vrclg3SExDX1F6QXhUUDY5UmdMUXhRY1BVRXN2S2pKeUdaRGwtWUNYR2d3cklmM1ROd2Q0LXhramxnSC1fLVRHR3ZnWTU0dGNkOUJNQ1p3bEd0d2d3X3NsQlpnaXRMdEtjMXZEWExMRnlhRFNKaVFOWUd4T0FPQThZaXA0UlhKQWc?oc=5">Flo Health’s Record-Breaking Run: $200M Raised, 77M Users, and a Unicorn Status That Changed Femtech Forever - netnewsledger.com</a></div>
+                <div class="meta">FemTech News • Mar 18, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOLW1qdTd1RXlDVmt0R2xIcmwzNXI0N0dsVXJtOFZXWjRSVTE3QVRleXpTYm1JMDNlZWdQUm5jMlBlalZ3cFhodG54WVFVbDd2OTJuTFBGc3k4eUJJV3Vrclg3SExDX1F6QXhUUDY5Um...</div>
+            </div>
 
-            <tr style="border-bottom: 1px solid #e5e5e5; ">
-                <td style="padding: 12px; font-weight: 600;">Carrot Fertility</td>
-                <td style="padding: 12px; text-align: center; font-weight: 700; color: #ea580c;">3.8</td>
-                <td style="padding: 12px; text-align: center; color: #666;">67</td>
-                <td style="padding: 12px; text-align: center; color: #666;">68%</td>
-                <td style="padding: 12px; text-align: center; color: #666;">70%</td>
-            </tr>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-critical">Critical</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVmJvSkxYTDROakhlR29WT25UbFV5QkJVRnFJRXBBeGVnS0tMMElKcVN5b1lvV01pVEdqZkZNSE9tbzcyUktHZ1BRMXl2NFg0TUpHNGNuTGRkZUpoVVFWQzZNWHFLYXliS1E3RjRNd3paTzdNVms1U21WbGF5RFZBcFNSNm1DdF9zWVFUbWRha013bVEwSEtVWlpWdnprbHdlUHhlWUZ0X29yQl9zOXhZamRTUnFvTFZV?oc=5">Exclusive: Translucent, an AI-native healthcare finance startup, raises $27 million Series A - Fortune</a></div>
+                <div class="meta">Healthcare Startup News • Mar 11, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVmJvSkxYTDROakhlR29WT25UbFV5QkJVRnFJRXBBeGVnS0tMMElKcVN5b1lvV01pVEdqZkZNSE9tbzcyUktHZ1BRMXl2NFg0TUpHNGNuTGRkZUpoVVFWQzZNWHFLYXliS1E3RjRNd3...</div>
+            </div>
 
-            <tr style="border-bottom: 1px solid #e5e5e5; ">
-                <td style="padding: 12px; font-weight: 600;">Kindbody</td>
-                <td style="padding: 12px; text-align: center; font-weight: 700; color: #ea580c;">3.5</td>
-                <td style="padding: 12px; text-align: center; color: #666;">45</td>
-                <td style="padding: 12px; text-align: center; color: #666;">62%</td>
-                <td style="padding: 12px; text-align: center; color: #666;">65%</td>
-            </tr>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-critical">Critical</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNUzFCTUVsYl9GYm11T0JxMk94dHRMV0tDNWktYmh1UjVSQVE0bWRtOWJMVDJGRUxqU0xLRHk1UG1veFB2VDhob2RHZzItWFMzYzN5WXRNTTdLWHdIOFpucHlmbHBxMUpjVDNlckdvUFhiaDM4NG5seTdZVWg1UllCWHNPeFpLQQ?oc=5">Health AI startup to benefit from $1 billion funding round for Yann LeCun’s AMI - statnews.com</a></div>
+                <div class="meta">Healthcare Startup News • Mar 10, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxNUzFCTUVsYl9GYm11T0JxMk94dHRMV0tDNWktYmh1UjVSQVE0bWRtOWJMVDJGRUxqU0xLRHk1UG1veFB2VDhob2RHZzItWFMzYzN5WXRNTTdLWHdIOFpucHlmbHBxMUpjVDNlckdvUF...</div>
+            </div>
+</div><div class="section"><h2>🟠 High Priority</h2>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">Progyny</span>
+                    <span class="priority priority-high">High</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPMlN0ZEJtU1dTdzdRS0dRNG9JWWdiZURBc21IdXAxNzZYZ256MXdlTDhISVdGVzRWSENudW43UmNxZjNrMklEQ0stOFdpOGh5SEJLUUlrcHRDQnNoaXVzNWxadmljSGdaWDl4NlI5RFAwUUFZX3ZOU0pYRm5aS01vMm9QODFOa3NxZ2pCWXlkdnBzMjJxcGFrQWxxMlNZblBlMkhuQ25kdlh0WEJpMjFuM2x1VUM0YkJzanJRV1YwVElaM0xMNXc?oc=5">Progyny Inc stock faces uncertainty amid fertility benefits sector shifts and biotech peer pressures - AD HOC NEWS</a></div>
+                <div class="meta">Fertility Benefits News • Mar 25, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxPMlN0ZEJtU1dTdzdRS0dRNG9JWWdiZURBc21IdXAxNzZYZ256MXdlTDhISVdGVzRWSENudW43UmNxZjNrMklEQ0stOFdpOGh5SEJLUUlrcHRDQnNoaXVzNWxadmljSGdaWDl4NlI5RF...</div>
+            </div>
 
-            <tr style="border-bottom: 1px solid #e5e5e5; ">
-                <td style="padding: 12px; font-weight: 600;">WIN Fertility</td>
-                <td style="padding: 12px; text-align: center; font-weight: 700; color: #dc2626;">3.2</td>
-                <td style="padding: 12px; text-align: center; color: #666;">34</td>
-                <td style="padding: 12px; text-align: center; color: #666;">55%</td>
-                <td style="padding: 12px; text-align: center; color: #666;">58%</td>
-            </tr>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-high">High</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNV2hGNDI4V3RZc3M2SElabDBROG9HMWg0OFJWRzhQcGRrbWVHYUppY0Ntd0Q0dWtONGxCTnFRSDBXNVdoZDNBVm1STTVicTVtM1NTZUJoV0NiQ3pVeU13cGhlMldVYzhzc2laeHZYalJBVHdvQkVINmRvQUxXOTJwRXZxUGF6Y3plRTZkNUJkcUZBNDNCYlRMU3l4b2pHd3B4QlVHemgtczREXzhfa2xKRjVXcDJuTWJmSmxCclZ6bVJYVzZBM3NfMmU1NktIZGFSMVVMNVpQNHFtbG9KNFZXaXk1RWp2d9IB6wFBVV95cUxQSjl3MG40UnlGQ1hFSE9kMjVHWmItdnBRakM1Z0l5MjNLS1pWU0hlZFRhREQ4Z055LVBzVV9iZG9XY09qR0R5OEpPZ3BXRzg4UEdvdHczSXR4TzFUbzNzVk5rSFQxZC1iV0ZvTmNVUnp6QlU2RmoySVRWWnlWTGRZRE5tbmRGRlNEbllxblFpMVB4ejV4YkVBSk05ZmQwaFZCTmNPMktRcHRDTnk5Mzk3RlBoVGVETjF0REF0d2RDd0tTQXVHb2lSQ3puZHdudERKVDJtbVJEb2h3eUw3T0pPU0pMSndMcEVCdUVB?oc=5">Nutrition startup Fullife Healthcare raises Rs 300 crore from Elev8 Venture Partners - The Economic Times</a></div>
+                <div class="meta">Healthcare Startup News • Mar 25, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxNV2hGNDI4V3RZc3M2SElabDBROG9HMWg0OFJWRzhQcGRrbWVHYUppY0Ntd0Q0dWtONGxCTnFRSDBXNVdoZDNBVm1STTVicTVtM1NTZUJoV0NiQ3pVeU13cGhlMldVYzhzc2laeHZYal...</div>
+            </div>
 
-        </tbody>
-    </table>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-high">High</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPNlZkQ2hXSG1yX2thbmktUGtpQmNJcHhFV2JadmVHaUE0UmRtd3hXdjFHajkxR2JNR0t5VV9rZXg0X0ZsdzNFakdSNU8xZ2VHVm1peEIzZlhUNUNUWGszbUNha2NWN2YwVHBMdU1YRG9QM00yVlFjY1V4eUpzekJwZG5UT3FoZw?oc=5">Buzzy AI doctor startup raises funds, will meet FDA - statnews.com</a></div>
+                <div class="meta">Healthcare Startup News • Mar 24, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPNlZkQ2hXSG1yX2thbmktUGtpQmNJcHhFV2JadmVHaUE0UmRtd3hXdjFHajkxR2JNR0t5VV9rZXg0X0ZsdzNFakdSNU8xZ2VHVm1peEIzZlhUNUNUWGszbUNha2NWN2YwVHBMdU1YRG...</div>
+            </div>
 
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">Kindbody</span>
+                    <span class="priority priority-high">High</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMiqgJBVV95cUxQR21pWU13Q1JsMHZham9uMkZUaHdjQnZ1SFVmeVdweUU4bmZUWmpCMGRVeG9RT0FnNlQ5bU9mQ1RuT1J5VjVNeDdoaTE4WHFVVzVNclMwbnVOMUlGa1hZczgtM29vYmEyUUItSEpqSmFNei12RzBPX0FsVlRueEFHZ3o0Q2tVUmlVemRUWHhnZnZRSWZZdXRXbzJpdERqa2pLMzE4Unk5ZTVwbnFqcUlhSGRlM2xRcGpDMkpISmNtRlE0aktEUTdTd1Y4SDVpQXNRam00WUNGVWR4azBEMXdMdEgyNTlaUGtLRy1pRHJOQ0pmWGRzdHNFd2tGSDBWZ3F3MVhwcFFoYnpmZmpDZmd0TGdkbnNvdXpZMGhtRGRqbmt5b2dmTVBlR19n?oc=5">Future Family Partners with Kindbody to Offer Fertility Financing - Femtech Insider</a></div>
+                <div class="meta">FemTech News • Mar 19, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMiqgJBVV95cUxQR21pWU13Q1JsMHZham9uMkZUaHdjQnZ1SFVmeVdweUU4bmZUWmpCMGRVeG9RT0FnNlQ5bU9mQ1RuT1J5VjVNeDdoaTE4WHFVVzVNclMwbnVOMUlGa1hZczgtM29vYmEyUUItSEpqSm...</div>
+            </div>
+
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-high">High</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPUml1enQycDdOTXBQWEM1TGI3SFlkdFRYdWI0cnRHRlZpVWZVSXd3eTdwMkFRSnRnYkpONnQ4ZjN4cVFMNXNRbmQyQWFsT2k0dHZrbU0zaU5jTlRmV2llRUZDNjhrNm9TV3RVckpLWVF5R05NQmlGZXltX20tWXRzdTU2WTVUYkliWVdfYQ?oc=5">SOGC and Femtech Canada Announce Strategic Partnership to Advance Women's Health Innovation - Yahoo Finance</a></div>
+                <div class="meta">FemTech News • Mar 02, 2026</div>
+                <div class="summary"><a href="https://news.google.com/rss/articles/CBMijAFBVV95cUxPUml1enQycDdOTXBQWEM1TGI3SFlkdFRYdWI0cnRHRlZpVWZVSXd3eTdwMkFRSnRnYkpONnQ4ZjN4cVFMNXNRbmQyQWFsT2k0dHZrbU0zaU5jTlRmV2llRUZDNjhrNm9TV3RVckpLWV...</div>
+            </div>
+</div><div class="section"><h2>🟡 Medium Priority</h2>
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-medium">Medium</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxPa051LVhqNlh0elp5X0NrQnF5NkJDSm5fNW5mM2taQTJ4RTNOMmNiQzlLMmlYWTg2aGdyWjFJSkdXTEczWVdZSVV1UFZNRVJsNnBpSUM2V0NlVWJGVnk0RjhBOUJ2cGtvQ0NRMkFqVVB0eVpfb0M4ZXRQRDZLeG93UnpicnBfZDMyWUZVWXk5dw?oc=5">Femtech World Awards announces deadline extension - FemTech World</a></div>
+                <div class="meta">FemTech News • Mar 17, 2026</div>
+            </div>
+
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">General</span>
+                    <span class="priority priority-medium">Medium</span>
+                </div>
+                <div class="title"><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNODI4X2ZJVGp6cDhNTmJoTjVJNmNiMnRLYXMxbnIzb25rVzlJSlZQX1V4aGpmeWJ6NU8ya0N3RXJZZEw2bkxvbFZKWUsyMWxObnNLM3NHcG1kYWI3QnhzZzRMN2lXZ184VHhzaDNuWjZ2ZjdZeExCLTN5UFVWU2RSRDFydnBfYUJNM01zanBvTG9INVloUkRfaHhBWm9RWUk0bS1WQnhoVG9XTHd4WjFhWGRhWm54emMwWHZYcE9tLThiWW1taXQ4SGxwaDZUZ19RMjdaQzBYRk1RSmVOSXFpQQ?oc=5">India's Digital Health Market: Women's Health & NCDs Drive Growth - Whalesbook</a></div>
+                <div class="meta">FemTech News • Mar 23, 2026</div>
+            </div>
+
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">Carrot</span>
+                    <span class="priority priority-medium">Medium</span>
+                </div>
+                <div class="title"><a href="https://www.cnn.com/2026/03/18/health/hhs-womens-summit-kff-heatlh-news">Asima Ahmad (Carrot co-founder) featured at Trump administration women's health summit</a></div>
+                <div class="meta">CNN • Mar 18, 2026</div>
+            </div>
+
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">Maven</span>
+                    <span class="priority priority-medium">Medium</span>
+                </div>
+                <div class="title"><a href="https://www.mavenclinic.com/post/press-release-fertility-family-building">Maven Clinic expands award-winning Fertility & Family Building solution with focus on natural conception</a></div>
+                <div class="meta">Maven Clinic • Mar 17, 2026</div>
+            </div>
+
+            <div class="article">
+                <div class="article-header">
+                    <span class="company">Carrot</span>
+                    <span class="priority priority-medium">Medium</span>
+                </div>
+                <div class="title"><a href="https://www.healthcare-brew.com/stories/2026/03/16/carrot-fertility-coo-fertility-benefits-company">Carrot Fertility COO Brooke Quinn on leading a fertility benefits company</a></div>
+                <div class="meta">Healthcare Brew • Mar 16, 2026</div>
+            </div>
+</div>
+        <div class="section">
+            <h2>🏢 Employee Satisfaction (Glassdoor)</h2>
+            <table style="width:100%; border-collapse: collapse; font-size: 13px;">
+                <tr style="background: #1e40af; color: white;">
+                    <th style="padding: 10px; text-align: left;">Company</th>
+                    <th style="padding: 10px; text-align: center;">Rating</th>
+                    <th style="padding: 10px; text-align: center;">Reviews</th>
+                    <th style="padding: 10px; text-align: center;">Recommend</th>
+                    <th style="padding: 10px; text-align: center;">CEO Approval</th>
+                </tr>
+
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Progyny</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #16a34a; font-weight: 600;">4.2</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">156</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">78%</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">82%</td>
+                </tr>
+
+                <tr style="background: white;">
+                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Maven Clinic</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #16a34a; font-weight: 600;">4.0</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">89</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">72%</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">75%</td>
+                </tr>
+
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Carrot Fertility</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.8</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">67</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">68%</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">70%</td>
+                </tr>
+
+                <tr style="background: white;">
+                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Kindbody</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.5</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">45</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">62%</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">65%</td>
+                </tr>
+
+                <tr style="background: #f8fafc;">
+                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">WIN Fertility</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.2</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">34</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">55%</td>
+                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">58%</td>
+                </tr>
+</table></div>
+        <div class="section">
+            <h2>💼 Executive Web Mentions</h2>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Recent web mentions of monitored executives</p>
+
+            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-weight: 600; font-size: 14px;">Kate Ryder</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Maven • Source: LinkedIn</div>
+                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">I’m thrilled to be joining Maven Clinic as <strong>VP of Client Success</strong>. The mission hits close to home. I had 2 births 14 months apart....</div>
+                <a href="https://www.linkedin.com/in/kate-ryder-87474933" style="font-size: 12px; color: #2563eb;">View →</a>
+            </div>
+
+            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-weight: 600; font-size: 14px;">Kate Ryder</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Maven • Source: Web</div>
+                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">Kate Ryder is an American businessperson. She is the founder and CEO of the digital health company Maven Clinic. Kate Ryder was born in Minnesota. She earned a bachelor&#x27;s degree at the University...</div>
+                <a href="https://en.wikipedia.org/wiki/Kate_Ryder" style="font-size: 12px; color: #2563eb;">View →</a>
+            </div>
+
+            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-weight: 600; font-size: 14px;">Kate Ryder</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Maven • Source: Web</div>
+                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">Kate Ryder · @_KateRyder · <strong>Founder and CEO of Maven</strong> · New Yorkmavenclinic.comJoined July 2012 · 817 Following · 3,552 Followers · @_KateRyder hasn’t posted · When they do, their posts...</div>
+                <a href="https://x.com/_kateryder?lang=en" style="font-size: 12px; color: #2563eb;">View →</a>
+            </div>
+
+            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-weight: 600; font-size: 14px;">Tammy Sun</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Carrot • Source: LinkedIn</div>
+                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">Join us for the LinkedIn Live, ... Middle East &amp; Africa 📢 Tammy Sun, Founder &amp; CEO of Carrot Fertility Join us on the <strong>17th of November</strong>: https://lnkd.in/ezX9h3z8 #EmployeeWellb...</div>
+                <a href="https://www.linkedin.com/in/tammysun1" style="font-size: 12px; color: #2563eb;">View →</a>
+            </div>
+
+            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
+                <div style="font-weight: 600; font-size: 14px;">Tammy Sun</div>
+                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Carrot • Source: LinkedIn</div>
+                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">Despite the high cost of fertility treatments — and the reality that 50 million couples globally experience infertility every year — very few Americans receive fertility and family-forming benefits fr...</div>
+                <a href="https://www.linkedin.com/posts/linkedin-news_carrot-fertility-ceo-tammy-sun-on-working-activity-6892095752940728320-r_wy?trk=public_profile_like_view" style="font-size: 12px; color: #2563eb;">View →</a>
+            </div>
+
+            <p style="font-size: 11px; color: #999; margin-top: 15px; padding-top: 10px; border-top: 1px solid #e5e7eb;">
+                <em>Note: These are web search results mentioning executives. Proper LinkedIn post scraping with dates requires browser automation — on todo list.</em>
+            </p>
+        </div>
+        <div class="section">
+            <h2>🔍 Reddit Intelligence</h2>
+            <p style="font-size: 13px; color: #666;">No Reddit discussions found in the last 30 days.</p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Progyny Market Mentions</h2>
+            <div class="progyny-section">
+
+                <div class="mention">
+                    <div class="mention-title"><a href="https://nationaltoday.com/us/ny/new-york/news/2026/03/27/fort-washington-investment-advisors-boosts-stake-in-progyny/">Fort Washington Investment Advisors Boosts Stake in Progyny - NYC Today</a></div>
+                    <div class="mention-meta">News • Mar 28, 2026</div>
+                </div>
+
+                <div class="mention">
+                    <div class="mention-title"><a href="https://www.stocktitan.net/sec-filings/PGNY/schedule-13g-a-progyny-inc-amended-passive-investment-disclosure-1692e385770e.html">Progyny filing: Vanguard reports 0 shares (Amend. No.5) | PGNY SEC Filing - Form SCHEDULE 13G/A</a></div>
+                    <div class="mention-meta">News • Mar 28, 2026</div>
+                </div>
+
+                <div class="mention">
+                    <div class="mention-title"><a href="https://finance.yahoo.com/news/why-progyny-pgny-shares-trading-192132322.html">Why Progyny (PGNY) Shares Are Trading Lower Today</a></div>
+                    <div class="mention-meta">News • Mar 28, 2026</div>
+                </div>
+
+                <div class="mention">
+                    <div class="mention-title"><a href="https://www.americanbankingnews.com/2026/03/27/fort-washington-investment-advisors-inc-oh-grows-position-in-progyny-inc-pgny.html">Fort Washington Investment Advisors Inc. OH Grows Position in Progyny, Inc. $PGNY - American Market News</a></div>
+                    <div class="mention-meta">News • Mar 28, 2026</div>
+                </div>
+
+                <div class="mention">
+                    <div class="mention-title"><a href="https://finance.yahoo.com/sectors/healthcare/articles/progyny-ceo-details-utilization-trends-160207281.html">Progyny CEO Details Utilization Trends, Forecasting and Progyny Select Fully Insured Rollout at Conference</a></div>
+                    <div class="mention-meta">News • Mar 28, 2026</div>
+                </div>
+</div></div>
         <div class="footer">
-            Generated by Cicero • Competitive Intelligence System<br>
-            Sources: RSS Feeds, Web Search, Reddit, LinkedIn, Glassdoor
+            <p>Competitive Intelligence System • 30-day filter • Max 2 sends per article</p>
+            <p>Sources linked for validation</p>
         </div>
     </div>
 </body>
 </html>
-    
