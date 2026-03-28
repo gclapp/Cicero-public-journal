@@ -679,26 +679,14 @@ def generate_html_email(checkin_type, pt_now):
     </div>
 '''
     
-    # Token Health section (NEW - mandatory)
+    # Token Health section (concise)
     token_health = run_token_health_check()
     token_color = "#16a34a" if "✅" in token_health else "#dc2626" if "🔴" in token_health else "#ea580c"
     html += f'''
     <div class="section">
         <h2>🔐 Token Health</h2>
         <p style="color: {token_color}; font-weight: bold;">{token_health}</p>
-        <p style="font-size: 12px; color: #666;">Monitored: Google Calendar, Google Docs, Whoop API, Gmail SMTP</p>
-    </div>
-'''
-    
-    # System Status section
-    system_status = get_system_status()
-    html += f'''
-    <div class="section">
-        <h2>⚙️ System Status</h2>
-        <p><strong>Calendar:</strong> {system_status['calendar']}</p>
-        <p><strong>Whoop:</strong> {system_status['whoop']}</p>
-        <p><strong>Email:</strong> {system_status['email']}</p>
-        <p><strong>Active Jobs:</strong> {', '.join(system_status['cron_jobs'][:4])}</p>
+        <p style="font-size: 12px; color: #666;">Calendar • Docs • Whoop • Email</p>
     </div>
 '''
     
