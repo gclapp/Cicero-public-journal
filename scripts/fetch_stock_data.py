@@ -139,7 +139,7 @@ def calculate_30_day_change(symbol, current_price):
         'days_of_data': 0
     }
 
-def fetch_all_stocks():
+def fetch_all_stocks(verbose=True):
     """Fetch all stocks in watchlist + indices and update history"""
     today = datetime.now().strftime('%Y-%m-%d')
     
@@ -161,9 +161,11 @@ def fetch_all_stocks():
             data['change_30d'] = change_30d
             
             results['stocks'][symbol] = data
-            print(f"✅ {symbol}: ${data['price']:.2f} (30d: {change_30d['change_percent']:+.2f}%)")
+            if verbose:
+                print(f"✅ {symbol}: ${data['price']:.2f} (30d: {change_30d['change_percent']:+.2f}%)")
         else:
-            print(f"❌ Failed to fetch {symbol}")
+            if verbose:
+                print(f"❌ Failed to fetch {symbol}")
     
     # Fetch market indices (don't track history for indices)
     for symbol in INDICES:
@@ -171,9 +173,11 @@ def fetch_all_stocks():
         if data:
             name = 'S&P 500' if symbol == '^GSPC' else 'Dow Jones' if symbol == '^DJI' else symbol
             results['indices'][name] = data
-            print(f"✅ {name}: {data['price']:,.2f} ({data['change_percent']:+.2f}%)")
+            if verbose:
+                print(f"✅ {name}: {data['price']:,.2f} ({data['change_percent']:+.2f}%)")
         else:
-            print(f"❌ Failed to fetch {symbol}")
+            if verbose:
+                print(f"❌ Failed to fetch {symbol}")
     
     # Save current snapshot
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -264,13 +268,26 @@ def get_detailed_summary():
     return summary
 
 if __name__ == "__main__":
-    print("Fetching stock data with 30-day history...")
-    results = fetch_all_stocks()
-    print("\n" + "="*50)
-    print("Stock summary for check-in:")
-    print("="*50)
-    print(get_stock_summary())
-    print("\n" + "="*50)
-    print("Detailed summary:")
-    print("="*50)
-    print(get_detailed_summary())
+    import sys
+    
+    # Check if --summary flag passed (for check-ins, use clean format)
+    is_summary = '--summary' in sys.argv
+    
+    # Fetch data (verbose only if not summary mode)
+    if not is_summary:
+        print("Fetching stock data with 30-day history...")
+    results = fetch_all_stocks(verbose=not is_summary)
+    
+    if is_summary:
+        # Clean format for check-in emails - just the essential data
+        print(get_stock_summary())
+    else:
+        # Full format for manual runs
+        print("\n" + "="*50)
+        print("Stock summary for check-in:")
+        print("="*50)
+        print(get_stock_summary())
+        print("\n" + "="*50)
+        print("Detailed summary:")
+        print("="*50)
+        print(get_detailed_summary())
