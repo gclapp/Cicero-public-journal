@@ -194,11 +194,184 @@ def get_latest_weight():
             if table_rows:
                 # Get the last (most recent) entry
                 latest = table_rows[-1]
-                return float(latest[1])
+                return float(latest[1]), table_rows  # Return all rows for trend analysis
         except Exception as e:
             print(f"Error parsing weight: {e}")
             pass
-    return None
+    return None, []
+
+def get_weight_trend():
+    """Analyze weight trend from history"""
+    weight_file = Path("/home/ubuntu/.openclaw/workspace/memory/weight-loss-2026.md")
+    if not weight_file.exists():
+        return None
+    
+    try:
+        with open(weight_file, 'r') as f:
+            content = f.read()
+        import re
+        table_rows = re.findall(r'\|\s*(\w{3,4}\s+\d{1,2})\s*\|\s*(\d{3}(?:\.\d)?)\s*\|\s*([\+\-]?\d+\.?\d*)?\s*\|', content)
+        
+        if len(table_rows) < 2:
+            return None
+        
+        # Get first and last weights
+        start_weight = float(table_rows[0][1])
+        latest_weight = float(table_rows[-1][1])
+        total_lost = start_weight - latest_weight
+        
+        # Calculate 7-day trend if we have enough data
+        week_trend = None
+        if len(table_rows) >= 7:
+            week_ago = float(table_rows[-7][1])
+            week_trend = week_ago - latest_weight
+        
+        # Calculate pace
+        # Estimate weeks since start (approximate from row count)
+        weeks = len(table_rows) / 7  # Rough estimate
+        if weeks > 0:
+            pace = total_lost / weeks
+        else:
+            pace = 0
+        
+        return {
+            'start': start_weight,
+            'current': latest_weight,
+            'total_lost': total_lost,
+            'week_trend': week_trend,
+            'pace': pace,
+            'goal': 20,  # 20 lb goal
+            'remaining': 20 - total_lost,
+            'entries': len(table_rows)
+        }
+    except Exception as e:
+        print(f"Error calculating weight trend: {e}")
+        return None
+
+def get_whoop_trend():
+    """Get Whoop recovery trend from recent data"""
+    whoop_dir = Path("/home/ubuntu/.openclaw/workspace/data/whoop")
+    if not whoop_dir.exists():
+        return None
+    
+    try:
+        # Get all JSON files sorted by date
+        json_files = sorted(whoop_dir.glob("whoop-*.json"))
+        
+        recovery_data = []
+        for f in json_files[-7:]:  # Last 7 days
+            try:
+                with open(f, 'r') as file:
+                    data = json.load(file)
+                    date = data.get('date', '')
+                    recovery_list = data.get('recovery', [])
+                    if recovery_list and len(recovery_list) > 0:
+                        score = recovery_list[0].get('score')
+                        if score:
+                            recovery_data.append({'date': date, 'score': score})
+            except:
+                continue
+        
+        if not recovery_data:
+            return None
+        
+        # Calculate trend
+        scores = [d['score'] for d in recovery_data if d['score']]
+        if not scores:
+            return None
+        
+        avg_recovery = sum(scores) / len(scores)
+        latest = scores[-1] if scores else 0
+        
+        # Trend direction
+        if len(scores) >= 3:
+            trend = "improving" if scores[-1] > scores[-3] else "declining" if scores[-1] < scores[-3] else "stable"
+        else:
+            trend = "unknown"
+        
+        return {
+            'latest': latest,
+            'average': round(avg_recovery, 1),
+            'trend': trend,
+            'days_tracked': len(scores),
+            'data': recovery_data
+        }
+    except Exception as e:
+        print(f"Error getting Whoop trend: {e}")
+        return None
+
+def generate_health_recommendations(weight_trend, whoop_trend, checkin_type):
+    """Generate actionable health recommendations based on trends"""
+    recommendations = []
+    
+    # Weight recommendations
+    if weight_trend:
+        if weight_trend['pace'] < 1.0:
+            recommendations.append({
+                'priority': 'high',
+                'category': 'Weight Loss',
+                'action': 'Increase daily protein to 180g and reduce carbs to 20%',
+                'why': f'Current pace ({weight_trend["pace"]:.1f} lbs/week) is below target (1.5-2.0 lbs/week)'
+            })
+        
+        if weight_trend['remaining'] > 15:
+            recommendations.append({
+                'priority': 'medium',
+                'category': 'Weight Loss',
+                'action': 'Add 10-min morning walk before breakfast',
+                'why': f'{weight_trend["remaining"]:.1f} lbs remaining — small daily habits compound'
+            })
+    
+    # Whoop/Sleep recommendations
+    if whoop_trend:
+        if whoop_trend['latest'] < 50:
+            recommendations.append({
+                'priority': 'high',
+                'category': 'Recovery',
+                'action': 'Prioritize 8+ hours sleep tonight — skip evening screen time',
+                'why': f'Recovery at {whoop_trend["latest"]}% — body needs rest'
+            })
+        elif whoop_trend['latest'] < 70:
+            recommendations.append({
+                'priority': 'medium',
+                'category': 'Recovery',
+                'action': 'Light activity only today — walking, stretching, no intense workout',
+                'why': f'Moderate recovery ({whoop_trend["latest"]}%) — avoid overtraining'
+            })
+        
+        if whoop_trend['trend'] == 'declining':
+            recommendations.append({
+                'priority': 'high',
+                'category': 'Sleep',
+                'action': 'Review sleep hygiene — consistent bedtime, cool room, no alcohol',
+                'why': 'Recovery trend declining over past 3 days'
+            })
+    else:
+        # Whoop token issue
+        recommendations.append({
+            'priority': 'high',
+            'category': 'Setup',
+            'action': 'Re-authorize Whoop connection — token expired',
+            'why': 'No recovery data available — need fresh OAuth token'
+        })
+    
+    # Time-of-day specific recommendations
+    if checkin_type == 'morning':
+        recommendations.append({
+            'priority': 'medium',
+            'category': 'Morning Routine',
+            'action': 'Weigh-in, check Whoop, drink 16oz water, log breakfast in Lose It!',
+            'why': 'Consistent morning habits drive daily success'
+        })
+    elif checkin_type == 'evening':
+        recommendations.append({
+            'priority': 'medium',
+            'category': 'Evening Routine',
+            'action': 'Log dinner, review tomorrow\'s schedule, set bedtime alarm',
+            'why': 'Preparation prevents poor evening decisions'
+        })
+    
+    return recommendations
 
 def get_system_status():
     """Get system health status"""
@@ -502,7 +675,10 @@ def generate_html_email(checkin_type, pt_now):
     # Get other data
     todoist_count = get_todoist_count()
     whoop_recovery = get_whoop_recovery()
-    latest_weight = get_latest_weight()
+    latest_weight, weight_history = get_latest_weight()
+    weight_trend = get_weight_trend()
+    whoop_trend = get_whoop_trend()
+    health_recommendations = generate_health_recommendations(weight_trend, whoop_trend, checkin_type)
     
     # Whoop status color and display
     if whoop_recovery:
@@ -690,13 +866,74 @@ def generate_html_email(checkin_type, pt_now):
     </div>
 '''
     
-    # Health section
+    # Health section with trends and recommendations
     html += f'''
     <div class="section">
-        <h2>💓 Health</h2>
-        <p><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">https://gclapp.github.io/health-dashboard/</a></p>
-        <p><strong>Whoop:</strong> <span style="color: {whoop_color};">{whoop_display} recovery</span> ({whoop_status})</p>
-        <p><strong>Latest weight:</strong> {latest_weight if latest_weight else '--'} lbs</p>
+        <h2>💓 Health Trends & Actions</h2>
+        
+        <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #166534;">📊 Weight Loss Progress</h3>
+'''
+    
+    if weight_trend:
+        progress_pct = (weight_trend['total_lost'] / weight_trend['goal']) * 100
+        html += f'''
+            <p><strong>Current:</strong> {weight_trend['current']:.1f} lbs | 
+               <strong>Start:</strong> {weight_trend['start']:.1f} lbs | 
+               <strong>Lost:</strong> {weight_trend['total_lost']:.1f} lbs ({progress_pct:.0f}% of goal)</p>
+            <p><strong>Pace:</strong> {weight_trend['pace']:.1f} lbs/week | 
+               <strong>Remaining:</strong> {weight_trend['remaining']:.1f} lbs to goal</p>
+'''
+        if weight_trend['week_trend'] is not None:
+            trend_emoji = "📉" if weight_trend['week_trend'] > 0 else "📈" if weight_trend['week_trend'] < 0 else "➡️"
+            html += f'<p>{trend_emoji} <strong>7-day trend:</strong> {"-" if weight_trend["week_trend"] > 0 else "+"}{abs(weight_trend["week_trend"]):.1f} lbs this week</p>'
+    else:
+        html += '<p>Weight data unavailable</p>'
+    
+    html += '''
+        </div>
+        
+        <div style="background: #eff6ff; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #1e40af;">😴 Recovery & Sleep</h3>
+'''
+    
+    if whoop_trend:
+        trend_emoji = "📈" if whoop_trend['trend'] == 'improving' else "📉" if whoop_trend['trend'] == 'declining' else "➡️"
+        html += f'''
+            <p><strong>Latest recovery:</strong> <span style="color: {whoop_color};">{whoop_trend['latest']}%</span> ({whoop_status})</p>
+            <p><strong>7-day average:</strong> {whoop_trend['average']}% | 
+               <strong>Trend:</strong> {trend_emoji} {whoop_trend['trend']}</p>
+'''
+    else:
+        html += f'''
+            <p><strong>Latest recovery:</strong> <span style="color: {whoop_color};">{whoop_display}</span> ({whoop_status})</p>
+            <p style="color: #dc2626;">⚠️ Whoop token expired — re-authorization needed for full data</p>
+'''
+    
+    html += '''
+        </div>
+        
+        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <h3 style="margin-top: 0; color: #b45309;">🎯 Today's Actions</h3>
+'''
+    
+    if health_recommendations:
+        for rec in health_recommendations[:3]:  # Show top 3
+            priority_color = '#dc2626' if rec['priority'] == 'high' else '#ea580c' if rec['priority'] == 'medium' else '#16a34a'
+            html += f'''
+            <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 6px;">
+                <p style="margin: 0; font-weight: bold; color: {priority_color};">{rec['category']}</p>
+                <p style="margin: 5px 0;">✓ {rec['action']}</p>
+                <p style="margin: 0; font-size: 12px; color: #666;">💡 {rec['why']}</p>
+            </div>
+'''
+    else:
+        html += '<p>No specific recommendations today — keep up the good work!</p>'
+    
+    html += '''
+        </div>
+        
+        <p style="margin-top: 15px;"><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">View full health dashboard →</a></p>
     </div>
 '''
     
