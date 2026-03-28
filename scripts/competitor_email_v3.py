@@ -223,6 +223,33 @@ def generate_html_email():
     reddit_posts = reddit_data.get('posts', [])[:5]
     exec_posts = linkedin_posts.get('posts', [])[:3] if isinstance(linkedin_posts, dict) else []
     
+    # Hard-coded Reddit posts about Progyny (from previous scans)
+    # These are important patient sentiment signals
+    progyny_reddit_posts = [
+        {
+            "title": "Is Progyny scammy or just incompetent? Their billing practices seem slimey",
+            "subreddit": "r/IVF",
+            "date": "2025-05-09",
+            "score": 1,
+            "url": "https://reddit.com/r/IVF/comments/1kiooao/is_progyny_scammy_or_just_incompetent_their/",
+            "summary": "Patient describes billing issues: insurance paid labwork in full per EOB, but Progyny sent separate bill claiming it goes toward deductible. Plan has no co-insurance for labwork. Additional bill for consultation where not all codes were billed to insurance.",
+            "sentiment": "negative",
+            "severity": "high",
+            "action_needed": "⚠️ Billing coordination issue - flag for customer success team"
+        },
+        {
+            "title": "Does Progyny cover Omnitrope/HGH?",
+            "subreddit": "r/IVF",
+            "date": "2025-05-17",
+            "score": 1,
+            "url": "https://reddit.com/r/IVF/comments/1kp10oh/does_progyny_cover_omnitropehgh/",
+            "summary": "Patient asking how to get Omnitrope/HGH/Saizen covered. Common question about medication coverage.",
+            "sentiment": "neutral",
+            "severity": "low",
+            "action_needed": "📋 Coverage question - consider FAQ/documentation update"
+        }
+    ]
+    
     # Generate summary
     trend_summary = generate_trend_summary(critical, high, medium, reddit_posts, progyny_mentions)
     today_str = now.strftime('%A, %B %d, %Y')
@@ -321,11 +348,41 @@ def generate_html_email():
 """
     
     # Progyny Section
-    if progyny_mentions or exec_news:
+    if progyny_mentions or exec_news or progyny_reddit_posts:
         html += '<div class="section-title">What the Market is Saying About Progyny</div><div class="progyny-section">'
         
+        # Reddit Sentiment Analysis (PRIORITY)
+        if progyny_reddit_posts:
+            html += '<div class="progyny-title">🚨 Reddit Patient Sentiment (Action Required)</div>'
+            for post in progyny_reddit_posts:
+                # Format date
+                post_date = post.get('date', 'Recent')
+                try:
+                    dt = datetime.strptime(post_date, '%Y-%m-%d')
+                    post_date = dt.strftime('%b %d, %Y')
+                except:
+                    pass
+                
+                # Color coding based on sentiment
+                sentiment_color = '#16a34a' if post['sentiment'] == 'positive' else '#ea580c' if post['sentiment'] == 'neutral' else '#dc2626'
+                sentiment_bg = '#f0fdf4' if post['sentiment'] == 'positive' else '#fff7ed' if post['sentiment'] == 'neutral' else '#fef2f2'
+                severity_badge = ''
+                if post['severity'] == 'high':
+                    severity_badge = '<span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">HIGH</span>'
+                elif post['severity'] == 'medium':
+                    severity_badge = '<span style="background:#ea580c;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">MEDIUM</span>'
+                
+                html += f'''
+            <div class="mention" style="background:{sentiment_bg};border-left:4px solid {sentiment_color};padding:15px;margin:10px 0;border-radius:4px;">
+                <div class="mention-title"><a href="{post['url']}">{post['title']}</a>{severity_badge}</div>
+                <div class="mention-meta">{post['subreddit']} • {post_date} • ⬆️ {post['score']}</div>
+                <div class="summary" style="margin:8px 0;font-size:13px;color:#444;">{post['summary'][:200]}...</div>
+                <div style="font-size:12px;color:#666;font-weight:600;margin-top:8px;">{post['action_needed']}</div>
+            </div>
+                '''
+        
         if progyny_mentions:
-            html += '<div class="progyny-title">📢 Recent Mentions</div>'
+            html += '<div class="progyny-title">📢 News Mentions</div>'
             for mention in progyny_mentions[:3]:
                 source = mention.get('subreddit', mention.get('source', 'News'))
                 
@@ -342,24 +399,10 @@ def generate_html_email():
                     except:
                         mention_date = mention_date_raw[:10] if len(mention_date_raw) > 10 else mention_date_raw
                 
-                # Generate summary based on content
-                title = mention.get('title', '')
-                summary = "Patient discussion about fertility benefits."
-                title_lower = title.lower()
-                if 'billing' in title_lower or 'cost' in title_lower or 'scam' in title_lower or 'incompetent' in title_lower:
-                    summary = "⚠️ Patient concern about billing/costs — monitor sentiment."
-                elif 'cover' in title_lower or 'omnitrope' in title_lower or 'hgh' in title_lower:
-                    summary = "Patient asking about medication coverage."
-                elif 'progyny' in title_lower and ('good' in title_lower or 'great' in title_lower or 'love' in title_lower):
-                    summary = "Positive patient experience."
-                elif 'progyny' in title_lower and ('bad' in title_lower or 'terrible' in title_lower or 'hate' in title_lower):
-                    summary = "⚠️ Negative patient experience — flag for review."
-                
                 html += f'''
             <div class="mention">
                 <div class="mention-title"><a href="{mention.get('url', '#')}">{mention.get('title', 'No title')[:80]}...</a></div>
-                <div class="mention-meta">{source} • {mention_date} • ⬆️ {mention.get('score', mention.get('upvotes', 0))}</div>
-                <div class="mention-summary">{summary}</div>
+                <div class="mention-meta">{source} • {mention_date}</div>
             </div>
                 '''
         
