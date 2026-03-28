@@ -138,7 +138,7 @@ def generate_html_email():
     elif isinstance(articles_data, dict):
         articles_list = articles_data.get('articles', [])
     
-    # Load and update sent counts
+    # Load sent counts
     sent_count_file = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-sent-count-v2.json"
     sent_counts = load_json(sent_count_file)
     
@@ -156,24 +156,66 @@ def generate_html_email():
         except:
             continue
         
-        # Check send count (2 max)
+        # Check send count (2 max) - but show all articles under 30 days for visibility
         article_id = article.get('id', '')
-        if sent_counts.get(article_id, 0) >= 2:
-            continue
+        send_count = sent_counts.get(article_id, 0)
         
-        # Include if recent
-        if found_at > cutoff_24h or not article.get('sent', False):
-            recent_articles.append(article)
-            sent_counts[article_id] = sent_counts.get(article_id, 0) + 1
+        # Include article if under 30 days old (regardless of send count for display)
+        # But mark if it's new or repeated
+        article['_send_count'] = send_count
+        article['_is_new'] = send_count < 2
+        recent_articles.append(article)
+        
+        # Increment count for new articles
+        if send_count < 2:
+            sent_counts[article_id] = send_count + 1
     
     # Save sent counts
     with open(sent_count_file, 'w') as f:
         json.dump(sent_counts, f, indent=2)
     
-    # Categorize
-    critical = [a for a in recent_articles if a.get('priority') == 'critical'][:3]
-    high = [a for a in recent_articles if a.get('priority') == 'high'][:3]
-    medium = [a for a in recent_articles if a.get('priority') == 'medium'][:3]
+    # Helper to format article dates
+    def format_article_date(article):
+        """Extract and format date from article"""
+        # Try published date first (RSS format)
+        pub_date = article.get('published', '')
+        if pub_date:
+            try:
+                # Parse RSS date format: "Wed, 18 Mar 2026 22:06:58 GMT"
+                from email.utils import parsedate_to_datetime
+                dt = parsedate_to_datetime(pub_date)
+                return dt.strftime('%b %d, %Y')
+            except:
+                pass
+            try:
+                # Try ISO format
+                dt = datetime.fromisoformat(pub_date.replace('Z', '+00:00').replace('+00:00', ''))
+                return dt.strftime('%b %d, %Y')
+            except:
+                pass
+        
+        # Fallback to found_at
+        found_at = article.get('found_at', '')
+        if found_at:
+            try:
+                dt = datetime.fromisoformat(found_at.replace('Z', '+00:00').replace('+00:00', ''))
+                return dt.strftime('%b %d, %Y')
+            except:
+                pass
+        
+        return 'Recent'
+    
+    # Categorize - include ALL articles under 30 days, sorted by priority and date
+    # Sort by found_at descending (newest first)
+    recent_articles_sorted = sorted(
+        recent_articles, 
+        key=lambda x: x.get('found_at', '2000-01-01'), 
+        reverse=True
+    )
+    
+    critical = [a for a in recent_articles_sorted if a.get('priority') == 'critical'][:5]
+    high = [a for a in recent_articles_sorted if a.get('priority') == 'high'][:5]
+    medium = [a for a in recent_articles_sorted if a.get('priority') in ('medium', 'low')]
     
     # Get other data
     progyny_mentions = progyny_data.get('mentions', [])[:5]
@@ -286,22 +328,37 @@ def generate_html_email():
             html += '<div class="progyny-title">📢 Recent Mentions</div>'
             for mention in progyny_mentions[:3]:
                 source = mention.get('subreddit', mention.get('source', 'News'))
-                mention_date = mention.get('created_utc', mention.get('published', 'Recent'))
-                if isinstance(mention_date, (int, float)):
-                    mention_date = datetime.fromtimestamp(mention_date).strftime('%b %d')
                 
-                # Generate summary
+                # Parse date
+                mention_date_raw = mention.get('created_utc', mention.get('published', mention.get('date', None)))
+                mention_date = 'Recent'
+                if isinstance(mention_date_raw, (int, float)):
+                    mention_date = datetime.fromtimestamp(mention_date_raw).strftime('%b %d, %Y')
+                elif isinstance(mention_date_raw, str):
+                    try:
+                        # Try parsing ISO format
+                        dt = datetime.fromisoformat(mention_date_raw.replace('Z', '+00:00').replace('+00:00', ''))
+                        mention_date = dt.strftime('%b %d, %Y')
+                    except:
+                        mention_date = mention_date_raw[:10] if len(mention_date_raw) > 10 else mention_date_raw
+                
+                # Generate summary based on content
                 title = mention.get('title', '')
                 summary = "Patient discussion about fertility benefits."
-                if 'billing' in title.lower() or 'cost' in title.lower():
-                    summary = "Patient concern about billing/costs."
-                elif 'cover' in title.lower():
-                    summary = "Patient asking about coverage."
+                title_lower = title.lower()
+                if 'billing' in title_lower or 'cost' in title_lower or 'scam' in title_lower or 'incompetent' in title_lower:
+                    summary = "⚠️ Patient concern about billing/costs — monitor sentiment."
+                elif 'cover' in title_lower or 'omnitrope' in title_lower or 'hgh' in title_lower:
+                    summary = "Patient asking about medication coverage."
+                elif 'progyny' in title_lower and ('good' in title_lower or 'great' in title_lower or 'love' in title_lower):
+                    summary = "Positive patient experience."
+                elif 'progyny' in title_lower and ('bad' in title_lower or 'terrible' in title_lower or 'hate' in title_lower):
+                    summary = "⚠️ Negative patient experience — flag for review."
                 
                 html += f'''
             <div class="mention">
                 <div class="mention-title"><a href="{mention.get('url', '#')}">{mention.get('title', 'No title')[:80]}...</a></div>
-                <div class="mention-meta">{source} | {mention_date} | ⬆️ {mention.get('score', 0)}</div>
+                <div class="mention-meta">{source} • {mention_date} • ⬆️ {mention.get('score', mention.get('upvotes', 0))}</div>
                 <div class="mention-summary">{summary}</div>
             </div>
                 '''
@@ -325,7 +382,9 @@ def generate_html_email():
             company = get_company_from_article(article)
             logo_url = get_company_logo_url(company)
             importance = generate_importance_summary(article)
-            pub_date = article.get('published', article.get('found_at', 'Recent'))[:10]
+            pub_date = format_article_date(article)
+            is_new = article.get('_is_new', False)
+            new_badge = '<span style="background:#dc2626;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">NEW</span>' if is_new else ''
             html += f'''
         <div class="article">
             <div class="article-header">
@@ -333,7 +392,7 @@ def generate_html_email():
                 <span class="company">{company}</span>
                 <span class="priority">
                     <span class="priority-dot priority-critical"></span>
-                    <span class="priority-label">Critical</span>
+                    <span class="priority-label">Critical</span>{new_badge}
                 </span>
             </div>
             <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
@@ -350,7 +409,9 @@ def generate_html_email():
             company = get_company_from_article(article)
             logo_url = get_company_logo_url(company)
             importance = generate_importance_summary(article)
-            pub_date = article.get('published', article.get('found_at', 'Recent'))[:10]
+            pub_date = format_article_date(article)
+            is_new = article.get('_is_new', False)
+            new_badge = '<span style="background:#ea580c;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">NEW</span>' if is_new else ''
             html += f'''
         <div class="article">
             <div class="article-header">
@@ -358,7 +419,7 @@ def generate_html_email():
                 <span class="company">{company}</span>
                 <span class="priority">
                     <span class="priority-dot priority-high"></span>
-                    <span class="priority-label">High</span>
+                    <span class="priority-label">High</span>{new_badge}
                 </span>
             </div>
             <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
@@ -371,11 +432,13 @@ def generate_html_email():
     # Medium Priority
     if medium:
         html += '<div class="section-title">🟡 Medium Priority</div>'
-        for article in medium:
+        for article in medium[:10]:  # Limit to 10 medium priority
             company = get_company_from_article(article)
             logo_url = get_company_logo_url(company)
             importance = generate_importance_summary(article)
-            pub_date = article.get('published', article.get('found_at', 'Recent'))[:10]
+            pub_date = format_article_date(article)
+            is_new = article.get('_is_new', False)
+            new_badge = '<span style="background:#ca8a04;color:white;padding:2px 6px;border-radius:3px;font-size:10px;margin-left:8px;">NEW</span>' if is_new else ''
             html += f'''
         <div class="article">
             <div class="article-header">
@@ -383,7 +446,7 @@ def generate_html_email():
                 <span class="company">{company}</span>
                 <span class="priority">
                     <span class="priority-dot priority-medium"></span>
-                    <span class="priority-label">Medium</span>
+                    <span class="priority-label">Medium</span>{new_badge}
                 </span>
             </div>
             <div class="title"><a href="{article.get('link', '#')}">{article.get('title', 'No title')}</a></div>
@@ -406,17 +469,30 @@ def generate_html_email():
     # LinkedIn Posts
     if exec_posts:
         html += '<div class="section-title">💼 LinkedIn Executive Activity</div>'
-        for post in exec_posts[:3]:
+        for post in exec_posts[:5]:
             company = post.get('company', 'Unknown')
             logo_url = get_company_logo_url(company)
+            
+            # Parse LinkedIn post date
+            post_date_raw = post.get('date', post.get('published', post.get('timestamp', None)))
+            post_date = 'Recent'
+            if isinstance(post_date_raw, (int, float)):
+                post_date = datetime.fromtimestamp(post_date_raw).strftime('%b %d, %Y')
+            elif isinstance(post_date_raw, str):
+                try:
+                    dt = datetime.fromisoformat(post_date_raw.replace('Z', '+00:00').replace('+00:00', ''))
+                    post_date = dt.strftime('%b %d, %Y')
+                except:
+                    post_date = post_date_raw[:10] if len(post_date_raw) > 10 else post_date_raw
+            
             html += f'''
         <div class="article">
             <div class="article-header">
                 <img src="{logo_url}" alt="{company}" class="logo" onerror="this.style.display='none'">
-                <span class="company">{post.get('executive', 'Unknown')}</span>
+                <span class="company">{post.get('executive', 'Unknown')} • {company}</span>
             </div>
             <div class="summary">{post.get('description', '')[:150]}...</div>
-            <div class="meta"><a href="{post.get('url', '#')}">View on LinkedIn</a></div>
+            <div class="meta">{post_date} • <a href="{post.get('url', '#')}">View on LinkedIn</a></div>
         </div>
             '''
     
