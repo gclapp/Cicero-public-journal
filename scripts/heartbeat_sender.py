@@ -149,13 +149,29 @@ def run_token_health_check():
         # Parse the output for critical issues
         output = result.stdout
         
-        critical_count = output.count('🔴')
-        warning_count = output.count('🟡')
+        # Count only the status emojis (not the header emoji)
+        # Look for patterns like "🔴 Whoop" or "✅ Calendar"
+        lines = output.split('\n')
+        critical_count = 0
+        warning_count = 0
+        healthy_count = 0
+        
+        for line in lines:
+            # Skip header lines and summary lines
+            if 'Token Health Check' in line or 'CRITICAL' in line or 'Immediate action' in line:
+                continue
+            # Count status emojis in actual status lines
+            if line.strip().startswith('🔴'):
+                critical_count += 1
+            elif line.strip().startswith('🟡') or line.strip().startswith('⚠️'):
+                warning_count += 1
+            elif line.strip().startswith('✅'):
+                healthy_count += 1
         
         if critical_count > 0:
-            return f"🔴 {critical_count} critical token issues"
+            return f"🔴 {critical_count} critical token issue{'s' if critical_count > 1 else ''}"
         elif warning_count > 0:
-            return f"🟡 {warning_count} token warnings"
+            return f"🟡 {warning_count} token warning{'s' if warning_count > 1 else ''}"
         else:
             return "✅ All tokens healthy"
     except Exception as e:
@@ -665,12 +681,33 @@ def generate_html_email(checkin_type, pt_now):
     today_events, travel_events = get_calendar_data()
     location_info = detect_location_and_travel(travel_events)
     
-    # Get travel destinations for the week and fetch weather for each
+    # Get weather for current location + travel destinations
+    # Always include current location first
+    weather_cities = []
+    
+    # Current location based on custody/travel status
+    if location_info['city'] == 'New York City':
+        weather_cities.append({'name': 'New York', 'code': 'New+York'})
+    elif location_info['city'] == 'San Francisco':
+        weather_cities.append({'name': 'San Francisco', 'code': 'San+Francisco'})
+    elif location_info['city'] == 'Atlanta':
+        weather_cities.append({'name': 'Atlanta', 'code': 'Atlanta'})
+    else:
+        # Default to LA/Calabasas
+        weather_cities.append({'name': 'Calabasas', 'code': 'Los+Angeles'})
+    
+    # Add travel destinations for the week (excluding current location if already included)
     week_destinations = get_week_travel_destinations(travel_events, pt_now)
+    current_names = [c['name'] for c in weather_cities]
+    for dest in week_destinations[:3]:  # Max 3 additional destinations
+        if dest['name'] not in current_names:
+            weather_cities.append(dest)
+    
+    # Fetch weather for all cities
     destination_weather = []
-    for dest in week_destinations[:4]:  # Max 4 cities
-        weather = get_weather(dest['code'])
-        destination_weather.append({'name': dest['name'], 'weather': weather})
+    for city in weather_cities[:4]:  # Max 4 total
+        weather = get_weather(city['code'])
+        destination_weather.append({'name': city['name'], 'weather': weather})
     
     # Get other data
     todoist_count = get_todoist_count()
