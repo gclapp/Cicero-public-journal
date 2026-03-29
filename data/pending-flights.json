@@ -247,6 +247,26 @@
       },
       "arrival": {},
       "extracted_at": "2026-03-23T21:15:05.241224"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": null,
+      "flight_number": null,
+      "departure": {
+        "time": "4:50pm"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-29T18:00:04.488609"
+    },
+    {
+      "airline": "Delta Air Lines",
+      "confirmation_code": null,
+      "flight_number": null,
+      "departure": {
+        "time": "3:13pm"
+      },
+      "arrival": {},
+      "extracted_at": "2026-03-29T18:00:07.920263"
     }
   ]
 }
