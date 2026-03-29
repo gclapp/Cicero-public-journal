@@ -1,0 +1,333 @@
+{
+  "week_start": "2026-03-22",
+  "week_end": "2026-03-29",
+  "total_mentions": 18,
+  "category_breakdown": {
+    "financial": 7,
+    "executive": 7,
+    "product": 7,
+    "sentiment": 2,
+    "general": 2,
+    "regulatory": 5,
+    "competitive": 2,
+    "partnership": 1
+  },
+  "top_sources": {
+    "Executive News": 9,
+    "News": 9
+  },
+  "key_themes": [
+    "Metrics: 38%",
+    "Action: Appoints"
+  ],
+  "notable_mentions": [
+    {
+      "id": "e4a573d7b899",
+      "title": "Progyny Names Melissa Cummings COO | MarketScreener",
+      "url": "https://www.marketscreener.com/quote/stock/PROGYNY-INC-69788316/news/Progyny-Names-Melissa-Cummings-COO-49648719/",
+      "source": "Executive News",
+      "source_type": "executive",
+      "published": "",
+      "published_date": "",
+      "summary": "Progyny said Thursday that it has appointed Melissa Cummings as chief operating officer. She most recently was the chief customer officer of Blue Cross & Blue Shield of Rhode Island. The company...",
+      "categories": [
+        "financial",
+        "executive",
+        "product",
+        "sentiment"
+      ],
+      "insights": [],
+      "collected_at": "2026-03-28T06:36:12.068009",
+      "date_key": "2026-03-28"
+    },
+    {
+      "id": "786bf44d8507",
+      "title": "Progyny Appoints Janet Choi, M.D., as Chief Medical Officer",
+      "url": "https://www.globenewswire.com/news-release/2023/04/04/2640737/0/en/Progyny-Appoints-Janet-Choi-M-D-as-Chief-Medical-Officer.html",
+      "source": "Executive News",
+      "source_type": "executive",
+      "published": "",
+      "published_date": "",
+      "summary": "Dr. Choi brings her more than 20 years of reproductive health experience to enhance the company\u2019s current offerings and counsel on its next generation of...",
+      "categories": [
+        "executive",
+        "product",
+        "sentiment"
+      ],
+      "insights": [
+        "Action: Appoints"
+      ],
+      "collected_at": "2026-03-28T06:36:12.066695",
+      "date_key": "2026-03-28"
+    },
+    {
+      "id": "bec695ee9a76",
+      "title": "Interview with Dr. Janet Choi, New KL2 Cohort 16 Awardee | SC CTSI",
+      "url": "https://sc-ctsi.org/news/interview-with-dr-janet-choi-new-kl2-cohort-16-awardee",
+      "source": "Executive News",
+      "source_type": "executive",
+      "published": "",
+      "published_date": "",
+      "summary": "We sat down with Dr. Janet Choi, a recipient of the SC CTSI Mentored Career Development in Clinical and Translational Science award, to hear about her\u2026",
+      "categories": [
+        "general"
+      ],
+      "insights": [],
+      "collected_at": "2026-03-28T06:36:12.065475",
+      "date_key": "2026-03-28"
+    },
+    {
+      "id": "a7513d2b98c6",
+      "title": "Delivering Life-Changing Fertility, Family Building, and Women\u2019s Health Benefits with Dr. Janet Choi of Progyny \u2014 Business of the V",
+      "url": "https://www.businessofthev.com/episodes/episode/delivering-life-changing-fertility-family-building-and-womens-health-benefits-with-dr-janet-choi-of-progyny",
+      "source": "Executive News",
+      "source_type": "executive",
+      "published": "",
+      "published_date": "",
+      "summary": "This week\u2019s guest is a leader of a company that\u2019s a huge victory for womankind. Dr. Janet Choi is the Chief Medical Officer of Progyny, who provides comprehensive fertility, family building, and women\u2019s health benefits for a global workforce.",
+      "categories": [
+        "executive",
+        "regulatory"
+      ],
+      "insights": [],
+      "collected_at": "2026-03-28T06:36:12.064247",
+      "date_key": "2026-03-28"
+    },
+    {
+      "id": "b0b57168fe43",
+      "title": "Progyny Names Melissa Cummings as COO and Geoffrey Clapp as CPO | citybiz",
+      "url": "https://www.citybiz.co/article/683785/progyny-names-melissa-cummings-as-coo-and-geoffrey-clapp-as-cpo/",
+      "source": "Executive News",
+      "source_type": "executive",
+      "published": "",
+      "published_date": "",
+      "summary": "NEW YORK, April 17, 2025 (GLOBE NEWSWIRE) \u2014 Progyny (Nasdaq: PGNY), a global leader in women\u2019s health and family building,... Read More",
+      "categories": [
+        "financial",
+        "product"
+      ],
+      "insights": [],
+      "collected_at": "2026-03-28T06:36:12.062913",
+      "date_key": "2026-03-28"
+    }
+  ],
+  "all_mentions": [
+    {
+      "id": "e4a573d7b899",
+      "title": "Progyny Names Melissa Cummings COO | MarketScreener",
+      "url": "https://www.marketscreener.com/quote/stock/PROGYNY-INC-69788316/news/Progyny-Names-Melissa-Cummings-COO-49648719/",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "financial",
+        "executive",
+        "product",
+        "sentiment"
+      ],
+      "insights": []
+    },
+    {
+      "id": "786bf44d8507",
+      "title": "Progyny Appoints Janet Choi, M.D., as Chief Medical Officer",
+      "url": "https://www.globenewswire.com/news-release/2023/04/04/2640737/0/en/Progyny-Appoints-Janet-Choi-M-D-as-Chief-Medical-Officer.html",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "executive",
+        "product",
+        "sentiment"
+      ],
+      "insights": [
+        "Action: Appoints"
+      ]
+    },
+    {
+      "id": "bec695ee9a76",
+      "title": "Interview with Dr. Janet Choi, New KL2 Cohort 16 Awardee | SC CTSI",
+      "url": "https://sc-ctsi.org/news/interview-with-dr-janet-choi-new-kl2-cohort-16-awardee",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "general"
+      ],
+      "insights": []
+    },
+    {
+      "id": "a7513d2b98c6",
+      "title": "Delivering Life-Changing Fertility, Family Building, and Women\u2019s Health Benefits",
+      "url": "https://www.businessofthev.com/episodes/episode/delivering-life-changing-fertility-family-building-and-womens-health-benefits-with-dr-janet-choi-of-progyny",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "executive",
+        "regulatory"
+      ],
+      "insights": []
+    },
+    {
+      "id": "b0b57168fe43",
+      "title": "Progyny Names Melissa Cummings as COO and Geoffrey Clapp as CPO | citybiz",
+      "url": "https://www.citybiz.co/article/683785/progyny-names-melissa-cummings-as-coo-and-geoffrey-clapp-as-cpo/",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "financial",
+        "product"
+      ],
+      "insights": []
+    },
+    {
+      "id": "85629a5f68e6",
+      "title": "Geoffrey Clapp | Flickr",
+      "url": "https://www.flickr.com/photos/gclapp/",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "product"
+      ],
+      "insights": []
+    },
+    {
+      "id": "8f19f59026ac",
+      "title": "Progyny Names Healthcare Veterans Melissa Cummings as Chief Operating Officer an",
+      "url": "https://www.globenewswire.com/news-release/2025/04/17/3063505/0/en/Progyny-Names-Healthcare-Veterans-Melissa-Cummings-as-Chief-Operating-Officer-and-Geoffrey-Clapp-as-Chief-Product-Officer.html",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "financial",
+        "executive",
+        "product"
+      ],
+      "insights": []
+    },
+    {
+      "id": "e3dfef116255",
+      "title": "Pete Anevski - Crain's New York Business",
+      "url": "https://www.crainsnewyork.com/recognitions/notable-in-health-care/2024/pete-anevski/",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "executive",
+        "product",
+        "competitive",
+        "regulatory"
+      ],
+      "insights": [
+        "Metrics: 38%"
+      ]
+    },
+    {
+      "id": "d3b44d466216",
+      "title": "Progyny, Inc. CEO Pete Anevski Recognized as Champion for Women\u2019s Health by Worl",
+      "url": "https://www.quiverquant.com/news/Progyny,+Inc.+CEO+Pete+Anevski+Recognized+as+Champion+for+Women%E2%80%99s+Health+by+World+Economic+Forum",
+      "source": "Executive News",
+      "date": "",
+      "categories": [
+        "executive",
+        "product",
+        "competitive"
+      ],
+      "insights": []
+    },
+    {
+      "id": "8f4abe15c4ea",
+      "title": "Progyny Fertility Benefits | Shady Grove Fertility",
+      "url": "https://www.shadygrovefertility.com/accepted-insurances/progyny-fertility-benefits/",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "regulatory"
+      ],
+      "insights": []
+    },
+    {
+      "id": "549e281df9ed",
+      "title": "Fertility and Family Building Benefit | Progyny",
+      "url": "https://progyny.com/for-individuals/fertility-and-family-building-benefit/",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "regulatory"
+      ],
+      "insights": []
+    },
+    {
+      "id": "56f3de9ecd81",
+      "title": "Progyny Benefits - Boca Fertility IVF & Genetics | Boca Raton, FL",
+      "url": "https://bocafertility.com/progyny-benefits/",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "regulatory"
+      ],
+      "insights": []
+    },
+    {
+      "id": "b221471f25e1",
+      "title": "A Decade in Fertility: The Progress, People, and Path Forward | Progyny",
+      "url": "https://progyny.com/blog/fertility-in-the-workplace/a-decade-in-fertility-the-progress-people-and-path-forward/",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "general"
+      ],
+      "insights": []
+    },
+    {
+      "id": "b11deb286dad",
+      "title": "Progyny CEO Details Utilization Trends, Forecasting and Progyny Select Fully Ins",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/progyny-ceo-details-utilization-trends-160207281.html",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "executive",
+        "partnership"
+      ],
+      "insights": []
+    },
+    {
+      "id": "f77a7149c515",
+      "title": "Fort Washington Investment Advisors Inc. OH Grows Position in Progyny, Inc. $PGN",
+      "url": "https://www.americanbankingnews.com/2026/03/27/fort-washington-investment-advisors-inc-oh-grows-position-in-progyny-inc-pgny.html",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "financial"
+      ],
+      "insights": []
+    },
+    {
+      "id": "22eca4fb078b",
+      "title": "Why Progyny (PGNY) Shares Are Trading Lower Today",
+      "url": "https://finance.yahoo.com/news/why-progyny-pgny-shares-trading-192132322.html",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "financial"
+      ],
+      "insights": []
+    },
+    {
+      "id": "19aaaa540f87",
+      "title": "Progyny filing: Vanguard reports 0 shares (Amend. No.5) | PGNY SEC Filing - Form",
+      "url": "https://www.stocktitan.net/sec-filings/PGNY/schedule-13g-a-progyny-inc-amended-passive-investment-disclosure-1692e385770e.html",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "financial"
+      ],
+      "insights": []
+    },
+    {
+      "id": "86219d75ea08",
+      "title": "Fort Washington Investment Advisors Boosts Stake in Progyny - NYC Today",
+      "url": "https://nationaltoday.com/us/ny/new-york/news/2026/03/27/fort-washington-investment-advisors-boosts-stake-in-progyny/",
+      "source": "News",
+      "date": "",
+      "categories": [
+        "financial"
+      ],
+      "insights": []
+    }
+  ]
+}

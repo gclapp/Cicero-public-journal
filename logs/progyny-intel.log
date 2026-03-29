@@ -1,2 +1,9 @@
 
 📊 Stored 0 new Progyny mentions
+
+📊 Stored 0 new Progyny mentions
+✅ Weekly summary generated: 18 mentions
+📧 HTML saved to: /home/ubuntu/.openclaw/workspace/config/progyny-weekly-summary.html
+
+To send: python3 scripts/send_email.py --to '[REDACTED]' --subject '🏛️ Progyny Weekly Intelligence' --body-file config/progyny-weekly-summary.html --html
+✅ Email sent successfully to [REDACTED],geoffrey.clapp@progyny.com
