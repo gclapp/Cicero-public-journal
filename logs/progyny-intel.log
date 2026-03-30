@@ -7,3 +7,5 @@
 
 To send: python3 scripts/send_email.py --to '[REDACTED]' --subject '🏛️ Progyny Weekly Intelligence' --body-file config/progyny-weekly-summary.html --html
 ✅ Email sent successfully to [REDACTED],geoffrey.clapp@progyny.com
+
+📊 Stored 0 new Progyny mentions
