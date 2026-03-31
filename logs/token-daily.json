@@ -1,24 +1,24 @@
 {
-  "timestamp": "2026-03-30T07:15:02.303220",
+  "timestamp": "2026-03-31T07:15:02.920878",
   "results": [
     {
       "name": "Google Calendar",
       "status": "healthy",
-      "message": "\u2705 Google Calendar: Healthy (0 days)",
+      "message": "\u2705 Google Calendar: Healthy (1 days)",
       "action_required": false,
       "critical": true,
       "auto_refreshed": false,
-      "age_days": 0,
+      "age_days": 1,
       "refresh_failed": "Refresh failed: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})"
     },
     {
       "name": "Google Docs",
       "status": "healthy",
-      "message": "\u2705 Google Docs: Healthy (2 days)",
+      "message": "\u2705 Google Docs: Healthy (3 days)",
       "action_required": false,
       "critical": true,
       "auto_refreshed": false,
-      "age_days": 2
+      "age_days": 3
     },
     {
       "name": "Whoop API",
@@ -27,16 +27,16 @@
       "action_required": false,
       "critical": true,
       "auto_refreshed": true,
-      "age_days": 0
+      "age_days": 1
     },
     {
       "name": "Gmail SMTP",
       "status": "healthy",
-      "message": "\u2705 Gmail SMTP: Healthy (34 days)",
+      "message": "\u2705 Gmail SMTP: Healthy (35 days)",
       "action_required": false,
       "critical": true,
       "auto_refreshed": false,
-      "age_days": 34
+      "age_days": 35
     }
   ],
   "refreshed_count": 1,
