@@ -133,17 +133,53 @@ def check_competitive_intel():
     return {'status': 'unknown'}
 
 def get_weather():
-    """Get current weather for LA using wttr.in"""
+    """Get current weather for LA using wttr.in in Fahrenheit"""
     try:
-        # Use wttr.in directly (no API key needed)
-        result = subprocess.run(
-            ['curl', '-s', 'wttr.in/Los+Angeles?format=%l:+%c+%t+%h+%w'],
+        # Get emoji and temperature separately, convert to Fahrenheit
+        emoji_result = subprocess.run(
+            ['curl', '-s', 'wttr.in/Los+Angeles?format=%c'],
             capture_output=True,
             text=True,
             timeout=15
         )
-        if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip()
+        temp_result = subprocess.run(
+            ['curl', '-s', 'wttr.in/Los+Angeles?format=%t'],
+            capture_output=True,
+            text=True,
+            timeout=15
+        )
+        humidity_result = subprocess.run(
+            ['curl', '-s', 'wttr.in/Los+Angeles?format=%h'],
+            capture_output=True,
+            text=True,
+            timeout=15
+        )
+        wind_result = subprocess.run(
+            ['curl', '-s', 'wttr.in/Los+Angeles?format=%w'],
+            capture_output=True,
+            text=True,
+            timeout=15
+        )
+        
+        if emoji_result.returncode == 0 and temp_result.returncode == 0:
+            emoji = emoji_result.stdout.strip()
+            temp_str = temp_result.stdout.strip()
+            humidity = humidity_result.stdout.strip() if humidity_result.returncode == 0 else ""
+            wind = wind_result.stdout.strip() if wind_result.returncode == 0 else ""
+            
+            # Parse Celsius temperature and convert to Fahrenheit
+            temp_c = 0
+            try:
+                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-' or c == '+'])
+                temp_c = int(temp_num)
+            except:
+                pass
+            
+            # Convert to Fahrenheit: F = (C × 9/5) + 32
+            temp_f = int((temp_c * 9/5) + 32)
+            
+            return f"los angeles: {emoji} {temp_f}°F {humidity} {wind}".strip()
+        
         return None
     except Exception as e:
         return None
