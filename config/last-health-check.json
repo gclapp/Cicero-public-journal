@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-29T15:50:35.824641",
+  "timestamp": "2026-03-31T20:05:59.064074",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -7,12 +7,12 @@
     },
     "calendar": {
       "status": "ok",
-      "token_age_days": 0
+      "token_age_days": 2
     },
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \ud83c\udf2b  +16\u00b0C 87% \u21974km/h",
+    "weather_data": "los angeles: \u2601\ufe0f 68\u00b0F 65% \u21914km/h",
     "whoop": {
       "status": "configured"
     },
