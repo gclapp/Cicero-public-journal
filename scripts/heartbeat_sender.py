@@ -44,16 +44,35 @@ def get_checkin_type(hour, minute):
 def get_weather(location="Los Angeles"):
     """Get weather with emoji in Fahrenheit"""
     try:
-        result = subprocess.run(
-            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?u&format=%c+%f', '--max-time', '10'],
+        # Get emoji and temperature separately
+        emoji_result = subprocess.run(
+            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%c', '--max-time', '10'],
             capture_output=True, text=True, timeout=15
         )
-        if result.returncode == 0 and result.stdout:
-            # wttr.in returns "emoji +XX°F", clean it up
-            weather = result.stdout.strip()
-            # Remove the + sign if present
-            weather = weather.replace('+', '')
-            return weather
+        temp_result = subprocess.run(
+            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%t', '--max-time', '10'],
+            capture_output=True, text=True, timeout=15
+        )
+        
+        if emoji_result.returncode == 0 and temp_result.returncode == 0:
+            emoji = emoji_result.stdout.strip()
+            temp_str = temp_result.stdout.strip()
+            
+            # Parse Celsius temperature and convert to Fahrenheit
+            # temp_str format: "+11°C" or "-5°C"
+            temp_c = 0
+            try:
+                # Extract numeric part
+                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-' or c == '+'])
+                temp_c = int(temp_num)
+            except:
+                pass
+            
+            # Convert to Fahrenheit: F = (C × 9/5) + 32
+            temp_f = int((temp_c * 9/5) + 32)
+            
+            return f"{emoji} {temp_f}°F"
+        
         return f"🌤️ --°F"
     except:
         return f"🌤️ --°F"
