@@ -58,20 +58,23 @@ def get_weather(location="Los Angeles"):
             emoji = emoji_result.stdout.strip()
             temp_str = temp_result.stdout.strip()
             
-            # Parse Celsius temperature and convert to Fahrenheit
-            # temp_str format: "+11°C" or "-5°C"
-            temp_c = 0
-            try:
-                # Extract numeric part
-                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-' or c == '+'])
-                temp_c = int(temp_num)
-            except:
-                pass
-            
-            # Convert to Fahrenheit: F = (C × 9/5) + 32
-            temp_f = int((temp_c * 9/5) + 32)
-            
-            return f"{emoji} {temp_f}°F"
+            # Check if wttr.in is already returning Fahrenheit
+            if '°F' in temp_str:
+                # Already Fahrenheit, just extract the number
+                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                return f"{emoji} {temp_num}°F"
+            elif '°C' in temp_str:
+                # Celsius - need to convert
+                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                try:
+                    temp_c = int(temp_num)
+                    temp_f = int((temp_c * 9/5) + 32)
+                    return f"{emoji} {temp_f}°F"
+                except:
+                    return f"{emoji} {temp_str}"
+            else:
+                # Unknown format, return as-is
+                return f"{emoji} {temp_str}"
         
         return f"🌤️ --°F"
     except:

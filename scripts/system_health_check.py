@@ -135,7 +135,7 @@ def check_competitive_intel():
 def get_weather():
     """Get current weather for LA using wttr.in in Fahrenheit"""
     try:
-        # Get emoji and temperature separately, convert to Fahrenheit
+        # Get emoji and temperature separately
         emoji_result = subprocess.run(
             ['curl', '-s', 'wttr.in/Los+Angeles?format=%c'],
             capture_output=True,
@@ -167,18 +167,25 @@ def get_weather():
             humidity = humidity_result.stdout.strip() if humidity_result.returncode == 0 else ""
             wind = wind_result.stdout.strip() if wind_result.returncode == 0 else ""
             
-            # Parse Celsius temperature and convert to Fahrenheit
-            temp_c = 0
-            try:
-                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-' or c == '+'])
-                temp_c = int(temp_num)
-            except:
-                pass
+            # Check if wttr.in is already returning Fahrenheit
+            if '°F' in temp_str:
+                # Already Fahrenheit, just extract the number
+                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                temp_display = f"{temp_num}°F"
+            elif '°C' in temp_str:
+                # Celsius - need to convert
+                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                try:
+                    temp_c = int(temp_num)
+                    temp_f = int((temp_c * 9/5) + 32)
+                    temp_display = f"{temp_f}°F"
+                except:
+                    temp_display = temp_str
+            else:
+                # Unknown format, return as-is
+                temp_display = temp_str
             
-            # Convert to Fahrenheit: F = (C × 9/5) + 32
-            temp_f = int((temp_c * 9/5) + 32)
-            
-            return f"los angeles: {emoji} {temp_f}°F {humidity} {wind}".strip()
+            return f"los angeles: {emoji} {temp_display} {humidity} {wind}".strip()
         
         return None
     except Exception as e:
