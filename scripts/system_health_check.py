@@ -134,62 +134,81 @@ def check_competitive_intel():
 
 def get_weather():
     """Get current weather for LA using wttr.in in Fahrenheit"""
-    try:
-        # Get emoji and temperature separately
-        emoji_result = subprocess.run(
-            ['curl', '-s', 'wttr.in/Los+Angeles?format=%c'],
-            capture_output=True,
-            text=True,
-            timeout=15
-        )
-        temp_result = subprocess.run(
-            ['curl', '-s', 'wttr.in/Los+Angeles?format=%t'],
-            capture_output=True,
-            text=True,
-            timeout=15
-        )
-        humidity_result = subprocess.run(
-            ['curl', '-s', 'wttr.in/Los+Angeles?format=%h'],
-            capture_output=True,
-            text=True,
-            timeout=15
-        )
-        wind_result = subprocess.run(
-            ['curl', '-s', 'wttr.in/Los+Angeles?format=%w'],
-            capture_output=True,
-            text=True,
-            timeout=15
-        )
-        
-        if emoji_result.returncode == 0 and temp_result.returncode == 0:
-            emoji = emoji_result.stdout.strip()
-            temp_str = temp_result.stdout.strip()
-            humidity = humidity_result.stdout.strip() if humidity_result.returncode == 0 else ""
-            wind = wind_result.stdout.strip() if wind_result.returncode == 0 else ""
+    import time
+    
+    for attempt in range(3):  # Try 3 times
+        try:
+            # Get emoji and temperature separately
+            emoji_result = subprocess.run(
+                ['curl', '-s', 'wttr.in/Los+Angeles?format=%c'],
+                capture_output=True,
+                text=True,
+                timeout=15
+            )
+            temp_result = subprocess.run(
+                ['curl', '-s', 'wttr.in/Los+Angeles?format=%t'],
+                capture_output=True,
+                text=True,
+                timeout=15
+            )
+            humidity_result = subprocess.run(
+                ['curl', '-s', 'wttr.in/Los+Angeles?format=%h'],
+                capture_output=True,
+                text=True,
+                timeout=15
+            )
+            wind_result = subprocess.run(
+                ['curl', '-s', 'wttr.in/Los+Angeles?format=%w'],
+                capture_output=True,
+                text=True,
+                timeout=15
+            )
             
-            # Check if wttr.in is already returning Fahrenheit
-            if '°F' in temp_str:
-                # Already Fahrenheit, just extract the number
-                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
-                temp_display = f"{temp_num}°F"
-            elif '°C' in temp_str:
-                # Celsius - need to convert
-                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
-                try:
-                    temp_c = int(temp_num)
-                    temp_f = int((temp_c * 9/5) + 32)
-                    temp_display = f"{temp_f}°F"
-                except:
+            if emoji_result.returncode == 0 and temp_result.returncode == 0:
+                emoji = emoji_result.stdout.strip()
+                temp_str = temp_result.stdout.strip()
+                humidity = humidity_result.stdout.strip() if humidity_result.returncode == 0 else ""
+                wind = wind_result.stdout.strip() if wind_result.returncode == 0 else ""
+                
+                # Check for wttr.in error message
+                if 'weather data source not available' in temp_str or 'weather data source not available' in emoji:
+                    if attempt < 2:
+                        time.sleep(1)
+                        continue
+                    return f"los angeles: 🌤️ --°F {humidity} {wind}".strip()
+                
+                # Check if wttr.in is already returning Fahrenheit
+                if '°F' in temp_str:
+                    # Already Fahrenheit, just extract the number
+                    temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                    temp_display = f"{temp_num}°F"
+                elif '°C' in temp_str:
+                    # Celsius - need to convert
+                    temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                    try:
+                        temp_c = int(temp_num)
+                        temp_f = int((temp_c * 9/5) + 32)
+                        temp_display = f"{temp_f}°F"
+                    except:
+                        temp_display = temp_str
+                else:
+                    # Unknown format, return as-is
                     temp_display = temp_str
-            else:
-                # Unknown format, return as-is
-                temp_display = temp_str
+                
+                return f"los angeles: {emoji} {temp_display} {humidity} {wind}".strip()
             
-            return f"los angeles: {emoji} {temp_display} {humidity} {wind}".strip()
-        
-        return None
-    except Exception as e:
-        return None
+            if attempt < 2:
+                time.sleep(1)
+                continue
+            return None
+            
+        except Exception as e:
+            if attempt < 2:
+                time.sleep(1)
+                continue
+            return None
+    
+    return None
 
 def run_health_check():
     """Run comprehensive health check"""

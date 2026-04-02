@@ -43,42 +43,62 @@ def get_checkin_type(hour, minute):
 
 def get_weather(location="Los Angeles"):
     """Get weather with emoji in Fahrenheit"""
-    try:
-        # Get emoji and temperature separately
-        emoji_result = subprocess.run(
-            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%c', '--max-time', '10'],
-            capture_output=True, text=True, timeout=15
-        )
-        temp_result = subprocess.run(
-            ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%t', '--max-time', '10'],
-            capture_output=True, text=True, timeout=15
-        )
-        
-        if emoji_result.returncode == 0 and temp_result.returncode == 0:
-            emoji = emoji_result.stdout.strip()
-            temp_str = temp_result.stdout.strip()
+    import time
+    
+    for attempt in range(3):  # Try 3 times
+        try:
+            # Get emoji and temperature separately
+            emoji_result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%c', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
+            temp_result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%t', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
             
-            # Check if wttr.in is already returning Fahrenheit
-            if '°F' in temp_str:
-                # Already Fahrenheit, just extract the number
-                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
-                return f"{emoji} {temp_num}°F"
-            elif '°C' in temp_str:
-                # Celsius - need to convert
-                temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
-                try:
-                    temp_c = int(temp_num)
-                    temp_f = int((temp_c * 9/5) + 32)
-                    return f"{emoji} {temp_f}°F"
-                except:
+            if emoji_result.returncode == 0 and temp_result.returncode == 0:
+                emoji = emoji_result.stdout.strip()
+                temp_str = temp_result.stdout.strip()
+                
+                # Check for wttr.in error message
+                if 'weather data source not available' in temp_str or 'weather data source not available' in emoji:
+                    if attempt < 2:  # Retry if not last attempt
+                        time.sleep(1)
+                        continue
+                    return f"🌤️ --°F"
+                
+                # Check if wttr.in is already returning Fahrenheit
+                if '°F' in temp_str:
+                    # Already Fahrenheit, just extract the number
+                    temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                    return f"{emoji} {temp_num}°F"
+                elif '°C' in temp_str:
+                    # Celsius - need to convert
+                    temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                    try:
+                        temp_c = int(temp_num)
+                        temp_f = int((temp_c * 9/5) + 32)
+                        return f"{emoji} {temp_f}°F"
+                    except:
+                        return f"{emoji} {temp_str}"
+                else:
+                    # Unknown format, return as-is
                     return f"{emoji} {temp_str}"
-            else:
-                # Unknown format, return as-is
-                return f"{emoji} {temp_str}"
-        
-        return f"🌤️ --°F"
-    except:
-        return f"🌤️ --°F"
+            
+            # If we got here, curl failed but didn't raise exception
+            if attempt < 2:
+                time.sleep(1)
+                continue
+            return f"🌤️ --°F"
+            
+        except Exception as e:
+            if attempt < 2:
+                time.sleep(1)
+                continue
+            return f"🌤️ --°F"
+    
+    return f"🌤️ --°F"
 
 def get_todoist_count():
     """Get Todoist task count"""
