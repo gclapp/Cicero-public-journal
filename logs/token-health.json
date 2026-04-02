@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-04-02T04:41:24.276260",
+  "timestamp": "2026-04-02T23:55:03.894094",
   "results": [
     {
       "status": "healthy",
-      "age_days": 3,
-      "message": "\u2705 Google Calendar: Healthy (3 days old)",
+      "age_days": 4,
+      "message": "\u2705 Google Calendar: Healthy (4 days old)",
       "action_required": false,
       "critical": true
     },
     {
       "status": "healthy",
-      "age_days": 4,
-      "message": "\u2705 Google Docs: Healthy (4 days old)",
+      "age_days": 5,
+      "message": "\u2705 Google Docs: Healthy (5 days old)",
       "action_required": false,
       "critical": true
     },
@@ -31,8 +31,8 @@
     },
     {
       "status": "stale",
-      "age_days": 36,
-      "message": "\u26a0\ufe0f Gmail SMTP: Token is 36 days old (threshold: 30)",
+      "age_days": 37,
+      "message": "\u26a0\ufe0f Gmail SMTP: Token is 37 days old (threshold: 30)",
       "action_required": true,
       "critical": true
     }

@@ -1343,3 +1343,139 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-01 21:00:32] ✅ Email sent
 [2026-04-01 21:00:32] Complete
+[2026-04-02 14:00:02] Starting competitive intelligence v2...
+[2026-04-02 14:00:02] Step 1: RSS + Web search...
+[2026-04-02 14:00:02] ======================================================================
+[2026-04-02 14:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-02 14:00:02] ======================================================================
+[2026-04-02 14:00:02] 
+1. Scanning RSS feeds...
+[2026-04-02 14:00:07]    Found 2 new articles from RSS
+[2026-04-02 14:00:07] 
+2. Searching web for competitive news...
+[2026-04-02 14:00:08]    Found 0 new articles from web search
+[2026-04-02 14:00:08] 
+3. Checking LinkedIn executive posts...
+[2026-04-02 14:00:13]    ✓ LinkedIn executive scan complete
+[2026-04-02 14:00:13] 
+4. Checking job boards...
+[2026-04-02 14:00:13] Job board monitoring: 8 companies
+[2026-04-02 14:00:13]    Found 0 job postings
+[2026-04-02 14:00:13]    Skipping f06d3203... (low FemTech relevance: 15)
+[2026-04-02 14:00:13] 
+✅ Total new articles: 1
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 1 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🟠 [Progyny - Google Alerts] <b>Progyny</b> Marks 10 Years of Transforming Women's Health and Family Building Benefits (FemTech: 65)
+   https://www.google.com/url?rct=j&sa=t&url=https://www.quiverquant.com/...
+
+======================================================================
+[2026-04-02 14:00:13] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-02 14:00:29] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 100
+   LinkedIn updates: 1
+   Executive summary: 1034 chars
+[2026-04-02 14:00:29] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-02 14:00:31] ✅ Email sent
+[2026-04-02 14:00:31] Complete
+[2026-04-02 21:00:02] Starting competitive intelligence v2...
+[2026-04-02 21:00:02] Step 1: RSS + Web search...
+[2026-04-02 21:00:02] ======================================================================
+[2026-04-02 21:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-02 21:00:02] ======================================================================
+[2026-04-02 21:00:02] 
+1. Scanning RSS feeds...
+[2026-04-02 21:00:06]    Found 0 new articles from RSS
+[2026-04-02 21:00:06] 
+2. Searching web for competitive news...
+[2026-04-02 21:00:08]    Found 5 new articles from web search
+[2026-04-02 21:00:08] 
+3. Checking LinkedIn executive posts...
+[2026-04-02 21:00:12]    ✓ LinkedIn executive scan complete
+[2026-04-02 21:00:12] 
+4. Checking job boards...
+[2026-04-02 21:00:12] Job board monitoring: 8 companies
+[2026-04-02 21:00:12]    Found 0 job postings
+[2026-04-02 21:00:12]    Skipping 06ead73f... (low FemTech relevance: 0)
+[2026-04-02 21:00:12]    Skipping fa02d3c1... (low FemTech relevance: 0)
+[2026-04-02 21:00:12]    Skipping 6a0017a4... (low FemTech relevance: 0)
+[2026-04-02 21:00:12] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 2 | 🟡 Medium: 0
+======================================================================
+
+🟠 [Web Search: Kate Ryder Maven interview OR ...] Why "Women's Health" Isn't Enough | Maven Founder & CEO Kate Ryder — The Heart of Healthcare Podcast (FemTech: 35)
+   https://www.heartofhealthcarepodcast.com/episodes/kate-ryder-maven...
+
+🟠 [Web Search: Kate Ryder Maven interview OR ...] Keynote 7: Fireside Chat - Breaking Barriers: Redesigning Healthcare for Women (FemTech: 20)
+   https://www.mobileworldlive.com/old_latest-stories/keynote-7-fireside-...
+
+======================================================================
+[2026-04-02 21:00:12] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 1
+   Executive News: 0
+   Company Posts: 0
+[2026-04-02 21:00:29] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 100
+   LinkedIn updates: 1
+   Executive summary: 1034 chars
+[2026-04-02 21:00:29] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-02 21:00:30] ✅ Email sent
+[2026-04-02 21:00:30] Complete
