@@ -173,7 +173,8 @@ def get_weather():
                 # Check for wttr.in error message
                 if 'weather data source not available' in temp_str or 'weather data source not available' in emoji:
                     if attempt < 2:
-                        time.sleep(1)
+                        print(f"  Weather attempt {attempt+1}/3 failed (source not available), waiting 80s...")
+                        time.sleep(80)
                         continue
                     return f"los angeles: 🌤️ --°F {humidity} {wind}".strip()
                 
@@ -198,13 +199,15 @@ def get_weather():
                 return f"los angeles: {emoji} {temp_display} {humidity} {wind}".strip()
             
             if attempt < 2:
-                time.sleep(1)
+                print(f"  Weather attempt {attempt+1}/3 failed (curl error), waiting 80s...")
+                time.sleep(80)
                 continue
             return None
             
         except Exception as e:
             if attempt < 2:
-                time.sleep(1)
+                print(f"  Weather attempt {attempt+1}/3 failed (exception), waiting 80s...")
+                time.sleep(80)
                 continue
             return None
     

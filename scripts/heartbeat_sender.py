@@ -42,7 +42,7 @@ def get_checkin_type(hour, minute):
         return None
 
 def get_weather(location="Los Angeles"):
-    """Get weather with emoji in Fahrenheit"""
+    """Get weather with emoji in Fahrenheit - retries 3 times over 4 minutes"""
     import time
     
     for attempt in range(3):  # Try 3 times
@@ -64,7 +64,8 @@ def get_weather(location="Los Angeles"):
                 # Check for wttr.in error message
                 if 'weather data source not available' in temp_str or 'weather data source not available' in emoji:
                     if attempt < 2:  # Retry if not last attempt
-                        time.sleep(1)
+                        print(f"Weather attempt {attempt+1}/3 failed (source not available), waiting 80s...")
+                        time.sleep(80)  # Wait 80 seconds between attempts (4 min total)
                         continue
                     return f"🌤️ --°F"
                 
@@ -88,13 +89,15 @@ def get_weather(location="Los Angeles"):
             
             # If we got here, curl failed but didn't raise exception
             if attempt < 2:
-                time.sleep(1)
+                print(f"Weather attempt {attempt+1}/3 failed (curl error), waiting 80s...")
+                time.sleep(80)  # Wait 80 seconds between attempts (4 min total)
                 continue
             return f"🌤️ --°F"
             
         except Exception as e:
             if attempt < 2:
-                time.sleep(1)
+                print(f"Weather attempt {attempt+1}/3 failed (exception: {e}), waiting 80s...")
+                time.sleep(80)  # Wait 80 seconds between attempts (4 min total)
                 continue
             return f"🌤️ --°F"
     
