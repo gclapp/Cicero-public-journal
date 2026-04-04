@@ -166,3 +166,55 @@ LCM weekly check failed at Sat Mar 28 09:00:02 UTC 2026
 [2026-03-28 15:33:46] 
 📧 Sending summary email...
 [2026-03-28 15:33:47]   ✅ Summary email sent to [REDACTED]
+[2026-04-04 09:00:01] ============================================================
+[2026-04-04 09:00:01] WEEKLY LCM HEALTH CHECK (FIXED)
+[2026-04-04 09:00:01] ============================================================
+[2026-04-04 09:00:01] 
+🔧 Checking LCM parameters...
+[2026-04-04 09:00:01]   ✅ LCM parameters found in lcm.yaml
+[2026-04-04 09:00:01]      reserveTokens: 40000
+[2026-04-04 09:00:01]      keepRecentTokens: 40000
+[2026-04-04 09:00:01] 
+📊 Checking LCM database...
+[2026-04-04 09:00:01]   ✅ Database exists: 19.59 MB
+[2026-04-04 09:00:01]   📊 Conversations: 4
+[2026-04-04 09:00:01]   📊 Total summaries: 65
+[2026-04-04 09:00:01]   📊 Summary depths: {'depth_0': 64, 'depth_1': 1}
+[2026-04-04 09:00:01] 
+🔌 Checking LCM plugin status...
+[2026-04-04 09:00:01]   ✅ Lossless-claw plugin enabled
+[2026-04-04 09:00:01] 
+============================================================
+[2026-04-04 09:00:01] ✅ All checks passed
+[2026-04-04 09:00:01] ============================================================
+[2026-04-04 09:00:01] 
+📄 Report saved to: /home/ubuntu/.openclaw/workspace/config/lcm-weekly-report.json
+[2026-04-04 09:00:01] 
+📧 Sending summary email...
+[2026-04-04 09:00:03]   ✅ Summary email sent to [REDACTED]
+[2026-04-04 09:00:01] ============================================================
+[2026-04-04 09:00:01] WEEKLY LCM HEALTH CHECK (FIXED)
+[2026-04-04 09:00:01] ============================================================
+[2026-04-04 09:00:01] 
+🔧 Checking LCM parameters...
+[2026-04-04 09:00:01]   ✅ LCM parameters found in lcm.yaml
+[2026-04-04 09:00:01]      reserveTokens: 40000
+[2026-04-04 09:00:01]      keepRecentTokens: 40000
+[2026-04-04 09:00:01] 
+📊 Checking LCM database...
+[2026-04-04 09:00:01]   ✅ Database exists: 19.59 MB
+[2026-04-04 09:00:01]   📊 Conversations: 4
+[2026-04-04 09:00:01]   📊 Total summaries: 65
+[2026-04-04 09:00:01]   📊 Summary depths: {'depth_0': 64, 'depth_1': 1}
+[2026-04-04 09:00:01] 
+🔌 Checking LCM plugin status...
+[2026-04-04 09:00:01]   ✅ Lossless-claw plugin enabled
+[2026-04-04 09:00:01] 
+============================================================
+[2026-04-04 09:00:01] ✅ All checks passed
+[2026-04-04 09:00:01] ============================================================
+[2026-04-04 09:00:01] 
+📄 Report saved to: /home/ubuntu/.openclaw/workspace/config/lcm-weekly-report.json
+[2026-04-04 09:00:01] 
+📧 Sending summary email...
+[2026-04-04 09:00:03]   ✅ Summary email sent to [REDACTED]

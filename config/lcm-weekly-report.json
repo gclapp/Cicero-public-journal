@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-28T15:33:46.736975",
+  "timestamp": "2026-04-04T09:00:01.877383",
   "checks": {
     "lcm_parameters": {
       "fresh_tail_count": "not_configured",
@@ -11,13 +11,13 @@
     },
     "database": {
       "status": "ok",
-      "size_mb": 17.36,
+      "size_mb": 19.59,
       "path": "/home/ubuntu/.openclaw/lcm.db",
-      "last_modified": "2026-03-28T15:05:59.779857",
+      "last_modified": "2026-04-04T08:19:34.437123",
       "conversations": 4,
-      "total_summaries": 59,
+      "total_summaries": 65,
       "summary_depths": {
-        "depth_0": 58,
+        "depth_0": 64,
         "depth_1": 1
       },
       "query_status": "success"

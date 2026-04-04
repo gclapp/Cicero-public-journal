@@ -103,3 +103,20 @@
    - Whoop API
 
 ✅ All tokens healthy or auto-refreshed
+✅ Email sent successfully to [REDACTED]
+======================================================================
+🔐 Daily Token Check - 2026-04-04 07:15:01
+======================================================================
+  Attempting auto-refresh for Google Calendar...
+  ✅ Google Calendar: Healthy (5 days)
+  ⚠️ Google Docs: 7 days old
+  Attempting auto-refresh for Whoop API...
+  ✅ Whoop API: Auto-refreshed (Auto-refreshed successfully)
+  ✅ Gmail SMTP: Healthy (39 days)
+======================================================================
+
+🔄 Auto-refreshed: 1
+   - Whoop API
+
+🔴 CRITICAL (1): Manual action required
+   - Google Docs: Token expired
