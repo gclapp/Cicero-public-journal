@@ -15,15 +15,15 @@ TOKENS = {
     'calendar': {
         'path': Path.home() / '.openclaw' / 'credentials' / 'calendar-token.pickle',
         'name': 'Google Calendar',
-        'alert_threshold_days': 6,
-        'auto_refresh': True,
+        'alert_threshold_days': 5,  # Proactive refresh at 5 days
+        'auto_refresh': False,  # Requires manual OAuth
         'critical': True
     },
     'gdocs': {
         'path': Path.home() / '.openclaw' / 'credentials' / 'gdocs-token.pickle',
         'name': 'Google Docs',
-        'alert_threshold_days': 6,
-        'auto_refresh': True,
+        'alert_threshold_days': 5,  # Proactive refresh at 5 days
+        'auto_refresh': False,  # Requires manual OAuth
         'critical': True
     },
     'whoop': {
