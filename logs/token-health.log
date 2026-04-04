@@ -179,3 +179,20 @@
 
 📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
 [2026-04-03 14:25:01] ⚠️ Token issues detected
+[2026-04-04 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-04 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (6 days old)
+⚠️ Google Docs: Token is 7 days old (threshold: 6)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 39 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (3): Immediate action required
+   - ⚠️ Google Docs: Token is 7 days old (threshold: 6)
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 39 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-04 14:25:01] ⚠️ Token issues detected
