@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-05T03:55:03.653594",
+  "timestamp": "2026-04-05T16:13:13.508848",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
@@ -7,7 +7,7 @@
       "change": 16.6,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-04-05T03:55:03.777925",
+      "timestamp": "2026-04-05T16:13:13.640999",
       "change_30d": {
         "price_30d_ago": 17.87,
         "change": -1.2699999999999996,
@@ -21,7 +21,7 @@
       "change": 255.92,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-04-05T03:55:03.947417",
+      "timestamp": "2026-04-05T16:13:13.775400",
       "change_30d": {
         "price_30d_ago": 249.94,
         "change": 5.97999999999999,
@@ -35,7 +35,7 @@
       "change": 177.39,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-04-05T03:55:04.085290",
+      "timestamp": "2026-04-05T16:13:13.870285",
       "change_30d": {
         "price_30d_ago": 180.4,
         "change": -3.0100000000000193,
@@ -49,7 +49,7 @@
       "change": 12.58,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-04-05T03:55:04.168769",
+      "timestamp": "2026-04-05T16:13:13.978288",
       "change_30d": {
         "price_30d_ago": 14.11,
         "change": -1.5299999999999994,
@@ -65,7 +65,7 @@
       "change": 6582.69,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-04-05T03:55:04.253657"
+      "timestamp": "2026-04-05T16:13:14.111533"
     },
     "Dow Jones": {
       "symbol": "^DJI",
@@ -73,7 +73,7 @@
       "change": 46504.67,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-04-05T03:55:04.337775"
+      "timestamp": "2026-04-05T16:13:14.202652"
     }
   }
 }

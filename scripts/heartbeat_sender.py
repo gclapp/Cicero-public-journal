@@ -331,9 +331,10 @@ def get_whoop_recovery():
             with open(whoop_file, 'r') as f:
                 content = f.read()
                 import re
-                match = re.search(r'(\d+)%', content)
+                # Look for "Recovery:** XX%" (markdown bold format)
+                match = re.search(r'Recovery:\*\*\s*(\d+(?:\.\d+)?)%', content)
                 if match:
-                    return int(match.group(1))
+                    return int(float(match.group(1)))
         except:
             pass
     return None
@@ -424,9 +425,11 @@ def get_whoop_trend():
                     date = data.get('date', '')
                     recovery_list = data.get('recovery', [])
                     if recovery_list and len(recovery_list) > 0:
-                        score = recovery_list[0].get('score')
-                        if score:
-                            recovery_data.append({'date': date, 'score': score})
+                        score_obj = recovery_list[0].get('score', {})
+                        if score_obj and isinstance(score_obj, dict):
+                            recovery_score = score_obj.get('recovery_score')
+                            if recovery_score:
+                                recovery_data.append({'date': date, 'score': recovery_score})
             except:
                 continue
         

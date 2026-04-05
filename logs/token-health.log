@@ -196,3 +196,20 @@
 
 📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
 [2026-04-04 14:25:01] ⚠️ Token issues detected
+[2026-04-05 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-05 14:25:01
+======================================================================
+⚠️ Google Calendar: Token is 7 days old (threshold: 5)
+⚠️ Google Docs: Token is 8 days old (threshold: 5)
+✅ Whoop API: Healthy (0 days old)
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 40 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (3): Immediate action required
+   - ⚠️ Google Calendar: Token is 7 days old (threshold: 5)
+   - ⚠️ Google Docs: Token is 8 days old (threshold: 5)
+   - ⚠️ Gmail SMTP: Token is 40 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-05 14:25:01] ⚠️ Token issues detected
