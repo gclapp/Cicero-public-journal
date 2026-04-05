@@ -334,3 +334,175 @@
 [2026-04-05 16:00:02] ============================================================
 [2026-04-05 16:00:02] Refreshed: 1 | Needs attention: 2
 [2026-04-05 16:00:02] ============================================================
+[2026-04-05 16:45:01] ============================================================
+[2026-04-05 16:45:01] Starting Token Auto-Refresh Check
+[2026-04-05 16:45:01] ============================================================
+[2026-04-05 16:45:01] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 16:45:01] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 16:45:01] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 16:45:01] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 16:45:01] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 16:45:01] ============================================================
+[2026-04-05 16:45:01] Refreshed: 0 | Needs attention: 1
+[2026-04-05 16:45:01] ============================================================
+[2026-04-05 17:00:02] ============================================================
+[2026-04-05 17:00:02] Starting Token Auto-Refresh Check
+[2026-04-05 17:00:02] ============================================================
+[2026-04-05 17:00:02] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 17:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 17:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 17:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 17:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 17:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 17:00:02] ============================================================
+[2026-04-05 17:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 17:00:02] ============================================================
+[2026-04-05 17:45:02] ============================================================
+[2026-04-05 17:45:02] Starting Token Auto-Refresh Check
+[2026-04-05 17:45:02] ============================================================
+[2026-04-05 17:45:02] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 17:45:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 17:45:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 17:45:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 17:45:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 17:45:02] ============================================================
+[2026-04-05 17:45:02] Refreshed: 0 | Needs attention: 1
+[2026-04-05 17:45:02] ============================================================
+[2026-04-05 18:00:02] ============================================================
+[2026-04-05 18:00:02] Starting Token Auto-Refresh Check
+[2026-04-05 18:00:02] ============================================================
+[2026-04-05 18:00:02] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 18:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 18:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 18:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 18:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 18:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 18:00:02] ============================================================
+[2026-04-05 18:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 18:00:02] ============================================================
+[2026-04-05 18:45:01] ============================================================
+[2026-04-05 18:45:01] Starting Token Auto-Refresh Check
+[2026-04-05 18:45:01] ============================================================
+[2026-04-05 18:45:01] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 18:45:01] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 18:45:01] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 18:45:01] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 18:45:01] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 18:45:01] ============================================================
+[2026-04-05 18:45:01] Refreshed: 0 | Needs attention: 1
+[2026-04-05 18:45:01] ============================================================
+[2026-04-05 19:00:01] ============================================================
+[2026-04-05 19:00:01] Starting Token Auto-Refresh Check
+[2026-04-05 19:00:01] ============================================================
+[2026-04-05 19:00:01] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 19:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 19:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 19:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 19:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 19:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 19:00:02] ============================================================
+[2026-04-05 19:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 19:00:02] ============================================================
+[2026-04-05 19:45:01] ============================================================
+[2026-04-05 19:45:01] Starting Token Auto-Refresh Check
+[2026-04-05 19:45:01] ============================================================
+[2026-04-05 19:45:01] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 19:45:01] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 19:45:01] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 19:45:01] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 19:45:01] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 19:45:01] ============================================================
+[2026-04-05 19:45:01] Refreshed: 0 | Needs attention: 1
+[2026-04-05 19:45:01] ============================================================
+[2026-04-05 20:00:02] ============================================================
+[2026-04-05 20:00:02] Starting Token Auto-Refresh Check
+[2026-04-05 20:00:02] ============================================================
+[2026-04-05 20:00:02] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 20:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 20:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 20:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 20:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 20:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 20:00:02] ============================================================
+[2026-04-05 20:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 20:00:02] ============================================================
+[2026-04-05 20:45:02] ============================================================
+[2026-04-05 20:45:02] Starting Token Auto-Refresh Check
+[2026-04-05 20:45:02] ============================================================
+[2026-04-05 20:45:02] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 20:45:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 20:45:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 20:45:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 20:45:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 20:45:02] ============================================================
+[2026-04-05 20:45:02] Refreshed: 0 | Needs attention: 1
+[2026-04-05 20:45:02] ============================================================
+[2026-04-05 21:00:02] ============================================================
+[2026-04-05 21:00:02] Starting Token Auto-Refresh Check
+[2026-04-05 21:00:02] ============================================================
+[2026-04-05 21:00:02] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 21:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 21:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 21:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 21:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 21:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 21:00:02] ============================================================
+[2026-04-05 21:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 21:00:02] ============================================================
+[2026-04-05 21:45:01] ============================================================
+[2026-04-05 21:45:01] Starting Token Auto-Refresh Check
+[2026-04-05 21:45:01] ============================================================
+[2026-04-05 21:45:01] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 21:45:01] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 21:45:01] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 21:45:01] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 21:45:01] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 21:45:01] ============================================================
+[2026-04-05 21:45:01] Refreshed: 0 | Needs attention: 1
+[2026-04-05 21:45:01] ============================================================
+[2026-04-05 22:00:02] ============================================================
+[2026-04-05 22:00:02] Starting Token Auto-Refresh Check
+[2026-04-05 22:00:02] ============================================================
+[2026-04-05 22:00:02] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 22:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 22:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 22:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 22:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 22:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 22:00:02] ============================================================
+[2026-04-05 22:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 22:00:02] ============================================================
+[2026-04-05 22:45:01] ============================================================
+[2026-04-05 22:45:01] Starting Token Auto-Refresh Check
+[2026-04-05 22:45:01] ============================================================
+[2026-04-05 22:45:01] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 22:45:01] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 22:45:01] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 22:45:01] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 22:45:01] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 22:45:01] ============================================================
+[2026-04-05 22:45:01] Refreshed: 0 | Needs attention: 1
+[2026-04-05 22:45:01] ============================================================
+[2026-04-05 23:00:02] ============================================================
+[2026-04-05 23:00:02] Starting Token Auto-Refresh Check
+[2026-04-05 23:00:02] ============================================================
+[2026-04-05 23:00:02] 🔄 whoop: Token is 1.0 hours old (threshold: 0.8 hours) — refreshing...
+[2026-04-05 23:00:02] ✅ Whoop token auto-refreshed
+[2026-04-05 23:00:02] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 23:00:02] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 23:00:02] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 23:00:02] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 23:00:02] ============================================================
+[2026-04-05 23:00:02] Refreshed: 1 | Needs attention: 1
+[2026-04-05 23:00:02] ============================================================
+[2026-04-05 23:45:01] ============================================================
+[2026-04-05 23:45:01] Starting Token Auto-Refresh Check
+[2026-04-05 23:45:01] ============================================================
+[2026-04-05 23:45:01] ✅ whoop: Token is 0.7 hours old (healthy)
+[2026-04-05 23:45:01] ✅ google_calendar: Token is 0 days old (healthy)
+[2026-04-05 23:45:01] ✅ google_docs: Token is 0 days old (healthy)
+[2026-04-05 23:45:01] 🔄 gmail_smtp: Token is 40 days old (threshold: 25 days) — refreshing...
+[2026-04-05 23:45:01] ⚠️  gmail_smtp: Requires manual re-authorization
+[2026-04-05 23:45:01] ============================================================
+[2026-04-05 23:45:01] Refreshed: 0 | Needs attention: 1
+[2026-04-05 23:45:01] ============================================================

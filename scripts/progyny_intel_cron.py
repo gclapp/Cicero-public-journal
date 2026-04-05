@@ -69,7 +69,7 @@ def generate_and_send_weekly():
     
     print(f"✅ Weekly summary generated: {summary['total_mentions']} mentions")
     print(f"📧 HTML saved to: {output_file}")
-    print(f"\nTo send: python3 scripts/send_email.py --to '[REDACTED]' --subject '🏛️ Progyny Weekly Intelligence' --body-file config/progyny-weekly-summary.html --html")
+    print(f"\nTo send: python3 scripts/send_email.py --to '[REDACTED],geoffrey.clapp@progyny.com,steven.leist@progyny.com' --subject '🏛️ Progyny Weekly Intelligence' --body-file config/progyny-weekly-summary.html --html")
     
     return summary
 

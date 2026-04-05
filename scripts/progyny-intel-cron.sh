@@ -16,7 +16,7 @@ if [ "$(date +%u)" -eq 7 ]; then
     
     # Send weekly email
     python3 scripts/send_email.py \
-        --to "[REDACTED],geoffrey.clapp@progyny.com" \
+        --to "[REDACTED],geoffrey.clapp@progyny.com,steven.leist@progyny.com" \
         --subject "🏛️ Progyny Weekly Intelligence Report" \
         --body-file config/progyny-weekly-summary.html \
         --html >> logs/progyny-intel.log 2>&1

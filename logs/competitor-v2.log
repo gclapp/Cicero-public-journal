@@ -709,3 +709,28 @@
 [2026-04-05 14:00:12]    Found 0 job postings
 [2026-04-05 14:00:12] 
 ✅ Total new articles: 2
+[2026-04-05 20:08:07] ======================================================================
+[2026-04-05 20:08:07] Starting Enhanced Competitive Intelligence Scan
+[2026-04-05 20:08:07] ======================================================================
+[2026-04-05 20:08:07] 
+1. Scanning RSS feeds...
+[2026-04-05 20:08:13]    Found 24 new articles from RSS
+[2026-04-05 20:08:13] 
+2. Searching web for competitive news...
+[2026-04-05 20:08:13] ⚠️ No BRAVE_API_KEY found, skipping web search
+[2026-04-05 20:08:13]    Found 0 new articles from web search
+[2026-04-05 20:08:13] 
+3. Checking LinkedIn executive posts...
+[2026-04-05 20:08:14]    ✓ LinkedIn executive scan complete
+[2026-04-05 20:08:14] 
+4. Checking job boards...
+[2026-04-05 20:08:14] Job board monitoring: 8 companies
+[2026-04-05 20:08:14]    Found 0 job postings
+[2026-04-05 20:08:14]    Skipping f45bc040... (low FemTech relevance: 15)
+[2026-04-05 20:08:14]    Skipping e2d5535c... (low FemTech relevance: -30)
+[2026-04-05 20:08:14]    Skipping 71d90220... (low FemTech relevance: 0)
+[2026-04-05 20:08:14]    Skipping 1cae4a5a... (low FemTech relevance: 10)
+[2026-04-05 20:08:14]    Skipping e89d38b2... (low FemTech relevance: -30)
+[2026-04-05 20:08:14]    Limiting from 19 to 7 articles (top priority)
+[2026-04-05 20:08:14] 
+✅ Total new articles: 7
