@@ -120,3 +120,16 @@
 
 🔴 CRITICAL (1): Manual action required
    - Google Docs: Token expired
+✅ Email sent successfully to [REDACTED]
+======================================================================
+🔐 Daily Token Check - 2026-04-05 07:15:02
+======================================================================
+  Attempting auto-refresh for Google Calendar...
+  ✅ Google Calendar: Healthy (6 days)
+  ⚠️ Google Docs: 8 days old
+  ✅ Whoop API: Healthy (0 days)
+  ✅ Gmail SMTP: Healthy (40 days)
+======================================================================
+
+🔴 CRITICAL (1): Manual action required
+   - Google Docs: Token expired

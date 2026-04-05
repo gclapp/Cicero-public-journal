@@ -18,7 +18,7 @@ TOKEN_FILES = {
         "refresh_token": Path.home() / ".whoop_refresh_token",
         "config": Path.home() / ".openclaw/workspace/config/whoop-config.json",
         "credentials": CREDENTIALS_DIR / "whoop-tokens.json",
-        "refresh_days": 25,  # Refresh after 25 days (expires ~30)
+        "refresh_hours": 0.8,  # Refresh after 48 minutes (expires in 60)
         "refresh_function": "refresh_whoop"
     },
     "google_calendar": {
@@ -49,6 +49,14 @@ def get_file_age_days(filepath):
     mtime = datetime.fromtimestamp(filepath.stat().st_mtime)
     age = (datetime.now() - mtime).days
     return age
+
+def get_file_age_hours(filepath):
+    """Get age of file in hours"""
+    if not filepath.exists():
+        return None
+    mtime = datetime.fromtimestamp(filepath.stat().st_mtime)
+    age_hours = (datetime.now() - mtime).total_seconds() / 3600
+    return age_hours
 
 def refresh_whoop():
     """Refresh Whoop token using refresh token"""
@@ -125,17 +133,25 @@ def check_and_refresh_tokens():
         else:
             continue
         
-        age = get_file_age_days(check_file)
+        # Check if we should use hours (for short-lived tokens like Whoop)
+        if "refresh_hours" in config:
+            age = get_file_age_hours(check_file)
+            threshold = config["refresh_hours"]
+            age_display = f"{age:.1f} hours"
+            threshold_display = f"{threshold} hours"
+        else:
+            age = get_file_age_days(check_file)
+            threshold = config.get("refresh_days", 5)
+            age_display = f"{age} days"
+            threshold_display = f"{threshold} days"
         
         if age is None:
             log(f"⚠️  {name}: Token file not found")
             needs_attention.append(name)
             continue
         
-        threshold = config["refresh_days"]
-        
         if age >= threshold:
-            log(f"🔄 {name}: Token is {age} days old (threshold: {threshold}) — refreshing...")
+            log(f"🔄 {name}: Token is {age_display} old (threshold: {threshold_display}) — refreshing...")
             
             if config.get("refresh_function") == "refresh_whoop":
                 if refresh_whoop():
@@ -148,7 +164,7 @@ def check_and_refresh_tokens():
                 log(f"⚠️  {name}: Requires manual re-authorization")
                 needs_attention.append(name)
         else:
-            log(f"✅ {name}: Token is {age} days old (healthy)")
+            log(f"✅ {name}: Token is {age_display} old (healthy)")
     
     log("=" * 60)
     log(f"Refreshed: {len(refreshed)} | Needs attention: {len(needs_attention)}")
