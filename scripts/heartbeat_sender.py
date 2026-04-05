@@ -184,43 +184,140 @@ def validate_whoop_token():
     except:
         return False
 
+def auto_refresh_whoop():
+    """Auto-refresh Whoop token if needed"""
+    try:
+        import requests
+        from pathlib import Path
+        
+        # Load config
+        with open('/home/ubuntu/.openclaw/workspace/config/whoop-config.json') as f:
+            config = json.load(f)
+        
+        # Load refresh token
+        refresh_token_path = Path.home() / '.whoop_refresh_token'
+        if not refresh_token_path.exists():
+            return False, "No refresh token"
+        
+        refresh_token = refresh_token_path.read_text().strip()
+        
+        # Exchange for new tokens
+        data = {
+            'grant_type': 'refresh_token',
+            'refresh_token': refresh_token,
+            'client_id': config['client_id'],
+            'client_secret': config['client_secret'],
+            'redirect_uri': config['redirect_uri']
+        }
+        
+        response = requests.post('https://api.prod.whoop.com/oauth/oauth2/token', data=data)
+        
+        if response.status_code == 200:
+            tokens = response.json()
+            
+            # Save access token
+            (Path.home() / '.whoop_token').write_text(tokens['access_token'])
+            
+            # Update credentials file
+            creds_file = Path.home() / '.openclaw/credentials/whoop-tokens.json'
+            with open(creds_file, 'w') as f:
+                json.dump(tokens, f, indent=2)
+            
+            # Update refresh token if provided
+            if 'refresh_token' in tokens:
+                (Path.home() / '.whoop_refresh_token').write_text(tokens['refresh_token'])
+            
+            return True, "Auto-refreshed"
+        else:
+            return False, f"Refresh failed: {response.status_code}"
+    except Exception as e:
+        return False, str(e)
+
+def get_google_reauth_links():
+    """Generate Google re-authorization links"""
+    import secrets
+    from urllib.parse import urlencode
+    
+    state = secrets.token_urlsafe(16)
+    
+    # Calendar link
+    calendar_params = {
+        'response_type': 'code',
+        'client_id': '[REDACTED]',
+        'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob',
+        'scope': 'https://www.googleapis.com/auth/calendar.readonly',
+        'state': state,
+        'access_type': 'offline',
+        'prompt': 'consent'
+    }
+    calendar_link = f"https://accounts.google.com/o/oauth2/auth?{urlencode(calendar_params)}"
+    
+    # Docs link
+    docs_params = {
+        'response_type': 'code',
+        'client_id': '[REDACTED]',
+        'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob',
+        'scope': 'https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive.file',
+        'state': state,
+        'access_type': 'offline',
+        'prompt': 'consent'
+    }
+    docs_link = f"https://accounts.google.com/o/oauth2/auth?{urlencode(docs_params)}"
+    
+    return {'calendar': calendar_link, 'docs': docs_link}
+
 def run_token_health_check():
-    """Run token health check and return summary"""
+    """Run token health check, auto-refresh Whoop, return summary with re-auth links"""
     try:
         result = subprocess.run(
             ['python3', '/home/ubuntu/.openclaw/workspace/scripts/token_health_check.py'],
             capture_output=True, text=True, timeout=30
         )
-        # Parse the output for critical issues
         output = result.stdout
         
-        # Count only the status emojis (not the header emoji)
-        # Look for patterns like "🔴 Whoop" or "✅ Calendar"
+        # Try to auto-refresh Whoop if expired
+        whoop_refreshed = False
+        if 'Whoop API' in output and ('expired' in output.lower() or '401' in output):
+            refreshed, msg = auto_refresh_whoop()
+            whoop_refreshed = refreshed
+        
+        # Parse the output
         lines = output.split('\n')
         critical_count = 0
         warning_count = 0
-        healthy_count = 0
+        issues = []
         
         for line in lines:
-            # Skip header lines and summary lines
             if 'Token Health Check' in line or 'CRITICAL' in line or 'Immediate action' in line:
                 continue
-            # Count status emojis in actual status lines
             if line.strip().startswith('🔴'):
                 critical_count += 1
+                issues.append(line.strip())
             elif line.strip().startswith('🟡') or line.strip().startswith('⚠️'):
                 warning_count += 1
-            elif line.strip().startswith('✅'):
-                healthy_count += 1
+                issues.append(line.strip())
         
-        if critical_count > 0:
-            return f"🔴 {critical_count} critical token issue{'s' if critical_count > 1 else ''}"
+        # Get re-auth links for Google tokens
+        reauth_links = get_google_reauth_links()
+        
+        # Build summary
+        if whoop_refreshed:
+            summary = "✅ Whoop auto-refreshed"
+        elif critical_count > 0:
+            summary = f"🔴 {critical_count} issue{'s' if critical_count > 1 else ''} need attention"
         elif warning_count > 0:
-            return f"🟡 {warning_count} token warning{'s' if warning_count > 1 else ''}"
+            summary = f"🟡 {warning_count} warning{'s' if warning_count > 1 else ''}"
         else:
-            return "✅ All tokens healthy"
+            summary = "✅ All tokens healthy"
+        
+        return {
+            'summary': summary,
+            'issues': issues,
+            'reauth_links': reauth_links,
+            'whoop_refreshed': whoop_refreshed
+        }
     except Exception as e:
-        return f"⚠️ Token check failed: {str(e)}"
+        return {'summary': f"⚠️ Check failed: {str(e)}", 'issues': [], 'reauth_links': {}, 'whoop_refreshed': False}
 
 def get_whoop_recovery():
     """Get latest Whoop recovery - only if token is valid"""
@@ -937,16 +1034,42 @@ def generate_html_email(checkin_type, pt_now):
     </div>
 '''
     
-    # Token Health section (concise)
-    token_health = run_token_health_check()
-    token_color = "#16a34a" if "✅" in token_health else "#dc2626" if "🔴" in token_health else "#ea580c"
+    # Token Health section with auto-refresh and re-auth links
+    token_health_data = run_token_health_check()
+    token_summary = token_health_data['summary']
+    token_issues = token_health_data['issues']
+    reauth_links = token_health_data['reauth_links']
+    whoop_refreshed = token_health_data['whoop_refreshed']
+    
+    token_color = "#16a34a" if "✅" in token_summary else "#dc2626" if "🔴" in token_summary else "#ea580c"
+    
     html += f'''
     <div class="section">
         <h2>🔐 Token Health</h2>
-        <p style="color: {token_color}; font-weight: bold;">{token_health}</p>
-        <p style="font-size: 12px; color: #666;">Calendar • Docs • Whoop • Email</p>
-    </div>
+        <p style="color: {token_color}; font-weight: bold;">{token_summary}</p>
 '''
+    
+    # Show Whoop auto-refresh status
+    if whoop_refreshed:
+        html += '<p style="color: #16a34a; font-size: 13px;">✅ Whoop token auto-refreshed</p>'
+    
+    # Show issues and re-auth links
+    if token_issues:
+        html += '<div style="margin-top: 10px;">'
+        for issue in token_issues[:3]:  # Show max 3 issues
+            html += f'<p style="font-size: 12px; margin: 5px 0;">{issue}</p>'
+        
+        # Add re-auth links for Google tokens
+        if 'Calendar' in str(token_issues) or 'calendar' in str(token_issues).lower():
+            html += f'<p style="font-size: 11px; margin: 8px 0;"><a href="{reauth_links.get("calendar", "#")}">Refresh Calendar →</a></p>'
+        if 'Docs' in str(token_issues) or 'docs' in str(token_issues).lower():
+            html += f'<p style="font-size: 11px; margin: 8px 0;"><a href="{reauth_links.get("docs", "#")}">Refresh Google Docs →</a></p>'
+        
+        html += '</div>'
+    
+    html += '<p style="font-size: 12px; color: #666; margin-top: 10px;">Calendar • Docs • Whoop • Email</p>'
+    html += '</div>'
+
     
     # Health section with trends and recommendations
     html += f'''
