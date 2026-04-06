@@ -734,3 +734,26 @@
 [2026-04-05 20:08:14]    Limiting from 19 to 7 articles (top priority)
 [2026-04-05 20:08:14] 
 ✅ Total new articles: 7
+[2026-04-06 00:00:02] ======================================================================
+[2026-04-06 00:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-06 00:00:02] ======================================================================
+[2026-04-06 00:00:02] 
+1. Scanning RSS feeds...
+[2026-04-06 00:00:08]    Found 0 new articles from RSS
+[2026-04-06 00:00:08] 
+2. Searching web for competitive news...
+[2026-04-06 00:00:10]    Found 10 new articles from web search
+[2026-04-06 00:00:10] 
+3. Checking LinkedIn executive posts...
+[2026-04-06 00:00:14]    ✓ LinkedIn executive scan complete
+[2026-04-06 00:00:14] 
+4. Checking job boards...
+[2026-04-06 00:00:14] Job board monitoring: 8 companies
+[2026-04-06 00:00:14]    Found 0 job postings
+[2026-04-06 00:00:14]    Skipping 0cb11ed9... (low FemTech relevance: 0)
+[2026-04-06 00:00:14]    Skipping e55fcf30... (low FemTech relevance: 0)
+[2026-04-06 00:00:14]    Skipping a52cbb87... (low FemTech relevance: 0)
+[2026-04-06 00:00:14]    Skipping 140daa08... (low FemTech relevance: 0)
+[2026-04-06 00:00:14]    Skipping b26ae5b6... (low FemTech relevance: 0)
+[2026-04-06 00:00:14] 
+✅ Total new articles: 5

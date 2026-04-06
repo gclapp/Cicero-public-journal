@@ -297,6 +297,35 @@ def save_flight_to_calendar(flight_data):
         flights = {"flights": []}
     
     flights['flights'].append(flight_data)
+
+# Import Lose It! parser
+import sys
+sys.path.insert(0, str(Path.home() / ".openclaw" / "workspace" / "scripts"))
+from loseit_parser import parse_loseit_email, format_for_checkin
+
+def is_loseit_email(subject, body):
+    """Check if email is a Lose It! daily report"""
+    return 'loseit.com' in subject.lower() or 'daily report' in subject.lower() and 'lose it' in body.lower()
+
+def process_loseit_email(email_data):
+    """Process Lose It! daily report email"""
+    subject = email_data['subject']
+    body = email_data['body']
+    
+    # Parse the email
+    nutrition_data = parse_loseit_email(body, subject)
+    return nutrition_data
+
+def save_nutrition_data(nutrition_data):
+    """Save nutrition data for check-in integration"""
+    nutrition_file = Path.home() / ".openclaw" / "workspace" / "data" / "latest-nutrition.json"
+    
+    nutrition_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(nutrition_file, 'w') as f:
+        json.dump(nutrition_data, f, indent=2)
+    
+    print(f"   💾 Nutrition data saved for check-in")
+    return True
     
     flights_file.parent.mkdir(parents=True, exist_ok=True)
     with open(flights_file, 'w') as f:
@@ -994,6 +1023,16 @@ I am processing this email now and will respond to Grace within 15 minutes.
         # Send context-aware reply
         reply_body = generate_flight_reply(flight_info)
         send_reply(sender_email, subject, reply_body)
+        reply_sent = True
+    
+    # Check for Lose It! daily reports
+    elif is_loseit_email(subject, body):
+        print("   🍎 Detected: Lose It! daily report")
+        nutrition_data = process_loseit_email(email_data)
+        if nutrition_data:
+            print(f"   ✅ Parsed: {nutrition_data.get('food_calories')} cal, deficit {nutrition_data.get('deficit')}")
+            # Store for check-in
+            save_nutrition_data(nutrition_data)
         reply_sent = True
     
     # Check for replies to my emails
