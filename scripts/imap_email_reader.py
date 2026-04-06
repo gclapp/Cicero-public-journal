@@ -326,6 +326,20 @@ def save_nutrition_data(nutrition_data):
     
     print(f"   💾 Nutrition data saved for check-in")
     return True
+
+# Import Health export parser
+from health_export_parser import parse_health_export_email, format_for_checkin as format_health_for_checkin, save_health_data, is_health_export_email
+
+def process_health_export_email(email_data):
+    """Process iPhone Health export email"""
+    subject = email_data['subject']
+    body = email_data['body']
+    
+    health_data = parse_health_export_email(body, subject)
+    if health_data.get('steps') or health_data.get('water_oz') or health_data.get('sleep_hours'):
+        save_health_data(health_data)
+        print(f"   💾 Health export saved: {health_data.get('steps', 0):,} steps, {health_data.get('water_oz', 0):.0f} oz water")
+    return health_data
     
     flights_file.parent.mkdir(parents=True, exist_ok=True)
     with open(flights_file, 'w') as f:
@@ -1033,6 +1047,14 @@ I am processing this email now and will respond to Grace within 15 minutes.
             print(f"   ✅ Parsed: {nutrition_data.get('food_calories')} cal, deficit {nutrition_data.get('deficit')}")
             # Store for check-in
             save_nutrition_data(nutrition_data)
+        reply_sent = True
+    
+    # Check for iPhone Health export
+    elif is_health_export_email(subject, body):
+        print("   📱 Detected: iPhone Health export")
+        health_data = process_health_export_email(email_data)
+        if health_data:
+            print(f"   ✅ Parsed: {health_data.get('steps', 0):,} steps, {health_data.get('water_oz', 0):.0f} oz, {health_data.get('sleep_hours', 0):.1f} hrs sleep")
         reply_sent = True
     
     # Check for replies to my emails
