@@ -1947,3 +1947,75 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-07 00:00:33] ✅ Email sent
 [2026-04-07 00:00:33] Complete
+[2026-04-08 00:00:02] Starting competitive intelligence v2...
+[2026-04-08 00:00:02] Step 1: RSS + Web search...
+[2026-04-08 00:00:03] ======================================================================
+[2026-04-08 00:00:03] Starting Enhanced Competitive Intelligence Scan
+[2026-04-08 00:00:03] ======================================================================
+[2026-04-08 00:00:03] 
+1. Scanning RSS feeds...
+[2026-04-08 00:00:08]    Found 2 new articles from RSS
+[2026-04-08 00:00:08] 
+2. Searching web for competitive news...
+[2026-04-08 00:00:10]    Found 2 new articles from web search
+[2026-04-08 00:00:10] 
+3. Checking LinkedIn executive posts...
+[2026-04-08 00:00:14]    ✓ LinkedIn executive scan complete
+[2026-04-08 00:00:14] 
+4. Checking job boards...
+[2026-04-08 00:00:14] Job board monitoring: 8 companies
+[2026-04-08 00:00:14]    Found 0 job postings
+[2026-04-08 00:00:14]    Skipping 20f17f62... (low FemTech relevance: 0)
+[2026-04-08 00:00:14]    Skipping e46473c1... (low FemTech relevance: 0)
+[2026-04-08 00:00:14] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Progyny - Company News] Progyny Inc stock: What investors should know before buying now - AD HOC NEWS (FemTech: 20)
+   https://news.google.com/rss/articles/CBMivgFBVV95cUxOQXlLLWJoTDB5NWhyS...
+
+🟡 [Progyny - Company News] Progyny, Inc. (PGNY) stock price, news, quote and history - Yahoo Finance Singapore (FemTech: 20)
+   https://news.google.com/rss/articles/CBMiUkFVX3lxTE1oMVNndHJHT0todTM4M...
+
+======================================================================
+[2026-04-08 00:00:14] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 0
+   Executive News: 1
+   Company Posts: 0
+[2026-04-08 00:00:31] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 100
+   LinkedIn updates: 1
+   Executive summary: 1034 chars
+[2026-04-08 00:00:31] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-08 00:00:34] ✅ Email sent
+[2026-04-08 00:00:34] Complete
