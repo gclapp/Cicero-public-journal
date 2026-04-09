@@ -2019,3 +2019,73 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-08 00:00:34] ✅ Email sent
 [2026-04-08 00:00:34] Complete
+[2026-04-09 00:00:01] Starting competitive intelligence v2...
+[2026-04-09 00:00:01] Step 1: RSS + Web search...
+[2026-04-09 00:00:02] ======================================================================
+[2026-04-09 00:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-09 00:00:02] ======================================================================
+[2026-04-09 00:00:02] 
+1. Scanning RSS feeds...
+[2026-04-09 00:00:07]    Found 3 new articles from RSS
+[2026-04-09 00:00:07] 
+2. Searching web for competitive news...
+[2026-04-09 00:00:09]    Found 4 new articles from web search
+[2026-04-09 00:00:09] 
+3. Checking LinkedIn executive posts...
+[2026-04-09 00:00:13]    ✓ LinkedIn executive scan complete
+[2026-04-09 00:00:13] 
+4. Checking job boards...
+[2026-04-09 00:00:13] Job board monitoring: 8 companies
+[2026-04-09 00:00:13]    Found 0 job postings
+[2026-04-09 00:00:13]    Skipping cc26e0db... (low FemTech relevance: 15)
+[2026-04-09 00:00:13]    Skipping 0a50788b... (low FemTech relevance: 0)
+[2026-04-09 00:00:13]    Skipping 22271e63... (low FemTech relevance: 0)
+[2026-04-09 00:00:13]    Skipping a7a8052c... (low FemTech relevance: 0)
+[2026-04-09 00:00:13]    Skipping ed3a930a... (low FemTech relevance: 0)
+[2026-04-09 00:00:13] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Fertility Benefits News] Flora Fertility Raises $5M for Individually Owned Fertility Insurance - Femtech Insider (FemTech: 30)
+   https://news.google.com/rss/articles/CBMinAFBVV95cUxNdUhqXy0teFd3VENqa...
+
+🟡 [Progyny - Yahoo Finance] 2 Reasons to Sell PGNY and 1 Stock to Buy Instead (FemTech: 20)
+   https://finance.yahoo.com/markets/stocks/articles/2-reasons-sell-pgny-...
+
+======================================================================
+[2026-04-09 00:00:13] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-09 00:00:30] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 100
+   LinkedIn updates: 1
+   Executive summary: 1034 chars
+[2026-04-09 00:00:30] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-09 00:00:32] ✅ Email sent
+[2026-04-09 00:00:32] Complete
