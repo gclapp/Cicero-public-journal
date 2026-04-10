@@ -4,8 +4,8 @@
 
 set -e
 
-# Export API keys for scripts
-export BRAVE_API_KEY="BSAQvzsdCTmv48KVZCYZxO2Uc2-Wgbf"
+# Source centralized API keys
+source "$HOME/.openclaw/workspace/config/api-keys.env"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORKSPACE_DIR="$(dirname "$SCRIPT_DIR")"
