@@ -22,6 +22,85 @@ def get_pt_time():
     pt = pytz.timezone('America/Los_Angeles')
     return datetime.now(pt)
 
+def load_birthdays():
+    """Load birthdays from USER.md and friend profiles"""
+    birthdays = []
+    
+    # Hardcoded from USER.md - Family and important people
+    family_birthdays = [
+        {'name': 'Geoff', 'date': 'April 11', 'relation': 'You'},
+        {'name': 'Grace', 'date': 'July 22', 'relation': 'Girlfriend'},
+        {'name': 'Mackenzie', 'date': 'April 26', 'relation': 'Daughter'},
+        {'name': 'Oliver', 'date': 'December 21', 'relation': 'Son'},
+        {'name': 'Sophie', 'date': 'September 25', 'relation': 'Daughter'},
+    ]
+    
+    # Try to load from friend profiles
+    friend_profiles_dir = Path("/home/ubuntu/.openclaw/workspace/memory/friend-profiles")
+    if friend_profiles_dir.exists():
+        for profile_file in friend_profiles_dir.glob("*.md"):
+            try:
+                with open(profile_file, 'r') as f:
+                    content = f.read()
+                    # Look for birthday in the file
+                    name = profile_file.stem.replace('-', ' ').title()
+                    # Simple regex to find birthday patterns (handles "Birthday: April 8" or "| **Birthday** | April 8 |")
+                    import re
+                    # Try table format first: | **Birthday** | April 8 |
+                    birthday_match = re.search(r'\*\*[Bb]irthday\*\*\s*\|\s*([A-Za-z]+ \d{1,2})', content)
+                    # Fall back to regular format: Birthday: April 8
+                    if not birthday_match:
+                        birthday_match = re.search(r'[Bb]irthday[:\s]+([A-Za-z]+ \d{1,2})', content)
+                    if birthday_match:
+                        birthdays.append({
+                            'name': name,
+                            'date': birthday_match.group(1),
+                            'relation': 'Friend',
+                            'source': 'friend-profile'
+                        })
+            except:
+                continue
+    
+    # Add family birthdays
+    birthdays.extend(family_birthdays)
+    
+    return birthdays
+
+def get_upcoming_birthdays(days_ahead=14):
+    """Get birthdays coming up in the next N days"""
+    pt_now = get_pt_time()
+    birthdays = load_birthdays()
+    upcoming = []
+    
+    for person in birthdays:
+        try:
+            # Parse the birthday date (naive datetime)
+            bday_date = datetime.strptime(person['date'], '%B %d')
+            # Set to current year
+            bday_this_year = bday_date.replace(year=pt_now.year)
+            
+            # Make it timezone-aware to match pt_now
+            bday_this_year = pt_now.tzinfo.localize(bday_this_year)
+            
+            # If birthday already passed this year, check next year
+            today_start = pt_now.replace(hour=0, minute=0, second=0, microsecond=0)
+            if bday_this_year < today_start:
+                bday_this_year = bday_this_year.replace(year=pt_now.year + 1)
+            
+            # Check if within lookahead window
+            days_until = (bday_this_year - today_start).days
+            if 0 <= days_until <= days_ahead:
+                person['days_until'] = days_until
+                person['date_this_year'] = bday_this_year.strftime('%A, %B %d')
+                upcoming.append(person)
+        except Exception as e:
+            print(f"Error processing birthday for {person.get('name', 'unknown')}: {e}")
+            continue
+    
+    # Sort by days until
+    upcoming.sort(key=lambda x: x['days_until'])
+    return upcoming
+
 def get_checkin_type(hour, minute):
     """Determine which check-in is due based on PT time"""
     time_val = hour * 100 + minute
@@ -599,6 +678,19 @@ def get_calendar_data():
     except:
         return [], []
 
+def get_all_calendar_events():
+    """Get all calendar events for hotel/birthday detection"""
+    calendar_file = Path("/home/ubuntu/.openclaw/workspace/config/calendar-events.json")
+    if not calendar_file.exists():
+        return []
+    
+    try:
+        with open(calendar_file, 'r') as f:
+            data = json.load(f)
+        return data.get('events', [])
+    except:
+        return []
+
 def detect_location_and_travel(calendar_events):
     """Detect current location and upcoming travel - includes custody status"""
     pt_now = get_pt_time()
@@ -815,6 +907,8 @@ def generate_html_email(checkin_type, pt_now):
     
     today_str = pt_now.strftime('%A, %B %d, %Y')
     today_events, travel_events = get_calendar_data()
+    # Get all events for hotel/birthday detection (not just travel events)
+    all_events = get_all_calendar_events()
     location_info = detect_location_and_travel(travel_events)
     
     # Get weather for current location + travel destinations
@@ -998,7 +1092,7 @@ def generate_html_email(checkin_type, pt_now):
     for i in range(7):
         day = pt_now + timedelta(days=i)
         day_str = day.strftime('%A, %B %d')
-        day_events = get_day_events(day, travel_events)
+        day_events = get_day_events(day, all_events)
         
         event_badges = []
         if day_events['flight']:
@@ -1015,6 +1109,25 @@ def generate_html_email(checkin_type, pt_now):
             </div>
 '''
     html += '''        </div>
+    </div>
+'''
+    
+    # Upcoming Birthdays section
+    upcoming_birthdays = get_upcoming_birthdays(days_ahead=30)
+    if upcoming_birthdays:
+        html += '''
+    <div class="section">
+        <h2>🎂 Upcoming Birthdays</h2>
+        <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 8px;">
+'''
+        for person in upcoming_birthdays[:5]:  # Show max 5
+            days_text = f"in {person['days_until']} days" if person['days_until'] > 0 else "TODAY! 🎉"
+            html += f'''            <div style="margin: 8px 0; padding: 8px; background: white; border-radius: 6px;">
+                <strong>{person['name']}</strong> — {person['date_this_year']} <span style="color: #666; font-size: 12px;">({days_text})</span>
+                <br><span style="font-size: 12px; color: #888;">{person['relation']}</span>
+            </div>
+'''
+        html += '''        </div>
     </div>
 '''
     

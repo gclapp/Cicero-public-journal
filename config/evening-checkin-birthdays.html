@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 25px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; }
+        .header p { margin: 10px 0 0 0; opacity: 0.9; }
+        .location { background: #dbeafe; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; color: #1e40af; }
+        .section { margin: 20px 0; padding: 20px; border-left: 4px solid #3b82f6; background: #f8fafc; }
+        .section h2 { margin-top: 0; color: #1e40af; }
+        .weather { display: flex; justify-content: space-around; background: #f3f4f6; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .weather-city { text-align: center; }
+        .weather-temp { font-size: 24px; font-weight: bold; }
+        .travel-alert { background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; }
+        .travel-alert h3 { margin-top: 0; color: #b45309; }
+        .flight { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .flight-time { font-size: 24px; font-weight: bold; color: #1e40af; }
+        .hotel { background: #f0fdf4; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #16a34a; }
+        .stats { display: flex; justify-content: space-around; background: #eff6ff; padding: 15px; margin: 15px 0; border-radius: 8px; }
+        .stat { text-align: center; }
+        .stat-number { font-size: 24px; font-weight: bold; color: #1e40af; }
+        .stat-label { font-size: 11px; color: #666; }
+        .week-view { background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .day { padding: 10px; border-bottom: 1px solid #e5e7eb; }
+        .day:last-child { border-bottom: none; }
+        .day-date { font-weight: bold; color: #1e40af; }
+        .flight-badge { display: inline-block; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 10px; }
+        .early-flight { background: #fef2f2; color: #dc2626; }
+        .footer { background: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 30px; }
+        a { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌙 Evening Check-In</h1>
+        <p>Thursday, April 09, 2026</p>
+    </div>
+
+    <div class="location">
+        📍 Calabasas, CA — With Oliver & Sophie (custody weekend)
+    </div>
+
+    <div class="weather">
+        <div class="weather-city"><div class="weather-temp">☀️ 65°F</div><div>Calabasas</div></div><div class="weather-city"><div class="weather-temp">☀️ 65°F</div><div>Los Angeles</div></div><div class="weather-city"><div class="weather-temp">☀️ 42°F</div><div>New York</div></div>
+    </div>
+
+    <div class="section">
+        <h2>📊 At a Glance</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">50</div>
+                <div class="stat-label">TODOIST TASKS</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" style="color: #6b7280;">No data</div>
+                <div class="stat-label">WHOOP RECOVERY</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">236.4</div>
+                <div class="stat-label">LBS</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>This Week</h2>
+        <div class="week-view">
+            <div class="day">
+                <span class="day-date">Thursday, April 09</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Friday, April 10</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Saturday, April 11</span><span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🎂 BDAY</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Sunday, April 12</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Monday, April 13</span><span style="background: #16a34a; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🏨 HOTEL</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Tuesday, April 14</span>
+            </div>
+            <div class="day">
+                <span class="day-date">Wednesday, April 15</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>🎂 Upcoming Birthdays</h2>
+        <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 8px;">
+            <div style="margin: 8px 0; padding: 8px; background: white; border-radius: 6px;">
+                <strong>Geoff</strong> — Saturday, April 11 <span style="color: #666; font-size: 12px;">(in 2 days)</span>
+                <br><span style="font-size: 12px; color: #888;">You</span>
+            </div>
+            <div style="margin: 8px 0; padding: 8px; background: white; border-radius: 6px;">
+                <strong>Mackenzie</strong> — Sunday, April 26 <span style="color: #666; font-size: 12px;">(in 17 days)</span>
+                <br><span style="font-size: 12px; color: #888;">Daughter</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>📈 Stocks (30-Day)</h2>
+        <pre style="background: #f3f4f6; padding: 15px; border-radius: 8px; font-size: 13px; overflow-x: auto;">📈 **Markets (30-Day View)**
+
+**Indices:**
+🟢 S&P 500: 6,824.66 (+0.00% today)
+🟢 Dow Jones: 48,185.80 (+0.00% today)
+
+**Your Watchlist (30-Day Change):**
+🔴 **PGNY:** $16.53 (-7.50% / 23d)
+🟢 AAPL: $260.49 (+4.22% / 23d)
+🟢 NVDA: $183.91 (+1.95% / 23d)
+🔴 OMDA: $11.98 (-15.10% / 23d)</pre>
+    </div>
+
+    <div class="section">
+        <h2>🔐 Token Health</h2>
+        <p style="color: #ea580c; font-weight: bold;">🟡 1 warning</p>
+<div style="margin-top: 10px;"><p style="font-size: 12px; margin: 5px 0;">⚠️ Gmail SMTP: Token is 45 days old (threshold: 30)</p></div><p style="font-size: 12px; color: #666; margin-top: 10px;">Calendar • Docs • Whoop • Email</p></div>
+    <div class="section">
+        <h2>💓 Health Trends & Actions</h2>
+        
+        <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #166534;">📊 Weight Loss Progress</h3>
+
+            <p><strong>Current:</strong> 236.4 lbs | 
+               <strong>Start:</strong> 242.9 lbs | 
+               <strong>Lost:</strong> 6.5 lbs (32% of goal)</p>
+            <p><strong>Pace:</strong> 2.2 lbs/week | 
+               <strong>Remaining:</strong> 13.5 lbs to goal</p>
+<p>📉 <strong>7-day trend:</strong> -4.6 lbs this week</p>
+        </div>
+        
+        <div style="background: #eff6ff; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+            <h3 style="margin-top: 0; color: #1e40af;">😴 Recovery & Sleep</h3>
+
+            <p><strong>Latest recovery:</strong> <span style="color: #6b7280;">35.0%</span> (Unavailable)</p>
+            <p><strong>7-day average:</strong> 35.0% | 
+               <strong>Trend:</strong> ➡️ unknown</p>
+
+        </div>
+        
+        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+            <h3 style="margin-top: 0; color: #b45309;">🎯 Today's Actions</h3>
+
+            <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 6px;">
+                <p style="margin: 0; font-weight: bold; color: #dc2626;">Recovery</p>
+                <p style="margin: 5px 0;">✓ Prioritize 8+ hours sleep tonight — skip evening screen time</p>
+                <p style="margin: 0; font-size: 12px; color: #666;">💡 Recovery at 35.0% — body needs rest</p>
+            </div>
+
+            <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 6px;">
+                <p style="margin: 0; font-weight: bold; color: #ea580c;">Evening Routine</p>
+                <p style="margin: 5px 0;">✓ Log dinner, review tomorrow's schedule, set bedtime alarm</p>
+                <p style="margin: 0; font-size: 12px; color: #666;">💡 Preparation prevents poor evening decisions</p>
+            </div>
+
+        </div>
+        
+        <p style="margin-top: 15px;"><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">View full health dashboard →</a></p>
+    </div>
+
+    <div class="footer">
+        <p>🏛️ Cicero | All systems operational</p>
+        <p>Last updated: April 09, 2026 10:43 PM PT</p>
+    </div>
+</body>
+</html>
