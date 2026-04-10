@@ -2165,3 +2165,141 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-10 00:00:34] ✅ Email sent
 [2026-04-10 00:00:34] Complete
+[2026-04-10 14:00:01] Starting competitive intelligence v2...
+[2026-04-10 14:00:01] Step 1: RSS + Web search...
+[2026-04-10 14:00:02] ======================================================================
+[2026-04-10 14:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-10 14:00:02] ======================================================================
+[2026-04-10 14:00:02] 
+1. Scanning RSS feeds...
+[2026-04-10 14:00:08]    Found 4 new articles from RSS
+[2026-04-10 14:00:08] 
+2. Searching web for competitive news...
+[2026-04-10 14:00:10]    Found 1 new articles from web search
+[2026-04-10 14:00:10] 
+3. Checking LinkedIn executive posts...
+[2026-04-10 14:00:14]    ✓ LinkedIn executive scan complete
+[2026-04-10 14:00:14] 
+4. Checking job boards...
+[2026-04-10 14:00:14] Job board monitoring: 8 companies
+[2026-04-10 14:00:14]    Found 0 job postings
+[2026-04-10 14:00:14]    Skipping c468e81a... (low FemTech relevance: -35)
+[2026-04-10 14:00:14]    Skipping 5898bdf7... (low FemTech relevance: 15)
+[2026-04-10 14:00:14]    Skipping 128e2e55... (low FemTech relevance: 0)
+[2026-04-10 14:00:14] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Progyny - Company News] Progyny Inc stock: What investors need to know amid recent volatility - AD HOC NEWS (FemTech: 20)
+   https://news.google.com/rss/articles/CBMivwFBVV95cUxOUnJfaS1qalhiMlNKN...
+
+🟡 [Progyny - Company News] Reflecting On Health Insurance Providers Stocks’ Q4 Earnings: Progyny (NASDAQ:PGNY) - The Globe and Mail (FemTech: 20)
+   https://news.google.com/rss/articles/CBMi9AFBVV95cUxOMGlQTk80MDlZVFA4T...
+
+======================================================================
+[2026-04-10 14:00:14] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-10 14:00:32] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 8
+   LinkedIn updates: 3
+   Executive summary: 131 chars
+[2026-04-10 14:00:32] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-10 14:00:34] ✅ Email sent
+[2026-04-10 14:00:34] Complete
+[2026-04-10 21:00:01] Starting competitive intelligence v2...
+[2026-04-10 21:00:01] Step 1: RSS + Web search...
+[2026-04-10 21:00:02] ======================================================================
+[2026-04-10 21:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-10 21:00:02] ======================================================================
+[2026-04-10 21:00:02] 
+1. Scanning RSS feeds...
+[2026-04-10 21:00:08]    Found 2 new articles from RSS
+[2026-04-10 21:00:08] 
+2. Searching web for competitive news...
+[2026-04-10 21:00:10]    Found 0 new articles from web search
+[2026-04-10 21:00:10] 
+3. Checking LinkedIn executive posts...
+[2026-04-10 21:00:14]    ✓ LinkedIn executive scan complete
+[2026-04-10 21:00:14] 
+4. Checking job boards...
+[2026-04-10 21:00:14] Job board monitoring: 8 companies
+[2026-04-10 21:00:14]    Found 0 job postings
+[2026-04-10 21:00:14] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🟠 [Progyny - Company News] Progyny Inc stock (US74340E1038): Is fertility benefits expansion the key growth driver for U.S. inv - AD HOC NEWS (FemTech: 35)
+   https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVGVIV2pJVkREd1ZVU...
+
+🟡 [Progyny - Company News] Progyny Inc stock: What investors should know before buying now - AD HOC NEWS (FemTech: 20)
+   https://news.google.com/rss/articles/CBMitwFBVV95cUxOMDdJaEt4NG1YT0xNZ...
+
+======================================================================
+[2026-04-10 21:00:14] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 1
+   Executive News: 0
+   Company Posts: 0
+[2026-04-10 21:00:31] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 10
+   LinkedIn updates: 1
+   Executive summary: 131 chars
+[2026-04-10 21:00:31] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-10 21:00:33] ✅ Email sent
+[2026-04-10 21:00:33] Complete

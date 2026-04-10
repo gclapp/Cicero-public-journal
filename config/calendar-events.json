@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-10T04:31:38.088982",
-  "total_events": 78,
+  "last_updated": "2026-04-10T14:55:03.278445",
+  "total_events": 79,
   "travel_events": 4,
   "events": [
     {
@@ -25,6 +25,14 @@
       "start_raw": "2026-04-11",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at GENTRY MARKET at Calamigos Ranch",
+      "start": "Saturday, April 11 at 01:00 PM",
+      "start_raw": "2026-04-11T13:00:00-07:00",
+      "location": "GENTRY MARKET at Calamigos Ranch, 261 Calamigos Rd, Malibu, CA 90265",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
       "is_travel": false
     },
     {
