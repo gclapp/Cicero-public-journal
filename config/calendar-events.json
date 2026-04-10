@@ -1,144 +1,8 @@
 {
-  "last_updated": "2026-03-28T14:55:02.571996",
-  "total_events": 94,
-  "travel_events": 8,
+  "last_updated": "2026-04-10T02:17:18.517744",
+  "total_events": 78,
+  "travel_events": 4,
   "events": [
-    {
-      "summary": "Grace\u2019s Parents Visit",
-      "start": "Thursday, March 26 at 05:00 PM",
-      "start_raw": "2026-03-26T17:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at The Tower Bar",
-      "start": "Saturday, March 28 at 07:30 PM",
-      "start_raw": "2026-03-28T19:30:00-07:00",
-      "location": "The Tower Bar, 8358 Sunset Blvd., West Hollywood, CA 90069",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, March 30 at 07:00 AM",
-      "start_raw": "2026-03-30T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Greta: Monthly Meds",
-      "start": "Wednesday, April 01",
-      "start_raw": "2026-04-01",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Stay at JW Marriott Phoenix Desert Ridge Resort & Spa",
-      "start": "Thursday, April 02",
-      "start_raw": "2026-04-02",
-      "location": "JW Marriott Phoenix Desert Ridge Resort & Spa, Phoenix",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Flight to PHX (DL 4119)",
-      "start": "Thursday, April 02 at 08:04 AM",
-      "start_raw": "2026-04-02T08:04:00-07:00",
-      "location": "",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Reservation at T\u00eda Carmen - Phoenix",
-      "start": "Friday, April 03 at 06:15 PM",
-      "start_raw": "2026-04-03T18:15:00-07:00",
-      "location": "T\u00eda Carmen - Phoenix, 5350 E Marriott Dr, Phoenix, AZ, 85054-6147, United States",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": false
-    },
-    {
-      "summary": "Dinner - Hula\u2019s Modern Tiki (NO RESERVATION)",
-      "start": "Saturday, April 04 at 06:00 PM",
-      "start_raw": "2026-04-04T18:00:00-07:00",
-      "location": "HULA'S Modern Tiki High Street, 5450 E High St #101, Phoenix, AZ 85054, USA",
-      "description": "This place looks really fun but doesn\u2019t take reservations. 5 minute drive from hotel. We can always skip if it\u2019s not right on the day",
-      "is_travel": false
-    },
-    {
-      "summary": "Flight to LAX (DL 3951)",
-      "start": "Sunday, April 05 at 12:10 PM",
-      "start_raw": "2026-04-05T12:10:00-07:00",
-      "location": "",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Delta Air Lines flight 477 to Fort Lauderdale (G3LHP8)",
-      "start": "Sunday, April 05 at 11:53 PM",
-      "start_raw": "2026-04-05T23:53:00-07:00",
-      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
-      "description": "Delta Air Lines flight 477 (4 hours, 47 minutes)\nConfirmation code: G3LHP8\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 11:53 PM on Sunday, A",
-      "is_travel": true
-    },
-    {
-      "summary": "Executive Offsite - Eau Palm Beach",
-      "start": "Monday, April 06",
-      "start_raw": "2026-04-06",
-      "location": "Eau Palm Beach\u00a0(100 S Ocean Blvd, Manalapan, FL 33462)",
-      "description": "April 7 & 8 Offsite \u2013 Palm Beach, FL\n\n  *   We will be at the Eau Palm Beach<https://www.eauresortandspa.com/> (100 S Ocean Blvd, Manalapan, FL 33462).\n\n  *   The offsite will start on Tuesday, April ",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, April 06 at 07:00 AM",
-      "start_raw": "2026-04-06T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Delta Air Lines flight 1458 to Atlanta (G3LHP8)",
-      "start": "Wednesday, April 08 at 03:30 PM",
-      "start_raw": "2026-04-08T15:30:00-07:00",
-      "location": "West Palm Beach International Airport (1000 Palm Beach International Airport, West Palm Beach, FL 33406, United States)",
-      "description": "Delta Air Lines flight 1458 (2 hours, 10 minutes)\nConfirmation code: G3LHP8\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 6:30 PM on Wednesday, April 8, 2026 from West Pa",
-      "is_travel": true
-    },
-    {
-      "summary": "Delta 311 Atlanta to LAX  (G3LHP8)",
-      "start": "Wednesday, April 08 at 06:35 PM",
-      "start_raw": "2026-04-08T18:35:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/2272764172464?p=7yVPdkwnMOEN3LwpWM\nMeeting ID: 227 276 ",
-      "is_travel": true
-    },
-    {
-      "summary": "Greta Groomer",
-      "start": "Thursday, April 09 at 08:00 AM",
-      "start_raw": "2026-04-09T08:00:00-07:00",
-      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
-      "description": "Thursday, Dec 18th\n8 AM\n\nStylist:\u00a0Isidora L\nPet: Greta\nSignature Service (No Haircut)",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, April 09 at 01:30 PM",
-      "start_raw": "2026-04-09T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, April 09 at 02:00 PM",
-      "start_raw": "2026-04-09T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
     {
       "summary": "Pick up Sophie from School",
       "start": "Friday, April 10 at 01:30 PM",
@@ -260,11 +124,35 @@
       "is_travel": false
     },
     {
+      "summary": "Stay at The Algonquin Hotel Times Square, Autograph Collection",
+      "start": "Sunday, April 19",
+      "start_raw": "2026-04-19",
+      "location": "The Algonquin Hotel Times Square, Autograph Collection, New York",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Reservation at Nowon East Village",
+      "start": "Sunday, April 19 at 06:45 PM",
+      "start_raw": "2026-04-19T18:45:00-07:00",
+      "location": "Nowon East Village, 507 E 6th St, (Between E 6th St and Ave A), New York, NY 10009",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, April 20 at 07:00 AM",
       "start_raw": "2026-04-20T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Keens Steakhouse",
+      "start": "Monday, April 20 at 06:15 PM",
+      "start_raw": "2026-04-20T18:15:00-07:00",
+      "location": "Keens Steakhouse, 72 W 36th St, (Between 6th Ave and 5th Ave), New York, NY 10018",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
       "is_travel": false
     },
     {
@@ -321,6 +209,22 @@
       "start_raw": "2026-04-27T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "House Cleaner (Glowy) ",
+      "start": "Tuesday, April 28 at 09:00 AM",
+      "start_raw": "2026-04-28T09:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
+      "summary": "Phone meeting with greg piedel",
+      "start": "Thursday, April 30 at 06:00 AM",
+      "start_raw": "2026-04-30T06:00:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -420,7 +324,7 @@
       "is_travel": false
     },
     {
-      "summary": "Save The Date: Titan Table Talks, The BIG ONE",
+      "summary": "Save The Date: The Titans' Forum",
       "start": "Tuesday, May 12 at 09:00 AM",
       "start_raw": "2026-05-12T09:00:00-07:00",
       "location": "https://us04web.zoom.us/j/3923156843?pwd=MHdadlBjdW9sQjFZNnBOSGxRUGkzUT09",
@@ -532,6 +436,14 @@
       "is_travel": false
     },
     {
+      "summary": "House Cleaner (Glowy) ",
+      "start": "Tuesday, May 26 at 09:00 AM",
+      "start_raw": "2026-05-26T09:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
       "summary": "Pick up Sophie from School",
       "start": "Thursday, May 28 at 01:30 PM",
       "start_raw": "2026-05-28T13:30:00-07:00",
@@ -628,33 +540,9 @@
       "is_travel": false
     },
     {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, June 11 at 01:30 PM",
-      "start_raw": "2026-06-11T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, June 11 at 02:00 PM",
-      "start_raw": "2026-06-11T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, June 12 at 01:30 PM",
-      "start_raw": "2026-06-12T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, June 12 at 02:00 PM",
-      "start_raw": "2026-06-12T14:00:00-07:00",
+      "summary": "Last Day of School",
+      "start": "Wednesday, June 10",
+      "start_raw": "2026-06-10",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
@@ -684,38 +572,6 @@
       "is_travel": false
     },
     {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, June 18 at 01:30 PM",
-      "start_raw": "2026-06-18T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, June 18 at 02:00 PM",
-      "start_raw": "2026-06-18T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, June 19 at 01:30 PM",
-      "start_raw": "2026-06-19T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, June 19 at 02:00 PM",
-      "start_raw": "2026-06-19T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
       "summary": "Veronica Tan's birthday",
       "start": "Sunday, June 21",
       "start_raw": "2026-06-21",
@@ -740,18 +596,34 @@
       "is_travel": false
     },
     {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, June 25 at 01:30 PM",
-      "start_raw": "2026-06-25T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "summary": "Ollie Consult Call",
+      "start": "Monday, June 29 at 07:00 AM",
+      "start_raw": "2026-06-29T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     },
     {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, June 25 at 02:00 PM",
-      "start_raw": "2026-06-25T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "summary": "House Cleaner (Glowy) ",
+      "start": "Tuesday, June 30 at 09:00 AM",
+      "start_raw": "2026-06-30T09:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
+      "summary": "Greta: Monthly Meds",
+      "start": "Wednesday, July 01",
+      "start_raw": "2026-07-01",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, July 06 at 07:00 AM",
+      "start_raw": "2026-07-06T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     }

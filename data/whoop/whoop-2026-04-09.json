@@ -1,0 +1,38 @@
+{
+  "date": "2026-04-09",
+  "timestamp": "2026-04-10T02:15:56.278849",
+  "recovery": [],
+  "sleep": [
+    {
+      "date": "2026-04-09",
+      "score": 30.0,
+      "total_sleep_time": 12689,
+      "efficiency": 86.49591,
+      "respiratory_rate": 14.5703125
+    },
+    {
+      "date": "2026-04-09",
+      "score": 29.0,
+      "total_sleep_time": 10918,
+      "efficiency": 92.84042,
+      "respiratory_rate": 14.970703
+    }
+  ],
+  "workouts": [
+    {
+      "date": "2026-04-09",
+      "sport_name": "elliptical",
+      "strain": 4.551761,
+      "calories": 62.75684751434034,
+      "avg_hr": 100,
+      "max_hr": 123
+    }
+  ],
+  "cycles": [
+    {
+      "date": "2026-04-09",
+      "strain": null,
+      "kilojoules": null
+    }
+  ]
+}

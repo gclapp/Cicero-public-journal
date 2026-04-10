@@ -53,9 +53,25 @@ def get_calendar_service():
     """Get authenticated calendar service"""
     creds = None
     
+    # Load client credentials
+    with open(CREDENTIALS_FILE) as f:
+        client_creds = json.load(f)['installed']
+    
     if TOKEN_FILE.exists():
         with open(TOKEN_FILE, 'rb') as f:
-            creds = pickle.load(f)
+            data = pickle.load(f)
+            # Handle both dict and Credentials object formats
+            if isinstance(data, dict):
+                creds = Credentials(
+                    token=data.get('access_token'),
+                    refresh_token=data.get('refresh_token'),
+                    token_uri=client_creds['token_uri'],
+                    client_id=client_creds['client_id'],
+                    client_secret=client_creds['client_secret'],
+                    scopes=data.get('scope', '').split() if isinstance(data.get('scope'), str) else SCOPES
+                )
+            else:
+                creds = data
     
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:

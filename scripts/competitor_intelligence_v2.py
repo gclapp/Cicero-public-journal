@@ -154,7 +154,19 @@ def search_web_for_news(config):
     seen = load_seen()
     
     # Use Brave Search API for each query
+    # Try environment variable first, then consolidated credentials
     api_key = os.getenv('BRAVE_API_KEY', '')
+    if not api_key:
+        # Try consolidated credentials file
+        creds_file = Path.home() / ".openclaw" / "config" / "sensitive-credentials.json"
+        if creds_file.exists():
+            try:
+                with open(creds_file) as f:
+                    creds = json.load(f)
+                    api_key = creds.get('brave_search', {}).get('api_key', '')
+            except:
+                pass
+    
     if not api_key:
         log("⚠️ No BRAVE_API_KEY found, skipping web search")
         return []

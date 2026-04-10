@@ -26,17 +26,8 @@ def get_checkin_type(hour, minute):
     """Determine which check-in is due based on PT time"""
     time_val = hour * 100 + minute
     
-    # Morning: 7:00-7:45 AM
-    if 700 <= time_val <= 745:
-        return "morning"
-    # Midday: 12:30-12:55 PM  
-    elif 1230 <= time_val <= 1255:
-        return "midday"
-    # Afternoon: 4:30-4:55 PM
-    elif 1630 <= time_val <= 1655:
-        return "afternoon"
-    # Evening: 8:30-8:55 PM
-    elif 2030 <= time_val <= 2055:
+    # Evening only: 8:30-8:55 PM (per user request April 10, 2026)
+    if 2030 <= time_val <= 2055:
         return "evening"
     else:
         return None

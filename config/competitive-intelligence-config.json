@@ -114,9 +114,9 @@
     }
   },
   "filters": {
-    "max_articles_per_report": 7,
-    "strict_deduplication": true,
-    "max_article_age_days": 3,
+    "max_articles_per_report": 15,
+    "strict_deduplication": false,
+    "max_article_age_days": 30,
     "femtech_keywords": [
       "femtech", "women's health", "fertility", "menopause", "maternity",
       "pregnancy", "ivf", "egg freezing", "surrogacy", "women's healthcare",

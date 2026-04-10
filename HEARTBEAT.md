@@ -10,13 +10,10 @@
 
 | Check-In | Time (PT) | Purpose |
 |----------|-----------|---------|
-| Morning | 7:00 AM | Status, calendar, day ahead |
-| Midday | 12:30 PM | Progress pulse check |
-| Afternoon | 4:30 PM | Wrap-up prep |
 | Evening | 8:30 PM | Day review, tomorrow preview |
 
-**Modified:** March 4, 2026  
-**Current Mode:** 4x daily (Morning, Midday, Afternoon, Evening)  
+**Modified:** April 10, 2026  
+**Current Mode:** 1x daily (Evening only)  
 **Delivery:** Email to [REDACTED] + geoffrey.clapp@progyny.com  
 **Stock updates:** End-of-day only (evening check-in)
 
