@@ -252,8 +252,10 @@ def search_resy_venues(query, lat, long, day, party_size=2):
             results = []
             for venue in venues[:10]:  # Limit to 10 results
                 location = venue.get('location', {})
+                venue_id = venue.get('id', {}).get('resy')
                 results.append({
-                    'id': venue.get('id', {}).get('resy'),
+                    'id': venue_id,
+                    'venue_id': venue_id,
                     'name': venue.get('name'),
                     'type': venue.get('type', 'Restaurant'),
                     'neighborhood': location.get('neighborhood', ''),
