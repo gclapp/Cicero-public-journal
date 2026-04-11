@@ -878,6 +878,35 @@ def get_upcoming_trips_for_packing(all_events, pt_now):
     trips.sort(key=lambda x: x['days_until'])
     return trips
 
+def get_pending_travel_tasks():
+    """Get pending travel tasks from Todoist - highest priority"""
+    try:
+        # Get tasks from Travel project
+        result = subprocess.run(
+            ['todoist', 'tasks', '--project', 'Travel'],
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        if result.returncode == 0:
+            tasks = []
+            for line in result.stdout.strip().split('\n'):
+                if line.strip():
+                    # Parse task line - format: ID  Task content (date)
+                    # Extract task text after ID
+                    parts = line.strip().split('  ', 1)
+                    if len(parts) > 1:
+                        task_text = parts[1]
+                        # Remove date suffix if present
+                        task_text = re.sub(r'\s*\([^)]+\)\s*$', '', task_text)
+                        # Only include Rover, Hotel, Uber, Pack tasks (not check-in/boarding pass)
+                        if any(keyword in task_text for keyword in ['ROVER', 'HOTEL:', 'UBER:', 'PACK:', '🐕', '🏨', '🚗', '🎒']):
+                            tasks.append(task_text)
+            return tasks[:5]  # Return top 5 tasks
+    except Exception as e:
+        print(f"Error fetching travel tasks: {e}", file=sys.stderr)
+    return []
+
 def get_today_events_detailed(pt_now, all_events):
     """Get detailed breakdown of today's events by category"""
     today_str = pt_now.strftime('%A, %B %d')
@@ -1111,6 +1140,36 @@ def generate_html_email(checkin_type, pt_now):
             <div style="color: #666; font-size: 14px; margin-top: 4px;">
                 {trip_weather} • Pack in {days_until} day{'s' if days_until != 1 else ''}
             </div>
+        </div>
+'''
+        html += '''    </div>
+'''
+    
+    # PENDING TRAVEL TASKS: Show highest priority travel todos
+    pending_travel = get_pending_travel_tasks()
+    if pending_travel:
+        html += f'''
+    <div class="section" style="border-left-color: #dc2626; background: #fef2f2;">
+        <h2>🚨 TRAVEL TASKS - DO TODAY</h2>
+'''
+        for task in pending_travel:
+            # Extract emoji and task type
+            emoji = '✈️'
+            if '🐕' in task:
+                emoji = '🐕'
+            elif '🏨' in task:
+                emoji = '🏨'
+            elif '🚗' in task:
+                emoji = '🚗'
+            elif '🎒' in task:
+                emoji = '🎒'
+            
+            # Clean up task text for display
+            clean_task = task.replace('🐕 ROVER: ', '').replace('✈️ FLIGHT: ', '').replace('🏨 HOTEL: ', '').replace('🚗 UBER: ', '').replace('🎒 PACK: ', '')
+            
+            html += f'''
+        <div style="margin: 8px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #dc2626;">
+            <div style="font-weight: bold; color: #1e40af;">{emoji} {clean_task[:80]}{'...' if len(clean_task) > 80 else ''}</div>
         </div>
 '''
         html += '''    </div>
