@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <linearGradient id="lobsterBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="50%" style="stop-color:#E55A2B"/>
+      <stop offset="100%" style="stop-color:#CC3700"/>
+    </linearGradient>
+    <linearGradient id="lobsterClaw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7A45"/>
+      <stop offset="100%" style="stop-color:#D94A20"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="200" cy="110" r="85" fill="#FFF5F0" stroke="#FF6B35" stroke-width="3"/>
+  
+  <!-- Chef Hat - Tall Toque Style with Dark Outlines -->
+  <g transform="translate(200, 45)">
+    <!-- Hat base/headband -->
+    <ellipse cx="0" cy="35" rx="38" ry="12" fill="#FFFFFF" stroke="#333333" stroke-width="3"/>
+    <ellipse cx="0" cy="35" rx="34" ry="9" fill="#F5F5F5" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Hat pleats/lines -->
+    <path d="M-25 35 Q-28 -15 -20 -30" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-8 35 Q-12 -25 -5 -35" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M8 35 Q12 -25 5 -35" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M25 35 Q28 -15 20 -30" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Hat top puff -->
+    <path d="M-35 25 Q-40 -30 -20 -45 Q0 -55 20 -45 Q40 -30 35 25" 
+          fill="#FFFFFF" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Hat top detail lines -->
+    <path d="M-20 -35 Q-15 -25 -18 -10" fill="none" stroke="#CCCCCC" stroke-width="1.5"/>
+    <path d="M0 -40 Q0 -25 0 -10" fill="none" stroke="#CCCCCC" stroke-width="1.5"/>
+    <path d="M20 -35 Q15 -25 18 -10" fill="none" stroke="#CCCCCC" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Lobster Body -->
+  <g transform="translate(200, 130)">
+    <!-- Left Claw -->
+    <path d="M-45 10 Q-70 0 -75 -20 Q-80 -40 -65 -50 Q-50 -60 -35 -45 Q-25 -35 -30 -20 Q-35 -5 -45 10" 
+          fill="url(#lobsterClaw)" stroke="#333333" stroke-width="3"/>
+    <path d="M-65 -50 Q-60 -45 -55 -40" fill="none" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Right Claw -->
+    <path d="M45 10 Q70 0 75 -20 Q80 -40 65 -50 Q50 -60 35 -45 Q25 -35 30 -20 Q35 -5 45 10" 
+          fill="url(#lobsterClaw)" stroke="#333333" stroke-width="3"/>
+    <path d="M65 -50 Q60 -45 55 -40" fill="none" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Main Body -->
+    <ellipse cx="0" cy="15" rx="40" ry="50" fill="url(#lobsterBody)" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Body segments -->
+    <path d="M-35 0 Q0 5 35 0" fill="none" stroke="#333333" stroke-width="2"/>
+    <path d="M-38 20 Q0 25 38 20" fill="none" stroke="#333333" stroke-width="2"/>
+    <path d="M-30 40 Q0 45 30 40" fill="none" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Tail -->
+    <path d="M-25 60 Q0 75 25 60 L20 80 Q0 90 -20 80 Z" 
+          fill="url(#lobsterBody)" stroke="#333333" stroke-width="3"/>
+    <path d="M-15 70 Q0 75 15 70" fill="none" stroke="#333333" stroke-width="2"/>
+    <path d="M-10 80 Q0 83 10 80" fill="none" stroke="#333333" stroke-width="2"/>
+    
+    <!-- Eyes -->
+    <circle cx="-18" cy="-25" r="12" fill="#FFFFFF" stroke="#333333" stroke-width="3"/>
+    <circle cx="18" cy="-25" r="12" fill="#FFFFFF" stroke="#333333" stroke-width="3"/>
+    
+    <!-- Pupils -->
+    <circle cx="-16" cy="-25" r="6" fill="#333333"/>
+    <circle cx="16" cy="-25" r="6" fill="#333333"/>
+    
+    <!-- Eye highlights -->
+    <circle cx="-14" cy="-27" r="2.5" fill="#FFFFFF"/>
+    <circle cx="18" cy="-27" r="2.5" fill="#FFFFFF"/>
+    
+    <!-- Eyebrows -->
+    <path d="M-28 -42 Q-18 -48 -8 -42" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M8 -42 Q18 -48 28 -42" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Handlebar Mustache - Bold and Curled -->
+    <g transform="translate(0, 5)">
+      <!-- Left side -->
+      <path d="M0 0 Q-15 5 -30 0 Q-40 -5 -45 -15 Q-48 -22 -42 -25 Q-38 -28 -32 -22 Q-28 -18 -25 -12 Q-20 -5 -12 -2 Q-6 0 0 0" 
+            fill="#2D2D2D" stroke="#1A1A1A" stroke-width="2"/>
+      <!-- Left curl tip -->
+      <path d="M-42 -25 Q-50 -30 -52 -22 Q-54 -15 -48 -12" 
+            fill="none" stroke="#2D2D2D" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Right side -->
+      <path d="M0 0 Q15 5 30 0 Q40 -5 45 -15 Q48 -22 42 -25 Q38 -28 32 -22 Q28 -18 25 -12 Q20 -5 12 -2 Q6 0 0 0" 
+            fill="#2D2D2D" stroke="#1A1A1A" stroke-width="2"/>
+      <!-- Right curl tip -->
+      <path d="M42 -25 Q50 -30 52 -22 Q54 -15 48 -12" 
+            fill="none" stroke="#2D2D2D" stroke-width="4" stroke-linecap="round"/>
+      
+      <!-- Mustache center detail -->
+      <ellipse cx="0" cy="0" rx="6" ry="4" fill="#2D2D2D"/>
+    </g>
+    
+    <!-- Smile -->
+    <path d="M-15 25 Q0 35 15 25" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Antennae -->
+    <path d="M-20 -35 Q-35 -60 -50 -55" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="-50" cy="-55" r="3" fill="#333333"/>
+    <path d="M20 -35 Q35 -60 50 -55" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="50" cy="-55" r="3" fill="#333333"/>
+    
+    <!-- Legs -->
+    <path d="M-35 30 Q-50 35 -55 45" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-38 45 Q-52 50 -58 60" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M35 30 Q50 35 55 45" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M38 45 Q52 50 58 60" fill="none" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <g transform="translate(200, 245)">
+    <!-- NYC in bold red -->
+    <text x="-85" y="0" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="900" fill="#FF4500" stroke="#CC3700" stroke-width="1">NYC</text>
+    <!-- eats in dark gray -->
+    <text x="15" y="0" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="900" fill="#333333">eats</text>
+  </g>
+</svg>
