@@ -16,6 +16,7 @@
     .login-container {
         width: 100%;
         max-width: 400px;
+        text-align: center;
     }
     
     .login-logo {
@@ -23,10 +24,16 @@
         margin-bottom: 2rem;
     }
     
+    .login-logo img {
+        display: block;
+        margin: 0 auto 1rem auto;
+    }
+    
     .login-logo h1 {
         font-size: 1.75rem;
         font-weight: 600;
         color: var(--resy-gray-900);
+        text-align: center;
     }
     
     .login-logo h1 span {
@@ -37,6 +44,7 @@
         color: var(--resy-gray-500);
         font-size: 0.875rem;
         margin-top: 0.5rem;
+        text-align: center;
     }
     
     .login-form {
@@ -45,6 +53,7 @@
         border-radius: 12px;
         border: 1px solid var(--resy-gray-200);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        text-align: center;
     }
     
     .login-form h2 {
@@ -57,6 +66,7 @@
     
     .form-group {
         margin-bottom: 1.25rem;
+        text-align: left;
     }
     
     .form-group label {
@@ -65,6 +75,12 @@
         color: var(--resy-gray-600);
         font-size: 0.8125rem;
         font-weight: 500;
+        text-align: left;
+    }
+    
+    .form-group input {
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .login-form .btn {
@@ -81,10 +97,13 @@
         border-radius: 8px;
         font-size: 0.8125rem;
         border: 1px solid var(--resy-gray-200);
+        text-align: center;
     }
     
     .default-creds strong {
         color: var(--resy-gray-700);
+        display: block;
+        margin-bottom: 0.5rem;
     }
     
     .default-creds code {
@@ -99,6 +118,8 @@
     
     .default-creds em {
         color: var(--resy-gray-400);
+        display: block;
+        margin-top: 0.5rem;
     }
 </style>
 {% endblock %}
@@ -107,7 +128,7 @@
 <div class="login-page">
     <div class="login-container">
         <div class="login-logo">
-            <img src="/static/nyceats-logo.svg" alt="NYCeats" width="200" style="margin-bottom: 1rem;">
+            <img src="/static/nyceats-logo-v2.png" alt="NYCeats" width="220" style="margin: 0 auto 1rem auto; display: block;">
             <p>Smart reservations for NYC</p>
         </div>
         
@@ -129,7 +150,7 @@
         <div class="default-creds">
             <strong>Default Login</strong><br>
             Email: <code>[REDACTED]</code><br>
-            Password: <code>changeme123</code><br><br>
+            Password: <code>changeme123</code><br>
             <em>Change this after first login</em>
         </div>
     </div>
