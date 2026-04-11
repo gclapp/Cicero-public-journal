@@ -132,6 +132,45 @@ def check_competitive_intel():
         return {'status': 'active'}
     return {'status': 'unknown'}
 
+def check_travel_automation():
+    """Check travel automation is running and count recent tasks"""
+    # Check cron job exists
+    cron_check = subprocess.run(
+        ['crontab', '-l'],
+        capture_output=True,
+        text=True
+    )
+    if 'travel_automation' not in cron_check.stdout:
+        return {'status': 'not_scheduled'}
+    
+    # Check log file for recent runs
+    log_file = Path.home() / ".openclaw" / "workspace" / "logs" / "travel-automation-v2.log"
+    if log_file.exists():
+        try:
+            # Get last modified time
+            stat = log_file.stat()
+            last_run = datetime.fromtimestamp(stat.st_mtime)
+            hours_since = (datetime.now() - last_run).total_seconds() / 3600
+            
+            # Count travel tasks in Todoist
+            result = subprocess.run(
+                ['todoist', 'list', '-f', 'travel'],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            task_count = len([l for l in result.stdout.strip().split('\n') if l.strip()]) if result.returncode == 0 else 0
+            
+            return {
+                'status': 'active',
+                'last_run_hours': round(hours_since, 1),
+                'tasks_created': task_count
+            }
+        except Exception as e:
+            return {'status': 'error', 'error': str(e)}
+    
+    return {'status': 'active', 'note': 'No log yet'}
+
 def get_weather():
     """Get current weather for LA using wttr.in in Fahrenheit"""
     import time
@@ -293,6 +332,15 @@ def run_health_check():
         log("  ✅ Competitive Intel cron active")
     else:
         log("  ⚠️ Competitive Intel status unknown")
+    
+    # Check Travel Automation
+    log("\n✈️ Checking Travel Automation...")
+    travel = check_travel_automation()
+    results['checks']['travel_automation'] = travel
+    if travel['status'] == 'active':
+        log(f"  ✅ Travel Automation: {travel.get('tasks_created', 0)} tasks created")
+    else:
+        log("  ⚠️ Travel Automation may need attention")
     
     log("\n" + "=" * 60)
     
