@@ -595,6 +595,14 @@ def api_resy_search():
         party_size=2
     )
     
+    # If Resy API returns an error, return empty venues array with error message
+    if 'error' in results:
+        return jsonify({
+            'venues': [],
+            'error': results['error'],
+            'source': 'resy_api'
+        })
+    
     results['source'] = 'resy_api'
     return jsonify(results)
 

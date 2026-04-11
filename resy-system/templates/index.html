@@ -735,6 +735,18 @@
             
             loadingDiv.style.display = 'none';
             
+            // Check for API errors
+            if (data.error) {
+                listDiv.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: var(--resy-error);">
+                        <p>⚠️ ${data.error}</p>
+                        <p style="font-size: 0.8125rem; margin-top: 0.5rem; color: var(--resy-gray-500);">Please check your Resy credentials configuration</p>
+                    </div>
+                `;
+                resultsDiv.style.display = 'block';
+                return;
+            }
+            
             if (data.venues && data.venues.length > 0) {
                 listDiv.innerHTML = data.venues.map(venue => `
                     <div class="search-result-item" onclick="selectRestaurant('${venue.name.replace(/'/g, "\\'")}', '${venue.venue_id}', '${(venue.type || '').replace(/'/g, "\\'")}', '${(venue.neighborhood || '').replace(/'/g, "\\'")}')">
