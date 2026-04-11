@@ -879,7 +879,7 @@ def get_upcoming_trips_for_packing(all_events, pt_now):
     return trips
 
 def get_pending_travel_tasks():
-    """Get pending travel tasks from Todoist - highest priority"""
+    """Get pending travel tasks from Todoist with due dates - sorted by urgency"""
     try:
         # Get tasks from Travel project
         result = subprocess.run(
@@ -893,16 +893,21 @@ def get_pending_travel_tasks():
             for line in result.stdout.strip().split('\n'):
                 if line.strip():
                     # Parse task line - format: ID  Task content (date)
-                    # Extract task text after ID
                     parts = line.strip().split('  ', 1)
                     if len(parts) > 1:
                         task_text = parts[1]
-                        # Remove date suffix if present
-                        task_text = re.sub(r'\s*\([^)]+\)\s*$', '', task_text)
+                        # Extract due date from parentheses if present
+                        date_match = re.search(r'\s*\(([^)]+)\)\s*$', task_text)
+                        due_date = date_match.group(1) if date_match else 'No date'
+                        # Remove date suffix from display text
+                        display_text = re.sub(r'\s*\([^)]+\)\s*$', '', task_text)
                         # Only include Rover, Hotel, Uber, Pack tasks (not check-in/boarding pass)
-                        if any(keyword in task_text for keyword in ['ROVER', 'HOTEL:', 'UBER:', 'PACK:', '🐕', '🏨', '🚗', '🎒']):
-                            tasks.append(task_text)
-            return tasks[:5]  # Return top 5 tasks
+                        if any(keyword in display_text for keyword in ['ROVER', 'HOTEL:', 'UBER:', 'PACK:', 'CONFIRM:', 'RESEARCH:', 'DINNER:', '🐕', '🏨', '🚗', '🎒', '🍽️', '📋']):
+                            tasks.append({
+                                'text': display_text,
+                                'due': due_date
+                            })
+            return tasks[:7]  # Return top 7 tasks
     except Exception as e:
         print(f"Error fetching travel tasks: {e}", file=sys.stderr)
     return []
@@ -1145,31 +1150,40 @@ def generate_html_email(checkin_type, pt_now):
         html += '''    </div>
 '''
     
-    # PENDING TRAVEL TASKS: Show highest priority travel todos
+    # PENDING TRAVEL TASKS: Show all upcoming travel todos with due dates
     pending_travel = get_pending_travel_tasks()
     if pending_travel:
         html += f'''
     <div class="section" style="border-left-color: #dc2626; background: #fef2f2;">
-        <h2>🚨 TRAVEL TASKS - DO TODAY</h2>
+        <h2>🚨 UPCOMING TRAVEL TASKS</h2>
+        <p style="margin-top: -10px; color: #666; font-size: 13px;">Plan ahead - these need to be done before your trips</p>
 '''
         for task in pending_travel:
+            task_text = task['text']
+            due_date = task['due']
+            
             # Extract emoji and task type
             emoji = '✈️'
-            if '🐕' in task:
+            if '🐕' in task_text:
                 emoji = '🐕'
-            elif '🏨' in task:
+            elif '🏨' in task_text:
                 emoji = '🏨'
-            elif '🚗' in task:
+            elif '🚗' in task_text:
                 emoji = '🚗'
-            elif '🎒' in task:
+            elif '🎒' in task_text:
                 emoji = '🎒'
+            elif '🍽️' in task_text:
+                emoji = '🍽️'
+            elif '📋' in task_text:
+                emoji = '📋'
             
             # Clean up task text for display
-            clean_task = task.replace('🐕 ROVER: ', '').replace('✈️ FLIGHT: ', '').replace('🏨 HOTEL: ', '').replace('🚗 UBER: ', '').replace('🎒 PACK: ', '')
+            clean_task = task_text.replace('🐕 ROVER: ', '').replace('✈️ FLIGHT: ', '').replace('🏨 HOTEL: ', '').replace('🏨 CONFIRM: ', '').replace('🏨 RESEARCH: ', '').replace('🚗 UBER: ', '').replace('🎒 PACK: ', '').replace('🍽️ DINNER: ', '').replace('📋 RESEARCH: ', '')
             
             html += f'''
         <div style="margin: 8px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #dc2626;">
-            <div style="font-weight: bold; color: #1e40af;">{emoji} {clean_task[:80]}{'...' if len(clean_task) > 80 else ''}</div>
+            <div style="font-weight: bold; color: #1e40af;">{emoji} {clean_task[:70]}{'...' if len(clean_task) > 70 else ''}</div>
+            <div style="color: #666; font-size: 12px; margin-top: 4px;">📅 Due: {due_date}</div>
         </div>
 '''
         html += '''    </div>
