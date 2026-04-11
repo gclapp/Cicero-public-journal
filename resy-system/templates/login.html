@@ -11,12 +11,16 @@
         justify-content: center;
         background: var(--resy-gray-50);
         padding: 2rem;
+        margin-left: 0;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .login-container {
         width: 100%;
         max-width: 400px;
         text-align: center;
+        margin: 0 auto;
     }
     
     .login-logo {
@@ -125,7 +129,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="login-page">
+<div class="login-page" style="margin-left: -2rem; width: calc(100% + 4rem);">
     <div class="login-container">
         <div class="login-logo">
             <img src="/static/nyceats-logo-openai-v1.png" alt="NYCeats" width="280" style="margin: 0 auto 1rem auto; display: block;">
