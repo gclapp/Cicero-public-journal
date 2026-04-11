@@ -134,7 +134,7 @@ def generate_flight_tasks(flight, existing_tasks):
     skipped = 0
     
     # Calculate due dates
-    rover_due = (flight_date - timedelta(days=4)).strftime('%Y-%m-%d')
+    rover_due = (flight_date - timedelta(days=10)).strftime('%Y-%m-%d')  # 10 days before for Rover
     check_due = (flight_date - timedelta(days=2)).strftime('%Y-%m-%d')
     uber_due = (flight_date - timedelta(days=1)).strftime('%Y-%m-%d')
     
@@ -146,8 +146,8 @@ def generate_flight_tasks(flight, existing_tasks):
         else:
             skipped += 1
     
-    # Rover task (4 days before)
-    rover_task = f"🐕 ROVER: Schedule sitter for Greta - {summary}"
+    # Rover task (10 days before)
+    rover_task = f"🐕 ROVER: Schedule sitter for Greta (10 days before) - {summary}"
     if create_todoist_task(rover_task, "Travel", "2", rover_due, existing_tasks):
         if rover_task not in existing_tasks:
             created += 1
