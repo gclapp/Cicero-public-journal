@@ -17,7 +17,10 @@ from pathlib import Path
 # Add current directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from trips import get_trips_from_cache, get_upcoming_trips
+from trips import (
+    get_trips_from_cache, get_upcoming_trips, 
+    skip_date, unskip_date, get_skipped_dates_list, is_date_skipped
+)
 from monitoring import (
     load_monitoring_data, log_scan, log_booking, log_error, 
     resolve_error, get_system_health, get_scan_history, 
@@ -501,6 +504,55 @@ def api_trips_refresh():
     """Force refresh trips from calendar"""
     trips = get_upcoming_trips()
     return jsonify({'success': True, 'trips': trips, 'count': len(trips)})
+
+@app.route('/api/trips/skip', methods=['POST'])
+@login_required
+def api_skip_date():
+    """Skip a date - don't look for reservations on this date"""
+    data = request.json
+    date_str = data.get('date')
+    reason = data.get('reason', '')
+    
+    if not date_str:
+        return jsonify({'success': False, 'error': 'Date required'}), 400
+    
+    success = skip_date(date_str, reason)
+    if success:
+        return jsonify({
+            'success': True, 
+            'message': f'Skipped {date_str}',
+            'date': date_str,
+            'reason': reason
+        })
+    else:
+        return jsonify({
+            'success': False, 
+            'error': 'Date already skipped'
+        }), 400
+
+@app.route('/api/trips/unskip', methods=['POST'])
+@login_required
+def api_unskip_date():
+    """Unskip a date - resume looking for reservations"""
+    data = request.json
+    date_str = data.get('date')
+    
+    if not date_str:
+        return jsonify({'success': False, 'error': 'Date required'}), 400
+    
+    unskip_date(date_str)
+    return jsonify({
+        'success': True, 
+        'message': f'Unskipped {date_str}',
+        'date': date_str
+    })
+
+@app.route('/api/trips/skipped')
+@login_required
+def api_skipped_dates():
+    """Get list of skipped dates"""
+    skipped = get_skipped_dates_list()
+    return jsonify({'skipped': skipped})
 
 # Resy Search API
 @app.route('/api/resy/search')

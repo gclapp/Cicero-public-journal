@@ -158,6 +158,49 @@
         margin-top: 0.125rem;
     }
     
+    .night-skipped {
+        font-size: 0.8125rem;
+        color: var(--resy-gray-400);
+        font-weight: 500;
+        margin-top: 0.125rem;
+    }
+    
+    .night-status-icon.skipped {
+        background: var(--resy-gray-100);
+        color: var(--resy-gray-400);
+    }
+    
+    .skip-btn {
+        background: transparent;
+        border: 1px solid var(--resy-gray-200);
+        color: var(--resy-gray-500);
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .skip-btn:hover {
+        background: var(--resy-gray-50);
+        border-color: var(--resy-gray-300);
+    }
+    
+    .unskip-btn {
+        background: var(--resy-gray-100);
+        border: 1px solid var(--resy-gray-200);
+        color: var(--resy-gray-600);
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .unskip-btn:hover {
+        background: var(--resy-gray-200);
+    }
+    
     .stats-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -252,6 +295,10 @@
             <div class="stat-value" style="color: var(--resy-orange);">{{ trips|sum(attribute='pending_nights') }}</div>
             <div class="stat-label">Pending</div>
         </div>
+        <div class="stat-card">
+            <div class="stat-value" style="color: var(--resy-gray-400);">{{ trips|sum(attribute='skipped_nights') }}</div>
+            <div class="stat-label">Skipped</div>
+        </div>
     </div>
     
     {% for trip in trips %}
@@ -274,9 +321,9 @@
         
         <div class="trip-progress">
             <div class="progress-bar">
-                <div class="progress-fill {{ 'complete' if trip.status == 'complete' }}" style="width: {{ (trip.booked_nights / trip.total_nights * 100) if trip.total_nights > 0 else 0 }}%"></div>
+                <div class="progress-fill {{ 'complete' if trip.status == 'complete' }}" style="width: {{ (trip.booked_nights / (trip.total_nights - trip.skipped_nights) * 100) if (trip.total_nights - trip.skipped_nights) > 0 else 0 }}%"></div>
             </div>
-            <div class="progress-text">{{ trip.booked_nights }}/{{ trip.total_nights }}</div>
+            <div class="progress-text">{{ trip.booked_nights }}/{{ trip.total_nights - trip.skipped_nights }}</div>
         </div>
         
         <ul class="nights-list">
@@ -298,7 +345,9 @@
                     </span>
                     <div class="night-info">
                         <span class="night-day">{{ night.date|format_date }}</span>
-                        {% if night.has_reservation and night.reservation %}
+                        {% if night.is_skipped %}
+                            <span class="night-skipped">Skipped{% if night.skip_reason %}: {{ night.skip_reason }}{% endif %}</span>
+                        {% elif night.has_reservation and night.reservation %}
                             <span class="night-restaurant">{{ night.reservation.restaurant_name }}</span>
                             <span class="night-time">{{ night.reservation.time }} · Party of {{ night.reservation.party_size }}</span>
                         {% elif night.needs_booking %}
@@ -308,8 +357,13 @@
                         {% endif %}
                     </div>
                 </div>
-                {% if night.needs_booking and not night.has_reservation %}
-                <button class="btn btn-sm" onclick="triggerScan('{{ night.date }}')">Find Table</button>
+                {% if night.is_skipped %}
+                <button class="unskip-btn" onclick="unskipDate('{{ night.date }}')">Unskip</button>
+                {% elif night.needs_booking and not night.has_reservation %}
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn btn-sm" onclick="triggerScan('{{ night.date }}')">Find Table</button>
+                    <button class="skip-btn" onclick="skipDate('{{ night.date }}')">Skip</button>
+                </div>
                 {% endif %}
             </li>
             {% endfor %}
@@ -362,6 +416,49 @@ async function refreshTrips() {
 
 async function triggerScan(date) {
     alert('Scanner runs automatically every 12 hours. Check back later for updates!');
+}
+
+async function skipDate(date) {
+    const reason = prompt('Why are you skipping this date? (optional)');
+    if (reason === null) return; // Cancelled
+    
+    try {
+        const response = await fetch('/api/trips/skip', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({date: date, reason: reason})
+        });
+        
+        const data = await response.json();
+        if (data.success) {
+            window.location.reload();
+        } else {
+            alert('Error: ' + (data.error || 'Failed to skip date'));
+        }
+    } catch (e) {
+        alert('Error: ' + e.message);
+    }
+}
+
+async function unskipDate(date) {
+    if (!confirm('Resume looking for reservations on ' + date + '?')) return;
+    
+    try {
+        const response = await fetch('/api/trips/unskip', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({date: date})
+        });
+        
+        const data = await response.json();
+        if (data.success) {
+            window.location.reload();
+        } else {
+            alert('Error: ' + (data.error || 'Failed to unskip date'));
+        }
+    } catch (e) {
+        alert('Error: ' + e.message);
+    }
 }
 </script>
 {% endblock %}

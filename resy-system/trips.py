@@ -11,6 +11,7 @@ from pathlib import Path
 DATA_DIR = Path(__file__).parent / "data"
 RESERVATIONS_FILE = DATA_DIR / "reservations.json"
 TRIPS_CACHE_FILE = DATA_DIR / "trips_cache.json"
+SKIPPED_DATES_FILE = DATA_DIR / "skipped_dates.json"
 
 def load_reservations():
     """Load existing reservations"""
@@ -30,6 +31,42 @@ def save_trips_cache(data):
     """Save trips cache"""
     with open(TRIPS_CACHE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
+
+def load_skipped_dates():
+    """Load list of dates to skip"""
+    if not SKIPPED_DATES_FILE.exists():
+        return {"skipped": []}
+    with open(SKIPPED_DATES_FILE) as f:
+        return json.load(f)
+
+def save_skipped_dates(data):
+    """Save skipped dates"""
+    with open(SKIPPED_DATES_FILE, 'w') as f:
+        json.dump(data, f, indent=2)
+
+def skip_date(date_str, reason=""):
+    """Add a date to the skip list"""
+    data = load_skipped_dates()
+    if date_str not in [s["date"] for s in data["skipped"]]:
+        data["skipped"].append({
+            "date": date_str,
+            "reason": reason,
+            "skipped_at": datetime.now().isoformat()
+        })
+        save_skipped_dates(data)
+        return True
+    return False
+
+def unskip_date(date_str):
+    """Remove a date from the skip list"""
+    data = load_skipped_dates()
+    data["skipped"] = [s for s in data["skipped"] if s["date"] != date_str]
+    save_skipped_dates(data)
+
+def is_date_skipped(date_str):
+    """Check if a date is in the skip list"""
+    data = load_skipped_dates()
+    return any(s["date"] == date_str for s in data["skipped"])
 
 def parse_calendar_events():
     """Parse calendar events to find NYC trips"""
@@ -140,8 +177,10 @@ def get_upcoming_trips(days_ahead=60):
     events = parse_calendar_events()
     trips = extract_trip_dates(events)
     
-    # Load reservations
+    # Load reservations and skipped dates
     reservations_data = load_reservations()
+    skipped_data = load_skipped_dates()
+    skipped_dates = {s["date"] for s in skipped_data["skipped"]}
     
     # Filter to upcoming trips
     today = datetime.now().strftime("%Y-%m-%d")
@@ -158,14 +197,23 @@ def get_upcoming_trips(days_ahead=60):
             # Skip the departure day (usually don't need dinner)
             if date == trip["end"] and len(trip["dates"]) > 1:
                 continue
-                
+            
+            # Check if this date is skipped
+            is_skipped = date in skipped_dates
+            skip_info = next((s for s in skipped_data["skipped"] if s["date"] == date), None)
+            
             reservation = has_reservation_for_date(date, reservations_data)
             nights.append({
                 "date": date,
                 "has_reservation": reservation is not None,
                 "reservation": reservation,
-                "needs_booking": reservation is None and date >= today
+                "is_skipped": is_skipped,
+                "skip_reason": skip_info["reason"] if skip_info else "",
+                "needs_booking": reservation is None and date >= today and not is_skipped
             })
+        
+        # Count nights that actually need booking (not skipped)
+        nights_needing_booking = [n for n in nights if not n["is_skipped"]]
         
         trip_info = {
             "id": f"{trip['start']}_{trip['end']}",
@@ -174,8 +222,9 @@ def get_upcoming_trips(days_ahead=60):
             "nights": nights,
             "total_nights": len(nights),
             "booked_nights": sum(1 for n in nights if n["has_reservation"]),
+            "skipped_nights": sum(1 for n in nights if n["is_skipped"]),
             "pending_nights": sum(1 for n in nights if n["needs_booking"]),
-            "status": "complete" if all(n["has_reservation"] for n in nights) else "pending"
+            "status": "complete" if all(n["has_reservation"] or n["is_skipped"] for n in nights) else "pending"
         }
         
         upcoming.append(trip_info)
@@ -196,6 +245,10 @@ def get_trips_from_cache():
     """Get trips from cache (for web UI)"""
     cache = load_trips_cache()
     return cache.get("trips", [])
+
+def get_skipped_dates_list():
+    """Get list of skipped dates with details"""
+    return load_skipped_dates().get("skipped", [])
 
 if __name__ == "__main__":
     trips = get_upcoming_trips()
