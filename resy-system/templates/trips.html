@@ -1,0 +1,367 @@
+{% extends "base.html" %}
+
+{% block title %}My Trips - NYCeats{% endblock %}
+
+{% block extra_css %}
+<style>
+    .header-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    
+    .trip-card {
+        background: var(--resy-white);
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: box-shadow 0.2s;
+    }
+    
+    .trip-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .trip-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1.25rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid var(--resy-gray-100);
+    }
+    
+    .trip-title {
+        font-size: 1.125rem;
+        color: var(--resy-gray-900);
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    
+    .trip-dates {
+        color: var(--resy-gray-500);
+        font-size: 0.875rem;
+    }
+    
+    .trip-progress {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .progress-bar {
+        flex: 1;
+        height: 6px;
+        background: var(--resy-gray-100);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: var(--resy-orange);
+        transition: width 0.3s;
+    }
+    
+    .progress-fill.complete {
+        background: var(--resy-success);
+    }
+    
+    .progress-text {
+        font-size: 0.8125rem;
+        color: var(--resy-gray-500);
+        min-width: 60px;
+        text-align: right;
+        font-weight: 500;
+    }
+    
+    .nights-list {
+        list-style: none;
+    }
+    
+    .night-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.875rem 1rem;
+        background: var(--resy-gray-50);
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        border: 1px solid transparent;
+        transition: border-color 0.2s;
+    }
+    
+    .night-item:hover {
+        border-color: var(--resy-gray-200);
+    }
+    
+    .night-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .night-date {
+        display: flex;
+        align-items: center;
+        gap: 0.875rem;
+    }
+    
+    .night-status-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 0.75rem;
+    }
+    
+    .night-status-icon.booked {
+        background: #F0FDF4;
+        color: var(--resy-success);
+    }
+    
+    .night-status-icon.pending {
+        background: #FEF3C7;
+        color: #92400E;
+    }
+    
+    .night-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .night-day {
+        font-weight: 500;
+        color: var(--resy-gray-900);
+        font-size: 0.9375rem;
+    }
+    
+    .night-restaurant {
+        font-size: 0.8125rem;
+        color: var(--resy-success);
+        font-weight: 500;
+        margin-top: 0.125rem;
+    }
+    
+    .night-time {
+        font-size: 0.75rem;
+        color: var(--resy-gray-400);
+    }
+    
+    .night-pending {
+        font-size: 0.8125rem;
+        color: var(--resy-orange);
+        font-weight: 500;
+        margin-top: 0.125rem;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-card {
+        background: var(--resy-white);
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 8px;
+        padding: 1.25rem 1rem;
+        text-align: center;
+    }
+    
+    .stat-value {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--resy-gray-900);
+    }
+    
+    .stat-value.accent {
+        color: var(--resy-orange);
+    }
+    
+    .stat-value.success {
+        color: var(--resy-success);
+    }
+    
+    .stat-label {
+        font-size: 0.8125rem;
+        color: var(--resy-gray-500);
+        margin-top: 0.25rem;
+    }
+    
+    .refresh-info {
+        text-align: right;
+        color: var(--resy-gray-400);
+        font-size: 0.8125rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .trip-empty {
+        text-align: center;
+        padding: 3rem;
+        color: var(--resy-gray-400);
+    }
+    
+    .trip-empty svg {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1rem;
+        stroke: var(--resy-gray-300);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Upcoming Trips</h2>
+    <p>NYC trips from your calendar and reservation status</p>
+</div>
+
+<div class="header-actions">
+    <span style="color: var(--resy-gray-500); font-size: 0.875rem;">
+        {% if trips %}{{ trips|length }} trip{% if trips|length != 1 %}s{% endif %} detected{% endif %}
+    </span>
+    <button class="btn btn-secondary" onclick="refreshTrips()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+        </svg>
+        Refresh
+    </button>
+</div>
+
+{% if trips %}
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">{{ trips|length }}</div>
+            <div class="stat-label">Trips</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value accent">{{ trips|sum(attribute='total_nights') }}</div>
+            <div class="stat-label">Nights</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value success">{{ trips|sum(attribute='booked_nights') }}</div>
+            <div class="stat-label">Booked</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value" style="color: var(--resy-orange);">{{ trips|sum(attribute='pending_nights') }}</div>
+            <div class="stat-label">Pending</div>
+        </div>
+    </div>
+    
+    {% for trip in trips %}
+    <div class="trip-card">
+        <div class="trip-header">
+            <div>
+                <div class="trip-title">New York City</div>
+                <div class="trip-dates">
+                    {{ trip.start|format_date }} – {{ trip.end|format_date }}
+                    <span style="color: var(--resy-gray-300);">·</span>
+                    {{ trip.total_nights }} night{{ 's' if trip.total_nights != 1 }}
+                </div>
+            </div>
+            {% if trip.status == 'complete' %}
+                <span class="badge badge-success">Fully Booked</span>
+            {% else %}
+                <span class="badge badge-pending">{{ trip.pending_nights }} pending</span>
+            {% endif %}
+        </div>
+        
+        <div class="trip-progress">
+            <div class="progress-bar">
+                <div class="progress-fill {{ 'complete' if trip.status == 'complete' }}" style="width: {{ (trip.booked_nights / trip.total_nights * 100) if trip.total_nights > 0 else 0 }}%"></div>
+            </div>
+            <div class="progress-text">{{ trip.booked_nights }}/{{ trip.total_nights }}</div>
+        </div>
+        
+        <ul class="nights-list">
+            {% for night in trip.nights %}
+            <li class="night-item">
+                <div class="night-date">
+                    <span class="night-status-icon {{ 'booked' if night.has_reservation else 'pending' }}">
+                        {% if night.has_reservation %}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        {% else %}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        {% endif %}
+                    </span>
+                    <div class="night-info">
+                        <span class="night-day">{{ night.date|format_date }}</span>
+                        {% if night.has_reservation and night.reservation %}
+                            <span class="night-restaurant">{{ night.reservation.restaurant_name }}</span>
+                            <span class="night-time">{{ night.reservation.time }} · Party of {{ night.reservation.party_size }}</span>
+                        {% elif night.needs_booking %}
+                            <span class="night-pending">Needs reservation</span>
+                        {% else %}
+                            <span style="color: var(--resy-gray-400); font-size: 0.8125rem;">Past date</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if night.needs_booking and not night.has_reservation %}
+                <button class="btn btn-sm" onclick="triggerScan('{{ night.date }}')">Find Table</button>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="card" style="text-align: center; padding: 4rem 2rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 48px; height: 48px; margin: 0 auto 1rem; stroke: var(--resy-gray-300);">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <h3 style="color: var(--resy-gray-700); font-weight: 500; margin-bottom: 0.5rem;">No trips found</h3>
+        <p style="color: var(--resy-gray-400); font-size: 0.875rem; margin-bottom: 1.5rem;">No NYC trips detected in your calendar</p>
+        <p style="color: var(--resy-gray-400); font-size: 0.8125rem; margin-bottom: 1.5rem;">
+            Looking for: NYC, New York, Manhattan, Brooklyn, JFK, LGA
+        </p>
+        <button class="btn" onclick="refreshTrips()">Refresh from Calendar</button>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+async function refreshTrips() {
+    const btn = document.querySelector('button[onclick="refreshTrips()"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem; animation: spin 1s linear infinite;"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg> Refreshing...';
+    btn.disabled = true;
+    
+    try {
+        const response = await fetch('/api/trips/refresh');
+        const data = await response.json();
+        
+        if (data.success) {
+            window.location.reload();
+        } else {
+            alert('Error refreshing trips');
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+    } catch (e) {
+        alert('Error: ' + e.message);
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
+}
+
+async function triggerScan(date) {
+    alert('Scanner runs automatically every 12 hours. Check back later for updates!');
+}
+</script>
+{% endblock %}

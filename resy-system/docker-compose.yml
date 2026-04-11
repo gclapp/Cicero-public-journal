@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  resy-system:
+    build: .
+    container_name: resy-system
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ~/.openclaw/config:/app/config:ro
+      - ~/.openclaw/credentials:/app/credentials:ro
+    networks:
+      - resy-network
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:alpine
+    container_name: resy-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./.htpasswd:/etc/nginx/.htpasswd:ro
+      - nginx-certs:/etc/nginx/certs
+    depends_on:
+      resy-system:
+        condition: service_healthy
+    networks:
+      - resy-network
+
+networks:
+  resy-network:
+    driver: bridge
+
+volumes:
+  nginx-certs:

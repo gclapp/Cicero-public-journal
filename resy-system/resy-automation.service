@@ -1,0 +1,14 @@
+[Unit]
+Description=Resy Automation System
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/.openclaw/workspace/resy-system
+ExecStart=/usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/app.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

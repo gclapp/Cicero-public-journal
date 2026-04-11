@@ -1,0 +1,147 @@
+{
+  "scans": [
+    {
+      "timestamp": "2026-04-11T06:29:57.775345",
+      "trip_dates": [
+        "2026-04-19",
+        "2026-04-20"
+      ],
+      "restaurants_checked": 5,
+      "reservations_found": 12,
+      "reservations_attempted": 2,
+      "reservations_made": 1,
+      "details": "Test scan",
+      "status": "success"
+    }
+  ],
+  "bookings": [
+    {
+      "timestamp": "2026-04-11T06:29:57.775643",
+      "trip_date": "2026-04-19",
+      "restaurant_name": "Test Restaurant",
+      "venue_id": "12345",
+      "party_size": 2,
+      "time": "19:00",
+      "confirmation_code": "CONF123",
+      "status": "confirmed"
+    }
+  ],
+  "errors": [
+    {
+      "timestamp": "2026-04-11T06:29:57.775894",
+      "source": "web_ui",
+      "error_type": "test_error",
+      "message": "This is a test error",
+      "details": {
+        "test": true
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T06:39:26.926469",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /health",
+      "details": {
+        "path": "/health",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:26:56.273482",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:28:50.019649",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:30:24.540323",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:30:25.419008",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:37:02.112823",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:37:02.127155",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.png",
+      "details": {
+        "path": "/favicon.png",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:37:24.826690",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    }
+  ],
+  "system_health": {
+    "last_scan_time": "2026-04-11T06:29:57.775366",
+    "last_booking_time": "2026-04-11T06:29:57.775648",
+    "last_error_time": "2026-04-11T07:37:24.826698",
+    "total_scans": 1,
+    "total_bookings": 1,
+    "total_errors": 9,
+    "status": "degraded"
+  }
+}

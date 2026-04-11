@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <defs>
+    <linearGradient id="lobsterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="50%" style="stop-color:#FF4500"/>
+      <stop offset="100%" style="stop-color:#CC3700"/>
+    </linearGradient>
+    <linearGradient id="shellGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF7B45"/>
+      <stop offset="100%" style="stop-color:#E63E00"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Lobster Mascot -->
+  <g transform="translate(60, 100)">
+    <!-- Left Claw -->
+    <path d="M-35 10 Q-50 0 -55 -15 Q-60 -30 -50 -40 Q-40 -50 -30 -40 Q-25 -35 -30 -25 Q-35 -15 -25 -5 Q-20 5 -35 10" fill="url(#lobsterGradient)" stroke="#B33000" stroke-width="1.5"/>
+    <path d="M-55 -15 Q-62 -20 -65 -12 Q-68 -5 -60 -5" fill="none" stroke="#B33000" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Right Claw -->
+    <path d="M35 10 Q50 0 55 -15 Q60 -30 50 -40 Q40 -50 30 -40 Q25 -35 30 -25 Q35 -15 25 -5 Q20 5 35 10" fill="url(#lobsterGradient)" stroke="#B33000" stroke-width="1.5"/>
+    <path d="M55 -15 Q62 -20 65 -12 Q68 -5 60 -5" fill="none" stroke="#B33000" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Body -->
+    <ellipse cx="0" cy="15" rx="28" ry="35" fill="url(#shellGradient)" stroke="#B33000" stroke-width="1.5"/>
+    
+    <!-- Body Segments -->
+    <path d="M-22 -5 Q0 0 22 -5" fill="none" stroke="#B33000" stroke-width="1" opacity="0.5"/>
+    <path d="M-24 10 Q0 15 24 10" fill="none" stroke="#B33000" stroke-width="1" opacity="0.5"/>
+    <path d="M-20 25 Q0 30 20 25" fill="none" stroke="#B33000" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Tail -->
+    <path d="M-15 45 Q0 55 15 45 L10 60 Q0 65 -10 60 Z" fill="url(#lobsterGradient)" stroke="#B33000" stroke-width="1.5"/>
+    <path d="M-8 60 Q0 68 8 60" fill="#FF4500" stroke="#B33000" stroke-width="1"/>
+    
+    <!-- Legs -->
+    <path d="M-25 20 Q-40 25 -45 35" fill="none" stroke="#CC3700" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M-26 30 Q-42 35 -48 45" fill="none" stroke="#CC3700" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M25 20 Q40 25 45 35" fill="none" stroke="#CC3700" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M26 30 Q42 35 48 45" fill="none" stroke="#CC3700" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Head -->
+    <ellipse cx="0" cy="-15" rx="22" ry="20" fill="url(#shellGradient)" stroke="#B33000" stroke-width="1.5"/>
+    
+    <!-- Eyes -->
+    <circle cx="-10" cy="-20" r="6" fill="white" stroke="#B33000" stroke-width="1"/>
+    <circle cx="10" cy="-20" r="6" fill="white" stroke="#B33000" stroke-width="1"/>
+    <circle cx="-10" cy="-20" r="3" fill="#1a1a1a"/>
+    <circle cx="10" cy="-20" r="3" fill="#1a1a1a"/>
+    <circle cx="-11" cy="-21" r="1" fill="white"/>
+    <circle cx="9" cy="-21" r="1" fill="white"/>
+    
+    <!-- Antennae -->
+    <path d="M-8 -32 Q-15 -50 -25 -55" fill="none" stroke="#CC3700" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M8 -32 Q15 -50 25 -55" fill="none" stroke="#CC3700" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M-5 -33 Q-10 -48 -18 -52" fill="none" stroke="#CC3700" stroke-width="1" stroke-linecap="round"/>
+    <path d="M5 -33 Q10 -48 18 -52" fill="none" stroke="#CC3700" stroke-width="1" stroke-linecap="round"/>
+    
+    <!-- Chef's Hat -->
+    <g transform="translate(0, -45)">
+      <!-- Hat band -->
+      <rect x="-18" y="0" width="36" height="12" rx="2" fill="white" stroke="#ddd" stroke-width="1"/>
+      <!-- Hat puffs -->
+      <ellipse cx="-12" cy="-8" rx="10" ry="12" fill="white" stroke="#ddd" stroke-width="1"/>
+      <ellipse cx="0" cy="-12" rx="12" ry="14" fill="white" stroke="#ddd" stroke-width="1"/>
+      <ellipse cx="12" cy="-8" rx="10" ry="12" fill="white" stroke="#ddd" stroke-width="1"/>
+      <!-- Hat highlights -->
+      <ellipse cx="-12" cy="-10" rx="4" ry="5" fill="#f8f8f8" opacity="0.8"/>
+      <ellipse cx="0" cy="-14" rx="5" ry="6" fill="#f8f8f8" opacity="0.8"/>
+      <ellipse cx="12" cy="-10" rx="4" ry="5" fill="#f8f8f8" opacity="0.8"/>
+    </g>
+    
+    <!-- Mustache - French Handlebar -->
+    <g transform="translate(0, -5)">
+      <!-- Left side -->
+      <path d="M0 0 Q-8 2 -15 0 Q-22 -2 -28 2 Q-32 5 -30 8 Q-26 10 -22 7 Q-16 4 -10 5 Q-5 6 0 4" fill="#1a1a1a"/>
+      <!-- Right side -->
+      <path d="M0 0 Q8 2 15 0 Q22 -2 28 2 Q32 5 30 8 Q26 10 22 7 Q16 4 10 5 Q5 6 0 4" fill="#1a1a1a"/>
+      <!-- Center dip -->
+      <path d="M-3 2 Q0 4 3 2" fill="#1a1a1a"/>
+      <!-- Curl tips -->
+      <ellipse cx="-30" cy="6" rx="3" ry="2" fill="#1a1a1a"/>
+      <ellipse cx="30" cy="6" rx="3" ry="2" fill="#1a1a1a"/>
+    </g>
+    
+    <!-- Smile -->
+    <path d="M-8 8 Q0 14 8 8" fill="none" stroke="#B33000" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Wordmark: NYCeats -->
+  <g transform="translate(150, 115)">
+    <!-- NYC in bold red -->
+    <text x="0" y="0" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="900" fill="#FF4500" letter-spacing="-2">NYC</text>
+    <!-- eats in lighter weight -->
+    <text x="95" y="0" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="600" fill="#333333" letter-spacing="-1">eats</text>
+  </g>
+</svg>

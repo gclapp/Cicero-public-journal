@@ -1,0 +1,607 @@
+{% extends "base.html" %}
+
+{% block title %}My Restaurants - NYCeats{% endblock %}
+
+{% block extra_css %}
+<style>
+    .header-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+    
+    .restaurant-list {
+        list-style: none;
+    }
+    
+    .restaurant-item {
+        background: var(--resy-white);
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 8px;
+        padding: 1.25rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        cursor: move;
+        transition: all 0.2s;
+    }
+    
+    .restaurant-item:hover {
+        border-color: var(--resy-gray-300);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    
+    .restaurant-item.dragging {
+        opacity: 0.6;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .restaurant-main {
+        display: flex;
+        align-items: flex-start;
+        flex: 1;
+        gap: 1rem;
+    }
+    
+    .drag-handle {
+        cursor: grab;
+        color: var(--resy-gray-400);
+        padding: 0.25rem;
+        margin-top: 0.125rem;
+    }
+    
+    .drag-handle:active {
+        cursor: grabbing;
+    }
+    
+    .restaurant-info h3 {
+        color: var(--resy-gray-900);
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.375rem;
+    }
+    
+    .restaurant-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .restaurant-meta span {
+        color: var(--resy-gray-500);
+        font-size: 0.8125rem;
+    }
+    
+    .restaurant-meta .separator {
+        color: var(--resy-gray-300);
+    }
+    
+    .priority-badge {
+        background: var(--resy-orange) !important;
+        color: var(--resy-white) !important;
+        padding: 0.125rem 0.5rem !important;
+        border-radius: 4px !important;
+        font-weight: 500 !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .last-booked {
+        color: var(--resy-success);
+        font-size: 0.8125rem;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+    }
+    
+    .restaurant-notes {
+        margin-top: 0.5rem;
+        color: var(--resy-gray-500);
+        font-size: 0.8125rem;
+        font-style: italic;
+    }
+    
+    .restaurant-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(4px);
+    }
+    
+    .modal.active {
+        display: flex;
+    }
+    
+    .modal-content {
+        background: var(--resy-white);
+        padding: 1.5rem;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 480px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+    
+    .modal-content h2 {
+        color: var(--resy-gray-900);
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.375rem;
+        color: var(--resy-gray-600);
+        font-size: 0.8125rem;
+        font-weight: 500;
+    }
+    
+    .modal-actions {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        justify-content: flex-end;
+    }
+    
+    .hint {
+        color: var(--resy-gray-400);
+        font-size: 0.8125rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Restaurant Detail Modal */
+    .restaurant-detail-modal .modal-content {
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    .restaurant-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+    
+    .restaurant-image-placeholder {
+        width: 100%;
+        height: 200px;
+        background: var(--resy-gray-100);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--resy-gray-400);
+        margin-bottom: 1rem;
+    }
+    
+    .map-container {
+        width: 100%;
+        height: 250px;
+        border-radius: 8px;
+        margin-top: 1rem;
+        border: 1px solid var(--resy-gray-200);
+    }
+    
+    .detail-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .detail-section h3 {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--resy-gray-600);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+    }
+    
+    .detail-section p {
+        color: var(--resy-gray-700);
+        line-height: 1.5;
+    }
+    
+    .detail-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .detail-meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        color: var(--resy-gray-600);
+        font-size: 0.875rem;
+    }
+    
+    .rating-stars {
+        color: var(--resy-orange);
+    }
+    
+    .view-details-btn {
+        background: transparent;
+        border: 1px solid var(--resy-gray-300);
+        color: var(--resy-gray-600);
+        padding: 0.375rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.8125rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .view-details-btn:hover {
+        border-color: var(--resy-orange);
+        color: var(--resy-orange);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>My Restaurants</h2>
+    <p>Drag to reorder by priority. Top restaurants are booked first.</p>
+</div>
+
+<div class="header-actions">
+    <span style="color: var(--resy-gray-500); font-size: 0.875rem;">
+        {% if restaurants %}{{ restaurants|length }} restaurant{% if restaurants|length != 1 %}s{% endif %}{% endif %}
+    </span>
+    <button class="btn" onclick="openModal()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </svg>
+        Add Restaurant
+    </button>
+</div>
+
+{% if restaurants %}
+    <ul class="restaurant-list" id="restaurantList">
+        {% for restaurant in restaurants %}
+        <li class="restaurant-item" data-id="{{ restaurant.id }}" draggable="true">
+            <div class="restaurant-main">
+                <span class="drag-handle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="12" r="1"></circle>
+                        <circle cx="9" cy="5" r="1"></circle>
+                        <circle cx="9" cy="19" r="1"></circle>
+                        <circle cx="15" cy="12" r="1"></circle>
+                        <circle cx="15" cy="5" r="1"></circle>
+                        <circle cx="15" cy="19" r="1"></circle>
+                    </svg>
+                </span>
+                <div class="restaurant-info">
+                    <h3>{{ restaurant.name }}</h3>
+                    <div class="restaurant-meta">
+                        <span class="priority-badge">#{{ restaurant.priority }}</span>
+                        <span class="separator">·</span>
+                        <span>{{ restaurant.city }}</span>
+                        {% if restaurant.cuisine %}
+                            <span class="separator">·</span>
+                            <span>{{ restaurant.cuisine }}</span>
+                        {% endif %}
+                        <span class="separator">·</span>
+                        <span style="color: var(--resy-gray-400);">ID: {{ restaurant.venue_id }}</span>
+                    </div>
+                    {% if restaurant.last_booked %}
+                        <div class="last-booked">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            Last booked {{ restaurant.last_booked[:10] }}
+                        </div>
+                    {% endif %}
+                    {% if restaurant.notes %}
+                        <div class="restaurant-notes">{{ restaurant.notes }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="restaurant-actions">
+                <button class="view-details-btn" onclick="viewRestaurantDetails({{ restaurant.id }}, '{{ restaurant.name|replace("'", "\\'") }}', '{{ restaurant.venue_id }}')">Details</button>
+                <button class="btn btn-secondary btn-sm" onclick="editRestaurant({{ restaurant.id }})">Edit</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteRestaurant({{ restaurant.id }})">Remove</button>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        <h3 style="color: var(--resy-gray-700); font-weight: 500; margin-bottom: 0.5rem;">No restaurants yet</h3>
+        <p style="color: var(--resy-gray-400); font-size: 0.875rem;">Add your favorite NYC restaurants to get started</p>
+        <button class="btn" onclick="openModal()" style="margin-top: 1.5rem;">Add First Restaurant</button>
+    </div>
+{% endif %}
+
+<!-- Restaurant Detail Modal -->
+<div class="modal restaurant-detail-modal" id="detailModal">
+    <div class="modal-content">
+        <div id="detailContent">
+            <div class="restaurant-image-placeholder">Loading...</div>
+        </div>
+        <div class="modal-actions">
+            <button type="button" class="btn btn-secondary" onclick="closeDetailModal()">Close</button>
+            <a id="resyLink" href="#" target="_blank" class="btn">View on Resy</a>
+        </div>
+    </div>
+</div>
+
+<!-- Add Restaurant Modal -->
+<div class="modal" id="addModal">
+    <div class="modal-content">
+        <h2>Add Restaurant</h2>
+        <p class="hint">Add a restaurant from Resy to your priority list</p>
+        <form id="addForm">
+            <div class="form-group">
+                <label for="name">Restaurant Name</label>
+                <input type="text" id="name" required placeholder="e.g., Carbone">
+            </div>
+            <div class="form-group">
+                <label for="venue_id">Resy Venue ID</label>
+                <input type="text" id="venue_id" required placeholder="e.g., 84653">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <select id="city">
+                    <option value="NYC" selected>New York City</option>
+                    <option value="LA">Los Angeles</option>
+                    <option value="SF">San Francisco</option>
+                    <option value="CHI">Chicago</option>
+                    <option value="MIA">Miami</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cuisine">Cuisine Type</label>
+                <input type="text" id="cuisine" placeholder="e.g., Italian, Japanese">
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" rows="2" placeholder="Any special requests or notes..."></textarea>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button type="submit" class="btn">Add Restaurant</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let draggedItem = null;
+
+    // Drag and drop functionality
+    const list = document.getElementById('restaurantList');
+    if (list) {
+        list.addEventListener('dragstart', (e) => {
+            draggedItem = e.target.closest('.restaurant-item');
+            e.target.closest('.restaurant-item').classList.add('dragging');
+        });
+
+        list.addEventListener('dragend', (e) => {
+            e.target.closest('.restaurant-item').classList.remove('dragging');
+            saveOrder();
+        });
+
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(list, e.clientY);
+            if (afterElement == null) {
+                list.appendChild(draggedItem);
+            } else {
+                list.insertBefore(draggedItem, afterElement);
+            }
+        });
+    }
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.restaurant-item:not(.dragging)')];
+        
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child };
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    function saveOrder() {
+        const items = document.querySelectorAll('.restaurant-item');
+        const order = Array.from(items).map(item => parseInt(item.dataset.id));
+        
+        fetch('/api/restaurants', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'reorder', order: order })
+        });
+    }
+
+    function openModal() {
+        document.getElementById('addModal').classList.add('active');
+    }
+
+    function closeModal() {
+        document.getElementById('addModal').classList.remove('active');
+        document.getElementById('addForm').reset();
+    }
+
+    document.getElementById('addForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const data = {
+            action: 'add',
+            name: document.getElementById('name').value,
+            venue_id: document.getElementById('venue_id').value,
+            city: document.getElementById('city').value,
+            cuisine: document.getElementById('cuisine').value,
+            notes: document.getElementById('notes').value
+        };
+        
+        const response = await fetch('/api/restaurants', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        
+        if (response.ok) {
+            window.location.reload();
+        }
+    });
+
+    async function deleteRestaurant(id) {
+        if (!confirm('Remove this restaurant from your list?')) return;
+        
+        const response = await fetch('/api/restaurants', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'remove', id: id })
+        });
+        
+        if (response.ok) {
+            window.location.reload();
+        }
+    }
+
+    function editRestaurant(id) {
+        alert('Edit coming soon! Remove and re-add for now.');
+    }
+
+    // Restaurant Detail Modal
+    function viewRestaurantDetails(id, name, venueId) {
+        const modal = document.getElementById('detailModal');
+        const content = document.getElementById('detailContent');
+        const resyLink = document.getElementById('resyLink');
+        
+        // Set Resy link
+        resyLink.href = `https://resy.com/cities/ny/${venueId}`;
+        
+        // Show loading state
+        content.innerHTML = '<div class="restaurant-image-placeholder">Loading restaurant details...</div>';
+        modal.classList.add('active');
+        
+        // Fetch venue details
+        fetch(`/api/resy/venue/${venueId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    content.innerHTML = `
+                        <h2>${name}</h2>
+                        <p style="color: var(--resy-gray-500);">Detailed information not available from Resy.</p>
+                        <p>Venue ID: ${venueId}</p>
+                    `;
+                    return;
+                }
+                
+                const imageHtml = data.image_url 
+                    ? `<img src="${data.image_url}" alt="${data.name}" class="restaurant-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="restaurant-image-placeholder" style="display:none;">No Image Available</div>`
+                    : '<div class="restaurant-image-placeholder">No Image Available</div>';
+                
+                const ratingHtml = data.rating 
+                    ? `<span class="rating-stars">★</span> ${data.rating.toFixed(1)} (${data.reviews} reviews)`
+                    : 'No ratings yet';
+                
+                const mapHtml = data.latitude && data.longitude
+                    ? `<iframe 
+                        width="100%" 
+                        height="250" 
+                        style="border:0; border-radius: 8px;" 
+                        loading="lazy" 
+                        allowfullscreen 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022!2d${data.longitude}!3d${data.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCcwLjAiTiA3NMKwMTknMC4wIlc!5e0!3m2!1sen!2sus!4v1">
+                    </iframe>`
+                    : '<div style="padding: 2rem; text-align: center; color: var(--resy-gray-400);">Map not available</div>';
+                
+                content.innerHTML = `
+                    ${imageHtml}
+                    <h2>${data.name || name}</h2>
+                    
+                    <div class="detail-meta">
+                        <div class="detail-meta-item">
+                            <span>${ratingHtml}</span>
+                        </div>
+                        <div class="detail-meta-item">
+                            <span>${data.price || '$$$'}</span>
+                        </div>
+                        <div class="detail-meta-item">
+                            <span>${data.neighborhood || 'NYC'}</span>
+                        </div>
+                    </div>
+                    
+                    ${data.description ? `
+                    <div class="detail-section">
+                        <h3>About</h3>
+                        <p>${data.description}</p>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="detail-section">
+                        <h3>Location</h3>
+                        <p>${data.address || 'Address not available'}</p>
+                        ${mapHtml}
+                    </div>
+                    
+                    ${data.phone ? `
+                    <div class="detail-section">
+                        <h3>Contact</h3>
+                        <p>📞 ${data.phone}</p>
+                        ${data.website ? `<p><a href="${data.website}" target="_blank" style="color: var(--resy-orange);">Visit Website</a></p>` : ''}
+                    </div>
+                    ` : ''}
+                `;
+            })
+            .catch(error => {
+                content.innerHTML = `
+                    <h2>${name}</h2>
+                    <p style="color: var(--resy-error);">Error loading details: ${error.message}</p>
+                `;
+            });
+    }
+    
+    function closeDetailModal() {
+        document.getElementById('detailModal').classList.remove('active');
+    }
+
+    // Close modal on outside click
+    document.getElementById('addModal').addEventListener('click', (e) => {
+        if (e.target.id === 'addModal') closeModal();
+    });
+    
+    document.getElementById('detailModal').addEventListener('click', (e) => {
+        if (e.target.id === 'detailModal') closeDetailModal();
+    });
+</script>
+{% endblock %}
