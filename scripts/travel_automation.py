@@ -32,15 +32,48 @@ def get_upcoming_travel(days=7):
     
     return travel
 
-def create_todoist_task(task_text, project="Travel", priority="2", due_date=None):
-    """Create a task in Todoist"""
+def get_existing_tasks(project="Travel"):
+    """Get list of existing task names in the Travel project"""
     try:
-        cmd = ["todoist", "add", task_text, "-p", project, "--priority", priority]
+        result = subprocess.run(["todoist", "tasks", "-p", project], 
+                              capture_output=True, text=True, timeout=30)
+        if result.returncode != 0:
+            return set()
+        
+        # Parse task names from output
+        existing = set()
+        for line in result.stdout.strip().split('\n'):
+            if line.strip():
+                # Format: ID  Task name
+                parts = line.split('  ', 1)
+                if len(parts) > 1:
+                    existing.add(parts[1].strip())
+        return existing
+    except Exception as e:
+        print(f"⚠️  Could not fetch existing tasks: {e}")
+        return set()
+
+def create_todoist_task(task_text, project="Travel", priority="2", due_date=None, existing_tasks=None):
+    """Create a task in Todoist if it doesn't already exist"""
+    # Check if task already exists
+    if existing_tasks and task_text in existing_tasks:
+        print(f"   ⏭️  Skipped (already exists): {task_text[:50]}...")
+        return True
+    
+    try:
+        cmd = ["todoist", "add", task_text, "-p", project, "-P", priority]
         if due_date:
-            cmd.extend(["--due", due_date])
+            cmd.extend(["-d", due_date])
         
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
-        return result.returncode == 0
+        if result.returncode != 0:
+            error = result.stderr.strip()
+            if "already exists" in error.lower():
+                print(f"   ⏭️  Skipped (already exists): {task_text[:50]}...")
+                return True
+            print(f"   ❌ Error: {error}")
+            return False
+        return True
     except Exception as e:
         print(f"❌ Error creating task: {e}")
         return False
@@ -51,10 +84,19 @@ def generate_travel_tasks():
     
     if not travel_events:
         print("✅ No upcoming travel in next 14 days")
-        return
+        return 0, 0
+    
+    # Get existing tasks to avoid duplicates
+    print("📋 Fetching existing tasks...")
+    existing_tasks = get_existing_tasks("Travel")
+    print(f"   Found {len(existing_tasks)} existing tasks")
+    print()
     
     print(f"🧳 Found {len(travel_events)} travel events")
     print("=" * 60)
+    
+    created_count = 0
+    skipped_count = 0
     
     for trip in travel_events:
         summary = trip.get('summary', 'Travel')
@@ -79,8 +121,12 @@ def generate_travel_tasks():
                 tasks.append(f"Check LAX traffic/security wait times")
             
             for task in tasks:
-                if create_todoist_task(task, project="Travel", priority="2"):
-                    print(f"   ✅ Created: {task}")
+                if create_todoist_task(task, project="Travel", priority="2", existing_tasks=existing_tasks):
+                    if task not in existing_tasks:
+                        print(f"   ✅ Created: {task}")
+                        created_count += 1
+                    else:
+                        skipped_count += 1
                 else:
                     print(f"   ⚠️  Failed: {task}")
         
@@ -92,8 +138,14 @@ def generate_travel_tasks():
             ]
             
             for task in tasks:
-                if create_todoist_task(task, project="Travel", priority="3"):
-                    print(f"   ✅ Created: {task}")
+                if create_todoist_task(task, project="Travel", priority="3", existing_tasks=existing_tasks):
+                    if task not in existing_tasks:
+                        print(f"   ✅ Created: {task}")
+                        created_count += 1
+                    else:
+                        skipped_count += 1
+    
+    return created_count, skipped_count
 
 def main():
     """Main function"""
@@ -111,11 +163,14 @@ def main():
         print("❌ Todoist CLI not found. Install: npm install -g todoist-ts-cli")
         return
     
-    generate_travel_tasks()
+    created, skipped = generate_travel_tasks()
     
-    print()
-    print("=" * 60)
-    print("✅ Travel task generation complete")
+    if created is not None:
+        print()
+        print("=" * 60)
+        print(f"✅ Travel task generation complete")
+        print(f"   Created: {created} new tasks")
+        print(f"   Skipped: {skipped} existing tasks")
 
 if __name__ == "__main__":
     main()
