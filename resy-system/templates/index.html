@@ -255,6 +255,75 @@
         border-color: var(--resy-orange);
         color: var(--resy-orange);
     }
+    
+    /* Search Results */
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.875rem;
+        background: var(--resy-gray-50);
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 8px;
+        margin-bottom: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .search-result-item:hover {
+        border-color: var(--resy-orange);
+        background: var(--resy-white);
+        box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1);
+    }
+    
+    .search-result-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+        object-fit: cover;
+        background: var(--resy-gray-200);
+    }
+    
+    .search-result-image-placeholder {
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+        background: var(--resy-gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--resy-gray-400);
+        font-size: 0.75rem;
+    }
+    
+    .search-result-info {
+        flex: 1;
+    }
+    
+    .search-result-name {
+        font-weight: 600;
+        color: var(--resy-gray-900);
+        margin-bottom: 0.25rem;
+    }
+    
+    .search-result-meta {
+        font-size: 0.8125rem;
+        color: var(--resy-gray-500);
+    }
+    
+    .search-result-id {
+        font-size: 0.75rem;
+        color: var(--resy-gray-400);
+        font-family: monospace;
+        background: var(--resy-gray-100);
+        padding: 0.125rem 0.375rem;
+        border-radius: 4px;
+    }
+    
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
 </style>
 {% endblock %}
 
@@ -357,9 +426,45 @@
 
 <!-- Add Restaurant Modal -->
 <div class="modal" id="addModal">
-    <div class="modal-content">
+    <div class="modal-content" style="max-width: 600px;">
         <h2>Add Restaurant</h2>
-        <p class="hint">Add a restaurant from Resy to your priority list</p>
+        <p class="hint">Search for NYC restaurants or enter details manually</p>
+        
+        <!-- Search Section -->
+        <div class="search-section" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--resy-gray-200);">
+            <div class="form-group">
+                <label>Search NYC Restaurants</label>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="text" id="searchQuery" placeholder="e.g., Carbone, Italian, steakhouse..." style="flex: 1;">
+                    <button type="button" class="btn" onclick="searchRestaurants()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        Search
+                    </button>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--resy-gray-400); margin-top: 0.375rem;">
+                    Search within 20 miles of NYC
+                </p>
+            </div>
+            
+            <!-- Search Results -->
+            <div id="searchResults" style="display: none; max-height: 300px; overflow-y: auto;">
+                <p style="font-size: 0.8125rem; color: var(--resy-gray-500); margin-bottom: 0.5rem;">
+                    Click a restaurant to auto-fill the form:
+                </p>
+                <div id="searchResultsList"></div>
+            </div>
+            
+            <div id="searchLoading" style="display: none; text-align: center; padding: 1rem; color: var(--resy-gray-500);">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 1s linear infinite; margin: 0 auto;">
+                    <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                </svg>
+                <p style="margin-top: 0.5rem; font-size: 0.8125rem;">Searching...</p>
+            </div>
+        </div>
+        
         <form id="addForm">
             <div class="form-group">
                 <label for="name">Restaurant Name</label>
@@ -368,6 +473,9 @@
             <div class="form-group">
                 <label for="venue_id">Resy Venue ID</label>
                 <input type="text" id="venue_id" required placeholder="e.g., 84653">
+                <p style="font-size: 0.75rem; color: var(--resy-gray-400); margin-top: 0.25rem;">
+                    Found on resy.com URL: resy.com/cities/ny/venues/<strong>ID</strong>-name
+                </p>
             </div>
             <div class="form-group">
                 <label for="city">City</label>
@@ -594,6 +702,82 @@
     function closeDetailModal() {
         document.getElementById('detailModal').classList.remove('active');
     }
+
+    // Search functionality
+    async function searchRestaurants() {
+        const query = document.getElementById('searchQuery').value.trim();
+        if (!query) {
+            alert('Please enter a search term');
+            return;
+        }
+        
+        const resultsDiv = document.getElementById('searchResults');
+        const loadingDiv = document.getElementById('searchLoading');
+        const listDiv = document.getElementById('searchResultsList');
+        
+        resultsDiv.style.display = 'none';
+        loadingDiv.style.display = 'block';
+        
+        try {
+            const response = await fetch(`/api/resy/search?q=${encodeURIComponent(query)}&city=nyc`);
+            const data = await response.json();
+            
+            loadingDiv.style.display = 'none';
+            
+            if (data.venues && data.venues.length > 0) {
+                listDiv.innerHTML = data.venues.map(venue => `
+                    <div class="search-result-item" onclick="selectRestaurant('${venue.name.replace(/'/g, "\\'")}', '${venue.venue_id}', '${(venue.type || '').replace(/'/g, "\\'")}', '${(venue.neighborhood || '').replace(/'/g, "\\'")}')">
+                        ${venue.image_url 
+                            ? `<img src="${venue.image_url}" alt="${venue.name}" class="search-result-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">`
+                            : ''}
+                        <div class="search-result-image-placeholder" style="${venue.image_url ? 'display:none;' : ''}">🍽️</div>
+                        <div class="search-result-info">
+                            <div class="search-result-name">${venue.name}</div>
+                            <div class="search-result-meta">
+                                ${venue.neighborhood || 'NYC'} · ${venue.type || 'Restaurant'}
+                                ${venue.price ? ' · ' + venue.price : ''}
+                            </div>
+                        </div>
+                        <span class="search-result-id">${venue.venue_id}</span>
+                    </div>
+                `).join('');
+                resultsDiv.style.display = 'block';
+            } else {
+                listDiv.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: var(--resy-gray-400);">
+                        <p>No restaurants found matching "${query}"</p>
+                        <p style="font-size: 0.8125rem; margin-top: 0.5rem;">Try searching by name, cuisine, or neighborhood</p>
+                    </div>
+                `;
+                resultsDiv.style.display = 'block';
+            }
+        } catch (error) {
+            loadingDiv.style.display = 'none';
+            alert('Error searching: ' + error.message);
+        }
+    }
+    
+    function selectRestaurant(name, venueId, type, neighborhood) {
+        document.getElementById('name').value = name;
+        document.getElementById('venue_id').value = venueId;
+        document.getElementById('city').value = 'NYC';
+        document.getElementById('cuisine').value = type || '';
+        
+        // Hide search results
+        document.getElementById('searchResults').style.display = 'none';
+        document.getElementById('searchQuery').value = '';
+        
+        // Highlight the form
+        document.getElementById('name').focus();
+    }
+    
+    // Allow Enter key to search
+    document.getElementById('searchQuery')?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            searchRestaurants();
+        }
+    });
 
     // Close modal on outside click
     document.getElementById('addModal').addEventListener('click', (e) => {
