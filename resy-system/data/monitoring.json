@@ -12,6 +12,36 @@
       "reservations_made": 1,
       "details": "Test scan",
       "status": "success"
+    },
+    {
+      "timestamp": "2026-04-11T13:30:01.824920",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "No upcoming trips found",
+      "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-04-11T14:00:02.352215",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Skipped - scanned 0.5h ago",
+      "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-04-11T14:13:02.081108",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Skipped - scanned 0.7h ago",
+      "status": "no_bookings"
     }
   ],
   "bookings": [
@@ -757,15 +787,737 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T13:05:12.138895",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T13:07:44.944766",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:33:21.693742",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:33:40.903970",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/admin/users",
+        "method": "GET"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:43:46.494936",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:46:25.385673",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:48:11.726628",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/profile/change-password",
+        "method": "POST"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:48:21.969389",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/profile/change-password",
+        "method": "POST"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:13.826052",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/sys_files/index.js",
+      "details": {
+        "path": "/static/style/sys_files/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:13.939775",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /css/support_parent.css",
+      "details": {
+        "path": "/css/support_parent.css",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:14.052994",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/auth.js",
+      "details": {
+        "path": "/assets/js/auth.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:14.482195",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/lkk_ch.js",
+      "details": {
+        "path": "/js/lkk_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:14.589272",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bot-connect.js",
+      "details": {
+        "path": "/bot-connect.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:15.232819",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/protect/index.js",
+      "details": {
+        "path": "/static/style/protect/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:15.339114",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/twint_ch.js",
+      "details": {
+        "path": "/js/twint_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:15.446043",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/qr_modal.js",
+      "details": {
+        "path": "/assets/js/qr_modal.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:15.660485",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:15.766135",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/message.js",
+      "details": {
+        "path": "/assets/js/message.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:26.995146",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aaa9",
+      "details": {
+        "path": "/aaa9",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:52:27.506136",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aab8",
+      "details": {
+        "path": "/aab8",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T15:58:37.130151",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:06:18.291286",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:06:18.325121",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/trips",
+        "method": "GET"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:06:21.911286",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:06:21.949838",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/trips",
+        "method": "GET"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:07:35.486030",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/login",
+        "method": "GET"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:07:38.976085",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/login",
+        "method": "GET"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:07:40.007045",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/login",
+        "method": "GET"
+      },
+      "user_email": "[REDACTED]",
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:10:41.985001",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T16:25:53.247019",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:14:08.097733",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aaa9",
+      "details": {
+        "path": "/aaa9",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:14:09.028426",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aab9",
+      "details": {
+        "path": "/aab9",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:14:27.114999",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aaa9",
+      "details": {
+        "path": "/aaa9",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:14:27.911564",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aab9",
+      "details": {
+        "path": "/aab9",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:26:12.436139",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:26:25.686317",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:26:26.367790",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "'int' object has no attribute 'get'"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T17:57:46.154786",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:09.355306",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/sys_files/index.js",
+      "details": {
+        "path": "/static/style/sys_files/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:09.463005",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/protect/index.js",
+      "details": {
+        "path": "/static/style/protect/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:09.569857",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/lkk_ch.js",
+      "details": {
+        "path": "/js/lkk_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:09.680844",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/twint_ch.js",
+      "details": {
+        "path": "/js/twint_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:10.436299",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:10.543534",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /css/support_parent.css",
+      "details": {
+        "path": "/css/support_parent.css",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:10.655211",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/message.js",
+      "details": {
+        "path": "/assets/js/message.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:10.762092",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bot-connect.js",
+      "details": {
+        "path": "/bot-connect.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:10.874283",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/qr_modal.js",
+      "details": {
+        "path": "/assets/js/qr_modal.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T19:32:10.987551",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/auth.js",
+      "details": {
+        "path": "/assets/js/auth.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:51.387679",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/lkk_ch.js",
+      "details": {
+        "path": "/js/lkk_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:51.499727",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/twint_ch.js",
+      "details": {
+        "path": "/js/twint_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:51.837454",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:51.950865",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/protect/index.js",
+      "details": {
+        "path": "/static/style/protect/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:52.062338",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /css/support_parent.css",
+      "details": {
+        "path": "/css/support_parent.css",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:52.172490",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bot-connect.js",
+      "details": {
+        "path": "/bot-connect.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:52.500853",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/sys_files/index.js",
+      "details": {
+        "path": "/static/style/sys_files/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:52.611161",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/auth.js",
+      "details": {
+        "path": "/assets/js/auth.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:53.333952",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/message.js",
+      "details": {
+        "path": "/assets/js/message.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T20:26:53.560325",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/qr_modal.js",
+      "details": {
+        "path": "/assets/js/qr_modal.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T21:16:04.215315",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file-manager/initialize",
+      "details": {
+        "path": "/file-manager/initialize",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T21:16:04.431446",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file-manager/initialize",
+      "details": {
+        "path": "/file-manager/initialize",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T23:30:16.838732",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-04-11T06:29:57.775366",
+    "last_scan_time": "2026-04-11T14:13:02.081118",
     "last_booking_time": "2026-04-11T06:29:57.775648",
-    "last_error_time": "2026-04-11T11:12:50.313113",
-    "total_scans": 1,
+    "last_error_time": "2026-04-11T23:30:16.838743",
+    "total_scans": 4,
     "total_bookings": 1,
-    "total_errors": 61,
+    "total_errors": 122,
     "status": "critical"
   }
 }

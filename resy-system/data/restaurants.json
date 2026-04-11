@@ -1,25 +1,25 @@
 {
   "restaurants": [
     {
+      "id": 4,
+      "name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "city": "NYC",
+      "cuisine": "Steakhouse",
+      "priority": 1,
+      "notes": "",
+      "added_at": "2026-04-11T08:30:26.529156",
+      "last_booked": null
+    },
+    {
       "id": 1,
       "name": "Carbone",
       "venue_id": "1478",
       "city": "NYC",
       "cuisine": "Italian",
-      "priority": 1,
-      "notes": "",
-      "added_at": "2026-04-11T08:25:34.629207",
-      "last_booked": null
-    },
-    {
-      "id": 2,
-      "name": "Saga",
-      "venue_id": "1529",
-      "city": "NYC",
-      "cuisine": "American",
       "priority": 2,
       "notes": "",
-      "added_at": "2026-04-11T08:25:48.367005",
+      "added_at": "2026-04-11T08:25:34.629207",
       "last_booked": null
     },
     {
@@ -34,14 +34,14 @@
       "last_booked": null
     },
     {
-      "id": 4,
-      "name": "4 Charles Prime Rib",
-      "venue_id": "1501",
+      "id": 2,
+      "name": "Saga",
+      "venue_id": "1529",
       "city": "NYC",
-      "cuisine": "Steakhouse",
+      "cuisine": "American",
       "priority": 4,
       "notes": "",
-      "added_at": "2026-04-11T08:30:26.529156",
+      "added_at": "2026-04-11T08:25:48.367005",
       "last_booked": null
     }
   ]

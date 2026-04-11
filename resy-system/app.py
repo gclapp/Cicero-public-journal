@@ -13,6 +13,7 @@ import sys
 import urllib.parse
 from datetime import datetime
 from pathlib import Path
+import uuid
 
 # Add current directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
@@ -29,16 +30,44 @@ from monitoring import (
 )
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+
+# Use a persistent secret key (stored in file) so sessions survive restarts
+SECRET_KEY_FILE = Path(__file__).parent / "data" / ".secret_key"
+if SECRET_KEY_FILE.exists():
+    with open(SECRET_KEY_FILE, 'rb') as f:
+        app.secret_key = f.read()
+else:
+    # Generate new secret key and save it
+    app.secret_key = os.urandom(24)
+    SECRET_KEY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SECRET_KEY_FILE, 'wb') as f:
+        f.write(app.secret_key)
+
+# Upload configuration
+UPLOAD_FOLDER = Path(__file__).parent / "static" / "uploads"
+UPLOAD_FOLDER.mkdir(parents=True, exist_ok=True)
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
 @app.template_filter('format_date')
 def format_date_filter(date_str):
-    """Format date string for display"""
+    """Format date string for display as MM-DD-YYYY"""
     try:
         dt = datetime.strptime(date_str, '%Y-%m-%d')
-        return dt.strftime('%A, %B %d, %Y')
+        return dt.strftime('%m-%d-%Y')
     except:
         return date_str
+
+@app.template_filter('format_time_12h')
+def format_time_12h_filter(time_str):
+    """Convert 24-hour time to 12-hour AM/PM format"""
+    try:
+        dt = datetime.strptime(time_str, '%H:%M')
+        return dt.strftime('%I:%M %p').lstrip('0')
+    except:
+        return time_str
 
 # Data directory
 DATA_DIR = Path(__file__).parent / "data"
@@ -75,16 +104,50 @@ def init_files():
                     "email": "[REDACTED]",
                     "password_hash": hashlib.sha256("changeme123".encode()).hexdigest(),
                     "is_admin": True,
+                    "role": "admin",
+                    "is_suspended": False,
+                    "profile_image": None,
                     "created_at": datetime.now().isoformat()
                 }
             ]
         }
         with open(USERS_FILE, 'w') as f:
             json.dump(default_users, f)
+    else:
+        # Migrate existing users to new schema
+        migrate_users()
     
     if not RESERVATIONS_FILE.exists():
         with open(RESERVATIONS_FILE, 'w') as f:
             json.dump({"reservations": []}, f)
+
+def migrate_users():
+    """Migrate existing users to new schema with roles"""
+    users = load_users()
+    modified = False
+    
+    for user in users['users']:
+        # Add role field if missing
+        if 'role' not in user:
+            # Default: existing admins stay admin, others become app_user
+            if user.get('is_admin', False):
+                user['role'] = 'admin'
+            else:
+                user['role'] = 'app_user'
+            modified = True
+        
+        # Add is_suspended field if missing
+        if 'is_suspended' not in user:
+            user['is_suspended'] = False
+            modified = True
+        
+        # Add profile_image field if missing
+        if 'profile_image' not in user:
+            user['profile_image'] = None
+            modified = True
+    
+    if modified:
+        save_users(users)
 
 def load_restaurants():
     """Load restaurant list"""
@@ -277,12 +340,31 @@ def hash_password(password):
     """Hash password"""
     return hashlib.sha256(password.encode()).hexdigest()
 
+def allowed_file(filename):
+    """Check if file extension is allowed"""
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def get_current_user():
+    """Get current logged-in user data"""
+    if 'user_email' not in session:
+        return None
+    users = load_users()
+    return next((u for u in users['users'] if u['email'] == session['user_email']), None)
+
 def login_required(f):
     """Decorator to require login"""
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user_email' not in session:
             return redirect(url_for('login'))
+        
+        # Check if user is suspended
+        user = get_current_user()
+        if user and user.get('is_suspended', False):
+            session.clear()
+            flash('Your account has been suspended. Please contact an administrator.', 'error')
+            return redirect(url_for('login'))
+        
         return f(*args, **kwargs)
     return decorated_function
 
@@ -292,20 +374,64 @@ def admin_required(f):
     def decorated_function(*args, **kwargs):
         if 'user_email' not in session:
             return redirect(url_for('login'))
-        users = load_users()
-        user = next((u for u in users['users'] if u['email'] == session['user_email']), None)
-        if not user or not user.get('is_admin'):
+        
+        user = get_current_user()
+        if not user:
+            session.clear()
+            return redirect(url_for('login'))
+        
+        # Check if user is suspended
+        if user.get('is_suspended', False):
+            session.clear()
+            flash('Your account has been suspended. Please contact an administrator.', 'error')
+            return redirect(url_for('login'))
+        
+        # Check role - must be admin
+        if user.get('role') != 'admin':
             flash('Admin access required', 'error')
             return redirect(url_for('index'))
+        
+        return f(*args, **kwargs)
+    return decorated_function
+
+def app_user_required(f):
+    """Decorator to require app_user or admin (not just calendar_user)"""
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_email' not in session:
+            return redirect(url_for('login'))
+        
+        user = get_current_user()
+        if not user:
+            session.clear()
+            return redirect(url_for('login'))
+        
+        # Check if user is suspended
+        if user.get('is_suspended', False):
+            session.clear()
+            flash('Your account has been suspended. Please contact an administrator.', 'error')
+            return redirect(url_for('login'))
+        
+        # Check role - must be app_user or admin
+        role = user.get('role', 'app_user')
+        if role not in ['admin', 'app_user']:
+            flash('You do not have permission to access this feature.', 'error')
+            return redirect(url_for('index'))
+        
         return f(*args, **kwargs)
     return decorated_function
 
 @app.route('/')
 @login_required
 def index():
-    """Main page - restaurant list"""
-    data = load_restaurants()
-    return render_template('index.html', restaurants=data['restaurants'])
+    """Main page - redirect to trips"""
+    return redirect(url_for('trips_page'))
+
+@app.route('/wishlist')
+@app_user_required
+def wishlist_page():
+    """Wish List page - manage restaurant preferences"""
+    return render_template('wishlist.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -320,8 +446,15 @@ def login():
         user = next((u for u in users['users'] if u['email'] == email and u['password_hash'] == password_hash), None)
         
         if user:
+            # Check if user is suspended
+            if user.get('is_suspended', False):
+                flash('Your account has been suspended. Please contact an administrator.', 'error')
+                return render_template('login.html')
+            
             session['user_email'] = email
-            session['is_admin'] = user.get('is_admin', False)
+            session['is_admin'] = user.get('role') == 'admin'
+            session['user_role'] = user.get('role', 'app_user')
+            session['profile_image'] = user.get('profile_image')
             return redirect(url_for('index'))
         else:
             flash('Invalid email or password', 'error')
@@ -334,8 +467,129 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
-@app.route('/api/restaurants', methods=['GET', 'POST'])
+@app.route('/profile')
 @login_required
+def profile():
+    """User profile page"""
+    user = get_current_user()
+    return render_template('profile.html', user=user)
+
+@app.route('/profile/change-password', methods=['POST'])
+@login_required
+def change_password():
+    """Change user password"""
+    user = get_current_user()
+    if not user:
+        return jsonify({'success': False, 'error': 'User not found'}), 404
+    
+    # Support both JSON and form data
+    if request.is_json:
+        data = request.get_json()
+        current_password = data.get('current_password')
+        new_password = data.get('new_password')
+    else:
+        current_password = request.form.get('current_password')
+        new_password = request.form.get('new_password')
+    
+    # Validate current password
+    current_hash = hash_password(current_password)
+    if current_hash != user['password_hash']:
+        return jsonify({'success': False, 'error': 'Current password is incorrect'}), 400
+    
+    # Validate new password
+    if len(new_password) < 6:
+        return jsonify({'success': False, 'error': 'New password must be at least 6 characters'}), 400
+    
+    # Update password
+    users = load_users()
+    for u in users['users']:
+        if u['email'] == user['email']:
+            u['password_hash'] = hash_password(new_password)
+            break
+    
+    save_users(users)
+    return jsonify({'success': True, 'message': 'Password changed successfully'})
+
+@app.route('/profile/upload-image', methods=['POST'])
+@login_required
+def upload_profile_image():
+    """Upload profile image"""
+    user = get_current_user()
+    if not user:
+        return jsonify({'success': False, 'error': 'User not found'}), 404
+    
+    if 'image' not in request.files:
+        return jsonify({'success': False, 'error': 'No image provided'}), 400
+    
+    file = request.files['image']
+    if file.filename == '':
+        return jsonify({'success': False, 'error': 'No file selected'}), 400
+    
+    if file and allowed_file(file.filename):
+        # Generate unique filename
+        ext = file.filename.rsplit('.', 1)[1].lower()
+        filename = f"{uuid.uuid4().hex}.{ext}"
+        filepath = UPLOAD_FOLDER / filename
+        
+        # Save file
+        file.save(filepath)
+        
+        # Delete old image if exists
+        old_image = user.get('profile_image')
+        if old_image:
+            old_path = UPLOAD_FOLDER / old_image
+            if old_path.exists():
+                old_path.unlink()
+        
+        # Update user record
+        users = load_users()
+        for u in users['users']:
+            if u['email'] == user['email']:
+                u['profile_image'] = filename
+                break
+        
+        save_users(users)
+        
+        # Update session
+        session['profile_image'] = filename
+        
+        return jsonify({
+            'success': True,
+            'image_url': f'/static/uploads/{filename}'
+        })
+    
+    return jsonify({'success': False, 'error': 'Invalid file type'}), 400
+
+@app.route('/profile/remove-image', methods=['POST'])
+@login_required
+def remove_profile_image():
+    """Remove profile image"""
+    user = get_current_user()
+    if not user:
+        return jsonify({'success': False, 'error': 'User not found'}), 404
+    
+    old_image = user.get('profile_image')
+    if old_image:
+        old_path = UPLOAD_FOLDER / old_image
+        if old_path.exists():
+            old_path.unlink()
+    
+    # Update user record
+    users = load_users()
+    for u in users['users']:
+        if u['email'] == user['email']:
+            u['profile_image'] = None
+            break
+    
+    save_users(users)
+    
+    # Update session
+    session['profile_image'] = None
+    
+    return jsonify({'success': True})
+
+@app.route('/api/restaurants', methods=['GET', 'POST'])
+@app_user_required
 def api_restaurants():
     """API for restaurant list"""
     if request.method == 'GET':
@@ -410,6 +664,22 @@ def api_restaurants_nyc():
     nyc_restaurants = [r for r in data['restaurants'] if r.get('city', 'NYC') == 'NYC']
     return jsonify({'restaurants': nyc_restaurants})
 
+@app.route('/api/search-resy')
+@app_user_required
+def api_search_resy():
+    """Search Resy for restaurants"""
+    query = request.args.get('q', '')
+    if not query:
+        return jsonify({'error': 'Query required'}), 400
+    
+    # Use NYC coordinates and today's date for search
+    from datetime import date
+    today = date.today().isoformat()
+    
+    # Search Resy (NYC coordinates: 40.7128, -74.0060)
+    results = search_resy_venues(query, 40.7128, -74.0060, today, 2)
+    return jsonify(results)
+
 @app.route('/admin/users')
 @admin_required
 def admin_users():
@@ -417,22 +687,40 @@ def admin_users():
     users = load_users()
     return render_template('users.html', users=users['users'])
 
-@app.route('/api/users', methods=['GET', 'POST', 'DELETE'])
+@app.route('/api/users', methods=['GET', 'POST', 'DELETE', 'PATCH'])
 @admin_required
 def api_users():
     """API for user management"""
     if request.method == 'GET':
         users = load_users()
         # Don't return password hashes
-        safe_users = [{'email': u['email'], 'is_admin': u.get('is_admin', False), 
-                      'created_at': u.get('created_at', '')} for u in users['users']]
+        safe_users = []
+        for u in users['users']:
+            safe_user = {
+                'email': u['email'],
+                'is_admin': u.get('role') == 'admin',
+                'role': u.get('role', 'app_user'),
+                'is_suspended': u.get('is_suspended', False),
+                'profile_image': u.get('profile_image'),
+                'created_at': u.get('created_at', '')
+            }
+            safe_users.append(safe_user)
         return jsonify({'users': safe_users})
     
     elif request.method == 'POST':
         data = request.json
         email = data.get('email')
         password = data.get('password')
+        role = data.get('role', 'app_user')
         is_admin = data.get('is_admin', False)
+        
+        # Support legacy is_admin field
+        if is_admin:
+            role = 'admin'
+        
+        # Validate role
+        if role not in ['admin', 'app_user', 'calendar_user']:
+            return jsonify({'success': False, 'error': 'Invalid role'})
         
         users = load_users()
         
@@ -443,7 +731,10 @@ def api_users():
         new_user = {
             'email': email,
             'password_hash': hash_password(password),
-            'is_admin': is_admin,
+            'is_admin': role == 'admin',
+            'role': role,
+            'is_suspended': False,
+            'profile_image': None,
             'created_at': datetime.now().isoformat()
         }
         users['users'].append(new_user)
@@ -453,13 +744,58 @@ def api_users():
     
     elif request.method == 'DELETE':
         email = request.json.get('email')
+        
+        # Prevent self-deletion
+        if email == session.get('user_email'):
+            return jsonify({'success': False, 'error': 'Cannot delete yourself'})
+        
         users = load_users()
+        
+        # Find user and delete profile image if exists
+        user_to_delete = next((u for u in users['users'] if u['email'] == email), None)
+        if user_to_delete and user_to_delete.get('profile_image'):
+            image_path = UPLOAD_FOLDER / user_to_delete['profile_image']
+            if image_path.exists():
+                image_path.unlink()
+        
         users['users'] = [u for u in users['users'] if u['email'] != email]
+        save_users(users)
+        return jsonify({'success': True})
+    
+    elif request.method == 'PATCH':
+        """Update user (suspend/unsuspend, change role)"""
+        data = request.json
+        email = data.get('email')
+        action = data.get('action')
+        
+        users = load_users()
+        user = next((u for u in users['users'] if u['email'] == email), None)
+        
+        if not user:
+            return jsonify({'success': False, 'error': 'User not found'})
+        
+        # Prevent self-suspension
+        if email == session.get('user_email') and action == 'suspend':
+            return jsonify({'success': False, 'error': 'Cannot suspend yourself'})
+        
+        if action == 'suspend':
+            user['is_suspended'] = True
+        elif action == 'unsuspend':
+            user['is_suspended'] = False
+        elif action == 'change_role':
+            new_role = data.get('role')
+            if new_role not in ['admin', 'app_user', 'calendar_user']:
+                return jsonify({'success': False, 'error': 'Invalid role'})
+            user['role'] = new_role
+            user['is_admin'] = new_role == 'admin'
+        else:
+            return jsonify({'success': False, 'error': 'Unknown action'})
+        
         save_users(users)
         return jsonify({'success': True})
 
 @app.route('/api/reservations', methods=['GET', 'POST'])
-@login_required
+@app_user_required
 def api_reservations():
     """API for reservation history"""
     if request.method == 'GET':
@@ -509,7 +845,7 @@ def api_trips_refresh():
     return jsonify({'success': True, 'trips': trips, 'count': len(trips)})
 
 @app.route('/api/trips/skip', methods=['POST'])
-@login_required
+@app_user_required
 def api_skip_date():
     """Skip a date - don't look for reservations on this date"""
     data = request.json
@@ -534,7 +870,7 @@ def api_skip_date():
         }), 400
 
 @app.route('/api/trips/unskip', methods=['POST'])
-@login_required
+@app_user_required
 def api_unskip_date():
     """Unskip a date - resume looking for reservations"""
     data = request.json
@@ -557,9 +893,84 @@ def api_skipped_dates():
     skipped = get_skipped_dates_list()
     return jsonify({'skipped': skipped})
 
+@app.route('/api/reservations/cancel', methods=['POST'])
+@app_user_required
+def api_cancel_reservation():
+    """Cancel a reservation on Resy"""
+    data = request.json
+    reservation_id = data.get('reservation_id')
+    
+    if not reservation_id:
+        return jsonify({'success': False, 'error': 'Reservation ID required'}), 400
+    
+    # Load credentials
+    creds = load_resy_credentials()
+    if not creds:
+        return jsonify({'success': False, 'error': 'Resy credentials not configured'}), 500
+    
+    import urllib.request
+    import urllib.error
+    
+    # First, get the resy_token for this reservation
+    resy_token = None
+    try:
+        url = "https://api.resy.com/3/user/reservations"
+        headers = {
+            "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
+            "X-Resy-Auth-Token": creds["auth_token"],
+            "Content-Type": "application/json"
+        }
+        req = urllib.request.Request(url, headers=headers)
+        
+        with urllib.request.urlopen(req, timeout=10) as response:
+            res_data = json.loads(response.read().decode())
+            for res in res_data.get("reservations", []):
+                if str(res.get("reservation_id")) == str(reservation_id):
+                    resy_token = res.get("resy_token")
+                    break
+    except Exception as e:
+        return jsonify({'success': False, 'error': f'Failed to fetch reservation details: {str(e)}'}), 500
+    
+    if not resy_token:
+        return jsonify({'success': False, 'error': 'Could not find reservation token'}), 404
+    
+    # Call Resy API to cancel using resy_token
+    cancel_url = "https://api.resy.com/3/cancel"
+    cancel_data = f"resy_token={resy_token}"
+    
+    cancel_headers = {
+        "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
+        "X-Resy-Auth-Token": creds["auth_token"],
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    
+    req = urllib.request.Request(cancel_url, data=cancel_data.encode(), headers=cancel_headers, method='POST')
+    
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            # Remove from local reservations file
+            reservations_data = load_reservations()
+            reservations_data['reservations'] = [
+                r for r in reservations_data['reservations'] 
+                if str(r.get('resy_reservation_id')) != str(reservation_id)
+            ]
+            save_reservations(reservations_data)
+            
+            # Clear trips cache so page shows updated data
+            from trips import TRIPS_CACHE_FILE
+            if TRIPS_CACHE_FILE.exists():
+                TRIPS_CACHE_FILE.unlink()
+            
+            return jsonify({'success': True, 'message': 'Reservation cancelled'})
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode() if hasattr(e, 'read') else 'Unknown error'
+        return jsonify({'success': False, 'error': f'Resy API error: {e.code}', 'details': error_body}), 400
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 # Resy Search API
 @app.route('/api/resy/search')
-@login_required
+@app_user_required
 def api_resy_search():
     """Search for restaurants - uses local database first, falls back to Resy API"""
     query = request.args.get('q', '')
@@ -608,7 +1019,7 @@ def api_resy_search():
     return jsonify(results)
 
 @app.route('/api/resy/venue/<venue_id>')
-@login_required
+@app_user_required
 def api_resy_venue_details(venue_id):
     """Get detailed venue info including images and map coordinates"""
     details = get_venue_details(venue_id)
@@ -685,7 +1096,7 @@ def api_attempts():
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/scan-and-book', methods=['POST'])
-@login_required
+@admin_required
 def api_scan_and_book():
     """Manually trigger calendar scan and booking process"""
     try:

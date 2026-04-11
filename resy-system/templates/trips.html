@@ -102,6 +102,10 @@
         margin-bottom: 0;
     }
     
+    .night-item.hidden {
+        display: none;
+    }
+    
     .night-date {
         display: flex;
         align-items: center;
@@ -126,6 +130,11 @@
     .night-status-icon.pending {
         background: #FEF3C7;
         color: #92400E;
+    }
+    
+    .night-status-icon.skipped {
+        background: var(--resy-gray-100);
+        color: var(--resy-gray-400);
     }
     
     .night-info {
@@ -165,11 +174,6 @@
         margin-top: 0.125rem;
     }
     
-    .night-status-icon.skipped {
-        background: var(--resy-gray-100);
-        color: var(--resy-gray-400);
-    }
-    
     .skip-btn {
         background: transparent;
         border: 1px solid var(--resy-gray-200);
@@ -203,7 +207,7 @@
     
     .stats-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
         margin-bottom: 2rem;
     }
@@ -214,20 +218,60 @@
         border-radius: 8px;
         padding: 1.25rem 1rem;
         text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    
+    .stat-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+    }
+    
+    .stat-card.active {
+        border-color: var(--resy-orange);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+    }
+    
+    .stat-card.trips-card {
+        background: linear-gradient(135deg, #FFF7ED 0%, #FFF 100%);
+        border-color: #FED7AA;
+    }
+    
+    .stat-card.trips-card .stat-value {
+        color: #EA580C;
+    }
+    
+    .stat-card.booked-card {
+        background: linear-gradient(135deg, #F0FDF4 0%, #FFF 100%);
+        border-color: #86EFAC;
+    }
+    
+    .stat-card.booked-card .stat-value {
+        color: #16A34A;
+    }
+    
+    .stat-card.pending-card {
+        background: linear-gradient(135deg, #FEF3C7 0%, #FFF 100%);
+        border-color: #FCD34D;
+    }
+    
+    .stat-card.pending-card .stat-value {
+        color: #B45309;
+    }
+    
+    .stat-card.skipped-card {
+        background: linear-gradient(135deg, #F3F4F6 0%, #FFF 100%);
+        border-color: #D1D5DB;
+    }
+    
+    .stat-card.skipped-card .stat-value {
+        color: #6B7280;
     }
     
     .stat-value {
         font-size: 1.75rem;
         font-weight: 600;
         color: var(--resy-gray-900);
-    }
-    
-    .stat-value.accent {
-        color: var(--resy-orange);
-    }
-    
-    .stat-value.success {
-        color: var(--resy-success);
     }
     
     .stat-label {
@@ -254,6 +298,27 @@
         height: 48px;
         margin-bottom: 1rem;
         stroke: var(--resy-gray-300);
+    }
+    
+    .action-buttons {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--resy-gray-200);
+    }
+    
+    .reservation-info {
+        font-size: 0.8125rem;
+        color: var(--resy-gray-500);
+        margin-top: 0.25rem;
+    }
+    
+    .reservation-info .restaurant-name {
+        color: var(--resy-success);
+        font-weight: 500;
+    }
+    
+    .reservation-info .time-info {
+        color: var(--resy-gray-400);
     }
 </style>
 {% endblock %}
@@ -286,32 +351,30 @@
     </div>
 </div>
 
+<div class="action-buttons"></div>
+
 {% if trips %}
     <div class="stats-grid">
-        <div class="stat-card">
+        <div class="stat-card trips-card" onclick="filterNights('all')" id="filter-all">
             <div class="stat-value">{{ trips|length }}</div>
             <div class="stat-label">Trips</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-value accent">{{ trips|sum(attribute='total_nights') }}</div>
-            <div class="stat-label">Nights</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-value success">{{ trips|sum(attribute='booked_nights') }}</div>
+        <div class="stat-card booked-card" onclick="filterNights('booked')" id="filter-booked">
+            <div class="stat-value">{{ trips|sum(attribute='booked_nights') }}</div>
             <div class="stat-label">Booked</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-value" style="color: var(--resy-orange);">{{ trips|sum(attribute='pending_nights') }}</div>
+        <div class="stat-card pending-card" onclick="filterNights('pending')" id="filter-pending">
+            <div class="stat-value">{{ trips|sum(attribute='pending_nights') }}</div>
             <div class="stat-label">Pending</div>
         </div>
-        <div class="stat-card">
-            <div class="stat-value" style="color: var(--resy-gray-400);">{{ trips|sum(attribute='skipped_nights') }}</div>
+        <div class="stat-card skipped-card" onclick="filterNights('skipped')" id="filter-skipped">
+            <div class="stat-value">{{ trips|sum(attribute='skipped_nights') }}</div>
             <div class="stat-label">Skipped</div>
         </div>
     </div>
     
     {% for trip in trips %}
-    <div class="trip-card">
+    <div class="trip-card" data-trip-id="{{ loop.index }}">
         <div class="trip-header">
             <div>
                 <div class="trip-title">New York City</div>
@@ -337,12 +400,17 @@
         
         <ul class="nights-list">
             {% for night in trip.nights %}
-            <li class="night-item">
+            <li class="night-item" data-status="{% if night.is_skipped %}skipped{% elif night.has_reservation %}booked{% else %}pending{% endif %}">
                 <div class="night-date">
-                    <span class="night-status-icon {{ 'booked' if night.has_reservation else 'pending' }}">
+                    <span class="night-status-icon {% if night.is_skipped %}skipped{% elif night.has_reservation %}booked{% else %}pending{% endif %}">
                         {% if night.has_reservation %}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
                                 <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        {% elif night.is_skipped %}
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                         {% else %}
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -356,9 +424,15 @@
                         <span class="night-day">{{ night.date|format_date }}</span>
                         {% if night.is_skipped %}
                             <span class="night-skipped">Skipped{% if night.skip_reason %}: {{ night.skip_reason }}{% endif %}</span>
+                            {% if night.has_reservation and night.reservation %}
+                            <span class="reservation-info">
+                                <span class="restaurant-name">{{ night.reservation.venue_name }}</span>
+                                <span class="time-info">{{ night.reservation.time|format_time_12h }} · Party of {{ night.reservation.party_size }}{% if night.reservation.neighborhood %} · {{ night.reservation.neighborhood }}{% endif %}</span>
+                            </span>
+                            {% endif %}
                         {% elif night.has_reservation and night.reservation %}
-                            <span class="night-restaurant">{{ night.reservation.restaurant_name }}</span>
-                            <span class="night-time">{{ night.reservation.time }} · Party of {{ night.reservation.party_size }}</span>
+                            <span class="night-restaurant">{{ night.reservation.venue_name }}</span>
+                            <span class="night-time">{{ night.reservation.time|format_time_12h }} · Party of {{ night.reservation.party_size }}{% if night.reservation.neighborhood %} · {{ night.reservation.neighborhood }}{% endif %}</span>
                         {% elif night.needs_booking %}
                             <span class="night-pending">Needs reservation</span>
                         {% else %}
@@ -366,13 +440,12 @@
                         {% endif %}
                     </div>
                 </div>
-                {% if night.is_skipped %}
+                {% if night.has_reservation and night.reservation %}
+                <button class="skip-btn" onclick="cancelReservation('{{ night.reservation.resy_reservation_id or night.reservation.reservation_id }}', '{{ night.reservation.venue_name }}')" style="background: var(--resy-error); color: white;">Cancel</button>
+                {% elif night.is_skipped %}
                 <button class="unskip-btn" onclick="unskipDate('{{ night.date }}')">Unskip</button>
                 {% elif night.needs_booking and not night.has_reservation %}
-                <div style="display: flex; gap: 0.5rem;">
-                    <button class="btn btn-sm" onclick="triggerScan('{{ night.date }}')">Find Table</button>
-                    <button class="skip-btn" onclick="skipDate('{{ night.date }}')">Skip</button>
-                </div>
+                <button class="skip-btn" onclick="skipDate('{{ night.date }}')">Skip</button>
                 {% endif %}
             </li>
             {% endfor %}
@@ -399,6 +472,42 @@
 
 {% block extra_js %}
 <script>
+let currentFilter = 'all';
+
+function filterNights(status) {
+    currentFilter = status;
+    
+    // Update active state on stat cards
+    document.querySelectorAll('.stat-card').forEach(card => {
+        card.classList.remove('active');
+    });
+    document.getElementById('filter-' + status).classList.add('active');
+    
+    // Filter night items
+    document.querySelectorAll('.night-item').forEach(item => {
+        if (status === 'all') {
+            item.classList.remove('hidden');
+        } else {
+            const itemStatus = item.getAttribute('data-status');
+            if (itemStatus === status) {
+                item.classList.remove('hidden');
+            } else {
+                item.classList.add('hidden');
+            }
+        }
+    });
+    
+    // Show/hide trip cards based on whether they have visible nights
+    document.querySelectorAll('.trip-card').forEach(card => {
+        const visibleNights = card.querySelectorAll('.night-item:not(.hidden)');
+        if (visibleNights.length === 0 && status !== 'all') {
+            card.style.display = 'none';
+        } else {
+            card.style.display = 'block';
+        }
+    });
+}
+
 async function refreshTrips() {
     const btn = document.querySelector('button[onclick="refreshTrips()"]');
     const originalText = btn.innerHTML;
@@ -421,10 +530,6 @@ async function refreshTrips() {
         btn.innerHTML = originalText;
         btn.disabled = false;
     }
-}
-
-async function triggerScan(date) {
-    alert('Scanner runs automatically at scheduled times. Check back later for updates!');
 }
 
 async function rescanAndBook() {
@@ -489,6 +594,31 @@ async function unskipDate(date) {
             window.location.reload();
         } else {
             alert('Error: ' + (data.error || 'Failed to unskip date'));
+        }
+    } catch (e) {
+        alert('Error: ' + e.message);
+    }
+}
+
+async function cancelReservation(reservationId, venueName) {
+    if (!confirm(`Cancel reservation at ${venueName}?\n\nThis will cancel the reservation on Resy and cannot be undone.`)) return;
+    
+    try {
+        const response = await fetch('/api/reservations/cancel', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({reservation_id: reservationId})
+        });
+        
+        const data = await response.json();
+        if (data.success) {
+            alert('Reservation cancelled successfully');
+            // Small delay to ensure server has processed, then reload
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+        } else {
+            alert('Error: ' + (data.error || 'Failed to cancel reservation'));
         }
     } catch (e) {
         alert('Error: ' + e.message);

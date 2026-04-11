@@ -1,0 +1,455 @@
+{% extends "base.html" %}
+
+{% block title %}Wish List - NYCeats{% endblock %}
+
+{% block extra_css %}
+<style>
+    .wishlist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .wishlist-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    
+    .search-box {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .search-box input {
+        flex: 1;
+    }
+    
+    .restaurant-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .restaurant-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--resy-white);
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 8px;
+        transition: all 0.2s;
+    }
+    
+    .restaurant-item:hover {
+        border-color: var(--resy-orange);
+        box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1);
+    }
+    
+    .restaurant-priority {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--resy-orange);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.875rem;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+    
+    .restaurant-info {
+        flex: 1;
+    }
+    
+    .restaurant-info h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--resy-gray-900);
+        margin-bottom: 0.25rem;
+    }
+    
+    .restaurant-info p {
+        font-size: 0.8125rem;
+        color: var(--resy-gray-500);
+    }
+    
+    .restaurant-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+    
+    .btn-icon {
+        width: 32px;
+        height: 32px;
+        border: none;
+        background: var(--resy-gray-100);
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--resy-gray-600);
+        transition: all 0.2s;
+    }
+    
+    .btn-icon:hover {
+        background: var(--resy-orange);
+        color: white;
+    }
+    
+    .btn-icon:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .empty-wishlist {
+        text-align: center;
+        padding: 3rem;
+        color: var(--resy-gray-400);
+    }
+    
+    .search-results {
+        margin-top: 1rem;
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 8px;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--resy-gray-100);
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    
+    .search-result-item:hover {
+        background: var(--resy-gray-50);
+    }
+    
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+    
+    .result-info {
+        flex: 1;
+    }
+    
+    .result-info h5 {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--resy-gray-900);
+    }
+    
+    .result-info p {
+        font-size: 0.75rem;
+        color: var(--resy-gray-500);
+    }
+    
+    .add-btn {
+        background: var(--resy-orange);
+        color: white;
+        border: none;
+        padding: 0.375rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        cursor: pointer;
+    }
+    
+    .add-btn:hover {
+        background: var(--resy-orange-hover);
+    }
+    
+    .drag-handle {
+        cursor: grab;
+        color: var(--resy-gray-400);
+        padding: 0.25rem;
+    }
+    
+    .drag-handle:active {
+        cursor: grabbing;
+    }
+    
+    .restaurant-item.dragging {
+        opacity: 0.5;
+        border: 2px dashed var(--resy-orange);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="wishlist-header">
+    <div>
+        <h2>My Wish List</h2>
+        <p style="color: var(--resy-gray-500); font-size: 0.875rem; margin-top: 0.25rem;">Restaurants I want to try in NYC</p>
+    </div>
+    <span id="restaurantCount" class="badge badge-orange">0 restaurants</span>
+</div>
+
+<div class="card">
+    <h3 style="margin-bottom: 1rem; font-size: 1rem;">Add Restaurant</h3>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search for a restaurant..." autocomplete="off">
+        <button class="btn" onclick="searchRestaurants()">Search</button>
+    </div>
+    <div id="searchResults" class="search-results" style="display: none;"></div>
+</div>
+
+<div id="wishlistContainer" class="restaurant-list">
+    <!-- Restaurants will be loaded here -->
+</div>
+
+<div id="emptyState" class="empty-wishlist" style="display: none;">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem;">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+    <p>Your wish list is empty</p>
+    <p style="font-size: 0.8125rem; margin-top: 0.5rem;">Search above to add restaurants</p>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let restaurants = [];
+    let draggedItem = null;
+
+    // Load restaurants on page load
+    document.addEventListener('DOMContentLoaded', loadRestaurants);
+
+    // Search on Enter key
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            searchRestaurants();
+        }
+    });
+
+    async function loadRestaurants() {
+        try {
+            const response = await fetch('/api/restaurants');
+            const data = await response.json();
+            restaurants = data.restaurants || [];
+            renderRestaurants();
+        } catch (error) {
+            console.error('Error loading restaurants:', error);
+        }
+    }
+
+    function renderRestaurants() {
+        const container = document.getElementById('wishlistContainer');
+        const emptyState = document.getElementById('emptyState');
+        const countBadge = document.getElementById('restaurantCount');
+        
+        countBadge.textContent = `${restaurants.length} restaurant${restaurants.length !== 1 ? 's' : ''}`;
+        
+        if (restaurants.length === 0) {
+            container.innerHTML = '';
+            emptyState.style.display = 'block';
+            return;
+        }
+        
+        emptyState.style.display = 'none';
+        
+        container.innerHTML = restaurants.map((r, index) => `
+            <div class="restaurant-item" draggable="true" data-id="${r.id}">
+                <div class="drag-handle">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="12" r="1"></circle>
+                        <circle cx="9" cy="5" r="1"></circle>
+                        <circle cx="9" cy="19" r="1"></circle>
+                        <circle cx="15" cy="12" r="1"></circle>
+                        <circle cx="15" cy="5" r="1"></circle>
+                        <circle cx="15" cy="19" r="1"></circle>
+                    </svg>
+                </div>
+                <div class="restaurant-priority">${index + 1}</div>
+                <div class="restaurant-info">
+                    <h4>${escapeHtml(r.name)}</h4>
+                    <p>${escapeHtml(r.cuisine || 'Restaurant')} • ${escapeHtml(r.city || 'NYC')}</p>
+                </div>
+                <div class="restaurant-actions">
+                    <button class="btn-icon" onclick="removeRestaurant(${r.id})" title="Remove">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `).join('');
+        
+        // Add drag and drop handlers
+        document.querySelectorAll('.restaurant-item').forEach(item => {
+            item.addEventListener('dragstart', handleDragStart);
+            item.addEventListener('dragend', handleDragEnd);
+            item.addEventListener('dragover', handleDragOver);
+            item.addEventListener('drop', handleDrop);
+        });
+    }
+
+    function handleDragStart(e) {
+        draggedItem = this;
+        this.classList.add('dragging');
+        e.dataTransfer.effectAllowed = 'move';
+    }
+
+    function handleDragEnd(e) {
+        this.classList.remove('dragging');
+        draggedItem = null;
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        if (draggedItem === this) return;
+        
+        const draggedId = parseInt(draggedItem.dataset.id);
+        const droppedId = parseInt(this.dataset.id);
+        
+        const draggedIndex = restaurants.findIndex(r => r.id === draggedId);
+        const droppedIndex = restaurants.findIndex(r => r.id === droppedId);
+        
+        // Reorder array
+        const [removed] = restaurants.splice(draggedIndex, 1);
+        restaurants.splice(droppedIndex, 0, removed);
+        
+        // Update priorities
+        restaurants.forEach((r, i) => r.priority = i + 1);
+        
+        renderRestaurants();
+        saveOrder();
+    }
+
+    async function saveOrder() {
+        const order = restaurants.map(r => r.id);
+        try {
+            await fetch('/api/restaurants', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'reorder', order: order })
+            });
+        } catch (error) {
+            console.error('Error saving order:', error);
+        }
+    }
+
+    async function searchRestaurants() {
+        const query = document.getElementById('searchInput').value.trim();
+        if (!query) return;
+        
+        const resultsDiv = document.getElementById('searchResults');
+        resultsDiv.innerHTML = '<div style="padding: 1rem; text-align: center; color: var(--resy-gray-400);">Searching...</div>';
+        resultsDiv.style.display = 'block';
+        
+        try {
+            // Search Resy API
+            const response = await fetch(`/api/search-resy?q=${encodeURIComponent(query)}`);
+            const data = await response.json();
+            
+            if (data.error) {
+                resultsDiv.innerHTML = `<div style="padding: 1rem; color: var(--resy-error);">${data.error}</div>`;
+                return;
+            }
+            
+            const venues = data.venues || [];
+            
+            if (venues.length === 0) {
+                resultsDiv.innerHTML = '<div style="padding: 1rem; text-align: center; color: var(--resy-gray-400);">No restaurants found</div>';
+                return;
+            }
+            
+            resultsDiv.innerHTML = venues.map(v => `
+                <div class="search-result-item" onclick="addRestaurant('${v.venue_id}', '${escapeHtml(v.name)}', '${escapeHtml(v.type || '')}')">
+                    <div class="result-info">
+                        <h5>${escapeHtml(v.name)}</h5>
+                        <p>${escapeHtml(v.neighborhood || '')} • ${escapeHtml(v.type || 'Restaurant')}</p>
+                    </div>
+                    <button class="add-btn">Add</button>
+                </div>
+            `).join('');
+            
+        } catch (error) {
+            console.error('Search error:', error);
+            resultsDiv.innerHTML = '<div style="padding: 1rem; color: var(--resy-error);">Search failed. Please try again.</div>';
+        }
+    }
+
+    async function addRestaurant(venueId, name, cuisine) {
+        try {
+            const response = await fetch('/api/restaurants', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    action: 'add',
+                    venue_id: venueId,
+                    name: name,
+                    cuisine: cuisine,
+                    city: 'NYC'
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                restaurants.push(data.restaurant);
+                renderRestaurants();
+                document.getElementById('searchInput').value = '';
+                document.getElementById('searchResults').style.display = 'none';
+            } else {
+                alert('Failed to add restaurant: ' + (data.error || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error('Error adding restaurant:', error);
+            alert('Failed to add restaurant');
+        }
+    }
+
+    async function removeRestaurant(id) {
+        if (!confirm('Remove this restaurant from your wish list?')) return;
+        
+        try {
+            const response = await fetch('/api/restaurants', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: 'remove', id: id })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                restaurants = restaurants.filter(r => r.id !== id);
+                renderRestaurants();
+            }
+        } catch (error) {
+            console.error('Error removing restaurant:', error);
+        }
+    }
+
+    function escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Close search results when clicking outside
+    document.addEventListener('click', function(e) {
+        const searchBox = document.querySelector('.search-box');
+        const resultsDiv = document.getElementById('searchResults');
+        if (!searchBox.contains(e.target)) {
+            resultsDiv.style.display = 'none';
+        }
+    });
+</script>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Users - Resy Manager{% endblock %}
+{% block title %}Users - NYCeats{% endblock %}
 
 {% block extra_css %}
 <style>
@@ -8,7 +8,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--resy-gray-200);
     }
     
     .users-table {
@@ -35,27 +37,48 @@
         background: var(--resy-gray-50);
     }
     
+    .users-table tr.suspended {
+        opacity: 0.6;
+        background: var(--resy-gray-50);
+    }
+    
     .users-table td {
         color: var(--resy-gray-700);
         font-size: 0.875rem;
     }
     
-    .admin-badge {
-        background: #FFF7ED;
-        color: var(--resy-orange);
+    .role-badge {
+        display: inline-flex;
+        align-items: center;
         padding: 0.25rem 0.625rem;
         border-radius: 4px;
         font-size: 0.75rem;
         font-weight: 500;
     }
     
-    .user-badge {
-        background: var(--resy-gray-100);
+    .role-admin {
+        background: #FFF7ED;
+        color: var(--resy-orange);
+    }
+    
+    .role-app_user {
+        background: #EFF6FF;
+        color: #2563EB;
+    }
+    
+    .role-calendar_user {
+        background: #F3E8FF;
+        color: #9333EA;
+    }
+    
+    .suspended-badge {
+        background: var(--resy-gray-200);
         color: var(--resy-gray-600);
-        padding: 0.25rem 0.625rem;
+        padding: 0.125rem 0.375rem;
         border-radius: 4px;
-        font-size: 0.75rem;
+        font-size: 0.6875rem;
         font-weight: 500;
+        margin-left: 0.5rem;
     }
     
     .modal {
@@ -104,21 +127,14 @@
         font-weight: 500;
     }
     
-    .checkbox-group {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
+    .form-group select {
+        width: 100%;
     }
     
-    .checkbox-group input[type="checkbox"] {
-        width: auto;
-        accent-color: var(--resy-orange);
-    }
-    
-    .checkbox-group label {
-        margin-bottom: 0;
-        font-weight: 400;
+    .role-help {
+        color: var(--resy-gray-400);
+        font-size: 0.75rem;
+        margin-top: 0.25rem;
     }
     
     .modal-actions {
@@ -132,6 +148,109 @@
         color: var(--resy-gray-400);
         font-size: 0.8125rem;
         margin-bottom: 1.5rem;
+    }
+    
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--resy-gray-200);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--resy-gray-600);
+        margin-right: 0.75rem;
+    }
+    
+    .user-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    .user-info {
+        display: flex;
+        align-items: center;
+    }
+    
+    .action-btn {
+        background: none;
+        border: none;
+        padding: 0.375rem;
+        cursor: pointer;
+        color: var(--resy-gray-400);
+        transition: color 0.2s;
+        border-radius: 4px;
+    }
+    
+    .action-btn:hover {
+        background: var(--resy-gray-100);
+        color: var(--resy-gray-600);
+    }
+    
+    .action-btn.danger:hover {
+        background: #FEF2F2;
+        color: var(--resy-error);
+    }
+    
+    .action-btn.success:hover {
+        background: #F0FDF4;
+        color: var(--resy-success);
+    }
+    
+    .actions-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .actions-menu {
+        display: none;
+        position: fixed;
+        background: var(--resy-white);
+        border: 1px solid var(--resy-gray-200);
+        border-radius: 8px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        min-width: 180px;
+        z-index: 9999;
+    }
+    
+    .actions-menu.active {
+        display: block;
+    }
+    
+    .actions-menu button {
+        width: 100%;
+        text-align: left;
+        padding: 0.625rem 0.875rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 0.875rem;
+        color: var(--resy-gray-700);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .actions-menu button:hover {
+        background: var(--resy-gray-50);
+    }
+    
+    .actions-menu button:first-child {
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .actions-menu button:last-child {
+        border-radius: 0 0 8px 8px;
+    }
+    
+    .actions-menu .divider {
+        height: 1px;
+        background: var(--resy-gray-200);
+        margin: 0.25rem 0;
     }
 </style>
 {% endblock %}
@@ -159,7 +278,7 @@
     <table class="users-table">
         <thead>
             <tr>
-                <th>Email</th>
+                <th>User</th>
                 <th>Role</th>
                 <th>Created</th>
                 <th style="text-align: right;">Actions</th>
@@ -167,22 +286,90 @@
         </thead>
         <tbody>
             {% for user in users %}
-            <tr data-email="{{ user.email }}">
-                <td>{{ user.email }}</td>
+            <tr data-email="{{ user.email }}" class="{% if user.is_suspended %}suspended{% endif %}">
                 <td>
-                    {% if user.is_admin %}
-                        <span class="admin-badge">Admin</span>
-                    {% else %}
-                        <span class="user-badge">User</span>
-                    {% endif %}
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            {% if user.profile_image %}
+                                <img src="/static/uploads/{{ user.profile_image }}" alt="">
+                            {% else %}
+                                {{ user.email[0].upper() }}
+                            {% endif %}
+                        </div>
+                        <div>
+                            <div>{{ user.email }}</div>
+                            {% if user.is_suspended %}
+                                <span class="suspended-badge">SUSPENDED</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <span class="role-badge role-{{ user.role }}">
+                        {{ user.role.replace('_', ' ').title() }}
+                    </span>
                 </td>
                 <td style="color: var(--resy-gray-400);">{{ user.created_at[:10] if user.created_at else '—' }}</td>
                 <td style="text-align: right;">
-                    {% if user.email != session.user_email %}
-                        <button class="btn btn-danger btn-sm" onclick="deleteUser('{{ user.email }}')">Remove</button>
-                    {% else %}
-                        <span style="color: var(--resy-gray-400); font-size: 0.8125rem;">You</span>
-                    {% endif %}
+                    <div class="actions-dropdown">
+                        <button class="action-btn" onclick="toggleMenu(this)">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="5" r="1"></circle>
+                                <circle cx="12" cy="12" r="1"></circle>
+                                <circle cx="12" cy="19" r="1"></circle>
+                            </svg>
+                        </button>
+                        <div class="actions-menu">
+                            {% if user.email != session.user_email %}
+                                {% if user.is_suspended %}
+                                    <button onclick="unsuspendUser('{{ user.email }}')">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        Unsuspend
+                                    </button>
+                                {% else %}
+                                    <button onclick="suspendUser('{{ user.email }}')">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                                        </svg>
+                                        Suspend
+                                    </button>
+                                {% endif %}
+                            {% endif %}
+                            <button onclick="changeRole('{{ user.email }}', '{{ user.role }}')">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                Change Role
+                            </button>
+                            {% if user.email != session.user_email %}
+                                <div class="divider"></div>
+                                <button onclick="deleteUser('{{ user.email }}')" style="color: var(--resy-error);">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                    Delete
+                                </button>
+                            {% else %}
+                                <div class="divider"></div>
+                                <a href="{{ url_for('profile') }}" style="text-decoration: none;">
+                                    <button>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                        Edit Profile
+                                    </button>
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
                 </td>
             </tr>
             {% endfor %}
@@ -202,11 +389,16 @@
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" required placeholder="••••••••">
+                <input type="password" id="password" required placeholder="••••••••" minlength="6">
             </div>
-            <div class="form-group checkbox-group">
-                <input type="checkbox" id="is_admin">
-                <label for="is_admin">Grant admin privileges</label>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role">
+                    <option value="app_user">App User</option>
+                    <option value="calendar_user">Calendar User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <div class="role-help" id="roleHelp">Can login, view trips, and add restaurants</div>
             </div>
             <div class="modal-actions">
                 <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
@@ -215,10 +407,50 @@
         </form>
     </div>
 </div>
+
+<!-- Change Role Modal -->
+<div class="modal" id="roleModal">
+    <div class="modal-content">
+        <h2>Change Role</h2>
+        <p class="hint">Select a new role for <span id="roleUserEmail"></span></p>
+        <form id="roleForm">
+            <input type="hidden" id="roleUserEmailInput">
+            <div class="form-group">
+                <label for="newRole">Role</label>
+                <select id="newRole">
+                    <option value="app_user">App User</option>
+                    <option value="calendar_user">Calendar User</option>
+                    <option value="admin">Admin</option>
+                </select>
+                <div class="role-help" id="newRoleHelp">Can login, view trips, and add restaurants</div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-secondary" onclick="closeRoleModal()">Cancel</button>
+                <button type="submit" class="btn">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
 <script>
+    const roleDescriptions = {
+        'admin': 'Full access: user management, system settings, and all features',
+        'app_user': 'Can login, view trips, add restaurants to desired list',
+        'calendar_user': 'Calendar is scanned for trips only (no login access)'
+    };
+
+    // Role selection help text
+    document.getElementById('role').addEventListener('change', function() {
+        document.getElementById('roleHelp').textContent = roleDescriptions[this.value];
+    });
+
+    document.getElementById('newRole').addEventListener('change', function() {
+        document.getElementById('newRoleHelp').textContent = roleDescriptions[this.value];
+    });
+
+    // Modal functions
     function openModal() {
         document.getElementById('addModal').classList.add('active');
     }
@@ -226,15 +458,53 @@
     function closeModal() {
         document.getElementById('addModal').classList.remove('active');
         document.getElementById('addForm').reset();
+        document.getElementById('roleHelp').textContent = roleDescriptions['app_user'];
     }
 
+    function openRoleModal(email, currentRole) {
+        document.getElementById('roleUserEmail').textContent = email;
+        document.getElementById('roleUserEmailInput').value = email;
+        document.getElementById('newRole').value = currentRole;
+        document.getElementById('newRoleHelp').textContent = roleDescriptions[currentRole];
+        document.getElementById('roleModal').classList.add('active');
+    }
+
+    function closeRoleModal() {
+        document.getElementById('roleModal').classList.remove('active');
+    }
+
+    // Dropdown menu
+    function toggleMenu(btn) {
+        const menu = btn.nextElementSibling;
+        const isActive = menu.classList.contains('active');
+        
+        // Close all menus
+        document.querySelectorAll('.actions-menu').forEach(m => m.classList.remove('active'));
+        
+        if (!isActive) {
+            // Position the menu using fixed positioning
+            const rect = btn.getBoundingClientRect();
+            menu.style.top = (rect.bottom + 4) + 'px';
+            menu.style.right = (window.innerWidth - rect.right) + 'px';
+            menu.classList.add('active');
+        }
+    }
+
+    // Close menus when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.actions-dropdown')) {
+            document.querySelectorAll('.actions-menu').forEach(m => m.classList.remove('active'));
+        }
+    });
+
+    // Add user form
     document.getElementById('addForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const data = {
             email: document.getElementById('email').value,
             password: document.getElementById('password').value,
-            is_admin: document.getElementById('is_admin').checked
+            role: document.getElementById('role').value
         };
         
         const response = await fetch('/api/users', {
@@ -252,8 +522,33 @@
         }
     });
 
+    // Change role form
+    document.getElementById('roleForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const data = {
+            email: document.getElementById('roleUserEmailInput').value,
+            action: 'change_role',
+            role: document.getElementById('newRole').value
+        };
+        
+        const response = await fetch('/api/users', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            window.location.reload();
+        } else {
+            alert('Error: ' + (result.error || 'Failed to change role'));
+        }
+    });
+
     async function deleteUser(email) {
-        if (!confirm(`Remove user ${email}?`)) return;
+        if (!confirm(`Are you sure you want to delete user ${email}?\n\nThis action cannot be undone.`)) return;
         
         const response = await fetch('/api/users', {
             method: 'DELETE',
@@ -266,13 +561,55 @@
         if (result.success) {
             window.location.reload();
         } else {
-            alert('Error: Failed to delete user');
+            alert('Error: ' + (result.error || 'Failed to delete user'));
         }
     }
 
-    // Close modal on outside click
+    async function suspendUser(email) {
+        if (!confirm(`Suspend user ${email}?\n\nThey will not be able to login until unsuspended.`)) return;
+        
+        const response = await fetch('/api/users', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, action: 'suspend' })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            window.location.reload();
+        } else {
+            alert('Error: ' + (result.error || 'Failed to suspend user'));
+        }
+    }
+
+    async function unsuspendUser(email) {
+        const response = await fetch('/api/users', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, action: 'unsuspend' })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            window.location.reload();
+        } else {
+            alert('Error: ' + (result.error || 'Failed to unsuspend user'));
+        }
+    }
+
+    function changeRole(email, currentRole) {
+        openRoleModal(email, currentRole);
+    }
+
+    // Close modals on outside click
     document.getElementById('addModal').addEventListener('click', (e) => {
         if (e.target.id === 'addModal') closeModal();
+    });
+
+    document.getElementById('roleModal').addEventListener('click', (e) => {
+        if (e.target.id === 'roleModal') closeRoleModal();
     });
 </script>
 {% endblock %}

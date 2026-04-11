@@ -177,14 +177,26 @@ def get_user_reservations():
             
             # Parse reservations from response
             for res in data.get("reservations", []):
+                # Extract venue name from share message if venue object doesn't have it
+                venue_name = res.get("venue", {}).get("name")
+                if not venue_name:
+                    # Try to extract from share message
+                    share_msg = res.get("share", {}).get("generic_message", "")
+                    if "for " in share_msg and " on " in share_msg:
+                        # Parse "Please RSVP for [Venue Name] on [Date]"
+                        parts = share_msg.split(" for ", 1)
+                        if len(parts) > 1:
+                            venue_part = parts[1].split(" on ", 1)[0]
+                            venue_name = venue_part
+                
                 reservation = {
                     "resy_reservation_id": res.get("reservation_id"),
-                    "venue_name": res.get("venue", {}).get("name"),
-                    "venue_id": str(res.get("venue", {}).get("id", {}).get("resy", "")),
+                    "venue_name": venue_name or "Unknown Restaurant",
+                    "venue_id": str(res.get("venue", {}).get("id", "")),
                     "date": res.get("day"),
-                    "time": res.get("time"),
-                    "party_size": res.get("party_size"),
-                    "status": res.get("state", "unknown"),  # confirmed, cancelled, etc.
+                    "time": res.get("time_slot") or res.get("time"),
+                    "party_size": res.get("num_seats"),
+                    "status": "confirmed",  # If it's in the list, it's confirmed
                     "source": "resy_api",
                     "synced_at": datetime.now().isoformat()
                 }
@@ -333,11 +345,23 @@ def sync_resy_reservations():
     local_data = load_reservations()
     local_reservations = local_data.get("reservations", [])
     
-    # Create a set of existing Resy reservation IDs to avoid duplicates
+    # Create a set of current Resy reservation IDs
+    current_resy_ids = {r.get("resy_reservation_id") for r in resy_reservations if r.get("resy_reservation_id")}
+    
+    # Create a set of existing Resy reservation IDs in local file
     existing_resy_ids = {r.get("resy_reservation_id") for r in local_reservations if r.get("resy_reservation_id")}
     
     added_count = 0
     updated_count = 0
+    removed_count = 0
+    
+    # Remove reservations that no longer exist in Resy (cancelled or past)
+    local_reservations = [
+        r for r in local_reservations 
+        if r.get("resy_reservation_id") not in existing_resy_ids or  # Keep non-Resy reservations
+           r.get("resy_reservation_id") in current_resy_ids  # Keep if still in Resy
+    ]
+    removed_count = len(existing_resy_ids - current_resy_ids)
     
     for res in resy_reservations:
         resy_id = res.get("resy_reservation_id")
@@ -346,20 +370,18 @@ def sync_resy_reservations():
         if res.get("status") == "cancelled":
             continue
             
-        if resy_id and resy_id in existing_resy_ids:
-            # Update existing reservation if needed
-            for i, local_res in enumerate(local_reservations):
-                if local_res.get("resy_reservation_id") == resy_id:
-                    # Update if status changed
-                    if local_res.get("status") != res.get("status"):
-                        local_reservations[i]["status"] = res.get("status")
-                        updated_count += 1
-                    break
+        # Check if this reservation already exists locally
+        existing = next((r for r in local_reservations if r.get("resy_reservation_id") == resy_id), None)
+        
+        if existing:
+            # Update existing reservation if status changed
+            if existing.get("status") != res.get("status"):
+                existing["status"] = res.get("status")
+                updated_count += 1
         else:
             # Add new reservation
             local_reservations.append(res)
             added_count += 1
-            existing_resy_ids.add(resy_id)
     
     # Save updated reservations
     local_data["reservations"] = local_reservations
@@ -367,7 +389,7 @@ def sync_resy_reservations():
     save_reservations(local_data)
     
     print(f"  ✅ Synced {len(resy_reservations)} reservations from Resy")
-    print(f"     Added: {added_count}, Updated: {updated_count}")
+    print(f"     Added: {added_count}, Updated: {updated_count}, Removed: {removed_count}")
     
     return local_reservations
 

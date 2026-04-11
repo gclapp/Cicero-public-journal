@@ -94,37 +94,7 @@
         padding: 0.75rem;
     }
     
-    .default-creds {
-        margin-top: 1.5rem;
-        padding: 1rem;
-        background: var(--resy-gray-50);
-        border-radius: 8px;
-        font-size: 0.8125rem;
-        border: 1px solid var(--resy-gray-200);
-        text-align: center;
-    }
-    
-    .default-creds strong {
-        color: var(--resy-gray-700);
-        display: block;
-        margin-bottom: 0.5rem;
-    }
-    
-    .default-creds code {
-        background: var(--resy-white);
-        padding: 0.125rem 0.375rem;
-        border-radius: 4px;
-        color: var(--resy-orange);
-        font-family: 'SF Mono', Monaco, monospace;
-        font-size: 0.75rem;
-        border: 1px solid var(--resy-gray-200);
-    }
-    
-    .default-creds em {
-        color: var(--resy-gray-400);
-        display: block;
-        margin-top: 0.5rem;
-    }
+
 </style>
 {% endblock %}
 
@@ -132,7 +102,7 @@
 <div class="login-page" style="margin-left: -2rem; width: calc(100% + 4rem);">
     <div class="login-container">
         <div class="login-logo">
-            <img src="/static/nyceats-logo-large.png" alt="NYCeats" width="180" style="margin: 0 auto 1rem auto; display: block; border-radius: 16px;">
+            <img src="/static/nyceats-logo-large-transparent.png" alt="NYCeats" width="180" style="margin: 0 auto 1rem auto; display: block; border-radius: 16px;">
             <p>Smart reservations for NYC</p>
         </div>
         
@@ -151,12 +121,7 @@
             </form>
         </div>
         
-        <div class="default-creds">
-            <strong>Default Login</strong><br>
-            Email: <code>[REDACTED]</code><br>
-            Password: <code>changeme123</code><br>
-            <em>Change this after first login</em>
-        </div>
+
     </div>
 </div>
 {% endblock %}
