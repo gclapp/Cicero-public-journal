@@ -170,10 +170,10 @@ def generate_flight_tasks(flight, existing_tasks):
         else:
             skipped += 1
     
-    # Check-in task (day of)
-    checkin_task = f"📱 CHECK-IN: Online check-in for {summary}"
-    if create_todoist_task(checkin_task, "Travel", "1", flight_date.strftime('%Y-%m-%d'), existing_tasks):
-        if checkin_task not in existing_tasks:
+    # Pack task (2 days before)
+    pack_task = f"🎒 PACK: Prepare luggage for {summary}"
+    if create_todoist_task(pack_task, "Travel", "2", check_due, existing_tasks):
+        if pack_task not in existing_tasks:
             created += 1
         else:
             skipped += 1

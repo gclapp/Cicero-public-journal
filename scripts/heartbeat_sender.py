@@ -807,6 +807,77 @@ def get_week_travel_destinations(all_events, pt_now):
     
     return destinations
 
+def get_upcoming_trips_for_packing(all_events, pt_now):
+    """Get upcoming trips with weather info for packing decisions"""
+    trips = []
+    
+    for event in all_events:
+        if not event.get('is_travel'):
+            continue
+        
+        # Parse event date
+        event_date_str = event.get('start_raw', '')
+        try:
+            if 'T' in event_date_str:
+                event_date = datetime.fromisoformat(event_date_str.replace('Z', '+00:00'))
+                event_date = event_date.replace(tzinfo=None)
+            else:
+                event_date = datetime.strptime(event_date_str, '%Y-%m-%d')
+        except:
+            continue
+        
+        # Only show trips in next 14 days
+        days_until = (event_date - pt_now.replace(tzinfo=None)).days
+        if days_until < 0 or days_until > 14:
+            continue
+        
+        summary = event.get('summary', '').lower()
+        location = event.get('location', '').lower()
+        
+        # Determine destination
+        destination = None
+        weather_code = None
+        if 'jfk' in summary or 'new york' in summary or 'lga' in summary or 'nyc' in location:
+            destination = 'New York'
+            weather_code = 'New+York'
+        elif 'lax' in summary or 'los angeles' in summary:
+            destination = 'Los Angeles'
+            weather_code = 'Los+Angeles'
+        elif 'atl' in summary or 'atlanta' in summary:
+            destination = 'Atlanta'
+            weather_code = 'Atlanta'
+        elif 'sfo' in summary or 'san francisco' in summary:
+            destination = 'San Francisco'
+            weather_code = 'San+Francisco'
+        elif 'phx' in summary or 'phoenix' in summary or 'scottsdale' in summary:
+            destination = 'Scottsdale'
+            weather_code = 'Scottsdale'
+        elif 'pdx' in summary or 'portland' in summary:
+            destination = 'Portland'
+            weather_code = 'Portland'
+        elif 'fll' in summary or 'fort lauderdale' in summary or 'miami' in summary:
+            destination = 'Fort Lauderdale'
+            weather_code = 'Fort+Lauderdale'
+        elif 'pbi' in summary or 'west palm beach' in summary:
+            destination = 'West Palm Beach'
+            weather_code = 'West+Palm+Beach'
+        
+        if destination and weather_code:
+            # Get weather for destination
+            weather = get_weather(weather_code)
+            
+            trips.append({
+                'destination': destination,
+                'date': event.get('start', 'TBD'),
+                'weather': weather,
+                'days_until': days_until,
+                'type': 'flight' if 'flight' in summary else 'hotel'
+            })
+    
+    # Sort by date
+    trips.sort(key=lambda x: x['days_until'])
+    return trips
+
 def get_today_events_detailed(pt_now, all_events):
     """Get detailed breakdown of today's events by category"""
     today_str = pt_now.strftime('%A, %B %d')
@@ -1019,6 +1090,30 @@ def generate_html_email(checkin_type, pt_now):
     <div class="weather">
         {''.join([f'<div class="weather-city"><div class="weather-temp">{d["weather"]}</div><div>{d["name"]}</div></div>' for d in destination_weather])}
     </div>
+'''
+    
+    # PACKING SECTION: Upcoming trips with weather for packing decisions
+    upcoming_trips = get_upcoming_trips_for_packing(travel_events, pt_now)
+    if upcoming_trips:
+        html += f'''
+    <div class="section" style="border-left-color: #3b82f6; background: #eff6ff;">
+        <h2>🎒 Upcoming Trips (Pack Accordingly)</h2>
+'''
+        for trip in upcoming_trips[:3]:  # Show max 3 trips
+            trip_date = trip.get('date', 'TBD')
+            trip_dest = trip.get('destination', 'Unknown')
+            trip_weather = trip.get('weather', '')
+            days_until = trip.get('days_until', 0)
+            
+            html += f'''
+        <div style="margin: 10px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <div style="font-weight: bold; color: #1e40af;">{trip_dest} — {trip_date}</div>
+            <div style="color: #666; font-size: 14px; margin-top: 4px;">
+                {trip_weather} • Pack in {days_until} day{'s' if days_until != 1 else ''}
+            </div>
+        </div>
+'''
+        html += '''    </div>
 '''
     
     # Get today's detailed calendar events
