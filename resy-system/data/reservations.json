@@ -1,1 +1,25 @@
-{"reservations": []}
+{
+  "reservations": [
+    {
+      "venue_name": "Nowon East Village",
+      "venue_id": "1703",
+      "date": "2026-04-19",
+      "time": "18:45",
+      "party_size": 2,
+      "source": "calendar",
+      "notes": "Reservation found in Google Calendar",
+      "synced_at": "2026-04-11T08:40:00Z"
+    },
+    {
+      "venue_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "date": "2026-04-20",
+      "time": "18:15",
+      "party_size": 2,
+      "source": "calendar",
+      "notes": "Reservation found in Google Calendar",
+      "synced_at": "2026-04-11T08:40:00Z"
+    }
+  ],
+  "last_sync": "2026-04-11T08:40:00Z"
+}

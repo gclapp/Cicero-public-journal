@@ -268,13 +268,22 @@
     <span style="color: var(--resy-gray-500); font-size: 0.875rem;">
         {% if trips %}{{ trips|length }} trip{% if trips|length != 1 %}s{% endif %} detected{% endif %}
     </span>
-    <button class="btn btn-secondary" onclick="refreshTrips()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;">
-            <polyline points="23 4 23 10 17 10"></polyline>
-            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
-        </svg>
-        Refresh
-    </button>
+    <div style="display: flex; gap: 0.75rem;">
+        <button class="btn btn-secondary" onclick="refreshTrips()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+            Refresh
+        </button>
+        <button class="btn btn-primary" onclick="rescanAndBook()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 6v6l4 2"></path>
+            </svg>
+            Rescan & Book
+        </button>
+    </div>
 </div>
 
 {% if trips %}
@@ -415,7 +424,32 @@ async function refreshTrips() {
 }
 
 async function triggerScan(date) {
-    alert('Scanner runs automatically every 12 hours. Check back later for updates!');
+    alert('Scanner runs automatically at scheduled times. Check back later for updates!');
+}
+
+async function rescanAndBook() {
+    const btn = document.querySelector('button[onclick="rescanAndBook()"]');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.375rem; animation: spin 1s linear infinite;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> Scanning & Booking...';
+    btn.disabled = true;
+    
+    try {
+        const response = await fetch('/api/scan-and-book', {method: 'POST'});
+        const data = await response.json();
+        
+        if (data.success) {
+            alert(`Scan complete!\n\nChecked: ${data.restaurants_checked} restaurants\nFound: ${data.reservations_found} available slots\nBooked: ${data.reservations_made} reservations`);
+            window.location.reload();
+        } else {
+            alert('Error: ' + (data.error || 'Scan failed'));
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }
+    } catch (e) {
+        alert('Error: ' + e.message);
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+    }
 }
 
 async function skipDate(date) {

@@ -171,8 +171,20 @@ def has_reservation_for_date(date, reservations_data):
             return res
     return None
 
+def sync_resy_reservations():
+    """Sync reservations from Resy API to local database"""
+    try:
+        # Import here to avoid circular dependency
+        from calendar_scanner import sync_resy_reservations as do_sync
+        do_sync()
+    except Exception as e:
+        print(f"Warning: Could not sync Resy reservations: {e}")
+
 def get_upcoming_trips(days_ahead=60):
     """Get upcoming trips with reservation status"""
+    # Sync reservations from Resy first
+    sync_resy_reservations()
+    
     # Parse calendar for trips
     events = parse_calendar_events()
     trips = extract_trip_dates(events)

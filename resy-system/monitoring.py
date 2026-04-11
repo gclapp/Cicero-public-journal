@@ -98,6 +98,131 @@ def log_booking(trip_date: str, restaurant_name: str, venue_id: str,
     
     save_monitoring_data(data)
 
+def log_reservation_attempt(trip_date: str, restaurant_name: str, venue_id: str,
+                            party_size: int, status: str, details: str = "",
+                            slots_found: int = 0, error_message: str = ""):
+    """Log an individual reservation attempt (each restaurant checked per date)
+    
+    status options:
+    - 'checked' - Checked for availability
+    - 'no_availability' - No tables available
+    - 'slots_found' - Found available slots but didn't book (already have res, etc)
+    - 'attempted' - Attempted to book
+    - 'success' - Successfully booked
+    - 'failed' - Booking attempt failed
+    - 'skipped' - Skipped (already have reservation for this date)
+    """
+    data = load_monitoring_data()
+    
+    # Initialize attempts list if not exists
+    if "attempts" not in data:
+        data["attempts"] = []
+    
+    attempt_record = {
+        "timestamp": datetime.now().isoformat(),
+        "trip_date": trip_date,
+        "restaurant_name": restaurant_name,
+        "venue_id": venue_id,
+        "party_size": party_size,
+        "status": status,
+        "details": details,
+        "slots_found": slots_found,
+        "error_message": error_message
+    }
+    
+    data["attempts"].append(attempt_record)
+    
+    # Keep only last 500 attempts (more granular data)
+    data["attempts"] = data["attempts"][-500:]
+    
+    save_monitoring_data(data)
+
+def get_reservation_attempts(days: int = 7, trip_date: str = None, 
+                             status: str = None, limit: int = 100) -> List[Dict]:
+    """Get reservation attempts with optional filtering
+    
+    Args:
+        days: Number of days to look back
+        trip_date: Filter by specific trip date (YYYY-MM-DD)
+        status: Filter by status
+        limit: Maximum number of results
+    """
+    data = load_monitoring_data()
+    attempts = data.get("attempts", [])
+    
+    cutoff = datetime.now() - timedelta(days=days)
+    
+    filtered = []
+    for attempt in attempts:
+        attempt_time = datetime.fromisoformat(attempt["timestamp"])
+        if attempt_time < cutoff:
+            continue
+            
+        if trip_date and attempt.get("trip_date") != trip_date:
+            continue
+            
+        if status and attempt.get("status") != status:
+            continue
+            
+        filtered.append(attempt)
+    
+    # Sort by timestamp descending (most recent first)
+    filtered.sort(key=lambda x: x["timestamp"], reverse=True)
+    
+    return filtered[:limit]
+
+def get_attempts_summary(days: int = 7) -> Dict:
+    """Get summary of reservation attempts"""
+    data = load_monitoring_data()
+    attempts = data.get("attempts", [])
+    
+    cutoff = datetime.now() - timedelta(days=days)
+    recent_attempts = [a for a in attempts 
+                       if datetime.fromisoformat(a["timestamp"]) >= cutoff]
+    
+    summary = {
+        "total_attempts": len(recent_attempts),
+        "by_status": {},
+        "by_date": {},
+        "by_restaurant": {},
+        "success_rate": 0,
+        "recent_failures": []
+    }
+    
+    for attempt in recent_attempts:
+        status = attempt.get("status", "unknown")
+        date = attempt.get("trip_date", "unknown")
+        restaurant = attempt.get("restaurant_name", "unknown")
+        
+        # Count by status
+        summary["by_status"][status] = summary["by_status"].get(status, 0) + 1
+        
+        # Count by date
+        if date not in summary["by_date"]:
+            summary["by_date"][date] = {"total": 0, "success": 0, "failed": 0}
+        summary["by_date"][date]["total"] += 1
+        if status == "success":
+            summary["by_date"][date]["success"] += 1
+        elif status == "failed":
+            summary["by_date"][date]["failed"] += 1
+        
+        # Count by restaurant
+        summary["by_restaurant"][restaurant] = summary["by_restaurant"].get(restaurant, 0) + 1
+        
+        # Track recent failures
+        if status in ["failed", "error"]:
+            summary["recent_failures"].append(attempt)
+    
+    # Calculate success rate
+    total_booking_attempts = summary["by_status"].get("success", 0) + summary["by_status"].get("failed", 0)
+    if total_booking_attempts > 0:
+        summary["success_rate"] = (summary["by_status"].get("success", 0) / total_booking_attempts) * 100
+    
+    # Limit recent failures
+    summary["recent_failures"] = summary["recent_failures"][:10]
+    
+    return summary
+
 def log_error(source: str, error_type: str, message: str, 
               details: Dict = None, user_email: str = None):
     """Log an error event"""

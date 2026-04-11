@@ -133,15 +133,639 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:58:23.956110",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:58:23.971070",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.png",
+      "details": {
+        "path": "/favicon.png",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T07:59:01.695382",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:01:04.750122",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:01:04.766175",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.png",
+      "details": {
+        "path": "/favicon.png",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:01:13.578104",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:01:13.594041",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.png",
+      "details": {
+        "path": "/favicon.png",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:21:38.080760",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:21:38.946608",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:23:43.908700",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:07.866574",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /css/support_parent.css",
+      "details": {
+        "path": "/css/support_parent.css",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:07.980342",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/qr_modal.js",
+      "details": {
+        "path": "/assets/js/qr_modal.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:09.778347",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:10.373092",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/sys_files/index.js",
+      "details": {
+        "path": "/static/style/sys_files/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:10.583893",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/lkk_ch.js",
+      "details": {
+        "path": "/js/lkk_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:10.690466",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/twint_ch.js",
+      "details": {
+        "path": "/js/twint_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:11.016768",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/auth.js",
+      "details": {
+        "path": "/assets/js/auth.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:11.121557",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/message.js",
+      "details": {
+        "path": "/assets/js/message.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:11.237165",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bot-connect.js",
+      "details": {
+        "path": "/bot-connect.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:32:11.343461",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/protect/index.js",
+      "details": {
+        "path": "/static/style/protect/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T08:55:29.861805",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:02:47.989571",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:14.921494",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/twint_ch.js",
+      "details": {
+        "path": "/js/twint_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:15.355887",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/lkk_ch.js",
+      "details": {
+        "path": "/js/lkk_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:15.459905",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/sys_files/index.js",
+      "details": {
+        "path": "/static/style/sys_files/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:15.563452",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:15.873289",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/protect/index.js",
+      "details": {
+        "path": "/static/style/protect/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:15.976589",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/qr_modal.js",
+      "details": {
+        "path": "/assets/js/qr_modal.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:16.080256",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /css/support_parent.css",
+      "details": {
+        "path": "/css/support_parent.css",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:16.184981",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/message.js",
+      "details": {
+        "path": "/assets/js/message.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:16.288852",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bot-connect.js",
+      "details": {
+        "path": "/bot-connect.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:16.763359",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/auth.js",
+      "details": {
+        "path": "/assets/js/auth.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:40.666362",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:40.829136",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:41.198990",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:41.851766",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:15:53.223660",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:06.779101",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login.zip",
+      "details": {
+        "path": "/login.zip",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:06.796701",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login.rar",
+      "details": {
+        "path": "/login.rar",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:06.813805",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login.7z",
+      "details": {
+        "path": "/login.7z",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:06.831080",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login.tar",
+      "details": {
+        "path": "/login.tar",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:06.848625",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login.tar.gz",
+      "details": {
+        "path": "/login.tar.gz",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:10.827538",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:16:25.151040",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:22:32.246866",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:22:32.256772",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T09:58:36.392575",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T10:46:23.020722",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T10:46:23.037178",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.png",
+      "details": {
+        "path": "/favicon.png",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T10:47:21.011702",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T10:54:30.500976",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-11T11:12:50.313104",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /admin/config.php",
+      "details": {
+        "path": "/admin/config.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
     "last_scan_time": "2026-04-11T06:29:57.775366",
     "last_booking_time": "2026-04-11T06:29:57.775648",
-    "last_error_time": "2026-04-11T07:37:24.826698",
+    "last_error_time": "2026-04-11T11:12:50.313113",
     "total_scans": 1,
     "total_bookings": 1,
-    "total_errors": 9,
-    "status": "degraded"
+    "total_errors": 61,
+    "status": "critical"
   }
 }

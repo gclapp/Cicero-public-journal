@@ -128,6 +128,7 @@
     {"name": "OddFellows", "venue_id": "1695", "type": "Ice Cream", "neighborhood": "Multiple", "price": "$"},
     {"name": "Ample Hills", "venue_id": "1697", "type": "Ice Cream", "neighborhood": "Multiple", "price": "$"},
     {"name": "Davey's Ice Cream", "venue_id": "1699", "type": "Ice Cream", "neighborhood": "East Village", "price": "$"},
-    {"name": "Soft Swerve", "venue_id": "1701", "type": "Ice Cream", "neighborhood": "Lower East Side", "price": "$"}
+    {"name": "Soft Swerve", "venue_id": "1701", "type": "Ice Cream", "neighborhood": "Lower East Side", "price": "$"},
+    {"name": "Nowon East Village", "venue_id": "1703", "type": "Korean", "neighborhood": "East Village", "price": "$$"}
   ]
 }

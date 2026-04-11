@@ -1,0 +1,409 @@
+{% extends "base.html" %}
+
+{% block title %}Logs - NYCeats{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>📋 Reservation Attempts Log</h1>
+        <p class="subtitle">Detailed log of all reservation checks and booking attempts</p>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value" id="total-attempts">-</div>
+            <div class="stat-label">Total Attempts (7 days)</div>
+        </div>
+        <div class="stat-card success">
+            <div class="stat-value" id="successful-bookings">-</div>
+            <div class="stat-label">Successful Bookings</div>
+        </div>
+        <div class="stat-card warning">
+            <div class="stat-value" id="no-availability">-</div>
+            <div class="stat-label">No Availability</div>
+        </div>
+        <div class="stat-card error">
+            <div class="stat-value" id="failed-attempts">-</div>
+            <div class="stat-label">Failed Attempts</div>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-section">
+        <div class="filter-group">
+            <label>Filter by Status:</label>
+            <select id="status-filter" onchange="loadAttempts()">
+                <option value="">All Statuses</option>
+                <option value="checked">Checked</option>
+                <option value="no_availability">No Availability</option>
+                <option value="attempted">Attempted to Book</option>
+                <option value="success">Successfully Booked</option>
+                <option value="failed">Failed to Book</option>
+                <option value="skipped">Skipped (Already Reserved)</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Date Range:</label>
+            <select id="days-filter" onchange="loadAttempts()">
+                <option value="1">Last 24 hours</option>
+                <option value="7" selected>Last 7 days</option>
+                <option value="30">Last 30 days</option>
+                <option value="90">Last 90 days</option>
+            </select>
+        </div>
+        <button class="btn btn-secondary" onclick="refreshLogs()">🔄 Refresh</button>
+    </div>
+
+    <!-- Attempts Table -->
+    <div class="table-container">
+        <table class="data-table" id="attempts-table">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Trip Date</th>
+                    <th>Restaurant</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                    <th>Slots Found</th>
+                </tr>
+            </thead>
+            <tbody id="attempts-tbody">
+                <tr>
+                    <td colspan="6" class="loading">Loading...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Status Legend -->
+    <div class="legend-section">
+        <h3>Status Legend</h3>
+        <div class="legend-grid">
+            <div class="legend-item">
+                <span class="status-badge checked">●</span>
+                <span><strong>Checked</strong> - API call made to check availability</span>
+            </div>
+            <div class="legend-item">
+                <span class="status-badge no-availability">●</span>
+                <span><strong>No Availability</strong> - No tables available for this date</span>
+            </div>
+            <div class="legend-item">
+                <span class="status-badge attempted">●</span>
+                <span><strong>Attempted</strong> - Found slots and tried to book</span>
+            </div>
+            <div class="legend-item">
+                <span class="status-badge success">●</span>
+                <span><strong>Success</strong> - Reservation confirmed!</span>
+            </div>
+            <div class="legend-item">
+                <span class="status-badge failed">●</span>
+                <span><strong>Failed</strong> - Booking attempt failed</span>
+            </div>
+            <div class="legend-item">
+                <span class="status-badge skipped">●</span>
+                <span><strong>Skipped</strong> - Already have reservation for this date</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--resy-gray-300);
+}
+
+.stat-card.success {
+    border-left-color: #10b981;
+}
+
+.stat-card.warning {
+    border-left-color: #f59e0b;
+}
+
+.stat-card.error {
+    border-left-color: #ef4444;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.filters-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.filter-group select {
+    padding: 0.5rem;
+    border: 1px solid var(--resy-gray-300);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    min-width: 150px;
+}
+
+.table-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.data-table th {
+    background: var(--resy-gray-100);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--resy-gray-200);
+}
+
+.data-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--resy-gray-100);
+}
+
+.data-table tr:hover {
+    background: var(--resy-gray-50);
+}
+
+.data-table .loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-badge.checked {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.status-badge.no-availability {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-badge.attempted {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-badge.success {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.failed {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-badge.skipped {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.legend-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.legend-section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0.75rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+}
+
+.legend-item .status-badge {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.slots-count {
+    font-weight: 600;
+    color: var(--resy-orange);
+}
+
+.time-cell {
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+</style>
+
+<script>
+let attemptsData = [];
+
+function formatTime(isoString) {
+    const date = new Date(isoString);
+    return date.toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+}
+
+function getStatusBadge(status) {
+    const statusMap = {
+        'checked': { class: 'checked', label: 'Checked' },
+        'no_availability': { class: 'no-availability', label: 'No Availability' },
+        'attempted': { class: 'attempted', label: 'Attempted' },
+        'success': { class: 'success', label: 'Success' },
+        'failed': { class: 'failed', label: 'Failed' },
+        'skipped': { class: 'skipped', label: 'Skipped' }
+    };
+    const s = statusMap[status] || { class: status, label: status };
+    return `<span class="status-badge ${s.class}">${s.label}</span>`;
+}
+
+async function loadAttempts() {
+    const statusFilter = document.getElementById('status-filter').value;
+    const daysFilter = document.getElementById('days-filter').value;
+    
+    try {
+        const tbody = document.getElementById('attempts-tbody');
+        tbody.innerHTML = '<tr><td colspan="6" class="loading">Loading...</td></tr>';
+        
+        let url = `/api/attempts?days=${daysFilter}`;
+        if (statusFilter) {
+            url += `&status=${statusFilter}`;
+        }
+        
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        if (data.success) {
+            attemptsData = data.attempts;
+            renderAttempts(attemptsData);
+            updateSummary(data.summary);
+        } else {
+            tbody.innerHTML = `<tr><td colspan="6" class="loading">Error: ${data.error}</td></tr>`;
+        }
+    } catch (error) {
+        document.getElementById('attempts-tbody').innerHTML = 
+            `<tr><td colspan="6" class="loading">Error loading data</td></tr>`;
+    }
+}
+
+function renderAttempts(attempts) {
+    const tbody = document.getElementById('attempts-tbody');
+    
+    if (attempts.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" class="loading">No attempts found for this period</td></tr>';
+        return;
+    }
+    
+    tbody.innerHTML = attempts.map(attempt => `
+        <tr>
+            <td class="time-cell">${formatTime(attempt.timestamp)}</td>
+            <td>${attempt.trip_date}</td>
+            <td><strong>${attempt.restaurant_name}</strong></td>
+            <td>${getStatusBadge(attempt.status)}</td>
+            <td>${attempt.details || '-'}</td>
+            <td>${attempt.slots_found > 0 ? `<span class="slots-count">${attempt.slots_found}</span>` : '-'}</td>
+        </tr>
+    `).join('');
+}
+
+function updateSummary(summary) {
+    document.getElementById('total-attempts').textContent = summary.total_attempts || 0;
+    document.getElementById('successful-bookings').textContent = summary.by_status?.success || 0;
+    document.getElementById('no-availability').textContent = summary.by_status?.no_availability || 0;
+    document.getElementById('failed-attempts').textContent = (summary.by_status?.failed || 0) + (summary.by_status?.error || 0);
+}
+
+function refreshLogs() {
+    loadAttempts();
+}
+
+// Load on page load
+document.addEventListener('DOMContentLoaded', loadAttempts);
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{
+  "skipped": [
+    {
+      "date": "2026-04-18",
+      "reason": "I will be on a flight",
+      "skipped_at": "2026-04-11T08:27:30.288418"
+    },
+    {
+      "date": "2026-04-19",
+      "reason": "Already have a reservation at Nowon",
+      "skipped_at": "2026-04-11T08:27:54.336536"
+    },
+    {
+      "date": "2026-04-20",
+      "reason": "I will be at Keens",
+      "skipped_at": "2026-04-11T08:32:23.234045"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ Scans Google Calendar for NYC trips and checks for missing reservations
 
 import json
 import sys
+import re
 from datetime import datetime, timedelta
 from pathlib import Path
 import urllib.request
@@ -16,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 sys.path.insert(0, str(Path(__file__).parent))
 
 # Import monitoring
-from monitoring import log_scan, log_booking, log_error
+from monitoring import log_scan, log_booking, log_error, log_reservation_attempt
 
 # Google Calendar integration
 CALENDAR_CREDENTIALS = Path.home() / ".openclaw" / "credentials" / "calendar-credentials.json"
@@ -155,6 +156,221 @@ def get_payment_method():
         pass
     return None
 
+def get_user_reservations():
+    """Fetch user's existing reservations from Resy API"""
+    creds = load_resy_credentials()
+    
+    url = "https://api.resy.com/3/user/reservations"
+    
+    headers = {
+        "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
+        "X-Resy-Auth-Token": creds["auth_token"],
+        "Content-Type": "application/json"
+    }
+    
+    req = urllib.request.Request(url, headers=headers)
+    
+    try:
+        with urllib.request.urlopen(req, timeout=10) as response:
+            data = json.loads(response.read().decode())
+            reservations = []
+            
+            # Parse reservations from response
+            for res in data.get("reservations", []):
+                reservation = {
+                    "resy_reservation_id": res.get("reservation_id"),
+                    "venue_name": res.get("venue", {}).get("name"),
+                    "venue_id": str(res.get("venue", {}).get("id", {}).get("resy", "")),
+                    "date": res.get("day"),
+                    "time": res.get("time"),
+                    "party_size": res.get("party_size"),
+                    "status": res.get("state", "unknown"),  # confirmed, cancelled, etc.
+                    "source": "resy_api",
+                    "synced_at": datetime.now().isoformat()
+                }
+                reservations.append(reservation)
+            
+            return reservations
+            
+    except urllib.error.HTTPError as e:
+        error_msg = f"HTTP {e.code}: {e.reason}"
+        print(f"  ❌ Error fetching Resy reservations: {error_msg}")
+        log_error('scanner', 'api_error', "Failed to fetch user reservations from Resy",
+                  {'error': error_msg})
+        return []
+    except Exception as e:
+        print(f"  ❌ Error fetching Resy reservations: {e}")
+        log_error('scanner', 'api_error', "Failed to fetch user reservations from Resy",
+                  {'error': str(e)})
+        return []
+
+def parse_calendar_reservations(events):
+    """Parse Google Calendar events to find restaurant reservations"""
+    reservations = []
+    
+    for event in events:
+        summary = event.get("summary", "")
+        location = event.get("location", "")
+        description = event.get("description", "")
+        
+        # Look for reservation patterns
+        is_reservation = False
+        restaurant_name = None
+        
+        # Pattern 1: "Reservation at [Restaurant Name]"
+        if "reservation at" in summary.lower():
+            is_reservation = True
+            # Extract restaurant name
+            match = re.search(r'Reservation at (.+?)(?:\s+at\s+|$)', summary, re.IGNORECASE)
+            if match:
+                restaurant_name = match.group(1).strip()
+        
+        # Pattern 2: "Dinner at [Restaurant]" or "[Restaurant] reservation"
+        elif any(word in summary.lower() for word in ["dinner at", "lunch at", "brunch at"]):
+            is_reservation = True
+            parts = summary.lower().split(" at ", 1)
+            if len(parts) > 1:
+                restaurant_name = parts[1].strip()
+        
+        if is_reservation and restaurant_name:
+            # Get date from event
+            start = event.get("start", {})
+            date = None
+            time = None
+            
+            if "dateTime" in start:
+                dt = datetime.fromisoformat(start["dateTime"].replace('Z', '+00:00'))
+                date = dt.strftime("%Y-%m-%d")
+                time = dt.strftime("%H:%M")
+            elif "date" in start:
+                date = start["date"]
+                time = "19:00"  # Default to 7 PM if no time specified
+            
+            if date:
+                # Try to find venue_id from our database
+                venue_id = find_venue_id_by_name(restaurant_name)
+                
+                reservation = {
+                    "venue_name": restaurant_name,
+                    "venue_id": venue_id,
+                    "date": date,
+                    "time": time,
+                    "party_size": 2,  # Default assumption
+                    "source": "calendar",
+                    "calendar_event_id": event.get("id"),
+                    "location": location,
+                    "notes": f"Found in Google Calendar: {summary}",
+                    "synced_at": datetime.now().isoformat()
+                }
+                reservations.append(reservation)
+    
+    return reservations
+
+def find_venue_id_by_name(name):
+    """Try to find venue_id from our database by name"""
+    # Load NYC restaurants database
+    nyc_db_path = Path(__file__).parent / "data" / "nyc_restaurants.json"
+    if nyc_db_path.exists():
+        with open(nyc_db_path) as f:
+            data = json.load(f)
+        
+        name_lower = name.lower()
+        for restaurant in data.get("restaurants", []):
+            db_name = restaurant.get("name", "").lower()
+            # Check for exact match or substring match
+            if name_lower in db_name or db_name in name_lower:
+                return restaurant.get("venue_id")
+    
+    return None
+
+def sync_calendar_reservations():
+    """Sync reservations found in Google Calendar"""
+    print("🔄 Checking Google Calendar for reservations...")
+    
+    # Get calendar events
+    events = parse_calendar_events()
+    calendar_reservations = parse_calendar_reservations(events)
+    
+    if not calendar_reservations:
+        print("  ℹ️  No reservations found in calendar")
+        return
+    
+    # Load existing reservations
+    local_data = load_reservations()
+    local_reservations = local_data.get("reservations", [])
+    
+    # Create a set of existing dates to avoid duplicates
+    existing_dates = {(r.get("date"), r.get("venue_name").lower() if r.get("venue_name") else "") 
+                      for r in local_reservations}
+    
+    added_count = 0
+    
+    for res in calendar_reservations:
+        date = res.get("date")
+        venue_name = res.get("venue_name", "").lower()
+        
+        # Check if we already have this reservation
+        if (date, venue_name) in existing_dates:
+            continue
+        
+        # Add new reservation
+        local_reservations.append(res)
+        existing_dates.add((date, venue_name))
+        added_count += 1
+        print(f"  ✅ Found reservation: {res['venue_name']} on {date}")
+    
+    # Save updated reservations
+    local_data["reservations"] = local_reservations
+    save_reservations(local_data)
+    
+    print(f"  ✅ Added {added_count} reservations from Google Calendar")
+
+def sync_resy_reservations():
+    """Sync reservations from Resy API to local database"""
+    print("🔄 Syncing reservations from Resy...")
+    
+    resy_reservations = get_user_reservations()
+    local_data = load_reservations()
+    local_reservations = local_data.get("reservations", [])
+    
+    # Create a set of existing Resy reservation IDs to avoid duplicates
+    existing_resy_ids = {r.get("resy_reservation_id") for r in local_reservations if r.get("resy_reservation_id")}
+    
+    added_count = 0
+    updated_count = 0
+    
+    for res in resy_reservations:
+        resy_id = res.get("resy_reservation_id")
+        
+        # Skip cancelled reservations
+        if res.get("status") == "cancelled":
+            continue
+            
+        if resy_id and resy_id in existing_resy_ids:
+            # Update existing reservation if needed
+            for i, local_res in enumerate(local_reservations):
+                if local_res.get("resy_reservation_id") == resy_id:
+                    # Update if status changed
+                    if local_res.get("status") != res.get("status"):
+                        local_reservations[i]["status"] = res.get("status")
+                        updated_count += 1
+                    break
+        else:
+            # Add new reservation
+            local_reservations.append(res)
+            added_count += 1
+            existing_resy_ids.add(resy_id)
+    
+    # Save updated reservations
+    local_data["reservations"] = local_reservations
+    local_data["last_sync"] = datetime.now().isoformat()
+    save_reservations(local_data)
+    
+    print(f"  ✅ Synced {len(resy_reservations)} reservations from Resy")
+    print(f"     Added: {added_count}, Updated: {updated_count}")
+    
+    return local_reservations
+
 def parse_calendar_events():
     """
     Parse calendar events to find NYC trips.
@@ -252,11 +468,11 @@ def get_date_range(start, end):
     return dates
 
 def has_reservation(date, reservations_data):
-    """Check if we already have a reservation for this date"""
+    """Check if we already have a reservation for this date. Returns the reservation dict or None."""
     for res in reservations_data.get("reservations", []):
         if res.get("date") == date:
-            return True
-    return False
+            return res
+    return None
 
 def find_best_slot(slots, min_hour=17):
     """Find best slot after 5pm (17:00)"""
@@ -351,7 +567,16 @@ def scan_and_book():
         scan_stats["trip_dates"].extend(trip['dates'])
     print()
 
-    # Load restaurants and reservations
+    # Sync reservations from both Resy API and Google Calendar
+    print("🔄 Syncing reservations from Resy API...")
+    sync_resy_reservations()
+    print()
+    
+    print("🔄 Syncing reservations from Google Calendar...")
+    sync_calendar_reservations()
+    print()
+    
+    # Load restaurants and reservations (after sync)
     restaurants_data = load_restaurants()
     reservations_data = load_reservations()
 
@@ -380,8 +605,18 @@ def scan_and_book():
     for trip in trips:
         for date in trip["dates"]:
             # Skip if already has reservation
-            if has_reservation(date, reservations_data):
-                print(f"✅ {date}: Already have a reservation")
+            existing_res = has_reservation(date, reservations_data)
+            if existing_res:
+                res_name = existing_res.get("venue_name", existing_res.get("restaurant_name", "Unknown"))
+                print(f"✅ {date}: Already have a reservation at {res_name}")
+                log_reservation_attempt(
+                    trip_date=date,
+                    restaurant_name=res_name,
+                    venue_id=existing_res.get("venue_id", ""),
+                    party_size=existing_res.get("party_size", 2),
+                    status="skipped",
+                    details=f"Skipped - already have reservation at {res_name}"
+                )
                 continue
 
             print(f"🔍 {date}: Looking for reservations...")
@@ -393,20 +628,47 @@ def scan_and_book():
                     break
 
                 venue_id = restaurant["venue_id"]
-                print(f"   Checking {restaurant['name']}...", end=" ")
+                restaurant_name = restaurant["name"]
+                print(f"   Checking {restaurant_name}...", end=" ")
                 scan_stats["restaurants_checked"] += 1
+
+                # Log that we're checking this restaurant
+                log_reservation_attempt(
+                    trip_date=date,
+                    restaurant_name=restaurant_name,
+                    venue_id=venue_id,
+                    party_size=2,
+                    status="checked",
+                    details=f"Checking availability for {date}"
+                )
 
                 # Find available slots
                 results = find_resy_reservations(venue_id, date, 2)  # Default party of 2
 
                 if not results or "results" not in results:
                     print("❌ No availability")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="no_availability",
+                        details="API returned no results or error"
+                    )
                     continue
 
                 slots = results["results"].get("venues", [{}])[0].get("slots", [])
 
                 if not slots:
                     print("❌ No slots")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="no_availability",
+                        details="No slots available for this date"
+                    )
                     continue
 
                 scan_stats["reservations_found"] += len(slots)
@@ -416,11 +678,32 @@ def scan_and_book():
 
                 if not best_slot:
                     print("❌ No slots after 5pm")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="no_availability",
+                        details=f"Found {len(slots)} slots but none after 5pm",
+                        slots_found=len(slots)
+                    )
                     continue
 
                 time_str = best_slot["date"]["start"]
-                print(f"✅ Found slot at {time_str.split()[1]}")
+                slot_time = time_str.split()[1]
+                print(f"✅ Found slot at {slot_time}")
                 scan_stats["reservations_attempted"] += 1
+
+                # Log that we found slots
+                log_reservation_attempt(
+                    trip_date=date,
+                    restaurant_name=restaurant_name,
+                    venue_id=venue_id,
+                    party_size=2,
+                    status="attempted",
+                    details=f"Found {len(slots)} slots, best is {slot_time}",
+                    slots_found=len(slots)
+                )
 
                 # Book it
                 config_id = best_slot["config"]["token"]
@@ -430,10 +713,10 @@ def scan_and_book():
                     # Save reservation
                     new_reservation = {
                         "id": len(reservations_data["reservations"]) + 1,
-                        "restaurant_name": restaurant["name"],
+                        "restaurant_name": restaurant_name,
                         "venue_id": venue_id,
                         "date": date,
-                        "time": time_str.split()[1],
+                        "time": slot_time,
                         "party_size": 2,
                         "confirmation_code": booking_result.get("reservation_id", ""),
                         "created_at": datetime.now().isoformat()
@@ -447,13 +730,32 @@ def scan_and_book():
                     bookings_made.append(new_reservation)
                     booked = True
                     scan_stats["reservations_made"] += 1
-                    print(f"   🎉 BOOKED: {restaurant['name']} at {time_str.split()[1]}")
+                    print(f"   🎉 BOOKED: {restaurant_name} at {slot_time}")
 
-                    # Log the booking
-                    log_booking(date, restaurant["name"], venue_id, 2,
-                               time_str.split()[1], booking_result.get("reservation_id", ""))
+                    # Log the successful booking
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="success",
+                        details=f"Successfully booked at {slot_time}",
+                        slots_found=len(slots)
+                    )
+                    log_booking(date, restaurant_name, venue_id, 2,
+                               slot_time, booking_result.get("reservation_id", ""))
                 else:
                     print("   ❌ Booking failed")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="failed",
+                        details=f"Found slot at {slot_time} but booking API failed",
+                        slots_found=len(slots),
+                        error_message="Booking API returned error or no confirmation"
+                    )
 
             if not booked:
                 print(f"   ⚠️  Could not book any restaurant for {date}")

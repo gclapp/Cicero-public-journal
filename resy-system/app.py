@@ -24,7 +24,8 @@ from trips import (
 from monitoring import (
     load_monitoring_data, log_scan, log_booking, log_error, 
     resolve_error, get_system_health, get_scan_history, 
-    get_error_summary, get_log_files, read_log_file
+    get_error_summary, get_log_files, read_log_file,
+    get_reservation_attempts, get_attempts_summary
 )
 
 app = Flask(__name__)
@@ -648,6 +649,94 @@ def api_view_log(log_name):
     """View log file contents"""
     content = read_log_file(log_name, lines=100)
     return jsonify({'content': content})
+
+@app.route('/logs')
+@login_required
+def logs_page():
+    """Reservation attempts log page"""
+    return render_template('logs.html')
+
+@app.route('/api/attempts')
+@login_required
+def api_attempts():
+    """Get reservation attempts with filtering"""
+    try:
+        days = request.args.get('days', 7, type=int)
+        status = request.args.get('status', None)
+        trip_date = request.args.get('trip_date', None)
+        
+        attempts = get_reservation_attempts(
+            days=days,
+            trip_date=trip_date,
+            status=status,
+            limit=100
+        )
+        
+        summary = get_attempts_summary(days=days)
+        
+        return jsonify({
+            'success': True,
+            'attempts': attempts,
+            'summary': summary,
+            'count': len(attempts)
+        })
+    except Exception as e:
+        log_error('web_ui', 'api_error', f"Failed to get attempts: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/scan-and-book', methods=['POST'])
+@login_required
+def api_scan_and_book():
+    """Manually trigger calendar scan and booking process"""
+    try:
+        import subprocess
+        import sys
+        
+        # Run the calendar scanner
+        result = subprocess.run(
+            [sys.executable, str(Path(__file__).parent / 'calendar_scanner.py')],
+            capture_output=True,
+            text=True,
+            timeout=300  # 5 minute timeout
+        )
+        
+        # Parse the output to get stats
+        output = result.stdout + result.stderr
+        
+        # Extract stats from output
+        restaurants_checked = 0
+        reservations_found = 0
+        reservations_made = 0
+        
+        for line in output.split('\n'):
+            if 'Checked' in line and 'restaurants' in line:
+                try:
+                    restaurants_checked = int(line.split('Checked')[1].split('restaurants')[0].strip())
+                except:
+                    pass
+            elif 'Found' in line and 'available slots' in line:
+                try:
+                    reservations_found = int(line.split('Found')[1].split('available slots')[0].strip())
+                except:
+                    pass
+            elif 'Made' in line and 'reservations' in line:
+                try:
+                    reservations_made = int(line.split('Made')[1].split('reservations')[0].strip())
+                except:
+                    pass
+        
+        return jsonify({
+            'success': True,
+            'restaurants_checked': restaurants_checked,
+            'reservations_found': reservations_found,
+            'reservations_made': reservations_made,
+            'output': output[-500:]  # Last 500 chars for debugging
+        })
+        
+    except subprocess.TimeoutExpired:
+        return jsonify({'success': False, 'error': 'Scan timed out after 5 minutes'}), 504
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
 
 # Error handlers to log UI errors
 @app.errorhandler(500)
