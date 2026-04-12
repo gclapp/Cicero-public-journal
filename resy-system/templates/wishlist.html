@@ -245,6 +245,103 @@
             opacity: 1;
         }
     }
+    
+    /* Circuit Breaker Styles */
+    .problematic-venues-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .problematic-venue-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.875rem;
+        background: var(--resy-gray-50);
+        border: 1px solid var(--resy-gray-200);
+        border-left: 3px solid var(--resy-error);
+        border-radius: 6px;
+    }
+    
+    .problematic-venue-item.circuit-open {
+        border-left-color: var(--resy-error);
+        background: rgba(239, 68, 68, 0.05);
+    }
+    
+    .problematic-venue-item.circuit-closed {
+        border-left-color: var(--resy-warning);
+        background: rgba(245, 158, 11, 0.05);
+    }
+    
+    .venue-error-icon {
+        width: 20px;
+        height: 20px;
+        color: var(--resy-error);
+        flex-shrink: 0;
+        margin-top: 0.125rem;
+    }
+    
+    .venue-error-details {
+        flex: 1;
+    }
+    
+    .venue-error-name {
+        font-weight: 600;
+        font-size: 0.875rem;
+        color: var(--resy-gray-900);
+        margin-bottom: 0.25rem;
+    }
+    
+    .venue-error-status {
+        font-size: 0.75rem;
+        color: var(--resy-gray-500);
+        margin-bottom: 0.5rem;
+    }
+    
+    .venue-error-messages {
+        font-size: 0.75rem;
+        color: var(--resy-gray-600);
+        font-family: monospace;
+        background: var(--resy-white);
+        padding: 0.5rem;
+        border-radius: 4px;
+        border: 1px solid var(--resy-gray-200);
+    }
+    
+    .venue-error-messages .error-msg {
+        margin-bottom: 0.25rem;
+        padding-bottom: 0.25rem;
+        border-bottom: 1px dashed var(--resy-gray-200);
+    }
+    
+    .venue-error-messages .error-msg:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    
+    .reset-circuit-btn {
+        background: var(--resy-gray-200);
+        border: none;
+        padding: 0.375rem 0.75rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        cursor: pointer;
+        color: var(--resy-gray-700);
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+    
+    .reset-circuit-btn:hover {
+        background: var(--resy-orange);
+        color: white;
+    }
+    
+    .badge-error {
+        background: var(--resy-error);
+        color: white;
+    }
 </style>
 {% endblock %}
 
@@ -276,6 +373,27 @@
     </svg>
     <p>Your wish list is empty</p>
     <p style="font-size: 0.8125rem; margin-top: 0.5rem;">Search above to add restaurants</p>
+</div>
+
+<!-- Circuit Breaker Status Section -->
+<div id="circuitBreakerSection" class="card" style="margin-top: 2rem; display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="font-size: 1rem; color: var(--resy-error);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            API Issues Detected
+        </h3>
+        <span id="problematicCount" class="badge badge-error">0 venues</span>
+    </div>
+    <p style="font-size: 0.8125rem; color: var(--resy-gray-500); margin-bottom: 1rem;">
+        These venues are experiencing recurring API errors and have been temporarily skipped.
+    </p>
+    <div id="problematicVenuesList" class="problematic-venues-list">
+        <!-- Will be populated by JS -->
+    </div>
 </div>
 {% endblock %}
 
@@ -551,6 +669,93 @@
         div.textContent = text;
         return div.innerHTML;
     }
+    
+    // Load circuit breaker data
+    async function loadCircuitBreakerData() {
+        try {
+            const response = await fetch('/api/circuit-breaker');
+            const data = await response.json();
+            
+            if (data.success && data.problematic_venues && data.problematic_venues.length > 0) {
+                renderProblematicVenues(data.problematic_venues);
+            }
+        } catch (error) {
+            console.error('Error loading circuit breaker data:', error);
+        }
+    }
+    
+    function renderProblematicVenues(venues) {
+        const section = document.getElementById('circuitBreakerSection');
+        const list = document.getElementById('problematicVenuesList');
+        const countBadge = document.getElementById('problematicCount');
+        
+        if (!venues || venues.length === 0) {
+            section.style.display = 'none';
+            return;
+        }
+        
+        section.style.display = 'block';
+        countBadge.textContent = `${venues.length} venue${venues.length !== 1 ? 's' : ''}`;
+        
+        list.innerHTML = venues.map(venue => {
+            const isOpen = venue.circuit_open;
+            const statusClass = isOpen ? 'circuit-open' : 'circuit-closed';
+            const statusText = isOpen ? 'Temporarily Disabled' : 'High Failure Rate';
+            const lastFailure = venue.last_failure ? new Date(venue.last_failure).toLocaleString() : 'Unknown';
+            
+            // Format error messages
+            const errorMessages = venue.failure_messages ? venue.failure_messages.map(msg => 
+                `<div class="error-msg">${escapeHtml(msg.message)}</div>`
+            ).join('') : '';
+            
+            return `
+                <div class="problematic-venue-item ${statusClass}">
+                    <svg class="venue-error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <div class="venue-error-details">
+                        <div class="venue-error-name">${escapeHtml(venue.venue_name || 'Unknown Venue')}</div>
+                        <div class="venue-error-status">
+                            ${statusText} • ${venue.failures} failures • Last: ${lastFailure}
+                        </div>
+                        ${errorMessages ? `<div class="venue-error-messages">${errorMessages}</div>` : ''}
+                    </div>
+                    <button class="reset-circuit-btn" onclick="resetCircuit('${venue.venue_id}')" title="Reset circuit and retry">
+                        Reset
+                    </button>
+                </div>
+            `;
+        }).join('');
+    }
+    
+    async function resetCircuit(venueId) {
+        try {
+            const response = await fetch('/api/circuit-breaker/reset', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ venue_id: venueId })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Reload circuit breaker data
+                loadCircuitBreakerData();
+                // Show success message
+                showDuplicateToast('Circuit reset successfully');
+            } else {
+                alert('Failed to reset circuit: ' + (data.error || 'Unknown error'));
+            }
+        } catch (error) {
+            console.error('Error resetting circuit:', error);
+            alert('Failed to reset circuit');
+        }
+    }
+    
+    // Load circuit breaker data on page load
+    document.addEventListener('DOMContentLoaded', loadCircuitBreakerData);
     
     // Close search results when clicking outside
     document.addEventListener('click', function(e) {

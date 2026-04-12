@@ -1308,3 +1308,8 @@
 127.0.0.1 - admin [12/Apr/2026:17:11:34 +0000] "GET /static/nyceats-logo-large-transparent.png HTTP/1.1" 304 0 "https://nyceats.openclapp.com/trips" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 127.0.0.1 - admin [12/Apr/2026:17:11:35 +0000] "GET /static/uploads/9bf577539af74fd9b9d6c0b3e2486168.png HTTP/1.1" 304 0 "https://nyceats.openclapp.com/trips" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
 127.0.0.1 - admin [12/Apr/2026:17:11:35 +0000] "GET /static/favicon-32x32.png HTTP/1.1" 304 0 "https://nyceats.openclapp.com/trips" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Apr/2026:17:13:01 +0000] "GET / HTTP/1.1" 302 199 "-" "curl/8.5.0"
+127.0.0.1 - - [12/Apr/2026:18:01:07 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Apr/2026:18:01:07 +0000] "GET /login HTTP/1.1" 200 12164 "https://16.59.79.163/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+127.0.0.1 - - [12/Apr/2026:18:24:52 +0000] "GET / HTTP/1.1" 302 199 "http://16.59.79.163" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"
+127.0.0.1 - - [12/Apr/2026:18:24:53 +0000] "GET /login HTTP/1.1" 200 12164 "https://16.59.79.163/" "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1"

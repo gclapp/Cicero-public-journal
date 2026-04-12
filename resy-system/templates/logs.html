@@ -52,6 +52,12 @@
                 <option value="90">Last 90 days</option>
             </select>
         </div>
+        <div class="filter-group">
+            <label>Restaurant:</label>
+            <select id="restaurant-filter" onchange="loadAttempts()">
+                <option value="">All Restaurants</option>
+            </select>
+        </div>
         <button class="btn btn-secondary" onclick="refreshLogs()">🔄 Refresh</button>
     </div>
 
@@ -356,6 +362,7 @@ function getStatusBadge(status) {
 async function loadAttempts() {
     const statusFilter = document.getElementById('status-filter').value;
     const daysFilter = document.getElementById('days-filter').value;
+    const restaurantFilter = document.getElementById('restaurant-filter').value;
     
     try {
         const tbody = document.getElementById('attempts-tbody');
@@ -365,6 +372,9 @@ async function loadAttempts() {
         if (statusFilter) {
             url += `&status=${statusFilter}`;
         }
+        if (restaurantFilter) {
+            url += `&restaurant=${encodeURIComponent(restaurantFilter)}`;
+        }
         
         const response = await fetch(url);
         const data = await response.json();
@@ -373,6 +383,9 @@ async function loadAttempts() {
             attemptsData = data.attempts;
             renderAttempts(attemptsData);
             updateSummary(data.summary);
+            
+            // Update restaurant filter dropdown with available restaurants
+            updateRestaurantFilter(data.restaurants || []);
         } else {
             tbody.innerHTML = `<tr><td colspan="6" class="loading">Error: ${data.error}</td></tr>`;
         }
@@ -380,6 +393,27 @@ async function loadAttempts() {
         document.getElementById('attempts-tbody').innerHTML = 
             `<tr><td colspan="6" class="loading">Error loading data</td></tr>`;
     }
+}
+
+function updateRestaurantFilter(restaurants) {
+    const filter = document.getElementById('restaurant-filter');
+    const currentValue = filter.value;
+    
+    // Keep the "All Restaurants" option
+    filter.innerHTML = '<option value="">All Restaurants</option>';
+    
+    // Add restaurants from the data
+    restaurants.forEach(restaurant => {
+        if (restaurant) {
+            const option = document.createElement('option');
+            option.value = restaurant;
+            option.textContent = restaurant;
+            if (restaurant === currentValue) {
+                option.selected = true;
+            }
+            filter.appendChild(option);
+        }
+    });
 }
 
 function renderAttempts(attempts) {

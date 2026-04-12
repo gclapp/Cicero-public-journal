@@ -20,6 +20,10 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 # Import monitoring
 from monitoring import log_scan, log_booking, log_error, log_reservation_attempt
+from circuit_breaker import (
+    record_failure, record_success, is_circuit_open, 
+    should_skip_venue, get_problematic_venues
+)
 
 # Google Calendar integration
 CALENDAR_CREDENTIALS = Path.home() / ".openclaw" / "credentials" / "calendar-credentials.json"
@@ -68,8 +72,14 @@ def save_scan_state(state):
     with open(SCAN_STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2)
 
-def find_resy_reservations(venue_id, day, party_size):
+def find_resy_reservations(venue_id, day, party_size, venue_name=""):
     """Find available reservations at a venue"""
+    # Check circuit breaker first
+    should_skip, skip_reason = should_skip_venue(venue_id)
+    if should_skip:
+        print(f"  ⚠️  Skipping venue {venue_id}: {skip_reason}")
+        return None
+    
     creds = load_resy_credentials()
 
     url = f"https://api.resy.com/4/find?day={day}&party_size={party_size}&venue_id={venue_id}"
@@ -84,17 +94,25 @@ def find_resy_reservations(venue_id, day, party_size):
 
     try:
         with urllib.request.urlopen(req, timeout=10) as response:
-            return json.loads(response.read().decode())
+            result = json.loads(response.read().decode())
+            # Record success to reset failure count
+            record_success(venue_id)
+            return result
     except urllib.error.HTTPError as e:
         error_msg = f"HTTP {e.code}: {e.reason}"
         print(f"  ❌ Error checking venue {venue_id}: {error_msg}")
+        # Record failure for circuit breaker
+        record_failure(venue_id, venue_name, error_msg)
         log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
                   {'venue_id': venue_id, 'day': day, 'error': error_msg})
         return None
     except Exception as e:
+        error_msg = str(e)
         print(f"  ❌ Error checking venue {venue_id}: {e}")
+        # Record failure for circuit breaker
+        record_failure(venue_id, venue_name, error_msg)
         log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
-                  {'venue_id': venue_id, 'day': day, 'error': str(e)})
+                  {'venue_id': venue_id, 'day': day, 'error': error_msg})
         return None
 
 def book_reservation(config_id, payment_method_id=None):
@@ -695,7 +713,7 @@ def scan_and_book():
                 )
 
                 # Find available slots
-                results = find_resy_reservations(venue_id, date, 2)  # Default party of 2
+                results = find_resy_reservations(venue_id, date, 2, restaurant_name)  # Default party of 2
 
                 if not results or "results" not in results:
                     print("❌ No availability")

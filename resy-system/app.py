@@ -28,6 +28,10 @@ from monitoring import (
     get_error_summary, get_log_files, read_log_file,
     get_reservation_attempts, get_attempts_summary
 )
+from circuit_breaker import (
+    get_all_venue_statuses, get_problematic_venues, 
+    reset_circuit, is_circuit_open
+)
 
 app = Flask(__name__)
 
@@ -1206,24 +1210,72 @@ def api_attempts():
         days = request.args.get('days', 7, type=int)
         status = request.args.get('status', None)
         trip_date = request.args.get('trip_date', None)
+        restaurant = request.args.get('restaurant', None)
         
         attempts = get_reservation_attempts(
             days=days,
             trip_date=trip_date,
             status=status,
-            limit=100
+            limit=500
         )
         
+        # Filter by restaurant name if provided
+        if restaurant:
+            attempts = [a for a in attempts if restaurant.lower() in a.get('restaurant_name', '').lower()]
+        
         summary = get_attempts_summary(days=days)
+        
+        # Get unique restaurant names for filter dropdown
+        all_restaurants = list(set(a.get('restaurant_name', '') for a in attempts if a.get('restaurant_name')))
+        all_restaurants.sort()
         
         return jsonify({
             'success': True,
             'attempts': attempts,
             'summary': summary,
-            'count': len(attempts)
+            'count': len(attempts),
+            'restaurants': all_restaurants
         })
     except Exception as e:
         log_error('web_ui', 'api_error', f"Failed to get attempts: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/circuit-breaker')
+@login_required
+def api_circuit_breaker():
+    """Get circuit breaker status for all venues"""
+    try:
+        problematic = get_problematic_venues()
+        all_statuses = get_all_venue_statuses()
+        
+        return jsonify({
+            'success': True,
+            'problematic_venues': problematic,
+            'total_venues': len(all_statuses),
+            'circuit_open_count': len([v for v in all_statuses.values() if v.get('circuit_open', False)])
+        })
+    except Exception as e:
+        log_error('web_ui', 'api_error', f"Failed to get circuit breaker data: {str(e)}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/circuit-breaker/reset', methods=['POST'])
+@admin_required
+def api_reset_circuit():
+    """Reset circuit breaker for a venue"""
+    try:
+        data = request.json
+        venue_id = data.get('venue_id')
+        
+        if not venue_id:
+            return jsonify({'success': False, 'error': 'venue_id required'}), 400
+        
+        success = reset_circuit(venue_id)
+        if success:
+            return jsonify({'success': True, 'message': f'Circuit reset for venue {venue_id}'})
+        else:
+            return jsonify({'success': False, 'error': 'Venue not found'}), 404
+    except Exception as e:
+        log_error('web_ui', 'api_error', f"Failed to reset circuit: {str(e)}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/scan-and-book', methods=['POST'])
