@@ -82,8 +82,14 @@ def format_date_filter(date_str):
 @app.template_filter('format_time_12h')
 def format_time_12h_filter(time_str):
     """Convert 24-hour time to 12-hour AM/PM format"""
+    if not time_str:
+        return time_str
     try:
-        dt = datetime.strptime(time_str, '%H:%M')
+        # Handle both HH:MM and HH:MM:SS formats
+        if len(time_str.split(':')) == 3:
+            dt = datetime.strptime(time_str, '%H:%M:%S')
+        else:
+            dt = datetime.strptime(time_str, '%H:%M')
         return dt.strftime('%I:%M %p').lstrip('0')
     except:
         return time_str
