@@ -23400,3 +23400,41 @@ Departs at 8:00 PM on Tue...
 ✅ Processed 0 new emails
 [2026-04-12 16:45:03 UTC] ✅ Check completed
 [2026-04-12 16:45:03 UTC] === Check completed ===
+[2026-04-12 17:00:01 UTC] === IMAP check started ===
+
+[2026-04-12T17:00:02.166192] Checking emails...
+
+📧 New email from: Geoffrey Clapp <geoffrey.clapp@progyny.com>
+   Subject: Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time -
+ Confirmation code: HKZ4LV
+   Body preview: External Sender.
+
+ Delta Air Lines confirmation code: HKZ4LV Delta Air Lines 742 Business, Scheduled Departure May 21, 2026, 7:00 am, New York, NY, United States of America (JFK-John F. Kennedy Intl...
+   ✅ Authorized sender: geoffrey.clapp@progyny.com
+   ✈️ Detected: Flight confirmation
+   ✅ Saved flight 742 with confirmation HKZ4LV
+   ✅ Reply sent to geoffrey.clapp@progyny.com
+
+📧 New email from: Geoffrey Clapp <[REDACTED]>
+   Subject: =?UTF-8?Q?Re=3A_=F0=9F=93=A7_Weekly_Email_Report_=2D_April_11=2C_2026?=
+   Body preview: approve emails from donotreply@loseit.com
+
+--gjc
+
+------------
+Geoffrey Clapp
+@geoffclapp
+
+
+
+On Sat, Apr 11, 2026 at 2:00 AM <[REDACTED]> wrote:
+
+> 📧 Weekly Email Report
+>
+> *...
+   ✅ Authorized sender: [REDACTED]
+   ℹ️ General email
+   ✅ Reply sent to [REDACTED]
+✅ Processed 2 new emails
+[2026-04-12 17:00:06 UTC] ✅ Check completed
+[2026-04-12 17:00:06 UTC] === Check completed ===

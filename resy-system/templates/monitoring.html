@@ -374,7 +374,7 @@
                 {% for scan in health.recent_scans %}
                 <tr>
                     <td>{{ scan.timestamp[:16] if scan.timestamp else '—' }}</td>
-                    <td>{{ scan.trip_dates|join(', ') if scan.trip_dates else '—' }}</td>
+                    <td>{{ scan.trip_dates|map('format_date')|join(', ') if scan.trip_dates else '—' }}</td>
                     <td>{{ scan.restaurants_checked }}</td>
                     <td>{{ scan.reservations_found }}</td>
                     <td>{{ scan.reservations_attempted }}</td>
@@ -419,7 +419,7 @@
                 {% for booking in health.recent_bookings %}
                 <tr>
                     <td>{{ booking.timestamp[:16] if booking.timestamp else '—' }}</td>
-                    <td>{{ booking.trip_date }}</td>
+                    <td>{{ booking.trip_date|format_date }}</td>
                     <td>{{ booking.restaurant_name }}</td>
                     <td>{{ booking.time }}</td>
                     <td>{{ booking.party_size }}</td>
@@ -463,7 +463,7 @@
     {% endif %}
 </div>
 
-<!-- Logs Tab -->
+<!-- Log Files Tab -->
 <div id="logs" class="tab-content">
     {% if log_files %}
     <div class="log-files">

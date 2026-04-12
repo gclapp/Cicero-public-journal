@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Logs - NYCeats{% endblock %}
+{% block title %}Processing - NYCeats{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -330,6 +330,16 @@ function formatTime(isoString) {
     });
 }
 
+function formatDate(dateString) {
+    if (!dateString) return '-';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+    });
+}
+
 function getStatusBadge(status) {
     const statusMap = {
         'checked': { class: 'checked', label: 'Checked' },
@@ -383,7 +393,7 @@ function renderAttempts(attempts) {
     tbody.innerHTML = attempts.map(attempt => `
         <tr>
             <td class="time-cell">${formatTime(attempt.timestamp)}</td>
-            <td>${attempt.trip_date}</td>
+            <td>${formatDate(attempt.trip_date)}</td>
             <td><strong>${attempt.restaurant_name}</strong></td>
             <td>${getStatusBadge(attempt.status)}</td>
             <td>${attempt.details || '-'}</td>

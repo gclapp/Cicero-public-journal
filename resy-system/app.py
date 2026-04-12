@@ -233,18 +233,29 @@ def load_nyc_restaurants():
             return json.load(f)
     return {'restaurants': []}
 
-def search_local_restaurants(query):
+def search_local_restaurants(query, exclude_venue_ids=None):
     """Search local restaurant database by name"""
     db = load_nyc_restaurants()
     restaurants = db.get('restaurants', [])
     
+    # Normalize exclude_venue_ids to strings for comparison
+    if exclude_venue_ids is None:
+        exclude_venue_ids = set()
+    else:
+        exclude_venue_ids = {str(vid) for vid in exclude_venue_ids if vid}
+    
     if not query:
-        return restaurants[:10]
+        # Filter out excluded venues even when no query
+        return [r for r in restaurants[:20] if str(r.get('venue_id', '')) not in exclude_venue_ids]
     
     query_lower = query.lower()
     matches = []
     
     for r in restaurants:
+        # Skip if venue_id is in exclude list
+        if str(r.get('venue_id', '')) in exclude_venue_ids:
+            continue
+            
         name = r.get('name', '').lower()
         restaurant_type = r.get('type', '').lower()
         neighborhood = r.get('neighborhood', '').lower()
@@ -263,7 +274,7 @@ def search_local_restaurants(query):
     
     # Sort by score and return top matches
     matches.sort(key=lambda x: x[0], reverse=True)
-    return [r for _, r in matches[:10]]
+    return [r for _, r in matches[:20]]
 
 def get_venue_details(venue_id):
     """Get detailed venue info - tries Resy API first, falls back to local database"""
@@ -387,7 +398,7 @@ def search_resy_venues(query, lat, long, day, party_size=2):
             
             # Format results
             results = []
-            for venue in venues[:10]:  # Limit to 10 results
+            for venue in venues[:20]:  # Limit to 20 results
                 location = venue.get('location', {})
                 venue_id = venue.get('id', {}).get('resy')
                 results.append({
@@ -771,20 +782,19 @@ def api_search_resy():
     saved_venue_ids = {r.get('venue_id') for r in saved_data.get('restaurants', []) if r.get('venue_id')}
     
     # First search local database (NYC restaurants)
-    local_results = search_local_restaurants(query)
+    local_results = search_local_restaurants(query, exclude_venue_ids=saved_venue_ids)
     if local_results:
         # Format as venues for frontend compatibility, filtering out already saved
         venues = []
         for r in local_results:
-            if r.get('venue_id') not in saved_venue_ids:
-                venues.append({
-                    'venue_id': r.get('venue_id', ''),
-                    'name': r.get('name'),
-                    'type': r.get('type', 'Restaurant'),
-                    'neighborhood': r.get('neighborhood', ''),
-                    'price': r.get('price', '$$'),
-                    'source': 'local'
-                })
+            venues.append({
+                'venue_id': r.get('venue_id', ''),
+                'name': r.get('name'),
+                'type': r.get('type', 'Restaurant'),
+                'neighborhood': r.get('neighborhood', ''),
+                'price': r.get('price', '$$'),
+                'source': 'local'
+            })
         if venues:
             return jsonify({'venues': venues[:20]})
     
@@ -794,8 +804,10 @@ def api_search_resy():
     results = search_resy_venues(query, 40.7128, -74.0060, today, 2)
     
     # Filter out already saved restaurants and limit to 20
+    # Normalize venue_ids to strings for consistent comparison
+    saved_venue_ids_str = {str(vid) for vid in saved_venue_ids}
     if 'venues' in results:
-        results['venues'] = [v for v in results['venues'] if v.get('venue_id') not in saved_venue_ids][:20]
+        results['venues'] = [v for v in results['venues'] if str(v.get('venue_id', '')) not in saved_venue_ids_str][:20]
     
     return jsonify(results)
 
