@@ -31,6 +31,25 @@ from monitoring import (
 
 app = Flask(__name__)
 
+# Load version info
+VERSION_FILE = Path(__file__).parent / "version.json"
+def load_version():
+    """Load version information"""
+    if VERSION_FILE.exists():
+        with open(VERSION_FILE) as f:
+            return json.load(f)
+    return {
+        "version": "v0.0.0_0",
+        "date": "unknown",
+        "counter": 0,
+        "time": "00:00:00"
+    }
+
+# Make version available to all templates
+@app.context_processor
+def inject_version():
+    return dict(app_version=load_version())
+
 # Use a persistent secret key (stored in file) so sessions survive restarts
 SECRET_KEY_FILE = Path(__file__).parent / "data" / ".secret_key"
 if SECRET_KEY_FILE.exists():

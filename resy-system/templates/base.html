@@ -262,6 +262,16 @@
             color: var(--resy-orange);
         }
         
+        .version-indicator {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.6875rem;
+            color: var(--resy-gray-400);
+            background: var(--resy-gray-100);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        
         .divider {
             height: 1px;
             background: var(--resy-gray-200);
@@ -311,6 +321,12 @@
     </div>
     
     <div style="height: 4px; background: var(--resy-orange);"></div>
+    
+    <div style="background: var(--resy-gray-100); border-bottom: 1px solid var(--resy-gray-200);">
+        <div class="container" style="display: flex; justify-content: flex-end; align-items: center; padding: 0.375rem 1.5rem;">
+            <span class="version-indicator" title="Deployment version: {{ app_version.version }} at {{ app_version.time }}">{{ app_version.version }} {{ app_version.time }}</span>
+        </div>
+    </div>
     
     <div class="container">
         {% with messages = get_flashed_messages(with_categories=true) %}

@@ -4,6 +4,9 @@
 
 cd "$(dirname "$0")"
 
+# Bump version on startup
+python3 bump_version.py
+
 # Create data directory
 mkdir -p data
 
