@@ -129,6 +129,20 @@
     {"name": "Ample Hills", "venue_id": "1697", "type": "Ice Cream", "neighborhood": "Multiple", "price": "$"},
     {"name": "Davey's Ice Cream", "venue_id": "1699", "type": "Ice Cream", "neighborhood": "East Village", "price": "$"},
     {"name": "Soft Swerve", "venue_id": "1701", "type": "Ice Cream", "neighborhood": "Lower East Side", "price": "$"},
-    {"name": "Nowon East Village", "venue_id": "1703", "type": "Korean", "neighborhood": "East Village", "price": "$$"}
+    {"name": "Nowon East Village", "venue_id": "1703", "type": "Korean", "neighborhood": "East Village", "price": "$$"},
+    {"name": "Semma", "venue_id": "1705", "type": "Indian", "neighborhood": "Greenwich Village", "price": "$$$$"},
+    {"name": "Dhamaka", "venue_id": "1707", "type": "Indian", "neighborhood": "Lower East Side", "price": "$$$"},
+    {"name": "Adda", "venue_id": "1709", "type": "Indian", "neighborhood": "Long Island City", "price": "$$"},
+    {"name": "Junoon", "venue_id": "1711", "type": "Indian", "neighborhood": "Flatiron", "price": "$$$$"},
+    {"name": "Tamarind", "venue_id": "1713", "type": "Indian", "neighborhood": "Tribeca", "price": "$$$$"},
+    {"name": "GupShup", "venue_id": "1715", "type": "Indian", "neighborhood": "Flatiron", "price": "$$$"},
+    {"name": "Baar Baar", "venue_id": "1717", "type": "Indian", "neighborhood": "East Village", "price": "$$$"},
+    {"name": "Rahi", "venue_id": "1719", "type": "Indian", "neighborhood": "Greenwich Village", "price": "$$$"},
+    {"name": "Kokkari", "venue_id": "1721", "type": "Greek", "neighborhood": "Financial District", "price": "$$$"},
+    {"name": "Milos", "venue_id": "1723", "type": "Greek", "neighborhood": "Midtown", "price": "$$$$"},
+    {"name": "Avra", "venue_id": "1725", "type": "Greek", "neighborhood": "Midtown", "price": "$$$$"},
+    {"name": "Estiatorio Milos", "venue_id": "1727", "type": "Greek", "neighborhood": "Hudson Yards", "price": "$$$$"},
+    {"name": "Molyvos", "venue_id": "1729", "type": "Greek", "neighborhood": "Midtown", "price": "$$$"},
+    {"name": "Kebab Aur Sharab", "venue_id": "1731", "type": "Indian", "neighborhood": "Upper West Side", "price": "$$"}
   ]
 }
