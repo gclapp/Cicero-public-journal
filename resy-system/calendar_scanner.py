@@ -435,6 +435,16 @@ def extract_trip_dates(events):
     # Group events by date
     dates = set()
     for event in events:
+        # Try start_raw first (ISO format from calendar cache)
+        start_raw = event.get("start_raw", "")
+        if start_raw:
+            # Extract just the date part (YYYY-MM-DD)
+            date_part = start_raw[:10]
+            if len(date_part) == 10 and date_part[4] == '-' and date_part[7] == '-':
+                dates.add(date_part)
+                continue
+        
+        # Fallback to start dict
         start = event.get("start", {})
         if "date" in start:
             dates.add(start["date"])
