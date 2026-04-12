@@ -145,64 +145,6 @@
   ],
   "errors": [
     {
-      "timestamp": "2026-04-11T15:33:21.693742",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to fetch user reservations from Resy",
-      "details": {
-        "error": "'int' object has no attribute 'get'"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-11T15:33:40.903970",
-      "source": "web_ui",
-      "error_type": "server_error",
-      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
-      "details": {
-        "path": "/admin/users",
-        "method": "GET"
-      },
-      "user_email": "[REDACTED]",
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-11T15:43:46.494936",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to fetch user reservations from Resy",
-      "details": {
-        "error": "'int' object has no attribute 'get'"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-11T15:46:25.385673",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /favicon.ico",
-      "details": {
-        "path": "/favicon.ico",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-11T15:48:11.726628",
-      "source": "web_ui",
-      "error_type": "server_error",
-      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
-      "details": {
-        "path": "/profile/change-password",
-        "method": "POST"
-      },
-      "user_email": "[REDACTED]",
-      "resolved": false
-    },
-    {
       "timestamp": "2026-04-11T15:48:21.969389",
       "source": "web_ui",
       "error_type": "server_error",
@@ -2604,16 +2546,76 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T20:50:16.663456",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /security.txt",
+      "details": {
+        "path": "/security.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T20:50:57.118559",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login/",
+      "details": {
+        "path": "/login/",
+        "method": "POST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T20:51:01.254820",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login/",
+      "details": {
+        "path": "/login/",
+        "method": "HEAD"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T21:46:48.250317",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /security.txt",
+      "details": {
+        "path": "/security.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T21:50:39.387809",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /version",
+      "details": {
+        "path": "/version",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
     "last_scan_time": "2026-04-12T17:47:37.049470",
     "last_booking_time": "2026-04-11T06:29:57.775648",
-    "last_error_time": "2026-04-12T17:47:37.037000",
+    "last_error_time": "2026-04-12T21:50:39.387821",
     "total_scans": 12,
     "total_bookings": 1,
     "total_errors": 201,
-    "status": "healthy"
+    "status": "critical"
   },
   "attempts": [
     {

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Travel Automation - Creates Todoist tasks for upcoming trips
-Runs daily to check calendar and create travel prep tasks
+Travel Automation - URGENT MODE
+Creates Todoist tasks for ALL upcoming trips with due date = TODAY
+For immediate action on travel prep
 """
 
 import json
@@ -19,7 +20,7 @@ def load_calendar():
     with open(CALENDAR_FILE, 'r') as f:
         return json.load(f)
 
-def get_upcoming_travel(days=7):
+def get_upcoming_travel(days=60):
     """Get travel events in next N days"""
     data = load_calendar()
     if not data:
@@ -32,19 +33,17 @@ def get_upcoming_travel(days=7):
     
     return travel
 
-def get_existing_tasks(project="Travel"):
-    """Get list of existing task names in the Travel project"""
+def get_existing_tasks():
+    """Get list of existing task names"""
     try:
-        result = subprocess.run(["todoist", "tasks", "-p", project], 
+        result = subprocess.run(["todoist", "list"], 
                               capture_output=True, text=True, timeout=30)
         if result.returncode != 0:
             return set()
         
-        # Parse task names from output
         existing = set()
         for line in result.stdout.strip().split('\n'):
             if line.strip():
-                # Format: ID  Task name
                 parts = line.split('  ', 1)
                 if len(parts) > 1:
                     existing.add(parts[1].strip())
@@ -55,7 +54,6 @@ def get_existing_tasks(project="Travel"):
 
 def create_todoist_task(task_text, project="Travel", priority="2", due_date=None, existing_tasks=None):
     """Create a task in Todoist if it doesn't already exist"""
-    # Check if task already exists
     if existing_tasks and task_text in existing_tasks:
         print(f"   ⏭️  Skipped (already exists): {task_text[:50]}...")
         return True
@@ -78,17 +76,16 @@ def create_todoist_task(task_text, project="Travel", priority="2", due_date=None
         print(f"❌ Error creating task: {e}")
         return False
 
-def generate_travel_tasks():
-    """Generate and create travel tasks"""
-    travel_events = get_upcoming_travel(days=14)
+def generate_urgent_travel_tasks():
+    """Generate and create travel tasks with TODAY as due date"""
+    travel_events = get_upcoming_travel(days=60)
     
     if not travel_events:
-        print("✅ No upcoming travel in next 14 days")
+        print("✅ No upcoming travel found")
         return 0, 0
     
-    # Get existing tasks to avoid duplicates
     print("📋 Fetching existing tasks...")
-    existing_tasks = get_existing_tasks("Travel")
+    existing_tasks = get_existing_tasks()
     print(f"   Found {len(existing_tasks)} existing tasks")
     print()
     
@@ -97,6 +94,7 @@ def generate_travel_tasks():
     
     created_count = 0
     skipped_count = 0
+    today_str = datetime.now().strftime('%Y-%m-%d')
     
     for trip in travel_events:
         summary = trip.get('summary', 'Travel')
@@ -110,50 +108,31 @@ def generate_travel_tasks():
         
         # Determine trip type and create relevant tasks
         if 'flight' in summary.lower() or 'delta' in summary.lower():
-            # This is a flight - extract date for due date calculation
-            trip_date_str = trip.get('start_raw', '')
-            try:
-                if 'T' in trip_date_str:
-                    trip_date = datetime.fromisoformat(trip_date_str.replace('Z', '+00:00').replace('+00:00', ''))
-                else:
-                    trip_date = datetime.strptime(trip_date_str, '%Y-%m-%d')
-                
-                # Calculate due dates
-                rover_due = (trip_date - timedelta(days=10)).strftime('%Y-%m-%d')
-                pack_due = (trip_date - timedelta(days=2)).strftime('%Y-%m-%d')
-                uber_due = (trip_date - timedelta(days=1)).strftime('%Y-%m-%d')
-            except:
-                rover_due = pack_due = uber_due = None
-            
             # This is a flight
             # Only create ROVER task if departing FROM LAX (not returning TO LAX)
-            # Check if LAX/Los Angeles is in the location AND it's a departure (not arrival)
+            # Check if LAX is in the location AND it's a departure (not arrival)
             location_lower = location.lower()
             summary_lower = summary.lower()
             
-            # Check for LAX or Los Angeles in location
-            is_lax_location = 'lax' in location_lower or 'los angeles' in location_lower
-            is_jfk_location = 'jfk' in location_lower or 'new york' in location_lower
-            
-            # JFK return = flight FROM JFK TO LAX (both airports mentioned, departing from JFK)
-            is_jfk_to_lax = is_jfk_location and is_lax_location and ('jfk' in location_lower or 'new york' in location_lower)
-            # LAX departure = LAX location and NOT a JFK->LAX return
-            is_lax_departure = is_lax_location and not is_jfk_to_lax
+            # LAX departure = LAX is mentioned AND (flight TO somewhere OR departing from LAX)
+            # JFK return = flight FROM JFK TO LAX
+            is_jfk_to_lax = 'jfk' in location_lower and 'lax' in location_lower and ('new york' in location_lower or 'jfk' in summary_lower)
+            is_lax_departure = 'lax' in location_lower and not is_jfk_to_lax
             
             tasks = [
-                (f"🎒 PACK: Prepare luggage - {summary}", pack_due, "2"),
-                (f"🚗 UBER: Schedule ride to airport - {summary}", uber_due, "2"),
+                (f"🎒 PACK: Prepare luggage - {summary}", today_str, "2"),
+                (f"🚗 UBER: Schedule ride to airport - {summary}", today_str, "2"),
             ]
             
             # Only add ROVER for LAX departures (when Greta needs care)
             if is_lax_departure:
-                tasks.insert(0, (f"🐕 ROVER: Schedule sitter for Greta - {summary}", rover_due, "2"))
-                tasks.append((f"Check LAX traffic/security wait times", uber_due, "3"))
+                tasks.insert(0, (f"🐕 ROVER: Schedule sitter for Greta - {summary}", today_str, "2"))
+                tasks.append((f"Check LAX traffic/security wait times", today_str, "3"))
             
             for task, due, priority in tasks:
                 if create_todoist_task(task, project="Travel", priority=priority, due_date=due, existing_tasks=existing_tasks):
                     if task not in existing_tasks:
-                        print(f"   ✅ Created: {task}")
+                        print(f"   ✅ Created (DUE TODAY): {task}")
                         created_count += 1
                     else:
                         skipped_count += 1
@@ -161,31 +140,17 @@ def generate_travel_tasks():
                     print(f"   ⚠️  Failed: {task}")
         
         elif 'hotel' in summary.lower() or 'stay at' in summary.lower():
-            # This is a hotel - extract date for due date calculation
-            trip_date_str = trip.get('start_raw', '')
-            try:
-                if 'T' in trip_date_str:
-                    trip_date = datetime.fromisoformat(trip_date_str.replace('Z', '+00:00').replace('+00:00', ''))
-                else:
-                    trip_date = datetime.strptime(trip_date_str, '%Y-%m-%d')
-                
-                # Calculate due dates
-                confirm_due = (trip_date - timedelta(days=7)).strftime('%Y-%m-%d')
-                research_due = (trip_date - timedelta(days=5)).strftime('%Y-%m-%d')
-                dinner_due = (trip_date - timedelta(days=3)).strftime('%Y-%m-%d')
-            except:
-                confirm_due = research_due = dinner_due = None
-            
+            # This is a hotel
             tasks = [
-                (f"🏨 CONFIRM: Hotel reservation - {summary}", confirm_due, "3"),
-                (f"📋 RESEARCH: Hotel amenities & nearby restaurants - {location}", research_due, "3"),
-                (f"🍽️ DINNER: Make reservations near hotel - {location}", dinner_due, "3"),
+                (f"🏨 CONFIRM: Hotel reservation - {summary}", today_str, "3"),
+                (f"📋 RESEARCH: Hotel amenities & nearby restaurants - {location}", today_str, "3"),
+                (f"🍽️ DINNER: Make reservations near hotel - {location}", today_str, "3"),
             ]
             
             for task, due, priority in tasks:
                 if create_todoist_task(task, project="Travel", priority=priority, due_date=due, existing_tasks=existing_tasks):
                     if task not in existing_tasks:
-                        print(f"   ✅ Created: {task}")
+                        print(f"   ✅ Created (DUE TODAY): {task}")
                         created_count += 1
                     else:
                         skipped_count += 1
@@ -194,7 +159,7 @@ def generate_travel_tasks():
 
 def main():
     """Main function"""
-    print("🧳 Travel Automation - Generating Todoist Tasks")
+    print("🚨 URGENT Travel Automation - All Tasks Due TODAY")
     print(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     print()
     
@@ -208,14 +173,16 @@ def main():
         print("❌ Todoist CLI not found. Install: npm install -g todoist-ts-cli")
         return
     
-    created, skipped = generate_travel_tasks()
+    created, skipped = generate_urgent_travel_tasks()
     
     if created is not None:
         print()
         print("=" * 60)
-        print(f"✅ Travel task generation complete")
-        print(f"   Created: {created} new tasks")
+        print(f"✅ URGENT task generation complete")
+        print(f"   Created: {created} new tasks (ALL DUE TODAY)")
         print(f"   Skipped: {skipped} existing tasks")
+        print()
+        print("🚨 Check your Todoist - all travel tasks are due TODAY!")
 
 if __name__ == "__main__":
     main()
