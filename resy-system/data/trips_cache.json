@@ -1,18 +1,10 @@
 {
   "trips": [
     {
-      "id": "2026-04-18_2026-04-21",
-      "start": "2026-04-18",
+      "id": "2026-04-19_2026-04-21",
+      "start": "2026-04-19",
       "end": "2026-04-21",
       "nights": [
-        {
-          "date": "2026-04-18",
-          "has_reservation": false,
-          "reservation": null,
-          "is_skipped": true,
-          "skip_reason": "I will be on a flight",
-          "needs_booking": false
-        },
         {
           "date": "2026-04-19",
           "has_reservation": true,
@@ -38,21 +30,57 @@
           "is_skipped": true,
           "skip_reason": "I will be at Keens",
           "needs_booking": false
+        },
+        {
+          "date": "2026-04-21",
+          "has_reservation": false,
+          "reservation": null,
+          "is_skipped": false,
+          "skip_reason": "",
+          "needs_booking": true
         }
       ],
       "total_nights": 3,
       "booked_nights": 1,
-      "skipped_nights": 3,
-      "pending_nights": 0,
-      "status": "complete"
+      "skipped_nights": 2,
+      "pending_nights": 1,
+      "status": "pending",
+      "outbound_flight": "Delta Air Lines flight 960 to New York (HWQX65)",
+      "return_flight": "Delta Air Lines flight 752 to Los Angeles (HWLP2C)",
+      "hotel": "The Algonquin Hotel Times Square, Autograph Collection",
+      "source": "flight_matched"
     },
     {
-      "id": "2026-05-16_2026-05-16",
-      "start": "2026-05-16",
-      "end": "2026-05-16",
+      "id": "2026-05-17_2026-05-20",
+      "start": "2026-05-17",
+      "end": "2026-05-20",
       "nights": [
         {
-          "date": "2026-05-16",
+          "date": "2026-05-17",
+          "has_reservation": false,
+          "reservation": null,
+          "is_skipped": false,
+          "skip_reason": "",
+          "needs_booking": true
+        },
+        {
+          "date": "2026-05-18",
+          "has_reservation": false,
+          "reservation": null,
+          "is_skipped": false,
+          "skip_reason": "",
+          "needs_booking": true
+        },
+        {
+          "date": "2026-05-19",
+          "has_reservation": false,
+          "reservation": null,
+          "is_skipped": false,
+          "skip_reason": "",
+          "needs_booking": true
+        },
+        {
+          "date": "2026-05-20",
           "has_reservation": false,
           "reservation": null,
           "is_skipped": false,
@@ -60,32 +88,16 @@
           "needs_booking": true
         }
       ],
-      "total_nights": 1,
+      "total_nights": 4,
       "booked_nights": 0,
       "skipped_nights": 0,
-      "pending_nights": 1,
-      "status": "pending"
-    },
-    {
-      "id": "2026-05-21_2026-05-21",
-      "start": "2026-05-21",
-      "end": "2026-05-21",
-      "nights": [
-        {
-          "date": "2026-05-21",
-          "has_reservation": false,
-          "reservation": null,
-          "is_skipped": false,
-          "skip_reason": "",
-          "needs_booking": true
-        }
-      ],
-      "total_nights": 1,
-      "booked_nights": 0,
-      "skipped_nights": 0,
-      "pending_nights": 1,
-      "status": "pending"
+      "pending_nights": 4,
+      "status": "pending",
+      "outbound_flight": "Flight to Kennedy Intl (DL 960)",
+      "return_flight": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
+      "hotel": null,
+      "source": "flight_matched"
     }
   ],
-  "last_updated": "2026-04-12T16:47:15.601464"
+  "last_updated": "2026-04-12T16:58:33.908296"
 }
