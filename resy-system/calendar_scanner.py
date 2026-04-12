@@ -11,6 +11,8 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import urllib.request
 import urllib.error
+import random
+import time
 
 # Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -551,9 +553,19 @@ def scan_and_book():
     """Main scanning and booking function"""
     print("🔍 Resy Calendar Scanner")
     print("=" * 60)
-    print(f"⏰ Scan started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("📅 Checking every 12 hours for new trips without reservations")
+    print(f"⏰ Woke up at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print("📅 Checking calendar for NYC trips and reservation status...")
     print()
+    
+    # Log the wake-up event
+    log_reservation_attempt(
+        trip_date=datetime.now().strftime('%Y-%m-%d'),
+        restaurant_name="SYSTEM",
+        venue_id="",
+        party_size=0,
+        status="wake_up",
+        details="Scanner woke up and started processing"
+    )
 
     # Tracking variables for monitoring
     scan_stats = {
@@ -655,9 +667,17 @@ def scan_and_book():
 
             # Try restaurants in priority order
             booked = False
-            for restaurant in sorted(nyc_restaurants, key=lambda x: x["priority"]):
+            restaurants_to_check = sorted(nyc_restaurants, key=lambda x: x["priority"])
+            
+            for i, restaurant in enumerate(restaurants_to_check):
                 if booked:
                     break
+                
+                # Add random delay between attempts (except first one)
+                if i > 0:
+                    delay = random.randint(33, 105)
+                    print(f"   ⏱️  Waiting {delay}s before next check...")
+                    time.sleep(delay)
 
                 venue_id = restaurant["venue_id"]
                 restaurant_name = restaurant["name"]
@@ -818,6 +838,18 @@ def scan_and_book():
         reservations_made=scan_stats["reservations_made"],
         details=f"Scanned {len(trips)} trip(s), made {scan_stats['reservations_made']} booking(s)"
     )
+    
+    # Log completion
+    log_reservation_attempt(
+        trip_date=datetime.now().strftime('%Y-%m-%d'),
+        restaurant_name="SYSTEM",
+        venue_id="",
+        party_size=0,
+        status="complete",
+        details=f"Scan complete. Checked {scan_stats['restaurants_checked']} restaurants, made {scan_stats['reservations_made']} bookings."
+    )
+    
+    print(f"\n🏁 Scan complete at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     scan_and_book()

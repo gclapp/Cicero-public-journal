@@ -303,7 +303,7 @@
             {% if session.user_email %}
                 <a href="{{ url_for('trips_page') }}" class="{% if request.endpoint == 'trips_page' %}active{% endif %}">Trips</a>
                 <a href="{{ url_for('wishlist_page') }}" class="{% if request.endpoint == 'wishlist_page' %}active{% endif %}">Wish List</a>
-                <a href="{{ url_for('logs_page') }}" class="{% if request.endpoint == 'logs_page' %}active{% endif %}">Logs</a>
+                <a href="{{ url_for('logs_page') }}" class="{% if request.endpoint == 'logs_page' %}active{% endif %}">Processing</a>
                 {% if session.is_admin %}
                     <a href="{{ url_for('admin_users') }}" class="{% if request.endpoint == 'admin_users' %}active{% endif %}">Users</a>
                     <a href="{{ url_for('monitoring_page') }}" class="{% if request.endpoint == 'monitoring_page' %}active{% endif %}">Monitoring</a>

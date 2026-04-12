@@ -23,12 +23,23 @@
       "last_booked": null
     },
     {
+      "id": 10,
+      "name": "Don Angie",
+      "venue_id": "1485",
+      "city": "NYC",
+      "cuisine": "Italian",
+      "priority": 3,
+      "notes": "",
+      "added_at": "2026-04-12T16:12:30.270843",
+      "last_booked": null
+    },
+    {
       "id": 3,
       "name": "Torrisi",
       "venue_id": "1523",
       "city": "NYC",
       "cuisine": "Italian",
-      "priority": 3,
+      "priority": 4,
       "notes": "",
       "added_at": "2026-04-11T08:30:12.052444",
       "last_booked": null
@@ -39,31 +50,53 @@
       "venue_id": "1529",
       "city": "NYC",
       "cuisine": "American",
-      "priority": 4,
+      "priority": 5,
       "notes": "",
       "added_at": "2026-04-11T08:25:48.367005",
       "last_booked": null
     },
     {
-      "id": 5,
-      "name": "Brooklyn Chop House - Downtown FIDI",
-      "venue_id": "87134",
+      "id": 9,
+      "name": "Peter Luger",
+      "venue_id": "2567",
       "city": "NYC",
       "cuisine": "Steakhouse",
-      "priority": 5,
+      "priority": 6,
       "notes": "",
-      "added_at": "2026-04-12T01:11:41.387462",
+      "added_at": "2026-04-12T16:12:13.235633",
       "last_booked": null
     },
     {
-      "id": 6,
-      "name": "Brooklyn Chop House - Downtown FIDI",
-      "venue_id": "87134",
+      "id": 7,
+      "name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "city": "NYC",
+      "cuisine": "Greek",
+      "priority": 6,
+      "notes": "",
+      "added_at": "2026-04-12T16:11:50.302995",
+      "last_booked": null
+    },
+    {
+      "id": 8,
+      "name": "Keens Steakhouse",
+      "venue_id": "1505",
       "city": "NYC",
       "cuisine": "Steakhouse",
-      "priority": 5,
+      "priority": 7,
       "notes": "",
-      "added_at": "2026-04-12T01:11:53.529390",
+      "added_at": "2026-04-12T16:12:00.085826",
+      "last_booked": null
+    },
+    {
+      "id": 9,
+      "name": "Lilia",
+      "venue_id": "1512",
+      "city": "NYC",
+      "cuisine": "Italian",
+      "priority": 9,
+      "notes": "",
+      "added_at": "2026-04-12T16:23:31.181527",
       "last_booked": null
     }
   ]

@@ -740,26 +740,37 @@ def api_search_resy():
     if not query:
         return jsonify({'error': 'Query required'}), 400
     
+    # Get currently saved restaurants to filter out
+    saved_data = load_restaurants()
+    saved_venue_ids = {r.get('venue_id') for r in saved_data.get('restaurants', []) if r.get('venue_id')}
+    
     # First search local database (NYC restaurants)
     local_results = search_local_restaurants(query)
     if local_results:
-        # Format as venues for frontend compatibility
+        # Format as venues for frontend compatibility, filtering out already saved
         venues = []
         for r in local_results:
-            venues.append({
-                'venue_id': r.get('venue_id', ''),
-                'name': r.get('name'),
-                'type': r.get('type', 'Restaurant'),
-                'neighborhood': r.get('neighborhood', ''),
-                'price': r.get('price', '$$'),
-                'source': 'local'
-            })
-        return jsonify({'venues': venues})
+            if r.get('venue_id') not in saved_venue_ids:
+                venues.append({
+                    'venue_id': r.get('venue_id', ''),
+                    'name': r.get('name'),
+                    'type': r.get('type', 'Restaurant'),
+                    'neighborhood': r.get('neighborhood', ''),
+                    'price': r.get('price', '$$'),
+                    'source': 'local'
+                })
+        if venues:
+            return jsonify({'venues': venues[:20]})
     
     # Fall back to Resy API if no local matches
     from datetime import date
     today = date.today().isoformat()
     results = search_resy_venues(query, 40.7128, -74.0060, today, 2)
+    
+    # Filter out already saved restaurants and limit to 20
+    if 'venues' in results:
+        results['venues'] = [v for v in results['venues'] if v.get('venue_id') not in saved_venue_ids][:20]
+    
     return jsonify(results)
 
 @app.route('/admin/users')

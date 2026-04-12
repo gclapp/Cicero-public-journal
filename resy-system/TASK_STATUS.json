@@ -1,0 +1,54 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "description": "Add more space around the 'add a restaurant' div (too close to '4 restaurants' indicator)",
+      "status": "IN_PROGRESS",
+      "notes": "Spawning sub-agent",
+      "file": "templates/index.html",
+      "assigned_agent": null
+    },
+    {
+      "id": 2,
+      "description": "When searching by food type like 'Greek', don't show items already in the list",
+      "status": "IN_PROGRESS",
+      "notes": "Spawning sub-agent",
+      "file": "app.py",
+      "assigned_agent": null
+    },
+    {
+      "id": 3,
+      "description": "When searching by food type, show up to 20 options (not 10)",
+      "status": "IN_PROGRESS",
+      "notes": "Spawning sub-agent",
+      "file": "app.py",
+      "assigned_agent": null
+    },
+    {
+      "id": 4,
+      "description": "Change 'Logs' to 'Processing' in the header",
+      "status": "IN_PROGRESS",
+      "notes": "Spawning sub-agent",
+      "file": "templates/base.html",
+      "assigned_agent": null
+    },
+    {
+      "id": 5,
+      "description": "Add calendar/trip processing logs showing wake-up, check, and completion (even when no action needed)",
+      "status": "IN_PROGRESS",
+      "notes": "Spawning sub-agent",
+      "file": "calendar_scanner.py",
+      "assigned_agent": null
+    },
+    {
+      "id": 6,
+      "description": "Add random delay (33-105 seconds) between reservation attempts to avoid API spam detection",
+      "status": "IN_PROGRESS",
+      "notes": "Spawning sub-agent",
+      "file": "calendar_scanner.py",
+      "assigned_agent": null
+    }
+  ],
+  "overall_status": "IN_PROGRESS",
+  "started_at": "2026-04-12T16:28:00Z"
+}

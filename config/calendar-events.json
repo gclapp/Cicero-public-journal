@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-04-12T11:22:18.555961",
-  "total_events": 82,
+  "last_updated": "2026-04-12T15:02:29.841883",
+  "total_events": 83,
   "travel_events": 6,
   "events": [
     {
@@ -345,6 +345,14 @@
       "start_raw": "2026-05-08T19:00:00-07:00",
       "location": "Hollywood, California",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Peak Health Longevity Consult  with Lynda Masco",
+      "start": "Monday, May 11 at 06:30 AM",
+      "start_raw": "2026-05-11T06:30:00-07:00",
+      "location": "Google Meet (instructions in description)",
+      "description": "Event Name: Peak Health Longevity Consult \nEvent Description: Learn everything you need to know about Peak's longevity care plans in a free 30-minute consult with a longevity expert.To learn more abou",
       "is_travel": false
     },
     {
