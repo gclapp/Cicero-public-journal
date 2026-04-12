@@ -667,16 +667,30 @@ def api_restaurants_nyc():
 @app.route('/api/search-resy')
 @app_user_required
 def api_search_resy():
-    """Search Resy for restaurants"""
+    """Search for restaurants - uses local database first, then Resy API"""
     query = request.args.get('q', '')
     if not query:
         return jsonify({'error': 'Query required'}), 400
     
-    # Use NYC coordinates and today's date for search
+    # First search local database (NYC restaurants)
+    local_results = search_local_restaurants(query)
+    if local_results:
+        # Format as venues for frontend compatibility
+        venues = []
+        for r in local_results:
+            venues.append({
+                'venue_id': r.get('venue_id', ''),
+                'name': r.get('name'),
+                'type': r.get('type', 'Restaurant'),
+                'neighborhood': r.get('neighborhood', ''),
+                'price': r.get('price', '$$'),
+                'source': 'local'
+            })
+        return jsonify({'venues': venues})
+    
+    # Fall back to Resy API if no local matches
     from datetime import date
     today = date.today().isoformat()
-    
-    # Search Resy (NYC coordinates: 40.7128, -74.0060)
     results = search_resy_venues(query, 40.7128, -74.0060, today, 2)
     return jsonify(results)
 
