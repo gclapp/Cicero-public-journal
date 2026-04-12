@@ -182,6 +182,68 @@
         opacity: 0.5;
         border: 2px dashed var(--resy-orange);
     }
+    
+    .restaurant-item.duplicate-highlight {
+        background: var(--resy-orange);
+        border-color: var(--resy-orange);
+        color: white;
+        animation: pulse-highlight 0.5s ease-in-out 3;
+    }
+    
+    .restaurant-item.duplicate-highlight .restaurant-info h4,
+    .restaurant-item.duplicate-highlight .restaurant-info p {
+        color: white;
+    }
+    
+    .restaurant-item.duplicate-highlight .restaurant-priority {
+        background: white;
+        color: var(--resy-orange);
+    }
+    
+    .restaurant-item.duplicate-highlight .drag-handle,
+    .restaurant-item.duplicate-highlight .btn-icon {
+        color: white;
+    }
+    
+    .restaurant-item.duplicate-highlight .btn-icon {
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .restaurant-item.duplicate-highlight .btn-icon:hover {
+        background: white;
+        color: var(--resy-orange);
+    }
+    
+    @keyframes pulse-highlight {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.02); }
+    }
+    
+    .duplicate-toast {
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--resy-error);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        font-weight: 500;
+        animation: slide-down 0.3s ease-out;
+    }
+    
+    @keyframes slide-down {
+        from {
+            transform: translateX(-50%) translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    }
 </style>
 {% endblock %}
 
@@ -406,12 +468,58 @@
                 renderRestaurants();
                 document.getElementById('searchInput').value = '';
                 document.getElementById('searchResults').style.display = 'none';
+            } else if (data.error === 'duplicate') {
+                // Show error toast
+                showDuplicateToast(data.message);
+                // Hide search results
+                document.getElementById('searchResults').style.display = 'none';
+                // Highlight and scroll to existing restaurant
+                highlightExistingRestaurant(data.existing.id);
             } else {
                 alert('Failed to add restaurant: ' + (data.error || 'Unknown error'));
             }
         } catch (error) {
             console.error('Error adding restaurant:', error);
             alert('Failed to add restaurant');
+        }
+    }
+    
+    function showDuplicateToast(message) {
+        // Remove any existing toast
+        const existingToast = document.querySelector('.duplicate-toast');
+        if (existingToast) {
+            existingToast.remove();
+        }
+        
+        // Create new toast
+        const toast = document.createElement('div');
+        toast.className = 'duplicate-toast';
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.3s';
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+    
+    function highlightExistingRestaurant(restaurantId) {
+        // Find the restaurant element
+        const restaurantElement = document.querySelector(`.restaurant-item[data-id="${restaurantId}"]`);
+        
+        if (restaurantElement) {
+            // Scroll to the element with smooth behavior
+            restaurantElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Add highlight class
+            restaurantElement.classList.add('duplicate-highlight');
+            
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+                restaurantElement.classList.remove('duplicate-highlight');
+            }, 3000);
         }
     }
 

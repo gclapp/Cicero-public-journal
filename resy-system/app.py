@@ -630,10 +630,27 @@ def api_restaurants():
         restaurants = restaurants_data['restaurants']
         
         if action == 'add':
+            venue_id = data['venue_id']
+            
+            # Check for duplicate by venue_id
+            existing = None
+            for r in restaurants:
+                if r.get('venue_id') == venue_id:
+                    existing = r
+                    break
+            
+            if existing:
+                return jsonify({
+                    'success': False,
+                    'error': 'duplicate',
+                    'message': f'"{existing["name"]}" is already in your wish list',
+                    'existing': existing
+                })
+            
             new_restaurant = {
                 'id': len(restaurants) + 1,
                 'name': data['name'],
-                'venue_id': data['venue_id'],
+                'venue_id': venue_id,
                 'city': data.get('city', 'NYC'),
                 'cuisine': data.get('cuisine', ''),
                 'priority': len(restaurants) + 1,
