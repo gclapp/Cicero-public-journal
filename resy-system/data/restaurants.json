@@ -43,6 +43,28 @@
       "notes": "",
       "added_at": "2026-04-11T08:25:48.367005",
       "last_booked": null
+    },
+    {
+      "id": 5,
+      "name": "Brooklyn Chop House - Downtown FIDI",
+      "venue_id": "87134",
+      "city": "NYC",
+      "cuisine": "Steakhouse",
+      "priority": 5,
+      "notes": "",
+      "added_at": "2026-04-12T01:11:41.387462",
+      "last_booked": null
+    },
+    {
+      "id": 6,
+      "name": "Brooklyn Chop House - Downtown FIDI",
+      "venue_id": "87134",
+      "city": "NYC",
+      "cuisine": "Steakhouse",
+      "priority": 5,
+      "notes": "",
+      "added_at": "2026-04-12T01:11:53.529390",
+      "last_booked": null
     }
   ]
 }

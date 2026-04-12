@@ -1,18 +1,18 @@
 {
-  "timestamp": "2026-04-11T15:27:32.933120",
+  "timestamp": "2026-04-12T03:55:05.349897",
   "results": [
     {
-      "status": "healthy",
-      "age_days": 5,
-      "message": "\u2705 Google Calendar: Healthy (5 days old)",
-      "action_required": false,
+      "status": "stale",
+      "age_days": 6,
+      "message": "\u26a0\ufe0f Google Calendar: Token is 6 days old (threshold: 5)",
+      "action_required": true,
       "critical": true
     },
     {
-      "status": "healthy",
-      "age_days": 5,
-      "message": "\u2705 Google Docs: Healthy (5 days old)",
-      "action_required": false,
+      "status": "stale",
+      "age_days": 6,
+      "message": "\u26a0\ufe0f Google Docs: Token is 6 days old (threshold: 5)",
+      "action_required": true,
       "critical": true
     },
     {
@@ -37,6 +37,6 @@
       "critical": true
     }
   ],
-  "critical_count": 1,
+  "critical_count": 3,
   "warning_count": 0
 }

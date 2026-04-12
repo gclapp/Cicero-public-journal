@@ -42,6 +42,16 @@
       "reservations_made": 0,
       "details": "Skipped - scanned 0.7h ago",
       "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-04-12T05:00:02.588690",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "No upcoming trips found",
+      "status": "no_bookings"
     }
   ],
   "bookings": [
@@ -1509,15 +1519,291 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T07:06:44.069486",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /actuator/health",
+      "details": {
+        "path": "/actuator/health",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T07:27:36.475025",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:22.407643",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/message.js",
+      "details": {
+        "path": "/assets/js/message.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:22.533759",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/twint_ch.js",
+      "details": {
+        "path": "/js/twint_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:23.264596",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/sys_files/index.js",
+      "details": {
+        "path": "/static/style/sys_files/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:23.386295",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/qr_modal.js",
+      "details": {
+        "path": "/assets/js/qr_modal.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:23.494553",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bot-connect.js",
+      "details": {
+        "path": "/bot-connect.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:23.714770",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /css/support_parent.css",
+      "details": {
+        "path": "/css/support_parent.css",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:24.061034",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:24.651138",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /assets/js/auth.js",
+      "details": {
+        "path": "/assets/js/auth.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:24.774919",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /js/lkk_ch.js",
+      "details": {
+        "path": "/js/lkk_ch.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T08:21:24.885780",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /static/style/protect/index.js",
+      "details": {
+        "path": "/static/style/protect/index.js",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T09:29:54.956990",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T09:29:55.149599",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sitemap.xml",
+      "details": {
+        "path": "/sitemap.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T09:29:55.352119",
+      "source": "web_ui",
+      "error_type": "server_error",
+      "message": "500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T09:29:57.145602",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T09:29:57.320307",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login/robots.txt",
+      "details": {
+        "path": "/login/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T09:29:59.079181",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /login/sitemap.xml",
+      "details": {
+        "path": "/login/sitemap.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T10:38:58.720167",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /developmentserver/metadatauploader",
+      "details": {
+        "path": "/developmentserver/metadatauploader",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T11:14:33.600421",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /mcp",
+      "details": {
+        "path": "/mcp",
+        "method": "POST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T11:14:33.633973",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sse",
+      "details": {
+        "path": "/sse",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T11:14:33.795140",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T11:20:11.474610",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /owa/auth/logon.aspx",
+      "details": {
+        "path": "/owa/auth/logon.aspx",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-04-11T14:13:02.081118",
+    "last_scan_time": "2026-04-12T05:00:02.588706",
     "last_booking_time": "2026-04-11T06:29:57.775648",
-    "last_error_time": "2026-04-11T23:30:16.838743",
-    "total_scans": 4,
+    "last_error_time": "2026-04-12T11:20:11.474620",
+    "total_scans": 5,
     "total_bookings": 1,
-    "total_errors": 122,
+    "total_errors": 145,
     "status": "critical"
   }
 }
