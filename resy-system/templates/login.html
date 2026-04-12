@@ -98,12 +98,15 @@
 </style>
 {% endblock %}
 
+{% block footer %}{% endblock %}
+
 {% block content %}
 <div class="login-page" style="margin-left: -2rem; width: calc(100% + 4rem);">
     <div class="login-container">
         <div class="login-logo">
             <img src="/static/nyceats-logo-large-transparent.png" alt="NYCeats" width="180" style="margin: 0 auto 1rem auto; display: block; border-radius: 16px;">
             <p>Smart reservations for NYC</p>
+            <span class="version-indicator" title="Deployment version: {{ app_version.version }} at {{ app_version.time }}" style="display: inline-block; margin-top: 0.75rem;">{{ app_version.version }} {{ app_version.time }}</span>
         </div>
         
         <div class="login-form">

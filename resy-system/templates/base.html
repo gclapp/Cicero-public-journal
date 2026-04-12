@@ -322,13 +322,7 @@
     
     <div style="height: 4px; background: var(--resy-orange);"></div>
     
-    <div style="background: var(--resy-gray-100); border-bottom: 1px solid var(--resy-gray-200);">
-        <div class="container" style="display: flex; justify-content: flex-end; align-items: center; padding: 0.375rem 1.5rem;">
-            <span class="version-indicator" title="Deployment version: {{ app_version.version }} at {{ app_version.time }}">{{ app_version.version }} {{ app_version.time }}</span>
-        </div>
-    </div>
-    
-    <div class="container">
+    <div class="container" style="min-height: calc(100vh - 200px);">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -341,5 +335,14 @@
     </div>
     
     {% block extra_js %}{% endblock %}
+    
+    {% block footer %}
+    <footer style="background: var(--resy-gray-100); border-top: 1px solid var(--resy-gray-200); margin-top: 3rem; padding: 1rem 0;">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.75rem; color: var(--resy-gray-400);">NYCeats</span>
+            <span class="version-indicator" title="Deployment version: {{ app_version.version }} at {{ app_version.time }}">{{ app_version.version }} {{ app_version.time }}</span>
+        </div>
+    </footer>
+    {% endblock %}
 </body>
 </html>
