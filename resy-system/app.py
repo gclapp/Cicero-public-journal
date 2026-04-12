@@ -170,6 +170,11 @@ def migrate_users():
         if 'profile_image' not in user:
             user['profile_image'] = None
             modified = True
+        
+        # Add last_login field if missing
+        if 'last_login' not in user:
+            user['last_login'] = None
+            modified = True
     
     if modified:
         save_users(users)
@@ -501,6 +506,10 @@ def login():
             if user.get('is_suspended', False):
                 flash('Your account has been suspended. Please contact an administrator.', 'error')
                 return render_template('login.html')
+            
+            # Update last login time
+            user['last_login'] = datetime.now().isoformat()
+            save_users(users)
             
             session['user_email'] = email
             session['is_admin'] = user.get('role') == 'admin'
