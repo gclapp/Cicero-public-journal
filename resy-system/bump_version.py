@@ -2,12 +2,13 @@
 """
 Version bumping script for NYCeats
 Updates the version.json file with new deployment info
-Format: vYYYY-MM-DD_N HH:MM:SS
+Format: vYYYY-MM-DD_N HH:MM:SS (Pacific Time)
 """
 
 import json
 from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 VERSION_FILE = Path(__file__).parent / "version.json"
 
@@ -21,7 +22,9 @@ def bump_version():
     else:
         data = {}
     
-    now = datetime.now()
+    # Get current time in Pacific Time
+    pt = ZoneInfo("America/Los_Angeles")
+    now = datetime.now(pt)
     today = now.strftime("%Y-%m-%d")
     current_time = now.strftime("%H:%M:%S")
     
