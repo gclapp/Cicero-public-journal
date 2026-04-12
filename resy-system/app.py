@@ -219,66 +219,92 @@ def search_local_restaurants(query):
     return [r for _, r in matches[:10]]
 
 def get_venue_details(venue_id):
-    """Get detailed venue info including images and coordinates"""
+    """Get detailed venue info - tries Resy API first, falls back to local database"""
     import urllib.request
     import urllib.error
     
+    # First try to find in local database
+    db = load_nyc_restaurants()
+    local_venue = None
+    for r in db.get('restaurants', []):
+        if str(r.get('venue_id')) == str(venue_id):
+            local_venue = r
+            break
+    
+    # Try Resy API for full details
     creds = load_resy_credentials()
-    if not creds:
-        return None
+    if creds:
+        url = f"https://api.resy.com/3/venue?id={venue_id}"
+        
+        headers = {
+            "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
+            "X-Resy-Auth-Token": creds["auth_token"],
+            "Content-Type": "application/json"
+        }
+        
+        req = urllib.request.Request(url, headers=headers)
+        
+        try:
+            with urllib.request.urlopen(req, timeout=10) as response:
+                venue = json.loads(response.read().decode())
+                
+                # Extract key info
+                location = venue.get('location', {})
+                images = venue.get('images', [])
+                
+                # Get the best image (usually first one)
+                image_url = images[0] if images else None
+                
+                # Get description from content
+                description = ""
+                for content in venue.get('content', []):
+                    if content.get('name') == 'why_we_like_it':
+                        description = content.get('body', '')
+                        break
+                
+                # Get rating from rater list
+                rater_list = venue.get('rater', [])
+                rating = rater_list[0].get('score') if rater_list else None
+                reviews = rater_list[0].get('total') if rater_list else 0
+                
+                return {
+                    'id': venue_id,
+                    'name': venue.get('name'),
+                    'image_url': image_url,
+                    'description': description,
+                    'address': location.get('address_1'),
+                    'neighborhood': location.get('neighborhood'),
+                    'latitude': location.get('latitude'),
+                    'longitude': location.get('longitude'),
+                    'phone': venue.get('contact', {}).get('phone_number'),
+                    'website': venue.get('contact', {}).get('url'),
+                    'rating': rating,
+                    'reviews': reviews,
+                    'price': '$' * venue.get('price_range_id', 1)
+                }
+                
+        except Exception as e:
+            print(f"Resy API error for venue {venue_id}: {e}")
     
-    url = f"https://api.resy.com/3/venue?id={venue_id}"
+    # Fall back to local data if Resy fails or no credentials
+    if local_venue:
+        return {
+            'id': venue_id,
+            'name': local_venue.get('name'),
+            'image_url': None,
+            'description': f"{local_venue.get('type', 'Restaurant')} in {local_venue.get('neighborhood', 'NYC')}",
+            'address': f"{local_venue.get('neighborhood', 'NYC')}, New York",
+            'neighborhood': local_venue.get('neighborhood'),
+            'latitude': None,
+            'longitude': None,
+            'phone': None,
+            'website': None,
+            'rating': None,
+            'reviews': 0,
+            'price': local_venue.get('price', '$$$')
+        }
     
-    headers = {
-        "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
-        "X-Resy-Auth-Token": creds["auth_token"],
-        "Content-Type": "application/json"
-    }
-    
-    req = urllib.request.Request(url, headers=headers)
-    
-    try:
-        with urllib.request.urlopen(req, timeout=10) as response:
-            venue = json.loads(response.read().decode())
-            
-            # Extract key info
-            location = venue.get('location', {})
-            images = venue.get('images', [])
-            
-            # Get the best image (usually first one)
-            image_url = images[0] if images else None
-            
-            # Get description from content
-            description = ""
-            for content in venue.get('content', []):
-                if content.get('name') == 'why_we_like_it':
-                    description = content.get('body', '')
-                    break
-            
-            # Get rating from rater list
-            rater_list = venue.get('rater', [])
-            rating = rater_list[0].get('score') if rater_list else None
-            reviews = rater_list[0].get('total') if rater_list else 0
-            
-            return {
-                'id': venue_id,
-                'name': venue.get('name'),
-                'image_url': image_url,
-                'description': description,
-                'address': location.get('address_1'),
-                'neighborhood': location.get('neighborhood'),
-                'latitude': location.get('latitude'),
-                'longitude': location.get('longitude'),
-                'phone': venue.get('contact', {}).get('phone_number'),
-                'website': venue.get('contact', {}).get('url'),
-                'rating': rating,
-                'reviews': reviews,
-                'price': '$' * venue.get('price_range_id', 1)
-            }
-            
-    except Exception as e:
-        print(f"Error fetching venue {venue_id}: {e}")
-        return None
+    return None
 
 def search_resy_venues(query, lat, long, day, party_size=2):
     """Search Resy for venues by name/location"""
