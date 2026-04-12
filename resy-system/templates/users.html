@@ -311,7 +311,7 @@
                     </span>
                 </td>
                 <td style="color: var(--resy-gray-400);">{{ user.created_at[:10] if user.created_at else '—' }}</td>
-                <td style="color: var(--resy-gray-400);">{{ user.last_login[:10] if user.last_login else 'Never' }}</td>
+                <td style="color: var(--resy-gray-400);">{{ user.last_login | format_datetime_pt if user.last_login else 'Never' }}</td>
                 <td style="text-align: right;">
                     <div class="actions-dropdown">
                         <button class="action-btn" onclick="toggleMenu(this)">

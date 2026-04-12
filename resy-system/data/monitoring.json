@@ -92,6 +92,16 @@
       "reservations_made": 0,
       "details": "Skipped - scanned 1.0h ago",
       "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-04-12T16:43:36.174232",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Skipped - scanned 3.7h ago",
+      "status": "no_bookings"
     }
   ],
   "bookings": [
@@ -2387,15 +2397,191 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T16:43:41.963082",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1501",
+      "details": {
+        "venue_id": "1501",
+        "day": "2026-04-18",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T16:44:39.157446",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1478",
+      "details": {
+        "venue_id": "1478",
+        "day": "2026-04-18",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T16:45:19.374099",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1485",
+      "details": {
+        "venue_id": "1485",
+        "day": "2026-04-18",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T16:45:56.768547",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /api/monitoring/attempts",
+      "details": {
+        "path": "/api/monitoring/attempts",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-12T16:47:04.585831",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1523",
+      "details": {
+        "venue_id": "1523",
+        "day": "2026-04-18",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-04-12T14:00:02.087938",
+    "last_scan_time": "2026-04-12T16:43:36.174241",
     "last_booking_time": "2026-04-11T06:29:57.775648",
-    "last_error_time": "2026-04-12T16:14:51.010702",
-    "total_scans": 9,
+    "last_error_time": "2026-04-12T16:47:04.585843",
+    "total_scans": 10,
     "total_bookings": 1,
-    "total_errors": 191,
+    "total_errors": 196,
     "status": "critical"
-  }
+  },
+  "attempts": [
+    {
+      "timestamp": "2026-04-12T16:43:36.170630",
+      "trip_date": "2026-04-12",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:43:40.933512",
+      "trip_date": "2026-04-12",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:43:41.800157",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:43:41.967521",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "API returned no results or error",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:44:38.972455",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:44:39.161331",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "API returned no results or error",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:45:19.165719",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "Don Angie",
+      "venue_id": "1485",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:45:19.377943",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "Don Angie",
+      "venue_id": "1485",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "API returned no results or error",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:47:04.382345",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-12T16:47:04.589844",
+      "trip_date": "2026-04-18",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "API returned no results or error",
+      "slots_found": 0,
+      "error_message": ""
+    }
+  ]
 }

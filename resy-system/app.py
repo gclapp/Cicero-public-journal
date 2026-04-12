@@ -94,6 +94,23 @@ def format_time_12h_filter(time_str):
     except:
         return time_str
 
+@app.template_filter('format_datetime_pt')
+def format_datetime_pt_filter(iso_str):
+    """Convert ISO datetime to Pacific Time, formatted as MM-DD-YYYY HH:MM AM/PM"""
+    if not iso_str:
+        return None
+    try:
+        # Parse ISO format datetime
+        dt = datetime.fromisoformat(iso_str.replace('Z', '+00:00'))
+        # Convert to Pacific Time (UTC-7 for PDT, UTC-8 for PST)
+        # For simplicity, using UTC-7 (PDT) since it's currently April
+        from datetime import timedelta
+        pt_offset = timedelta(hours=-7)  # PDT (UTC-7)
+        dt_pt = dt.replace(tzinfo=None) + pt_offset
+        return dt_pt.strftime('%m-%d-%Y %I:%M %p').lstrip('0')
+    except:
+        return iso_str
+
 # Data directory
 DATA_DIR = Path(__file__).parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
