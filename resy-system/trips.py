@@ -310,12 +310,9 @@ def extract_trip_from_flights(events):
             return_dt = best_return["datetime"]
             return_hour = return_dt.hour + (return_dt.minute / 60)
             
-            # If return flight is before 2 PM, last night is day before
-            # If return flight is after 2 PM, could have dinner that night
-            if return_hour < 14:  # Morning/early afternoon departure
-                last_night = (return_dt - timedelta(days=1)).strftime("%Y-%m-%d")
-            else:
-                last_night = return_dt.strftime("%Y-%m-%d")
+            # Return day is always excluded - you're flying back to LA
+            # Last night for dinner is always the day before departure
+            last_night = (return_dt - timedelta(days=1)).strftime("%Y-%m-%d")
             
             trip_dates = get_date_range(arrival_date, last_night)
             
