@@ -229,3 +229,199 @@
 💡 View all reservations at: http://localhost:5000
 
 🏁 Scan complete at 2026-04-13 05:45:46
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-13 13:03:01
+📅 Checking calendar for NYC trips and reservation status...
+
+⚠️  Scanned 0.1 hours ago. Skipping to avoid duplicates.
+   (Minimum interval: 6 hours)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-13 13:30:01
+📅 Checking calendar for NYC trips and reservation status...
+
+⚠️  Scanned 0.5 hours ago. Skipping to avoid duplicates.
+   (Minimum interval: 6 hours)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-13 12:59:01
+📅 Checking calendar for NYC trips and reservation status...
+
+📅 Scanning calendar for NYC trips...
+✅ Found 3 NYC trip(s):
+   2026-04-18 to 2026-04-21 (4 days)
+   2026-05-16 to 2026-05-16 (1 days)
+   2026-05-21 to 2026-05-21 (1 days)
+
+🔄 Syncing reservations from Resy API...
+🔄 Syncing reservations from Resy...
+  ✅ Synced 20 reservations from Resy
+     Added: 0, Updated: 0, Removed: 0
+
+🔄 Syncing reservations from Google Calendar...
+🔄 Checking Google Calendar for reservations...
+  ℹ️  No reservations found in calendar
+
+🍽️  9 restaurant(s) in your NYC list
+
+⚠️  No payment method found. Some restaurants may require it.
+🔍 2026-04-18: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ❌ Error checking venue 1501: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 92s before next check...
+   Checking Carbone...   ❌ Error checking venue 1478: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 64s before next check...
+   Checking Don Angie...   ❌ Error checking venue 1485: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 94s before next check...
+   Checking Torrisi...   ❌ Error checking venue 1523: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 70s before next check...
+   Checking Saga...   ❌ Error checking venue 1529: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 62s before next check...
+   Checking Peter Luger...   ❌ Error checking venue 2567: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 97s before next check...
+   Checking Estiatorio Milos...   ❌ Error checking venue 1727: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 58s before next check...
+   Checking Keens Steakhouse...   ❌ Error checking venue 1505: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 54s before next check...
+   Checking Lilia...   ❌ Error checking venue 1512: HTTP 400: BAD REQUEST
+❌ No availability
+   ⚠️  Could not book any restaurant for 2026-04-18
+✅ 2026-04-19: Already have a reservation at Nowon East Village
+🔍 2026-04-20: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ❌ Error checking venue 1501: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 92s before next check...
+   Checking Carbone...   ❌ Error checking venue 1478: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 54s before next check...
+   Checking Don Angie...   ❌ Error checking venue 1485: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 53s before next check...
+   Checking Torrisi...   ❌ Error checking venue 1523: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 40s before next check...
+   Checking Saga...   ❌ Error checking venue 1529: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 89s before next check...
+   Checking Peter Luger...   ❌ Error checking venue 2567: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 93s before next check...
+   Checking Estiatorio Milos...   ❌ Error checking venue 1727: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 34s before next check...
+   Checking Keens Steakhouse...   ❌ Error checking venue 1505: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 42s before next check...
+   Checking Lilia...   ❌ Error checking venue 1512: HTTP 500: Internal Server Error
+❌ No availability
+   ⚠️  Could not book any restaurant for 2026-04-20
+🔍 2026-04-21: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ❌ Error checking venue 1501: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 49s before next check...
+   Checking Carbone...   ❌ Error checking venue 1478: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 75s before next check...
+   Checking Don Angie...   ❌ Error checking venue 1485: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 36s before next check...
+   Checking Torrisi...   ❌ Error checking venue 1523: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 90s before next check...
+   Checking Saga...   ❌ Error checking venue 1529: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 86s before next check...
+   Checking Peter Luger...   ❌ Error checking venue 2567: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 40s before next check...
+   Checking Estiatorio Milos...   ❌ Error checking venue 1727: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 79s before next check...
+   Checking Keens Steakhouse...   ❌ Error checking venue 1505: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 55s before next check...
+   Checking Lilia...   ❌ Error checking venue 1512: HTTP 500: Internal Server Error
+❌ No availability
+   ⚠️  Could not book any restaurant for 2026-04-21
+
+🔍 2026-05-16: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  Skipping venue 1501: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 39s before next check...
+   Checking Carbone...   ⚠️  Skipping venue 1478: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 93s before next check...
+   Checking Don Angie...   ⚠️  Skipping venue 1485: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 100s before next check...
+   Checking Torrisi...   ⚠️  Skipping venue 1523: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 82s before next check...
+   Checking Saga...   ⚠️  Skipping venue 1529: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 43s before next check...
+   Checking Peter Luger...   ⚠️  Skipping venue 2567: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 52s before next check...
+   Checking Estiatorio Milos...   ⚠️  Skipping venue 1727: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 98s before next check...
+   Checking Keens Steakhouse...   ⚠️  Skipping venue 1505: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 42s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+❌ No availability
+   ⚠️  Could not book any restaurant for 2026-05-16
+
+🔍 2026-05-21: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  Skipping venue 1501: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 102s before next check...
+   Checking Carbone...   ⚠️  Skipping venue 1478: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 57s before next check...
+   Checking Don Angie...   ⚠️  Skipping venue 1485: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 102s before next check...
+   Checking Torrisi...   ⚠️  Skipping venue 1523: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 93s before next check...
+   Checking Saga...   ⚠️  Skipping venue 1529: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 33s before next check...
+   Checking Peter Luger...   ⚠️  Skipping venue 2567: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 73s before next check...
+   Checking Estiatorio Milos...   ⚠️  Skipping venue 1727: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 66s before next check...
+   Checking Keens Steakhouse...   ⚠️  Skipping venue 1505: Circuit open (3 failures)
+❌ No availability
+   ⏱️  Waiting 56s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+❌ No availability
+   ⚠️  Could not book any restaurant for 2026-05-21
+
+============================================================
+📊 SUMMARY
+============================================================
+ℹ️  No new reservations needed or available.
+
+💡 View all reservations at: http://localhost:5000
+
+🏁 Scan complete at 2026-04-13 13:44:38
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-13 14:00:01
+📅 Checking calendar for NYC trips and reservation status...
+
+⚠️  Scanned 1.0 hours ago. Skipping to avoid duplicates.
+   (Minimum interval: 6 hours)
