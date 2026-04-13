@@ -1,9 +1,9 @@
 {
   "trips": [
     {
-      "id": "2026-04-19_2026-04-20",
+      "id": "2026-04-19_2026-04-21",
       "start": "2026-04-19",
-      "end": "2026-04-20",
+      "end": "2026-04-21",
       "nights": [
         {
           "date": "2026-04-19",
@@ -30,13 +30,21 @@
           "is_skipped": true,
           "skip_reason": "I will be at Keens",
           "needs_booking": false
+        },
+        {
+          "date": "2026-04-21",
+          "has_reservation": false,
+          "reservation": null,
+          "is_skipped": false,
+          "skip_reason": "",
+          "needs_booking": true
         }
       ],
-      "total_nights": 2,
+      "total_nights": 3,
       "booked_nights": 1,
       "skipped_nights": 2,
-      "pending_nights": 0,
-      "status": "complete",
+      "pending_nights": 1,
+      "status": "pending",
       "outbound_flight": "Delta Air Lines flight 960 to New York (HWQX65)",
       "return_flight": "Delta Air Lines flight 752 to Los Angeles (HWLP2C)",
       "hotel": "The Algonquin Hotel Times Square, Autograph Collection",
@@ -91,5 +99,5 @@
       "source": "flight_matched"
     }
   ],
-  "last_updated": "2026-04-12T17:14:32.283601"
+  "last_updated": "2026-04-13T04:37:37.226669"
 }
