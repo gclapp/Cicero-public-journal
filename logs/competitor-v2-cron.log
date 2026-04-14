@@ -2640,3 +2640,125 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-13 21:00:34] ✅ Email sent
 [2026-04-13 21:00:34] Complete
+[2026-04-14 14:00:02] Starting competitive intelligence v2...
+[2026-04-14 14:00:02] Step 1: RSS + Web search...
+[2026-04-14 14:00:03] ======================================================================
+[2026-04-14 14:00:03] Starting Enhanced Competitive Intelligence Scan
+[2026-04-14 14:00:03] ======================================================================
+[2026-04-14 14:00:03] 
+1. Scanning RSS feeds...
+[2026-04-14 14:00:09]    Found 2 new articles from RSS
+[2026-04-14 14:00:09] 
+2. Searching web for competitive news...
+[2026-04-14 14:00:11]    Found 1 new articles from web search
+[2026-04-14 14:00:11] 
+3. Checking LinkedIn executive posts...
+[2026-04-14 14:00:15]    ✓ LinkedIn executive scan complete
+[2026-04-14 14:00:15] 
+4. Checking job boards...
+[2026-04-14 14:00:15] Job board monitoring: 8 companies
+[2026-04-14 14:00:15]    Found 0 job postings
+[2026-04-14 14:00:15]    Skipping 9345203c... (low FemTech relevance: 15)
+[2026-04-14 14:00:15]    Skipping c7b06b62... (low FemTech relevance: 0)
+[2026-04-14 14:00:15] 
+✅ Total new articles: 1
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 1 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Progyny - Company News] Progyny Inc stock (US74340E1038): Is fertility benefits demand strong enough to drive sustained grow - AD HOC NEWS (FemTech: 35)
+   https://news.google.com/rss/articles/CBMivAFBVV95cUxQbmVFVkF5R3dna0w3Z...
+
+======================================================================
+[2026-04-14 14:00:15] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 1
+   Executive News: 0
+   Company Posts: 0
+[2026-04-14 14:00:33] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 12
+   LinkedIn updates: 1
+   Executive summary: 472 chars
+[2026-04-14 14:00:33] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-14 14:00:36] ✅ Email sent
+[2026-04-14 14:00:36] Complete
+[2026-04-14 21:00:02] Starting competitive intelligence v2...
+[2026-04-14 21:00:02] Step 1: RSS + Web search...
+[2026-04-14 21:00:03] ======================================================================
+[2026-04-14 21:00:03] Starting Enhanced Competitive Intelligence Scan
+[2026-04-14 21:00:03] ======================================================================
+[2026-04-14 21:00:03] 
+1. Scanning RSS feeds...
+[2026-04-14 21:00:09]    Found 1 new articles from RSS
+[2026-04-14 21:00:09] 
+2. Searching web for competitive news...
+[2026-04-14 21:00:10]    Found 1 new articles from web search
+[2026-04-14 21:00:10] 
+3. Checking LinkedIn executive posts...
+[2026-04-14 21:00:15]    ✓ LinkedIn executive scan complete
+[2026-04-14 21:00:15] 
+4. Checking job boards...
+[2026-04-14 21:00:15] Job board monitoring: 8 companies
+[2026-04-14 21:00:15]    Found 0 job postings
+[2026-04-14 21:00:15]    Skipping cfba7b84... (low FemTech relevance: 10)
+[2026-04-14 21:00:15]    Skipping 806d46de... (low FemTech relevance: 0)
+[2026-04-14 21:00:15] 
+✅ No new competitive signals found
+[2026-04-14 21:00:15] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 1 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-14 21:00:33] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 12
+   LinkedIn updates: 1
+   Executive summary: 472 chars
+[2026-04-14 21:00:33] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-14 21:00:37] ✅ Email sent
+[2026-04-14 21:00:37] Complete
