@@ -2869,3 +2869,149 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-15 21:00:35] ✅ Email sent
 [2026-04-15 21:00:35] Complete
+[2026-04-16 14:00:01] Starting competitive intelligence v2...
+[2026-04-16 14:00:01] Step 1: RSS + Web search...
+[2026-04-16 14:00:03] ======================================================================
+[2026-04-16 14:00:03] Starting Enhanced Competitive Intelligence Scan
+[2026-04-16 14:00:03] ======================================================================
+[2026-04-16 14:00:03] 
+1. Scanning RSS feeds...
+[2026-04-16 14:00:09]    Found 4 new articles from RSS
+[2026-04-16 14:00:09] 
+2. Searching web for competitive news...
+[2026-04-16 14:00:10]    Found 3 new articles from web search
+[2026-04-16 14:00:10] 
+3. Checking LinkedIn executive posts...
+[2026-04-16 14:00:15]    ✓ LinkedIn executive scan complete
+[2026-04-16 14:00:15] 
+4. Checking job boards...
+[2026-04-16 14:00:15] Job board monitoring: 8 companies
+[2026-04-16 14:00:15]    Found 0 job postings
+[2026-04-16 14:00:15]    Skipping bbc5fdf5... (low FemTech relevance: 0)
+[2026-04-16 14:00:15]    Skipping ae4f31e0... (low FemTech relevance: 0)
+[2026-04-16 14:00:15]    Skipping ff3fd04f... (low FemTech relevance: 0)
+[2026-04-16 14:00:15] 
+✅ Total new articles: 4
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 4 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Progyny - Yahoo Finance] Progyny Expands Access to Fertility and Women’s Health with Industry’s First Fully Insured Supplemental Plan (FemTech: 50)
+   https://finance.yahoo.com/sectors/healthcare/articles/progyny-expands-...
+
+🟡 [Progyny - News Search] Progyny Expands Access to Fertility and Women’s Health with Industry’s First Fully Insured Supplemental Plan - GlobeNewswire (FemTech: 35)
+   https://news.google.com/rss/articles/CBMijAJBVV95cUxPMWsxejRuYXRFNzBYR...
+
+🟡 [Progyny - Company News] Small employers get fixed-cost fertility coverage under Progyny plan - Stock Titan (FemTech: 35)
+   https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZ3ZmeG4tQ3ZNTHlnR...
+
+🟡 [Fertility Benefits News] Progyny Expands Access to Fertility and Women’s Health with Industry’s First Fully Insured Supplemental Plan - The Manila Times (FemTech: 35)
+   https://news.google.com/rss/articles/CBMijAJBVV95cUxOUS1TRl9zZm1ROGUxS...
+
+======================================================================
+[2026-04-16 14:00:15] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 1
+   Executive News: 0
+   Company Posts: 0
+[2026-04-16 14:00:33] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 16
+   LinkedIn updates: 1
+   Executive summary: 472 chars
+[2026-04-16 14:00:33] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-16 14:00:36] ✅ Email sent
+[2026-04-16 14:00:36] Complete
+[2026-04-16 21:00:02] Starting competitive intelligence v2...
+[2026-04-16 21:00:02] Step 1: RSS + Web search...
+[2026-04-16 21:00:03] ======================================================================
+[2026-04-16 21:00:03] Starting Enhanced Competitive Intelligence Scan
+[2026-04-16 21:00:03] ======================================================================
+[2026-04-16 21:00:03] 
+1. Scanning RSS feeds...
+[2026-04-16 21:00:13]    Found 2 new articles from RSS
+[2026-04-16 21:00:13] 
+2. Searching web for competitive news...
+[2026-04-16 21:00:15]    Found 2 new articles from web search
+[2026-04-16 21:00:15] 
+3. Checking LinkedIn executive posts...
+[2026-04-16 21:00:19]    ✓ LinkedIn executive scan complete
+[2026-04-16 21:00:19] 
+4. Checking job boards...
+[2026-04-16 21:00:19] Job board monitoring: 8 companies
+[2026-04-16 21:00:19]    Found 0 job postings
+[2026-04-16 21:00:19]    Skipping 89e56020... (low FemTech relevance: 0)
+[2026-04-16 21:00:19]    Skipping d0ad189e... (low FemTech relevance: 0)
+[2026-04-16 21:00:19] 
+✅ Total new articles: 2
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 2 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [Progyny - Company News] Progyny unveils new fertility benefit option for small, mid-size employers - Fierce Healthcare (FemTech: 35)
+   https://news.google.com/rss/articles/CBMirgFBVV95cUxQbnFGTlVpUmtBU2d0U...
+
+🟡 [Progyny - Company News] Fertility Biz Progyny Hit With TM Suit In Pennsylvania - Law360 (FemTech: 35)
+   https://news.google.com/rss/articles/CBMitgFBVV95cUxNRURtbmpuelU0R09yd...
+
+======================================================================
+[2026-04-16 21:00:19] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-16 21:00:36] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 18
+   LinkedIn updates: 1
+   Executive summary: 472 chars
+[2026-04-16 21:00:37] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-16 21:00:39] ✅ Email sent
+[2026-04-16 21:00:39] Complete
