@@ -36,10 +36,25 @@ EMAIL_FILE="$WORKSPACE_DIR/config/competitor-email-v2.html"
 if [ -f "$ARTICLES_FILE" ] || [ -f "$LINKEDIN_FILE" ]; then
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] Sending competitive intelligence email..." >> "$LOG_FILE"
     
+    # Add [FIXED VERSION] tag for next 5 sends to verify deduplication fix
+    FIXED_TAG=""
+    COUNTER_FILE="$WORKSPACE_DIR/config/fixed-version-counter.txt"
+    if [ -f "$COUNTER_FILE" ]; then
+        COUNT=$(cat "$COUNTER_FILE")
+    else
+        COUNT=0
+    fi
+    
+    if [ "$COUNT" -lt 5 ]; then
+        FIXED_TAG="[FIXED VERSION] "
+        echo $((COUNT + 1)) > "$COUNTER_FILE"
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Fixed version tag applied (send $((COUNT + 1)) of 5)" >> "$LOG_FILE"
+    fi
+    
     python3 "$SCRIPT_DIR/send_email.py" \
         --to "[REDACTED],geoffrey.clapp@progyny.com" \
         --cc "steven.leist@progyny.com" \
-        --subject "Competitive Intelligence Report - $(date '+%A, %B %d')" \
+        --subject "${FIXED_TAG}Competitive Intelligence Report - $(date '+%A, %B %d')" \
         --body-file "$EMAIL_FILE" \
         --html >> "$LOG_FILE" 2>&1 || true
     
