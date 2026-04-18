@@ -72,7 +72,7 @@ def save_scan_state(state):
     with open(SCAN_STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2)
 
-def find_resy_reservations(venue_id, day, party_size, venue_name=""):
+def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, long=None):
     """Find available reservations at a venue"""
     # Check circuit breaker first
     should_skip, skip_reason = should_skip_venue(venue_id)
@@ -82,7 +82,13 @@ def find_resy_reservations(venue_id, day, party_size, venue_name=""):
     
     creds = load_resy_credentials()
 
-    url = f"https://api.resy.com/4/find?day={day}&party_size={party_size}&venue_id={venue_id}"
+    # Use provided coordinates or default to Manhattan
+    if lat is None:
+        lat = "40.7128"
+    if long is None:
+        long = "-74.0060"
+
+    url = f"https://api.resy.com/4/find?day={day}&party_size={party_size}&venue_id={venue_id}&lat={lat}&long={long}"
 
     headers = {
         "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
