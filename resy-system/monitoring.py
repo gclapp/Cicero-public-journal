@@ -119,7 +119,7 @@ def log_reservation_attempt(trip_date: str, restaurant_name: str, venue_id: str,
         data["attempts"] = []
     
     attempt_record = {
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now().isoformat(),
         "trip_date": trip_date,
         "restaurant_name": restaurant_name,
         "venue_id": venue_id,
@@ -136,6 +136,15 @@ def log_reservation_attempt(trip_date: str, restaurant_name: str, venue_id: str,
     data["attempts"] = data["attempts"][-500:]
     
     save_monitoring_data(data)
+
+def _parse_timestamp(ts: str) -> datetime:
+    """Parse timestamp string, ensuring offset-naive datetime for comparison"""
+    dt = datetime.fromisoformat(ts)
+    # Strip timezone info if present to ensure consistent comparison
+    if dt.tzinfo is not None:
+        dt = dt.replace(tzinfo=None)
+    return dt
+
 
 def get_reservation_attempts(days: int = 7, trip_date: str = None, 
                              status: str = None, limit: int = 100) -> List[Dict]:
@@ -154,7 +163,7 @@ def get_reservation_attempts(days: int = 7, trip_date: str = None,
     
     filtered = []
     for attempt in attempts:
-        attempt_time = datetime.fromisoformat(attempt["timestamp"])
+        attempt_time = _parse_timestamp(attempt["timestamp"])
         if attempt_time < cutoff:
             continue
             
@@ -178,7 +187,7 @@ def get_attempts_summary(days: int = 7) -> Dict:
     
     cutoff = datetime.now() - timedelta(days=days)
     recent_attempts = [a for a in attempts 
-                       if datetime.fromisoformat(a["timestamp"]) >= cutoff]
+                       if _parse_timestamp(a["timestamp"]) >= cutoff]
     
     summary = {
         "total_attempts": len(recent_attempts),
@@ -315,7 +324,7 @@ def get_scan_history(days: int = 7) -> List[Dict]:
     
     scans = []
     for scan in data["scans"]:
-        scan_time = datetime.fromisoformat(scan["timestamp"])
+        scan_time = _parse_timestamp(scan["timestamp"])
         if scan_time >= cutoff:
             scans.append(scan)
     
@@ -341,7 +350,7 @@ def get_error_summary() -> Dict:
         summary["by_type"][error_type] = summary["by_type"].get(error_type, 0) + 1
         
         if not error.get("resolved"):
-            error_time = datetime.fromisoformat(error["timestamp"])
+            error_time = _parse_timestamp(error["timestamp"])
             if datetime.now() - error_time < timedelta(hours=24):
                 summary["recent_critical"].append(error)
     
