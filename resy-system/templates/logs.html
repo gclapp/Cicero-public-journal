@@ -24,8 +24,12 @@
             <div class="stat-label">No Availability</div>
         </div>
         <div class="stat-card error">
+            <div class="stat-value" id="api-errors">-</div>
+            <div class="stat-label">API Errors</div>
+        </div>
+        <div class="stat-card error">
             <div class="stat-value" id="failed-attempts">-</div>
-            <div class="stat-label">Failed Attempts</div>
+            <div class="stat-label">Failed Bookings</div>
         </div>
     </div>
 
@@ -37,6 +41,7 @@
                 <option value="">All Statuses</option>
                 <option value="checked">Checked</option>
                 <option value="no_availability">No Availability</option>
+                <option value="api_error">API Error</option>
                 <option value="attempted">Attempted to Book</option>
                 <option value="success">Successfully Booked</option>
                 <option value="failed">Failed to Book</option>
@@ -93,6 +98,10 @@
             <div class="legend-item">
                 <span class="status-badge no-availability">●</span>
                 <span><strong>No Availability</strong> - No tables available for this date</span>
+            </div>
+            <div class="legend-item">
+                <span class="status-badge api_error">●</span>
+                <span><strong>API Error</strong> - Resy API error (HTTP 400/500, network issue)</span>
             </div>
             <div class="legend-item">
                 <span class="status-badge attempted">●</span>
@@ -273,6 +282,12 @@
     color: #991b1b;
 }
 
+.status-badge.api_error {
+    background: #fecaca;
+    color: #7f1d1d;
+    border: 1px solid #ef4444;
+}
+
 .status-badge.skipped {
     background: #f3f4f6;
     color: #4b5563;
@@ -350,6 +365,7 @@ function getStatusBadge(status) {
     const statusMap = {
         'checked': { class: 'checked', label: 'Checked' },
         'no_availability': { class: 'no-availability', label: 'No Availability' },
+        'api_error': { class: 'failed', label: 'API Error' },
         'attempted': { class: 'attempted', label: 'Attempted' },
         'success': { class: 'success', label: 'Success' },
         'failed': { class: 'failed', label: 'Failed' },
@@ -440,7 +456,8 @@ function updateSummary(summary) {
     document.getElementById('total-attempts').textContent = summary.total_attempts || 0;
     document.getElementById('successful-bookings').textContent = summary.by_status?.success || 0;
     document.getElementById('no-availability').textContent = summary.by_status?.no_availability || 0;
-    document.getElementById('failed-attempts').textContent = (summary.by_status?.failed || 0) + (summary.by_status?.error || 0);
+    document.getElementById('api-errors').textContent = summary.by_status?.api_error || 0;
+    document.getElementById('failed-attempts').textContent = summary.by_status?.failed || 0;
 }
 
 function refreshLogs() {

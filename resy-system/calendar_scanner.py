@@ -73,12 +73,18 @@ def save_scan_state(state):
         json.dump(state, f, indent=2)
 
 def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, long=None):
-    """Find available reservations at a venue"""
+    """Find available reservations at a venue
+    
+    Returns:
+        tuple: (result_dict, status)
+            - result_dict: The API response data or None
+            - status: 'success', 'api_error', 'no_availability', or 'circuit_open'
+    """
     # Check circuit breaker first
     should_skip, skip_reason = should_skip_venue(venue_id)
     if should_skip:
         print(f"  ⚠️  Skipping venue {venue_id}: {skip_reason}")
-        return None
+        return None, 'circuit_open'
     
     creds = load_resy_credentials()
 
@@ -103,7 +109,13 @@ def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, l
             result = json.loads(response.read().decode())
             # Record success to reset failure count
             record_success(venue_id)
-            return result
+            
+            # Check if API returned empty venues (no availability vs error)
+            venues = result.get('results', {}).get('venues', [])
+            if not venues:
+                return result, 'no_availability'
+            
+            return result, 'success'
     except urllib.error.HTTPError as e:
         error_msg = f"HTTP {e.code}: {e.reason}"
         print(f"  ❌ Error checking venue {venue_id}: {error_msg}")
@@ -111,7 +123,7 @@ def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, l
         record_failure(venue_id, venue_name, error_msg)
         log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
                   {'venue_id': venue_id, 'day': day, 'error': error_msg})
-        return None
+        return None, 'api_error'
     except Exception as e:
         error_msg = str(e)
         print(f"  ❌ Error checking venue {venue_id}: {e}")
@@ -119,7 +131,7 @@ def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, l
         record_failure(venue_id, venue_name, error_msg)
         log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
                   {'venue_id': venue_id, 'day': day, 'error': error_msg})
-        return None
+        return None, 'api_error'
 
 def book_reservation(config_id, payment_method_id=None):
     """Book a reservation"""
@@ -719,9 +731,34 @@ def scan_and_book():
                 )
 
                 # Find available slots
-                results = find_resy_reservations(venue_id, date, 2, restaurant_name)  # Default party of 2
+                results, api_status = find_resy_reservations(venue_id, date, 2, restaurant_name)  # Default party of 2
 
-                if not results or "results" not in results:
+                # Handle API errors separately from no availability
+                if api_status == 'api_error':
+                    print("❌ API error")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="api_error",
+                        details="Resy API returned an error (HTTP 400/500 or network issue)"
+                    )
+                    continue
+                
+                if api_status == 'circuit_open':
+                    print("⚠️  Circuit open (temporarily skipped)")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="skipped",
+                        details="Circuit breaker - venue temporarily disabled due to repeated errors"
+                    )
+                    continue
+
+                if api_status == 'no_availability' or not results:
                     print("❌ No availability")
                     log_reservation_attempt(
                         trip_date=date,
@@ -729,11 +766,11 @@ def scan_and_book():
                         venue_id=venue_id,
                         party_size=2,
                         status="no_availability",
-                        details="API returned no results or error"
+                        details="Restaurant has no tables available for this date"
                     )
                     continue
 
-                venues = results["results"].get("venues", [])
+                venues = results.get("results", {}).get("venues", [])
                 if not venues:
                     print("❌ No venues returned")
                     log_reservation_attempt(
@@ -742,7 +779,7 @@ def scan_and_book():
                         venue_id=venue_id,
                         party_size=2,
                         status="no_availability",
-                        details="API returned no venues for this date"
+                        details="API returned empty venue list"
                     )
                     continue
                 slots = venues[0].get("slots", [])
