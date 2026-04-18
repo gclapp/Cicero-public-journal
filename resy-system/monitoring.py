@@ -6,7 +6,7 @@ Tracks scans, bookings, errors, and system health
 
 import json
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 
@@ -119,7 +119,7 @@ def log_reservation_attempt(trip_date: str, restaurant_name: str, venue_id: str,
         data["attempts"] = []
     
     attempt_record = {
-        "timestamp": datetime.now().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "trip_date": trip_date,
         "restaurant_name": restaurant_name,
         "venue_id": venue_id,

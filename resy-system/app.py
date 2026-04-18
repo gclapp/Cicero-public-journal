@@ -1249,6 +1249,13 @@ def api_attempts():
         if restaurant:
             attempts = [a for a in attempts if restaurant.lower() in a.get('restaurant_name', '').lower()]
         
+        # Normalize timestamps to UTC for proper browser display
+        for attempt in attempts:
+            ts = attempt.get('timestamp', '')
+            if ts and not ('Z' in ts or '+' in ts):
+                # Old format without timezone - assume UTC and add +00:00
+                attempt['timestamp'] = ts + '+00:00'
+        
         summary = get_attempts_summary(days=days)
         
         # Get unique restaurant names for filter dropdown
