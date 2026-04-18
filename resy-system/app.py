@@ -11,6 +11,8 @@ import hashlib
 import os
 import sys
 import urllib.parse
+import urllib.request
+import urllib.error
 from datetime import datetime
 from pathlib import Path
 import uuid
@@ -1385,12 +1387,37 @@ def health_check():
     """Health check endpoint for monitoring"""
     try:
         health = get_system_health()
+        
+        # Check Resy API status
+        resy_status = 'unknown'
+        try:
+            creds = load_resy_credentials()
+            if creds:
+                import urllib.request
+                test_url = 'https://api.resy.com/4/find?day=2026-05-17&party_size=2&venue_id=6405&lat=40.7128&long=-74.0060'
+                headers = {
+                    'Authorization': f'ResyAPI api_key="{creds["api_key"]}"',
+                    'X-Resy-Auth-Token': creds['auth_token'],
+                    'Content-Type': 'application/json'
+                }
+                req = urllib.request.Request(test_url, headers=headers)
+                with urllib.request.urlopen(req, timeout=5) as response:
+                    resy_status = 'up'
+        except urllib.error.HTTPError as e:
+            if e.code == 500:
+                resy_status = 'down'
+            else:
+                resy_status = 'error'
+        except:
+            resy_status = 'down'
+        
         return jsonify({
             'status': 'healthy',
             'timestamp': datetime.now().isoformat(),
             'last_scan': health.get('last_scan_time'),
             'last_booking': health.get('last_booking_time'),
-            'total_bookings': health.get('total_bookings', 0)
+            'total_bookings': health.get('total_bookings', 0),
+            'resy_api': resy_status
         })
     except Exception as e:
         return jsonify({

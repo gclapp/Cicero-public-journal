@@ -322,6 +322,17 @@
     
     <div style="height: 4px; background: var(--resy-orange);"></div>
     
+    <!-- API Status Banner -->
+    <div id="api-status-banner" style="display: none; background: #FEE2E2; border-bottom: 1px solid #EF4444; padding: 0.75rem 0;">
+        <div class="container" style="display: flex; align-items: center; gap: 0.75rem;">
+            <span style="font-size: 1.25rem;">⚠️</span>
+            <div>
+                <strong style="color: #991B1B;">Resy API is currently down</strong>
+                <span style="color: #7F1D1D; margin-left: 0.5rem;">Reservation checks are temporarily unavailable. The system will automatically resume when Resy's servers recover.</span>
+            </div>
+        </div>
+    </div>
+    
     <div class="container" style="min-height: calc(100vh - 200px);">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -335,6 +346,32 @@
     </div>
     
     {% block extra_js %}{% endblock %}
+    
+    <!-- API Status Check -->
+    <script>
+    async function checkApiStatus() {
+        try {
+            const response = await fetch('/api/health');
+            const data = await response.json();
+            const banner = document.getElementById('api-status-banner');
+            
+            if (data.resy_api === 'down') {
+                banner.style.display = 'block';
+            } else {
+                banner.style.display = 'none';
+            }
+        } catch (e) {
+            // If we can't check, assume API might be down
+            const banner = document.getElementById('api-status-banner');
+            banner.style.display = 'block';
+        }
+    }
+    
+    // Check on page load
+    checkApiStatus();
+    // Check every 60 seconds
+    setInterval(checkApiStatus, 60000);
+    </script>
     
     {% block footer %}
     <footer style="background: var(--resy-gray-100); border-top: 1px solid var(--resy-gray-200); margin-top: 3rem; padding: 1rem 0;">

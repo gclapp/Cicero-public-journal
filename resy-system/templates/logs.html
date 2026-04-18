@@ -76,7 +76,7 @@
                     <th>Restaurant</th>
                     <th>Status</th>
                     <th>Details</th>
-                    <th>Slots Found</th>
+                    <th>Slots</th>
                 </tr>
             </thead>
             <tbody id="attempts-tbody">
@@ -85,6 +85,8 @@
                 </tr>
             </tbody>
         </table>
+        <!-- Mobile card view -->
+        <div class="mobile-cards" id="mobile-attempts"></div>
     </div>
 
     <!-- Status Legend -->
@@ -213,14 +215,16 @@
     background: white;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    overflow: hidden;
+    overflow-x: auto;
     margin-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
 }
 
 .data-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.875rem;
+    min-width: 600px;
 }
 
 .data-table th {
@@ -230,6 +234,7 @@
     font-weight: 600;
     color: var(--text-secondary);
     border-bottom: 1px solid var(--resy-gray-200);
+    white-space: nowrap;
 }
 
 .data-table td {
@@ -239,6 +244,107 @@
 
 .data-table tr:hover {
     background: var(--resy-gray-50);
+}
+
+/* Mobile-friendly card view */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .filters-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .filter-group select {
+        width: 100%;
+    }
+    
+    .table-container {
+        background: transparent;
+        box-shadow: none;
+        overflow: visible;
+    }
+    
+    .data-table {
+        display: none;
+    }
+    
+    .mobile-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .mobile-card {
+        background: white;
+        border-radius: 8px;
+        padding: 1rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--resy-gray-100);
+    }
+    
+    .mobile-card-title {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+    .mobile-card-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--resy-gray-50);
+    }
+    
+    .mobile-card-row:last-child {
+        border-bottom: none;
+    }
+    
+    .mobile-card-label {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+    }
+    
+    .mobile-card-value {
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+    
+    .legend-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-cards {
+        display: none;
+    }
 }
 
 .data-table .loading {
@@ -436,12 +542,15 @@ function updateRestaurantFilter(restaurants) {
 
 function renderAttempts(attempts) {
     const tbody = document.getElementById('attempts-tbody');
+    const mobileContainer = document.getElementById('mobile-attempts');
     
     if (attempts.length === 0) {
         tbody.innerHTML = '<tr><td colspan="6" class="loading">No attempts found for this period</td></tr>';
+        mobileContainer.innerHTML = '<div class="mobile-card"><div class="mobile-card-row">No attempts found for this period</div></div>';
         return;
     }
     
+    // Render table (desktop)
     tbody.innerHTML = attempts.map(attempt => `
         <tr>
             <td class="time-cell">${formatTime(attempt.timestamp)}</td>
@@ -451,6 +560,36 @@ function renderAttempts(attempts) {
             <td>${attempt.details || '-'}</td>
             <td>${attempt.slots_found > 0 ? `<span class="slots-count">${attempt.slots_found}</span>` : '-'}</td>
         </tr>
+    `).join('');
+    
+    // Render mobile cards
+    mobileContainer.innerHTML = attempts.map(attempt => `
+        <div class="mobile-card">
+            <div class="mobile-card-header">
+                <span class="mobile-card-title">${attempt.restaurant_name}</span>
+                ${getStatusBadge(attempt.status)}
+            </div>
+            <div class="mobile-card-row">
+                <span class="mobile-card-label">Trip Date</span>
+                <span class="mobile-card-value">${formatDate(attempt.trip_date)}</span>
+            </div>
+            <div class="mobile-card-row">
+                <span class="mobile-card-label">Checked At</span>
+                <span class="mobile-card-value">${formatTime(attempt.timestamp)}</span>
+            </div>
+            ${attempt.details ? `
+            <div class="mobile-card-row">
+                <span class="mobile-card-label">Details</span>
+                <span class="mobile-card-value">${attempt.details}</span>
+            </div>
+            ` : ''}
+            ${attempt.slots_found > 0 ? `
+            <div class="mobile-card-row">
+                <span class="mobile-card-label">Slots Found</span>
+                <span class="mobile-card-value slots-count">${attempt.slots_found}</span>
+            </div>
+            ` : ''}
+        </div>
     `).join('');
 }
 
