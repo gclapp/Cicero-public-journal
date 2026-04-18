@@ -24,6 +24,7 @@ from circuit_breaker import (
     record_failure, record_success, is_circuit_open, 
     should_skip_venue, get_problematic_venues
 )
+from trips import extract_trip_from_flights as extract_trips_from_flights
 
 # Google Calendar integration
 CALENDAR_CREDENTIALS = Path.home() / ".openclaw" / "credentials" / "calendar-credentials.json"
@@ -544,10 +545,19 @@ def has_reservation(date, reservations_data):
             return res
     return None
 
-def find_best_slot(slots, min_hour=17):
-    """Find best slot after 5pm (17:00)"""
+def find_best_slot(slots, min_hour=17, max_hour=22, preferred_hour=19, preferred_minute=45):
+    """Find best slot after 5pm (17:00), preferring 7:45pm (19:45)
+    
+    Args:
+        slots: List of available slots from Resy API
+        min_hour: Minimum hour (default 17 = 5pm)
+        max_hour: Maximum hour (default 22 = 10pm)
+        preferred_hour: Preferred hour (default 19 = 7pm)
+        preferred_minute: Preferred minute (default 45)
+    """
     best_slot = None
     best_time = None
+    best_distance = None
     
     for slot in slots:
         time_str = slot.get("date", {}).get("start", "")
@@ -556,11 +566,27 @@ def find_best_slot(slots, min_hour=17):
         
         # Parse time (format: "2026-04-15 19:30:00")
         try:
-            hour = int(time_str.split()[1].split(":")[0])
-            if hour >= min_hour:
-                if best_time is None or time_str < best_time:
-                    best_time = time_str
-                    best_slot = slot
+            time_parts = time_str.split()[1].split(":")
+            hour = int(time_parts[0])
+            minute = int(time_parts[1])
+            
+            # Skip if outside acceptable range (5pm - 10pm)
+            if hour < min_hour or hour > max_hour:
+                continue
+            # Skip if exactly at 10pm or later
+            if hour == max_hour and minute > 0:
+                continue
+                
+            # Calculate distance from preferred time (7:45pm)
+            slot_minutes = hour * 60 + minute
+            preferred_minutes = preferred_hour * 60 + preferred_minute
+            distance = abs(slot_minutes - preferred_minutes)
+            
+            # Prefer slots closest to 7:45pm
+            if best_distance is None or distance < best_distance:
+                best_distance = distance
+                best_time = time_str
+                best_slot = slot
         except:
             continue
     
@@ -631,10 +657,15 @@ def scan_and_book():
     scan_state["last_scan"] = now.isoformat()
     save_scan_state(scan_state)
 
-    # Parse calendar for NYC trips
+    # Parse calendar for NYC trips using flight-aware detection
     print("📅 Scanning calendar for NYC trips...")
     nyc_events = parse_calendar_events()
-    trips = extract_trip_dates(nyc_events)
+    
+    # Use flight-based trip detection for better accuracy
+    trips = extract_trips_from_flights(nyc_events)
+    
+    # Filter out trips with no dates
+    trips = [t for t in trips if t.get("dates")]
 
     if not trips:
         print("✅ No upcoming NYC trips found.")
@@ -643,8 +674,8 @@ def scan_and_book():
 
     print(f"✅ Found {len(trips)} NYC trip(s):")
     for trip in trips:
-        print(f"   {trip['start']} to {trip['end']} ({len(trip['dates'])} days)")
-        scan_stats["trip_dates"].extend(trip['dates'])
+        print(f"   {trip['start']} to {trip['end']} ({len(trip.get('dates', []))} days)")
+        scan_stats["trip_dates"].extend(trip.get('dates', []))
     print()
 
     # Sync reservations from both Resy API and Google Calendar
