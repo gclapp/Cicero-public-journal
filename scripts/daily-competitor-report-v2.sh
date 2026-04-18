@@ -15,22 +15,22 @@ mkdir -p "$(dirname "$LOG_FILE")"
 
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting competitive intelligence v2..." >> "$LOG_FILE"
 
-# Step 1: Run enhanced RSS + web search monitoring
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Step 1: RSS + Web search..." >> "$LOG_FILE"
-python3 "$SCRIPT_DIR/competitor_intelligence_v2.py" >> "$LOG_FILE" 2>&1 || true
+# Step 1: Run enhanced RSS + web search monitoring (v3)
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Step 1: RSS + Web search (v3)..." >> "$LOG_FILE"
+python3 "$SCRIPT_DIR/competitor_intelligence_v3.py" >> "$LOG_FILE" 2>&1 || true
 
 # Step 2: Run LinkedIn + job change monitoring
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] Step 2: LinkedIn + job changes..." >> "$LOG_FILE"
 python3 "$SCRIPT_DIR/linkedin_monitor.py" >> "$LOG_FILE" 2>&1 || true
 
-# Step 3: Generate email report
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Step 3: Generating email..." >> "$LOG_FILE"
-python3 "$SCRIPT_DIR/competitor_email_v2.py" >> "$LOG_FILE" 2>&1 || true
+# Step 3: Generate email report (v3)
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Step 3: Generating email (v3)..." >> "$LOG_FILE"
+python3 "$SCRIPT_DIR/competitor_email_v3.py" >> "$LOG_FILE" 2>&1 || true
 
 # Step 4: Send email if articles found
-ARTICLES_FILE="$WORKSPACE_DIR/config/competitor-articles-v2.json"
+ARTICLES_FILE="$WORKSPACE_DIR/config/competitor-articles-v3.json"
 LINKEDIN_FILE="$WORKSPACE_DIR/config/linkedin-updates.json"
-EMAIL_FILE="$WORKSPACE_DIR/config/competitor-email-v2.html"
+EMAIL_FILE="$WORKSPACE_DIR/config/competitor-email-v3.html"
 
 # Check if there are recent articles (last 6 hours)
 if [ -f "$ARTICLES_FILE" ] || [ -f "$LINKEDIN_FILE" ]; then
