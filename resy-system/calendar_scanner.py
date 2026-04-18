@@ -291,6 +291,7 @@ def parse_calendar_reservations(events):
             
             if "dateTime" in start:
                 dt = datetime.fromisoformat(start["dateTime"].replace('Z', '+00:00'))
+                dt = dt.replace(tzinfo=None)  # Make offset-naive
                 date = dt.strftime("%Y-%m-%d")
                 time = dt.strftime("%H:%M")
             elif "date" in start:
@@ -489,6 +490,7 @@ def extract_trip_dates(events):
             dates.add(start["date"])
         elif "dateTime" in start:
             dt = datetime.fromisoformat(start["dateTime"].replace('Z', '+00:00'))
+            dt = dt.replace(tzinfo=None)  # Make offset-naive
             dates.add(dt.strftime("%Y-%m-%d"))
     
     # Sort dates

@@ -180,14 +180,18 @@ def get_event_datetime(event):
     start_raw = event.get("start_raw", "")
     if start_raw:
         try:
-            return datetime.fromisoformat(start_raw.replace('Z', '+00:00'))
+            dt = datetime.fromisoformat(start_raw.replace('Z', '+00:00'))
+            # Make offset-naive for consistent comparison
+            return dt.replace(tzinfo=None)
         except:
             pass
     
     start = event.get("start", {})
     if isinstance(start, dict) and "dateTime" in start:
         try:
-            return datetime.fromisoformat(start["dateTime"].replace('Z', '+00:00'))
+            dt = datetime.fromisoformat(start["dateTime"].replace('Z', '+00:00'))
+            # Make offset-naive for consistent comparison
+            return dt.replace(tzinfo=None)
         except:
             pass
     
