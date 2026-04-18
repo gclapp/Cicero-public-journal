@@ -733,7 +733,19 @@ def scan_and_book():
                     )
                     continue
 
-                slots = results["results"].get("venues", [{}])[0].get("slots", [])
+                venues = results["results"].get("venues", [])
+                if not venues:
+                    print("❌ No venues returned")
+                    log_reservation_attempt(
+                        trip_date=date,
+                        restaurant_name=restaurant_name,
+                        venue_id=venue_id,
+                        party_size=2,
+                        status="no_availability",
+                        details="API returned no venues for this date"
+                    )
+                    continue
+                slots = venues[0].get("slots", [])
 
                 if not slots:
                     print("❌ No slots")
