@@ -71,7 +71,7 @@
         <table class="data-table" id="attempts-table">
             <thead>
                 <tr>
-                    <th>Time</th>
+                    <th>Time (LA)</th>
                     <th>Trip Date</th>
                     <th>Restaurant</th>
                     <th>Status</th>
@@ -347,7 +347,9 @@ function formatTime(isoString) {
         month: 'short',
         day: 'numeric',
         hour: '2-digit',
-        minute: '2-digit'
+        minute: '2-digit',
+        timeZone: 'America/Los_Angeles',
+        timeZoneName: 'short'
     });
 }
 
