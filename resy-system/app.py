@@ -785,10 +785,20 @@ def api_search_resy():
     saved_data = load_restaurants()
     saved_venue_ids = {r.get('venue_id') for r in saved_data.get('restaurants', []) if r.get('venue_id')}
     
-    # First search local database (NYC restaurants)
-    local_results = search_local_restaurants(query, exclude_venue_ids=saved_venue_ids)
+    # First search local database (NYC restaurants) - WITHOUT filtering to check if matches exist
+    all_local_results = search_local_restaurants(query, exclude_venue_ids=None)
+    
+    # Check if any matches were found but are already in wishlist
+    excluded_count = 0
+    for r in all_local_results:
+        if r.get('venue_id') in saved_venue_ids:
+            excluded_count += 1
+    
+    # Now get filtered results (excluding already saved)
+    local_results = [r for r in all_local_results if r.get('venue_id') not in saved_venue_ids]
+    
     if local_results:
-        # Format as venues for frontend compatibility, filtering out already saved
+        # Format as venues for frontend compatibility
         venues = []
         for r in local_results:
             venues.append({
@@ -799,19 +809,35 @@ def api_search_resy():
                 'price': r.get('price', '$$'),
                 'source': 'local'
             })
-        if venues:
-            return jsonify({'venues': venues[:20]})
+        return jsonify({
+            'venues': venues[:20],
+            'source': 'local',
+            'total_found': len(all_local_results),
+            'excluded_count': excluded_count
+        })
     
-    # Fall back to Resy API if no local matches
+    # No local results - check if they were all excluded
+    if excluded_count > 0:
+        return jsonify({
+            'venues': [],
+            'source': 'local',
+            'message': f'{excluded_count} restaurant(s) found but already in your wishlist',
+            'excluded_count': excluded_count
+        })
+    
+    # Fall back to Resy API browse if no local matches at all
     from datetime import date
     today = date.today().isoformat()
     results = search_resy_venues(query, 40.7128, -74.0060, today, 2)
     
     # Filter out already saved restaurants and limit to 20
-    # Normalize venue_ids to strings for consistent comparison
     saved_venue_ids_str = {str(vid) for vid in saved_venue_ids}
     if 'venues' in results:
         results['venues'] = [v for v in results['venues'] if str(v.get('venue_id', '')) not in saved_venue_ids_str][:20]
+    
+    # Add info about search limitations
+    if not results.get('venues') and not results.get('error'):
+        results['message'] = 'No restaurants found. Try searching for a different name or cuisine type.'
     
     return jsonify(results)
 

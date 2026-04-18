@@ -535,8 +535,23 @@
         
         try {
             // Search Resy API
+            console.log('Searching for:', query);
             const response = await fetch(`/api/search-resy?q=${encodeURIComponent(query)}`);
+            console.log('Response status:', response.status, 'URL:', response.url);
+            
+            // Check if we got redirected to login (session expired)
+            if (response.redirected || response.url.includes('/login')) {
+                resultsDiv.innerHTML = '<div style="padding: 1rem; color: var(--resy-error);">Session expired. Please refresh the page and log in again.</div>';
+                return;
+            }
+            
+            if (!response.ok) {
+                resultsDiv.innerHTML = `<div style="padding: 1rem; color: var(--resy-error);">Error: ${response.status} ${response.statusText}</div>`;
+                return;
+            }
+            
             const data = await response.json();
+            console.log('Response data:', data);
             
             if (data.error) {
                 resultsDiv.innerHTML = `<div style="padding: 1rem; color: var(--resy-error);">${data.error}</div>`;
@@ -544,9 +559,18 @@
             }
             
             const venues = data.venues || [];
+            console.log('Found venues:', venues.length, 'Message:', data.message);
             
             if (venues.length === 0) {
-                resultsDiv.innerHTML = '<div style="padding: 1rem; text-align: center; color: var(--resy-gray-400);">No restaurants found</div>';
+                let message = data.message || 'No restaurants found';
+                let style = 'color: var(--resy-gray-400);';
+                
+                // If restaurants were excluded (already in wishlist), show different styling
+                if (data.excluded_count > 0) {
+                    style = 'color: var(--resy-orange); background: #fff7ed; padding: 1rem; border-radius: 6px;';
+                }
+                
+                resultsDiv.innerHTML = `<div style="padding: 1rem; text-align: center; ${style}">${message}</div>`;
                 return;
             }
             
