@@ -3150,3 +3150,62 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-17 21:00:37] ✅ Email sent
 [2026-04-17 21:00:37] Complete
+[2026-04-18 14:00:01] Starting competitive intelligence v2...
+[2026-04-18 14:00:01] Step 1: RSS + Web search...
+[2026-04-18 14:00:02] ======================================================================
+[2026-04-18 14:00:02] Starting Enhanced Competitive Intelligence Scan
+[2026-04-18 14:00:02] ======================================================================
+[2026-04-18 14:00:02] 
+1. Scanning RSS feeds...
+[2026-04-18 14:00:14]    Found 1 new articles from RSS
+[2026-04-18 14:00:14] 
+2. Searching web for competitive news...
+[2026-04-18 14:00:15]    Found 1 new articles from web search
+[2026-04-18 14:00:15] 
+3. Checking LinkedIn executive posts...
+[2026-04-18 14:00:20]    ✓ LinkedIn executive scan complete
+[2026-04-18 14:00:20] 
+4. Checking job boards...
+[2026-04-18 14:00:20] Job board monitoring: 8 companies
+[2026-04-18 14:00:20]    Found 0 job postings
+[2026-04-18 14:00:20]    Skipping 2703da55... (low FemTech relevance: 15)
+[2026-04-18 14:00:20]    Skipping 7bb30172... (low FemTech relevance: 0)
+[2026-04-18 14:00:20] 
+✅ No new competitive signals found
+[2026-04-18 14:00:20] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 1
+   Executive News: 0
+   Company Posts: 0
+[2026-04-18 14:00:37] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v2.html
+   Articles: 21
+   LinkedIn updates: 1
+   Executive summary: 472 chars
+[2026-04-18 14:00:37] Sending competitive intelligence email...
+[2026-04-18 14:00:37] Fixed version tag applied (send 3 of 5)
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-18 14:00:39] ✅ Email sent
+[2026-04-18 14:00:39] Complete

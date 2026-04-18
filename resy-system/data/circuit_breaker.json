@@ -3,20 +3,20 @@
     "1501": {
       "venue_name": "4 Charles Prime Rib",
       "failures": 3,
-      "last_failure": "2026-04-13T13:17:14.974591",
+      "last_failure": "2026-04-18T19:04:52.406970",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:17:14.974605",
+      "circuit_opened_at": "2026-04-18T19:04:52.406984",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T12:59:02.830741",
+          "timestamp": "2026-04-18T19:03:33.000919",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:08:55.790182",
+          "timestamp": "2026-04-18T19:03:39.256206",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:17:14.974601",
+          "timestamp": "2026-04-18T19:04:52.406980",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
@@ -25,20 +25,20 @@
     "1478": {
       "venue_name": "Carbone",
       "failures": 3,
-      "last_failure": "2026-04-13T13:18:04.139004",
+      "last_failure": "2026-04-18T19:10:51.306459",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:18:04.139020",
+      "circuit_opened_at": "2026-04-18T19:10:51.306475",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T13:00:35.042654",
+          "timestamp": "2026-04-18T19:04:38.222564",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:10:27.989618",
+          "timestamp": "2026-04-18T19:05:30.600867",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:18:04.139014",
+          "timestamp": "2026-04-18T19:10:51.306470",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
@@ -46,43 +46,30 @@
     },
     "1485": {
       "venue_name": "Don Angie",
-      "failures": 3,
+      "failures": 0,
       "last_failure": "2026-04-13T13:19:19.330364",
-      "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:19:19.330378",
-      "failure_messages": [
-        {
-          "timestamp": "2026-04-13T13:01:39.247360",
-          "message": "HTTP 500: Internal Server Error"
-        },
-        {
-          "timestamp": "2026-04-13T13:11:22.175698",
-          "message": "HTTP 500: Internal Server Error"
-        },
-        {
-          "timestamp": "2026-04-13T13:19:19.330374",
-          "message": "HTTP 500: Internal Server Error"
-        }
-      ],
+      "circuit_open": false,
+      "circuit_opened_at": null,
+      "failure_messages": [],
       "first_failure": "2026-04-13T05:02:11.150152"
     },
     "1523": {
       "venue_name": "Torrisi",
       "failures": 3,
-      "last_failure": "2026-04-13T13:19:55.563377",
+      "last_failure": "2026-04-18T19:11:40.508306",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:19:55.563391",
+      "circuit_opened_at": "2026-04-18T19:11:40.508320",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T13:03:13.450566",
+          "timestamp": "2026-04-18T19:06:09.658002",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:12:15.366734",
+          "timestamp": "2026-04-18T19:06:46.805457",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:19:55.563387",
+          "timestamp": "2026-04-18T19:11:40.508317",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
@@ -91,20 +78,20 @@
     "1529": {
       "venue_name": "Saga",
       "failures": 3,
-      "last_failure": "2026-04-13T13:21:25.776571",
+      "last_failure": "2026-04-18T19:13:13.736102",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:21:25.776585",
+      "circuit_opened_at": "2026-04-18T19:13:13.736115",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T13:04:23.661354",
+          "timestamp": "2026-04-18T19:07:24.906691",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:12:55.570568",
+          "timestamp": "2026-04-18T19:07:53.990267",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:21:25.776581",
+          "timestamp": "2026-04-18T19:13:13.736112",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
@@ -112,43 +99,30 @@
     },
     "2567": {
       "venue_name": "Peter Luger",
-      "failures": 3,
+      "failures": 0,
       "last_failure": "2026-04-13T13:22:51.996901",
-      "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:22:51.996914",
-      "failure_messages": [
-        {
-          "timestamp": "2026-04-13T13:05:25.877617",
-          "message": "HTTP 500: Internal Server Error"
-        },
-        {
-          "timestamp": "2026-04-13T13:14:24.768269",
-          "message": "HTTP 500: Internal Server Error"
-        },
-        {
-          "timestamp": "2026-04-13T13:22:51.996911",
-          "message": "HTTP 500: Internal Server Error"
-        }
-      ],
+      "circuit_open": false,
+      "circuit_opened_at": null,
+      "failure_messages": [],
       "first_failure": "2026-04-13T05:06:26.802957"
     },
     "1727": {
       "venue_name": "Estiatorio Milos",
       "failures": 3,
-      "last_failure": "2026-04-13T13:23:32.559540",
+      "last_failure": "2026-04-18T19:08:33.169508",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:23:32.559555",
+      "circuit_opened_at": "2026-04-18T19:08:33.169523",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T13:07:03.090944",
+          "timestamp": "2026-04-18T19:04:34.598251",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:15:58.378014",
+          "timestamp": "2026-04-18T19:08:27.194594",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:23:32.559551",
+          "timestamp": "2026-04-18T19:08:33.169518",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
@@ -157,20 +131,20 @@
     "1505": {
       "venue_name": "Keens Steakhouse",
       "failures": 3,
-      "last_failure": "2026-04-13T13:24:51.737780",
+      "last_failure": "2026-04-18T19:09:34.388657",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:24:51.737794",
+      "circuit_opened_at": "2026-04-18T19:09:34.388671",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T13:08:01.260494",
+          "timestamp": "2026-04-18T19:03:55.171555",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:16:32.593052",
+          "timestamp": "2026-04-18T19:05:58.780147",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:24:51.737790",
+          "timestamp": "2026-04-18T19:09:34.388667",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
@@ -179,25 +153,69 @@
     "1512": {
       "venue_name": "Lilia",
       "failures": 3,
-      "last_failure": "2026-04-13T13:25:46.916833",
+      "last_failure": "2026-04-18T19:08:19.208893",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-13T13:25:46.916847",
+      "circuit_opened_at": "2026-04-18T19:08:19.208909",
       "failure_messages": [
         {
-          "timestamp": "2026-04-13T13:08:55.543772",
-          "message": "HTTP 400: BAD REQUEST"
-        },
-        {
-          "timestamp": "2026-04-13T13:17:14.786847",
+          "timestamp": "2026-04-18T19:05:52.586784",
           "message": "HTTP 500: Internal Server Error"
         },
         {
-          "timestamp": "2026-04-13T13:25:46.916843",
+          "timestamp": "2026-04-18T19:07:33.796434",
+          "message": "HTTP 500: Internal Server Error"
+        },
+        {
+          "timestamp": "2026-04-18T19:08:19.208903",
           "message": "HTTP 500: Internal Server Error"
         }
       ],
       "first_failure": "2026-04-13T05:10:03.400411"
+    },
+    "1705": {
+      "venue_name": "Semma",
+      "failures": 3,
+      "last_failure": "2026-04-18T19:08:47.007366",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-04-18T19:08:47.007382",
+      "failure_messages": [
+        {
+          "timestamp": "2026-04-18T19:03:32.833136",
+          "message": "HTTP 500: Internal Server Error"
+        },
+        {
+          "timestamp": "2026-04-18T19:04:52.221203",
+          "message": "HTTP 500: Internal Server Error"
+        },
+        {
+          "timestamp": "2026-04-18T19:08:47.007377",
+          "message": "HTTP 500: Internal Server Error"
+        }
+      ],
+      "first_failure": "2026-04-18T18:29:54.411325"
+    },
+    "1399": {
+      "venue_name": "Eleven Madison Park",
+      "failures": 3,
+      "last_failure": "2026-04-18T19:11:08.448316",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-04-18T19:11:08.448330",
+      "failure_messages": [
+        {
+          "timestamp": "2026-04-18T19:05:06.365544",
+          "message": "HTTP 500: Internal Server Error"
+        },
+        {
+          "timestamp": "2026-04-18T19:07:21.008288",
+          "message": "HTTP 500: Internal Server Error"
+        },
+        {
+          "timestamp": "2026-04-18T19:11:08.448327",
+          "message": "HTTP 500: Internal Server Error"
+        }
+      ],
+      "first_failure": "2026-04-18T19:03:08.437697"
     }
   },
-  "last_updated": "2026-04-13T13:25:46.916871"
+  "last_updated": "2026-04-18T19:13:13.736141"
 }

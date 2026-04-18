@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-04-16T14:04:20.974229",
+  "timestamp": "2026-04-18T18:29:54.390185",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -7,14 +7,14 @@
     },
     "calendar": {
       "status": "stale",
-      "error": "Token is 10 days old",
+      "error": "Token is 13 days old",
       "action_required": true,
       "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%alendar.readonly"
     },
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \ud83c\udf24\ufe0f --\u00b0F weather data source not available \u21912mph",
+    "weather_data": "los angeles: \u2600\ufe0f 65\u00b0F 70% \u21912mph",
     "whoop": {
       "status": "configured"
     },
@@ -31,14 +31,14 @@
     },
     "travel_automation": {
       "status": "active",
-      "last_run_hours": 5.1,
+      "last_run_hours": 9.5,
       "tasks_created": 0
     }
   },
   "action_required": [
     {
       "service": "calendar",
-      "error": "Token is 10 days old",
+      "error": "Token is 13 days old",
       "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%alendar.readonly"
     }
   ]

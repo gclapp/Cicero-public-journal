@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
                line-height: 1.5; color: #1a1a1a; max-width: 700px; margin: 0 auto; background: #fafafa; }
@@ -12,13 +13,13 @@
         .header p { margin: 8px 0 0 0; opacity: 0.9; font-size: 14px; }
         
         .exec-summary { background: #f0f7ff; border-left: 4px solid #1e40af; 
-                        padding: 20px; margin: 25px 0; }
+                        padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
         .exec-summary h2 { margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; 
                            letter-spacing: 1px; color: #1e40af; }
-        .exec-summary p { margin: 0; font-size: 15px; line-height: 1.6; }
+        .exec-summary p { margin: 0; font-size: 14px; line-height: 1.6; }
         
-        .stats { display: flex; gap: 20px; margin: 20px 0; justify-content: center; }
-        .stat { text-align: center; background: #f8fafc; padding: 15px 25px; border-radius: 8px; }
+        .stats { display: flex; gap: 15px; margin: 20px 0; justify-content: center; flex-wrap: wrap; }
+        .stat { text-align: center; background: #f8fafc; padding: 15px 25px; border-radius: 8px; min-width: 80px; }
         .stat-number { font-size: 28px; font-weight: 600; color: #1e40af; }
         .stat-label { font-size: 11px; color: #666; text-transform: uppercase; }
         
@@ -26,203 +27,200 @@
         .section h2 { font-size: 16px; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; 
                       padding-bottom: 8px; margin-bottom: 15px; }
         
-        .article { padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
-        .article:last-child { border-bottom: none; }
-        .article-header { display: flex; align-items: center; margin-bottom: 8px; }
+        .article { padding: 18px; margin-bottom: 15px; border-radius: 8px; border-left: 4px solid; }
+        .article-critical { background: #fef2f2; border-left-color: #dc2626; }
+        .article-high { background: #fff7ed; border-left-color: #ea580c; }
+        .article-medium { background: #fefce8; border-left-color: #ca8a04; }
+        
+        .article-header { display: flex; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+        .company-logo { width: 20px; height: 20px; border-radius: 4px; margin-right: 6px; }
         .company { font-size: 11px; font-weight: 600; text-transform: uppercase; 
                    color: #666; letter-spacing: 0.5px; }
-        .priority { margin-left: auto; font-size: 11px; padding: 2px 8px; border-radius: 4px; }
-        .priority-critical { background: #fef2f2; color: #dc2626; }
-        .priority-high { background: #fff7ed; color: #ea580c; }
-        .priority-medium { background: #fefce8; color: #ca8a04; }
+        .priority { font-size: 10px; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+        .priority-critical { background: #dc2626; color: white; }
+        .priority-high { background: #ea580c; color: white; }
+        .priority-medium { background: #ca8a04; color: white; }
+        .category { font-size: 10px; padding: 3px 10px; border-radius: 12px; background: #e5e7eb; color: #666; }
         
-        .title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+        .title { font-weight: 600; font-size: 15px; margin-bottom: 6px; line-height: 1.4; }
         .title a { color: #1a1a1a; text-decoration: none; }
-        .title a:hover { text-decoration: underline; }
-        .meta { font-size: 12px; color: #999; margin-bottom: 8px; }
-        .summary { font-size: 13px; color: #555; }
-        .why-matters { font-size: 12px; color: #444; background: #f8f9fa; 
-                       padding: 10px 12px; border-radius: 4px; margin-top: 8px; }
-        
-        .progyny-section { background: #f8fafc; padding: 20px; margin: 20px 0; 
-                           border-radius: 8px; border: 1px solid #e5e7eb; }
-        .mention { padding: 10px 0; border-bottom: 1px solid #e5e7eb; }
-        .mention:last-child { border-bottom: none; }
-        .mention-title { font-weight: 500; font-size: 13px; }
-        .mention-title a { color: #1e40af; text-decoration: none; }
-        .mention-meta { font-size: 11px; color: #999; }
+        .title a:hover { text-decoration: underline; color: #1e40af; }
+        .meta { font-size: 12px; color: #999; margin-bottom: 10px; }
+        .summary { font-size: 13px; color: #555; margin-bottom: 10px; line-height: 1.5; }
+        .why-matters { font-size: 12px; color: #444; background: rgba(255,255,255,0.7); 
+                       padding: 12px; border-radius: 6px; border-left: 3px solid #3b82f6; }
         
         .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; 
                   text-align: center; font-size: 12px; color: #999; }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .header { margin: -20px -20px 20px -20px; padding: 20px; }
+            .stats { flex-direction: column; }
+            .stat { width: 100%; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>🏛️ Competitive Intelligence Report</h1>
-            <p>Friday, April 10, 2026 | 30-Day Window | FemTech & Women's Health Focus</p>
+            <p>Saturday, April 18, 2026 | 30-Day Window | FemTech & Women's Health Focus</p>
         </div>
         
         <div class="exec-summary">
             <h2>📊 Executive Summary</h2>
-            <p>AI and machine learning innovation from General, signaling a competitive race to automate care coordination and improve patient outcomes through predictive analytics. Significant capital deployment into the sector with fresh funding rounds from General, indicating investor confidence and likely acceleration of market expansion efforts. Most active competitors: General (1), Progyny (1). Progyny tracked in 5 news/social mentions, indicating sustained market visibility and ongoing competitive interest.</p>
+            <p>🤖 <strong>AI Investment:</strong> 5 AI-related signals detected. Competitors are rapidly investing in automation capabilities. 💰 <strong>Capital Deployment:</strong> 2 funding events indicate strong investor confidence in the sector. 🤝 <strong>Partnership Activity:</strong> 3 new partnerships suggest ecosystem-building as a core strategy. 📊 <strong>Most Active:</strong> Progyny (12), Maven (1)</p>
         </div>
         
         <div class="stats">
             <div class="stat">
-                <div class="stat-number">1</div>
+                <div class="stat-number">2</div>
                 <div class="stat-label">Critical</div>
             </div>
             <div class="stat">
-                <div class="stat-number">0</div>
+                <div class="stat-number">3</div>
                 <div class="stat-label">High</div>
             </div>
             <div class="stat">
-                <div class="stat-number">1</div>
+                <div class="stat-number">0</div>
                 <div class="stat-label">Medium</div>
             </div>
             <div class="stat">
-                <div class="stat-number">5</div>
-                <div class="stat-label">Progyny Mentions</div>
+                <div class="stat-number">15</div>
+                <div class="stat-label">Total Signals</div>
             </div>
         </div>
 <div class="section"><h2>🔴 Critical Signals</h2>
-            <div class="article">
-                <div class="article-header">
-                    <span class="company">General</span>
-                    <span class="priority priority-critical">Critical</span>
-                </div>
-                <div class="title"><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxOZGpLbHNSZG9hQjFXS3pRNUp6eFJnNnJocnRTbW9GUzJpcXltYkQ2aFpUMkNSZlFtSG1xR1BBNDc5N09pYUZDbzFUSWlydlI2MGN6bl9XX1RPS1FZRXZXVVBPMzY1QTE4bWJua3hsT3ppZjNFZ2pKSlBleC1YeXRpU1dqbjN4TExhbUg0YjFkV2wyVmxxYS13TmdsQmNYYWRMX24tb0Ryb2g2ZkRYUUJOWlJpbF9rMGM2ekxrOVVWa3hQNVZLcWgycW53TF81b3JPVjRNY3RMX2xKbnNxdzBXTHV3?oc=5">Wellness startup dealing with male menopause raises 5.5 crore in pre-seed funding - Siliconindia</a></div>
-                <div class="meta">Menopause Health News • Mar 28, 2026</div>
-                <div class="summary"><a href="https://news.google.com/rss/articles/CBMi4gFBVV95cUxOZGpLbHNSZG9hQjFXS3pRNUp6eFJnNnJocnRTbW9GUzJpcXltYkQ2aFpUMkNSZlFtSG1xR1BBNDc5N09pYUZDbzFUSWlydlI2MGN6bl9XX1RPS1FZRXZXVVBPMzY1QTE4bWJua3hsT3...</div>
+        <div class="article article-critical">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=progyny.com&sz=64" alt="Progyny" class="company-logo" onerror="this.style.display='none'">
+                <span class="company">Progyny</span>
+                <span class="priority priority-critical">Critical</span>
+                <span class="category">funding/acquisition</span>
             </div>
-</div><div class="section"><h2>🟡 Medium Priority</h2>
-            <div class="article">
-                <div class="article-header">
-                    <span class="company">Progyny</span>
-                    <span class="priority priority-medium">Medium</span>
-                </div>
-                <div class="title"><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxNWVhlZTJScE1zcVRlWFd4elNpaWF1LVVsNURsUF9WOUc2bjhlOVhnUDN3Y0lFMVRBTldXZklpS3ZwS3N4d00zUk1rajlOVjMtM0x5MjJ5b29odWJObzVfdnhuaWs0eXBTWlhPMk9HQ3JaZGdVSTZzeXRXbTk2c3BVbDBacDlkaUxvYkpLODVOYTB2M01XX1A4LVluRko4WFVNRUEtSmhjcVE2eS1XMFFDQXpQLTFNdEdJV0tZWElmYllfUGxObE5rSHViV1pGcHZYMDR3?oc=5">Reflecting On Health Insurance Providers Stocks’ Q4 Earnings: Progyny (NASDAQ:PGNY) - StockStory</a></div>
-                <div class="meta">Progyny - Company News • Mar 16, 2026</div>
+            <div class="title"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPX3ducWRvb2ZpVzJCTXdJWFFNOHRUTG15R2trcWVlSzJDM2Jwb1ByWVJuMW9mc280UmxXMHVFWENrb2szZ2x2WmxORVUyU0VMSzBXV3cxV05raTZ2aWFFYWdOVUxGZ3RCd0t3c3FZcmp1RXBIQ3dsV0ZUNVQyWHdJLTRhaThNWkV1Z0JJZ3BPdExoaFk1dE16Z2FmN2tMRzBETjB4ejBIYkZvQmQtSEZiTUZDN3I5OWctYzBfTjVMN3JMQ0c0Ny1z0gHMAUFVX3lxTFBLNDMxSUpqckpiWmJlckZYNDJYZDBidHRZVFRZdUZKRnZ2NGxqVHlOOTJJUVFkNDhMSTJBZFR2M212bUNhal95ZkVZalJza1RCTy1pVGlvc01Wb2xEbWt2SkRrbHpPTW5Wb2NWZUI5NFVQUnBXMVlfVVdZTS1aZWEyR2NJczJmV3hCWHgyTkl5dU9EX2RpYkhvbDRjMnNOeTZhMXFaWW93eEFqVDJBVVl3Ylg4OUFLSkh0b2EtYkU3c0QwR2NkdHlNek5XVg?oc=5">A Look At Progyny (PGNY) Valuation After The Launch Of Progyny Select For Small Employers - simplywall.st</a></div>
+            <div class="meta">Progyny - Company News • Apr 18, 2026</div>
+            <div class="summary"><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPX3ducWRvb2ZpVzJCTXdJWFFNOHRUTG15R2trcWVlSzJDM2Jwb1ByWVJuMW9mc280UmxXMHVFWENrb2szZ2x2WmxORVUyU0VMSzBXV3cxV05raTZ2aWFFYWdOVUxGZ3RCd0t3c3FZcm...</div>
+            <div class="why-matters">🚀 New product launch indicates competitive positioning. Evaluate for gaps in your own roadmap.</div>
+        </div>
+
+        <div class="article article-critical">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=example.com&sz=64" alt="General" class="company-logo" onerror="this.style.display='none'">
+                <span class="company">General</span>
+                <span class="priority priority-critical">Critical</span>
+                <span class="category">funding/acquisition</span>
             </div>
+            <div class="title"><a href="https://news.google.com/rss/articles/CBMijgJBVV95cUxNOWxzcmd3bktHQ1k2cDVqTTE4cFlzZUtRVUFqMWIyUnZFczRRQ0pLdVplVnhQTGZ1Y0YybXFaRko4SHdtaUhGNjVvc1ExeS0ydTFnd0JMWVhhRmNfenZPQ3EtX0Y1VXJmS0R2enRueUEtdGVIc2FtZkVPZE1oQVhnbTRGQjdELWJYc19ndlNMQUp6OHhLSzhJVi1zZjQ3X2lCQ2NWalJmWENGMFpyOTk5d1VEVzRiWS16eVdjaDdGMENBYW5leHg0MHZ1Z1VwaFliazZMcEFnYnljZ3VPck9VRFUybE1peFhFajlBMk5PYmRJcnlYNXlyZUU3dy0tc052clFZTTRfa3FZQ1hIOUE?oc=5">Arizona Femtech Startup Prickly Pear Health Expands Pre-Seed Funding to more than $600K With Investment From Emmeline Ventures - PR Newswire</a></div>
+            <div class="meta">FemTech News • Mar 26, 2026</div>
+            <div class="summary"><a href="https://news.google.com/rss/articles/CBMijgJBVV95cUxNOWxzcmd3bktHQ1k2cDVqTTE4cFlzZUtRVUFqMWIyUnZFczRRQ0pLdVplVnhQTGZ1Y0YybXFaRko4SHdtaUhGNjVvc1ExeS0ydTFnd0JMWVhhRmNfenZPQ3EtX0Y1VXJmS0R2enRueU...</div>
+            <div class="why-matters">💰 New funding indicates investor confidence in the sector. Could lead to increased competitive pressure.</div>
+        </div>
+</div><div class="section"><h2>🟠 High Priority</h2>
+        <div class="article article-high">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=progyny.com&sz=64" alt="Progyny" class="company-logo" onerror="this.style.display='none'">
+                <span class="company">Progyny</span>
+                <span class="priority priority-high">High</span>
+                <span class="category">partnership/leadership</span>
+            </div>
+            <div class="title"><a href="https://www.stocktitan.net/news/PGNY/progyny-commemorates-10-years-of-redefining-women-s-health-and-unvbufemgoft.html">Progyny marks 10 years, now serves 600 employers | PGNY Stock News</a></div>
+            <div class="meta">Web: Progyny client OR employer OR partnershi... • Unknown date</div>
+            <div class="summary">Throughout 2026, in partnership with members, providers, and employers, Progyny will highlight a decade of innovation, expanded access, and industry-leading outcomes. NEW YORK, April 01, 2026 (GLOBE N...</div>
+            <div class="why-matters">🤝 Strategic partnerships can rapidly expand market reach. Monitor for exclusivity clauses.</div>
+        </div>
+
+        <div class="article article-high">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=progyny.com&sz=64" alt="Progyny" class="company-logo" onerror="this.style.display='none'">
+                <span class="company">Progyny</span>
+                <span class="priority priority-high">High</span>
+                <span class="category">partnership/leadership</span>
+            </div>
+            <div class="title"><a href="https://finance.yahoo.com/sectors/healthcare/articles/progyny-commemorates-10-years-redefining-132300011.html?.tsrc=rss">Progyny Commemorates 10 Years of Redefining Women’s Health and Family Building Care</a></div>
+            <div class="meta">Progyny - Yahoo Finance • Apr 01, 2026</div>
+            <div class="summary">Throughout 2026, in partnership with members, providers, and employers, Progyny will highlight a decade of innovation, expanded access, and industry-leading outcomes.NEW YORK, April 01, 2026 (GLOBE NE...</div>
+            <div class="why-matters">🤝 Strategic partnerships can rapidly expand market reach. Monitor for exclusivity clauses.</div>
+        </div>
+
+        <div class="article article-high">
+            <div class="article-header">
+                <img src="https://www.google.com/s2/favicons?domain=progyny.com&sz=64" alt="Progyny" class="company-logo" onerror="this.style.display='none'">
+                <span class="company">Progyny</span>
+                <span class="priority priority-high">High</span>
+                <span class="category">partnership/leadership</span>
+            </div>
+            <div class="title"><a href="https://stocktitan.net/news/PGNY/progyny-expands-access-to-fertility-and-women-s-health-with-industry-pz4hw0ch2xvi.html">Small employers get fixed-cost fertility coverage under Progyny plan</a></div>
+            <div class="meta">Web: Progyny client OR employer OR partnershi... • Unknown date</div>
+            <div class="summary">Progyny will leverage brokers, health plan partnerships, and general agents to reach small employers nationwide. According to Progyny, partners with existing small-employer relationships will help imp...</div>
+            <div class="why-matters">🤝 Strategic partnerships can rapidly expand market reach. Monitor for exclusivity clauses.</div>
+        </div>
 </div>
-        <div class="section">
-            <h2>🏢 Employee Satisfaction (Glassdoor)</h2>
-            <table style="width:100%; border-collapse: collapse; font-size: 13px;">
-                <tr style="background: #1e40af; color: white;">
-                    <th style="padding: 10px; text-align: left;">Company</th>
-                    <th style="padding: 10px; text-align: center;">Rating</th>
-                    <th style="padding: 10px; text-align: center;">Reviews</th>
-                    <th style="padding: 10px; text-align: center;">Recommend</th>
-                    <th style="padding: 10px; text-align: center;">CEO Approval</th>
-                </tr>
+    <div class="section">
+        <h2>🏢 Employee Satisfaction (Glassdoor)</h2>
+        <table style="width:100%; border-collapse: collapse; font-size: 13px; margin-top: 15px;">
+            <tr style="background: #1e40af; color: white;">
+                <th style="padding: 12px; text-align: left;">Company</th>
+                <th style="padding: 12px; text-align: center;">Rating</th>
+                <th style="padding: 12px; text-align: center;">Reviews</th>
+                <th style="padding: 12px; text-align: center;">Recommend</th>
+                <th style="padding: 12px; text-align: center;">CEO Approval</th>
+            </tr>
 
-                <tr style="background: #f8fafc;">
-                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Progyny</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #16a34a; font-weight: 600;">4.2</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">156</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">78%</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">82%</td>
-                </tr>
+            <tr style="background: #f8fafc;">
+                <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Progyny</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #16a34a; font-weight: 600;">4.2</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">156</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">78%</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">82%</td>
+            </tr>
 
-                <tr style="background: white;">
-                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Maven Clinic</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #16a34a; font-weight: 600;">4.0</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">89</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">72%</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">75%</td>
-                </tr>
+            <tr style="background: white;">
+                <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Maven Clinic</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #16a34a; font-weight: 600;">4.0</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">89</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">72%</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">75%</td>
+            </tr>
 
-                <tr style="background: #f8fafc;">
-                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Carrot Fertility</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.8</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">67</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">68%</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">70%</td>
-                </tr>
+            <tr style="background: #f8fafc;">
+                <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Carrot Fertility</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.8</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">67</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">68%</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">70%</td>
+            </tr>
 
-                <tr style="background: white;">
-                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Kindbody</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.5</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">45</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">62%</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">65%</td>
-                </tr>
+            <tr style="background: white;">
+                <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">Kindbody</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.5</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">45</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">62%</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">65%</td>
+            </tr>
 
-                <tr style="background: #f8fafc;">
-                    <td style="padding: 10px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">WIN Fertility</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.2</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">34</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">55%</td>
-                    <td style="padding: 10px; text-align: center; border-bottom: 1px solid #e5e7eb;">58%</td>
-                </tr>
+            <tr style="background: #f8fafc;">
+                <td style="padding: 12px; border-bottom: 1px solid #e5e7eb; font-weight: 500;">WIN Fertility</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb; color: #ea580c; font-weight: 600;">3.2</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">34</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">55%</td>
+                <td style="padding: 12px; text-align: center; border-bottom: 1px solid #e5e7eb;">58%</td>
+            </tr>
 </table></div>
-        <div class="section">
-            <h2>💼 Executive Web Mentions</h2>
-            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Recent web mentions of monitored executives</p>
+    <div class="section">
+        <h2>💼 Executive & Job Changes</h2>
+        <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Recent leadership movements and executive updates</p>
 
-            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
-                <div style="font-weight: 600; font-size: 14px;">Alicia Jackson</div>
-                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">Evernow • Source: Web</div>
-                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">Alicia Jackson · @DrAliciaJackson · Founder+CEO of http://Evernow.com Past: Founder @ http://Drawbridgehealth.com • PM @ http://Darpa.gov • Policy Staffer @ http://Senate.gov• Nanotech · @MIT · Joined...</div>
-                <a href="https://x.com/draliciajackson" style="font-size: 12px; color: #2563eb;">View →</a>
-            </div>
-
-            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
-                <div style="font-weight: 600; font-size: 14px;">Unknown</div>
-                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">industry • Source: Web</div>
-                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">By Deidre McPhillips, Alicia Wallace, Tami Luhby, CNN (CNN) — The fertility rate in the United States has been trending down for decades, and new federal data shows that another drop last year brought...</div>
-                <a href="https://abc17news.com/cnn-health/2026/04/08/us-fertility-rate-dropped-to-another-record-low-in-2025" style="font-size: 12px; color: #2563eb;">View →</a>
-            </div>
-
-            <div class="mention" style="margin-bottom: 15px; padding: 12px; background: #f8fafc; border-radius: 6px;">
-                <div style="font-weight: 600; font-size: 14px;">Unknown</div>
-                <div style="font-size: 12px; color: #666; margin-bottom: 5px;">industry • Source: Web</div>
-                <div style="font-size: 13px; color: #444; margin-bottom: 8px;">The United States fertility rate has now been in decline for two decades, dropping nearly 23 percent since 2007....</div>
-                <a href="https://aljazeera.com/news/2026/4/9/us-fertility-rate-drops-to-all-time-low-continuing-a-two-decade-decline" style="font-size: 12px; color: #2563eb;">View →</a>
-            </div>
-
-            <p style="font-size: 11px; color: #999; margin-top: 15px; padding-top: 10px; border-top: 1px solid #e5e7eb;">
-                <em>Note: These are web search results mentioning executives. Proper LinkedIn post scraping with dates requires browser automation — on todo list.</em>
-            </p>
+        <div class="mention" style="margin-bottom: 12px; padding: 12px; background: #f8fafc; border-radius: 6px; border-left: 3px solid #16a34a;">
+            <div style="font-size: 12px; color: #16a34a; font-weight: 600; margin-bottom: 4px;">Job Change • industry</div>
+            <div style="font-size: 13px; font-weight: 500; margin-bottom: 4px;"><a href="https://meyka.com/blog/deloitte-cuts-benefits-april-17-pto-parental-leave-slashed-1704/" style="color: #1a1a1a; text-decoration: none;">Deloitte Cuts Benefits April 17: PTO, Parental Leave Slashed | Meyka...</a></div>
+            <div style="font-size: 11px; color: #666;">👔 Leadership changes signal potential strategy shifts</div>
         </div>
-        <div class="section">
-            <h2>🔍 Reddit Intelligence</h2>
-            <p style="font-size: 13px; color: #666;">No Reddit discussions found in the last 30 days.</p>
-        </div>
-
-        <div class="section">
-            <h2>📊 Progyny Market Mentions</h2>
-            <div class="progyny-section">
-
-                <div class="mention">
-                    <div class="mention-title"><a href="https://nationaltoday.com/us/ny/new-york/news/2026/03/27/fort-washington-investment-advisors-boosts-stake-in-progyny/">Fort Washington Investment Advisors Boosts Stake in Progyny - NYC Today</a></div>
-                    <div class="mention-meta">News • Mar 28, 2026</div>
-                </div>
-
-                <div class="mention">
-                    <div class="mention-title"><a href="https://www.stocktitan.net/sec-filings/PGNY/schedule-13g-a-progyny-inc-amended-passive-investment-disclosure-1692e385770e.html">Progyny filing: Vanguard reports 0 shares (Amend. No.5) | PGNY SEC Filing - Form SCHEDULE 13G/A</a></div>
-                    <div class="mention-meta">News • Mar 28, 2026</div>
-                </div>
-
-                <div class="mention">
-                    <div class="mention-title"><a href="https://finance.yahoo.com/news/why-progyny-pgny-shares-trading-192132322.html">Why Progyny (PGNY) Shares Are Trading Lower Today</a></div>
-                    <div class="mention-meta">News • Mar 28, 2026</div>
-                </div>
-
-                <div class="mention">
-                    <div class="mention-title"><a href="https://www.americanbankingnews.com/2026/03/27/fort-washington-investment-advisors-inc-oh-grows-position-in-progyny-inc-pgny.html">Fort Washington Investment Advisors Inc. OH Grows Position in Progyny, Inc. $PGNY - American Market News</a></div>
-                    <div class="mention-meta">News • Mar 28, 2026</div>
-                </div>
-
-                <div class="mention">
-                    <div class="mention-title"><a href="https://finance.yahoo.com/sectors/healthcare/articles/progyny-ceo-details-utilization-trends-160207281.html">Progyny CEO Details Utilization Trends, Forecasting and Progyny Select Fully Insured Rollout at Conference</a></div>
-                    <div class="mention-meta">News • Mar 28, 2026</div>
-                </div>
-</div></div>
+</div>
         <div class="footer">
-            <p>Competitive Intelligence System • 30-day filter • Max 2 sends per article</p>
-            <p>Sources linked for validation</p>
+            <p>Competitive Intelligence System v3 | Strict deduplication | 30-day window</p>
+            <p>Sources: Google Alerts, Brave Search, LinkedIn, Glassdoor, Reddit</p>
         </div>
     </div>
 </body>

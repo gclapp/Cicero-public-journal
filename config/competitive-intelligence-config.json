@@ -5,15 +5,22 @@
     "KindBody - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632357",
     "WIN Fertility - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632358",
     "Pomelo Health - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/8201260240037632359",
+    "Oura - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/12345678901234567890",
     "Progyny - Google Alerts": "https://www.google.com/alerts/feeds/13519883000496020413/5785400901697479238",
     "Progyny - News Search": "https://news.google.com/rss/search?q=Progyny+PGNY+site:prnewswire.com+OR+site:businesswire.com+OR+site:globenewswire.com",
     "Progyny - SEC Filings": "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001756346&type=&dateb=&owner=include&count=40&search_text=",
     "Progyny - Yahoo Finance": "https://finance.yahoo.com/rss/headline?s=PGNY",
-    "Progyny - Company News": "https://news.google.com/rss/search?q=Progyny+fertility+benefits+OR+Progyny+employer+OR+Progyny+healthcare",
+    "Progyny - Company News": "https://news.google.com/rss/search?q=Progyny+fertility+benefits+OR+Progyny+employer+OR+Progyny+healthcare+OR+Progyny+Select",
+    "Maven - Press Releases": "https://news.google.com/rss/search?q=Maven+Clinic+site:prnewswire.com+OR+site:businesswire.com",
+    "Carrot - Press Releases": "https://news.google.com/rss/search?q=Carrot+Fertility+site:prnewswire.com+OR+site:businesswire.com",
+    "KindBody - Press Releases": "https://news.google.com/rss/search?q=KindBody+site:prnewswire.com+OR+site:businesswire.com",
+    "Oura - Press Releases": "https://news.google.com/rss/search?q=Oura+ring+site:prnewswire.com+OR+site:businesswire.com",
     "FemTech News": "https://news.google.com/rss/search?q=femtech+women+health+startup",
     "Women's Health Funding": "https://news.google.com/rss/search?q=women+health+funding+series+venture",
     "Fertility Benefits News": "https://news.google.com/rss/search?q=fertility+benefits+employer",
-    "Menopause Health News": "https://news.google.com/rss/search?q=menopause+health+startup+funding"
+    "Menopause Health News": "https://news.google.com/rss/search?q=menopause+health+startup+funding",
+    "Fertility Tech News": "https://news.google.com/rss/search?q=fertility+technology+IVF+innovation",
+    "Women's Health AI": "https://news.google.com/rss/search?q=women+health+AI+artificial+intelligence"
   },
   "linkedin_companies": {
     "Maven": {
@@ -56,6 +63,11 @@
       "priority": "medium",
       "exec_team": ["Ben Lundin", "Melanie Silverman"]
     },
+    "Oura": {
+      "company_id": "oura",
+      "priority": "high",
+      "exec_team": ["Tom Hale", "Dorothy Kilroy"]
+    },
     "Progyny": {
       "company_id": "progyny",
       "priority": "bellwether",
@@ -70,6 +82,7 @@
     "pomelo": "https://www.pomelohealth.com/careers",
     "midi": "https://jobs.lever.co/midi-health",
     "evernow": "https://jobs.lever.co/evernow",
+    "oura": "https://ouraring.com/careers",
     "progyny": "https://boards.greenhouse.io/progyny"
   },
   "web_search_queries": [
@@ -83,11 +96,14 @@
     "Progyny fully insured OR Progyny Select 2026",
     "Maven Clinic funding OR acquisition 2026",
     "Maven Intelligence AI launch 2026",
+    "Maven Clinic press release 2026",
     "Kate Ryder Maven interview OR podcast OR keynote 2026",
     "Samantha Wertheimer Maven interview OR keynote 2026",
     "Carrot Fertility funding OR partnership 2026",
+    "Carrot Fertility press release 2026",
     "Tammy Sun Carrot interview OR keynote 2026",
     "KindBody funding OR acquisition 2026",
+    "KindBody press release 2026",
     "Gina Bartasi KindBody interview OR keynote 2026",
     "Pomelo Health funding OR acquisition 2026",
     "Marta Bralic Pomelo interview OR keynote 2026",
@@ -96,10 +112,14 @@
     "Evernow menopause funding OR partnership 2026",
     "Alicia Jackson Evernow interview OR keynote 2026",
     "Pacify maternity funding OR partnership 2026",
+    "Oura ring funding OR partnership OR acquisition 2026",
+    "Oura health women fertility 2026",
+    "Flo Health funding OR acquisition 2026",
     "femtech funding series venture 2026",
     "women's health startup funding 2026",
     "fertility benefits employer news 2026",
-    "menopause health startup funding 2026"
+    "menopause health startup funding 2026",
+    "women's health AI artificial intelligence 2026"
   ],
   "priority_tracking": {
     "Maven Intelligence": {
@@ -111,20 +131,27 @@
       "priority": "critical",
       "search_terms": ["femtech funding", "women's health series", "fertility funding"],
       "alert_on": ["series", "raised", "funding", "investment"]
+    },
+    "Progyny Select": {
+      "priority": "critical",
+      "search_terms": ["Progyny Select", "fully insured", "supplemental plan"],
+      "alert_on": ["launch", "client", "partnership", "expansion"]
     }
   },
   "filters": {
     "max_articles_per_report": 15,
-    "strict_deduplication": false,
+    "strict_deduplication": true,
     "max_article_age_days": 30,
     "femtech_keywords": [
       "femtech", "women's health", "fertility", "menopause", "maternity",
       "pregnancy", "ivf", "egg freezing", "surrogacy", "women's healthcare",
-      "reproductive health", "maternal health", "family building"
+      "reproductive health", "maternal health", "family building",
+      "women health", "female health", "prenatal", "postpartum",
+      "gynecology", "obgyn", "obstetrics", "gynaecology"
     ],
     "exclude_keywords": [
       "agriculture", "veterinary", "pet", "animal fertility", "crop",
-      "livestock", "plant breeding"
+      "livestock", "plant breeding", "equine", "bovine", "canine"
     ]
   }
 }
