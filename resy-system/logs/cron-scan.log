@@ -1050,3 +1050,206 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/json/decoder.py", line 340, in decode
     raise JSONDecodeError("Extra data", s, end)
 json.decoder.JSONDecodeError: Extra data: line 6488 column 2 (char 184952)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-19 05:00:01
+📅 Checking calendar for NYC trips and reservation status...
+
+📅 Scanning calendar for NYC trips...
+✅ Found 2 NYC trip(s):
+   2026-04-19 to 2026-04-20 (2 days)
+   2026-05-17 to 2026-05-20 (4 days)
+
+🔄 Syncing reservations from Resy API...
+🔄 Syncing reservations from Resy...
+  ✅ Synced 20 reservations from Resy
+     Added: 0, Updated: 0, Removed: 0
+
+🔄 Syncing reservations from Google Calendar...
+🔄 Checking Google Calendar for reservations...
+  ℹ️  No reservations found in calendar
+
+🍽️  11 restaurant(s) in your NYC list
+
+⚠️  No payment method found. Some restaurants may require it.
+✅ 2026-04-19: Already have a reservation at Nowon East Village
+🔍 2026-04-20: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ❌ Error checking venue 1501: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 68s before next check...
+   Checking Carbone...   ❌ Error checking venue 1478: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 54s before next check...
+   Checking Torrisi...   ❌ Error checking venue 1523: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 87s before next check...
+   Checking Saga...   ❌ Error checking venue 1529: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 77s before next check...
+   Checking Estiatorio Milos...   ❌ Error checking venue 1727: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 54s before next check...
+   Checking Keens Steakhouse...   ❌ Error checking venue 1505: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 54s before next check...
+   Checking Eleven Madison Park...   ❌ Error checking venue 1399: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 90s before next check...
+   Checking Lilia...   ❌ Error checking venue 1512: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 96s before next check...
+   Checking Lilia...   ❌ Error checking venue 1512: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 64s before next check...
+   Checking Semma...   ❌ Error checking venue 1705: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 67s before next check...
+   Checking Semma...   ❌ Error checking venue 1705: HTTP 500: Internal Server Error
+❌ API error
+   ⚠️  Could not book any restaurant for 2026-04-20
+
+🔍 2026-05-17: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ❌ Error checking venue 1501: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 103s before next check...
+   Checking Carbone...   ❌ Error checking venue 1478: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 70s before next check...
+   Checking Torrisi...   ❌ Error checking venue 1523: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 68s before next check...
+   Checking Saga...   ❌ Error checking venue 1529: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 49s before next check...
+   Checking Estiatorio Milos...   ❌ Error checking venue 1727: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 76s before next check...
+   Checking Keens Steakhouse...   ❌ Error checking venue 1505: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 37s before next check...
+   Checking Eleven Madison Park...   ❌ Error checking venue 1399: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 65s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 33s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 72s before next check...
+   Checking Semma...   ❌ Error checking venue 1705: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 94s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⚠️  Could not book any restaurant for 2026-05-17
+🔍 2026-05-18: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ❌ Error checking venue 1501: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 92s before next check...
+   Checking Carbone...   ❌ Error checking venue 1478: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 95s before next check...
+   Checking Torrisi...   ❌ Error checking venue 1523: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 71s before next check...
+   Checking Saga...   ❌ Error checking venue 1529: HTTP 500: Internal Server Error
+❌ API error
+   ⏱️  Waiting 75s before next check...
+   Checking Estiatorio Milos...   ⚠️  Skipping venue 1727: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 54s before next check...
+   Checking Keens Steakhouse...   ⚠️  Skipping venue 1505: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 74s before next check...
+   Checking Eleven Madison Park...   ⚠️  Skipping venue 1399: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 78s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 78s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 84s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 83s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⚠️  Could not book any restaurant for 2026-05-18
+🔍 2026-05-19: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  Skipping venue 1501: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 36s before next check...
+   Checking Carbone...   ⚠️  Skipping venue 1478: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 36s before next check...
+   Checking Torrisi...   ⚠️  Skipping venue 1523: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 48s before next check...
+   Checking Saga...   ⚠️  Skipping venue 1529: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 57s before next check...
+   Checking Estiatorio Milos...   ⚠️  Skipping venue 1727: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 40s before next check...
+   Checking Keens Steakhouse...   ⚠️  Skipping venue 1505: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 80s before next check...
+   Checking Eleven Madison Park...   ⚠️  Skipping venue 1399: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 86s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 55s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 51s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 64s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⚠️  Could not book any restaurant for 2026-05-19
+🔍 2026-05-20: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  Skipping venue 1501: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 70s before next check...
+   Checking Carbone...   ⚠️  Skipping venue 1478: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 56s before next check...
+   Checking Torrisi...   ⚠️  Skipping venue 1523: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 46s before next check...
+   Checking Saga...   ⚠️  Skipping venue 1529: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 40s before next check...
+   Checking Estiatorio Milos...   ⚠️  Skipping venue 1727: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 94s before next check...
+   Checking Keens Steakhouse...   ⚠️  Skipping venue 1505: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 50s before next check...
+   Checking Eleven Madison Park...   ⚠️  Skipping venue 1399: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 50s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 49s before next check...
+   Checking Lilia...   ⚠️  Skipping venue 1512: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 87s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⏱️  Waiting 38s before next check...
+   Checking Semma...   ⚠️  Skipping venue 1705: Circuit open (3 failures)
+⚠️  Circuit open (temporarily skipped)
+   ⚠️  Could not book any restaurant for 2026-05-20
+
+============================================================
+📊 SUMMARY
+============================================================
+ℹ️  No new reservations needed or available.
+
+💡 View all reservations at: http://localhost:5000
+
+🏁 Scan complete at 2026-04-19 05:55:04
