@@ -74,7 +74,7 @@ def save_scan_state(state):
         json.dump(state, f, indent=2)
 
 def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, long=None):
-    """Find available reservations at a venue
+    """Find available reservations at a venue with automatic endpoint fallback
     
     Returns:
         tuple: (result_dict, status)
@@ -95,44 +95,119 @@ def find_resy_reservations(venue_id, day, party_size, venue_name="", lat=None, l
     if long is None:
         long = "-74.0060"
 
-    url = f"https://api.resy.com/4/find?day={day}&party_size={party_size}&venue_id={venue_id}&lat={lat}&long={long}"
-
+    # Try multiple API endpoints in order of preference (v4 primary, v3 fallback)
+    api_endpoints = [
+        ("4", f"https://api.resy.com/4/find?day={day}&party_size={party_size}&venue_id={venue_id}&lat={lat}&long={long}"),
+        ("3", f"https://api.resy.com/3/find?day={day}&party_size={party_size}&venue_id={venue_id}&lat={lat}&long={long}"),
+    ]
+    
     headers = {
         "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
-        "X-Resy-Auth-Token": creds["auth_token"],
-        "Content-Type": "application/json"
+        "X-Resy-Auth-Token": creds['auth_token'],
+        "X-Resy-Universal-Auth": creds['auth_token'],
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Origin": "https://resy.com",
+        "Referer": "https://resy.com/"
     }
 
-    req = urllib.request.Request(url, headers=headers)
+    last_error = None
+    
+    for api_version, url in api_endpoints:
+        req = urllib.request.Request(url, headers=headers)
 
-    try:
-        with urllib.request.urlopen(req, timeout=10) as response:
-            result = json.loads(response.read().decode())
-            # Record success to reset failure count
-            record_success(venue_id)
+        try:
+            with urllib.request.urlopen(req, timeout=10) as response:
+                result = json.loads(response.read().decode())
+                # Record success to reset failure count
+                record_success(venue_id)
+                
+                # Check if API returned empty venues (no availability vs error)
+                # API v4 returns results as dict with 'venues' key
+                # API v3 returns results as a list
+                results = result.get('results', [])
+                if isinstance(results, dict):
+                    # v4 format: results.venues[].slots
+                    venues = results.get('venues', [])
+                    # Check if any venue has slots
+                    has_slots = any(len(v.get('slots', [])) > 0 for v in venues)
+                    if not has_slots:
+                        return result, 'no_availability'
+                else:
+                    # v3 format: results[] (usually empty now)
+                    venues = results
+                    if not venues:
+                        return result, 'no_availability'
+                
+                return result, 'success'
+        except urllib.error.HTTPError as e:
+            error_msg = f"HTTP {e.code}: {e.reason}"
+            print(f"  ⚠️  API v{api_version} failed for venue {venue_id}: {error_msg}")
+            last_error = error_msg
+            # Continue to next endpoint
+            continue
+        except Exception as e:
+            error_msg = str(e)
+            print(f"  ⚠️  API v{api_version} error for venue {venue_id}: {e}")
+            last_error = error_msg
+            # Continue to next endpoint
+            continue
+    
+    # All endpoints failed
+    print(f"  ❌ All API endpoints failed for venue {venue_id}: {last_error}")
+    
+    # Try browser automation as fallback for 500 errors OR when v3 returns empty (API broken)
+    v4_failed_500 = '500' in str(last_error)
+    v3_returned_empty = True  # If we got here, v3 either failed or returned empty
+    
+    if v4_failed_500 or v3_returned_empty:
+        print(f"  🌐 Trying browser automation fallback...")
+        try:
+            from browser_automation import ResyBrowserAutomation
             
-            # Check if API returned empty venues (no availability vs error)
-            venues = result.get('results', {}).get('venues', [])
-            if not venues:
-                return result, 'no_availability'
+            # Get venue slug from restaurants file
+            restaurants = load_restaurants()
+            venue_slug = None
+            for r in restaurants.get('restaurants', []):
+                if str(r.get('venue_id')) == str(venue_id):
+                    venue_slug = r.get('url_slug') or r.get('name', '').lower().replace(' ', '-')
+                    break
             
-            return result, 'success'
-    except urllib.error.HTTPError as e:
-        error_msg = f"HTTP {e.code}: {e.reason}"
-        print(f"  ❌ Error checking venue {venue_id}: {error_msg}")
-        # Record failure for circuit breaker
-        record_failure(venue_id, venue_name, error_msg)
-        log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
-                  {'venue_id': venue_id, 'day': day, 'error': error_msg})
-        return None, 'api_error'
-    except Exception as e:
-        error_msg = str(e)
-        print(f"  ❌ Error checking venue {venue_id}: {e}")
-        # Record failure for circuit breaker
-        record_failure(venue_id, venue_name, error_msg)
-        log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
-                  {'venue_id': venue_id, 'day': day, 'error': error_msg})
-        return None, 'api_error'
+            if venue_slug:
+                with ResyBrowserAutomation(headless=True) as browser:
+                    browser.login()
+                    slots = browser.check_availability(venue_slug, day, party_size)
+                    
+                    if slots:
+                        # Convert browser slots to API-like format
+                        result = {
+                            'results': {
+                                'venues': [{
+                                    'venue': {'id': {'resy': venue_id}, 'name': venue_name},
+                                    'slots': [{
+                                        'date': {'start': s['time']},
+                                        'config': {'type': s.get('type', 'Standard')}
+                                    } for s in slots]
+                                }]
+                            }
+                        }
+                        print(f"  ✅ Browser found {len(slots)} slots!")
+                        return result, 'success'
+                    else:
+                        print(f"  ⚠️  Browser found no slots")
+                        return None, 'no_availability'
+            else:
+                print(f"  ⚠️  No venue slug found for {venue_id}")
+                
+        except Exception as e:
+            print(f"  ❌ Browser automation failed: {e}")
+    
+    # Record failure for circuit breaker
+    record_failure(venue_id, venue_name, last_error)
+    log_error('scanner', 'api_error', f"Failed to check availability for venue {venue_id}",
+              {'venue_id': venue_id, 'day': day, 'error': last_error})
+    return None, 'api_error'
+
 
 def book_reservation(config_id, payment_method_id=None):
     """Book a reservation"""
@@ -142,7 +217,7 @@ def book_reservation(config_id, payment_method_id=None):
 
     headers = {
         "Authorization": f'ResyAPI api_key="{creds["api_key"]}"',
-        "X-Resy-Auth-Token": creds["auth_token"],
+        "X-Resy-Auth-Token": creds['auth_token'],
         "Content-Type": "application/x-www-form-urlencoded"
     }
 
@@ -803,7 +878,12 @@ def scan_and_book():
                     )
                     continue
 
-                venues = results.get("results", {}).get("venues", [])
+                # Handle both v3 (list) and v4 (dict) response formats
+                results_data = results.get("results", [])
+                if isinstance(results_data, dict):
+                    venues = results_data.get("venues", [])
+                else:
+                    venues = results_data  # v3 returns list directly
                 if not venues:
                     print("❌ No venues returned")
                     log_reservation_attempt(

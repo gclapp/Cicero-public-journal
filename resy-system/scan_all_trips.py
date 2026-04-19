@@ -121,7 +121,12 @@ for trip in trips:
                 print(f"  ❌ {name}: No availability")
                 continue
             
-            venues = results.get("results", {}).get("venues", [])
+            # Handle both v3 (list) and v4 (dict) response formats
+            results_data = results.get("results", [])
+            if isinstance(results_data, dict):
+                venues = results_data.get("venues", [])
+            else:
+                venues = results_data  # v3 returns list directly
             if not venues:
                 print(f"  ❌ {name}: No venues")
                 continue

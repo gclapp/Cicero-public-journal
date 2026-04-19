@@ -1253,3 +1253,119 @@ json.decoder.JSONDecodeError: Extra data: line 6488 column 2 (char 184952)
 💡 View all reservations at: http://localhost:5000
 
 🏁 Scan complete at 2026-04-19 05:55:04
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-19 12:59:01
+📅 Checking calendar for NYC trips and reservation status...
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 961, in <module>
+    scan_and_book()
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 625, in scan_and_book
+    log_reservation_attempt(
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 115, in log_reservation_attempt
+    data = load_monitoring_data()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 27, in load_monitoring_data
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 4256 column 16 (char 122722)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-19 13:03:01
+📅 Checking calendar for NYC trips and reservation status...
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 961, in <module>
+    scan_and_book()
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 625, in scan_and_book
+    log_reservation_attempt(
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 115, in log_reservation_attempt
+    data = load_monitoring_data()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 27, in load_monitoring_data
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 4256 column 16 (char 122722)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-19 13:30:01
+📅 Checking calendar for NYC trips and reservation status...
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 961, in <module>
+    scan_and_book()
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 625, in scan_and_book
+    log_reservation_attempt(
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 115, in log_reservation_attempt
+    data = load_monitoring_data()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 27, in load_monitoring_data
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 4256 column 16 (char 122722)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-04-19 14:00:02
+📅 Checking calendar for NYC trips and reservation status...
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 961, in <module>
+    scan_and_book()
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 625, in scan_and_book
+    log_reservation_attempt(
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 115, in log_reservation_attempt
+    data = load_monitoring_data()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 27, in load_monitoring_data
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ':' delimiter: line 4256 column 16 (char 122722)

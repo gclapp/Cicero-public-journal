@@ -394,8 +394,12 @@ def search_resy_venues(query, lat, long, day, party_size=2):
         with urllib.request.urlopen(req, timeout=10) as response:
             data = json.loads(response.read().decode())
             
-            # Get all venues
-            venues = data.get('results', {}).get('venues', [])
+            # Get all venues - handle both v3 (list) and v4 (dict) response formats
+            results_data = data.get('results', [])
+            if isinstance(results_data, dict):
+                venues = results_data.get('venues', [])
+            else:
+                venues = results_data  # v3 returns list directly
             
             # Filter by query if provided
             if query:
@@ -1388,26 +1392,40 @@ def health_check():
     try:
         health = get_system_health()
         
-        # Check Resy API status
+        # Check Resy API status with endpoint fallback
         resy_status = 'unknown'
         try:
             creds = load_resy_credentials()
             if creds:
                 import urllib.request
-                test_url = 'https://api.resy.com/4/find?day=2026-05-17&party_size=2&venue_id=6405&lat=40.7128&long=-74.0060'
+                # Try v4 first (primary), then v3 (fallback)
+                api_endpoints = [
+                    'https://api.resy.com/4/find?day=2026-05-17&party_size=2&venue_id=6405&lat=40.7128&long=-74.0060',
+                    'https://api.resy.com/3/find?day=2026-05-17&party_size=2&venue_id=6405&lat=40.7128&long=-74.0060',
+                ]
                 headers = {
                     'Authorization': f'ResyAPI api_key="{creds["api_key"]}"',
                     'X-Resy-Auth-Token': creds['auth_token'],
                     'Content-Type': 'application/json'
                 }
-                req = urllib.request.Request(test_url, headers=headers)
-                with urllib.request.urlopen(req, timeout=5) as response:
-                    resy_status = 'up'
-        except urllib.error.HTTPError as e:
-            if e.code == 500:
-                resy_status = 'down'
-            else:
-                resy_status = 'error'
+                
+                for test_url in api_endpoints:
+                    try:
+                        req = urllib.request.Request(test_url, headers=headers)
+                        with urllib.request.urlopen(req, timeout=5) as response:
+                            resy_status = 'up'
+                            break  # Success - no need to try other endpoints
+                    except urllib.error.HTTPError as e:
+                        if e.code == 500:
+                            continue  # Try next endpoint
+                        else:
+                            resy_status = 'error'
+                            break
+                    except:
+                        continue  # Try next endpoint
+                else:
+                    # All endpoints failed
+                    resy_status = 'down'
         except:
             resy_status = 'down'
         
