@@ -10805,3 +10805,411 @@
 [2026-04-20 11:36:52] 🔴 ACTION REQUIRED: 1 service(s) need attention
 [2026-04-20 11:36:52]    - calendar: Token is 14 days old
 [2026-04-20 11:36:52] ============================================================
+[2026-04-20 12:31:47] ============================================================
+[2026-04-20 12:31:47] SYSTEM HEALTH CHECK
+[2026-04-20 12:31:47] ============================================================
+[2026-04-20 12:31:47] 
+📋 Checking Todoist...
+[2026-04-20 12:31:49]   ✅ Todoist: 50 tasks
+[2026-04-20 12:31:49] 
+📅 Checking Google Calendar...
+[2026-04-20 12:31:49]   🔴 Calendar: Token is 14 days old
+[2026-04-20 12:31:49]   📝 ACTION: User needs to authenticate
+[2026-04-20 12:31:49] 
+🌤️ Checking Weather...
+[2026-04-20 12:31:49]   ✅ Weather skill installed
+[2026-04-20 12:31:50]   🌡️ Current: los angeles: ☀️ 59°F 83% ↑2mph...
+[2026-04-20 12:31:50] 
+💓 Checking Whoop...
+[2026-04-20 12:31:50]   ✅ Whoop configured
+[2026-04-20 12:31:50] 
+🏥 Checking Health Dashboard...
+[2026-04-20 12:31:50]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 12:31:50] 
+⌚ Checking Watch Hunt...
+[2026-04-20 12:31:50]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 12:31:50] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 12:31:50]   ✅ Competitive Intel cron active
+[2026-04-20 12:31:50] 
+✈️ Checking Travel Automation...
+[2026-04-20 12:31:50]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 12:31:50] 
+============================================================
+[2026-04-20 12:31:50] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 12:31:50]    - calendar: Token is 14 days old
+[2026-04-20 12:31:50] ============================================================
+[2026-04-20 13:26:53] ============================================================
+[2026-04-20 13:26:53] SYSTEM HEALTH CHECK
+[2026-04-20 13:26:53] ============================================================
+[2026-04-20 13:26:53] 
+📋 Checking Todoist...
+[2026-04-20 13:26:55]   ✅ Todoist: 50 tasks
+[2026-04-20 13:26:55] 
+📅 Checking Google Calendar...
+[2026-04-20 13:26:55]   🔴 Calendar: Token is 14 days old
+[2026-04-20 13:26:55]   📝 ACTION: User needs to authenticate
+[2026-04-20 13:26:55] 
+🌤️ Checking Weather...
+[2026-04-20 13:26:55]   ✅ Weather skill installed
+[2026-04-20 13:26:57]   🌡️ Current: los angeles: ☀️ 59°F 83% ↑2mph...
+[2026-04-20 13:26:57] 
+💓 Checking Whoop...
+[2026-04-20 13:26:57]   ✅ Whoop configured
+[2026-04-20 13:26:57] 
+🏥 Checking Health Dashboard...
+[2026-04-20 13:26:57]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 13:26:57] 
+⌚ Checking Watch Hunt...
+[2026-04-20 13:26:57]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 13:26:57] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 13:26:57]   ✅ Competitive Intel cron active
+[2026-04-20 13:26:57] 
+✈️ Checking Travel Automation...
+[2026-04-20 13:26:57]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 13:26:57] 
+============================================================
+[2026-04-20 13:26:57] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 13:26:57]    - calendar: Token is 14 days old
+[2026-04-20 13:26:57] ============================================================
+[2026-04-20 14:21:50] ============================================================
+[2026-04-20 14:21:50] SYSTEM HEALTH CHECK
+[2026-04-20 14:21:50] ============================================================
+[2026-04-20 14:21:50] 
+📋 Checking Todoist...
+[2026-04-20 14:21:52]   ✅ Todoist: 50 tasks
+[2026-04-20 14:21:52] 
+📅 Checking Google Calendar...
+[2026-04-20 14:21:52]   🔴 Calendar: Token is 14 days old
+[2026-04-20 14:21:52]   📝 ACTION: User needs to authenticate
+[2026-04-20 14:21:52] 
+🌤️ Checking Weather...
+[2026-04-20 14:21:52]   ✅ Weather skill installed
+[2026-04-20 14:21:53]   🌡️ Current: los angeles: 🌫 58°F 84% ↑2mph...
+[2026-04-20 14:21:53] 
+💓 Checking Whoop...
+[2026-04-20 14:21:53]   ✅ Whoop configured
+[2026-04-20 14:21:53] 
+🏥 Checking Health Dashboard...
+[2026-04-20 14:21:53]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 14:21:53] 
+⌚ Checking Watch Hunt...
+[2026-04-20 14:21:53]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 14:21:53] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 14:21:53]   ✅ Competitive Intel cron active
+[2026-04-20 14:21:53] 
+✈️ Checking Travel Automation...
+[2026-04-20 14:21:53]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 14:21:53] 
+============================================================
+[2026-04-20 14:21:53] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 14:21:53]    - calendar: Token is 14 days old
+[2026-04-20 14:21:53] ============================================================
+[2026-04-20 15:16:49] ============================================================
+[2026-04-20 15:16:49] SYSTEM HEALTH CHECK
+[2026-04-20 15:16:49] ============================================================
+[2026-04-20 15:16:49] 
+📋 Checking Todoist...
+[2026-04-20 15:16:50]   ✅ Todoist: 50 tasks
+[2026-04-20 15:16:50] 
+📅 Checking Google Calendar...
+[2026-04-20 15:16:50]   🔴 Calendar: Token is 14 days old
+[2026-04-20 15:16:50]   📝 ACTION: User needs to authenticate
+[2026-04-20 15:16:50] 
+🌤️ Checking Weather...
+[2026-04-20 15:16:50]   ✅ Weather skill installed
+[2026-04-20 15:16:51]   🌡️ Current: los angeles: 🌫 58°F 84% ↑2mph...
+[2026-04-20 15:16:51] 
+💓 Checking Whoop...
+[2026-04-20 15:16:51]   ✅ Whoop configured
+[2026-04-20 15:16:51] 
+🏥 Checking Health Dashboard...
+[2026-04-20 15:16:51]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 15:16:51] 
+⌚ Checking Watch Hunt...
+[2026-04-20 15:16:51]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 15:16:51] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 15:16:51]   ✅ Competitive Intel cron active
+[2026-04-20 15:16:51] 
+✈️ Checking Travel Automation...
+[2026-04-20 15:16:51]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 15:16:51] 
+============================================================
+[2026-04-20 15:16:51] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 15:16:51]    - calendar: Token is 14 days old
+[2026-04-20 15:16:51] ============================================================
+[2026-04-20 16:11:51] ============================================================
+[2026-04-20 16:11:51] SYSTEM HEALTH CHECK
+[2026-04-20 16:11:51] ============================================================
+[2026-04-20 16:11:51] 
+📋 Checking Todoist...
+[2026-04-20 16:11:53]   ✅ Todoist: 50 tasks
+[2026-04-20 16:11:53] 
+📅 Checking Google Calendar...
+[2026-04-20 16:11:53]   🔴 Calendar: Token is 15 days old
+[2026-04-20 16:11:53]   📝 ACTION: User needs to authenticate
+[2026-04-20 16:11:53] 
+🌤️ Checking Weather...
+[2026-04-20 16:11:53]   ✅ Weather skill installed
+[2026-04-20 16:11:54]   🌡️ Current: los angeles: ☀️ 61°F 78% ↑3mph...
+[2026-04-20 16:11:54] 
+💓 Checking Whoop...
+[2026-04-20 16:11:54]   ✅ Whoop configured
+[2026-04-20 16:11:54] 
+🏥 Checking Health Dashboard...
+[2026-04-20 16:11:54]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 16:11:54] 
+⌚ Checking Watch Hunt...
+[2026-04-20 16:11:54]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 16:11:54] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 16:11:54]   ✅ Competitive Intel cron active
+[2026-04-20 16:11:54] 
+✈️ Checking Travel Automation...
+[2026-04-20 16:11:54]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 16:11:54] 
+============================================================
+[2026-04-20 16:11:54] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 16:11:54]    - calendar: Token is 15 days old
+[2026-04-20 16:11:54] ============================================================
+[2026-04-20 17:07:11] ============================================================
+[2026-04-20 17:07:11] SYSTEM HEALTH CHECK
+[2026-04-20 17:07:11] ============================================================
+[2026-04-20 17:07:11] 
+📋 Checking Todoist...
+[2026-04-20 17:07:12]   ✅ Todoist: 50 tasks
+[2026-04-20 17:07:12] 
+📅 Checking Google Calendar...
+[2026-04-20 17:07:12]   🔴 Calendar: Token is 15 days old
+[2026-04-20 17:07:12]   📝 ACTION: User needs to authenticate
+[2026-04-20 17:07:12] 
+🌤️ Checking Weather...
+[2026-04-20 17:07:12]   ✅ Weather skill installed
+[2026-04-20 17:07:13]   🌡️ Current: los angeles: ☀️ 61°F 78% ↑3mph...
+[2026-04-20 17:07:13] 
+💓 Checking Whoop...
+[2026-04-20 17:07:13]   ✅ Whoop configured
+[2026-04-20 17:07:13] 
+🏥 Checking Health Dashboard...
+[2026-04-20 17:07:13]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 17:07:13] 
+⌚ Checking Watch Hunt...
+[2026-04-20 17:07:13]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 17:07:13] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 17:07:13]   ✅ Competitive Intel cron active
+[2026-04-20 17:07:13] 
+✈️ Checking Travel Automation...
+[2026-04-20 17:07:14]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 17:07:14] 
+============================================================
+[2026-04-20 17:07:14] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 17:07:14]    - calendar: Token is 15 days old
+[2026-04-20 17:07:14] ============================================================
+[2026-04-20 18:01:52] ============================================================
+[2026-04-20 18:01:52] SYSTEM HEALTH CHECK
+[2026-04-20 18:01:52] ============================================================
+[2026-04-20 18:01:52] 
+📋 Checking Todoist...
+[2026-04-20 18:01:54]   ✅ Todoist: 50 tasks
+[2026-04-20 18:01:54] 
+📅 Checking Google Calendar...
+[2026-04-20 18:01:54]   🔴 Calendar: Token is 15 days old
+[2026-04-20 18:01:54]   📝 ACTION: User needs to authenticate
+[2026-04-20 18:01:54] 
+🌤️ Checking Weather...
+[2026-04-20 18:01:54]   ✅ Weather skill installed
+[2026-04-20 18:01:55]   🌡️ Current: los angeles: ☀️ 65°F 65% ↑4mph...
+[2026-04-20 18:01:55] 
+💓 Checking Whoop...
+[2026-04-20 18:01:55]   ✅ Whoop configured
+[2026-04-20 18:01:55] 
+🏥 Checking Health Dashboard...
+[2026-04-20 18:01:55]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 18:01:55] 
+⌚ Checking Watch Hunt...
+[2026-04-20 18:01:55]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 18:01:55] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 18:01:55]   ✅ Competitive Intel cron active
+[2026-04-20 18:01:55] 
+✈️ Checking Travel Automation...
+[2026-04-20 18:01:55]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 18:01:55] 
+============================================================
+[2026-04-20 18:01:55] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 18:01:55]    - calendar: Token is 15 days old
+[2026-04-20 18:01:55] ============================================================
+[2026-04-20 18:56:53] ============================================================
+[2026-04-20 18:56:53] SYSTEM HEALTH CHECK
+[2026-04-20 18:56:53] ============================================================
+[2026-04-20 18:56:53] 
+📋 Checking Todoist...
+[2026-04-20 18:56:54]   ✅ Todoist: 50 tasks
+[2026-04-20 18:56:54] 
+📅 Checking Google Calendar...
+[2026-04-20 18:56:54]   🔴 Calendar: Token is 15 days old
+[2026-04-20 18:56:54]   📝 ACTION: User needs to authenticate
+[2026-04-20 18:56:54] 
+🌤️ Checking Weather...
+[2026-04-20 18:56:54]   ✅ Weather skill installed
+[2026-04-20 18:56:55]   🌡️ Current: los angeles: ☀️ 65°F 65% ↑4mph...
+[2026-04-20 18:56:55] 
+💓 Checking Whoop...
+[2026-04-20 18:56:55]   ✅ Whoop configured
+[2026-04-20 18:56:55] 
+🏥 Checking Health Dashboard...
+[2026-04-20 18:56:55]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 18:56:55] 
+⌚ Checking Watch Hunt...
+[2026-04-20 18:56:55]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 18:56:55] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 18:56:55]   ✅ Competitive Intel cron active
+[2026-04-20 18:56:55] 
+✈️ Checking Travel Automation...
+[2026-04-20 18:56:55]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 18:56:55] 
+============================================================
+[2026-04-20 18:56:55] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 18:56:55]    - calendar: Token is 15 days old
+[2026-04-20 18:56:55] ============================================================
+[2026-04-20 20:47:37] ============================================================
+[2026-04-20 20:47:37] SYSTEM HEALTH CHECK
+[2026-04-20 20:47:37] ============================================================
+[2026-04-20 20:47:37] 
+📋 Checking Todoist...
+[2026-04-20 20:47:38]   ✅ Todoist: 50 tasks
+[2026-04-20 20:47:38] 
+📅 Checking Google Calendar...
+[2026-04-20 20:47:38]   🔴 Calendar: Token is 15 days old
+[2026-04-20 20:47:38]   📝 ACTION: User needs to authenticate
+[2026-04-20 20:47:38] 
+🌤️ Checking Weather...
+[2026-04-20 20:47:38]   ✅ Weather skill installed
+[2026-04-20 20:47:39]   🌡️ Current: los angeles: ☀️ 68°F 53% ↗8mph...
+[2026-04-20 20:47:39] 
+💓 Checking Whoop...
+[2026-04-20 20:47:39]   ✅ Whoop configured
+[2026-04-20 20:47:39] 
+🏥 Checking Health Dashboard...
+[2026-04-20 20:47:39]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 20:47:39] 
+⌚ Checking Watch Hunt...
+[2026-04-20 20:47:39]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 20:47:39] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 20:47:39]   ✅ Competitive Intel cron active
+[2026-04-20 20:47:39] 
+✈️ Checking Travel Automation...
+[2026-04-20 20:47:39]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 20:47:39] 
+============================================================
+[2026-04-20 20:47:39] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 20:47:39]    - calendar: Token is 15 days old
+[2026-04-20 20:47:39] ============================================================
+[2026-04-20 21:41:55] ============================================================
+[2026-04-20 21:41:55] SYSTEM HEALTH CHECK
+[2026-04-20 21:41:55] ============================================================
+[2026-04-20 21:41:55] 
+📋 Checking Todoist...
+[2026-04-20 21:41:56]   ✅ Todoist: 50 tasks
+[2026-04-20 21:41:56] 
+📅 Checking Google Calendar...
+[2026-04-20 21:41:56]   🔴 Calendar: Token is 15 days old
+[2026-04-20 21:41:56]   📝 ACTION: User needs to authenticate
+[2026-04-20 21:41:56] 
+🌤️ Checking Weather...
+[2026-04-20 21:41:56]   ✅ Weather skill installed
+[2026-04-20 21:41:57]   🌡️ Current: los angeles: ☀️ 75°F 34% ↗10mph...
+[2026-04-20 21:41:57] 
+💓 Checking Whoop...
+[2026-04-20 21:41:57]   ✅ Whoop configured
+[2026-04-20 21:41:57] 
+🏥 Checking Health Dashboard...
+[2026-04-20 21:41:57]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 21:41:57] 
+⌚ Checking Watch Hunt...
+[2026-04-20 21:41:57]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 21:41:57] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 21:41:57]   ✅ Competitive Intel cron active
+[2026-04-20 21:41:57] 
+✈️ Checking Travel Automation...
+[2026-04-20 21:41:57]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 21:41:57] 
+============================================================
+[2026-04-20 21:41:57] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 21:41:57]    - calendar: Token is 15 days old
+[2026-04-20 21:41:57] ============================================================
+[2026-04-20 22:36:56] ============================================================
+[2026-04-20 22:36:56] SYSTEM HEALTH CHECK
+[2026-04-20 22:36:56] ============================================================
+[2026-04-20 22:36:56] 
+📋 Checking Todoist...
+[2026-04-20 22:36:58]   ✅ Todoist: 50 tasks
+[2026-04-20 22:36:58] 
+📅 Checking Google Calendar...
+[2026-04-20 22:36:58]   🔴 Calendar: Token is 15 days old
+[2026-04-20 22:36:58]   📝 ACTION: User needs to authenticate
+[2026-04-20 22:36:58] 
+🌤️ Checking Weather...
+[2026-04-20 22:36:58]   ✅ Weather skill installed
+[2026-04-20 22:36:59]   🌡️ Current: los angeles: ☀️ 75°F 34% ↗10mph...
+[2026-04-20 22:36:59] 
+💓 Checking Whoop...
+[2026-04-20 22:36:59]   ✅ Whoop configured
+[2026-04-20 22:36:59] 
+🏥 Checking Health Dashboard...
+[2026-04-20 22:36:59]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 22:36:59] 
+⌚ Checking Watch Hunt...
+[2026-04-20 22:36:59]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 22:36:59] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 22:36:59]   ✅ Competitive Intel cron active
+[2026-04-20 22:36:59] 
+✈️ Checking Travel Automation...
+[2026-04-20 22:36:59]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 22:36:59] 
+============================================================
+[2026-04-20 22:36:59] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 22:36:59]    - calendar: Token is 15 days old
+[2026-04-20 22:36:59] ============================================================
+[2026-04-20 23:31:55] ============================================================
+[2026-04-20 23:31:55] SYSTEM HEALTH CHECK
+[2026-04-20 23:31:55] ============================================================
+[2026-04-20 23:31:55] 
+📋 Checking Todoist...
+[2026-04-20 23:31:56]   ✅ Todoist: 50 tasks
+[2026-04-20 23:31:56] 
+📅 Checking Google Calendar...
+[2026-04-20 23:31:56]   🔴 Calendar: Token is 15 days old
+[2026-04-20 23:31:56]   📝 ACTION: User needs to authenticate
+[2026-04-20 23:31:56] 
+🌤️ Checking Weather...
+[2026-04-20 23:31:56]   ✅ Weather skill installed
+[2026-04-20 23:31:58]   🌡️ Current: los angeles: ☀️ 71°F 49% ↗12mph...
+[2026-04-20 23:31:58] 
+💓 Checking Whoop...
+[2026-04-20 23:31:58]   ✅ Whoop configured
+[2026-04-20 23:31:58] 
+🏥 Checking Health Dashboard...
+[2026-04-20 23:31:58]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-04-20 23:31:58] 
+⌚ Checking Watch Hunt...
+[2026-04-20 23:31:58]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-04-20 23:31:58] 
+🎯 Checking Competitive Intelligence...
+[2026-04-20 23:31:58]   ✅ Competitive Intel cron active
+[2026-04-20 23:31:58] 
+✈️ Checking Travel Automation...
+[2026-04-20 23:31:58]   ✅ Travel Automation: 0 tasks created
+[2026-04-20 23:31:58] 
+============================================================
+[2026-04-20 23:31:58] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-04-20 23:31:58]    - calendar: Token is 15 days old
+[2026-04-20 23:31:58] ============================================================
