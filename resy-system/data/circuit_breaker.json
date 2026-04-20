@@ -84,47 +84,34 @@
     "1705": {
       "venue_name": "Semma",
       "failures": 3,
-      "last_failure": "2026-04-19T05:21:31.586380",
+      "last_failure": "2026-04-20T05:31:07.934177",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-19T05:21:31.586394",
+      "circuit_opened_at": "2026-04-20T05:31:07.934191",
       "failure_messages": [
         {
-          "timestamp": "2026-04-19T05:10:49.852166",
-          "message": "HTTP 500: Internal Server Error"
+          "timestamp": "2026-04-20T05:10:19.441735",
+          "message": "HTTP 400: BAD REQUEST"
         },
         {
-          "timestamp": "2026-04-19T05:11:57.076910",
-          "message": "HTTP 500: Internal Server Error"
+          "timestamp": "2026-04-20T05:20:20.254239",
+          "message": "HTTP 400: BAD REQUEST"
         },
         {
-          "timestamp": "2026-04-19T05:21:31.586390",
-          "message": "HTTP 500: Internal Server Error"
+          "timestamp": "2026-04-20T05:31:07.934187",
+          "message": "HTTP 400: BAD REQUEST"
         }
       ],
       "first_failure": "2026-04-18T18:29:54.411325"
     },
     "1399": {
       "venue_name": "Eleven Madison Park",
-      "failures": 3,
+      "failures": 0,
       "last_failure": "2026-04-19T05:18:41.380230",
-      "circuit_open": true,
-      "circuit_opened_at": "2026-04-19T05:18:41.380244",
-      "failure_messages": [
-        {
-          "timestamp": "2026-04-18T21:06:32.776016",
-          "message": "HTTP 500: Internal Server Error"
-        },
-        {
-          "timestamp": "2026-04-19T05:06:39.238549",
-          "message": "HTTP 500: Internal Server Error"
-        },
-        {
-          "timestamp": "2026-04-19T05:18:41.380240",
-          "message": "HTTP 500: Internal Server Error"
-        }
-      ],
+      "circuit_open": false,
+      "circuit_opened_at": null,
+      "failure_messages": [],
       "first_failure": "2026-04-18T19:03:08.437697"
     }
   },
-  "last_updated": "2026-04-19T15:13:39.554028"
+  "last_updated": "2026-04-20T05:52:23.591397"
 }
