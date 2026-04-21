@@ -63,6 +63,23 @@
       "reservations_made": 0,
       "details": "Skipped - scanned 1.0h ago",
       "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-04-21T05:54:34.048278",
+      "trip_dates": [
+        "2026-04-19",
+        "2026-04-20",
+        "2026-05-17",
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20"
+      ],
+      "restaurants_checked": 50,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Scanned 2 trip(s), made 0 booking(s)",
+      "status": "no_bookings"
     }
   ],
   "bookings": [],
@@ -1944,15 +1961,138 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T05:11:59.876877",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-04-20",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T05:23:14.537101",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-05-17",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T05:35:19.175042",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-05-18",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T06:49:35.261997",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wiki",
+      "details": {
+        "path": "/wiki",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T07:32:38.275326",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /commandcenter/login/preSso.jsp",
+      "details": {
+        "path": "/commandcenter/login/preSso.jsp",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T07:49:41.443877",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /Dr0v",
+      "details": {
+        "path": "/Dr0v",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T08:03:15.447561",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /SDK/webLanguage",
+      "details": {
+        "path": "/SDK/webLanguage",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T09:01:26.887727",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T10:04:16.015947",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-21T10:04:16.830268",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-04-20T14:00:02.592049",
+    "last_scan_time": "2026-04-21T05:54:34.049330",
     "last_booking_time": null,
-    "last_error_time": "2026-04-20T21:13:50.579034",
-    "total_scans": 5,
+    "last_error_time": "2026-04-21T10:04:16.830281",
+    "total_scans": 6,
     "total_bookings": 0,
-    "total_errors": 156,
+    "total_errors": 166,
     "status": "critical"
   },
   "attempts": [
@@ -4252,6 +4392,1139 @@
       "party_size": 0,
       "status": "wake_up",
       "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:00:02.654472",
+      "trip_date": "2026-04-21",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:00:04.862867",
+      "trip_date": "2026-04-19",
+      "restaurant_name": "Nowon East Village",
+      "venue_id": "8541",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Skipped - already have reservation at Nowon East Village",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:00:04.869185",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:00:05.262138",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:01:43.268670",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:01:43.656167",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:02:23.662603",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:02:24.038898",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:03:46.045492",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:03:46.458604",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:05:20.464992",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:05:20.806273",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:06:56.812933",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:06:57.155316",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:07:51.162117",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:07:51.608046",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:08:38.614708",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:08:38.923715",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:09:13.930384",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:09:14.328840",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:10:40.335954",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:11:59.893471",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:11:59.910405",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:12:00.600167",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:13:45.618302",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:13:46.011153",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:14:36.018472",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:14:36.436898",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:15:27.443754",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:15:27.776204",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:16:42.783231",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:16:43.132305",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:17:44.139198",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:17:44.510184",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:18:18.517141",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:18:18.956834",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:20:01.965344",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:20:02.307669",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:21:00.314838",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:21:00.668320",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:22:27.675328",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:23:14.544876",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:23:14.552838",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:23:14.876570",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:24:52.883835",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:24:53.237239",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:26:31.244334",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:26:31.588397",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:28:06.596166",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:28:06.928316",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:28:47.935595",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:28:48.300805",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:29:54.308448",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:29:54.684758",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:31:18.692015",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:31:19.011575",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:32:28.019697",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:32:28.364264",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:33:46.371756",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:33:46.731020",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:34:30.738483",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:35:19.182674",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:35:19.190741",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:35:19.554362",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:36:48.561894",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:36:48.996869",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:38:02.005495",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:38:02.334973",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:38:40.342574",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:38:40.655456",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:39:37.663643",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:39:38.009470",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:41:04.017428",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:41:04.458559",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:42:30.466772",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:42:30.912366",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:43:45.920043",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:43:46.344347",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:44:46.352135",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:44:46.696556",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:45:47.704300",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:45:47.713096",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:45:47.720374",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:45:48.130560",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:47:08.138499",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:47:08.545686",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:48:25.553502",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:48:25.878431",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:49:03.886400",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:49:04.273410",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:49:59.282666",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:49:59.638240",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:50:34.646519",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:50:34.971899",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:51:54.980367",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:51:55.349683",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:52:51.357528",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:52:51.674992",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:53:28.683016",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:53:29.023599",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:54:34.031561",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:54:34.039914",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-21T05:54:34.058453",
+      "trip_date": "2026-04-21",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "complete",
+      "details": "Scan complete. Checked 50 restaurants, made 0 bookings.",
       "slots_found": 0,
       "error_message": ""
     }
