@@ -575,3 +575,171 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-21 21:00:43] ✅ Email sent
 [2026-04-21 21:00:43] Complete
+[2026-04-22 14:00:01] Starting competitive intelligence v3...
+[2026-04-22 14:00:01] Step 1: RSS + Web search...
+[2026-04-22 14:00:03] ======================================================================
+[2026-04-22 14:00:03] Starting Competitive Intelligence Scan v3
+[2026-04-22 14:00:03] ======================================================================
+[2026-04-22 14:00:03] 
+1. Scanning RSS feeds...
+[2026-04-22 14:00:03]    Scanning: Maven - Google Alerts
+[2026-04-22 14:00:03]    Scanning: Carrot - Google Alerts
+[2026-04-22 14:00:03]    Scanning: KindBody - Google Alerts
+[2026-04-22 14:00:04]    Scanning: WIN Fertility - Google Alerts
+[2026-04-22 14:00:04]    Scanning: Pomelo Health - Google Alerts
+[2026-04-22 14:00:05]    Scanning: Oura - Google Alerts
+[2026-04-22 14:00:05]    Scanning: Progyny - Google Alerts
+[2026-04-22 14:00:05]    Scanning: Progyny - News Search
+[2026-04-22 14:00:06]    Scanning: Progyny - SEC Filings
+[2026-04-22 14:00:06]    Scanning: Progyny - Yahoo Finance
+[2026-04-22 14:00:06]    Scanning: Progyny - Company News
+[2026-04-22 14:00:07]    Scanning: Maven - Press Releases
+[2026-04-22 14:00:07]    Scanning: Carrot - Press Releases
+[2026-04-22 14:00:08]    Scanning: KindBody - Press Releases
+[2026-04-22 14:00:08]    Scanning: Oura - Press Releases
+[2026-04-22 14:00:09]    Scanning: FemTech News
+[2026-04-22 14:00:10]    Scanning: Women's Health Funding
+[2026-04-22 14:00:10]    Scanning: Fertility Benefits News
+[2026-04-22 14:00:11]    Scanning: Menopause Health News
+[2026-04-22 14:00:12]    Scanning: Fertility Tech News
+[2026-04-22 14:00:12]    Scanning: Women's Health AI
+[2026-04-22 14:00:13]    Found 3 new articles from RSS
+[2026-04-22 14:00:13] 
+2. Searching web for competitive news...
+[2026-04-22 14:00:16]    Found 6 new articles from web search
+[2026-04-22 14:00:16] 
+3. Checking LinkedIn executive posts...
+[2026-04-22 14:00:35]    ✓ LinkedIn executive scan complete
+[2026-04-22 14:00:35]    Skipping 8157a00c... (low FemTech relevance: 8)
+[2026-04-22 14:00:35]    Skipping ae93f048... (low FemTech relevance: 0)
+[2026-04-22 14:00:35]    Skipping c61f99ba... (low FemTech relevance: 0)
+[2026-04-22 14:00:35]    Skipping 70b2580a... (low FemTech relevance: 0)
+[2026-04-22 14:00:35] 
+✅ Total new articles: 5
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 5 NEW SIGNALS
+======================================================================
+🔴 Critical: 1 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Progyny] A Look At Progyny (PGNY) Valuation After The Launch Of Progyny Select ...
+
+🟠 [Oura] U.S. Soccer and ŌURA Announce Long-Term Partnership, Naming Oura Ring ...
+
+🟡 [Maven] Maven Clinic Positions Fertility Platform as Cost-Management Tool for ...
+
+🟡 [General] GOOGL Maintained by UBS -- Price Target Raised to $375...
+
+🟡 [General] Barclays reiterates Overweight rating on MSCI stock with $700 target B...
+
+======================================================================
+[2026-04-22 14:00:35] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-22 14:00:42] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 4 | High: 4 | Medium: 1
+[2026-04-22 14:00:42] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-22 14:00:45] ✅ Email sent
+[2026-04-22 14:00:45] Complete
+[2026-04-22 21:00:01] Starting competitive intelligence v3...
+[2026-04-22 21:00:01] Step 1: RSS + Web search...
+[2026-04-22 21:00:02] ======================================================================
+[2026-04-22 21:00:02] Starting Competitive Intelligence Scan v3
+[2026-04-22 21:00:02] ======================================================================
+[2026-04-22 21:00:02] 
+1. Scanning RSS feeds...
+[2026-04-22 21:00:02]    Scanning: Maven - Google Alerts
+[2026-04-22 21:00:03]    Scanning: Carrot - Google Alerts
+[2026-04-22 21:00:03]    Scanning: KindBody - Google Alerts
+[2026-04-22 21:00:03]    Scanning: WIN Fertility - Google Alerts
+[2026-04-22 21:00:04]    Scanning: Pomelo Health - Google Alerts
+[2026-04-22 21:00:04]    Scanning: Oura - Google Alerts
+[2026-04-22 21:00:04]    Scanning: Progyny - Google Alerts
+[2026-04-22 21:00:04]    Scanning: Progyny - News Search
+[2026-04-22 21:00:05]    Scanning: Progyny - SEC Filings
+[2026-04-22 21:00:05]    Scanning: Progyny - Yahoo Finance
+[2026-04-22 21:00:05]    Scanning: Progyny - Company News
+[2026-04-22 21:00:06]    Scanning: Maven - Press Releases
+[2026-04-22 21:00:06]    Scanning: Carrot - Press Releases
+[2026-04-22 21:00:07]    Scanning: KindBody - Press Releases
+[2026-04-22 21:00:08]    Scanning: Oura - Press Releases
+[2026-04-22 21:00:08]    Scanning: FemTech News
+[2026-04-22 21:00:09]    Scanning: Women's Health Funding
+[2026-04-22 21:00:09]    Scanning: Fertility Benefits News
+[2026-04-22 21:00:10]    Scanning: Menopause Health News
+[2026-04-22 21:00:11]    Scanning: Fertility Tech News
+[2026-04-22 21:00:11]    Scanning: Women's Health AI
+[2026-04-22 21:00:12]    Found 2 new articles from RSS
+[2026-04-22 21:00:12] 
+2. Searching web for competitive news...
+[2026-04-22 21:00:15]    Found 1 new articles from web search
+[2026-04-22 21:00:15] 
+3. Checking LinkedIn executive posts...
+[2026-04-22 21:00:34]    ✓ LinkedIn executive scan complete
+[2026-04-22 21:00:34]    Skipping 4c531dbd... (low FemTech relevance: 15)
+[2026-04-22 21:00:34]    Skipping acc64c01... (low FemTech relevance: 0)
+[2026-04-22 21:00:34] 
+✅ Total new articles: 1
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 1 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 0
+======================================================================
+
+🟡 [General] Where Science Meets Sensitivity: Inside Aksigen IVF’s Approach to Mode...
+
+======================================================================
+[2026-04-22 21:00:34] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 7 job changes
+
+3. Searching for company announcements...
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-04-22 21:00:41] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 4 | High: 4 | Medium: 1
+[2026-04-22 21:00:41] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-04-22 21:00:43] ✅ Email sent
+[2026-04-22 21:00:43] Complete
