@@ -213,30 +213,6 @@
   "bookings": [],
   "errors": [
     {
-      "timestamp": "2026-04-20T21:11:45.198175",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /phpinfo",
-      "details": {
-        "path": "/phpinfo",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:45.614862",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /p.php",
-      "details": {
-        "path": "/p.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
       "timestamp": "2026-04-20T21:11:45.729317",
       "source": "web_ui",
       "error_type": "not_found",
@@ -2626,12 +2602,36 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T12:00:46.871683",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /SDK/webLanguage",
+      "details": {
+        "path": "/SDK/webLanguage",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T12:50:05.060581",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /robots.txt",
+      "details": {
+        "path": "/robots.txt",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
     "last_scan_time": "2026-04-23T05:52:06.487628",
     "last_booking_time": null,
-    "last_error_time": "2026-04-23T10:08:12.285366",
+    "last_error_time": "2026-04-23T12:50:05.060598",
     "total_scans": 16,
     "total_bookings": 0,
     "total_errors": 201,
@@ -8139,4 +8139,5 @@
       "error_message": ""
     }
   ]
+}
 }
