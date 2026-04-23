@@ -191,700 +191,27 @@
       "reservations_made": 0,
       "details": "Skipped - scanned 1.0h ago",
       "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-04-23T05:52:06.487613",
+      "trip_dates": [
+        "2026-04-19",
+        "2026-04-20",
+        "2026-05-17",
+        "2026-05-18",
+        "2026-05-19",
+        "2026-05-20"
+      ],
+      "restaurants_checked": 50,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Scanned 2 trip(s), made 0 booking(s)",
+      "status": "no_bookings"
     }
   ],
   "bookings": [],
   "errors": [
-    {
-      "timestamp": "2026-04-19T18:58:12.613643",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:13.123977",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:13.773768",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:14.526440",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:15.191156",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:15.872396",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:16.423631",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:17.298765",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:18.096850",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:18.667753",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:19.135043",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:19.991575",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-      "details": {
-        "path": "/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:20.666818",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /index.php",
-      "details": {
-        "path": "/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:21.229150",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /public/index.php",
-      "details": {
-        "path": "/public/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:21.726376",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /index.php",
-      "details": {
-        "path": "/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:22.478324",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /index.php",
-      "details": {
-        "path": "/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T18:58:23.155020",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /containers/json",
-      "details": {
-        "path": "/containers/json",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-19T19:27:06.576945",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application",
-      "details": {
-        "path": "/ecp/Current/exporttool/microsoft.exchange.ediscovery.exporttool.application",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T00:56:27.039999",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /admin/config.php",
-      "details": {
-        "path": "/admin/config.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T03:35:48.053653",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /favicon.ico",
-      "details": {
-        "path": "/favicon.ico",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T03:35:48.400961",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /login/robots.txt",
-      "details": {
-        "path": "/login/robots.txt",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T03:35:48.753741",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /login/sitemap.xml",
-      "details": {
-        "path": "/login/sitemap.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T03:35:52.007099",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /login/sitemap.xml",
-      "details": {
-        "path": "/login/sitemap.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T03:35:52.011245",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /login/robots.txt",
-      "details": {
-        "path": "/login/robots.txt",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.144952",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /php.php",
-      "details": {
-        "path": "/php.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.531749",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /phpinfo.php",
-      "details": {
-        "path": "/phpinfo.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.536336",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /info.php",
-      "details": {
-        "path": "/info.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.740473",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-config.php.bak",
-      "details": {
-        "path": "/wp-config.php.bak",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.746097",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /debug.php",
-      "details": {
-        "path": "/debug.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.768460",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /_profiler",
-      "details": {
-        "path": "/_profiler",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.951114",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-config.php.old",
-      "details": {
-        "path": "/wp-config.php.old",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:30.955443",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-config.php.swp",
-      "details": {
-        "path": "/wp-config.php.swp",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:31.021596",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-config.php~",
-      "details": {
-        "path": "/wp-config.php~",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:31.137467",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /backup/wp-config.php",
-      "details": {
-        "path": "/backup/wp-config.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:31.255478",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /config/mail.php",
-      "details": {
-        "path": "/config/mail.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:31.353405",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /actuator/env",
-      "details": {
-        "path": "/actuator/env",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:31.592486",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /web.config",
-      "details": {
-        "path": "/web.config",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:01:31.646509",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /terraform.tfvars",
-      "details": {
-        "path": "/terraform.tfvars",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:21:32.586898",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /developmentserver/metadatauploader",
-      "details": {
-        "path": "/developmentserver/metadatauploader",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T04:51:24.955643",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /SDK/webLanguage",
-      "details": {
-        "path": "/SDK/webLanguage",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T05:10:19.443536",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-04-20",
-        "error": "HTTP 400: BAD REQUEST"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T05:20:20.255960",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-05-17",
-        "error": "HTTP 400: BAD REQUEST"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T05:31:07.935968",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-05-18",
-        "error": "HTTP 400: BAD REQUEST"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T05:49:20.232980",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /robots.txt",
-      "details": {
-        "path": "/robots.txt",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T13:11:50.029473",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-04-20",
-        "error": "HTTP 400: BAD REQUEST"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T13:22:26.125322",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-05-17",
-        "error": "HTTP 400: BAD REQUEST"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T13:31:30.905937",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-05-18",
-        "error": "HTTP 400: BAD REQUEST"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T17:23:40.162803",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /favicon.ico",
-      "details": {
-        "path": "/favicon.ico",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T17:59:24.563231",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /SDK/webLanguage",
-      "details": {
-        "path": "/SDK/webLanguage",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T18:22:46.941640",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /welcome",
-      "details": {
-        "path": "/welcome",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:44.238627",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /phpinfo.php",
-      "details": {
-        "path": "/phpinfo.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:44.398167",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /info.php",
-      "details": {
-        "path": "/info.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:44.519327",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /php.php",
-      "details": {
-        "path": "/php.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:44.633961",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /i.php",
-      "details": {
-        "path": "/i.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:44.717686",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /pi.php",
-      "details": {
-        "path": "/pi.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:44.892032",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /pinfo.php",
-      "details": {
-        "path": "/pinfo.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-04-20T21:11:45.043831",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /test.php",
-      "details": {
-        "path": "/test.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
     {
       "timestamp": "2026-04-20T21:11:45.198175",
       "source": "web_ui",
@@ -2612,1151 +1939,705 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:15:18.463019",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /webui/",
+      "details": {
+        "path": "/webui/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:28:03.390893",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /favicon.ico",
+      "details": {
+        "path": "/favicon.ico",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:39:18.400482",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vpn/index.html",
+      "details": {
+        "path": "/vpn/index.html",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:39:36.835980",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vpn/index.html",
+      "details": {
+        "path": "/vpn/index.html",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:39:52.784310",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /logon/LogonPoint/index.html",
+      "details": {
+        "path": "/logon/LogonPoint/index.html",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:40:25.853338",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /logon/LogonPoint/index.html",
+      "details": {
+        "path": "/logon/LogonPoint/index.html",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:40:53.130094",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /cgi-bin/authLogin.cgi",
+      "details": {
+        "path": "/cgi-bin/authLogin.cgi",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T00:41:31.574516",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /geoserver/web/",
+      "details": {
+        "path": "/geoserver/web/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T05:08:47.877199",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-04-20",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T05:21:24.920273",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-05-17",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T05:32:27.608205",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-05-18",
+        "error": "HTTP 400: BAD REQUEST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T07:18:15.878353",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /tr/",
+      "details": {
+        "path": "/tr/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T09:03:51.365130",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sitemap.xml",
+      "details": {
+        "path": "/sitemap.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:05:40.504165",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /Dr0v",
+      "details": {
+        "path": "/Dr0v",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:41.365370",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /hello.world",
+      "details": {
+        "path": "/hello.world",
+        "method": "POST"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:42.859325",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:43.602497",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vendor/phpunit/phpunit/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/vendor/phpunit/phpunit/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:44.368992",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vendor/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/vendor/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:45.140755",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vendor/phpunit/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/vendor/phpunit/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:45.874469",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vendor/phpunit/phpunit/LICENSE/eval-stdin.php",
+      "details": {
+        "path": "/vendor/phpunit/phpunit/LICENSE/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:46.799212",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/vendor/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:47.558651",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:48.328733",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /phpunit/phpunit/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/phpunit/phpunit/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:49.026797",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:49.895760",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /phpunit/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/phpunit/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:50.714898",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/lib/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:51.309420",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /lib/phpunit/phpunit/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/lib/phpunit/phpunit/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:52.062459",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /lib/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/lib/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:52.707863",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /lib/phpunit/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/lib/phpunit/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:53.324588",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/lib/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:53.911591",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/laravel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:54.683401",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/www/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:55.473958",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/ws/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:56.364717",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/yii/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:56.953147",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/zend/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:57.807116",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/ws/ec/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:58.391879",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/V2/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:59.037052",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/tests/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:07:59.879427",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/test/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:00.620670",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/testing/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:01.494773",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/api/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:02.410350",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/demo/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:03.020607",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/cms/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:03.599888",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/crm/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:04.213752",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/admin/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:04.915949",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/backup/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:05.569819",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/blog/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:06.291312",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/workspace/drupal/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:07.141476",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/panel/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:07.809396",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/public/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:08.436493",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/apps/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:09.106295",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+      "details": {
+        "path": "/app/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:09.714385",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /index.php",
+      "details": {
+        "path": "/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:10.322262",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /public/index.php",
+      "details": {
+        "path": "/public/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:11.042188",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /index.php",
+      "details": {
+        "path": "/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:11.629729",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /index.php",
+      "details": {
+        "path": "/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-04-23T10:08:12.285353",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /containers/json",
+      "details": {
+        "path": "/containers/json",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-04-22T14:00:02.809448",
+    "last_scan_time": "2026-04-23T05:52:06.487628",
     "last_booking_time": null,
-    "last_error_time": "2026-04-22T21:24:36.221102",
-    "total_scans": 15,
+    "last_error_time": "2026-04-23T10:08:12.285366",
+    "total_scans": 16,
     "total_bookings": 0,
     "total_errors": 201,
     "status": "critical"
   },
   "attempts": [
-    {
-      "timestamp": "2026-04-20T13:11:50.669380",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:13:34.678186",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:13:35.045082",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:14:21.049660",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:14:21.465362",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:15:17.469948",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:15:17.886406",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:16:30.890958",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:16:31.231390",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:17:28.236210",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:17:28.586117",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:18:33.590910",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:18:33.997315",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:20:12.004123",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:20:12.360049",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:20:50.364720",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:20:50.792664",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:21:36.797317",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:22:26.140365",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "api_error",
-      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:22:26.149889",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:22:26.872190",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:23:44.881482",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:23:45.277390",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:25:06.289325",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:25:06.664644",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:26:16.670225",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:26:17.049563",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:27:18.055120",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:27:18.433935",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:27:57.438918",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:27:57.810156",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:28:39.814972",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:28:40.145590",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:29:35.150807",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:29:35.580733",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:30:01.962665",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "SYSTEM",
-      "venue_id": "",
-      "party_size": 0,
-      "status": "wake_up",
-      "details": "Scanner woke up and started processing",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:30:19.585856",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:30:19.949311",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:30:54.955315",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:31:30.910752",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "api_error",
-      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:31:30.916658",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:31:31.318658",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:33:13.324205",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:33:13.792424",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:33:59.797685",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:34:00.288861",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:35:18.298203",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:35:18.847094",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:36:18.852570",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:36:19.210890",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:37:43.216429",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:37:43.560262",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:38:56.565712",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:38:57.271122",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:40:09.276731",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:40:09.605093",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:41:32.610644",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:41:32.964427",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:42:34.970359",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:42:34.977746",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "skipped",
-      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:42:34.982861",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:42:35.353577",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:43:22.358992",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:43:22.714008",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:45:01.719876",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:45:02.086338",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:46:02.092166",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:46:02.422866",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:47:08.428583",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:47:08.804022",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:47:45.810040",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:47:46.255653",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:49:04.261594",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:49:04.681501",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:50:38.687183",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:50:39.035679",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:52:03.041352",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:52:03.428725",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:52:39.434672",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:52:39.440465",
-      "trip_date": "2026-05-20",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "skipped",
-      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T13:52:39.454769",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "SYSTEM",
-      "venue_id": "",
-      "party_size": 0,
-      "status": "complete",
-      "details": "Scan complete. Checked 50 restaurants, made 0 bookings.",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-20T14:00:02.551352",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "SYSTEM",
-      "venue_id": "",
-      "party_size": 0,
-      "status": "wake_up",
-      "details": "Scanner woke up and started processing",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:00:02.654472",
-      "trip_date": "2026-04-21",
-      "restaurant_name": "SYSTEM",
-      "venue_id": "",
-      "party_size": 0,
-      "status": "wake_up",
-      "details": "Scanner woke up and started processing",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:00:04.862867",
-      "trip_date": "2026-04-19",
-      "restaurant_name": "Nowon East Village",
-      "venue_id": "8541",
-      "party_size": 2,
-      "status": "skipped",
-      "details": "Skipped - already have reservation at Nowon East Village",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:00:04.869185",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:00:05.262138",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:01:43.268670",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:01:43.656167",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:02:23.662603",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:02:24.038898",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:03:46.045492",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:03:46.458604",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:05:20.464992",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:05:20.806273",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:06:56.812933",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:06:57.155316",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:07:51.162117",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:07:51.608046",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:08:38.614708",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:08:38.923715",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:09:13.930384",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:09:14.328840",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-04-21T05:10:40.335954",
-      "trip_date": "2026-04-20",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-04-20",
-      "slots_found": 0,
-      "error_message": ""
-    },
     {
       "timestamp": "2026-04-21T05:11:59.893471",
       "trip_date": "2026-04-20",
@@ -8121,6 +7002,1139 @@
       "party_size": 0,
       "status": "wake_up",
       "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:00:01.789479",
+      "trip_date": "2026-04-23",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:00:03.575045",
+      "trip_date": "2026-04-19",
+      "restaurant_name": "Nowon East Village",
+      "venue_id": "8541",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Skipped - already have reservation at Nowon East Village",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:00:03.592709",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:00:03.951176",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:01:43.962753",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:01:44.366012",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:02:25.377539",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:02:25.738784",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:03:07.751771",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:03:08.127146",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:04:06.138729",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:04:06.543404",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:05:00.554935",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:05:00.938544",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:05:43.950384",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:05:44.497791",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:06:20.509163",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:06:20.897618",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:07:22.909136",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:07:23.291311",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:07:56.302813",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-04-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:08:47.894411",
+      "trip_date": "2026-04-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:08:47.907929",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:08:48.886652",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:10:05.903723",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:10:06.311455",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:11:04.323148",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:11:04.723180",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:12:26.735009",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:12:27.106099",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:14:12.117815",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:14:12.504208",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:15:38.516111",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:15:38.951426",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:16:30.963050",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:16:31.330836",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:17:27.342844",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:17:27.745179",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:19:02.757503",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:19:03.161132",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:20:09.173024",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-17",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:21:24.931319",
+      "trip_date": "2026-05-17",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:21:24.944422",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:21:25.514596",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:22:23.526442",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:22:23.875634",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:23:50.887631",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:23:51.347378",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:25:36.360429",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:25:36.780651",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:26:26.792215",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:26:27.152146",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:27:01.164196",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:27:01.552581",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:28:22.564366",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:28:22.993295",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:29:45.014552",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:29:45.397723",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:30:53.409556",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:30:53.825534",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:31:39.837740",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-18",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:32:27.620179",
+      "trip_date": "2026-05-18",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:32:27.918630",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:32:28.277825",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:33:54.289773",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:33:54.638550",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:34:35.650504",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:34:35.998223",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:35:09.010788",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:35:09.647027",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:36:07.658981",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:36:08.176849",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:36:46.188834",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:36:46.538226",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:37:54.550131",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:37:54.925843",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:39:03.937641",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:39:04.323087",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:39:39.335052",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:39:39.659890",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:41:05.671662",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-19",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:41:05.683327",
+      "trip_date": "2026-05-19",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:41:05.695360",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:41:06.231356",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:42:35.243569",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:42:35.603874",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:43:24.615786",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:43:24.970536",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:44:28.982402",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:44:29.370411",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:45:19.382299",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:45:19.924619",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:46:41.936747",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:46:42.295684",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:48:21.308372",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:48:21.665467",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:48:58.677562",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:48:59.021347",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:50:28.033595",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:50:28.452076",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:52:06.463914",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-05-20",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:52:06.475637",
+      "trip_date": "2026-05-20",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-04-23T05:52:06.498938",
+      "trip_date": "2026-04-23",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "complete",
+      "details": "Scan complete. Checked 50 restaurants, made 0 bookings.",
       "slots_found": 0,
       "error_message": ""
     }
