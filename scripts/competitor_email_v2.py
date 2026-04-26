@@ -246,6 +246,22 @@ def generate_email():
     executive_posts = load_linkedin_executive_posts()
     recent_exec_posts = [p for p in executive_posts if datetime.fromisoformat(p.get('found_at', '2000-01-01').replace('Z', '+00:00').replace('+00:00', '')) > cutoff or 'found_at' not in p]
     
+    # Filter out stock/investor news (negative femtech score indicates stock news)
+    recent_articles = [a for a in recent_articles if a.get('femtech_score', 0) >= 0]
+    
+    # Sort by priority and femtech score
+    def article_priority_key(a):
+        priority_order = {'critical': 0, 'high': 1, 'medium': 2, 'low': 3}
+        priority = a.get('priority', 'low')
+        femtech_score = a.get('femtech_score', 0)
+        return (priority_order.get(priority, 3), -femtech_score)
+    
+    recent_articles.sort(key=article_priority_key)
+    
+    # Enforce max 7 articles limit
+    max_articles = 7
+    recent_articles = recent_articles[:max_articles]
+    
     # Categorize
     critical = [a for a in recent_articles if a.get('priority') == 'critical']
     high = [a for a in recent_articles if a.get('priority') == 'high']

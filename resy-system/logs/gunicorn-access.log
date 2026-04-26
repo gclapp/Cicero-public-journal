@@ -5864,3 +5864,4 @@
 127.0.0.1 - - [26/Apr/2026:19:16:30 +0000] "GET /RDWeb/Pages/en-US/login.aspx HTTP/1.1" 500 0 "-" "-"
 127.0.0.1 - - [26/Apr/2026:19:34:18 +0000] "GET / HTTP/1.1" 302 199 "-" "Hello from Palo Alto Networks, find out more about our scans in https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity"
 127.0.0.1 - - [26/Apr/2026:19:34:18 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Hello from Palo Alto Networks, find out more about our scans in https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity"
+127.0.0.1 - - [26/Apr/2026:19:43:46 +0000] "GET /prompt.ts HTTP/1.1" 500 0 "-" "-"

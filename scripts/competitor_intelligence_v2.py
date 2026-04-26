@@ -86,6 +86,33 @@ def article_id(entry):
     content = f"{entry.get('link', '')}:{entry.get('title', '')}"
     return hashlib.md5(content.encode()).hexdigest()
 
+def normalize_title(title):
+    """Normalize title for duplicate detection"""
+    import re
+    # Remove HTML tags
+    title = re.sub(r'<[^>]+>', '', title)
+    # Remove extra whitespace
+    title = ' '.join(title.split())
+    # Remove common suffixes/prefixes
+    title = re.sub(r'\s*-\s*(PR Newswire|Business Wire|GlobeNewswire|TipRanks\.com)$', '', title, flags=re.IGNORECASE)
+    title = re.sub(r'\s*\|\s*(The Verge|AlphaMaven|Fierce Healthcare)$', '', title, flags=re.IGNORECASE)
+    # Convert to lowercase
+    return title.lower().strip()
+
+def is_duplicate_title(title, existing_articles):
+    """Check if similar title already exists"""
+    normalized = normalize_title(title)
+    for article in existing_articles:
+        existing_normalized = normalize_title(article.get('title', ''))
+        # Check for exact match or very high similarity
+        if normalized == existing_normalized:
+            return True
+        # Check if one is substring of other (for truncated titles)
+        if len(normalized) > 20 and len(existing_normalized) > 20:
+            if normalized in existing_normalized or existing_normalized in normalized:
+                return True
+    return False
+
 def is_stale_article(published_str, max_age_days=None):
     """Check if article is too old to report (default: 3 days for strict freshness)"""
     if max_age_days is None:
@@ -116,9 +143,15 @@ def scan_rss_feeds(config):
             feed = feedparser.parse(url)
             for entry in feed.entries:
                 aid = article_id(entry)
+                title = entry.get('title', 'No title')
                 
-                # Skip if already seen
+                # Skip if already seen by ID
                 if aid in seen['articles']:
+                    continue
+                
+                # Skip if duplicate title (from another source)
+                if is_duplicate_title(title, new_articles):
+                    log(f"   Skipping duplicate: {title[:50]}...")
                     continue
                 
                 published = entry.get('published', entry.get('updated', ''))
@@ -129,7 +162,7 @@ def scan_rss_feeds(config):
                 
                 article = {
                     'id': aid,
-                    'title': entry.get('title', 'No title'),
+                    'title': title,
                     'link': entry.get('link', ''),
                     'published': published,
                     'summary': entry.get('summary', '')[:500],
@@ -207,6 +240,70 @@ def search_web_for_news(config):
     save_seen(seen)
     return new_articles
 
+def is_stock_investor_news(article):
+    """Check if article is stock price/investor news (not real competitive intel)"""
+    title = article.get('title', '').lower()
+    summary = article.get('summary', '').lower()
+    combined = title + " " + summary
+    
+    # Stock/investor keywords that indicate low-value content
+    stock_keywords = [
+        'stock price', 'stock analysis', 'investor should', 'investors should',
+        'buying now', 'selling now', 'price target', 'analyst rating',
+        'earnings preview', 'earnings review', 'q4 earnings', 'q1 earnings',
+        'q2 earnings', 'q3 earnings', 'quarterly earnings', 'financial results',
+        'stock up', 'stock down', 'shares up', 'shares down', 'pgny',
+        'reflecting on', 'q4 roundup', 'earnings roundup', 'stock volatility',
+        'amid recent volatility', 'what investors', 'investor know',
+        'smart investor', 'wall street', 'trading at', 'market cap',
+        'stock valuation', 'fair value', 'overvalued', 'undervalued',
+        'bullish', 'bearish', 'outperform', 'underperform', 'hold rating',
+        'buy rating', 'sell rating', 'analyst consensus', 'consensus estimate'
+    ]
+    
+    for keyword in stock_keywords:
+        if keyword in combined:
+            return True
+    
+    return False
+
+def is_irrelevant_maven_article(article):
+    """Filter out non-Maven Clinic articles that mention 'Maven' (e.g., Pentagon, EQT)"""
+    title = article.get('title', '').lower()
+    summary = article.get('summary', '').lower()
+    combined = title + " " + summary
+    
+    # Must mention Maven
+    if 'maven' not in combined:
+        return False
+    
+    # Keywords that indicate it's NOT Maven Clinic (the health company)
+    non_healthcare_indicators = [
+        'pentagon', 'battlefield', 'military', 'defense', 'weapon', 'warfare',
+        'eqt', 'private equity', 'infrastructure', 'investment firm',
+        'project maven', 'ai weapons', 'defense department', 'dod',
+        'space force', 'navy', 'army', 'air force'
+    ]
+    
+    for indicator in non_healthcare_indicators:
+        if indicator in combined:
+            return True
+    
+    # Must have health/fertility context to be relevant
+    health_indicators = [
+        'clinic', 'health', 'fertility', 'family', 'pregnancy', 'women',
+        'care', 'benefits', 'employer', 'patient', 'medical', 'healthcare',
+        'ivf', 'egg freezing', 'surrogacy', 'menopause', 'maternity'
+    ]
+    
+    has_health_context = any(h in combined for h in health_indicators)
+    
+    # If it mentions Maven but has no health context, it's probably not Maven Clinic
+    if not has_health_context:
+        return True
+    
+    return False
+
 def score_femtech_relevance(article, config=None):
     """Score how relevant an article is to FemTech/women's health (0-100)"""
     if config is None:
@@ -215,6 +312,14 @@ def score_femtech_relevance(article, config=None):
     title = article.get('title', '').lower()
     summary = article.get('summary', '').lower()
     combined = title + " " + summary
+    
+    # REJECT stock/investor news immediately
+    if is_stock_investor_news(article):
+        return -100  # Negative score ensures exclusion
+    
+    # REJECT non-healthcare Maven articles (Pentagon, EQT, etc.)
+    if is_irrelevant_maven_article(article):
+        return -100  # Negative score ensures exclusion
     
     score = 0
     
@@ -391,8 +496,8 @@ def main():
         femtech_score = score_femtech_relevance(article, config)
         article['femtech_score'] = femtech_score
         
-        # Skip low-relevance articles (< 20 score)
-        if femtech_score < 20:
+        # Skip low-relevance articles (< 15 score) - was 20, lowered to catch more relevant content
+        if femtech_score < 15:
             log(f"   Skipping {article['id'][:8]}... (low FemTech relevance: {femtech_score})")
             continue
         
@@ -401,8 +506,8 @@ def main():
         article['category'] = category
         filtered_articles.append(article)
         
-        # Increment send count
-        increment_sent_count(article['id'], sent_counts)
+        # NOTE: Send count is incremented in competitor_email_v2.py when email is actually sent
+        # NOT here during scanning
     
     # Sort by priority and FemTech score, then limit to max articles
     max_articles = config.get('filters', {}).get('max_articles_per_report', 7)
