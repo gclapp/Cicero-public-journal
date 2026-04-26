@@ -241,10 +241,21 @@ def search_web_for_news(config):
     return new_articles
 
 def is_stock_investor_news(article):
-    """Check if article is stock price/investor news (not real competitive intel)"""
+    """Check if article is stock price/investor news (not real competitive intel)
+    
+    Allows PGNY news if it's about competition, partnerships, or strategy (not just stock price)
+    """
     title = article.get('title', '').lower()
     summary = article.get('summary', '').lower()
     combined = title + " " + summary
+    
+    # Check if it's about competition/partnerships (keep these)
+    competitive_context = [
+        'competition', 'competitor', 'competitive', 'market share',
+        'partnership', 'partners', 'client', 'employer', 'expansion',
+        'strategic', 'strategy', 'launch', 'new product', 'innovation'
+    ]
+    is_competitive = any(kw in combined for kw in competitive_context)
     
     # Stock/investor keywords that indicate low-value content
     stock_keywords = [
@@ -252,7 +263,7 @@ def is_stock_investor_news(article):
         'buying now', 'selling now', 'price target', 'analyst rating',
         'earnings preview', 'earnings review', 'q4 earnings', 'q1 earnings',
         'q2 earnings', 'q3 earnings', 'quarterly earnings', 'financial results',
-        'stock up', 'stock down', 'shares up', 'shares down', 'pgny',
+        'stock up', 'stock down', 'shares up', 'shares down',
         'reflecting on', 'q4 roundup', 'earnings roundup', 'stock volatility',
         'amid recent volatility', 'what investors', 'investor know',
         'smart investor', 'wall street', 'trading at', 'market cap',
@@ -261,9 +272,12 @@ def is_stock_investor_news(article):
         'buy rating', 'sell rating', 'analyst consensus', 'consensus estimate'
     ]
     
-    for keyword in stock_keywords:
-        if keyword in combined:
-            return True
+    # PGNY ticker alone is not enough to filter - check if it's just stock news
+    has_stock_keyword = any(kw in combined for kw in stock_keywords)
+    
+    # If it has stock keywords AND no competitive context, filter it out
+    if has_stock_keyword and not is_competitive:
+        return True
     
     return False
 
@@ -568,7 +582,7 @@ def main():
     save_seen(seen)
     
     # Sort by priority and FemTech score, then limit to max articles
-    max_articles = config.get('filters', {}).get('max_articles_per_report', 7)
+    max_articles = config.get('filters', {}).get('max_articles_per_report', 10)
     
     def sort_key(article):
         priority_order = {'critical': 0, 'high': 1, 'medium': 2, 'low': 3}
