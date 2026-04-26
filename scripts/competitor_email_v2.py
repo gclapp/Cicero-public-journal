@@ -13,7 +13,21 @@ from pathlib import Path
 ARTICLES_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-articles-v2.json"
 LINKEDIN_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-updates.json"
 LINKEDIN_POSTS_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-executive-posts.json"
+SENT_COUNT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-sent-count-v3.json"
 EMAIL_OUTPUT = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-email-v2.html"
+
+def load_sent_counts():
+    """Load article send counts"""
+    if SENT_COUNT_FILE.exists():
+        with open(SENT_COUNT_FILE) as f:
+            return json.load(f)
+    return {}
+
+def save_sent_counts(counts):
+    """Save article send counts"""
+    SENT_COUNT_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(SENT_COUNT_FILE, 'w') as f:
+        json.dump(counts, f, indent=2)
 
 def load_articles():
     """Load news articles"""
@@ -199,11 +213,33 @@ def generate_email():
     """Generate comprehensive competitive intelligence email"""
     articles = load_articles()
     linkedin_updates = load_linkedin_updates()
+    sent_counts = load_sent_counts()
     
     # Filter to only recent items (last 30 days)
     cutoff = datetime.now() - timedelta(days=30)
     
-    recent_articles = [a for a in articles if datetime.fromisoformat(a.get('found_at', '2000-01-01').replace('Z', '+00:00').replace('+00:00', '')) > cutoff or 'found_at' not in a]
+    # Filter articles: recent AND not already sent (max 1 time)
+    recent_articles = []
+    for a in articles:
+        # Check date
+        is_recent = False
+        try:
+            found_at = a.get('found_at', '2000-01-01')
+            # Handle various timezone formats
+            found_at = found_at.replace('Z', '+00:00').replace('+00:00', '')
+            article_date = datetime.fromisoformat(found_at)
+            is_recent = article_date > cutoff
+        except:
+            is_recent = 'found_at' not in a  # Include if no date
+        
+        # Check if already sent
+        article_id = a.get('id', '')
+        send_count = sent_counts.get(article_id, 0)
+        
+        # Only include if recent AND not sent before
+        if is_recent and send_count == 0:
+            recent_articles.append(a)
+    
     recent_linkedin = [u for u in linkedin_updates if datetime.fromisoformat(u.get('found_at', '2000-01-01').replace('Z', '+00:00').replace('+00:00', '')) > cutoff or 'found_at' not in u]
     
     # Load LinkedIn executive posts
@@ -467,13 +503,20 @@ def generate_email():
 </html>
 """
     
+    # Update sent counts for all articles included in this email
+    for article in recent_articles:
+        article_id = article.get('id', '')
+        if article_id:
+            sent_counts[article_id] = sent_counts.get(article_id, 0) + 1
+    save_sent_counts(sent_counts)
+    
     # Save email
     EMAIL_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     with open(EMAIL_OUTPUT, 'w') as f:
         f.write(html)
     
     print(f"✅ Email generated: {EMAIL_OUTPUT}")
-    print(f"   Articles: {len(recent_articles)}")
+    print(f"   New articles included: {len(recent_articles)}")
     print(f"   LinkedIn updates: {len(recent_linkedin)}")
     print(f"   Executive summary: {len(trend_summary)} chars")
     
