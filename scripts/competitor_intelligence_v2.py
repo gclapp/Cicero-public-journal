@@ -172,12 +172,12 @@ def scan_rss_feeds(config):
                 }
                 
                 new_articles.append(article)
-                seen['articles'][aid] = {'found_at': datetime.now().isoformat(), 'sent': False}
+                # NOTE: Don't add to seen cache here - add AFTER filtering passes
                 
         except Exception as e:
             log(f"Error scanning {name}: {e}")
     
-    save_seen(seen)
+    # NOTE: Don't save seen cache here - save AFTER filtering passes
     return new_articles
 
 def search_web_for_news(config):
@@ -232,12 +232,12 @@ def search_web_for_news(config):
                     }
                     
                     new_articles.append(article)
-                    seen['articles'][aid] = {'found_at': datetime.now().isoformat(), 'sent': False}
+                    # NOTE: Don't add to seen cache here - add AFTER filtering passes
             
         except Exception as e:
             log(f"Error searching web for '{query}': {e}")
     
-    save_seen(seen)
+    # NOTE: Don't save seen cache here - save AFTER filtering passes
     return new_articles
 
 def is_stock_investor_news(article):
@@ -475,8 +475,59 @@ def main():
     except Exception as e:
         log(f"   ⚠ LinkedIn scan error: {e}")
     
-    # 4. Job board monitoring (placeholder)
-    log("\n4. Checking job boards...")
+    # 4. Reddit intelligence monitoring
+    log("\n4. Checking Reddit for competitive intelligence...")
+    try:
+        import subprocess
+        result = subprocess.run(
+            ['python3', '/home/ubuntu/.openclaw/workspace/scripts/reddit_intel_collector.py'],
+            capture_output=True, text=True, timeout=120
+        )
+        if result.returncode == 0:
+            # Load Reddit results
+            reddit_file = Path.home() / ".openclaw" / "workspace" / "config" / "reddit-intelligence.json"
+            if reddit_file.exists():
+                with open(reddit_file) as f:
+                    reddit_data = json.load(f)
+                # Handle both old format (posts key) and new format (results key)
+                reddit_posts = reddit_data.get('posts', [])
+                if not reddit_posts and 'results' in reddit_data:
+                    # New format - flatten results from all categories
+                    reddit_posts = []
+                    for category, posts in reddit_data['results'].items():
+                        if isinstance(posts, list):
+                            for post in posts:
+                                post['_intel_category'] = category
+                            reddit_posts.extend(posts)
+                log(f"   Found {len(reddit_posts)} Reddit posts")
+                
+                # Convert Reddit posts to article format
+                for post in reddit_posts:
+                    article = {
+                        'id': f"reddit_{post.get('id', hashlib.md5(post.get('url', '').encode()).hexdigest())}",
+                        'title': post.get('title', 'Reddit Discussion')[:200],
+                        'link': post.get('url', ''),
+                        'published': post.get('created', datetime.now().isoformat()),
+                        'summary': post.get('content', '')[:500] if post.get('content') else f"r/{post.get('subreddit', 'unknown')} - {post.get('author', 'unknown')}",
+                        'source': f"Reddit: r/{post.get('subreddit', 'unknown')}",
+                        'type': 'reddit',
+                        'found_at': datetime.now().isoformat(),
+                        'reddit_data': {
+                            'subreddit': post.get('subreddit'),
+                            'author': post.get('author'),
+                            'score': post.get('score'),
+                            'comments': post.get('comments'),
+                            'priority': post.get('priority')
+                        }
+                    }
+                    all_new.append(article)
+        else:
+            log(f"   ⚠ Reddit scan issue: {result.stderr[:100]}")
+    except Exception as e:
+        log(f"   ⚠ Reddit scan error: {e}")
+    
+    # 5. Job board monitoring
+    log("\n5. Checking job boards...")
     job_updates = check_job_boards(config)
     log(f"   Found {len(job_updates)} job postings")
     all_new.extend(job_updates)
@@ -484,6 +535,7 @@ def main():
     # Categorize all articles and apply strict filtering
     sent_counts = load_sent_counts()
     config = load_config()
+    seen = load_seen()  # Load seen cache to add filtered articles
     filtered_articles = []
     
     for article in all_new:
@@ -506,8 +558,14 @@ def main():
         article['category'] = category
         filtered_articles.append(article)
         
+        # Add to seen cache now that article passed filtering
+        seen['articles'][article['id']] = {'found_at': datetime.now().isoformat(), 'sent': False}
+        
         # NOTE: Send count is incremented in competitor_email_v2.py when email is actually sent
         # NOT here during scanning
+    
+    # Save seen cache with filtered articles
+    save_seen(seen)
     
     # Sort by priority and FemTech score, then limit to max articles
     max_articles = config.get('filters', {}).get('max_articles_per_report', 7)

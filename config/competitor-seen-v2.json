@@ -1,259 +1,215 @@
 {
   "articles": {
-    "a9af898b716300a4fae9823f60a2c2e5": {
-      "found_at": "2026-04-26T19:45:26.886027",
-      "sent": false
-    },
-    "9a0c6ae47b393c7ae6c57b034541865a": {
-      "found_at": "2026-04-26T19:45:28.424232",
-      "sent": false
-    },
-    "aa63ef1499b72b04939d4bca401c5878": {
-      "found_at": "2026-04-26T19:45:28.424425",
-      "sent": false
-    },
     "a3a66b0a34b4938698aec9977ca096d5": {
-      "found_at": "2026-04-26T19:45:28.438328",
-      "sent": false
-    },
-    "c6c5bd02b310470182fbbeb97a2d34a7": {
-      "found_at": "2026-04-26T19:45:28.949313",
-      "sent": false
-    },
-    "ae8098cc0ba28427043a2b7b9499c9f6": {
-      "found_at": "2026-04-26T19:45:28.949536",
-      "sent": false
-    },
-    "77c12c6f8b94a93de94e7f38d18913ed": {
-      "found_at": "2026-04-26T19:45:29.645526",
-      "sent": false
-    },
-    "326ee60ed7423970f8cf4ceaa59598dc": {
-      "found_at": "2026-04-26T19:45:30.263786",
-      "sent": false
-    },
-    "22397b3c70f321d2414223de802d14de": {
-      "found_at": "2026-04-26T19:45:30.264032",
-      "sent": false
-    },
-    "7178ac6e1a994214b89a3d9708379d19": {
-      "found_at": "2026-04-26T19:45:30.715395",
+      "found_at": "2026-04-26T19:48:35.460735",
       "sent": false
     },
     "000d3744e026d2cfd8d597de82017b74": {
-      "found_at": "2026-04-26T19:45:30.721233",
-      "sent": false
-    },
-    "085d5678ffd63f4d2641258cc622d3d5": {
-      "found_at": "2026-04-26T19:45:31.814405",
-      "sent": false
-    },
-    "ebf01a8d880d09aba2b470faee990f1f": {
-      "found_at": "2026-04-26T19:45:31.814697",
-      "sent": false
-    },
-    "bfae97d91fdd3baa7e3e829bbeacb573": {
-      "found_at": "2026-04-26T19:45:31.814978",
-      "sent": false
-    },
-    "495cc2937df99c07d5126e4b5f07ef79": {
-      "found_at": "2026-04-26T19:45:31.815292",
-      "sent": false
-    },
-    "a069d76a4eb6ce9e2b70fca98c8c15b5": {
-      "found_at": "2026-04-26T19:45:31.815587",
-      "sent": false
-    },
-    "a10346b63a6a38d560d674657488cdda": {
-      "found_at": "2026-04-26T19:45:31.815897",
-      "sent": false
-    },
-    "a28417d3f56c16dc0bf065304cfb898e": {
-      "found_at": "2026-04-26T19:45:31.816212",
-      "sent": false
-    },
-    "dc9c248b3969e0a4b1e1382beb104b55": {
-      "found_at": "2026-04-26T19:45:31.816526",
-      "sent": false
-    },
-    "a36ecca6bf1b5903dec597660784446c": {
-      "found_at": "2026-04-26T19:45:31.816828",
-      "sent": false
-    },
-    "7a55bb0db96bd70cb6ae27e1c07e382f": {
-      "found_at": "2026-04-26T19:45:31.817166",
-      "sent": false
-    },
-    "2df9c955f2077db25c8a348215ce99cf": {
-      "found_at": "2026-04-26T19:45:31.817490",
-      "sent": false
-    },
-    "92637e7aa690d7e512c816002d19acd4": {
-      "found_at": "2026-04-26T19:45:31.817818",
-      "sent": false
-    },
-    "07770da4942cd84c224d2c9e4f6c150c": {
-      "found_at": "2026-04-26T19:45:31.818177",
-      "sent": false
-    },
-    "eab89629f7d0c599be6fe2479d514962": {
-      "found_at": "2026-04-26T19:45:31.818528",
-      "sent": false
-    },
-    "737770dd657dfe11125a3b348909cfea": {
-      "found_at": "2026-04-26T19:45:31.818902",
-      "sent": false
-    },
-    "7fb9a747ee3348865b2df5b22b74a2c4": {
-      "found_at": "2026-04-26T19:45:31.819292",
-      "sent": false
-    },
-    "07b65bc29f9809767f02795d39229a41": {
-      "found_at": "2026-04-26T19:45:31.819683",
-      "sent": false
-    },
-    "3ffd4860828c0d323b5902f822bbef5f": {
-      "found_at": "2026-04-26T19:45:31.820088",
-      "sent": false
-    },
-    "9b116c5e38dbd2a73283d3246c5f5d98": {
-      "found_at": "2026-04-26T19:45:31.820491",
-      "sent": false
-    },
-    "af5073ad3f430f5384076ded750442fb": {
-      "found_at": "2026-04-26T19:45:31.820923",
-      "sent": false
-    },
-    "b27c0ea771a500d9d3e7956b5977398a": {
-      "found_at": "2026-04-26T19:45:31.821358",
-      "sent": false
-    },
-    "b1ec3b9df9daf085d0b1053d1364b248": {
-      "found_at": "2026-04-26T19:45:31.821792",
-      "sent": false
-    },
-    "77d1bb5047b9d060abffd4c0c953ed2c": {
-      "found_at": "2026-04-26T19:45:31.822266",
-      "sent": false
-    },
-    "e2fe1b2d2bb148d6bf65ee804dd87f41": {
-      "found_at": "2026-04-26T19:45:31.822729",
-      "sent": false
-    },
-    "99f78b25ec1c68ea704ffd1252653bbc": {
-      "found_at": "2026-04-26T19:45:31.823204",
-      "sent": false
-    },
-    "7e0c11f61b6040b630e0c86c779aaa90": {
-      "found_at": "2026-04-26T19:45:31.823676",
-      "sent": false
-    },
-    "b300964b8862e3bef6f3c60615a36686": {
-      "found_at": "2026-04-26T19:45:31.824166",
-      "sent": false
-    },
-    "c4488fb7c53e399a9fc1e0a0e34518d4": {
-      "found_at": "2026-04-26T19:45:31.824669",
-      "sent": false
-    },
-    "399498e433d54f85b30c8b107b85ef9c": {
-      "found_at": "2026-04-26T19:45:31.825179",
-      "sent": false
-    },
-    "750cf5e9df02b0c41fcd494fd7d4b360": {
-      "found_at": "2026-04-26T19:45:31.825740",
+      "found_at": "2026-04-26T19:48:35.461353",
       "sent": false
     },
     "50ad17f062fd3a43cc7acb668ce06d95": {
-      "found_at": "2026-04-26T19:45:31.826343",
-      "sent": false
-    },
-    "1f4cd68040997118943ff4644d060ee4": {
-      "found_at": "2026-04-26T19:45:31.826928",
-      "sent": false
-    },
-    "141be607e28b4043a484350ff870ddc0": {
-      "found_at": "2026-04-26T19:45:31.827481",
-      "sent": false
-    },
-    "43bc84cd873a279f5c15382400a53606": {
-      "found_at": "2026-04-26T19:45:31.828027",
-      "sent": false
-    },
-    "dcfa3097991f288913a3cbea1d7fcc3e": {
-      "found_at": "2026-04-26T19:45:31.828617",
-      "sent": false
-    },
-    "9a2c03e2c634e622fa25ef9165a00cdb": {
-      "found_at": "2026-04-26T19:45:31.829226",
-      "sent": false
-    },
-    "c468e81aa5039cc8b4bd732981521b97": {
-      "found_at": "2026-04-26T19:45:32.395412",
+      "found_at": "2026-04-26T19:48:35.463707",
       "sent": false
     },
     "9345203c59a8a3ff37f41562503a540a": {
-      "found_at": "2026-04-26T19:45:32.410731",
+      "found_at": "2026-04-26T19:48:35.464415",
       "sent": false
     },
-    "51fb26929db1ed29bdf0c76c92b2215f": {
-      "found_at": "2026-04-26T19:45:33.031573",
+    "4526f4a84b2c3ad3135e4bac5279779d": {
+      "found_at": "2026-04-26T19:53:58.337591",
       "sent": false
     },
-    "4579701460a6105275ef73edfe52e912": {
-      "found_at": "2026-04-26T19:45:33.031583",
+    "reddit_1kp10oh": {
+      "found_at": "2026-04-26T19:53:58.341122",
       "sent": false
     },
-    "64084b4054c92a12e30d571604f07ca7": {
-      "found_at": "2026-04-26T19:45:33.031591",
+    "reddit_1ki03dd": {
+      "found_at": "2026-04-26T19:53:58.341335",
       "sent": false
     },
-    "fa64f0b0bfd7d0468ab8536e14cfd732": {
-      "found_at": "2026-04-26T19:45:33.031612",
+    "reddit_1khq863": {
+      "found_at": "2026-04-26T19:53:58.341439",
       "sent": false
     },
-    "a136bacf36909dfb1ba71131027c24fe": {
-      "found_at": "2026-04-26T19:45:33.031619",
+    "reddit_1kh3t8j": {
+      "found_at": "2026-04-26T19:53:58.341543",
       "sent": false
     },
-    "27497c0f515d3a237f69e3391a173c0b": {
-      "found_at": "2026-04-26T19:45:33.704837",
+    "reddit_1kg4q1y": {
+      "found_at": "2026-04-26T19:53:58.341641",
       "sent": false
     },
-    "20dce3d26d27c0e1b8344abc8d86482c": {
-      "found_at": "2026-04-26T19:45:33.704847",
+    "reddit_1kfclny": {
+      "found_at": "2026-04-26T19:53:58.341954",
       "sent": false
     },
-    "cafdd1f1187f0a340169488921fd198f": {
-      "found_at": "2026-04-26T19:45:33.704853",
+    "reddit_1kcm5fy": {
+      "found_at": "2026-04-26T19:53:58.342142",
       "sent": false
     },
-    "4374f5b53ef04951a707439c39ce16ae": {
-      "found_at": "2026-04-26T19:45:33.704859",
+    "reddit_1jzlfnx": {
+      "found_at": "2026-04-26T19:53:58.342378",
       "sent": false
     },
-    "0c0d8e0998784be7f369078dc8f455b6": {
-      "found_at": "2026-04-26T19:45:33.704866",
+    "reddit_1jq3j34": {
+      "found_at": "2026-04-26T19:53:58.342531",
       "sent": false
     },
-    "43031ac3fcdbf3b2a3ba98963c9ff7ec": {
-      "found_at": "2026-04-26T19:45:34.207263",
+    "reddit_1kb4cto": {
+      "found_at": "2026-04-26T19:53:58.343509",
       "sent": false
     },
-    "e1cfe67afa142b716a3f4d9b5712642b": {
-      "found_at": "2026-04-26T19:45:34.207273",
+    "reddit_1k78drx": {
+      "found_at": "2026-04-26T19:53:58.342742",
       "sent": false
     },
-    "45d9ffa834fbc8f8ed0a45fdd5d61262": {
-      "found_at": "2026-04-26T19:45:34.207279",
+    "reddit_1k64gi9": {
+      "found_at": "2026-04-26T19:53:58.342837",
       "sent": false
     },
-    "544fe611babd5a82af1d82108d0b574a": {
-      "found_at": "2026-04-26T19:45:34.207285",
+    "reddit_1jfwfyk": {
+      "found_at": "2026-04-26T19:53:58.342935",
       "sent": false
     },
-    "9c0e1ae08928f3d4f0ad3a86ef71ce71": {
-      "found_at": "2026-04-26T19:45:34.207291",
+    "reddit_1jayh0c": {
+      "found_at": "2026-04-26T19:53:58.343038",
+      "sent": false
+    },
+    "reddit_1ibm009": {
+      "found_at": "2026-04-26T19:53:58.343248",
+      "sent": false
+    },
+    "reddit_1i7wc47": {
+      "found_at": "2026-04-26T19:53:58.343349",
+      "sent": false
+    },
+    "reddit_1khz5kp": {
+      "found_at": "2026-04-26T19:53:58.344330",
+      "sent": false
+    },
+    "reddit_1kfgvnw": {
+      "found_at": "2026-04-26T19:53:58.344432",
+      "sent": false
+    },
+    "reddit_1kd9xrr": {
+      "found_at": "2026-04-26T19:53:58.344529",
+      "sent": false
+    },
+    "reddit_1k81emg": {
+      "found_at": "2026-04-26T19:53:58.344629",
+      "sent": false
+    },
+    "reddit_1k78mh1": {
+      "found_at": "2026-04-26T19:53:58.344724",
+      "sent": false
+    },
+    "reddit_1k6fc8o": {
+      "found_at": "2026-04-26T19:53:58.344822",
+      "sent": false
+    },
+    "reddit_1k4ntgc": {
+      "found_at": "2026-04-26T19:53:58.344925",
+      "sent": false
+    },
+    "reddit_1k4nrwr": {
+      "found_at": "2026-04-26T19:53:58.345022",
+      "sent": false
+    },
+    "reddit_1k1gqro": {
+      "found_at": "2026-04-26T19:53:58.345134",
+      "sent": false
+    },
+    "reddit_1kq0tja": {
+      "found_at": "2026-04-26T19:53:58.345654",
+      "sent": false
+    },
+    "reddit_1kq0gua": {
+      "found_at": "2026-04-26T19:53:58.345752",
+      "sent": false
+    },
+    "reddit_1kq0cde": {
+      "found_at": "2026-04-26T19:53:58.345844",
+      "sent": false
+    },
+    "reddit_1kpuvtx": {
+      "found_at": "2026-04-26T19:53:58.345937",
+      "sent": false
+    },
+    "reddit_1kpbn1v": {
+      "found_at": "2026-04-26T19:53:58.346071",
+      "sent": false
+    },
+    "reddit_1ko5rt5": {
+      "found_at": "2026-04-26T19:53:58.347907",
+      "sent": false
+    },
+    "reddit_1knahdp": {
+      "found_at": "2026-04-26T19:53:58.346338",
+      "sent": false
+    },
+    "reddit_1klyvi2": {
+      "found_at": "2026-04-26T19:53:58.346440",
+      "sent": false
+    },
+    "reddit_1klym5p": {
+      "found_at": "2026-04-26T19:53:58.346529",
+      "sent": false
+    },
+    "reddit_1kio2uv": {
+      "found_at": "2026-04-26T19:53:58.346689",
+      "sent": false
+    },
+    "reddit_1ki3ggd": {
+      "found_at": "2026-04-26T19:53:58.348013",
+      "sent": false
+    },
+    "reddit_1khyvkh": {
+      "found_at": "2026-04-26T19:53:58.348124",
+      "sent": false
+    },
+    "reddit_1kh9rrf": {
+      "found_at": "2026-04-26T19:53:58.348299",
+      "sent": false
+    },
+    "reddit_1kils2t": {
+      "found_at": "2026-04-26T19:53:58.347550",
+      "sent": false
+    },
+    "reddit_1ki2zmq": {
+      "found_at": "2026-04-26T19:53:58.347754",
+      "sent": false
+    },
+    "reddit_1kgvdeg": {
+      "found_at": "2026-04-26T19:53:58.349955",
+      "sent": false
+    },
+    "reddit_1kfhrh5": {
+      "found_at": "2026-04-26T19:53:58.350108",
+      "sent": false
+    },
+    "reddit_1ke9hbw": {
+      "found_at": "2026-04-26T19:53:58.349299",
+      "sent": false
+    },
+    "reddit_1kd5p0o": {
+      "found_at": "2026-04-26T19:53:58.349568",
+      "sent": false
+    },
+    "reddit_1kff0y9": {
+      "found_at": "2026-04-26T19:53:58.350257",
+      "sent": false
+    },
+    "reddit_1khg65n": {
+      "found_at": "2026-04-26T19:53:58.350647",
+      "sent": false
+    },
+    "reddit_1kh28oq": {
+      "found_at": "2026-04-26T19:53:58.351123",
+      "sent": false
+    },
+    "reddit_1kfte5i": {
+      "found_at": "2026-04-26T19:53:58.351326",
       "sent": false
     }
   },
