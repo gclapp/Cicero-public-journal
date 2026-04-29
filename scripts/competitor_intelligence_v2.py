@@ -99,18 +99,35 @@ def normalize_title(title):
     # Convert to lowercase
     return title.lower().strip()
 
-def is_duplicate_title(title, existing_articles):
-    """Check if similar title already exists"""
+def is_duplicate_title(title, existing_articles=None):
+    """Check if similar title already exists in current batch OR previously saved articles"""
     normalized = normalize_title(title)
-    for article in existing_articles:
-        existing_normalized = normalize_title(article.get('title', ''))
-        # Check for exact match or very high similarity
-        if normalized == existing_normalized:
-            return True
-        # Check if one is substring of other (for truncated titles)
-        if len(normalized) > 20 and len(existing_normalized) > 20:
-            if normalized in existing_normalized or existing_normalized in normalized:
+    
+    # Check against current batch
+    if existing_articles:
+        for article in existing_articles:
+            existing_normalized = normalize_title(article.get('title', ''))
+            if normalized == existing_normalized:
                 return True
+            if len(normalized) > 20 and len(existing_normalized) > 20:
+                if normalized in existing_normalized or existing_normalized in normalized:
+                    return True
+    
+    # Check against ALL previously saved articles
+    if ARTICLES_FILE.exists():
+        try:
+            with open(ARTICLES_FILE) as f:
+                saved_articles = json.load(f)
+            for article in saved_articles:
+                existing_normalized = normalize_title(article.get('title', ''))
+                if normalized == existing_normalized:
+                    return True
+                if len(normalized) > 20 and len(existing_normalized) > 20:
+                    if normalized in existing_normalized or existing_normalized in normalized:
+                        return True
+        except:
+            pass
+    
     return False
 
 def is_stale_article(published_str, max_age_days=None):
@@ -517,9 +534,16 @@ def main():
                 
                 # Convert Reddit posts to article format
                 for post in reddit_posts:
+                    title = post.get('title', 'Reddit Discussion')[:200]
+                    
+                    # Skip if duplicate title (from previous runs or current batch)
+                    if is_duplicate_title(title, all_new):
+                        log(f"   Skipping duplicate Reddit: {title[:50]}...")
+                        continue
+                    
                     article = {
                         'id': f"reddit_{post.get('id', hashlib.md5(post.get('url', '').encode()).hexdigest())}",
-                        'title': post.get('title', 'Reddit Discussion')[:200],
+                        'title': title,
                         'link': post.get('url', ''),
                         'published': post.get('created', datetime.now().isoformat()),
                         'summary': post.get('content', '')[:500] if post.get('content') else f"r/{post.get('subreddit', 'unknown')} - {post.get('author', 'unknown')}",
@@ -545,6 +569,20 @@ def main():
     job_updates = check_job_boards(config)
     log(f"   Found {len(job_updates)} job postings")
     all_new.extend(job_updates)
+    
+    # DEDUPLICATION: Remove articles with duplicate titles across all sources
+    log("\n6. Deduplicating articles by title...")
+    unique_articles = []
+    seen_titles = set()
+    for article in all_new:
+        normalized = normalize_title(article.get('title', ''))
+        if normalized and normalized not in seen_titles:
+            seen_titles.add(normalized)
+            unique_articles.append(article)
+        else:
+            log(f"   Removing duplicate title: {article.get('title', '')[:50]}...")
+    log(f"   {len(all_new)} articles -> {len(unique_articles)} unique after deduplication")
+    all_new = unique_articles
     
     # Categorize all articles and apply strict filtering
     sent_counts = load_sent_counts()
