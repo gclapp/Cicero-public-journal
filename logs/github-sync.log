@@ -5135,3 +5135,50 @@ By Platform:
 ---
 [2026-04-29 23:59:01 UTC] Starting daily GitHub sync...
 [2026-04-29 23:59:01 UTC] Uncommitted changes found, committing...
+[main 8cd8851] Daily sync: 20260429-235901
+ Committer: Ubuntu <ubuntu@ip-172-31-4-228.us-east-2.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 28 files changed, 1633640 insertions(+), 31 deletions(-)
+ create mode 100644 data/whoop/whoop-2026-04-29.json
+remote: error: Trace: 75c78b4b5d50ae0c581729c8cd3dcda0120c79b59e87f6276d56c5d39f00b641        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File resy-system/logs/gunicorn-error.log is 124.19 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/gclapp/cicero-backup.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/gclapp/cicero-backup.git'
+[2026-04-29 23:59:01 UTC] ❌ GitHub push failed
+[2026-04-29 23:59:01 UTC] Checking for journal entries to publish...
+📊 No new journal entries to sync
+[2026-04-29 23:59:01 UTC] Updating content analytics...
+📊 Content Analytics Report
+Generated: 2026-04-29 23:59
+
+📈 Last 7 Days Summary:
+• Total Posts: 0
+• Total Impressions: 0
+• Total Engagements: 0
+• Avg Engagement Rate: 0.00%
+
+By Platform:
+
+👥 Current Followers:
+  Linkedin: 0
+  Twitter: 0
+  Substack: 0
+
+[2026-04-29 23:59:01 UTC] Daily sync complete
+---
+[2026-04-30 11:59:01 UTC] Starting daily GitHub sync...
+[2026-04-30 11:59:01 UTC] Uncommitted changes found, committing...
