@@ -8475,3 +8475,33 @@ No upcoming events found.
     code = input("> ").strip()
            ^^^^^^^^^^^
 EOFError: EOF when reading a line
+📅 Fetching upcoming events (90 days ahead)...
+
+======================================================================
+🔐 Google Calendar Authorization Required
+======================================================================
+
+1. Open this URL in your browser:
+   https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&state=MtJIdAhCrjNHXPSkDykqrKBHZIRwSp&code_challenge=xbjtfTLK7rQz9G88h4yRrguguu8lSgUHBOUZveN9WH4&code_challenge_method=S256&prompt=consent&access_type=offline
+
+2. Sign in with your Google account
+3. Grant permission to read your calendar
+4. Copy the authorization code
+
+5. Paste the code here and press Enter:
+> Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 182, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 147, in main
+    events = get_upcoming_events(days=args.days, max_results=args.max)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 88, in get_upcoming_events
+    service = get_calendar_service()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 82, in get_calendar_service
+    creds = authenticate()
+            ^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py", line 41, in authenticate
+    code = input("> ").strip()
+           ^^^^^^^^^^^
+EOFError: EOF when reading a line
