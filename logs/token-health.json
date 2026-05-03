@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-02T03:55:05.147873",
+  "timestamp": "2026-05-03T03:55:05.482678",
   "results": [
     {
       "status": "missing",
@@ -9,8 +9,8 @@
     },
     {
       "status": "stale",
-      "age_days": 26,
-      "message": "\u26a0\ufe0f Google Docs: Token is 26 days old (threshold: 5)",
+      "age_days": 27,
+      "message": "\u26a0\ufe0f Google Docs: Token is 27 days old (threshold: 5)",
       "action_required": true,
       "critical": true
     },
@@ -30,8 +30,8 @@
     },
     {
       "status": "stale",
-      "age_days": 66,
-      "message": "\u26a0\ufe0f Gmail SMTP: Token is 66 days old (threshold: 30)",
+      "age_days": 67,
+      "message": "\u26a0\ufe0f Gmail SMTP: Token is 67 days old (threshold: 30)",
       "action_required": true,
       "critical": true
     }
