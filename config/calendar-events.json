@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-05-03T16:11:01.986899",
-  "total_events": 56,
-  "travel_events": 6,
+  "last_updated": "2026-05-03T19:06:23.757169",
+  "total_events": 76,
+  "travel_events": 8,
   "events": [
     {
       "summary": "Stay at The Algonquin Hotel Times Square, Autograph Collection",
@@ -447,6 +447,166 @@
       "summary": "Greta: Monthly Meds",
       "start": "Wednesday, July 01",
       "start_raw": "2026-07-01",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Kids with Geoff (Non-standard holiday) ",
+      "start": "Saturday, July 04",
+      "start_raw": "2026-07-04",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Drop Kids off with Stacey",
+      "start": "Sunday, July 05 at 06:00 PM",
+      "start_raw": "2026-07-05T18:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, July 06 at 07:00 AM",
+      "start_raw": "2026-07-06T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Bright Horizons Back-Up Care\u2122",
+      "start": "Friday, July 10",
+      "start_raw": "2026-07-10",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, July 13 at 07:00 AM",
+      "start_raw": "2026-07-13T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Loic Le Meur's birthday",
+      "start": "Tuesday, July 14",
+      "start_raw": "2026-07-14",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stacey Drop Kids with Geoff",
+      "start": "Sunday, July 19 at 09:00 AM",
+      "start_raw": "2026-07-19T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, July 20 at 07:00 AM",
+      "start_raw": "2026-07-20T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at Truckee",
+      "start": "Tuesday, July 21",
+      "start_raw": "2026-07-21",
+      "location": "14600 Donner Pass Rd, Truckee, CA 96161, USA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Kids with Stacey",
+      "start": "Tuesday, July 21 at 12:00 PM",
+      "start_raw": "2026-07-21T12:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Flight to Reno (DL 4126)",
+      "start": "Tuesday, July 21 at 04:50 PM",
+      "start_raw": "2026-07-21T16:50:00-07:00",
+      "location": "Los Angeles Intl LAX",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Pick Up Rental Car",
+      "start": "Tuesday, July 21 at 05:30 PM",
+      "start_raw": "2026-07-21T17:30:00-07:00",
+      "location": "2001 E Plumb Ln, Reno, NV 89502, USA",
+      "description": "<table><tbody><tr><td><p>Your confirmation number is 70126791.<strong></strong></p><p><strong><br></strong></p><p><strong>Location</strong></p></td><td><p><strong>Reno-Tahoe International Airport (RNO",
+      "is_travel": false
+    },
+    {
+      "summary": "Grace Keers's birthday",
+      "start": "Wednesday, July 22",
+      "start_raw": "2026-07-22",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Kids with Stacey (off schedule) ",
+      "start": "Wednesday, July 22",
+      "start_raw": "2026-07-22",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at Donner Lake walk to beach, hot tub, gorgeous views",
+      "start": "Thursday, July 23",
+      "start_raw": "2026-07-23",
+      "location": "14816 Denton Ave, Truckee, CA 96161, USA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Return Rental Car",
+      "start": "Sunday, July 26 at 01:00 PM",
+      "start_raw": "2026-07-26T13:00:00-07:00",
+      "location": "Reno-Tahoe International Airport, 2001 E Plumb Ln, Reno, NV 89502, USA",
+      "description": "<table><tbody><tr><td><p><strong>Location</strong></p></td><td><p><strong>Reno-Tahoe International Airport (RNO)</strong></p></td></tr><tr><td><p><strong>Date &amp; Time</strong></p></td><td><p><stron",
+      "is_travel": false
+    },
+    {
+      "summary": "Flight to Los Angeles Intl (DL 3902)",
+      "start": "Sunday, July 26 at 03:13 PM",
+      "start_raw": "2026-07-26T15:13:00-07:00",
+      "location": "Reno RNO",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, July 27 at 07:00 AM",
+      "start_raw": "2026-07-27T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "House Cleaner (Glowy) ",
+      "start": "Tuesday, July 28 at 09:00 AM",
+      "start_raw": "2026-07-28T09:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
+      "summary": "Greta: Monthly Meds",
+      "start": "Saturday, August 01",
+      "start_raw": "2026-08-01",
       "location": "",
       "description": "",
       "is_travel": false

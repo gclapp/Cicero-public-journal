@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-05-03T16:15:00Z",
+  "status": "COMPLETED",
+  "note": "All travel tasks have been created in Todoist",
+  "upcoming_travel": [
+    {
+      "trip": "NYC Return",
+      "date": "2026-05-07",
+      "flight": "Delta 742 (GQOA6B) departing JFK at 7:00 AM",
+      "tasks_created": [
+        {"name": "✈️ Check in for Delta 742 to LAX (GQOA6B)", "due": "2026-05-06", "id": "6gWmhGRpRFR8qQ5x"},
+        {"name": "🎒 Pack for return flight to LA", "due": "2026-05-06", "id": "6gWmhGmwf8X9PJGx"},
+        {"name": "🚗 Schedule Uber to JFK", "due": "2026-05-06", "id": "6gWmhH79Wc8mjvvQ"}
+      ]
+    },
+    {
+      "trip": "NYC Trip 2",
+      "date": "2026-05-16",
+      "flight": "Delta 960 (GAO7LP) departing LAX at 9:59 PM",
+      "tasks_created": [
+        {"name": "🐕 Book Rover sitter for Greta (May 16-21 NYC)", "due": "2026-05-06", "id": "6gWmhVpJPRw5G4Fx"},
+        {"name": "✈️ Check in for Delta 960 to JFK (GAO7LP)", "due": "2026-05-15", "id": "6gWmhJG3FWC6rX7Q"},
+        {"name": "🎒 Pack for NYC trip", "due": "2026-05-16", "id": "6gWmhJX7vggmF6gx"},
+        {"name": "🚗 Schedule Uber to LAX", "due": "2026-05-16", "id": "6gWmhJw6Cvmc7CqQ"}
+      ]
+    },
+    {
+      "trip": "NYC Return 2",
+      "date": "2026-05-21",
+      "flight": "Delta 742 (HKZ4LV) departing JFK at 7:00 AM",
+      "tasks_created": [
+        {"name": "✈️ Check in for Delta 742 to LAX (HKZ4LV)", "due": "2026-05-20", "id": "6gWmhMwg92qMPMfQ"},
+        {"name": "🎒 Pack for return flight (NYC)", "due": "2026-05-20", "id": "6gWmhPFvXhJ48gPx"}
+      ]
+    },
+    {
+      "trip": "Tahoe Memorial Day",
+      "date": "2026-05-22",
+      "flight": "Delta 4099 to RNO at 8:20 AM",
+      "hotel": "The Ritz-Carlton, Lake Tahoe",
+      "tasks_created": [
+        {"name": "🐕 Book Rover sitter for Greta (May 22-25 Tahoe)", "due": "2026-05-12", "id": "6gWmhPwpx7f4fHWx"},
+        {"name": "✈️ Check in for Delta 4099 to RNO", "due": "2026-05-21", "id": "6gWmhQCC7HpC5Qwx"},
+        {"name": "🎒 Pack for Tahoe with kids", "due": "2026-05-21", "id": "6gWmhQWq2McRVVFQ"},
+        {"name": "🚗 Schedule Uber to LAX (Tahoe trip)", "due": "2026-05-21", "id": "6gWmhRJXJgprxPpx"}
+      ]
+    },
+    {
+      "trip": "Tahoe Return",
+      "date": "2026-05-25",
+      "flight": "Delta 3902 to LAX at 3:04 PM",
+      "tasks_created": [
+        {"name": "✈️ Check in for Delta 3902 to LAX", "due": "2026-05-24", "id": "6gWmhRx7Whvfccrx"},
+        {"name": "🎒 Pack for return flight (Tahoe)", "due": "2026-05-24", "id": "6gWmhVFX4QXfXv4x"}
+      ]
+    }
+  ]
+}
