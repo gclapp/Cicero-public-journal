@@ -17,30 +17,65 @@ CREDENTIALS_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-credent
 TOKEN_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-token.pickle"
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-def authenticate():
+def authenticate(auth_code=None):
     """Authenticate using device flow (no browser)"""
     from google_auth_oauthlib.flow import Flow
+    import base64
+    import hashlib
+    import secrets
+    
+    # Use a fixed code verifier for consistency
+    code_verifier_file = Path.home() / ".openclaw" / "credentials" / "calendar-code-verifier.txt"
+    
+    if code_verifier_file.exists():
+        with open(code_verifier_file) as f:
+            code_verifier = f.read().strip()
+    else:
+        # Generate a new code verifier
+        code_verifier = base64.urlsafe_b64encode(
+            secrets.token_bytes(32)
+        ).decode('utf-8').rstrip('=')
+        with open(code_verifier_file, 'w') as f:
+            f.write(code_verifier)
+    
+    # Generate code challenge
+    code_challenge = base64.urlsafe_b64encode(
+        hashlib.sha256(code_verifier.encode()).digest()
+    ).decode('utf-8').rstrip('=')
     
     flow = Flow.from_client_secrets_file(
         str(CREDENTIALS_FILE),
         scopes=SCOPES,
         redirect_uri='urn:ietf:wg:oauth:2.0:oob')
     
-    auth_url, _ = flow.authorization_url(prompt='consent')
+    # Build auth URL manually with our code challenge
+    auth_url = (
+        f"https://accounts.google.com/o/oauth2/auth"
+        f"?response_type=code"
+        f"&client_id=[REDACTED]"
+        f"&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob"
+        f"&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly"
+        f"&code_challenge={code_challenge}"
+        f"&code_challenge_method=S256"
+        f"&prompt=consent"
+        f"&access_type=offline"
+    )
     
-    print("\n" + "="*70)
-    print("🔐 Google Calendar Authorization Required")
-    print("="*70)
-    print("\n1. Open this URL in your browser:")
-    print(f"   {auth_url}")
-    print("\n2. Sign in with your Google account")
-    print("3. Grant permission to read your calendar")
-    print("4. Copy the authorization code")
-    print("\n5. Paste the code here and press Enter:")
+    if auth_code is None:
+        print("\n" + "="*70)
+        print("🔐 Google Calendar Authorization Required")
+        print("="*70)
+        print("\n1. Open this URL in your browser:")
+        print(f"   {auth_url}")
+        print("\n2. Sign in with your Google account")
+        print("3. Grant permission to read your calendar")
+        print("4. Copy the authorization code")
+        print("\n5. Paste the code here and press Enter:")
+        
+        auth_code = input("> ").strip()
     
-    code = input("> ").strip()
-    
-    flow.fetch_token(code=code)
+    # Fetch token with our code verifier
+    flow.fetch_token(code=auth_code, code_verifier=code_verifier)
     
     # Save credentials
     with open(TOKEN_FILE, 'wb') as f:
@@ -140,7 +175,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--days', type=int, default=90, help='Number of days to look ahead')
     parser.add_argument('--max', type=int, default=100, help='Maximum events to fetch')
+    parser.add_argument('--auth-code', type=str, help='Authorization code from Google')
     args = parser.parse_args()
+    
+    # If auth code provided, authenticate immediately
+    if args.auth_code:
+        authenticate(args.auth_code)
+        return
     
     print(f"📅 Fetching upcoming events ({args.days} days ahead)...")
     

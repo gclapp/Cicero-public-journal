@@ -2428,3 +2428,83 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-05-02 21:00:38] ✅ Email sent
 [2026-05-02 21:00:38] Complete
+[2026-05-03 14:00:02] Starting competitive intelligence v3...
+[2026-05-03 14:00:02] Step 1: RSS + Web search...
+[2026-05-03 14:00:03] ======================================================================
+[2026-05-03 14:00:03] Starting Competitive Intelligence Scan v3
+[2026-05-03 14:00:03] ======================================================================
+[2026-05-03 14:00:03] 
+1. Scanning RSS feeds...
+[2026-05-03 14:00:03]    Scanning: Maven - Google Alerts
+[2026-05-03 14:00:03]    Scanning: Carrot - Google Alerts
+[2026-05-03 14:00:03]    Scanning: KindBody - Google Alerts
+[2026-05-03 14:00:04]    Scanning: WIN Fertility - Google Alerts
+[2026-05-03 14:00:04]    Scanning: Pomelo Health - Google Alerts
+[2026-05-03 14:00:04]    Scanning: Oura - Google Alerts
+[2026-05-03 14:00:04]    Scanning: Maven - Press Releases
+[2026-05-03 14:00:05]    Scanning: Carrot - Press Releases
+[2026-05-03 14:00:06]    Scanning: KindBody - Press Releases
+[2026-05-03 14:00:06]    Scanning: Oura - Press Releases
+[2026-05-03 14:00:07]    Scanning: Midi Health - Press Releases
+[2026-05-03 14:00:07]    Scanning: Evernow - Press Releases
+[2026-05-03 14:00:08]    Scanning: FemTech Funding News
+[2026-05-03 14:00:08]    Scanning: Women's Health AI
+[2026-05-03 14:00:09]    Found 6 new articles from RSS
+[2026-05-03 14:00:09] 
+2. Searching web for competitive news...
+[2026-05-03 14:00:12]    Found 3 new articles from web search
+[2026-05-03 14:00:12] 
+3. Checking LinkedIn executive posts...
+[2026-05-03 14:00:31]    ✓ LinkedIn executive scan complete
+[2026-05-03 14:00:31]    Skipping f8ad95bc... (low FemTech relevance: 0)
+[2026-05-03 14:00:31]    Skipping 08ba4f0e... (low FemTech relevance: 12)
+[2026-05-03 14:00:31]    Skipping a790697f... (low FemTech relevance: 0)
+[2026-05-03 14:00:31]    Skipping 875c02c1... (low FemTech relevance: 0)
+[2026-05-03 14:00:31]    Skipping 584bc365... (low FemTech relevance: 12)
+[2026-05-03 14:00:31]    Skipping 1c12fb40... (low FemTech relevance: 8)
+[2026-05-03 14:00:31] 
+✅ Total new articles: 3
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 3 NEW SIGNALS
+======================================================================
+🔴 Critical: 1 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Maven] Palantir Maven Win Raises Questions On Valuation And Defense Revenue V...
+
+🟠 [Maven] KKR lines up $10bn-plus for AI infrastructure venture led by former AW...
+
+🟡 [Flo Health] Singapore's First MINISO FRIENDS to Open at VivoCity, Launching an Imm...
+
+======================================================================
+[2026-05-03 14:00:31] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 3 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-05-03 14:00:37] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 5 | High: 5 | Medium: 7
+[2026-05-03 14:00:38] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-03 14:00:39] ✅ Email sent
+[2026-05-03 14:00:39] Complete
