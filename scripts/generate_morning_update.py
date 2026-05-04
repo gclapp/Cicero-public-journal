@@ -42,20 +42,40 @@ def get_health_status():
     """Get health dashboard status - MANDATORY"""
     dashboard_url = "https://gclapp.github.io/health-dashboard/"
     
-    # Check if Whoop data exists
-    whoop_status = "Not available"
+    # Check if Whoop data exists and parse it
+    whoop_data = {
+        'available': False,
+        'recovery': None,
+        'hrv': None,
+        'rhr': None,
+        'sleep': None,
+        'sleep_duration': None
+    }
+    
     if WHOOP_SUMMARY_FILE.exists():
         try:
             with open(WHOOP_SUMMARY_FILE, 'r') as f:
                 content = f.read()
                 if content and "No Whoop data" not in content:
-                    whoop_status = "Data available"
-        except:
-            pass
+                    whoop_data['available'] = True
+                    # Parse the summary file
+                    for line in content.split('\n'):
+                        if 'Recovery:' in line and '%' in line:
+                            whoop_data['recovery'] = line.split('**Recovery:**')[1].strip().replace('%', '')
+                        elif 'HRV:' in line and 'ms' in line:
+                            whoop_data['hrv'] = line.split('HRV:')[1].strip().replace('ms', '').strip()
+                        elif 'RHR:' in line and 'bpm' in line:
+                            whoop_data['rhr'] = line.split('RHR:')[1].strip().replace('bpm', '').strip()
+                        elif 'Sleep:' in line and '%' in line:
+                            whoop_data['sleep'] = line.split('**Sleep:**')[1].strip().replace('%', '')
+                        elif 'Duration:' in line:
+                            whoop_data['sleep_duration'] = line.split('Duration:')[1].strip()
+        except Exception as e:
+            whoop_data['error'] = str(e)
     
     return {
         'dashboard_url': dashboard_url,
-        'whoop_status': whoop_status
+        'whoop': whoop_data
     }
 
 def get_calendar_summary():
@@ -237,13 +257,32 @@ def generate_morning_update():
         for dw in destination_weather:
             update += f"- {dw}\n"
     
+    # Build health section with Whoop data
+    whoop = health['whoop']
+    if whoop['available'] and whoop['recovery']:
+        recovery_val = float(whoop['recovery'])
+        if recovery_val >= 67:
+            recovery_emoji = "🟢"
+        elif recovery_val >= 34:
+            recovery_emoji = "🟡"
+        else:
+            recovery_emoji = "🔴"
+        
+        health_section = f"""## 💓 HEALTH
+**Dashboard:** {health['dashboard_url']}
+
+**🔋 Whoop Recovery:** {recovery_emoji} {whoop['recovery']}% | HRV: {whoop['hrv']}ms | RHR: {whoop['rhr']}bpm
+**😴 Sleep:** {whoop['sleep']}% | {whoop['sleep_duration']}"""
+    else:
+        health_section = f"""## 💓 HEALTH
+**Dashboard:** {health['dashboard_url']}
+**Whoop:** Data not available"""
+    
     update += f"""
 ## ✅ TODOIST
 **{todoist_count} tasks** pending for today
 
-## 💓 HEALTH
-**Dashboard:** {health['dashboard_url']}
-**Whoop Status:** {health['whoop_status']}
+{health_section}
 
 ## 📅 CALENDAR
 """

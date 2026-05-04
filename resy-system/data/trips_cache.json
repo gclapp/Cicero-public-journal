@@ -1,48 +1,6 @@
 {
   "trips": [
     {
-      "id": "2026-04-19_2026-04-20",
-      "start": "2026-04-19",
-      "end": "2026-04-20",
-      "nights": [
-        {
-          "date": "2026-04-19",
-          "has_reservation": true,
-          "reservation": {
-            "resy_reservation_id": 859614051,
-            "venue_name": "Nowon East Village",
-            "venue_id": "8541",
-            "date": "2026-04-19",
-            "time": "21:45:00",
-            "party_size": 2,
-            "status": "confirmed",
-            "source": "resy_api",
-            "synced_at": "2026-04-11T17:28:17.096525"
-          },
-          "is_skipped": true,
-          "skip_reason": "Already have a reservation at Nowon",
-          "needs_booking": false
-        },
-        {
-          "date": "2026-04-20",
-          "has_reservation": false,
-          "reservation": null,
-          "is_skipped": true,
-          "skip_reason": "I will be at Keens",
-          "needs_booking": false
-        }
-      ],
-      "total_nights": 2,
-      "booked_nights": 1,
-      "skipped_nights": 2,
-      "pending_nights": 0,
-      "status": "complete",
-      "outbound_flight": "Delta Air Lines flight 960 to New York (HWQX65)",
-      "return_flight": "Delta Air Lines flight 752 to Los Angeles (HWLP2C)",
-      "hotel": "The Algonquin Hotel Times Square, Autograph Collection",
-      "source": "flight_matched"
-    },
-    {
       "id": "2026-05-17_2026-05-20",
       "start": "2026-05-17",
       "end": "2026-05-20",
@@ -85,11 +43,11 @@
       "skipped_nights": 0,
       "pending_nights": 4,
       "status": "pending",
-      "outbound_flight": "Flight to Kennedy Intl (DL 960)",
+      "outbound_flight": "Delta Air Lines flight 960 to New York (GAO7LP)",
       "return_flight": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
       "hotel": null,
       "source": "flight_matched"
     }
   ],
-  "last_updated": "2026-04-19T14:59:59.464221"
+  "last_updated": "2026-05-04T23:29:51.643348"
 }
