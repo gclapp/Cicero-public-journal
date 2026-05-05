@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T14:55:04.352245",
+  "last_updated": "2026-05-05T14:55:04.368711",
   "total_events": 74,
   "travel_events": 8,
   "events": [
@@ -10,14 +10,6 @@
       "location": "The Algonquin Hotel Times Square, Autograph Collection, New York",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
-    },
-    {
-      "summary": "Reservation at The Tavern at Gramercy Tavern",
-      "start": "Monday, May 04 at 05:00 PM",
-      "start_raw": "2026-05-04T17:00:00-07:00",
-      "location": "",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": false
     },
     {
       "summary": "Reservation at Crane Club Restaurant",
@@ -460,7 +452,7 @@
       "is_travel": false
     },
     {
-      "summary": "Bright Horizons Back-Up Care\u2122",
+      "summary": "Bright Horizons Back-up Care",
       "start": "Friday, July 10",
       "start_raw": "2026-07-10",
       "location": "",
@@ -591,6 +583,14 @@
       "summary": "Greta: Monthly Meds",
       "start": "Saturday, August 01",
       "start_raw": "2026-08-01",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, August 03 at 07:00 AM",
+      "start_raw": "2026-08-03T07:00:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false

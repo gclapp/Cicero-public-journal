@@ -8875,3 +8875,283 @@ EOFError: EOF when reading a line
    - Flight to Los Angeles Intl (DL 3902) on Sunday, July 26 at 03:13 PM
 
 💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json
+/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py:127: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow()
+📅 Fetching upcoming events (90 days ahead)...
+
+📊 Found 74 upcoming events:
+============================================================
+
+✈️ Stay at The Algonquin Hotel Times Square, Autograph Collection
+   📆 Sunday, May 03
+   📍 The Algonquin Hotel Times Square, Autograph Collection, New York
+
+📅 Reservation at Crane Club Restaurant
+   📆 Tuesday, May 05 at 05:15 PM
+
+✈️ Delta Air Lines flight 742 to Los Angeles (GQOA6B)
+   📆 Thursday, May 07 at 04:00 AM
+   📍 John F. Kennedy International Airport (New York, NY 11430, United States)
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 07 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 07 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 08 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 08 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Netflix Is A Joke Presents: HASAN HATES RONNY | RONNY HATES HASAN
+   📆 Friday, May 08 at 07:00 PM
+   📍 Hollywood, California
+
+📅 Zoom Whitening Session 2
+   📆 Saturday, May 09 at 10:30 AM
+   📍 Carte Blanche Teeth Whitening, 1407 Glen Oaks Blvd, Pasadena, CA 91105, USA
+
+📅 Peak Health Longevity Consult  with Lynda Masco
+   📆 Monday, May 11 at 06:30 AM
+   📍 Google Meet (instructions in description)
+
+📅 Ollie Consult Call
+   📆 Monday, May 11 at 07:00 AM
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 14 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 14 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 15 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 15 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+✈️ Delta Air Lines flight 960 to New York (GAO7LP)
+   📆 Saturday, May 16 at 09:14 PM
+   📍 Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)
+
+📅 Reservation at Sadelle's
+   📆 Sunday, May 17 at 05:45 AM
+   📍 Sadelle's, 463 W Broadway, (Between W Houston St and Prince St), New York, NY 10012
+
+📅 Reservation at Philippe Chow - Fifth Avenue
+   📆 Sunday, May 17 at 04:30 PM
+
+📅 Ollie Consult Call
+   📆 Monday, May 18 at 07:00 AM
+
+✈️ Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV
+   📆 Thursday, May 21 at 04:00 AM
+   📍 New York(JFK) - Los Angeles(LAX)
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 21 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 21 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Kids in Tahoe with Geoff (Ritz-Carlton Tahoe) 
+   📆 Friday, May 22
+   📍 The Ritz-Carlton, Lake Tahoe, 13031 Ritz Carlton Highlands Ct, Truckee, CA 96161, USA
+
+📅 Stay at The Ritz-Carlton, Lake Tahoe
+   📆 Friday, May 22
+   📍 The Ritz-Carlton, Lake Tahoe, Truckee
+
+✈️ Flight to RNO (DL 4099)
+   📆 Friday, May 22 at 08:20 AM
+
+📅 Kids with Geoff for Memorial Day
+   📆 Sunday, May 24
+
+📅 Ollie Consult Call
+   📆 Monday, May 25 at 07:00 AM
+
+✈️ Flight to LAX (DL 3902)
+   📆 Monday, May 25 at 03:04 PM
+
+📅 House Cleaner (Glowy) 
+   📆 Tuesday, May 26 at 09:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 28 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 28 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 29 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 29 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Monday, June 01
+
+📅 Ollie Consult Call
+   📆 Monday, June 01 at 07:00 AM
+
+📅 Greta Groomer
+   📆 Thursday, June 04 at 08:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Thursday, June 04 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, June 04 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, June 05 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, June 05 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Dinner with Cass and Andrew
+   📆 Saturday, June 06 at 07:00 PM
+
+📅 Ollie Consult Call
+   📆 Monday, June 08 at 07:00 AM
+
+📅 Geoff Physcial
+   📆 Monday, June 08 at 03:15 PM
+   📍 UCLA Jack Skirball Health Center, 26585 Agoura Rd, Calabasas, CA 91302, USA
+
+📅 Last Day of School
+   📆 Wednesday, June 10
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 John Turner Birthday
+   📆 Sunday, June 14 at 12:00 AM
+
+📅 Ken Clapp Birthday
+   📆 Monday, June 15 at 12:00 AM
+
+📅 Ollie Consult Call
+   📆 Monday, June 15 at 07:00 AM
+
+📅 Veronica Tan's birthday
+   📆 Sunday, June 21
+
+📅 Veronica Birthday
+   📆 Sunday, June 21
+
+📅 Ollie Consult Call
+   📆 Monday, June 22 at 07:00 AM
+
+📅 Ollie Consult Call
+   📆 Monday, June 29 at 07:00 AM
+
+📅 House Cleaner (Glowy) 
+   📆 Tuesday, June 30 at 09:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Wednesday, July 01
+
+📅 Kids with Geoff (Non-standard holiday) 
+   📆 Saturday, July 04
+
+📅 Geoff Drop Kids off with Stacey
+   📆 Sunday, July 05 at 06:00 PM
+
+📅 Ollie Consult Call
+   📆 Monday, July 06 at 07:00 AM
+
+📅 Bright Horizons Back-up Care
+   📆 Friday, July 10
+
+📅 Ollie Consult Call
+   📆 Monday, July 13 at 07:00 AM
+
+📅 Loic Le Meur's birthday
+   📆 Tuesday, July 14
+
+📅 Stacey Drop Kids with Geoff
+   📆 Sunday, July 19 at 09:00 AM
+
+📅 Ollie Consult Call
+   📆 Monday, July 20 at 07:00 AM
+
+📅 Stay at Truckee
+   📆 Tuesday, July 21
+   📍 14600 Donner Pass Rd, Truckee, CA 96161, USA
+
+📅 Drop Kids with Stacey
+   📆 Tuesday, July 21 at 12:00 PM
+
+✈️ Flight to Reno (DL 4126)
+   📆 Tuesday, July 21 at 04:50 PM
+   📍 Los Angeles Intl LAX
+
+📅 Pick Up Rental Car
+   📆 Tuesday, July 21 at 05:30 PM
+   📍 2001 E Plumb Ln, Reno, NV 89502, USA
+
+📅 Grace Keers's birthday
+   📆 Wednesday, July 22
+
+📅 Kids with Stacey (off schedule) 
+   📆 Wednesday, July 22
+
+📅 Stay at Donner Lake walk to beach, hot tub, gorgeous views
+   📆 Thursday, July 23
+   📍 14816 Denton Ave, Truckee, CA 96161, USA
+
+📅 Return Rental Car
+   📆 Sunday, July 26 at 01:00 PM
+   📍 Reno-Tahoe International Airport, 2001 E Plumb Ln, Reno, NV 89502, USA
+
+✈️ Flight to Los Angeles Intl (DL 3902)
+   📆 Sunday, July 26 at 03:13 PM
+   📍 Reno RNO
+
+📅 Ollie Consult Call
+   📆 Monday, July 27 at 07:00 AM
+
+📅 House Cleaner (Glowy) 
+   📆 Tuesday, July 28 at 09:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Saturday, August 01
+
+📅 Ollie Consult Call
+   📆 Monday, August 03 at 07:00 AM
+
+✈️ TRAVEL SUMMARY: 8 trip(s) detected
+   - Stay at The Algonquin Hotel Times Square, Autograph Collection on Sunday, May 03
+   - Delta Air Lines flight 742 to Los Angeles (GQOA6B) on Thursday, May 07 at 04:00 AM
+   - Delta Air Lines flight 960 to New York (GAO7LP) on Saturday, May 16 at 09:14 PM
+   - Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV on Thursday, May 21 at 04:00 AM
+   - Flight to RNO (DL 4099) on Friday, May 22 at 08:20 AM
+   - Flight to LAX (DL 3902) on Monday, May 25 at 03:04 PM
+   - Flight to Reno (DL 4126) on Tuesday, July 21 at 04:50 PM
+   - Flight to Los Angeles Intl (DL 3902) on Sunday, July 26 at 03:13 PM
+
+💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json

@@ -26,7 +26,22 @@ class VitusHealthMonitor:
         return None
     
     def fetch_whoop_data(self, days=7):
-        """Fetch Whoop data for analysis"""
+        """Fetch Whoop data - uses locally cached data from whoop_daily_fetch.py"""
+        # Try to load from local cache first (populated by whoop_daily_fetch.py cron job)
+        today = datetime.now().strftime('%Y-%m-%d')
+        cache_file = DATA_DIR / f'whoop-{today}.json'
+        
+        if cache_file.exists():
+            try:
+                with open(cache_file, 'r') as f:
+                    data = json.load(f)
+                print(f"Loaded Whoop data from cache: {cache_file}")
+                return data
+            except Exception as e:
+                print(f"Error loading cached data: {e}")
+        
+        # Fallback: try to fetch fresh data via API
+        print("Cache not found, attempting API fetch...")
         token = self.get_token()
         if not token:
             return None
@@ -55,6 +70,16 @@ class VitusHealthMonitor:
             }
         except Exception as e:
             print(f"Error fetching Whoop: {e}")
+            # Last resort: try to load any recent cached file
+            try:
+                json_files = sorted(DATA_DIR.glob('whoop-*.json'), reverse=True)
+                if json_files:
+                    with open(json_files[0], 'r') as f:
+                        data = json.load(f)
+                    print(f"Loaded fallback data from: {json_files[0]}")
+                    return data
+            except Exception as e2:
+                print(f"Fallback load also failed: {e2}")
             return None
     
     def analyze_recovery_trend(self, recovery_data):

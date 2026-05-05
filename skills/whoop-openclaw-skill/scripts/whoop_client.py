@@ -106,9 +106,19 @@ class WhoopClient:
         """Get recovery data"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            # Convert date to datetime and format as ISO 8601 with Z (UTC)
+            if isinstance(start_date, datetime):
+                dt = start_date
+            else:
+                dt = datetime.combine(start_date, datetime.min.time())
+            # Ensure UTC format with Z suffix
+            params["start"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                dt = end_date
+            else:
+                dt = datetime.combine(end_date, datetime.min.time())
+            params["end"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         
         return self._make_request("recovery", params=params)
     
@@ -116,9 +126,17 @@ class WhoopClient:
         """Get sleep data (v2 activity endpoint)"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            if isinstance(start_date, datetime):
+                dt = start_date
+            else:
+                dt = datetime.combine(start_date, datetime.min.time())
+            params["start"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                dt = end_date
+            else:
+                dt = datetime.combine(end_date, datetime.min.time())
+            params["end"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         
         return self._make_activity_request("sleep", params=params)
     
@@ -145,9 +163,17 @@ class WhoopClient:
         """Get physiological cycle data (strain, calories, HR, HRV)"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            if isinstance(start_date, datetime):
+                dt = start_date
+            else:
+                dt = datetime.combine(start_date, datetime.min.time())
+            params["start"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                dt = end_date
+            else:
+                dt = datetime.combine(end_date, datetime.min.time())
+            params["end"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         
         return self._make_request("cycle", params=params)
     
@@ -163,9 +189,17 @@ class WhoopClient:
         """Get workout data (v2 activity endpoint)"""
         params = {"limit": limit}
         if start_date:
-            params["start"] = start_date.isoformat()
+            if isinstance(start_date, datetime):
+                dt = start_date
+            else:
+                dt = datetime.combine(start_date, datetime.min.time())
+            params["start"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         if end_date:
-            params["end"] = end_date.isoformat()
+            if isinstance(end_date, datetime):
+                dt = end_date
+            else:
+                dt = datetime.combine(end_date, datetime.min.time())
+            params["end"] = dt.strftime('%Y-%m-%dT%H:%M:%SZ')
         
         return self._make_activity_request("workout", params=params)
     

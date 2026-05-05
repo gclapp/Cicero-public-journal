@@ -1,0 +1,4 @@
+Generating daily briefing...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/activity/sleep?limit=7
+Failed to generate briefing
+Failed to send briefing

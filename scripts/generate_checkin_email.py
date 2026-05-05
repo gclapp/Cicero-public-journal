@@ -595,6 +595,15 @@ h1 {{ color: #2c3e50; font-size: 24px; border-bottom: 2px solid #2c3e50; padding
     
     html += "</div>"
     
+    # Whoop data section (if available)
+    if whoop_data and whoop_data.strip():
+        html += f"""
+<div class="section">
+<h2>💪 Today's Health (Whoop)</h2>
+<pre style="white-space: pre-wrap; font-family: inherit;">{whoop_data}</pre>
+</div>
+"""
+    
     # Health reminder
     html += """
 <div class="section">
