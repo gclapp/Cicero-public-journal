@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-05-05T14:55:04.368711",
+  "last_updated": "2026-05-06T14:55:03.800311",
   "total_events": 74,
-  "travel_events": 8,
+  "travel_events": 9,
   "events": [
     {
       "summary": "Stay at The Algonquin Hotel Times Square, Autograph Collection",
@@ -12,19 +12,19 @@
       "is_travel": true
     },
     {
-      "summary": "Reservation at Crane Club Restaurant",
-      "start": "Tuesday, May 05 at 05:15 PM",
-      "start_raw": "2026-05-05T17:15:00-07:00",
-      "location": "",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": false
-    },
-    {
       "summary": "Delta Air Lines flight 742 to Los Angeles (GQOA6B)",
       "start": "Thursday, May 07 at 04:00 AM",
       "start_raw": "2026-05-07T04:00:00-07:00",
       "location": "John F. Kennedy International Airport (New York, NY 11430, United States)",
       "description": "Delta Air Lines flight 742 (6 hours, 4 minutes)\nConfirmation code: GQOA6B\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 7:00 AM on Thursday, M",
+      "is_travel": true
+    },
+    {
+      "summary": "Flight to LAX (DL 742)",
+      "start": "Thursday, May 07 at 04:00 AM",
+      "start_raw": "2026-05-07T04:00:00-07:00",
+      "location": "Kennedy Intl JFK",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
     {
