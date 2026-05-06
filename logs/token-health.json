@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-05T15:37:06.723520",
+  "timestamp": "2026-05-06T03:55:05.561998",
   "results": [
     {
       "status": "healthy",
@@ -10,8 +10,8 @@
     },
     {
       "status": "stale",
-      "age_days": 29,
-      "message": "\u26a0\ufe0f Google Docs: Token is 29 days old (threshold: 5)",
+      "age_days": 30,
+      "message": "\u26a0\ufe0f Google Docs: Token is 30 days old (threshold: 5)",
       "action_required": true,
       "critical": true
     },
