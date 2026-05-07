@@ -19,6 +19,15 @@ LINKEDIN_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "linkedin-u
 SENT_COUNT_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-sent-count-v3.json"
 EMAIL_OUTPUT = Path.home() / ".openclaw" / "workspace" / "config" / "competitor-email-v3.html"
 
+def normalize_title(title):
+    """Normalize title for deduplication comparison"""
+    if not title:
+        return ""
+    normalized = title.lower().strip()
+    normalized = re.sub(r'\s+', ' ', normalized)
+    normalized = re.sub(r'\s*[-|]\s*(pr newswire|business wire|globenewswire|\.\.\.)$', '', normalized)
+    return normalized
+
 def load_json(filepath):
     if filepath.exists():
         with open(filepath) as f:
@@ -74,12 +83,12 @@ def parse_date_string(date_str):
     
     return None
 
-def is_within_30_days(article):
-    """Check if article is within 30 days"""
+def is_within_7_days(article):
+    """Check if article is within 7 days (recent news only)"""
     article_date = parse_article_date(article)
     if not article_date:
         return False
-    cutoff = datetime.now() - timedelta(days=30)
+    cutoff = datetime.now() - timedelta(days=7)
     if article_date.tzinfo:
         article_date = article_date.replace(tzinfo=None)
     return article_date >= cutoff
@@ -146,7 +155,7 @@ def get_company_logo_url(company_name):
 def analyze_trends(articles):
     """Analyze articles for trend patterns"""
     if not articles:
-        return "No significant competitive activity detected in the last 30 days."
+        return "No significant competitive activity detected in the last 7 days."
     
     # Count by theme
     ai_mentions = sum(1 for a in articles if any(k in (a.get('title','') + a.get('summary','')).lower() 
@@ -259,8 +268,8 @@ def generate_linkedin_html():
         else:
             updates = data.get('posts', []) or data.get('updates', [])
         
-        # Filter to recent
-        cutoff = datetime.now() - timedelta(days=30)
+        # Filter to recent (7 days)
+        cutoff = datetime.now() - timedelta(days=7)
         recent_updates = []
         for u in updates:
             found_at = u.get('found_at', '')
@@ -327,7 +336,7 @@ def generate_reddit_html():
             return ''
         
         all_mentions = []
-        cutoff = datetime.now() - timedelta(days=30)
+        cutoff = datetime.now() - timedelta(days=7)
         
         # Handle different data structures
         if isinstance(data, dict):
@@ -384,13 +393,20 @@ def generate_html_email():
     else:
         articles_list = articles_data.get('articles', [])
     
-    # Filter to recent and relevant
+    # Filter to recent and relevant (7 days only), with title deduplication
     filtered = []
+    seen_titles = set()
     for article in articles_list:
         if not isinstance(article, dict):
             continue
-        if not is_within_30_days(article):
+        if not is_within_7_days(article):
             continue
+        # Title-based deduplication (exact match)
+        title = article.get('title', '')
+        normalized_title = normalize_title(title)
+        if normalized_title in seen_titles:
+            continue
+        seen_titles.add(normalized_title)
         filtered.append(article)
     
     # Categorize
@@ -470,7 +486,7 @@ def generate_html_email():
     <div class="container">
         <div class="header">
             <h1>🏛️ Competitive Intelligence Report</h1>
-            <p>{today} | 30-Day Window | FemTech & Women's Health Focus</p>
+            <p>{today} | 7-Day Window | FemTech & Women's Health Focus</p>
         </div>
         
         <div class="exec-summary">

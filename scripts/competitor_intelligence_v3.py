@@ -10,6 +10,7 @@ Competitive Intelligence System v3 - Complete Overhaul
 import os
 import json
 import hashlib
+import re
 import feedparser
 import requests
 from datetime import datetime, timedelta
@@ -37,11 +38,11 @@ def load_config():
     return {}
 
 def load_seen():
-    """Load seen article IDs with timestamps"""
+    """Load seen article IDs with timestamps and titles"""
     if SEEN_FILE.exists():
         with open(SEEN_FILE) as f:
             return json.load(f)
-    return {"articles": {}, "linkedin_posts": {}, "job_changes": {}}
+    return {"articles": {}, "linkedin_posts": {}, "job_changes": {}, "titles": {}}
 
 def save_seen(seen):
     """Save seen article IDs"""
@@ -74,6 +75,17 @@ def increment_sent_count(article_id, sent_counts):
     """Increment the send count for an article"""
     sent_counts[article_id] = sent_counts.get(article_id, 0) + 1
     save_sent_counts(sent_counts)
+
+def normalize_title(title):
+    """Normalize title for deduplication comparison"""
+    if not title:
+        return ""
+    # Lowercase, strip whitespace, remove extra spaces
+    normalized = title.lower().strip()
+    # Remove common suffixes/prefixes that vary by source
+    normalized = re.sub(r'\s+', ' ', normalized)  # Collapse multiple spaces
+    normalized = re.sub(r'\s*[-|]\s*(pr newswire|business wire|globenewswire|\.\.\.)$', '', normalized)
+    return normalized
 
 def article_id(entry):
     """Generate unique ID for article - v3 improved stability"""
@@ -116,8 +128,8 @@ def parse_date(published_str):
     
     return None
 
-def is_stale_article(published_str, max_age_days=30):
-    """Check if article is too old to report"""
+def is_stale_article(published_str, max_age_days=7):
+    """Check if article is too old to report (default: 7 days)"""
     pub_date = parse_date(published_str)
     if not pub_date:
         return False  # If we can't parse, assume it's fresh
@@ -136,6 +148,21 @@ def get_article_date(published_str):
         return dt.strftime('%b %d, %Y')
     return 'Unknown date'
 
+def is_title_duplicate(title, seen):
+    """Check if title already exists (exact match after normalization)"""
+    normalized = normalize_title(title)
+    if not normalized:
+        return False
+    return normalized in seen.get('titles', {})
+
+def add_title_to_seen(title, seen):
+    """Add normalized title to seen tracking"""
+    normalized = normalize_title(title)
+    if normalized:
+        if 'titles' not in seen:
+            seen['titles'] = {}
+        seen['titles'][normalized] = datetime.now().isoformat()
+
 def scan_rss_feeds(config):
     """Scan RSS feeds for new articles"""
     seen = load_seen()
@@ -149,20 +176,26 @@ def scan_rss_feeds(config):
             
             for entry in feed.entries:
                 aid = article_id(entry)
+                title = entry.get('title', 'No title')
                 
-                # Skip if already seen
+                # Skip if already seen by ID
                 if aid in seen['articles']:
+                    continue
+                
+                # Skip if title already exists (exact match dedup)
+                if is_title_duplicate(title, seen):
+                    log(f"   Skipping duplicate title: {title[:60]}...")
                     continue
                 
                 published = entry.get('published', entry.get('updated', entry.get('pubDate', '')))
                 
-                # Skip stale articles (>30 days old)
+                # Skip stale articles (>7 days old)
                 if is_stale_article(published):
                     continue
                 
                 article = {
                     'id': aid,
-                    'title': entry.get('title', 'No title'),
+                    'title': title,
                     'link': entry.get('link', ''),
                     'published': published,
                     'published_formatted': get_article_date(published),
@@ -176,8 +209,9 @@ def scan_rss_feeds(config):
                 seen['articles'][aid] = {
                     'found_at': datetime.now().isoformat(),
                     'sent': False,
-                    'title': article['title'][:100]  # Store title for debugging
+                    'title': title[:100]  # Store title for debugging
                 }
+                add_title_to_seen(title, seen)
                 
         except Exception as e:
             log(f"   ⚠️ Error scanning {name}: {e}")
@@ -212,7 +246,7 @@ def search_web_for_news(config):
         try:
             url = "https://api.search.brave.com/res/v1/news/search"
             headers = {"X-Subscription-Token": api_key}
-            params = {"q": query, "count": 5, "freshness": "month"}
+            params = {"q": query, "count": 5, "freshness": "week"}  # Changed from month to week
             
             response = requests.get(url, headers=headers, params=params, timeout=30)
             
@@ -223,7 +257,13 @@ def search_web_for_news(config):
                     item_title = item.get('title', '')
                     aid = hashlib.md5(f"{item_url}:{item_title}".encode()).hexdigest()
                     
+                    # Skip if already seen by ID
                     if aid in seen['articles']:
+                        continue
+                    
+                    # Skip if title already exists (exact match dedup)
+                    if is_title_duplicate(item_title, seen):
+                        log(f"   Skipping duplicate title: {item_title[:60]}...")
                         continue
                     
                     article = {
@@ -242,8 +282,9 @@ def search_web_for_news(config):
                     seen['articles'][aid] = {
                         'found_at': datetime.now().isoformat(),
                         'sent': False,
-                        'title': article['title'][:100]
+                        'title': item_title[:100]
                     }
+                    add_title_to_seen(item_title, seen)
             elif response.status_code == 429:
                 log(f"   ⚠️ Brave API rate limit hit")
                 break

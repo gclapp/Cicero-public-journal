@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-06T14:55:03.800311",
-  "total_events": 74,
+  "last_updated": "2026-05-07T14:55:03.960852",
+  "total_events": 78,
   "travel_events": 9,
   "events": [
     {
@@ -60,6 +60,14 @@
       "is_travel": false
     },
     {
+      "summary": "SlooMoo Slime with kids",
+      "start": "Friday, May 08 at 05:35 PM",
+      "start_raw": "2026-05-08T17:35:00-07:00",
+      "location": "Sloomoo Institute - Los Angeles (157 S Fairfax Ave, Los Angeles, CA, United States)",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/282425724066261?p=K5HRDnrLoBejym9viY\nMeeting ID: 282 42",
+      "is_travel": false
+    },
+    {
       "summary": "Netflix Is A Joke Presents: HASAN HATES RONNY | RONNY HATES HASAN",
       "start": "Friday, May 08 at 07:00 PM",
       "start_raw": "2026-05-08T19:00:00-07:00",
@@ -92,6 +100,14 @@
       "is_travel": false
     },
     {
+      "summary": "Stay at The Westin Palo Alto",
+      "start": "Tuesday, May 12",
+      "start_raw": "2026-05-12",
+      "location": "The Westin Palo Alto, Palo Alto",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
       "summary": "Pick up Sophie from School",
       "start": "Thursday, May 14 at 01:30 PM",
       "start_raw": "2026-05-14T13:30:00-07:00",
@@ -105,6 +121,14 @@
       "start_raw": "2026-05-14T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Republique",
+      "start": "Thursday, May 14 at 06:15 PM",
+      "start_raw": "2026-05-14T18:15:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
       "is_travel": false
     },
     {
@@ -140,10 +164,10 @@
       "is_travel": false
     },
     {
-      "summary": "Reservation at Philippe Chow - Fifth Avenue",
+      "summary": "Reservation at Crown Shy",
       "start": "Sunday, May 17 at 04:30 PM",
       "start_raw": "2026-05-17T16:30:00-07:00",
-      "location": "",
+      "location": "Crown Shy, 70 Pine St, (Between William St and Pearl St), New York, NY 10005",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
       "is_travel": false
     },
@@ -152,6 +176,14 @@
       "start": "Monday, May 18 at 07:00 AM",
       "start_raw": "2026-05-18T07:00:00-07:00",
       "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Dinner Reservation",
+      "start": "Monday, May 18 at 05:00 PM",
+      "start_raw": "2026-05-18T17:00:00-07:00",
+      "location": "Philippe Chow, 10 E 52nd St, New York, NY 10022, USA",
       "description": "",
       "is_travel": false
     },

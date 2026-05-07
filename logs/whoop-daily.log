@@ -60,3 +60,9 @@
 [2026-05-05 14:30:04] ✅ Whoop data saved: Recovery 49.0%, Sleep 64.0%
 [2026-05-06 14:30:01] Starting Whoop daily fetch...
 [2026-05-06 14:30:02] ✅ Whoop data saved: Recovery 40.0%, Sleep 74.0%
+[2026-05-07 14:30:02] Starting Whoop daily fetch...
+[2026-05-07 14:30:02] ❌ Error fetching Whoop data: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=7
+[2026-05-07 14:30:02] ❌ Failed to fetch Whoop data
+[2026-05-07 14:30:02] Starting Whoop daily fetch...
+[2026-05-07 14:30:02] ❌ Error fetching Whoop data: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=7
+[2026-05-07 14:30:02] ❌ Failed to fetch Whoop data

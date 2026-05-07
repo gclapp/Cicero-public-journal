@@ -1,0 +1,17 @@
+# Vitus Health Coaching - Cron Schedule
+# Add these to the main crontab
+
+# Morning Briefing - 7:00 AM PT (15:00 UTC)
+0 15 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py morning >> /home/ubuntu/.openclaw/workspace/logs/vitus-morning.log 2>&1
+
+# Midday Check-In - 12:00 PM PT (20:00 UTC)
+0 20 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday >> /home/ubuntu/.openclaw/workspace/logs/vitus-midday.log 2>&1
+
+# Evening Check-In - 8:00 PM PT (04:00 UTC next day)
+0 4 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py evening >> /home/ubuntu/.openclaw/workspace/logs/vitus-evening.log 2>&1
+
+# Daily Whoop Data Fetch - 6:30 AM PT (14:30 UTC)
+30 14 * * * python3 /home/ubuntu/.openclaw/workspace/scripts/whoop_daily_fetch.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-daily.log 2>&1
+
+# Lose It! Data Sync - 9:00 AM PT (17:00 UTC)
+0 17 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 loseit_integration.py latest >> /home/ubuntu/.openclaw/workspace/logs/loseit-sync.log 2>&1

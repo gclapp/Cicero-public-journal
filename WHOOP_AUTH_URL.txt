@@ -1,0 +1,1 @@
+https://api.prod.whoop.com/oauth/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=https://gclapp.github.io/whoop-oauth/callback.html&scope=read:recovery%20read:cycles%20read:workout%20read:sleep%20read:profile%20read:body_measurement&state=vitus_auth_2026

@@ -3209,3 +3209,64 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-04-18 14:00:39] ✅ Email sent
 [2026-04-18 14:00:39] Complete
+[2026-05-07 14:22:10] Starting competitive intelligence v2...
+[2026-05-07 14:22:10] Step 1: RSS + Web search (v3)...
+[2026-05-07 14:22:10] ======================================================================
+[2026-05-07 14:22:10] Starting Competitive Intelligence Scan v3
+[2026-05-07 14:22:10] ======================================================================
+[2026-05-07 14:22:10] 
+1. Scanning RSS feeds...
+[2026-05-07 14:22:10]    Scanning: Maven - Google Alerts
+[2026-05-07 14:22:11]    Scanning: Carrot - Google Alerts
+[2026-05-07 14:22:11]    Scanning: KindBody - Google Alerts
+[2026-05-07 14:22:11]    Scanning: WIN Fertility - Google Alerts
+[2026-05-07 14:22:12]    Scanning: Pomelo Health - Google Alerts
+[2026-05-07 14:22:12]    Scanning: Oura - Google Alerts
+[2026-05-07 14:22:12]    Scanning: Maven - Press Releases
+[2026-05-07 14:22:12]    Scanning: Carrot - Press Releases
+[2026-05-07 14:22:13]    Scanning: KindBody - Press Releases
+[2026-05-07 14:22:13]    Scanning: Oura - Press Releases
+[2026-05-07 14:22:13]    Scanning: Midi Health - Press Releases
+[2026-05-07 14:22:13]    Scanning: Evernow - Press Releases
+[2026-05-07 14:22:13]    Scanning: FemTech Funding News
+[2026-05-07 14:22:14]    Scanning: Women's Health AI
+[2026-05-07 14:22:14]    Found 0 new articles from RSS
+[2026-05-07 14:22:14] 
+2. Searching web for competitive news...
+[2026-05-07 14:22:15]    Found 0 new articles from web search
+[2026-05-07 14:22:15] 
+3. Checking LinkedIn executive posts...
+[2026-05-07 14:22:34]    ✓ LinkedIn executive scan complete
+[2026-05-07 14:22:34] 
+✅ No new competitive signals found
+[2026-05-07 14:22:34] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 5 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 3 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 10 job changes
+
+3. Searching for company announcements...
+   Found 2 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-05-07 14:22:41] Step 3: Generating email (v3)...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 3 | High: 5 | Medium: 3
+[2026-05-07 14:22:41] Sending competitive intelligence email...
+[2026-05-07 14:22:41] Fixed version tag applied (send 4 of 5)
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-07 14:22:43] ✅ Email sent
+[2026-05-07 14:22:43] Complete
