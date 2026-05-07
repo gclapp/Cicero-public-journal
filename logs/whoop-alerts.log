@@ -22,3 +22,9 @@ Failed to fetch Whoop data
 [2026-05-06 18:00:02.207222] Checking Whoop alerts...
 Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
 Failed to fetch Whoop data
+[2026-05-07 00:00:03.544953] Checking Whoop alerts...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
+Failed to fetch Whoop data
+[2026-05-07 06:00:02.516605] Checking Whoop alerts...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
+Failed to fetch Whoop data
