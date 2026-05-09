@@ -6,8 +6,17 @@ LOG_FILE="/home/ubuntu/.openclaw/workspace/logs/travel-automation-v2.log"
 LOCK_FILE="/tmp/travel_automation.lock"
 SCRIPT="/home/ubuntu/.openclaw/workspace/scripts/travel_automation_v2.py"
 
+# Add npm-global bin to PATH for todoist CLI
+export PATH="$PATH:/home/ubuntu/.npm-global/bin"
+
 # Create log directory if needed
 mkdir -p "$(dirname "$LOG_FILE")"
+
+# Verify todoist CLI is available
+if ! command -v todoist &> /dev/null; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ERROR: todoist CLI not found in PATH" >> "$LOG_FILE"
+    exit 1
+fi
 
 # Prevent overlapping runs
 if [ -f "$LOCK_FILE" ]; then

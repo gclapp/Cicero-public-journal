@@ -498,19 +498,22 @@ bash scripts/cron-backup.sh restore
 bash scripts/cron-backup.sh verify
 ```
 
-### Active Cron Jobs (as of March 19, 2026)
+### Active Cron Jobs (as of May 9, 2026)
 | Job | Schedule | Script | Purpose |
 |-----|----------|--------|---------|
 | Heartbeat | Every 55 min | `heartbeat-check.sh` | Keep cache warm, check-ins |
 | Watch Hunt | 9 AM & 6 PM PT | `watch-hunt-cron.sh` | 1973 Rolex search |
 | Calendar Refresh | 6:55 AM PT | `calendar_reader.py` | Daily calendar sync |
 | IMAP Check | Every 15 min | `imap-check-cron.sh` | Email monitoring |
-| Competitor Report | 2 PM PT daily | `daily-competitor-report.sh` | Competitive intel |
+| Competitor Report | 7 AM & 2 PM PT | `daily-competitor-report-v3.sh` | Competitive intel |
 | Security Audit | Sundays 8 AM PT | `weekly-security-audit.sh` | Security report |
 | Reddit Report | Sundays 9 AM PT | `reddit-weekly-report.sh` | Sentiment analysis |
 | Weekly Email | Saturdays 9 AM PT | `weekly-email-report.py` | Week summary |
 | Stock Tracker | 6 PM PT daily | `fetch_stock_data.py` | 30-day rolling prices |
-| NYC Reminder | March 12, 2 PM PT | `sunday-nyc-reminder.sh` | Trip reminder |
+| **Token Health Monitor** | **9 AM & 9 PM PT** | **`token_health_monitor.py`** | **Whoop + Calendar token health** |
+| Whoop Auto-Refresh | Every 30 min | `token_auto_refresh_v2.py` | Proactive Whoop token refresh |
+| Whoop Token Monitor | Every 6 hours | `whoop_token_monitor.py` | Vitus health agent token check |
+| Vitus Health Agent | 3x daily | `coach_engine.py` | Morning/midday/evening health briefings |
 
 ### Post-Update Checklist
 After ANY system update or restart:

@@ -84,20 +84,20 @@
     "1705": {
       "venue_name": "Semma",
       "failures": 3,
-      "last_failure": "2026-04-23T05:32:27.605698",
+      "last_failure": "2026-05-09T14:05:26.492984",
       "circuit_open": true,
-      "circuit_opened_at": "2026-04-23T05:32:27.605713",
+      "circuit_opened_at": "2026-05-09T14:05:26.492999",
       "failure_messages": [
         {
-          "timestamp": "2026-04-23T05:08:47.865025",
+          "timestamp": "2026-05-09T13:42:19.149730",
           "message": "HTTP 400: BAD REQUEST"
         },
         {
-          "timestamp": "2026-04-23T05:21:24.916423",
+          "timestamp": "2026-05-09T13:54:22.308548",
           "message": "HTTP 400: BAD REQUEST"
         },
         {
-          "timestamp": "2026-04-23T05:32:27.605708",
+          "timestamp": "2026-05-09T14:05:26.492995",
           "message": "HTTP 400: BAD REQUEST"
         }
       ],
@@ -113,5 +113,5 @@
       "first_failure": "2026-04-18T19:03:08.437697"
     }
   },
-  "last_updated": "2026-04-23T05:50:28.449623"
+  "last_updated": "2026-05-09T14:15:58.458610"
 }

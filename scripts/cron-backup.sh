@@ -38,12 +38,15 @@ case "${1:-backup}" in
 2. Watch hunt - 9 AM & 6 PM PT daily
 3. Calendar refresh - 6:55 AM PT daily
 4. IMAP email check - every 15 minutes
-5. Daily competitor report - 2 PM PT daily
+5. Daily competitor report - 7 AM & 2 PM PT daily
 6. Weekly security audit - Sundays 8 AM PT
 7. Reddit weekly report - Sundays 9 AM PT
 8. Weekly email report - Saturdays 9 AM PT
-9. NYC reminder - March 12 at 2 PM PT
-10. Stock price fetch with 30-day history - 6 PM PT daily
+9. Stock price fetch with 30-day history - 6 PM PT daily
+10. Token health monitor - 9 AM & 9 PM PT daily (Whoop + Calendar)
+11. Whoop token monitor - every 6 hours
+12. Whoop auto-refresh - every 30 minutes
+13. Vitus health agent - 3x daily (morning/midday/evening)
 EXPECTED
         ;;
     *)

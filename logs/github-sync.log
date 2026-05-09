@@ -6021,3 +6021,226 @@ By Platform:
 ---
 [2026-05-07 23:59:01 UTC] Starting daily GitHub sync...
 [2026-05-07 23:59:01 UTC] Uncommitted changes found, committing...
+[main 9798f83] Daily sync: 20260507-235901
+ Committer: Ubuntu <ubuntu@ip-172-31-4-228.us-east-2.compute.internal>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 59 files changed, 7185 insertions(+), 377 deletions(-)
+ create mode 100644 APPLE_HEALTH_SETUP.md
+ create mode 100644 WHOOP_AUTH_URL.txt
+ create mode 100644 WHOOP_TOKEN_REFRESH.md
+ create mode 100644 agents/health-agent/VITUS_2.0_SUMMARY.md
+ create mode 100644 agents/health-agent/WHOOP_TOKEN_REFRESH.md
+ create mode 100644 agents/health-agent/coach_engine.py
+ create mode 100644 agents/health-agent/data_collection.py
+ create mode 100644 agents/health-agent/loseit_integration.py
+ create mode 100644 agents/health-agent/vitus-cron-schedule.txt
+ create mode 100644 agents/health-agent/whoop_token_monitor.py
+ create mode 100644 config/competitor-dedup-fix-summary.md
+ create mode 100644 config/cron-backups/crontab-20260507-142735.txt
+ create mode 100644 config/cron-backups/crontab-20260507-145217.txt
+ create mode 100644 data/whoop/token-status.json
+ create mode 100644 logs/loseit-sync.log
+ create mode 100644 logs/vitus-midday.log
+ create mode 100644 logs/vitus-morning.log
+ create mode 100644 logs/whoop-token-monitor.log
+remote: error: Trace: d7e108a536f3cf8b5cf2f2177c5398547d6f396f7e47de1284baec383606ce0b        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File resy-system/logs/gunicorn-error.log is 130.65 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 128.28 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.30 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 126.90 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 131.94 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 131.23 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.38 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 125.99 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 125.93 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 128.83 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.40 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 125.48 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 128.78 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.47 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.35 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 124.99 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 124.19 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 131.84 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/gclapp/cicero-backup.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/gclapp/cicero-backup.git'
+[2026-05-07 23:59:01 UTC] ❌ GitHub push failed
+[2026-05-07 23:59:01 UTC] Checking for journal entries to publish...
+📊 No new journal entries to sync
+[2026-05-07 23:59:01 UTC] Updating content analytics...
+📊 Content Analytics Report
+Generated: 2026-05-08 00:01
+
+📈 Last 7 Days Summary:
+• Total Posts: 0
+• Total Impressions: 0
+• Total Engagements: 0
+• Avg Engagement Rate: 0.00%
+
+By Platform:
+
+👥 Current Followers:
+  Linkedin: 0
+  Twitter: 0
+  Substack: 0
+
+[2026-05-07 23:59:01 UTC] Daily sync complete
+---
+[2026-05-08 11:59:01 UTC] Starting daily GitHub sync...
+[2026-05-08 11:59:01 UTC] Uncommitted changes found, committing...
+On branch main
+Your branch is ahead of 'origin/main' by 18 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+	modified:   dashboard (new commits, modified content)
+	modified:   data/journal-sync-log.json
+	modified:   data/processed-emails.json
+	modified:   data/stock-data.json
+	modified:   data/stock-history.json
+	modified:   data/whoop/token-status.json
+	modified:   health-dashboard (untracked content)
+	modified:   logs/checkin-delivery.log
+	modified:   logs/github-sync.log
+	modified:   logs/heartbeat.log
+	modified:   logs/imap-checker.log
+	modified:   logs/pending-checkin.json
+	modified:   logs/stock-fetch.log
+	modified:   logs/token-health.json
+	modified:   logs/token-refresh.log
+	modified:   logs/travel-automation-v2.log
+	modified:   logs/watch-hunt.log
+	modified:   logs/whoop-alerts.log
+	modified:   logs/whoop-token-monitor.log
+	modified:   public-journal (modified content, untracked content)
+	modified:   resy-system/logs/cron-scan.log
+	modified:   resy-system/logs/gunicorn-access.log
+	modified:   resy-system/logs/gunicorn-error.log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logs/vitus-evening.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+remote: error: Trace: 9d150193bc1be313bf37425b076ca8d275fbfffd4e86830fc073b25e04576019        
+remote: error: See https://gh.io/lfs for more information.        
+remote: error: File resy-system/logs/gunicorn-error.log is 131.23 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 128.83 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 128.78 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.38 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.30 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 125.93 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 130.65 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 125.48 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 131.94 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 126.90 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 124.19 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 128.28 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.47 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.40 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 127.35 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 125.99 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 124.99 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: File resy-system/logs/gunicorn-error.log is 131.84 MB; this exceeds GitHub's file size limit of 100.00 MB        
+remote: error: GH001: Large files detected. You may want to try Git Large File Storage - https://git-lfs.github.com.        
+To https://github.com/gclapp/cicero-backup.git
+ ! [remote rejected] main -> main (pre-receive hook declined)
+error: failed to push some refs to 'https://github.com/gclapp/cicero-backup.git'
+[2026-05-08 11:59:01 UTC] ❌ GitHub push failed
+[2026-05-08 11:59:01 UTC] Checking for journal entries to publish...
+📊 No new journal entries to sync
+[2026-05-08 11:59:01 UTC] Updating content analytics...
+📊 Content Analytics Report
+Generated: 2026-05-08 12:00
+
+📈 Last 7 Days Summary:
+• Total Posts: 0
+• Total Impressions: 0
+• Total Engagements: 0
+• Avg Engagement Rate: 0.00%
+
+By Platform:
+
+👥 Current Followers:
+  Linkedin: 0
+  Twitter: 0
+  Substack: 0
+
+[2026-05-08 11:59:01 UTC] Daily sync complete
+---
+[2026-05-08 23:59:01 UTC] Starting daily GitHub sync...
+[2026-05-08 23:59:01 UTC] No changes to commit
+[2026-05-08 23:59:01 UTC] Checking for journal entries to publish...
+📊 No new journal entries to sync
+[2026-05-08 23:59:01 UTC] Updating content analytics...
+📊 Content Analytics Report
+Generated: 2026-05-08 23:59
+
+📈 Last 7 Days Summary:
+• Total Posts: 0
+• Total Impressions: 0
+• Total Engagements: 0
+• Avg Engagement Rate: 0.00%
+
+By Platform:
+
+👥 Current Followers:
+  Linkedin: 0
+  Twitter: 0
+  Substack: 0
+
+[2026-05-08 23:59:01 UTC] Daily sync complete
+---
+[2026-05-09 11:59:01 UTC] Starting daily GitHub sync...
+[2026-05-09 11:59:01 UTC] No changes to commit
+[2026-05-09 11:59:01 UTC] Checking for journal entries to publish...
+OSError: [Errno 28] No space left on device
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/sync_public_journal.py", line 101, in <module>
+    sync_journal_entries()
+  File "/home/ubuntu/.openclaw/workspace/scripts/sync_public_journal.py", line 91, in sync_journal_entries
+    save_sync_log(sync_log)
+  File "/home/ubuntu/.openclaw/workspace/scripts/sync_public_journal.py", line 27, in save_sync_log
+    with open(SYNC_LOG, 'w') as f:
+OSError: [Errno 28] No space left on device
+[2026-05-09 11:59:01 UTC] Updating content analytics...
+📊 Content Analytics Report
+Generated: 2026-05-09 11:59
+
+📈 Last 7 Days Summary:
+• Total Posts: 0
+• Total Impressions: 0
+• Total Engagements: 0
+• Avg Engagement Rate: 0.00%
+
+By Platform:
+
+👥 Current Followers:
+  Linkedin: 0
+  Twitter: 0
+  Substack: 0
+
+[2026-05-09 11:59:01 UTC] Daily sync complete
+---
+[2026-05-09 23:59:01 UTC] Starting daily GitHub sync...
+[2026-05-09 23:59:01 UTC] Uncommitted changes found, committing...

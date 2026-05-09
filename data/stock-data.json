@@ -1,59 +1,59 @@
 {
-  "timestamp": "2026-05-07T14:01:24.766071",
+  "timestamp": "2026-05-08T03:55:03.306362",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
-      "price": 18.885,
-      "change": 18.885,
+      "price": 19.16,
+      "change": 19.16,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-05-07T14:01:24.962001",
+      "timestamp": "2026-05-08T03:55:03.437289",
       "change_30d": {
-        "price_30d_ago": 17.27,
-        "change": 1.615000000000002,
-        "change_percent": 9.35147654892879,
+        "price_30d_ago": 16.41,
+        "change": 2.75,
+        "change_percent": 16.758074344911638,
         "days_of_data": 30
       }
     },
     "AAPL": {
       "symbol": "AAPL",
-      "price": 291.68,
-      "change": 291.68,
+      "price": 287.44,
+      "change": 287.44,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-05-07T14:01:25.106690",
+      "timestamp": "2026-05-08T03:55:03.560497",
       "change_30d": {
-        "price_30d_ago": 258.38,
-        "change": 33.30000000000001,
-        "change_percent": 12.887994426813226,
+        "price_30d_ago": 256.475,
+        "change": 30.964999999999975,
+        "change_percent": 12.073301491373417,
         "days_of_data": 30
       }
     },
     "NVDA": {
       "symbol": "NVDA",
-      "price": 209.51,
-      "change": 209.51,
+      "price": 211.5,
+      "change": 211.5,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-05-07T14:01:25.170722",
+      "timestamp": "2026-05-08T03:55:03.663651",
       "change_30d": {
-        "price_30d_ago": 182.53,
-        "change": 26.97999999999999,
-        "change_percent": 14.781131868733901,
+        "price_30d_ago": 181.404,
+        "change": 30.096000000000004,
+        "change_percent": 16.590593371700738,
         "days_of_data": 30
       }
     },
     "OMDA": {
       "symbol": "OMDA",
-      "price": 15.95,
-      "change": 15.95,
+      "price": 16.4,
+      "change": 16.4,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-05-07T14:01:25.330955",
+      "timestamp": "2026-05-08T03:55:03.773123",
       "change_30d": {
-        "price_30d_ago": 12.58,
-        "change": 3.369999999999999,
-        "change_percent": 26.78855325914149,
+        "price_30d_ago": 11.935,
+        "change": 4.464999999999998,
+        "change_percent": 37.41097612065352,
         "days_of_data": 30
       }
     }
@@ -61,19 +61,19 @@
   "indices": {
     "S&P 500": {
       "symbol": "^GSPC",
-      "price": 7365.72,
-      "change": 7365.72,
+      "price": 7337.11,
+      "change": 7337.11,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-05-07T14:01:25.464123"
+      "timestamp": "2026-05-08T03:55:03.885897"
     },
     "Dow Jones": {
       "symbol": "^DJI",
-      "price": 49885.88,
-      "change": 49885.88,
+      "price": 49596.97,
+      "change": 49596.97,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-05-07T14:01:25.703174"
+      "timestamp": "2026-05-08T03:55:04.025477"
     }
   }
 }

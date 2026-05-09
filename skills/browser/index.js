@@ -3,7 +3,11 @@ const puppeteer = require('puppeteer');
 async function readUrl(url) {
   let browser;
   try {
-    browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+    browser = await puppeteer.launch({ 
+      headless: 'new',
+      executablePath: '/usr/bin/chromium-browser',
+      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage']
+    });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: 'networkidle2' });
 

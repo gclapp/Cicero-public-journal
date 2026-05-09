@@ -2548,3 +2548,76 @@ Detailed summary:
    ├─ Today: +15.86 (+0.00%)
    └─ 30-Day: +26.07% (30d)
 
+Fetching stock data with 30-day history...
+✅ PGNY: $19.16 (30d: +16.76%)
+✅ AAPL: $287.44 (30d: +12.07%)
+✅ NVDA: $211.50 (30d: +16.59%)
+✅ OMDA: $16.40 (30d: +37.41%)
+✅ S&P 500: 7,337.11 (+0.00%)
+✅ Dow Jones: 49,596.97 (+0.00%)
+
+==================================================
+Stock summary for check-in:
+==================================================
+📈 **Markets (30-Day View)**
+
+**Indices:**
+🟢 S&P 500: 7,337.11 (+0.00% today)
+🟢 Dow Jones: 49,596.97 (+0.00% today)
+
+**Your Watchlist (30-Day Change):**
+🟢 **PGNY:** $19.16 (+16.76% / 30d)
+🟢 AAPL: $287.44 (+12.07% / 30d)
+🟢 NVDA: $211.50 (+16.59% / 30d)
+🟢 OMDA: $16.40 (+37.41% / 30d)
+
+
+==================================================
+Detailed summary:
+==================================================
+📈 **Stock Market Update**
+
+**Market Indices:**
+🟢 S&P 500: 7,337.11 (+7337.11, +0.00% today)
+🟢 Dow Jones: 49,596.97 (+49596.97, +0.00% today)
+
+**Watchlist (30-Day Rolling):**
+
+🟢 **PGNY:** $19.16
+   ├─ Today: +19.16 (+0.00%)
+   └─ 30-Day: +16.76% (30d)
+
+🟢 **AAPL:** $287.44
+   ├─ Today: +287.44 (+0.00%)
+   └─ 30-Day: +12.07% (30d)
+
+🟢 **NVDA:** $211.50
+   ├─ Today: +211.50 (+0.00%)
+   └─ 30-Day: +16.59% (30d)
+
+🟢 **OMDA:** $16.40
+   ├─ Today: +16.40 (+0.00%)
+   └─ 30-Day: +37.41% (30d)
+
+Fetching stock data with 30-day history...
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 279, in <module>
+    results = fetch_all_stocks(verbose=not is_summary)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 157, in fetch_all_stocks
+    add_price_to_history(symbol, data['price'], today)
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 74, in add_price_to_history
+    history = load_history()
+              ^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 55, in load_history
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^

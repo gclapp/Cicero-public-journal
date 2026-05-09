@@ -2,6 +2,7 @@
 """
 Travel Automation v2 - Comprehensive travel task creation
 Creates Todoist tasks for flights, hotels, Rover, Uber, and dinner reservations
+Includes flight tracking and car reservation monitoring
 """
 
 import json
@@ -12,6 +13,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 
 CALENDAR_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "calendar-events.json"
+FLIGHT_TRACKING_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "tracked-flights.json"
 
 def load_calendar():
     """Load calendar events"""
@@ -110,25 +112,100 @@ def extract_confirmation_code(text):
             return match.group(1)
     return None
 
+def extract_flight_numbers(text):
+    """
+    Extract flight numbers from text
+    Returns list of (airline_code, flight_number) tuples
+    """
+    patterns = [
+        # Delta patterns
+        (r'Delta\s+(?:Air\s+Lines?\s+)?(?:flight\s+)?(\d+)', 'DL'),
+        (r'DL\s+(\d+)', 'DL'),
+        # United patterns
+        (r'United\s+(?:Airlines?\s+)?(?:flight\s+)?(\d+)', 'UA'),
+        (r'UA\s+(\d+)', 'UA'),
+        # American patterns
+        (r'American\s+(?:Airlines?\s+)?(?:flight\s+)?(\d+)', 'AA'),
+        (r'AA\s+(\d+)', 'AA'),
+        # JetBlue patterns
+        (r'JetBlue\s+(?:Airways?\s+)?(?:flight\s+)?(\d+)', 'B6'),
+        (r'B6\s+(\d+)', 'B6'),
+        # Southwest patterns
+        (r'Southwest\s+(?:Airlines?\s+)?(?:flight\s+)?(\d+)', 'WN'),
+        (r'WN\s+(\d+)', 'WN'),
+        # Alaska patterns
+        (r'Alaska\s+(?:Airlines?\s+)?(?:flight\s+)?(\d+)', 'AS'),
+        (r'AS\s+(\d+)', 'AS'),
+    ]
+    
+    found_flights = []
+    text_upper = text.upper()
+    
+    for pattern, default_code in patterns:
+        matches = re.findall(pattern, text, re.IGNORECASE)
+        for match in matches:
+            flight_num = match if isinstance(match, str) else match[0]
+            found_flights.append((default_code, flight_num))
+    
+    # Also try generic pattern for IATA codes followed by numbers
+    generic_pattern = r'\b([A-Z]{2})\s*(\d{1,4})\b'
+    generic_matches = re.findall(generic_pattern, text_upper)
+    for code, num in generic_matches:
+        if code in ['DL', 'UA', 'AA', 'B6', 'WN', 'AS', 'F9', 'NK', 'HA']:
+            found_flights.append((code, num))
+    
+    # Remove duplicates while preserving order
+    seen = set()
+    unique_flights = []
+    for flight in found_flights:
+        if flight not in seen:
+            seen.add(flight)
+            unique_flights.append(flight)
+    
+    return unique_flights
+
+def save_flight_tracking(flight_data):
+    """Save flight to tracking database"""
+    FLIGHT_TRACKING_FILE.parent.mkdir(parents=True, exist_ok=True)
+    
+    tracked = {}
+    if FLIGHT_TRACKING_FILE.exists():
+        with open(FLIGHT_TRACKING_FILE, 'r') as f:
+            tracked = json.load(f)
+    
+    flight_id = flight_data['id']
+    tracked[flight_id] = flight_data
+    
+    with open(FLIGHT_TRACKING_FILE, 'w') as f:
+        json.dump(tracked, f, indent=2)
+
 def generate_flight_tasks(flight, existing_tasks):
     """Generate comprehensive tasks for a flight"""
     summary = flight.get('summary', 'Flight')
     date_str = flight.get('start', 'TBD')
     location = flight.get('location', '')
+    description = flight.get('description', '')
     
     # Parse flight date
     flight_date = parse_date(flight.get('start_raw', ''))
     if not flight_date:
         print(f"   ⚠️  Could not parse date for: {summary}")
-        return 0, 0
+        return 0, 0, None
     
     # Extract confirmation code
-    confirmation = extract_confirmation_code(summary + ' ' + location)
+    full_text = summary + ' ' + location + ' ' + description
+    confirmation = extract_confirmation_code(full_text)
+    
+    # Extract flight numbers for tracking
+    flight_numbers = extract_flight_numbers(full_text)
     
     print(f"\n✈️  {summary}")
     print(f"   📆 {date_str}")
     if confirmation:
         print(f"   🎫 Confirmation: {confirmation}")
+    if flight_numbers:
+        for airline, num in flight_numbers:
+            print(f"   ✈️  Flight: {airline} {num}")
     
     created = 0
     skipped = 0
@@ -178,7 +255,26 @@ def generate_flight_tasks(flight, existing_tasks):
         else:
             skipped += 1
     
-    return created, skipped
+    # Create flight tracking data
+    flight_data = None
+    if flight_numbers:
+        for airline, num in flight_numbers:
+            flight_id = f"{airline}{num}_{flight_date.strftime('%Y%m%d')}"
+            flight_data = {
+                'id': flight_id,
+                'airline': airline,
+                'flight_number': num,
+                'summary': summary,
+                'departure_time': flight_date.isoformat(),
+                'location': location,
+                'confirmation': confirmation,
+                'added_at': datetime.now().isoformat(),
+                'status': 'pending'
+            }
+            save_flight_tracking(flight_data)
+            print(f"   📊 Added to flight tracking: {airline} {num}")
+    
+    return created, skipped, flight_data
 
 def generate_hotel_tasks(hotel, existing_tasks):
     """Generate tasks for hotel stays"""
@@ -233,7 +329,7 @@ def generate_travel_tasks():
     
     if not travel_events:
         print("✅ No upcoming travel in next 60 days")
-        return 0, 0
+        return 0, 0, []
     
     # Get existing tasks to avoid duplicates
     print("📋 Fetching existing tasks...")
@@ -246,22 +342,65 @@ def generate_travel_tasks():
     
     total_created = 0
     total_skipped = 0
+    tracked_flights = []
     
     for trip in travel_events:
         summary = trip.get('summary', '').lower()
         
         # Determine trip type
         if 'flight' in summary or 'delta' in summary or 'united' in summary or 'american' in summary:
-            created, skipped = generate_flight_tasks(trip, existing_tasks)
+            created, skipped, flight_data = generate_flight_tasks(trip, existing_tasks)
             total_created += created
             total_skipped += skipped
+            if flight_data:
+                tracked_flights.append(flight_data)
         
         elif 'hotel' in summary or 'stay at' in summary or 'marriott' in summary or 'hilton' in summary or 'ritz' in summary:
             created, skipped = generate_hotel_tasks(trip, existing_tasks)
             total_created += created
             total_skipped += skipped
     
-    return total_created, total_skipped
+    return total_created, total_skipped, tracked_flights
+
+def run_flight_monitor():
+    """Run the flight monitor to check flight status"""
+    print("\n" + "=" * 70)
+    print("📊 Running Flight Monitor...")
+    try:
+        monitor_script = Path.home() / ".openclaw" / "workspace" / "scripts" / "travel_flight_monitor.py"
+        if monitor_script.exists():
+            result = subprocess.run(
+                ["python3", str(monitor_script)],
+                capture_output=True, text=True, timeout=60
+            )
+            if result.returncode == 0:
+                print("✅ Flight monitor completed")
+            else:
+                print(f"⚠️  Flight monitor error: {result.stderr}")
+        else:
+            print(f"⚠️  Flight monitor script not found")
+    except Exception as e:
+        print(f"⚠️  Could not run flight monitor: {e}")
+
+def run_car_check():
+    """Run the car check for upcoming flights"""
+    print("\n" + "=" * 70)
+    print("🚗 Running Car Reservation Check...")
+    try:
+        car_check_script = Path.home() / ".openclaw" / "workspace" / "scripts" / "travel_car_check.py"
+        if car_check_script.exists():
+            result = subprocess.run(
+                ["python3", str(car_check_script)],
+                capture_output=True, text=True, timeout=60
+            )
+            if result.returncode == 0:
+                print("✅ Car check completed")
+            else:
+                print(f"⚠️  Car check error: {result.stderr}")
+        else:
+            print(f"⚠️  Car check script not found")
+    except Exception as e:
+        print(f"⚠️  Could not run car check: {e}")
 
 def main():
     """Main function"""
@@ -279,13 +418,26 @@ def main():
         print("❌ Todoist CLI not found. Install: npm install -g todoist-ts-cli")
         return
     
-    created, skipped = generate_travel_tasks()
+    # Generate travel tasks
+    created, skipped, tracked_flights = generate_travel_tasks()
     
     print()
     print("=" * 70)
     print(f"✅ Travel task generation complete")
     print(f"   Created: {created} new tasks")
     print(f"   Skipped: {skipped} existing tasks")
+    
+    if tracked_flights:
+        print(f"   Flights tracked: {len(tracked_flights)}")
+    
+    # Run flight monitor (if --monitor flag or if new flights were found)
+    import sys
+    if '--monitor' in sys.argv or tracked_flights:
+        run_flight_monitor()
+    
+    # Run car check (if --car-check flag)
+    if '--car-check' in sys.argv:
+        run_car_check()
 
 if __name__ == "__main__":
     main()

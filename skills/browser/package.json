@@ -1,0 +1,12 @@
+{
+  "name": "browser-skill",
+  "version": "1.0.0",
+  "description": "Browser automation skill using Puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js read https://example.com"
+  },
+  "dependencies": {
+    "puppeteer": "^22.0.0"
+  }
+}

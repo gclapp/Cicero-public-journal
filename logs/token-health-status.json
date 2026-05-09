@@ -1,0 +1,25 @@
+{
+  "last_check": "2026-05-09T17:00:04.783777",
+  "results": {
+    "calendar": {
+      "service": "calendar",
+      "name": "Google Calendar",
+      "status": "refreshed",
+      "valid": true,
+      "expires_soon": false,
+      "action_required": false,
+      "message": "\u2705 Token refreshed successfully",
+      "checked_at": "2026-05-09T17:00:02.635101"
+    },
+    "whoop": {
+      "service": "whoop",
+      "name": "Whoop API",
+      "status": "valid",
+      "valid": true,
+      "expires_soon": false,
+      "action_required": false,
+      "message": "\u2705 Token valid",
+      "checked_at": "2026-05-09T17:00:03.039524"
+    }
+  }
+}

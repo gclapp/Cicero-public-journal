@@ -35044,3 +35044,1453 @@
 [2026-05-07 23:30:13] [INFO] ======================================================================
 [2026-05-07 23:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
 [2026-05-07 23:30:13] [INFO] ======================================================================
+[2026-05-08 00:00:03] [INFO] ======================================================================
+[2026-05-08 00:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 00:00:03] [INFO] ======================================================================
+[2026-05-08 00:00:04] [INFO] 🔄 Whoop token invalid (457 min old) — refreshing...
+[2026-05-08 00:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 00:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 00:00:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:00:17] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:00:22] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 00:00:22] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:00:22] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 00:00:22] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 00:00:22] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 00:00:22] [INFO] ======================================================================
+[2026-05-08 00:00:22] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 00:00:22] [INFO] ======================================================================
+[2026-05-08 00:00:03] [INFO] ======================================================================
+[2026-05-08 00:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 00:00:03] [INFO] ======================================================================
+[2026-05-08 00:00:04] [INFO] 🔄 Whoop token invalid (457 min old) — refreshing...
+[2026-05-08 00:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 00:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 00:00:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:00:17] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:00:22] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 00:00:22] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:00:22] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 00:00:22] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 00:00:22] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 00:00:22] [INFO] ======================================================================
+[2026-05-08 00:00:22] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 00:00:22] [INFO] ======================================================================
+[2026-05-08 00:30:02] [INFO] ======================================================================
+[2026-05-08 00:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 00:30:02] [INFO] ======================================================================
+[2026-05-08 00:30:02] [INFO] 🔄 Whoop token invalid (487 min old) — refreshing...
+[2026-05-08 00:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 00:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 00:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 00:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 00:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 00:30:14] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 00:30:14] [INFO] ======================================================================
+[2026-05-08 00:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 00:30:14] [INFO] ======================================================================
+[2026-05-08 00:30:02] [INFO] ======================================================================
+[2026-05-08 00:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 00:30:02] [INFO] ======================================================================
+[2026-05-08 00:30:02] [INFO] 🔄 Whoop token invalid (487 min old) — refreshing...
+[2026-05-08 00:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 00:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 00:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 00:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 00:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 00:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 00:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 00:30:14] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 00:30:14] [INFO] ======================================================================
+[2026-05-08 00:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 00:30:14] [INFO] ======================================================================
+[2026-05-08 01:00:02] [INFO] ======================================================================
+[2026-05-08 01:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 01:00:02] [INFO] ======================================================================
+[2026-05-08 01:00:05] [INFO] 🔄 Whoop token invalid (517 min old) — refreshing...
+[2026-05-08 01:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 01:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 01:00:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:00:13] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:00:18] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 01:00:18] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:00:18] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 01:00:18] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 01:00:18] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 01:00:18] [INFO] ======================================================================
+[2026-05-08 01:00:18] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 01:00:18] [INFO] ======================================================================
+[2026-05-08 01:00:02] [INFO] ======================================================================
+[2026-05-08 01:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 01:00:02] [INFO] ======================================================================
+[2026-05-08 01:00:05] [INFO] 🔄 Whoop token invalid (517 min old) — refreshing...
+[2026-05-08 01:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 01:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 01:00:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:00:13] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:00:18] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 01:00:18] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:00:18] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 01:00:18] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 01:00:18] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 01:00:18] [INFO] ======================================================================
+[2026-05-08 01:00:18] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 01:00:18] [INFO] ======================================================================
+[2026-05-08 01:30:01] [INFO] ======================================================================
+[2026-05-08 01:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 01:30:01] [INFO] ======================================================================
+[2026-05-08 01:30:01] [INFO] 🔄 Whoop token invalid (547 min old) — refreshing...
+[2026-05-08 01:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 01:30:03] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:30:03] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:30:08] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 01:30:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:30:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:30:13] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 01:30:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:30:13] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 01:30:13] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 01:30:13] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 01:30:13] [INFO] ======================================================================
+[2026-05-08 01:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 01:30:13] [INFO] ======================================================================
+[2026-05-08 01:30:01] [INFO] ======================================================================
+[2026-05-08 01:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 01:30:01] [INFO] ======================================================================
+[2026-05-08 01:30:01] [INFO] 🔄 Whoop token invalid (547 min old) — refreshing...
+[2026-05-08 01:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 01:30:03] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:30:03] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:30:08] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 01:30:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:30:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 01:30:13] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 01:30:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 01:30:13] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 01:30:13] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 01:30:13] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 01:30:13] [INFO] ======================================================================
+[2026-05-08 01:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 01:30:13] [INFO] ======================================================================
+[2026-05-08 02:00:02] [INFO] ======================================================================
+[2026-05-08 02:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 02:00:02] [INFO] ======================================================================
+[2026-05-08 02:00:04] [INFO] 🔄 Whoop token invalid (577 min old) — refreshing...
+[2026-05-08 02:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 02:00:07] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:00:07] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:00:12] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 02:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:00:19] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 02:00:19] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:00:19] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 02:00:19] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 02:00:19] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 02:00:19] [INFO] ======================================================================
+[2026-05-08 02:00:19] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 02:00:19] [INFO] ======================================================================
+[2026-05-08 02:00:02] [INFO] ======================================================================
+[2026-05-08 02:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 02:00:02] [INFO] ======================================================================
+[2026-05-08 02:00:04] [INFO] 🔄 Whoop token invalid (577 min old) — refreshing...
+[2026-05-08 02:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 02:00:07] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:00:07] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:00:12] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 02:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:00:19] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 02:00:19] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:00:19] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 02:00:19] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 02:00:19] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 02:00:19] [INFO] ======================================================================
+[2026-05-08 02:00:19] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 02:00:19] [INFO] ======================================================================
+[2026-05-08 02:30:01] [INFO] ======================================================================
+[2026-05-08 02:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 02:30:01] [INFO] ======================================================================
+[2026-05-08 02:30:02] [INFO] 🔄 Whoop token invalid (607 min old) — refreshing...
+[2026-05-08 02:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 02:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 02:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 02:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 02:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 02:30:14] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 02:30:14] [INFO] ======================================================================
+[2026-05-08 02:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 02:30:14] [INFO] ======================================================================
+[2026-05-08 02:30:01] [INFO] ======================================================================
+[2026-05-08 02:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 02:30:01] [INFO] ======================================================================
+[2026-05-08 02:30:02] [INFO] 🔄 Whoop token invalid (607 min old) — refreshing...
+[2026-05-08 02:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 02:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 02:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 02:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 02:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 02:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 02:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 02:30:14] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 02:30:14] [INFO] ======================================================================
+[2026-05-08 02:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 02:30:14] [INFO] ======================================================================
+[2026-05-08 03:00:01] [INFO] ======================================================================
+[2026-05-08 03:00:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 03:00:01] [INFO] ======================================================================
+[2026-05-08 03:00:02] [INFO] 🔄 Whoop token invalid (637 min old) — refreshing...
+[2026-05-08 03:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 03:00:05] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:00:05] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:00:10] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 03:00:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:00:11] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:00:16] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 03:00:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:00:17] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 03:00:17] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 03:00:17] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 03:00:17] [INFO] ======================================================================
+[2026-05-08 03:00:17] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 03:00:17] [INFO] ======================================================================
+[2026-05-08 03:00:01] [INFO] ======================================================================
+[2026-05-08 03:00:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 03:00:01] [INFO] ======================================================================
+[2026-05-08 03:00:02] [INFO] 🔄 Whoop token invalid (637 min old) — refreshing...
+[2026-05-08 03:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 03:00:05] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:00:05] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:00:10] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 03:00:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:00:11] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:00:16] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 03:00:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:00:17] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 03:00:17] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 03:00:17] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 03:00:17] [INFO] ======================================================================
+[2026-05-08 03:00:17] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 03:00:17] [INFO] ======================================================================
+[2026-05-08 03:30:01] [INFO] ======================================================================
+[2026-05-08 03:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 03:30:01] [INFO] ======================================================================
+[2026-05-08 03:30:01] [INFO] 🔄 Whoop token invalid (667 min old) — refreshing...
+[2026-05-08 03:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 03:30:02] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:30:02] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:30:07] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 03:30:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:30:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:30:13] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 03:30:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:30:13] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 03:30:13] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 03:30:13] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 03:30:13] [INFO] ======================================================================
+[2026-05-08 03:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 03:30:13] [INFO] ======================================================================
+[2026-05-08 03:30:01] [INFO] ======================================================================
+[2026-05-08 03:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 03:30:01] [INFO] ======================================================================
+[2026-05-08 03:30:01] [INFO] 🔄 Whoop token invalid (667 min old) — refreshing...
+[2026-05-08 03:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 03:30:02] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:30:02] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:30:07] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 03:30:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:30:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 03:30:13] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 03:30:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 03:30:13] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 03:30:13] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 03:30:13] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 03:30:13] [INFO] ======================================================================
+[2026-05-08 03:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 03:30:13] [INFO] ======================================================================
+[2026-05-08 04:00:02] [INFO] ======================================================================
+[2026-05-08 04:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 04:00:02] [INFO] ======================================================================
+[2026-05-08 04:00:06] [INFO] 🔄 Whoop token invalid (697 min old) — refreshing...
+[2026-05-08 04:00:06] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 04:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 04:00:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:00:15] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:00:20] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 04:00:20] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:00:20] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 04:00:20] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 04:00:20] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 04:00:20] [INFO] ======================================================================
+[2026-05-08 04:00:20] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 04:00:20] [INFO] ======================================================================
+[2026-05-08 04:00:02] [INFO] ======================================================================
+[2026-05-08 04:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 04:00:02] [INFO] ======================================================================
+[2026-05-08 04:00:06] [INFO] 🔄 Whoop token invalid (697 min old) — refreshing...
+[2026-05-08 04:00:06] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 04:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 04:00:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:00:15] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:00:20] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 04:00:20] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:00:20] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 04:00:20] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 04:00:20] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 04:00:20] [INFO] ======================================================================
+[2026-05-08 04:00:20] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 04:00:20] [INFO] ======================================================================
+[2026-05-08 04:30:02] [INFO] ======================================================================
+[2026-05-08 04:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 04:30:02] [INFO] ======================================================================
+[2026-05-08 04:30:02] [INFO] 🔄 Whoop token invalid (727 min old) — refreshing...
+[2026-05-08 04:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 04:30:06] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:30:06] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:30:11] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 04:30:12] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:30:12] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:30:17] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 04:30:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:30:17] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 04:30:17] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 04:30:17] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 04:30:17] [INFO] ======================================================================
+[2026-05-08 04:30:17] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 04:30:17] [INFO] ======================================================================
+[2026-05-08 04:30:02] [INFO] ======================================================================
+[2026-05-08 04:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 04:30:02] [INFO] ======================================================================
+[2026-05-08 04:30:02] [INFO] 🔄 Whoop token invalid (727 min old) — refreshing...
+[2026-05-08 04:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 04:30:06] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:30:06] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:30:11] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 04:30:12] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:30:12] [INFO] Retrying in 5 seconds...
+[2026-05-08 04:30:17] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 04:30:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 04:30:17] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 04:30:17] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 04:30:17] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 04:30:17] [INFO] ======================================================================
+[2026-05-08 04:30:17] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 04:30:17] [INFO] ======================================================================
+[2026-05-08 05:00:02] [INFO] ======================================================================
+[2026-05-08 05:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 05:00:02] [INFO] ======================================================================
+[2026-05-08 05:00:04] [INFO] 🔄 Whoop token invalid (757 min old) — refreshing...
+[2026-05-08 05:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 05:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 05:00:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:00:13] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:00:18] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 05:00:18] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:00:18] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 05:00:18] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 05:00:18] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 05:00:18] [INFO] ======================================================================
+[2026-05-08 05:00:18] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 05:00:18] [INFO] ======================================================================
+[2026-05-08 05:00:02] [INFO] ======================================================================
+[2026-05-08 05:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 05:00:02] [INFO] ======================================================================
+[2026-05-08 05:00:04] [INFO] 🔄 Whoop token invalid (757 min old) — refreshing...
+[2026-05-08 05:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 05:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 05:00:13] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:00:13] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:00:18] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 05:00:18] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:00:18] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 05:00:18] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 05:00:18] [WARNING] 🔴 Gmail SMTP: Config is 72 days old — verify still working
+[2026-05-08 05:00:18] [INFO] ======================================================================
+[2026-05-08 05:00:18] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 05:00:18] [INFO] ======================================================================
+[2026-05-08 05:30:02] [INFO] ======================================================================
+[2026-05-08 05:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 05:30:02] [INFO] ======================================================================
+[2026-05-08 05:30:02] [INFO] 🔄 Whoop token invalid (787 min old) — refreshing...
+[2026-05-08 05:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 05:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 05:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 05:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 05:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 05:30:14] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 05:30:14] [INFO] ======================================================================
+[2026-05-08 05:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 05:30:14] [INFO] ======================================================================
+[2026-05-08 05:30:02] [INFO] ======================================================================
+[2026-05-08 05:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 05:30:02] [INFO] ======================================================================
+[2026-05-08 05:30:02] [INFO] 🔄 Whoop token invalid (787 min old) — refreshing...
+[2026-05-08 05:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 05:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 05:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 05:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 05:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 05:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 05:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 05:30:14] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 05:30:14] [INFO] ======================================================================
+[2026-05-08 05:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 05:30:14] [INFO] ======================================================================
+[2026-05-08 06:00:02] [INFO] ======================================================================
+[2026-05-08 06:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 06:00:02] [INFO] ======================================================================
+[2026-05-08 06:00:09] [INFO] 🔄 Whoop token invalid (817 min old) — refreshing...
+[2026-05-08 06:00:09] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 06:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:00:19] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 06:00:21] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:00:21] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:00:26] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 06:00:26] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:00:26] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 06:00:26] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 06:00:26] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 06:00:26] [INFO] ======================================================================
+[2026-05-08 06:00:26] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 06:00:26] [INFO] ======================================================================
+[2026-05-08 06:00:02] [INFO] ======================================================================
+[2026-05-08 06:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 06:00:02] [INFO] ======================================================================
+[2026-05-08 06:00:09] [INFO] 🔄 Whoop token invalid (817 min old) — refreshing...
+[2026-05-08 06:00:09] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 06:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:00:19] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 06:00:21] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:00:21] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:00:26] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 06:00:26] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:00:26] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 06:00:26] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 06:00:26] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 06:00:26] [INFO] ======================================================================
+[2026-05-08 06:00:26] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 06:00:26] [INFO] ======================================================================
+[2026-05-08 06:30:01] [INFO] ======================================================================
+[2026-05-08 06:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 06:30:01] [INFO] ======================================================================
+[2026-05-08 06:30:01] [INFO] 🔄 Whoop token invalid (847 min old) — refreshing...
+[2026-05-08 06:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 06:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 06:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 06:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 06:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 06:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 06:30:15] [INFO] ======================================================================
+[2026-05-08 06:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 06:30:15] [INFO] ======================================================================
+[2026-05-08 06:30:01] [INFO] ======================================================================
+[2026-05-08 06:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 06:30:01] [INFO] ======================================================================
+[2026-05-08 06:30:01] [INFO] 🔄 Whoop token invalid (847 min old) — refreshing...
+[2026-05-08 06:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 06:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 06:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 06:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 06:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 06:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 06:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 06:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 06:30:15] [INFO] ======================================================================
+[2026-05-08 06:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 06:30:15] [INFO] ======================================================================
+[2026-05-08 07:00:02] [INFO] ======================================================================
+[2026-05-08 07:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 07:00:02] [INFO] ======================================================================
+[2026-05-08 07:00:05] [INFO] 🔄 Whoop token invalid (877 min old) — refreshing...
+[2026-05-08 07:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 07:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:00:19] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 07:00:19] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:00:19] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:00:24] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 07:00:25] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:00:25] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 07:00:25] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 07:00:25] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 07:00:25] [INFO] ======================================================================
+[2026-05-08 07:00:25] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 07:00:25] [INFO] ======================================================================
+[2026-05-08 07:00:02] [INFO] ======================================================================
+[2026-05-08 07:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 07:00:02] [INFO] ======================================================================
+[2026-05-08 07:00:05] [INFO] 🔄 Whoop token invalid (877 min old) — refreshing...
+[2026-05-08 07:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 07:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:00:19] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 07:00:19] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:00:19] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:00:24] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 07:00:25] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:00:25] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 07:00:25] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 07:00:25] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 07:00:25] [INFO] ======================================================================
+[2026-05-08 07:00:25] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 07:00:25] [INFO] ======================================================================
+[2026-05-08 07:30:01] [INFO] ======================================================================
+[2026-05-08 07:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 07:30:01] [INFO] ======================================================================
+[2026-05-08 07:30:02] [INFO] 🔄 Whoop token invalid (907 min old) — refreshing...
+[2026-05-08 07:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 07:30:06] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:30:06] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:30:11] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 07:30:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:30:11] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:30:16] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 07:30:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:30:16] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 07:30:16] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 07:30:16] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 07:30:16] [INFO] ======================================================================
+[2026-05-08 07:30:16] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 07:30:16] [INFO] ======================================================================
+[2026-05-08 07:30:01] [INFO] ======================================================================
+[2026-05-08 07:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 07:30:01] [INFO] ======================================================================
+[2026-05-08 07:30:02] [INFO] 🔄 Whoop token invalid (907 min old) — refreshing...
+[2026-05-08 07:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 07:30:06] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:30:06] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:30:11] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 07:30:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:30:11] [INFO] Retrying in 5 seconds...
+[2026-05-08 07:30:16] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 07:30:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 07:30:16] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 07:30:16] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 07:30:16] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 07:30:16] [INFO] ======================================================================
+[2026-05-08 07:30:16] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 07:30:16] [INFO] ======================================================================
+[2026-05-08 08:00:02] [INFO] ======================================================================
+[2026-05-08 08:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 08:00:02] [INFO] ======================================================================
+[2026-05-08 08:00:04] [INFO] 🔄 Whoop token invalid (937 min old) — refreshing...
+[2026-05-08 08:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 08:00:07] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:00:07] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:00:12] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 08:00:12] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:00:12] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:00:17] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 08:00:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:00:17] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 08:00:17] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 08:00:17] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 08:00:17] [INFO] ======================================================================
+[2026-05-08 08:00:17] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 08:00:17] [INFO] ======================================================================
+[2026-05-08 08:00:02] [INFO] ======================================================================
+[2026-05-08 08:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 08:00:02] [INFO] ======================================================================
+[2026-05-08 08:00:04] [INFO] 🔄 Whoop token invalid (937 min old) — refreshing...
+[2026-05-08 08:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 08:00:07] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:00:07] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:00:12] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 08:00:12] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:00:12] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:00:17] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 08:00:17] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:00:17] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 08:00:17] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 08:00:17] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 08:00:17] [INFO] ======================================================================
+[2026-05-08 08:00:17] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 08:00:17] [INFO] ======================================================================
+[2026-05-08 08:30:01] [INFO] ======================================================================
+[2026-05-08 08:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 08:30:01] [INFO] ======================================================================
+[2026-05-08 08:30:02] [INFO] 🔄 Whoop token invalid (967 min old) — refreshing...
+[2026-05-08 08:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 08:30:03] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:30:03] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:30:08] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 08:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 08:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 08:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 08:30:14] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 08:30:14] [INFO] ======================================================================
+[2026-05-08 08:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 08:30:14] [INFO] ======================================================================
+[2026-05-08 08:30:01] [INFO] ======================================================================
+[2026-05-08 08:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 08:30:01] [INFO] ======================================================================
+[2026-05-08 08:30:02] [INFO] 🔄 Whoop token invalid (967 min old) — refreshing...
+[2026-05-08 08:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 08:30:03] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:30:03] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:30:08] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 08:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 08:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 08:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 08:30:14] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 08:30:14] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 08:30:14] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 08:30:14] [INFO] ======================================================================
+[2026-05-08 08:30:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 08:30:14] [INFO] ======================================================================
+[2026-05-08 09:00:02] [INFO] ======================================================================
+[2026-05-08 09:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 09:00:02] [INFO] ======================================================================
+[2026-05-08 09:00:03] [INFO] 🔄 Whoop token invalid (997 min old) — refreshing...
+[2026-05-08 09:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 09:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 09:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:00:19] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 09:00:20] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:00:20] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 09:00:20] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 09:00:20] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 09:00:20] [INFO] ======================================================================
+[2026-05-08 09:00:20] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 09:00:20] [INFO] ======================================================================
+[2026-05-08 09:00:02] [INFO] ======================================================================
+[2026-05-08 09:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 09:00:02] [INFO] ======================================================================
+[2026-05-08 09:00:03] [INFO] 🔄 Whoop token invalid (997 min old) — refreshing...
+[2026-05-08 09:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 09:00:08] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:00:08] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:00:13] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 09:00:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:00:14] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:00:19] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 09:00:20] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:00:20] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 09:00:20] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 09:00:20] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 09:00:20] [INFO] ======================================================================
+[2026-05-08 09:00:20] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 09:00:20] [INFO] ======================================================================
+[2026-05-08 09:30:01] [INFO] ======================================================================
+[2026-05-08 09:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 09:30:01] [INFO] ======================================================================
+[2026-05-08 09:30:01] [INFO] 🔄 Whoop token invalid (1027 min old) — refreshing...
+[2026-05-08 09:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 09:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 09:30:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:30:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:30:15] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 09:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 09:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 09:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 09:30:15] [INFO] ======================================================================
+[2026-05-08 09:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 09:30:15] [INFO] ======================================================================
+[2026-05-08 09:30:01] [INFO] ======================================================================
+[2026-05-08 09:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 09:30:01] [INFO] ======================================================================
+[2026-05-08 09:30:01] [INFO] 🔄 Whoop token invalid (1027 min old) — refreshing...
+[2026-05-08 09:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 09:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 09:30:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:30:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 09:30:15] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 09:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 09:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 09:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 09:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 09:30:15] [INFO] ======================================================================
+[2026-05-08 09:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 09:30:15] [INFO] ======================================================================
+[2026-05-08 10:00:02] [INFO] ======================================================================
+[2026-05-08 10:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 10:00:02] [INFO] ======================================================================
+[2026-05-08 10:00:02] [INFO] 🔄 Whoop token invalid (1057 min old) — refreshing...
+[2026-05-08 10:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 10:00:07] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:00:07] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:00:12] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 10:00:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:00:15] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:00:20] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 10:00:20] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:00:20] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 10:00:20] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 10:00:20] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 10:00:20] [INFO] ======================================================================
+[2026-05-08 10:00:20] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 10:00:20] [INFO] ======================================================================
+[2026-05-08 10:00:02] [INFO] ======================================================================
+[2026-05-08 10:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 10:00:02] [INFO] ======================================================================
+[2026-05-08 10:00:02] [INFO] 🔄 Whoop token invalid (1057 min old) — refreshing...
+[2026-05-08 10:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 10:00:07] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:00:07] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:00:12] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 10:00:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:00:15] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:00:20] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 10:00:20] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:00:20] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 10:00:20] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 10:00:20] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 10:00:20] [INFO] ======================================================================
+[2026-05-08 10:00:20] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 10:00:20] [INFO] ======================================================================
+[2026-05-08 10:30:01] [INFO] ======================================================================
+[2026-05-08 10:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 10:30:01] [INFO] ======================================================================
+[2026-05-08 10:30:01] [INFO] 🔄 Whoop token invalid (1087 min old) — refreshing...
+[2026-05-08 10:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 10:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 10:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 10:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 10:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 10:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 10:30:15] [INFO] ======================================================================
+[2026-05-08 10:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 10:30:15] [INFO] ======================================================================
+[2026-05-08 10:30:01] [INFO] ======================================================================
+[2026-05-08 10:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 10:30:01] [INFO] ======================================================================
+[2026-05-08 10:30:01] [INFO] 🔄 Whoop token invalid (1087 min old) — refreshing...
+[2026-05-08 10:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 10:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 10:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-08 10:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 10:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 10:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 10:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 10:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 10:30:15] [INFO] ======================================================================
+[2026-05-08 10:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 10:30:15] [INFO] ======================================================================
+[2026-05-08 11:00:01] [INFO] ======================================================================
+[2026-05-08 11:00:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 11:00:01] [INFO] ======================================================================
+[2026-05-08 11:00:03] [INFO] 🔄 Whoop token invalid (1117 min old) — refreshing...
+[2026-05-08 11:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 11:00:06] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:00:06] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:00:11] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 11:00:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:00:11] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:00:16] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 11:00:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:00:16] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 11:00:16] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 11:00:16] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 11:00:16] [INFO] ======================================================================
+[2026-05-08 11:00:16] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 11:00:16] [INFO] ======================================================================
+[2026-05-08 11:00:01] [INFO] ======================================================================
+[2026-05-08 11:00:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 11:00:01] [INFO] ======================================================================
+[2026-05-08 11:00:03] [INFO] 🔄 Whoop token invalid (1117 min old) — refreshing...
+[2026-05-08 11:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 11:00:06] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:00:06] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:00:11] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 11:00:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:00:11] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:00:16] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 11:00:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:00:16] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 11:00:16] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 11:00:16] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 11:00:16] [INFO] ======================================================================
+[2026-05-08 11:00:16] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 11:00:16] [INFO] ======================================================================
+[2026-05-08 11:30:01] [INFO] ======================================================================
+[2026-05-08 11:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 11:30:01] [INFO] ======================================================================
+[2026-05-08 11:30:02] [INFO] 🔄 Whoop token invalid (1147 min old) — refreshing...
+[2026-05-08 11:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 11:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 11:30:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:30:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:30:15] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 11:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 11:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 11:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 11:30:15] [INFO] ======================================================================
+[2026-05-08 11:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 11:30:15] [INFO] ======================================================================
+[2026-05-08 11:30:01] [INFO] ======================================================================
+[2026-05-08 11:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 11:30:01] [INFO] ======================================================================
+[2026-05-08 11:30:02] [INFO] 🔄 Whoop token invalid (1147 min old) — refreshing...
+[2026-05-08 11:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 11:30:04] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:30:04] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:30:09] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 11:30:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:30:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 11:30:15] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 11:30:15] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 11:30:15] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 11:30:15] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 11:30:15] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 11:30:15] [INFO] ======================================================================
+[2026-05-08 11:30:15] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 11:30:15] [INFO] ======================================================================
+[2026-05-08 12:00:03] [INFO] ======================================================================
+[2026-05-08 12:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 12:00:03] [INFO] ======================================================================
+[2026-05-08 12:00:05] [INFO] 🔄 Whoop token invalid (1177 min old) — refreshing...
+[2026-05-08 12:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 12:00:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:00:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:00:15] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 12:00:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:00:16] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:00:21] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 12:00:24] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:00:24] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 12:00:24] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 12:00:24] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 12:00:24] [INFO] ======================================================================
+[2026-05-08 12:00:24] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 12:00:24] [INFO] ======================================================================
+[2026-05-08 12:00:03] [INFO] ======================================================================
+[2026-05-08 12:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 12:00:03] [INFO] ======================================================================
+[2026-05-08 12:00:05] [INFO] 🔄 Whoop token invalid (1177 min old) — refreshing...
+[2026-05-08 12:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 12:00:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:00:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:00:15] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 12:00:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:00:16] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:00:21] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 12:00:24] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:00:24] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 12:00:24] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 12:00:24] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 12:00:24] [INFO] ======================================================================
+[2026-05-08 12:00:24] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 12:00:24] [INFO] ======================================================================
+[2026-05-08 12:30:02] [INFO] ======================================================================
+[2026-05-08 12:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 12:30:02] [INFO] ======================================================================
+[2026-05-08 12:30:04] [INFO] 🔄 Whoop token invalid (1207 min old) — refreshing...
+[2026-05-08 12:30:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 12:30:05] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:30:05] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:30:10] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 12:30:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:30:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:30:15] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 12:30:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:30:16] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 12:30:16] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 12:30:16] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 12:30:16] [INFO] ======================================================================
+[2026-05-08 12:30:16] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 12:30:16] [INFO] ======================================================================
+[2026-05-08 12:30:02] [INFO] ======================================================================
+[2026-05-08 12:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 12:30:02] [INFO] ======================================================================
+[2026-05-08 12:30:04] [INFO] 🔄 Whoop token invalid (1207 min old) — refreshing...
+[2026-05-08 12:30:04] [INFO] Whoop refresh attempt 1/3...
+[2026-05-08 12:30:05] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:30:05] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:30:10] [INFO] Whoop refresh attempt 2/3...
+[2026-05-08 12:30:10] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:30:10] [INFO] Retrying in 5 seconds...
+[2026-05-08 12:30:15] [INFO] Whoop refresh attempt 3/3...
+[2026-05-08 12:30:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-08 12:30:16] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-08 12:30:16] [ERROR] 🔴 Google Docs: Token is 32 days old — CRITICAL
+[2026-05-08 12:30:16] [WARNING] 🔴 Gmail SMTP: Config is 73 days old — verify still working
+[2026-05-08 12:30:16] [INFO] ======================================================================
+[2026-05-08 12:30:16] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-08 12:30:16] [INFO] ======================================================================
+[2026-05-08 13:00:02] [INFO] ======================================================================
+[2026-05-08 13:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-08 13:00:02] [INFO] ======================================================================[2026-05-09 13:00:02] [INFO] ======================================================================
+[2026-05-09 13:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 13:00:02] [INFO] ======================================================================
+[2026-05-09 13:00:10] [INFO] 🔄 Whoop token invalid (2677 min old) — refreshing...
+[2026-05-09 13:00:10] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 13:00:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:00:11] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:00:16] [INFO] Whoop refresh attempt 2/3...
+[2026-05-09 13:00:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:00:16] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:00:21] [INFO] Whoop refresh attempt 3/3...
+[2026-05-09 13:00:21] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:00:21] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 13:00:21] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 13:00:21] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 13:00:21] [INFO] ======================================================================
+[2026-05-09 13:00:21] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-09 13:00:21] [INFO] ======================================================================
+[2026-05-09 13:00:02] [INFO] ======================================================================
+[2026-05-09 13:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 13:00:02] [INFO] ======================================================================
+[2026-05-09 13:00:10] [INFO] 🔄 Whoop token invalid (2677 min old) — refreshing...
+[2026-05-09 13:00:10] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 13:00:11] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:00:11] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:00:16] [INFO] Whoop refresh attempt 2/3...
+[2026-05-09 13:00:16] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:00:16] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:00:21] [INFO] Whoop refresh attempt 3/3...
+[2026-05-09 13:00:21] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:00:21] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 13:00:21] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 13:00:21] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 13:00:21] [INFO] ======================================================================
+[2026-05-09 13:00:21] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-05-09 13:00:21] [INFO] ======================================================================
+[2026-05-09 13:30:02] [INFO] ======================================================================
+[2026-05-09 13:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 13:30:02] [INFO] ======================================================================
+[2026-05-09 13:30:02] [INFO] 🔄 Whoop token invalid (2707 min old) — refreshing...
+[2026-05-09 13:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 13:30:03] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:30:03] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:30:08] [INFO] Whoop refresh attempt 2/3...
+[2026-05-09 13:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-09 13:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:30:14] [WARNING] ⚠️ Google Calendar: Token file not found
+[2026-05-09 13:30:14] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 13:30:14] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 13:30:14] [INFO] ======================================================================
+[2026-05-09 13:30:14] [INFO] Summary: 0 healthy | 1 warning | 3 critical
+[2026-05-09 13:30:14] [INFO] ======================================================================
+[2026-05-09 13:30:02] [INFO] ======================================================================
+[2026-05-09 13:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 13:30:02] [INFO] ======================================================================
+[2026-05-09 13:30:02] [INFO] 🔄 Whoop token invalid (2707 min old) — refreshing...
+[2026-05-09 13:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 13:30:03] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:30:03] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:30:08] [INFO] Whoop refresh attempt 2/3...
+[2026-05-09 13:30:09] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:30:09] [INFO] Retrying in 5 seconds...
+[2026-05-09 13:30:14] [INFO] Whoop refresh attempt 3/3...
+[2026-05-09 13:30:14] [ERROR] ❌ Whoop refresh failed: 400
+[2026-05-09 13:30:14] [WARNING] ⚠️ Google Calendar: Token file not found
+[2026-05-09 13:30:14] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 13:30:14] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 13:30:14] [INFO] ======================================================================
+[2026-05-09 13:30:14] [INFO] Summary: 0 healthy | 1 warning | 3 critical
+[2026-05-09 13:30:14] [INFO] ======================================================================
+[2026-05-09 14:00:02] [INFO] ======================================================================
+[2026-05-09 14:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 14:00:02] [INFO] ======================================================================
+[2026-05-09 14:00:05] [INFO] ✅ Whoop token valid and fresh (20 min old)
+[2026-05-09 14:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 14:00:05] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 14:00:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 14:00:05] [INFO] ======================================================================
+[2026-05-09 14:00:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 14:00:05] [INFO] ======================================================================
+[2026-05-09 14:00:02] [INFO] ======================================================================
+[2026-05-09 14:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 14:00:02] [INFO] ======================================================================
+[2026-05-09 14:00:05] [INFO] ✅ Whoop token valid and fresh (20 min old)
+[2026-05-09 14:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 14:00:05] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 14:00:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 14:00:05] [INFO] ======================================================================
+[2026-05-09 14:00:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 14:00:05] [INFO] ======================================================================
+[2026-05-09 14:30:02] [INFO] ======================================================================
+[2026-05-09 14:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 14:30:02] [INFO] ======================================================================
+[2026-05-09 14:30:02] [INFO] 🔄 Whoop token valid but old (50 min) — refreshing...
+[2026-05-09 14:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 14:30:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 14:30:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 14:30:05] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 14:30:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 14:30:05] [INFO] ======================================================================
+[2026-05-09 14:30:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 14:30:05] [INFO] ======================================================================
+[2026-05-09 14:30:02] [INFO] ======================================================================
+[2026-05-09 14:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 14:30:02] [INFO] ======================================================================
+[2026-05-09 14:30:02] [INFO] 🔄 Whoop token valid but old (50 min) — refreshing...
+[2026-05-09 14:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 14:30:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 14:30:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 14:30:05] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 14:30:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 14:30:05] [INFO] ======================================================================
+[2026-05-09 14:30:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 14:30:05] [INFO] ======================================================================
+[2026-05-09 15:00:02] [INFO] ======================================================================
+[2026-05-09 15:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 15:00:02] [INFO] ======================================================================
+[2026-05-09 15:00:05] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 15:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 15:00:05] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 15:00:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 15:00:05] [INFO] ======================================================================
+[2026-05-09 15:00:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 15:00:05] [INFO] ======================================================================
+[2026-05-09 15:00:02] [INFO] ======================================================================
+[2026-05-09 15:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 15:00:02] [INFO] ======================================================================
+[2026-05-09 15:00:05] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 15:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 15:00:05] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 15:00:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 15:00:05] [INFO] ======================================================================
+[2026-05-09 15:00:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 15:00:05] [INFO] ======================================================================
+[2026-05-09 15:30:01] [INFO] ======================================================================
+[2026-05-09 15:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 15:30:01] [INFO] ======================================================================
+[2026-05-09 15:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 15:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 15:30:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 15:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 15:30:03] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 15:30:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 15:30:03] [INFO] ======================================================================
+[2026-05-09 15:30:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 15:30:03] [INFO] ======================================================================
+[2026-05-09 15:30:01] [INFO] ======================================================================
+[2026-05-09 15:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 15:30:01] [INFO] ======================================================================
+[2026-05-09 15:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 15:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 15:30:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 15:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 15:30:03] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 15:30:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 15:30:03] [INFO] ======================================================================
+[2026-05-09 15:30:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 15:30:03] [INFO] ======================================================================
+[2026-05-09 16:00:02] [INFO] ======================================================================
+[2026-05-09 16:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 16:00:02] [INFO] ======================================================================
+[2026-05-09 16:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 16:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 16:00:03] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 16:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 16:00:03] [INFO] ======================================================================
+[2026-05-09 16:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 16:00:03] [INFO] ======================================================================
+[2026-05-09 16:00:02] [INFO] ======================================================================
+[2026-05-09 16:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 16:00:02] [INFO] ======================================================================
+[2026-05-09 16:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 16:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 16:00:03] [ERROR] 🔴 Google Docs: Token is 33 days old — CRITICAL
+[2026-05-09 16:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 16:00:03] [INFO] ======================================================================
+[2026-05-09 16:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 16:00:03] [INFO] ======================================================================
+[2026-05-09 16:30:01] [INFO] ======================================================================
+[2026-05-09 16:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 16:30:01] [INFO] ======================================================================
+[2026-05-09 16:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 16:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 16:30:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 16:30:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 16:30:05] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 16:30:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 16:30:05] [INFO] ======================================================================
+[2026-05-09 16:30:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 16:30:05] [INFO] ======================================================================
+[2026-05-09 16:30:01] [INFO] ======================================================================
+[2026-05-09 16:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 16:30:01] [INFO] ======================================================================
+[2026-05-09 16:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 16:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 16:30:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 16:30:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 16:30:05] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 16:30:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 16:30:05] [INFO] ======================================================================
+[2026-05-09 16:30:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 16:30:05] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 17:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 17:00:03] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 17:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 17:00:03] [INFO] ======================================================================
+[2026-05-09 17:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 17:00:03] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 17:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 17:00:03] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 17:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 17:00:03] [INFO] ======================================================================
+[2026-05-09 17:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 17:00:03] [INFO] ======================================================================
+[2026-05-09 17:30:01] [INFO] ======================================================================
+[2026-05-09 17:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 17:30:01] [INFO] ======================================================================
+[2026-05-09 17:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 17:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 17:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 17:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 17:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 17:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 17:30:04] [INFO] ======================================================================
+[2026-05-09 17:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 17:30:04] [INFO] ======================================================================
+[2026-05-09 17:30:01] [INFO] ======================================================================
+[2026-05-09 17:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 17:30:01] [INFO] ======================================================================
+[2026-05-09 17:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 17:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 17:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 17:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 17:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 17:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 17:30:04] [INFO] ======================================================================
+[2026-05-09 17:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 17:30:04] [INFO] ======================================================================
+[2026-05-09 18:00:02] [INFO] ======================================================================
+[2026-05-09 18:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 18:00:02] [INFO] ======================================================================
+[2026-05-09 18:00:09] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 18:00:09] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 18:00:09] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 18:00:09] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 18:00:09] [INFO] ======================================================================
+[2026-05-09 18:00:09] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 18:00:09] [INFO] ======================================================================
+[2026-05-09 18:00:02] [INFO] ======================================================================
+[2026-05-09 18:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 18:00:02] [INFO] ======================================================================
+[2026-05-09 18:00:09] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 18:00:09] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 18:00:09] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 18:00:09] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 18:00:09] [INFO] ======================================================================
+[2026-05-09 18:00:09] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 18:00:09] [INFO] ======================================================================
+[2026-05-09 18:30:01] [INFO] ======================================================================
+[2026-05-09 18:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 18:30:01] [INFO] ======================================================================
+[2026-05-09 18:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 18:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 18:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 18:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 18:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 18:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 18:30:04] [INFO] ======================================================================
+[2026-05-09 18:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 18:30:04] [INFO] ======================================================================
+[2026-05-09 18:30:01] [INFO] ======================================================================
+[2026-05-09 18:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 18:30:01] [INFO] ======================================================================
+[2026-05-09 18:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 18:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 18:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 18:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 18:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 18:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 18:30:04] [INFO] ======================================================================
+[2026-05-09 18:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 18:30:04] [INFO] ======================================================================
+[2026-05-09 19:00:02] [INFO] ======================================================================
+[2026-05-09 19:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 19:00:02] [INFO] ======================================================================
+[2026-05-09 19:00:05] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 19:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 19:00:05] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 19:00:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 19:00:05] [INFO] ======================================================================
+[2026-05-09 19:00:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 19:00:05] [INFO] ======================================================================
+[2026-05-09 19:00:02] [INFO] ======================================================================
+[2026-05-09 19:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 19:00:02] [INFO] ======================================================================
+[2026-05-09 19:00:05] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 19:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 19:00:05] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 19:00:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 19:00:05] [INFO] ======================================================================
+[2026-05-09 19:00:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 19:00:05] [INFO] ======================================================================
+[2026-05-09 19:30:01] [INFO] ======================================================================
+[2026-05-09 19:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 19:30:01] [INFO] ======================================================================
+[2026-05-09 19:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 19:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 19:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 19:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 19:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 19:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 19:30:04] [INFO] ======================================================================
+[2026-05-09 19:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 19:30:04] [INFO] ======================================================================
+[2026-05-09 19:30:01] [INFO] ======================================================================
+[2026-05-09 19:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 19:30:01] [INFO] ======================================================================
+[2026-05-09 19:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 19:30:01] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 19:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 19:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 19:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 19:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 19:30:04] [INFO] ======================================================================
+[2026-05-09 19:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 19:30:04] [INFO] ======================================================================
+[2026-05-09 20:00:02] [INFO] ======================================================================
+[2026-05-09 20:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 20:00:02] [INFO] ======================================================================
+[2026-05-09 20:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 20:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 20:00:03] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 20:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 20:00:03] [INFO] ======================================================================
+[2026-05-09 20:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 20:00:03] [INFO] ======================================================================
+[2026-05-09 20:00:02] [INFO] ======================================================================
+[2026-05-09 20:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 20:00:02] [INFO] ======================================================================
+[2026-05-09 20:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 20:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 20:00:03] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 20:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 20:00:03] [INFO] ======================================================================
+[2026-05-09 20:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 20:00:03] [INFO] ======================================================================
+[2026-05-09 20:30:02] [INFO] ======================================================================
+[2026-05-09 20:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 20:30:02] [INFO] ======================================================================
+[2026-05-09 20:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 20:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 20:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 20:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 20:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 20:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 20:30:04] [INFO] ======================================================================
+[2026-05-09 20:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 20:30:04] [INFO] ======================================================================
+[2026-05-09 20:30:02] [INFO] ======================================================================
+[2026-05-09 20:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 20:30:02] [INFO] ======================================================================
+[2026-05-09 20:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 20:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 20:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 20:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 20:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 20:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 20:30:04] [INFO] ======================================================================
+[2026-05-09 20:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 20:30:04] [INFO] ======================================================================
+[2026-05-09 21:00:02] [INFO] ======================================================================
+[2026-05-09 21:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 21:00:02] [INFO] ======================================================================
+[2026-05-09 21:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 21:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 21:00:03] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 21:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 21:00:03] [INFO] ======================================================================
+[2026-05-09 21:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 21:00:03] [INFO] ======================================================================
+[2026-05-09 21:00:02] [INFO] ======================================================================
+[2026-05-09 21:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 21:00:02] [INFO] ======================================================================
+[2026-05-09 21:00:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 21:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 21:00:03] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 21:00:03] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 21:00:03] [INFO] ======================================================================
+[2026-05-09 21:00:03] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 21:00:03] [INFO] ======================================================================
+[2026-05-09 21:30:02] [INFO] ======================================================================
+[2026-05-09 21:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 21:30:02] [INFO] ======================================================================
+[2026-05-09 21:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 21:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 21:30:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 21:30:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 21:30:05] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 21:30:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 21:30:05] [INFO] ======================================================================
+[2026-05-09 21:30:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 21:30:05] [INFO] ======================================================================
+[2026-05-09 21:30:02] [INFO] ======================================================================
+[2026-05-09 21:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 21:30:02] [INFO] ======================================================================
+[2026-05-09 21:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 21:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 21:30:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 21:30:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 21:30:05] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 21:30:05] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 21:30:05] [INFO] ======================================================================
+[2026-05-09 21:30:05] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 21:30:05] [INFO] ======================================================================
+[2026-05-09 22:00:02] [INFO] ======================================================================
+[2026-05-09 22:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 22:00:02] [INFO] ======================================================================
+[2026-05-09 22:00:09] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 22:00:09] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 22:00:09] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 22:00:09] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 22:00:09] [INFO] ======================================================================
+[2026-05-09 22:00:09] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 22:00:09] [INFO] ======================================================================
+[2026-05-09 22:00:02] [INFO] ======================================================================
+[2026-05-09 22:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 22:00:02] [INFO] ======================================================================
+[2026-05-09 22:00:09] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 22:00:09] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 22:00:09] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 22:00:09] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 22:00:09] [INFO] ======================================================================
+[2026-05-09 22:00:09] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 22:00:09] [INFO] ======================================================================
+[2026-05-09 22:30:01] [INFO] ======================================================================
+[2026-05-09 22:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 22:30:01] [INFO] ======================================================================
+[2026-05-09 22:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 22:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 22:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 22:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 22:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 22:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 22:30:04] [INFO] ======================================================================
+[2026-05-09 22:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 22:30:04] [INFO] ======================================================================
+[2026-05-09 22:30:01] [INFO] ======================================================================
+[2026-05-09 22:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 22:30:01] [INFO] ======================================================================
+[2026-05-09 22:30:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 22:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 22:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 22:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 22:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 22:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 22:30:04] [INFO] ======================================================================
+[2026-05-09 22:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 22:30:04] [INFO] ======================================================================
+[2026-05-09 23:00:02] [INFO] ======================================================================
+[2026-05-09 23:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 23:00:02] [INFO] ======================================================================
+[2026-05-09 23:00:07] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 23:00:07] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 23:00:07] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 23:00:07] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 23:00:07] [INFO] ======================================================================
+[2026-05-09 23:00:07] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 23:00:07] [INFO] ======================================================================
+[2026-05-09 23:00:02] [INFO] ======================================================================
+[2026-05-09 23:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 23:00:02] [INFO] ======================================================================
+[2026-05-09 23:00:07] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-05-09 23:00:07] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 23:00:07] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 23:00:07] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 23:00:07] [INFO] ======================================================================
+[2026-05-09 23:00:07] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 23:00:07] [INFO] ======================================================================
+[2026-05-09 23:30:01] [INFO] ======================================================================
+[2026-05-09 23:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 23:30:01] [INFO] ======================================================================
+[2026-05-09 23:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 23:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 23:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 23:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 23:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 23:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 23:30:04] [INFO] ======================================================================
+[2026-05-09 23:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 23:30:04] [INFO] ======================================================================
+[2026-05-09 23:30:01] [INFO] ======================================================================
+[2026-05-09 23:30:01] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-05-09 23:30:01] [INFO] ======================================================================
+[2026-05-09 23:30:01] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-05-09 23:30:02] [INFO] Whoop refresh attempt 1/3...
+[2026-05-09 23:30:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-05-09 23:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-05-09 23:30:04] [ERROR] 🔴 Google Docs: Token is 34 days old — CRITICAL
+[2026-05-09 23:30:04] [WARNING] 🔴 Gmail SMTP: Config is 74 days old — verify still working
+[2026-05-09 23:30:04] [INFO] ======================================================================
+[2026-05-09 23:30:04] [INFO] Summary: 2 healthy | 1 warning | 1 critical
+[2026-05-09 23:30:04] [INFO] ======================================================================
