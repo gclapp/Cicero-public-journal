@@ -2620,4 +2620,29 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
     obj, end = self.raw_decode(s, idx=_w(s, 0).end())
-               ^^^^^^^^^^^^^^^^^^
+               ^^^^^^^^^^^^^^^^^^Fetching stock data with 30-day history...
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 279, in <module>
+    results = fetch_all_stocks(verbose=not is_summary)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 157, in fetch_all_stocks
+    add_price_to_history(symbol, data['price'], today)
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 74, in add_price_to_history
+    history = load_history()
+              ^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py", line 55, in load_history
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 468 column 4 (char 8192)

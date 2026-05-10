@@ -24,3 +24,19 @@
 [2026-05-09 14:00:14]    Status: Could not fetch
 [2026-05-09 14:00:14] 
 ✅ Flight check complete
+[2026-05-10 08:00:01] ============================================================
+[2026-05-10 08:00:01] 🛫 Flight Monitor Starting
+[2026-05-10 08:00:01] ============================================================
+[2026-05-10 08:00:01] ============================================================
+[2026-05-10 08:00:01] 🛫 Flight Monitor Starting
+[2026-05-10 08:00:01] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/flight_monitor.py", line 110, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/flight_monitor.py", line 92, in main
+    flights = get_upcoming_flights(days=14)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/flight_monitor.py", line 55, in get_upcoming_flights
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'

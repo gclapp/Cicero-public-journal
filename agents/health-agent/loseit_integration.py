@@ -62,7 +62,7 @@ class LoseItIntegration:
             
             # Search for Lose It! emails from last N days
             since_date = (datetime.now() - timedelta(days=days_back)).strftime('%d-%b-%Y')
-            search_criteria = f'(FROM "noreply@loseit.com" SINCE "{since_date}")'
+            search_criteria = f'(FROM "donotreply@loseit.com" SINCE "{since_date}")'
             
             _, message_ids = mail.search(None, search_criteria)
             
@@ -86,10 +86,10 @@ class LoseItIntegration:
                     else:
                         html_body = msg.get_payload(decode=True).decode('utf-8', errors='ignore')
                     
-                    if html_body and 'Daily Report' in subject:
+                    if html_body and ('Daily Report' in subject or 'Daily Summary' in subject):
                         emails.append({
                             'subject': subject,
-                            'date': date_str,
+                            'email_date': date_str,
                             'html': html_body
                         })
                         
@@ -104,19 +104,48 @@ class LoseItIntegration:
         
         return emails
     
-    def parse_nutrition_data(self, html_content: str, subject: str = None) -> Dict:
-        """Parse Lose It! daily report HTML"""
+    def parse_nutrition_data(self, html_content: str, subject: str = None, email_date: str = None) -> Dict:
+        """Parse Lose It! daily report HTML - text-based approach for reliability"""
         soup = BeautifulSoup(html_content, 'html.parser')
+        text = soup.get_text()
+        lines = [l.strip() for l in text.split('\n') if l.strip()]
         
-        # Extract date from subject
+        # Extract date from subject (e.g., "Lose It! Daily Summary for Wed, May 6th")
         report_date = datetime.now().strftime('%Y-%m-%d')
+        
+        # First try to get year from email date header
+        email_year = None
+        if email_date:
+            try:
+                # Parse email date like "Thu, 30 Apr 2026 15:10:55 +0000"
+                email_dt = datetime.strptime(email_date[:16], '%a, %d %b %Y')
+                email_year = email_dt.year
+            except:
+                pass
+        
         if subject:
-            date_match = re.search(r'([A-Za-z]+ \d{1,2}, \d{4})', subject)
+            # Try pattern with year first
+            date_match = re.search(r'for \w+,? ([A-Za-z]+ \d{1,2})(?:st|nd|rd|th)?,? (\d{4})', subject)
             if date_match:
                 try:
-                    report_date = datetime.strptime(date_match.group(1), '%B %d, %Y').strftime('%Y-%m-%d')
+                    date_str = f"{date_match.group(1)} {date_match.group(2)}"
+                    report_date = datetime.strptime(date_str, '%B %d %Y').strftime('%Y-%m-%d')
                 except:
                     pass
+            else:
+                # Try pattern without year - use email year or current year
+                date_match = re.search(r'for \w+,? ([A-Za-z]+ \d{1,2})(?:st|nd|rd|th)?', subject)
+                if date_match:
+                    try:
+                        year = email_year if email_year else datetime.now().year
+                        date_str = f"{date_match.group(1)} {year}"
+                        # Try full month name first, then abbreviated
+                        try:
+                            report_date = datetime.strptime(date_str, '%B %d %Y').strftime('%Y-%m-%d')
+                        except:
+                            report_date = datetime.strptime(date_str, '%b %d %Y').strftime('%Y-%m-%d')
+                    except:
+                        pass
         
         data = {
             'date': report_date,
@@ -133,56 +162,78 @@ class LoseItIntegration:
             }
         }
         
-        # Parse summary table
-        tables = soup.find_all('table')
-        for table in tables:
-            rows = table.find_all('tr')
-            for row in rows:
-                cells = row.find_all('td')
-                if len(cells) >= 2:
-                    label = cells[0].get_text(strip=True)
-                    value = cells[-1].get_text(strip=True)
-                    
-                    if 'Food Calories' in label:
-                        try:
-                            data['food_calories'] = int(value.replace(',', ''))
-                        except:
-                            pass
-                    elif 'Exercise Calories' in label:
-                        try:
-                            data['exercise_calories'] = int(value.replace(',', ''))
-                        except:
-                            pass
-                    elif 'Net Calories' in label:
-                        try:
-                            data['net_calories'] = int(value.replace(',', ''))
-                        except:
-                            pass
-                    elif '+/- Calories' in label or 'Calories' in label and '+' in value or '-' in value:
-                        try:
-                            data['deficit'] = int(value.replace(',', '').replace('+', ''))
-                        except:
-                            pass
-                    elif 'Weight' in label and value != '-':
-                        try:
-                            data['weight'] = float(value)
-                        except:
-                            pass
-                    elif 'Carbs' in label:
-                        try:
-                            data['macros']['carbs'] = int(value.replace('g', '').replace(',', ''))
-                        except:
-                            pass
-                    elif 'Fat' in label:
-                        try:
-                            data['macros']['fat'] = int(value.replace('g', '').replace(',', ''))
-                        except:
-                            pass
-                    elif 'Protein' in label:
-                        try:
-                            data['macros']['protein'] = int(value.replace('g', '').replace(',', ''))
-                        except:
-                            pass
+        # Parse by looking for patterns in consecutive lines
+        for i, line in enumerate(lines):
+            # Food calories
+            if 'Food calories consumed' in line or line == 'Food calories consumed':
+                if i + 1 < len(lines):
+                    try:
+                        val = lines[i + 1].replace(',', '').replace('cals', '').strip()
+                        data['food_calories'] = int(val)
+                    except:
+                        pass
+            
+            # Exercise calories
+            elif 'Exercise calories burned' in line or line == 'Exercise calories burned':
+                if i + 1 < len(lines):
+                    try:
+                        val = lines[i + 1].replace(',', '').replace('cals', '').strip()
+                        data['exercise_calories'] = int(val)
+                    except:
+                        pass
+            
+            # Net calories
+            elif 'Net calories for the day' in line or line == 'Net calories for the day':
+                if i + 1 < len(lines):
+                    try:
+                        val = lines[i + 1].replace(',', '').replace('cals', '').strip()
+                        data['net_calories'] = int(val)
+                    except:
+                        pass
+            
+            # Daily calorie budget (to calculate deficit)
+            elif 'Daily calorie budget' in line or line == 'Daily calorie budget':
+                if i + 1 < len(lines):
+                    try:
+                        budget = int(lines[i + 1].replace(',', '').strip())
+                        if data['net_calories']:
+                            data['deficit'] = budget - data['net_calories']
+                    except:
+                        pass
+            
+            # Weight
+            elif 'Weight' in line and i + 1 < len(lines):
+                val = lines[i + 1].strip()
+                if val and val != '-' and 'lbs' not in line:
+                    try:
+                        data['weight'] = float(val)
+                    except:
+                        pass
+            
+            # Macros - look for "Protein" followed by number with g
+            elif line == 'Protein' or line == 'Protein(g)':
+                if i + 1 < len(lines):
+                    val = lines[i + 1].replace('g', '').replace(',', '').strip()
+                    try:
+                        data['macros']['protein'] = int(val)
+                    except:
+                        pass
+            
+            elif line == 'Carbohydrates':
+                if i + 1 < len(lines):
+                    val = lines[i + 1].replace('g', '').replace(',', '').strip()
+                    try:
+                        data['macros']['carbs'] = int(val)
+                    except:
+                        pass
+            
+            elif line == 'Fat':
+                if i + 1 < len(lines):
+                    val = lines[i + 1].replace('g', '').replace(',', '').strip()
+                    try:
+                        data['macros']['fat'] = int(val)
+                    except:
+                        pass
         
         # Parse meals
         current_meal = None
@@ -242,7 +293,7 @@ class LoseItIntegration:
         
         # Parse the most recent email
         latest = emails[-1]  # Last one is most recent
-        data = self.parse_nutrition_data(latest['html'], latest['subject'])
+        data = self.parse_nutrition_data(latest['html'], latest.get('subject'), latest.get('email_date'))
         
         # Save to cache
         with open(self.cache_file, 'w') as f:
@@ -267,7 +318,7 @@ class LoseItIntegration:
         # Fetch and find yesterday's data
         emails = self.fetch_loseit_emails(days_back=3)
         for email_data in emails:
-            data = self.parse_nutrition_data(email_data['html'], email_data['subject'])
+            data = self.parse_nutrition_data(email_data['html'], email_data.get('subject'), email_data.get('email_date'))
             if data.get('date') == yesterday:
                 return data
         

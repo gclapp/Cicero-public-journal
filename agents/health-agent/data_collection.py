@@ -181,18 +181,184 @@ class VitusDataCollection:
         
         return asdict(check_in)
     
+    def get_apple_health_water(self, days: int = 7) -> Dict:
+        """Get water data from Apple Health emails"""
+        water_file = Path.home() / '.openclaw' / 'workspace' / 'data' / 'water-intake-history.json'
+        
+        if not water_file.exists():
+            return {'available': False, 'data': []}
+        
+        try:
+            with open(water_file, 'r') as f:
+                water_data = json.load(f)
+            
+            daily_records = water_data.get('daily_records', {})
+            
+            # Get last N days
+            result = []
+            today = datetime.now()
+            
+            for i in range(days):
+                date_key = (today - timedelta(days=i)).strftime('%Y-%m-%d')
+                if date_key in daily_records:
+                    record = daily_records[date_key]
+                    result.append({
+                        'date': date_key,
+                        'ounces': record.get('ounces', 0),
+                        'ml': record.get('ounces', 0) * 29.5735,
+                        'cups': record.get('cups', 0)
+                    })
+                else:
+                    result.append({
+                        'date': date_key,
+                        'ounces': 0,
+                        'ml': 0,
+                        'cups': 0,
+                        'missing': True
+                    })
+            
+            # Calculate stats
+            valid_days = [r for r in result if r.get('ounces', 0) > 0]
+            avg_oz = sum(r['ounces'] for r in valid_days) / len(valid_days) if valid_days else 0
+            
+            return {
+                'available': True,
+                'data': result,
+                'average_oz': round(avg_oz, 1),
+                'days_tracked': len(valid_days),
+                'last_updated': water_data.get('metadata', {}).get('last_updated')
+            }
+        except Exception as e:
+            return {'available': False, 'error': str(e), 'data': []}
+    
+    def get_apple_health_steps(self, days: int = 7) -> Dict:
+        """Get steps data from Apple Health emails"""
+        steps_file = Path.home() / '.openclaw' / 'workspace' / 'data' / 'steps-history.json'
+        
+        if not steps_file.exists():
+            return {'available': False, 'data': []}
+        
+        try:
+            with open(steps_file, 'r') as f:
+                steps_data = json.load(f)
+            
+            daily_records = steps_data.get('daily_records', {})
+            target = steps_data.get('metadata', {}).get('target_steps', 10000)
+            
+            # Get last N days
+            result = []
+            today = datetime.now()
+            
+            for i in range(days):
+                date_key = (today - timedelta(days=i)).strftime('%Y-%m-%d')
+                if date_key in daily_records:
+                    record = daily_records[date_key]
+                    result.append({
+                        'date': date_key,
+                        'steps': record.get('steps', 0),
+                        'miles': record.get('miles', 0),
+                        'calories': record.get('calories', 0),
+                        'percent_of_goal': record.get('percent_of_goal', 0)
+                    })
+                else:
+                    result.append({
+                        'date': date_key,
+                        'steps': 0,
+                        'miles': 0,
+                        'calories': 0,
+                        'percent_of_goal': 0,
+                        'missing': True
+                    })
+            
+            # Calculate stats
+            valid_days = [r for r in result if r.get('steps', 0) > 0]
+            avg_steps = int(sum(r['steps'] for r in valid_days) / len(valid_days)) if valid_days else 0
+            
+            return {
+                'available': True,
+                'data': result,
+                'average_steps': avg_steps,
+                'target_steps': target,
+                'days_tracked': len(valid_days),
+                'last_updated': steps_data.get('metadata', {}).get('last_updated')
+            }
+        except Exception as e:
+            return {'available': False, 'error': str(e), 'data': []}
+    
     def get_today_metrics(self) -> Dict:
         """Get all metrics for today"""
         data = self._load_daily_data()
         water = self.get_water_status()
+        
+        # Also get Apple Health water data if available
+        apple_health_water = self.get_apple_health_water(days=1)
+        if apple_health_water['available'] and apple_health_water['data']:
+            today_water = apple_health_water['data'][0]
+            if today_water['ounces'] > 0:
+                # Use Apple Health data if it's more complete
+                water = {
+                    'total_ml': int(today_water['ml']),
+                    'goal_ml': 3000,
+                    'remaining_ml': max(0, 3000 - int(today_water['ml'])),
+                    'percent_complete': min(100, (today_water['ounces'] / 80) * 100),  # 80oz = ~2.4L goal
+                    'ounces': today_water['ounces'],
+                    'cups': today_water['cups'],
+                    'source': 'apple_health'
+                }
+        
+        # Get Apple Health steps data
+        apple_health_steps = self.get_apple_health_steps(days=7)
+        
+        # Get Lose It! nutrition data
+        loseit_data = self.get_loseit_nutrition(days=7)
         
         return {
             'water': water,
             'stress': data['metrics'].get('latest_stress'),
             'energy': data['metrics'].get('latest_energy'),
             'mood': data['metrics'].get('latest_mood'),
-            'check_ins_count': len(data['check_ins'])
+            'check_ins_count': len(data['check_ins']),
+            'apple_health_water': apple_health_water if apple_health_water['available'] else None,
+            'apple_health_steps': apple_health_steps if apple_health_steps['available'] else None,
+            'loseit_nutrition': loseit_data if loseit_data.get('available') else None
         }
+    
+    def get_loseit_nutrition(self, days: int = 7) -> Dict:
+        """Get nutrition data from Lose It! emails"""
+        nutrition_file = Path.home() / '.openclaw' / 'workspace' / 'data' / 'nutrition' / 'loseit-cache.json'
+        
+        if not nutrition_file.exists():
+            return {'available': False, 'entries': []}
+        
+        try:
+            with open(nutrition_file, 'r') as f:
+                nutrition_data = json.load(f)
+            
+            entries = nutrition_data.get('entries', [])
+            
+            # Sort by date and get last N days
+            sorted_entries = sorted(entries, key=lambda x: x.get('date', ''), reverse=True)
+            recent_entries = sorted_entries[:days]
+            
+            # Calculate stats
+            if recent_entries:
+                avg_calories = sum(e.get('food_calories', 0) for e in recent_entries) / len(recent_entries)
+                protein_entries = [e for e in recent_entries if e.get('macros', {}).get('protein')]
+                avg_protein = sum(e['macros']['protein'] for e in protein_entries) / len(protein_entries) if protein_entries else 0
+            else:
+                avg_calories = 0
+                avg_protein = 0
+            
+            return {
+                'available': True,
+                'entries': recent_entries,
+                'avg_calories': round(avg_calories, 0),
+                'avg_protein': round(avg_protein, 0),
+                'days_tracked': len(recent_entries),
+                'last_updated': nutrition_data.get('last_updated')
+            }
+        except Exception as e:
+            return {'available': False, 'error': str(e), 'entries': []}
     
     # ==================== SNACK & MEAL SUGGESTIONS ====================
     

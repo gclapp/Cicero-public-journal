@@ -39125,3 +39125,360 @@ geoffrey.clapp@...
 ❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
 [2026-05-09 23:45:02 UTC] ✅ Check completed
 [2026-05-09 23:45:02 UTC] === Check completed ===
+[2026-05-10 00:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T00:00:03.471618] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 00:00:03 UTC] ✅ Check completed
+[2026-05-10 00:00:03 UTC] === Check completed ===
+[2026-05-10 00:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T00:15:01.305485] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 00:15:01 UTC] ✅ Check completed
+[2026-05-10 00:15:01 UTC] === Check completed ===
+[2026-05-10 00:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T00:30:02.147274] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 00:30:02 UTC] ✅ Check completed
+[2026-05-10 00:30:02 UTC] === Check completed ===
+[2026-05-10 00:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T00:45:01.276221] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 00:45:01 UTC] ✅ Check completed
+[2026-05-10 00:45:01 UTC] === Check completed ===
+[2026-05-10 01:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T01:00:02.495151] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 01:00:03 UTC] ✅ Check completed
+[2026-05-10 01:00:03 UTC] === Check completed ===
+[2026-05-10 01:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T01:15:01.758256] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 01:15:02 UTC] ✅ Check completed
+[2026-05-10 01:15:02 UTC] === Check completed ===
+[2026-05-10 01:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T01:30:01.849026] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 01:30:02 UTC] ✅ Check completed
+[2026-05-10 01:30:02 UTC] === Check completed ===
+[2026-05-10 01:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T01:45:01.346587] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 01:45:01 UTC] ✅ Check completed
+[2026-05-10 01:45:01 UTC] === Check completed ===
+[2026-05-10 02:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T02:00:02.247000] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 02:00:02 UTC] ✅ Check completed
+[2026-05-10 02:00:02 UTC] === Check completed ===
+[2026-05-10 02:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T02:15:01.706289] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 02:15:02 UTC] ✅ Check completed
+[2026-05-10 02:15:02 UTC] === Check completed ===
+[2026-05-10 02:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T02:30:01.554211] Checking emails...
+❌ Error checking emails: Expecting value: line 1 column 1 (char 0)
+[2026-05-10 02:30:02 UTC] ✅ Check completed
+[2026-05-10 02:30:02 UTC] === Check completed ===
+[2026-05-10 02:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T02:45:01.450698] Checking emails...
+
+📧 New email from: Geoffrey Clapp <gclapp@mac.com>
+   Subject: Daily Report for April 5, 2026
+   Body preview: ...
+   ✅ Authorized sender: gclapp@mac.com
+   ℹ️ General email
+   ✅ Reply sent to gclapp@mac.com
+
+📧 New email from: Geoffrey Clapp <gclapp@mac.com>
+   Subject: Water Update
+   Body preview: 0...
+   ✅ Authorized sender: gclapp@mac.com
+   ℹ️ General email
+   ✅ Reply sent to gclapp@mac.com
+✅ Processed 2 new emails
+[2026-05-10 02:45:04 UTC] ✅ Check completed
+[2026-05-10 02:45:04 UTC] === Check completed ===
+[2026-05-10 03:00:02 UTC] === IMAP check started ===
+
+[2026-05-10T03:00:02.766983] Checking emails...
+
+📧 New email from: Geoffrey Clapp <geoffrey.clapp@progyny.com>
+   Subject: Reserve Uber
+   Body preview: If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information...
+   ✅ Authorized sender: geoffrey.clapp@progyny.com
+   ℹ️ General email
+   ✅ Reply sent to geoffrey.clapp@progyny.com
+✅ Processed 1 new emails
+[2026-05-10 03:00:04 UTC] ✅ Check completed
+[2026-05-10 03:00:04 UTC] === Check completed ===
+[2026-05-10 03:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T03:15:01.314281] Checking emails...
+
+📧 New email from: Geoffrey Clapp <gclapp@mac.com>
+   Subject: Updated step data
+   Body preview: 8709...
+   ✅ Authorized sender: gclapp@mac.com
+   ℹ️ General email
+   ✅ Reply sent to gclapp@mac.com
+
+📧 New email from: Geoffrey Clapp <gclapp@mac.com>
+   Subject: Updated step data
+   Body preview: 8709...
+   ✅ Authorized sender: gclapp@mac.com
+   ℹ️ General email
+   ✅ Reply sent to gclapp@mac.com
+
+📧 New email from: Geoffrey Clapp <gclapp@mac.com>
+   Subject: Updated step data
+   Body preview: 8709...
+   ✅ Authorized sender: gclapp@mac.com
+   ℹ️ General email
+   ✅ Reply sent to gclapp@mac.com
+✅ Processed 3 new emails
+[2026-05-10 03:15:06 UTC] ✅ Check completed
+[2026-05-10 03:15:06 UTC] === Check completed ===
+[2026-05-10 03:30:02 UTC] === IMAP check started ===
+
+[2026-05-10T03:30:02.395841] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 03:30:02 UTC] ✅ Check completed
+[2026-05-10 03:30:02 UTC] === Check completed ===
+[2026-05-10 03:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T03:45:02.144598] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 03:45:02 UTC] ✅ Check completed
+[2026-05-10 03:45:02 UTC] === Check completed ===
+[2026-05-10 04:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T04:00:02.342422] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 04:00:02 UTC] ✅ Check completed
+[2026-05-10 04:00:02 UTC] === Check completed ===
+[2026-05-10 04:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T04:15:02.016367] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 04:15:04 UTC] ✅ Check completed
+[2026-05-10 04:15:04 UTC] === Check completed ===
+[2026-05-10 04:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T04:30:01.514998] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 04:30:01 UTC] ✅ Check completed
+[2026-05-10 04:30:02 UTC] === Check completed ===
+[2026-05-10 04:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T04:45:01.301320] Checking emails...
+
+📧 New email from: Geoffrey Clapp <gclapp@mac.com>
+   Subject: Updated step data
+   Body preview: 8709...
+   ✅ Authorized sender: gclapp@mac.com
+   ℹ️ General email
+   ✅ Reply sent to gclapp@mac.com
+✅ Processed 1 new emails
+[2026-05-10 04:45:03 UTC] ✅ Check completed
+[2026-05-10 04:45:03 UTC] === Check completed ===
+[2026-05-10 05:00:02 UTC] === IMAP check started ===
+
+[2026-05-10T05:00:02.883174] Checking emails...
+
+📧 New email from: Geoffrey Clapp <geoffrey.clapp@progyny.com>
+   Subject: Geoffrey Clapp - The Westin Palo Alto, 96502884
+   Body preview: External Sender.
+
+ Hotel (Booked) The Westin Palo Alto 675 El Camino Real Palo Alto, CA 94301 Phone Number: 1 650 321-4422 Fax: 1 650 321-5522 Check-in: May 12, 2026 Check-out: May 14, 2026 # of nig...
+   ✅ Authorized sender: geoffrey.clapp@progyny.com
+   ℹ️ General email
+   ✅ Reply sent to geoffrey.clapp@progyny.com
+
+📧 New email from: Geoffrey Clapp <geoffrey.clapp@progyny.com>
+   Subject: Geoffrey Clapp - Delta Air Lines 1430 - departs 8:59 PM local time -
+ Confirmation code: HKNM2B
+   Body preview: External Sender.
+
+ Delta Air Lines confirmation code: HKNM2B Delta Air Lines 1430 First, Scheduled Departure May 12, 2026, 8:59 pm, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.),...
+   ✅ Authorized sender: geoffrey.clapp@progyny.com
+   ✈️ Detected: Flight confirmation
+   ✅ Saved flight 1430 with confirmation HKNM2B
+   ✅ Reply sent to geoffrey.clapp@progyny.com
+✅ Processed 2 new emails
+[2026-05-10 05:00:06 UTC] ✅ Check completed
+[2026-05-10 05:00:06 UTC] === Check completed ===
+[2026-05-10 05:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T05:15:02.142544] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 05:15:02 UTC] ✅ Check completed
+[2026-05-10 05:15:02 UTC] === Check completed ===
+[2026-05-10 05:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T05:30:02.307098] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 05:30:02 UTC] ✅ Check completed
+[2026-05-10 05:30:02 UTC] === Check completed ===
+[2026-05-10 05:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T05:45:01.456236] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 05:45:02 UTC] ✅ Check completed
+[2026-05-10 05:45:02 UTC] === Check completed ===
+[2026-05-10 06:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T06:00:03.017491] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 06:00:03 UTC] ✅ Check completed
+[2026-05-10 06:00:03 UTC] === Check completed ===
+[2026-05-10 06:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T06:15:01.829738] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 06:15:11 UTC] ✅ Check completed
+[2026-05-10 06:15:11 UTC] === Check completed ===
+[2026-05-10 06:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T06:30:01.499723] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 06:30:01 UTC] ✅ Check completed
+[2026-05-10 06:30:01 UTC] === Check completed ===
+[2026-05-10 06:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T06:45:01.573011] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 06:45:02 UTC] ✅ Check completed
+[2026-05-10 06:45:02 UTC] === Check completed ===
+[2026-05-10 07:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T07:00:02.137427] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 07:00:02 UTC] ✅ Check completed
+[2026-05-10 07:00:02 UTC] === Check completed ===
+[2026-05-10 07:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T07:15:01.416791] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 07:15:01 UTC] ✅ Check completed
+[2026-05-10 07:15:01 UTC] === Check completed ===
+[2026-05-10 07:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T07:30:01.394688] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 07:30:01 UTC] ✅ Check completed
+[2026-05-10 07:30:01 UTC] === Check completed ===
+[2026-05-10 07:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T07:45:01.869002] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 07:45:02 UTC] ✅ Check completed
+[2026-05-10 07:45:02 UTC] === Check completed ===
+[2026-05-10 08:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T08:00:02.435303] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 08:00:02 UTC] ✅ Check completed
+[2026-05-10 08:00:02 UTC] === Check completed ===
+[2026-05-10 08:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T08:15:01.983019] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 08:15:02 UTC] ✅ Check completed
+[2026-05-10 08:15:02 UTC] === Check completed ===
+[2026-05-10 08:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T08:30:01.989818] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 08:30:02 UTC] ✅ Check completed
+[2026-05-10 08:30:02 UTC] === Check completed ===
+[2026-05-10 08:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T08:45:01.925856] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 08:45:02 UTC] ✅ Check completed
+[2026-05-10 08:45:02 UTC] === Check completed ===
+[2026-05-10 09:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T09:00:02.614415] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 09:00:03 UTC] ✅ Check completed
+[2026-05-10 09:00:03 UTC] === Check completed ===
+[2026-05-10 09:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T09:15:01.986302] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 09:15:02 UTC] ✅ Check completed
+[2026-05-10 09:15:02 UTC] === Check completed ===
+[2026-05-10 09:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T09:30:02.004348] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 09:30:02 UTC] ✅ Check completed
+[2026-05-10 09:30:02 UTC] === Check completed ===
+[2026-05-10 09:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T09:45:02.115826] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 09:45:02 UTC] ✅ Check completed
+[2026-05-10 09:45:02 UTC] === Check completed ===
+[2026-05-10 10:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T10:00:02.357652] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 10:00:02 UTC] ✅ Check completed
+[2026-05-10 10:00:02 UTC] === Check completed ===
+[2026-05-10 10:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T10:15:01.911918] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 10:15:02 UTC] ✅ Check completed
+[2026-05-10 10:15:02 UTC] === Check completed ===
+[2026-05-10 10:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T10:30:02.043295] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 10:30:04 UTC] ✅ Check completed
+[2026-05-10 10:30:04 UTC] === Check completed ===
+[2026-05-10 10:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T10:45:01.242358] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 10:45:01 UTC] ✅ Check completed
+[2026-05-10 10:45:01 UTC] === Check completed ===
+[2026-05-10 11:00:01 UTC] === IMAP check started ===
+
+[2026-05-10T11:00:02.555010] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 11:00:03 UTC] ✅ Check completed
+[2026-05-10 11:00:03 UTC] === Check completed ===
+[2026-05-10 11:15:01 UTC] === IMAP check started ===
+
+[2026-05-10T11:15:01.388862] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 11:15:01 UTC] ✅ Check completed
+[2026-05-10 11:15:01 UTC] === Check completed ===
+[2026-05-10 11:30:01 UTC] === IMAP check started ===
+
+[2026-05-10T11:30:01.410605] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 11:30:02 UTC] ✅ Check completed
+[2026-05-10 11:30:02 UTC] === Check completed ===
+[2026-05-10 11:45:01 UTC] === IMAP check started ===
+
+[2026-05-10T11:45:01.330975] Checking emails...
+✅ Processed 0 new emails
+[2026-05-10 11:45:01 UTC] ✅ Check completed
+[2026-05-10 11:45:01 UTC] === Check completed ===
