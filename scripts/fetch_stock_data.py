@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 DATA_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "stock-data.json"
 HISTORY_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "stock-history.json"
 
-WATCHLIST = ['PGNY', 'AAPL', 'NVDA', 'OMDA']
+WATCHLIST = ['PGNY', 'AAPL', 'NVDA', 'OMDA', 'VTI']
 INDICES = ['^GSPC', '^DJI']
 
 def fetch_stock_price(symbol):

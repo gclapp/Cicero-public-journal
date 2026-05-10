@@ -50,6 +50,7 @@ class VitusCoachEngine:
         'yellow': {'emoji': '🟡', 'label': 'CAUTION', 'color': '#f39c12', 'bg': '#fef9e7'},
         'green': {'emoji': '🟢', 'label': 'OPTIMAL', 'color': '#27ae60', 'bg': '#d5f5e3'},
         'blue': {'emoji': '🔵', 'label': 'INFO', 'color': '#3498db', 'bg': '#ebf5fb'},
+        'gray': {'emoji': '⚪', 'label': 'UNKNOWN', 'color': '#7f8c8d', 'bg': '#ecf0f1'},
     }
     
     def __init__(self):
@@ -309,15 +310,33 @@ class VitusCoachEngine:
         """
         insights = []
         
-        # Extract key metrics
-        rec_score = whoop_data.get('recovery', {}).get('latest_score', 50) if whoop_data else 50
+        # Extract key metrics from raw Whoop data
+        # whoop_data contains keys: 'recovery', 'sleep', 'workouts', 'cycles' which are lists
+        rec_score = 50
+        hrv_change = 0
         sleep_hours = 0
-        if whoop_data and whoop_data.get('sleep'):
-            sleep_data = whoop_data['sleep'][0] if whoop_data['sleep'] else {}
-            in_bed = sleep_data.get('in_bed', {})
-            sleep_hours = in_bed.get('hours', 0) + in_bed.get('minutes', 0) / 60
         
-        hrv_change = whoop_data.get('recovery', {}).get('hrv', {}).get('change_pct', 0) if whoop_data else 0
+        if whoop_data:
+            # Get latest recovery record
+            recovery_records = whoop_data.get('recovery', [])
+            if recovery_records and len(recovery_records) > 0:
+                latest_recovery = recovery_records[0]
+                score_data = latest_recovery.get('score', {})
+                if isinstance(score_data, dict):
+                    rec_score = score_data.get('recovery_score', 50)
+                else:
+                    rec_score = score_data if isinstance(score_data, (int, float)) else 50
+                hrv_data = latest_recovery.get('hrv', {})
+                if isinstance(hrv_data, dict):
+                    hrv_change = hrv_data.get('change_pct', 0)
+            
+            # Get latest sleep record
+            sleep_records = whoop_data.get('sleep', [])
+            if sleep_records and len(sleep_records) > 0:
+                latest_sleep = sleep_records[0]
+                in_bed = latest_sleep.get('in_bed', {})
+                if isinstance(in_bed, dict):
+                    sleep_hours = in_bed.get('hours', 0) + in_bed.get('minutes', 0) / 60
         
         # Water data
         water_oz = 0

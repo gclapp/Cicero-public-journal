@@ -1115,18 +1115,22 @@ def generate_html_email(checkin_type, pt_now):
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>{header_title}</h1>
-        <p>{today_str}</p>
-    </div>
-
-    <div class="location">
-        📍 {location_info['city']}, {location_info['state']} — {location_info['status']}
-    </div>
-
-    <div class="weather">
-        {''.join([f'<div class="weather-city"><div class="weather-temp">{d["weather"]}</div><div>{d["name"]}</div></div>' for d in destination_weather])}
-    </div>
+    <div class="container">
+        <div class="header">
+            <h1>{header_title}</h1>
+            <p class="date">{today_str}</p>
+        </div>
+        
+        <div class="location-bar">
+            {location_info['city']}, {location_info['state']} — {location_info['status']}
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Weather</h2>
+            <div class="weather-grid">
+                {''.join([f'<div class="weather-item"><div class="weather-city">{d["name"]}</div><div class="weather-temp">{d["weather"]}</div></div>' for d in destination_weather])}
+            </div>
+        </div>
 '''
     
     # PACKING SECTION: Upcoming trips with weather for packing decisions
@@ -1423,8 +1427,8 @@ def generate_html_email(checkin_type, pt_now):
     # Footer
     html += f'''
     <div class="footer">
-        <p>🏛️ Cicero | All systems operational</p>
-        <p>Last updated: {pt_now.strftime('%B %d, %Y %I:%M %p PT')}</p>
+        <p class="footer-text">Cicero · Executive Assistant</p>
+    </div>
     </div>
 </body>
 </html>

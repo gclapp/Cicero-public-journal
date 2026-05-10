@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-05-09T13:31:38.451467",
+  "last_run": "2026-05-10T14:17:02.818398",
   "known_trips": [
     "Stay at The Westin Palo Alto",
     "Delta Air Lines flight 960 to New York (GAO7LP)",
@@ -7,7 +7,8 @@
     "Kids in Tahoe with Geoff (Ritz-Carlton Tahoe) ",
     "Stay at The Ritz-Carlton, Lake Tahoe",
     "Flight to RNO (DL 4099)",
-    "Flight to LAX (DL 3902)"
+    "Flight to LAX (DL 3902)",
+    "Ramtin/Driver Picking Up [In-person]"
   ],
   "created_tasks": [
     "\ud83c\udfe8 Confirm reservation - The Westin Palo Alto",
@@ -25,7 +26,24 @@
     "\ud83c\udf7d\ufe0f Confirm reservation - Republique",
     "\ud83c\udf7d\ufe0f Confirm reservation - Sadelle's",
     "\ud83c\udf7d\ufe0f Confirm reservation - Crown Shy",
+    "\ud83c\udf7d\ufe0f Confirm reservation - Dinner Reservation",
+    "\ud83c\udfe8 Confirm reservation - The Westin Palo Alto",
+    "\ud83d\udccb Research hotel amenities - The Westin Palo Alto",
+    "\u2708\ufe0f Check in for None (GAO7LP)",
+    "\ud83c\udf92 Pack for trip - None",
+    "\u2708\ufe0f Check in for None (HKZ4LV)",
+    "\ud83e\uddf3 Prepare for: Kids in Tahoe with Geoff (Ritz-Carlton Tahoe) ",
+    "\ud83c\udfe8 Confirm reservation - The Ritz-Carlton, Lake Tahoe",
+    "\ud83d\udccb Research hotel amenities - The Ritz-Carlton, Lake Tahoe",
+    "\u2708\ufe0f Check in for DL 4099",
+    "\ud83c\udf92 Pack for trip - DL 4099",
+    "\u2708\ufe0f Check in for DL 3902",
+    "\ud83c\udf92 Pack for trip - DL 3902",
+    "\ud83e\uddf3 Prepare for: Ramtin/Driver Picking Up [In-person]",
+    "\ud83c\udf7d\ufe0f Confirm reservation - Republique",
+    "\ud83c\udf7d\ufe0f Confirm reservation - Sadelle's",
+    "\ud83c\udf7d\ufe0f Confirm reservation - Crown Shy",
     "\ud83c\udf7d\ufe0f Confirm reservation - Dinner Reservation"
   ],
-  "run_count": 1
+  "run_count": 2
 }

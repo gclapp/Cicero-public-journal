@@ -50,11 +50,11 @@ def deliver_checkin():
         "timestamp": datetime.utcnow().isoformat()
     }
     
-    # Send email (always try both addresses)
+    # Send email to both addresses in one email
     subject = data.get("subject", "Cicero Check-In")
     html_body = data.get("html_message", data.get("message", ""))
     
-    # Primary email
+    # Send to [REDACTED] with geoffrey.clapp@progyny.com in CC
     if send_email("[REDACTED]", subject, html_body, cc="geoffrey.clapp@progyny.com"):
         results["email"] = True
     

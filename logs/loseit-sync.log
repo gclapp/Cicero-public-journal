@@ -4,3 +4,17 @@ No app password found in credentials
 No nutrition data found
 No app password found in credentials
 No nutrition data found
+{
+  "date": "2026-05-08",
+  "food_calories": 1509,
+  "exercise_calories": 73,
+  "net_calories": 1436,
+  "deficit": null,
+  "weight": null,
+  "meals": [],
+  "macros": {
+    "carbs": 171,
+    "fat": 65,
+    "protein": 64
+  }
+}

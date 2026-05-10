@@ -1,16 +1,8 @@
 {
-  "last_updated": "2026-05-09T14:55:02.835395",
-  "total_events": 77,
-  "travel_events": 8,
+  "last_updated": "2026-05-10T14:55:04.687767",
+  "total_events": 80,
+  "travel_events": 10,
   "events": [
-    {
-      "summary": "Zoom Whitening Session 2",
-      "start": "Saturday, May 09 at 10:30 AM",
-      "start_raw": "2026-05-09T10:30:00-07:00",
-      "location": "Carte Blanche Teeth Whitening, 1407 Glen Oaks Blvd, Pasadena, CA 91105, USA",
-      "description": "",
-      "is_travel": false
-    },
     {
       "summary": "Peak Health Longevity Consult  with Lynda Masco",
       "start": "Monday, May 11 at 06:30 AM",
@@ -34,6 +26,38 @@
       "location": "The Westin Palo Alto, Palo Alto",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
+    },
+    {
+      "summary": "Geoffrey Clapp - The Westin Palo Alto, 96502884",
+      "start": "Tuesday, May 12",
+      "start_raw": "2026-05-12",
+      "location": "675 El Camino Real, Palo Alto, CA, 94301, USA",
+      "description": "External Sender.\n\n Hotel (Booked) The Westin Palo Alto 675 El Camino Real Palo Alto, CA 94301 Phone Number: 1 650 321-4422 Fax: 1 650 321-5522 Check-in: May 12, 2026 Check-out: May 14, 2026 # of night",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 1430 - departs 8:59 PM local time - Confirmation code: HKNM2B",
+      "start": "Tuesday, May 12 at 01:59 PM",
+      "start_raw": "2026-05-12T13:59:00-07:00",
+      "location": "Los Angeles(LAX) - San Jose(SJC)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: HKNM2B Delta Air Lines 1430 First, Scheduled Departure May 12, 2026, 8:59 pm, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.), T",
+      "is_travel": true
+    },
+    {
+      "summary": "Reserve Uber",
+      "start": "Tuesday, May 12 at 06:15 PM",
+      "start_raw": "2026-05-12T18:15:00-07:00",
+      "location": "LAX",
+      "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 1154 - departs 7:00 AM local time - Confirmation code: HKJS55",
+      "start": "Thursday, May 14 at 12:00 AM",
+      "start_raw": "2026-05-14T00:00:00-07:00",
+      "location": "San Jose(SJC) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: HKJS55 Delta Air Lines 1154 First, Scheduled Departure May 14, 2026, 7:00 am, San Jose, CA, United States of America (SJC-Norman Y. Mineta San Jos",
+      "is_travel": true
     },
     {
       "summary": "Pick up Sophie from School",

@@ -95,3 +95,63 @@
 [2026-05-09 13:31:45]    ✅ Created: 🎒 Pack for trip - DL 4099
 [2026-05-09 13:31:45] ✈️  Processing: Flight to LAX (DL 3902)
 [2026-05-09 13:31:45]    📆 2026-05-25
+[2026-05-10 14:16:40] ======================================================================
+[2026-05-10 14:16:40] 🧳 Calendar Travel Checker - Starting Run
+[2026-05-10 14:16:40] 📅 2026-05-10 14:16:40
+[2026-05-10 14:16:40] 
+[2026-05-10 14:16:40] 📅 Calendar loaded: 77 total events
+[2026-05-10 14:16:40] 📅 Last updated: 2026-05-09T14:55:02.835395
+[2026-05-10 14:16:40] 
+[2026-05-10 14:16:40] ✈️  Found 8 travel events in next 30 days
+[2026-05-10 14:16:40] 🍽️  Found 4 restaurant reservations in next 30 days
+[2026-05-10 14:16:40] 
+[2026-05-10 14:16:40] 📋 Found 0 existing Todoist tasks
+[2026-05-10 14:16:40] 
+[2026-05-10 14:16:40] ✈️  Processing: Stay at The Westin Palo Alto
+[2026-05-10 14:16:40]    📆 2026-05-12
+[2026-05-10 14:16:42]    ✅ Created: 🏨 Confirm reservation - The Westin Palo Alto
+[2026-05-10 14:16:43]    ✅ Created: 📋 Research hotel amenities - The Westin Palo Alto
+[2026-05-10 14:16:43] ✈️  Processing: Delta Air Lines flight 960 to New York (GAO7LP)
+[2026-05-10 14:16:43]    📆 2026-05-16
+[2026-05-10 14:16:44]    ✅ Created: ✈️ Check in for None (GAO7LP)
+[2026-05-10 14:16:46]    ✅ Created: 🎒 Pack for trip - None
+[2026-05-10 14:16:46] ✈️  Processing: Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV
+[2026-05-10 14:16:46]    📆 2026-05-21
+[2026-05-10 14:16:47]    ✅ Created: ✈️ Check in for None (HKZ4LV)
+[2026-05-10 14:16:47]    ⏭️  Skipped (exists): 🎒 Pack for trip - None...
+[2026-05-10 14:16:47] ✈️  Processing: Kids in Tahoe with Geoff (Ritz-Carlton Tahoe) 
+[2026-05-10 14:16:47]    📆 2026-05-22
+[2026-05-10 14:16:48]    ✅ Created: 🧳 Prepare for: Kids in Tahoe with Geoff (Ritz-Carlton Tahoe)
+[2026-05-10 14:16:48] ✈️  Processing: Stay at The Ritz-Carlton, Lake Tahoe
+[2026-05-10 14:16:48]    📆 2026-05-22
+[2026-05-10 14:16:49]    ✅ Created: 🏨 Confirm reservation - The Ritz-Carlton, Lake Tahoe
+[2026-05-10 14:16:51]    ✅ Created: 📋 Research hotel amenities - The Ritz-Carlton, Lake Tahoe
+[2026-05-10 14:16:51] ✈️  Processing: Flight to RNO (DL 4099)
+[2026-05-10 14:16:51]    📆 2026-05-22
+[2026-05-10 14:16:52]    ✅ Created: ✈️ Check in for DL 4099
+[2026-05-10 14:16:53]    ✅ Created: 🎒 Pack for trip - DL 4099
+[2026-05-10 14:16:53] ✈️  Processing: Flight to LAX (DL 3902)
+[2026-05-10 14:16:53]    📆 2026-05-25
+[2026-05-10 14:16:54]    ✅ Created: ✈️ Check in for DL 3902
+[2026-05-10 14:16:55]    ✅ Created: 🎒 Pack for trip - DL 3902
+[2026-05-10 14:16:55] ✈️  Processing: Ramtin/Driver Picking Up [In-person]
+[2026-05-10 14:16:55]    📆 2026-05-25
+[2026-05-10 14:16:57]    ✅ Created: 🧳 Prepare for: Ramtin/Driver Picking Up [In-person]
+[2026-05-10 14:16:57] 
+[2026-05-10 14:16:58]    ✅ Created: 🍽️ Confirm reservation - Republique
+[2026-05-10 14:16:59]    ✅ Created: 🍽️ Confirm reservation - Sadelle's
+[2026-05-10 14:17:01]    ✅ Created: 🍽️ Confirm reservation - Crown Shy
+[2026-05-10 14:17:02]    ✅ Created: 🍽️ Confirm reservation - Dinner Reservation
+[2026-05-10 14:17:02] 
+[2026-05-10 14:17:02] ======================================================================
+[2026-05-10 14:17:02] 📊 SUMMARY
+[2026-05-10 14:17:02]    ✅ Created: 17 new tasks
+[2026-05-10 14:17:02]    ⏭️  Skipped: 1 existing tasks
+[2026-05-10 14:17:02]    ❌ Failed: 0 tasks
+[2026-05-10 14:17:02]    📈 Total runs: 2
+[2026-05-10 14:17:02] ======================================================================
+[2026-05-10 14:17:02] 
+[2026-05-10 18:00:02] ❌ Todoist CLI not found: [Errno 2] No such file or directory: 'todoist'
+[2026-05-10 18:00:02]    Install: npm install -g todoist-ts-cli
+❌ Todoist CLI not found: [Errno 2] No such file or directory: 'todoist'
+   Install: npm install -g todoist-ts-cli

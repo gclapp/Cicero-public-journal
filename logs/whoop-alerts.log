@@ -68,3 +68,9 @@ Done.
 [2026-05-10 06:00:02.877228] Checking Whoop alerts...
 No alerts triggered
 Done.
+[2026-05-10 12:00:02.508994] Checking Whoop alerts...
+Error fetching Whoop: 503 Server Error: Service Unavailable for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
+Failed to fetch Whoop data
+[2026-05-10 18:00:03.322608] Checking Whoop alerts...
+No alerts triggered
+Done.

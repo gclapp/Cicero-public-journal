@@ -1,5 +1,5 @@
 {
-  "last_check": "2026-05-10T05:00:04.123483",
+  "last_check": "2026-05-10T17:00:09.181039",
   "results": {
     "calendar": {
       "service": "calendar",
@@ -9,17 +9,17 @@
       "expires_soon": false,
       "action_required": false,
       "message": "\u2705 Token refreshed successfully",
-      "checked_at": "2026-05-10T05:00:02.874401"
+      "checked_at": "2026-05-10T17:00:02.259198"
     },
     "whoop": {
       "service": "whoop",
       "name": "Whoop API",
-      "status": "valid",
+      "status": "refreshed",
       "valid": true,
       "expires_soon": false,
       "action_required": false,
-      "message": "\u2705 Token valid",
-      "checked_at": "2026-05-10T05:00:03.161591"
+      "message": "\u2705 Token auto-refreshed successfully",
+      "checked_at": "2026-05-10T17:00:02.803570"
     }
   }
 }
