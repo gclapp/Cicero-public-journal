@@ -333,3 +333,33 @@
 [2026-05-11 05:00:10] [INFO] ----------------------------------------------------------------------
 [2026-05-11 05:00:10] [INFO] Summary: 2 healthy, 0 failed
 [2026-05-11 05:00:10] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-11 17:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-11 17:00:05] [INFO] Attempting to refresh Whoop token...
+[2026-05-11 17:00:07] [ERROR] ❌ Whoop refresh failed: HTTP 400
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-11 17:00:07] [INFO] Whoop: ❌ Token refresh failed - manual re-auth may be required
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] 🚨 Sending alert for 1 failed service(s)...
+[2026-05-11 17:00:09] [SUCCESS] ✅ Alert email sent to [REDACTED]
+[2026-05-11 17:00:09] [INFO] Summary: 2 healthy, 1 failed
+[2026-05-11 17:00:09] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-11 17:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-11 17:00:05] [INFO] Attempting to refresh Whoop token...
+[2026-05-11 17:00:07] [ERROR] ❌ Whoop refresh failed: HTTP 400
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-11 17:00:07] [INFO] Whoop: ❌ Token refresh failed - manual re-auth may be required
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] 🚨 Sending alert for 1 failed service(s)...
+[2026-05-11 17:00:09] [SUCCESS] ✅ Alert email sent to [REDACTED]
+[2026-05-11 17:00:09] [INFO] Summary: 2 healthy, 1 failed
+[2026-05-11 17:00:09] [INFO] ======================================================================

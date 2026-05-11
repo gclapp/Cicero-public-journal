@@ -7,7 +7,7 @@
     "departure_time": "2026-05-16T21:14:00",
     "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
     "confirmation": "GAO7LP",
-    "added_at": "2026-05-11T06:00:46.679280",
+    "added_at": "2026-05-11T18:00:41.084500",
     "status": "pending"
   },
   "DL742_20260521": {
@@ -18,7 +18,7 @@
     "departure_time": "2026-05-21T04:00:00",
     "location": "New York(JFK) - Los Angeles(LAX)",
     "confirmation": "HKZ4LV",
-    "added_at": "2026-05-11T06:00:53.571443",
+    "added_at": "2026-05-11T18:00:54.218041",
     "status": "pending"
   },
   "DL4099_20260522": {
@@ -29,7 +29,7 @@
     "departure_time": "2026-05-22T08:20:00",
     "location": "",
     "confirmation": null,
-    "added_at": "2026-05-11T06:01:01.005949",
+    "added_at": "2026-05-11T18:01:03.350132",
     "status": "pending"
   },
   "DL3902_20260525": {
@@ -40,7 +40,7 @@
     "departure_time": "2026-05-25T15:04:00",
     "location": "",
     "confirmation": null,
-    "added_at": "2026-05-11T06:01:12.284306",
+    "added_at": "2026-05-11T18:01:13.260918",
     "status": "pending"
   },
   "DL1430_20260512": {
@@ -51,7 +51,7 @@
     "departure_time": "2026-05-12T13:59:00",
     "location": "Los Angeles(LAX) - San Jose(SJC)",
     "confirmation": "HKNM2B",
-    "added_at": "2026-05-11T06:00:27.963853",
+    "added_at": "2026-05-11T18:00:22.283637",
     "status": "pending"
   },
   "DL1154_20260514": {
@@ -59,10 +59,10 @@
     "airline": "DL",
     "flight_number": "1154",
     "summary": "Geoffrey Clapp - Delta Air Lines 1154 - departs 7:00 AM local time - Confirmation code: HKJS55",
-    "departure_time": "2026-05-14T00:00:00",
+    "departure_time": "2026-05-14T07:00:00",
     "location": "San Jose(SJC) - Los Angeles(LAX)",
     "confirmation": "HKJS55",
-    "added_at": "2026-05-11T06:00:39.561913",
+    "added_at": "2026-05-11T18:00:32.688402",
     "status": "pending"
   }
 }

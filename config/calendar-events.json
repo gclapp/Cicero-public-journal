@@ -1,24 +1,8 @@
 {
-  "last_updated": "2026-05-10T14:55:04.687767",
-  "total_events": 80,
-  "travel_events": 10,
+  "last_updated": "2026-05-11T14:55:04.133815",
+  "total_events": 82,
+  "travel_events": 11,
   "events": [
-    {
-      "summary": "Peak Health Longevity Consult  with Lynda Masco",
-      "start": "Monday, May 11 at 06:30 AM",
-      "start_raw": "2026-05-11T06:30:00-07:00",
-      "location": "Google Meet (instructions in description)",
-      "description": "Event Name: Peak Health Longevity Consult \nEvent Description: Learn everything you need to know about Peak's longevity care plans in a free 30-minute consult with a longevity expert.To learn more abou",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, May 11 at 07:00 AM",
-      "start_raw": "2026-05-11T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
     {
       "summary": "Stay at The Westin Palo Alto",
       "start": "Tuesday, May 12",
@@ -52,9 +36,17 @@
       "is_travel": false
     },
     {
+      "summary": "Reserved uber to SJC",
+      "start": "Thursday, May 14 at 05:30 AM",
+      "start_raw": "2026-05-14T05:30:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/213493926082403?p=FfSKh3ItAg7ofOWZNj\nMeeting ID: 213 49",
+      "is_travel": false
+    },
+    {
       "summary": "Geoffrey Clapp - Delta Air Lines 1154 - departs 7:00 AM local time - Confirmation code: HKJS55",
-      "start": "Thursday, May 14 at 12:00 AM",
-      "start_raw": "2026-05-14T00:00:00-07:00",
+      "start": "Thursday, May 14 at 07:00 AM",
+      "start_raw": "2026-05-14T07:00:00-07:00",
       "location": "San Jose(SJC) - Los Angeles(LAX)",
       "description": "External Sender.\n\n Delta Air Lines confirmation code: HKJS55 Delta Air Lines 1154 First, Scheduled Departure May 14, 2026, 7:00 am, San Jose, CA, United States of America (SJC-Norman Y. Mineta San Jos",
       "is_travel": true
@@ -116,6 +108,14 @@
       "is_travel": true
     },
     {
+      "summary": "Stay at The Westin New York at Times Square",
+      "start": "Sunday, May 17",
+      "start_raw": "2026-05-17",
+      "location": "The Westin New York at Times Square, New York",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
       "summary": "Reservation at Sadelle's",
       "start": "Sunday, May 17 at 05:45 AM",
       "start_raw": "2026-05-17T05:45:00-07:00",
@@ -145,6 +145,14 @@
       "start_raw": "2026-05-18T17:00:00-07:00",
       "location": "Philippe Chow, 10 E 52nd St, New York, NY 10022, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Eleven Madison Park",
+      "start": "Wednesday, May 20 at 05:45 PM",
+      "start_raw": "2026-05-20T17:45:00-07:00",
+      "location": "Eleven Madison Park, 11 Madison Ave, (Between Madison Avenue and E 24th Street), New York, NY 10010",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -241,6 +249,14 @@
       "start_raw": "2026-05-26T09:00:00-07:00",
       "location": "23675 Park Capri, Calabasas, CA 91302, USA",
       "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
+      "summary": "Peak Health Longevity Consult with Lynda Masco",
+      "start": "Wednesday, May 27 at 06:30 AM",
+      "start_raw": "2026-05-27T06:30:00-07:00",
+      "location": "Google Meet (instructions in description)",
+      "description": "Event Name: Peak Health Longevity Consult\nEvent Description: Learn everything you need to know about Peak's longevity care plans in a free 30-minute consult with a longevity expert.To learn more about",
       "is_travel": false
     },
     {
