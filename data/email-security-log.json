@@ -44,6 +44,11 @@
       "sender": "drive-shares-dm-noreply@google.com",
       "subject": "Document shared with you: \"Cicero: Requirements for Daily Emails\"",
       "timestamp": "2026-05-10T22:51:25.197999"
+    },
+    {
+      "sender": "noreply@email.apple.com",
+      "subject": "=?UTF-8?Q?Geoffrey_Clapp_invited_you_to_=E2=80=9C?=\r\n =?UTF-8?Q?Dinner_at_Eleven_Madison_Park=E2=80=9D.?=",
+      "timestamp": "2026-05-11T02:15:04.741405"
     }
   ],
   "authorized": [
@@ -721,6 +726,16 @@
       "sender": "donotreply@loseit.com",
       "subject": "Lose It! Daily Summary for Sat, May 9th",
       "timestamp": "2026-05-10T20:45:02.454189"
+    },
+    {
+      "sender": "[REDACTED]",
+      "subject": "=?UTF-8?Q?Re=3A_=F0=9F=9A=A8_SECURITY_ALERT=3A_Unauthorized_Email_from_dri?=\r\n\t=?UTF-8?Q?ve=2Dshares=2Ddm=2Dnoreply=40google=2Ecom?=",
+      "timestamp": "2026-05-11T00:30:02.369023"
+    },
+    {
+      "sender": "geoffrey.clapp@progyny.com",
+      "subject": "\r\n =?utf-8?B?UmU6IPCfmqggU0VDVVJJVFkgQUxFUlQ6IFVuYXV0aG9yaXplZCBFbWFpbCBm?=\r\n =?utf-8?Q?rom_drive-shares-dm-noreply@google.com?=",
+      "timestamp": "2026-05-11T01:45:02.405105"
     }
   ]
 }

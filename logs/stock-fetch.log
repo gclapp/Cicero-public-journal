@@ -2646,3 +2646,56 @@ Traceback (most recent call last):
     obj, end = self.scan_once(s, idx)
                ^^^^^^^^^^^^^^^^^^^^^^
 json.decoder.JSONDecodeError: Expecting ',' delimiter: line 468 column 4 (char 8192)
+Fetching stock data with 30-day history...
+✅ PGNY: $23.72 (30d: +0.00%)
+✅ AAPL: $293.26 (30d: +0.00%)
+✅ NVDA: $215.22 (30d: +0.00%)
+✅ OMDA: $14.82 (30d: +0.00%)
+✅ VTI: $362.87 (30d: +0.00%)
+✅ S&P 500: 7,398.93 (+0.00%)
+✅ Dow Jones: 49,609.16 (+0.00%)
+
+==================================================
+Stock summary for check-in:
+==================================================
+📈 **Markets (30-Day View)**
+
+**Indices:**
+🟢 S&P 500: 7,398.93 (+0.00% today)
+🟢 Dow Jones: 49,609.16 (+0.00% today)
+
+**Your Watchlist (30-Day Change):**
+🟢 **PGNY:** $23.72 (+0.00% / 2d)
+🟢 AAPL: $293.26 (+0.00% / 2d)
+🟢 NVDA: $215.22 (+0.00% / 2d)
+🟢 OMDA: $14.82 (+0.00% / 2d)
+🟢 VTI: $362.87 (+0.00% / 2d)
+
+
+==================================================
+Detailed summary:
+==================================================
+📈 **Stock Market Update**
+
+**Market Indices:**
+🟢 S&P 500: 7,398.93 (+7398.93, +0.00% today)
+🟢 Dow Jones: 49,609.16 (+49609.16, +0.00% today)
+
+**Watchlist (30-Day Rolling):**
+
+🟢 **PGNY:** $23.72
+   ├─ Today: +23.72 (+0.00%)
+   └─ 30-Day: +0.00% (2d history)
+
+🟢 **AAPL:** $293.26
+   ├─ Today: +293.26 (+0.00%)
+   └─ 30-Day: +0.00% (2d history)
+
+🟢 **NVDA:** $215.22
+   ├─ Today: +215.22 (+0.00%)
+   └─ 30-Day: +0.00% (2d history)
+
+🟢 **OMDA:** $14.82
+   ├─ Today: +14.82 (+0.00%)
+   └─ 30-Day: +0.00% (2d history)
+

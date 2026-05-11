@@ -40,3 +40,19 @@ Traceback (most recent call last):
     start_time = start.get("dateTime") or start.get("date")
                  ^^^^^^^^^
 AttributeError: 'str' object has no attribute 'get'
+[2026-05-11 08:00:02] ============================================================
+[2026-05-11 08:00:02] 🛫 Flight Monitor Starting
+[2026-05-11 08:00:02] ============================================================
+[2026-05-11 08:00:02] ============================================================
+[2026-05-11 08:00:02] 🛫 Flight Monitor Starting
+[2026-05-11 08:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/flight_monitor.py", line 110, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/flight_monitor.py", line 92, in main
+    flights = get_upcoming_flights(days=14)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/flight_monitor.py", line 55, in get_upcoming_flights
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
