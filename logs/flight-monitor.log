@@ -72,3 +72,41 @@ Traceback (most recent call last):
     start_time = start.get("dateTime") or start.get("date")
                  ^^^^^^^^^
 AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 21:40:19] ============================================================
+[2026-05-12 21:40:19] 🛫 Flight Monitor Starting
+[2026-05-12 21:40:19] ============================================================
+[2026-05-12 21:40:19] 📊 Found 7 upcoming flights
+[2026-05-12 21:40:19] 
+✈️  Flight to SJC (DL 1430)
+[2026-05-12 21:40:19]    Flight #: 1430
+[2026-05-12 21:40:19]    Departure: 2026-05-13 03:59:00+00:00
+[2026-05-12 21:40:19]    Status: Could not fetch
+[2026-05-12 21:40:19] 
+✈️  Delta Air Lines 1430 - departs 8:59 PM local time - Confirmation code: HKNM2B
+[2026-05-12 21:40:19]    Flight #: Unknown
+[2026-05-12 21:40:19]    Departure: 2026-05-13 03:59:00+00:00
+[2026-05-12 21:40:19] 
+✈️  Geoffrey Clapp - Delta Air Lines 1154 - departs 7:00 AM local time - Confirmation code: HKJS55
+[2026-05-12 21:40:19]    Flight #: Unknown
+[2026-05-12 21:40:19]    Departure: 2026-05-14 14:00:00+00:00
+[2026-05-12 21:40:19] 
+✈️  Delta Air Lines flight 960 to New York (GAO7LP)
+[2026-05-12 21:40:19]    Flight #: 960
+[2026-05-12 21:40:19]    Departure: 2026-05-17 04:14:00+00:00
+[2026-05-12 21:40:19]    Status: Could not fetch
+[2026-05-12 21:40:19] 
+✈️  Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV
+[2026-05-12 21:40:19]    Flight #: Unknown
+[2026-05-12 21:40:19]    Departure: 2026-05-21 11:00:00+00:00
+[2026-05-12 21:40:19] 
+✈️  Flight to RNO (DL 4099)
+[2026-05-12 21:40:19]    Flight #: 4099
+[2026-05-12 21:40:19]    Departure: 2026-05-22 15:20:00+00:00
+[2026-05-12 21:40:19]    Status: Could not fetch
+[2026-05-12 21:40:19] 
+✈️  Flight to LAX (DL 3902)
+[2026-05-12 21:40:19]    Flight #: 3902
+[2026-05-12 21:40:19]    Departure: 2026-05-25 22:04:00+00:00
+[2026-05-12 21:40:19]    Status: Could not fetch
+[2026-05-12 21:40:19] 
+✅ Flight check complete

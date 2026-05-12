@@ -24633,3 +24633,196 @@ To https://github.com/gclapp/geoff-watch-hunt.git
 [2026-05-12 02:00:01] Pushed updates to GitHub.
 {"ok":false,"error_code":404,"description":"Not Found"}[2026-05-12 02:00:01] Update complete.
 ---
+[2026-05-12 17:00:01] Starting watch hunt update...
+From https://github.com/gclapp/geoff-watch-hunt
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+[2026-05-12 17:00:10] INFO: Fetched (200) <GET https://www.chrono24.com/rolex/ref-1601.htm> (referer: https://www.google.com/)
+[2026-05-12 17:00:16] INFO: Fetched (200) <GET https://www.chrono24.com/rolex/ref-1603.htm> (referer: https://www.google.com/)
+[2026-05-12 17:00:21] INFO: Fetched (200) <GET https://www.chrono24.com/rolex/ref-16014.htm> (referer: https://www.google.com/)
+[2026-05-12 17:01:28] INFO: Fetched (200) <GET https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240> (referer: https://www.google.com/)
+[2026-05-12 17:01:35] INFO: Fetched (301) <GET https://www.bobswatches.com/rolex/1601.html> (referer: https://www.google.com/)
+[2026-05-12 17:01:35] INFO: Fetched (200) <GET https://www.bobswatches.com/rolex/> (referer: https://www.google.com/)
+[2026-05-12 17:01:40] INFO: Fetched (301) <GET https://www.bobswatches.com/rolex/1603.html> (referer: https://www.google.com/)
+[2026-05-12 17:01:40] INFO: Fetched (200) <GET https://www.bobswatches.com/rolex/> (referer: https://www.google.com/)
+[2026-05-12 17:01:48] INFO: Fetched (200) <GET https://bulangandsons.com/collections/rolex> (referer: https://www.google.com/)
+[2026-05-12 17:01:56] INFO: Fetched (404) <GET https://bulangandsons.com/collections/rolex-watches> (referer: https://www.google.com/)
+[2026-05-12 17:01:59] INFO: Fetched (404) <GET https://www.getbezel.com/search?q=rolex+1601> (referer: https://www.google.com/)
+[2026-05-12 17:02:03] INFO: Fetched (404) <GET https://www.crownandcaliber.com/collections/rolex> (referer: https://www.google.com/)
+[2026-05-12 17:02:15] INFO: Fetched (301) <GET https://www.crownandcaliber.com/collections/all> (referer: https://www.google.com/)
+[2026-05-12 17:02:16] INFO: Fetched (200) <GET https://www.europeanwatch.com/all> (referer: https://www.google.com/)
+[2026-05-12 17:02:22] INFO: Fetched (301) <GET https://www.chrono24.com/omega/ref-145.022.htm> (referer: https://www.google.com/)
+[2026-05-12 17:02:22] INFO: Fetched (200) <GET https://www.chrono24.com/omega/index.htm> (referer: https://www.google.com/)
+[2026-05-12 17:02:27] INFO: Fetched (301) <GET https://www.chrono24.com/omega/ref-145.0022.htm> (referer: https://www.google.com/)
+[2026-05-12 17:02:27] INFO: Fetched (200) <GET https://www.chrono24.com/omega/index.htm> (referer: https://www.google.com/)
+[2026-05-12 17:02:32] INFO: Fetched (301) <GET https://www.chrono24.com/omega/ref-3570.50.htm> (referer: https://www.google.com/)
+[2026-05-12 17:02:32] INFO: Fetched (200) <GET https://www.chrono24.com/omega/index.htm> (referer: https://www.google.com/)
+[2026-05-12 17:02:34] INFO: Fetched (403) <GET https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240> (referer: https://www.google.com/)
+[2026-05-12 17:02:39] INFO: Fetched (301) <GET https://www.bobswatches.com/rolex/145.022.html> (referer: https://www.google.com/)
+[2026-05-12 17:02:40] INFO: Fetched (200) <GET https://www.bobswatches.com/rolex/> (referer: https://www.google.com/)
+[2026-05-12 17:02:45] INFO: Fetched (301) <GET https://www.bobswatches.com/rolex/145.0022.html> (referer: https://www.google.com/)
+[2026-05-12 17:02:45] INFO: Fetched (200) <GET https://www.bobswatches.com/rolex/> (referer: https://www.google.com/)
+[2026-05-12 17:02:53] INFO: Fetched (200) <GET https://bulangandsons.com/collections/omega> (referer: https://www.google.com/)
+[2026-05-12 17:03:00] INFO: Fetched (404) <GET https://bulangandsons.com/collections/omega-watches> (referer: https://www.google.com/)
+[2026-05-12 17:03:03] INFO: Fetched (404) <GET https://www.getbezel.com/search?q=omega+145.022> (referer: https://www.google.com/)
+[2026-05-12 17:03:07] INFO: Fetched (404) <GET https://www.crownandcaliber.com/collections/omega> (referer: https://www.google.com/)
+[2026-05-12 17:03:14] INFO: Fetched (301) <GET https://www.crownandcaliber.com/collections/all> (referer: https://www.google.com/)
+[2026-05-12 17:03:16] INFO: Fetched (200) <GET https://www.europeanwatch.com/all> (referer: https://www.google.com/)
+🏛️ Multi-Search Watch Hunt
+📅 2026-05-12 17:00:03
+
+📋 Found 2 active search(es)
+
+
+============================================================
+🎯 Running Search: 1973 Rolex Datejust
+   Brand: Rolex
+   Models: 1601, 1603, 16014
+   Years: 1970-1985
+============================================================
+
+🔍 Searching Chrono24 for: 1973 Rolex Datejust
+  Checking: https://www.chrono24.com/rolex/ref-1601.htm
+    Found 0 listings
+  Checking: https://www.chrono24.com/rolex/ref-1603.htm
+    Found 0 listings
+  Checking: https://www.chrono24.com/rolex/ref-16014.htm
+    Found 0 listings
+  📊 Found 0 matching watches from Chrono24
+
+🔍 Searching eBay for: 1973 Rolex Datejust
+  Checking: https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+    Found 0 listings
+  📊 Found 0 matching watches from eBay
+
+🔍 Searching Bob's Watches for: 1973 Rolex Datejust
+  Checking: https://www.bobswatches.com/rolex/1601.html
+    Found 0 products
+  Checking: https://www.bobswatches.com/rolex/1603.html
+    Found 0 products
+  📊 Found 0 matching watches from Bob's Watches
+
+🔍 Searching Bulang & Sons for: 1973 Rolex Datejust
+  Checking: https://bulangandsons.com/collections/rolex
+    Found 38 products
+  Checking: https://bulangandsons.com/collections/rolex-watches
+    Found 24 products
+  📊 Found 0 matching watches from Bulang & Sons
+
+🔍 Searching Bezel for: 1973 Rolex Datejust
+  Checking: https://www.getbezel.com/search?q=rolex+1601
+    Found 0 listings
+  📊 Found 0 matching watches from Bezel
+
+🔍 Searching Crown & Caliber for: 1973 Rolex Datejust
+  Checking: https://www.crownandcaliber.com/collections/rolex
+    Found 0 products
+  Checking: https://www.crownandcaliber.com/collections/all
+    Found 0 products
+  📊 Found 0 matching watches from Crown & Caliber
+
+============================================================
+🎯 Running Search: Omega Speedmaster Moonwatch
+   Brand: Omega
+   Models: 145.022, 145.0022, 3570.50
+   Years: 1965-1975
+============================================================
+
+🔍 Searching Chrono24 for: Omega Speedmaster Moonwatch
+  Checking: https://www.chrono24.com/omega/ref-145.022.htm
+    Found 0 listings
+  Checking: https://www.chrono24.com/omega/ref-145.0022.htm
+    Found 0 listings
+  Checking: https://www.chrono24.com/omega/ref-3570.50.htm
+    Found 0 listings
+  📊 Found 0 matching watches from Chrono24
+
+🔍 Searching eBay for: Omega Speedmaster Moonwatch
+  Checking: https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+    Found 0 listings
+  📊 Found 0 matching watches from eBay
+
+🔍 Searching Bob's Watches for: Omega Speedmaster Moonwatch
+  Checking: https://www.bobswatches.com/rolex/145.022.html
+    Found 0 products
+  Checking: https://www.bobswatches.com/rolex/145.0022.html
+    Found 0 products
+  📊 Found 0 matching watches from Bob's Watches
+
+🔍 Searching Bulang & Sons for: Omega Speedmaster Moonwatch
+  Checking: https://bulangandsons.com/collections/omega
+    Found 38 products
+  Checking: https://bulangandsons.com/collections/omega-watches
+    Found 24 products
+  📊 Found 0 matching watches from Bulang & Sons
+
+🔍 Searching Bezel for: Omega Speedmaster Moonwatch
+  Checking: https://www.getbezel.com/search?q=omega+145.022
+    Found 0 listings
+  📊 Found 0 matching watches from Bezel
+
+🔍 Searching Crown & Caliber for: Omega Speedmaster Moonwatch
+  Checking: https://www.crownandcaliber.com/collections/omega
+    Found 0 products
+  Checking: https://www.crownandcaliber.com/collections/all
+    Found 0 products
+  📊 Found 0 matching watches from Crown & Caliber
+
+============================================================
+📊 SUMMARY
+============================================================
+   Original listings: 21
+   New listings added: 0
+   Total listings: 21
+   Active searches: 2
+   Last updated: 2026-05-12T17:03:17Z
+============================================================
+
+ℹ️  No new watches found this run.
+[2026-05-12 17:03:24] INFO: Fetched (200) <GET https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415> (referer: https://www.google.com/)
+[2026-05-12 17:03:29] INFO: Fetched (301) <GET https://www.chrono24.com/rolex/-oyster-datejust-16014-20--70--36--18k--ss--ra520b--id44316356.htm> (referer: https://www.google.com/)
+[2026-05-12 17:03:29] INFO: Fetched (200) <GET https://www.chrono24.com/rolex/ref-16014.htm> (referer: https://www.google.com/)
+[2026-05-12 17:03:31] INFO: Fetched (200) <GET https://img.chrono24.com/images/uhren/3jnr9z50y18f-5xc90y8zyphwsal0c2m64ff9-Square480.jpg> (referer: https://www.google.com/)
+🏛️ Downloading Watch Images via Browser
+📅 2026-05-12 17:03:18
+
+✅ Watch #6: Already has image
+✅ Watch #7: Already has image
+✅ Watch #8: Already has image
+✅ Watch #1: Already has image
+
+🖼️  Watch #2 (Bulang & Sons)
+Fetching page for watch #2...
+  No image found on page
+✅ Watch #3: Already has image
+✅ Watch #4: Already has image
+✅ Watch #5: Already has image
+✅ Watch #9: Already has image
+✅ Watch #10: Already has image
+✅ Watch #11: Already has image
+✅ Watch #12: Already has image
+✅ Watch #13: Already has image
+✅ Watch #14: Already has image
+✅ Watch #15: Already has image
+✅ Watch #16: Already has image
+✅ Watch #17: Already has image
+✅ Watch #18: Already has image
+✅ Watch #19: Already has image
+✅ Watch #20: Already has image
+
+🖼️  Watch #21 (Chrono24)
+Fetching page for watch #21...
+  Found image: https://img.chrono24.com/images/uhren/3jnr9z50y18f-5xc90y8zy...
+  ❌ Download error: No module named 'requests'
+
+============================================================
+📊 Downloaded: 0, Failed: 2
+Failed: [2, 21]
+============================================================
+[main 0f18d42] Auto-update: New watch listings found at 2026-05-12 17:00:01
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/gclapp/geoff-watch-hunt.git
+   e296020..0f18d42  main -> main
+[2026-05-12 17:00:01] Pushed updates to GitHub.
+{"ok":false,"error_code":404,"description":"Not Found"}[2026-05-12 17:00:01] Update complete.
+---

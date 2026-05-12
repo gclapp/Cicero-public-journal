@@ -51,8 +51,7 @@ def get_upcoming_flights(days=30):
     for event in data.get("events", []):
         summary = event.get("summary", "").lower()
         if any(x in summary for x in ["flight", "delta", "dl "]):
-            start = event.get("start", {})
-            start_time = start.get("dateTime") or start.get("date")
+            start_time = event.get("start_raw", "")
             if start_time:
                 try:
                     event_time = datetime.fromisoformat(start_time.replace("Z", "+00:00"))

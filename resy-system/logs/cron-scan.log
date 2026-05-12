@@ -5842,3 +5842,169 @@ Checking semma for 2026-05-19...
 💡 View all reservations at: http://localhost:5000
 
 🏁 Scan complete at 2026-05-12 05:31:23
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-05-12 13:03:01
+📅 Checking calendar for NYC trips and reservation status...
+
+⚠️  Scanned 0.1 hours ago. Skipping to avoid duplicates.
+   (Minimum interval: 6 hours)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-05-12 13:30:01
+📅 Checking calendar for NYC trips and reservation status...
+
+⚠️  Scanned 0.5 hours ago. Skipping to avoid duplicates.
+   (Minimum interval: 6 hours)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-05-12 12:59:02
+📅 Checking calendar for NYC trips and reservation status...
+
+📅 Scanning calendar for NYC trips...
+✅ Found 1 NYC trip(s):
+   2026-05-17 to 2026-05-20 (4 days)
+
+🔄 Syncing reservations from Resy API...
+🔄 Syncing reservations from Resy...
+  ✅ Synced 20 reservations from Resy
+     Added: 0, Updated: 0, Removed: 0
+
+🔄 Syncing reservations from Google Calendar...
+🔄 Checking Google Calendar for reservations...
+  ℹ️  No reservations found in calendar
+
+🍽️  10 restaurant(s) in your NYC list
+
+⚠️  No payment method found. Some restaurants may require it.
+🔍 2026-05-17: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  API v4 failed for venue 1501: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 70s before next check...
+   Checking Carbone...   ⚠️  API v4 failed for venue 1478: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 80s before next check...
+   Checking Torrisi...   ⚠️  API v4 failed for venue 1523: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 69s before next check...
+   Checking Saga...   ⚠️  API v4 failed for venue 1529: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 55s before next check...
+   Checking The Naked Pig...   ⚠️  API v4 failed for venue 58528: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 55s before next check...
+   Checking Estiatorio Milos...   ⚠️  API v4 failed for venue 1727: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 34s before next check...
+   Checking Keens Steakhouse...   ⚠️  API v4 failed for venue 1505: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 89s before next check...
+   Checking Eleven Madison Park...   ⚠️  API v4 failed for venue 1399: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 34s before next check...
+   Checking Lilia...   ⚠️  API v4 failed for venue 1512: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 90s before next check...
+   Checking Semma...   ⚠️  API v4 failed for venue 1705: HTTP 500: Internal Server Error
+  ⚠️  API v3 failed for venue 1705: HTTP 400: BAD REQUEST
+  ❌ All API endpoints failed for venue 1705: HTTP 400: BAD REQUEST
+  🌐 Trying browser automation fallback...
+Logging into Resy...
+Login error: Timeout 30000ms exceeded.
+⚠️  Could not confirm login status
+Checking semma for 2026-05-17...
+  ❌ Browser automation failed: Timeout 30000ms exceeded.
+❌ API error
+   ⚠️  Could not book any restaurant for 2026-05-17
+🔍 2026-05-18: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  API v4 failed for venue 1501: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 66s before next check...
+   Checking Carbone...   ⚠️  API v4 failed for venue 1478: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 45s before next check...
+   Checking Torrisi...   ⚠️  API v4 failed for venue 1523: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 52s before next check...
+   Checking Saga...   ⚠️  API v4 failed for venue 1529: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 99s before next check...
+   Checking The Naked Pig...   ⚠️  API v4 failed for venue 58528: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 59s before next check...
+   Checking Estiatorio Milos...   ⚠️  API v4 failed for venue 1727: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 61s before next check...
+   Checking Keens Steakhouse...   ⚠️  API v4 failed for venue 1505: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 81s before next check...
+   Checking Eleven Madison Park...   ⚠️  API v4 failed for venue 1399: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 50s before next check...
+   Checking Lilia...   ⚠️  API v4 failed for venue 1512: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 47s before next check...
+   Checking Semma...   ⚠️  API v4 failed for venue 1705: HTTP 500: Internal Server Error
+  ⚠️  API v3 failed for venue 1705: HTTP 400: BAD REQUEST
+  ❌ All API endpoints failed for venue 1705: HTTP 400: BAD REQUEST
+  🌐 Trying browser automation fallback...
+Logging into Resy...
+  ❌ Browser automation failed: Timeout 30000ms exceeded.
+❌ API error
+   ⚠️  Could not book any restaurant for 2026-05-18
+🔍 2026-05-19: Looking for reservations...
+   Checking 4 Charles Prime Rib...   ⚠️  API v4 failed for venue 1501: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 105s before next check...
+   Checking Carbone...   ⚠️  API v4 failed for venue 1478: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 82s before next check...
+   Checking Torrisi...   ⚠️  API v4 failed for venue 1523: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 54s before next check...
+   Checking Saga...   ⚠️  API v4 failed for venue 1529: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 87s before next check...
+   Checking The Naked Pig...   ⚠️  API v4 failed for venue 58528: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 45s before next check...
+   Checking Estiatorio Milos...   ⚠️  API v4 failed for venue 1727: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 67s before next check...
+   Checking Keens Steakhouse...   ⚠️  API v4 failed for venue 1505: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 78s before next check...
+   Checking Eleven Madison Park...   ⚠️  API v4 failed for venue 1399: HTTP 500: Internal Server Error
+❌ No availability
+   ⏱️  Waiting 90s before next check...
+   Checking Lilia... Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 1041, in <module>
+    scan_and_book()
+  File "/home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py", line 832, in scan_and_book
+    log_reservation_attempt(
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 115, in log_reservation_attempt
+    data = load_monitoring_data()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/resy-system/monitoring.py", line 27, in load_monitoring_data
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 6281 column 32 (char 180460)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-05-12 14:00:02
+📅 Checking calendar for NYC trips and reservation status...
+
+⚠️  Scanned 1.0 hours ago. Skipping to avoid duplicates.
+   (Minimum interval: 6 hours)

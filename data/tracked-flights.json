@@ -7,7 +7,7 @@
     "departure_time": "2026-05-16T21:14:00",
     "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
     "confirmation": "GAO7LP",
-    "added_at": "2026-05-12T06:00:54.576707",
+    "added_at": "2026-05-12T18:00:43.640944",
     "status": "pending"
   },
   "DL742_20260521": {
@@ -18,7 +18,7 @@
     "departure_time": "2026-05-21T04:00:00",
     "location": "New York(JFK) - Los Angeles(LAX)",
     "confirmation": "HKZ4LV",
-    "added_at": "2026-05-12T06:01:10.287598",
+    "added_at": "2026-05-12T18:00:55.240290",
     "status": "pending"
   },
   "DL4099_20260522": {
@@ -29,7 +29,7 @@
     "departure_time": "2026-05-22T08:20:00",
     "location": "",
     "confirmation": null,
-    "added_at": "2026-05-12T06:01:18.046488",
+    "added_at": "2026-05-12T18:01:04.798144",
     "status": "pending"
   },
   "DL3902_20260525": {
@@ -40,7 +40,7 @@
     "departure_time": "2026-05-25T15:04:00",
     "location": "",
     "confirmation": null,
-    "added_at": "2026-05-12T06:01:26.044334",
+    "added_at": "2026-05-12T18:01:13.674387",
     "status": "pending"
   },
   "DL1430_20260512": {
@@ -51,7 +51,7 @@
     "departure_time": "2026-05-12T20:59:00",
     "location": "Los Angeles(LAX) - San Jose(SJC)",
     "confirmation": "HKNM2B",
-    "added_at": "2026-05-12T06:00:38.609091",
+    "added_at": "2026-05-12T18:00:27.645340",
     "status": "pending"
   },
   "DL1154_20260514": {
@@ -62,7 +62,7 @@
     "departure_time": "2026-05-14T07:00:00",
     "location": "San Jose(SJC) - Los Angeles(LAX)",
     "confirmation": "HKJS55",
-    "added_at": "2026-05-12T06:00:47.165366",
+    "added_at": "2026-05-12T18:00:36.209688",
     "status": "pending"
   }
 }

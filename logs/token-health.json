@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-12T04:24:25.825034",
+  "timestamp": "2026-05-12T14:01:27.913206",
   "results": [
     {
       "status": "healthy",
@@ -9,18 +9,17 @@
       "critical": true
     },
     {
-      "status": "stale",
-      "age_days": 36,
-      "message": "\u26a0\ufe0f Google Docs: Token is 36 days old (threshold: 5)",
+      "status": "missing",
+      "message": "\u274c Google Docs: Token file not found",
       "action_required": true,
       "critical": true
     },
     {
-      "status": "invalid",
+      "status": "healthy",
       "age_days": 0,
-      "message": "\ud83d\udd34 Whoop API: Token expired (401) \u2014 RE-AUTH REQUIRED",
-      "action_required": true,
-      "critical": true
+      "message": "\u2705 Whoop API: Healthy (0 days old)",
+      "action_required": false,
+      "critical": false
     },
     {
       "status": "healthy",
@@ -31,12 +30,12 @@
     },
     {
       "status": "stale",
-      "age_days": 76,
-      "message": "\u26a0\ufe0f Gmail SMTP: Token is 76 days old (threshold: 30)",
+      "age_days": 77,
+      "message": "\u26a0\ufe0f Gmail SMTP: Token is 77 days old (threshold: 30)",
       "action_required": true,
       "critical": true
     }
   ],
-  "critical_count": 3,
+  "critical_count": 2,
   "warning_count": 0
 }

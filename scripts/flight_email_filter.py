@@ -20,8 +20,10 @@ CREDENTIALS_FILE = Path.home() / ".openclaw" / "email_config.json"
 AUTO_ARCHIVE_PATTERNS = [
     r'flight status changed from pending to scheduled',
     r'flight status: scheduled\s*$',
+    r'flight status.*schedule',  # Catches "flight status with schedule"
     r'booking confirmed.*flight.*scheduled',
     r'reservation confirmed.*flight',
+    r'flight status alert.*schedule',  # Catches "Flight Status Alerts...with schedule"
 ]
 
 # Patterns for emails to KEEP (important)
@@ -56,7 +58,7 @@ def get_credentials():
                 # Remove spaces from app password if present
                 password = data['app_password'].replace(' ', '')
                 return {
-                    'email': EMAIL_ACCOUNT,
+                    'email': '[REDACTED]',
                     'password': password
                 }
             return data

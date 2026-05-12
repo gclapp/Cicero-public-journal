@@ -1546,3 +1546,198 @@ SUMMARY: Created 12 tasks
 [2026-05-12 06:00:39] SUMMARY: Created 12 tasks
 ======================================================================
 [2026-05-12 06:00:39] ======================================================================
+======================================================================
+[2026-05-12 12:00:01] ======================================================================
+Calendar Travel Checker - Starting
+[2026-05-12 12:00:01] Calendar Travel Checker - Starting
+2026-05-12 12:00:01
+[2026-05-12 12:00:01] 2026-05-12 12:00:01
+
+[2026-05-12 12:00:01] 
+Calendar loaded: 84 events
+[2026-05-12 12:00:01] Calendar loaded: 84 events
+Found 11 travel events in next 60 days
+[2026-05-12 12:00:01] Found 11 travel events in next 60 days
+Grouped into 3 trips
+[2026-05-12 12:00:01] Grouped into 3 trips
+
+[2026-05-12 12:00:01] 
+Found 0 existing tasks (including completed)
+[2026-05-12 12:00:04] Found 0 existing tasks (including completed)
+
+[2026-05-12 12:00:04] 
+Creating: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 12:00:04] Creating: Tasks for Palo Alto Trip on May 12 - DL1430
+  Failed to create: Tasks for Palo Alto Trip on May 12 - DL1430 - Error: HTTP 502: Bad Gateway
+
+[2026-05-12 12:00:06]   Failed to create: Tasks for Palo Alto Trip on May 12 - DL1430 - Error: HTTP 502: Bad Gateway
+
+  Could not create main task
+[2026-05-12 12:00:06]   Could not create main task
+Creating: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 12:00:06] Creating: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+  Created: └── 🧳 Pack (due 2026-05-15)
+[2026-05-12 12:00:22]   Created: └── 🧳 Pack (due 2026-05-15)
+  Created: └── 🏢 Contact Marriott Ambassador (due 2026-05-09)
+[2026-05-12 12:00:26]   Created: └── 🏢 Contact Marriott Ambassador (due 2026-05-09)
+  Created: └── 🐕 Schedule Rover (due today)
+[2026-05-12 12:00:29]   Created: └── 🐕 Schedule Rover (due today)
+  Created: └── 🚗 Schedule Uber to airport for DL960 to NYC (due 2026-05-13)
+[2026-05-12 12:00:31]   Created: └── 🚗 Schedule Uber to airport for DL960 to NYC (due 2026-05-13)
+  Created: └── 🚗 Schedule Uber to airport for DL742 to Los Angeles (due 2026-05-18)
+[2026-05-12 12:00:33]   Created: └── 🚗 Schedule Uber to airport for DL742 to Los Angeles (due 2026-05-18)
+
+[2026-05-12 12:00:33] 
+Creating: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 12:00:33] Creating: Tasks for Tahoe Trip on May 22 - DL4099
+  Created: └── 🧳 Pack (due 2026-05-21)
+[2026-05-12 12:00:38]   Created: └── 🧳 Pack (due 2026-05-21)
+  Created: └── 🏢 Contact Marriott Ambassador (due 2026-05-15)
+[2026-05-12 12:00:41]   Created: └── 🏢 Contact Marriott Ambassador (due 2026-05-15)
+  Created: └── 🐕 Schedule Rover (due today)
+[2026-05-12 12:00:44]   Created: └── 🐕 Schedule Rover (due today)
+  Created: └── 🚗 Schedule Uber to airport for DL4099 to Reno (due 2026-05-19)
+[2026-05-12 12:00:46]   Created: └── 🚗 Schedule Uber to airport for DL4099 to Reno (due 2026-05-19)
+  Created: └── 🚗 Schedule Uber to airport for DL3902 to Los Angeles (due 2026-05-22)
+[2026-05-12 12:00:48]   Created: └── 🚗 Schedule Uber to airport for DL3902 to Los Angeles (due 2026-05-22)
+
+[2026-05-12 12:00:48] 
+======================================================================
+[2026-05-12 12:00:48] ======================================================================
+SUMMARY: Created 12 tasks
+[2026-05-12 12:00:48] SUMMARY: Created 12 tasks
+======================================================================
+[2026-05-12 12:00:48] ======================================================================
+[2026-05-12 13:49:43] ======================================================================
+[2026-05-12 13:49:43] Calendar Travel Checker - Starting
+[2026-05-12 13:49:43] 2026-05-12 13:49:43
+[2026-05-12 13:49:43] 
+[2026-05-12 13:49:43] Calendar loaded: 84 events
+[2026-05-12 13:49:43] Found 11 travel events in next 60 days
+[2026-05-12 13:49:43] Grouped into 3 trips
+[2026-05-12 13:49:43] 
+[2026-05-12 13:49:44] Found 42 existing tasks (including completed)
+[2026-05-12 13:49:44] 
+[2026-05-12 13:49:44] Creating: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 13:49:47]   Created: └── 🧳 Pack (due 2026-05-11)
+[2026-05-12 13:49:49]   Created: └── 🏢 Contact Marriott Ambassador (due 2026-05-05)
+[2026-05-12 13:49:51]   Created: └── 🐕 Schedule Rover (due today)
+[2026-05-12 13:49:52]   Created: └── 🚗 Schedule Uber to airport for DL1430 to San Jose (due 2026-05-09)
+[2026-05-12 13:49:54]   Created: └── 🚗 Schedule Uber to airport for DL1430 to San Jose (due 2026-05-09)
+[2026-05-12 13:49:55]   Created: └── 🚗 Schedule Uber to airport for DL1154 to Los Angeles (due 2026-05-11)
+[2026-05-12 13:49:55] 
+[2026-05-12 13:49:55]   Task already exists: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 13:49:55]   Task already exists: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 13:49:55] ======================================================================
+[2026-05-12 13:49:55] SUMMARY: Created 7 tasks
+[2026-05-12 13:49:55] ======================================================================
+[2026-05-12 13:51:46] ======================================================================
+[2026-05-12 13:51:46] Calendar Travel Checker - Starting
+[2026-05-12 13:51:46] 2026-05-12 13:51:46
+[2026-05-12 13:51:46] 
+[2026-05-12 13:51:46] Calendar loaded: 84 events
+[2026-05-12 13:51:46] Found 11 travel events in next 60 days
+[2026-05-12 13:51:46] Grouped into 3 trips
+[2026-05-12 13:51:46] 
+[2026-05-12 13:51:48] Found 32 existing tasks (including completed)
+[2026-05-12 13:51:48] 
+[2026-05-12 13:51:48] Creating: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 13:51:50]   Already exists: └── 🧳 Pack
+[2026-05-12 13:51:50]   Already exists: └── 🏢 Contact Marriott Ambassador about hotel
+[2026-05-12 13:51:51]   Created: └── 🐕 Schedule Rover (due today)
+[2026-05-12 13:51:53]   Created: └── 🚗 Schedule Uber to airport for DL1430 to San Jose (due 2026-05-09)
+[2026-05-12 13:51:53]   Already exists: └── 🚗 Schedule Uber to airport for DL1430 to San Jose
+[2026-05-12 13:51:55]   Created: └── 🚗 Schedule Uber to airport for DL1154 to Los Angeles (due 2026-05-11)
+[2026-05-12 13:51:55] 
+[2026-05-12 13:51:55]   Task already exists: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 13:51:55]   Task already exists: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 13:51:55] ======================================================================
+[2026-05-12 13:51:55] SUMMARY: Created 4 tasks
+[2026-05-12 13:51:55] ======================================================================
+[2026-05-12 13:53:48] ======================================================================
+[2026-05-12 13:53:48] Calendar Travel Checker - Starting
+[2026-05-12 13:53:48] 2026-05-12 13:53:48
+[2026-05-12 13:53:48] 
+[2026-05-12 13:53:48] Calendar loaded: 84 events
+[2026-05-12 13:53:48] Found 11 travel events in next 60 days
+[2026-05-12 13:53:48] Grouped into 3 trips
+[2026-05-12 13:53:48] 
+[2026-05-12 13:53:49] Found 26 existing tasks (including completed)
+[2026-05-12 13:53:49] 
+[2026-05-12 13:53:49] Creating: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 13:53:51]   Already exists: └── 🧳 Pack
+[2026-05-12 13:53:51]   Already exists: └── 🏢 Contact Marriott Ambassador about hotel
+[2026-05-12 13:53:52]   Created: └── 🐕 Schedule Rover (due today)
+[2026-05-12 13:53:54]   Created: └── 🚗 Schedule Uber to airport for DL1430 to San Jose (due 2026-05-09)
+[2026-05-12 13:53:54]   Already exists: └── 🚗 Schedule Uber to airport for DL1430 to San Jose
+[2026-05-12 13:53:55]   Created: └── 🚗 Schedule Uber to airport for DL1154 to Los Angeles (due 2026-05-11)
+[2026-05-12 13:53:55] 
+[2026-05-12 13:53:55]   Task already exists: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 13:53:55]   Task already exists: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 13:53:55] ======================================================================
+[2026-05-12 13:53:55] SUMMARY: Created 4 tasks
+[2026-05-12 13:53:55] ======================================================================
+[2026-05-12 13:54:07] ======================================================================
+[2026-05-12 13:54:07] Calendar Travel Checker - Starting
+[2026-05-12 13:54:07] 2026-05-12 13:54:07
+[2026-05-12 13:54:07] 
+[2026-05-12 13:54:07] Calendar loaded: 84 events
+[2026-05-12 13:54:07] Found 11 travel events in next 60 days
+[2026-05-12 13:54:07] Grouped into 3 trips
+[2026-05-12 13:54:07] 
+[2026-05-12 13:54:10] Found 26 existing tasks (including completed)
+[2026-05-12 13:54:10] 
+[2026-05-12 13:54:10]   Trip already processed: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 13:54:10]   Trip already processed: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 13:54:10]   Trip already processed: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 13:54:10] ======================================================================
+[2026-05-12 13:54:10] SUMMARY: Created 0 tasks
+[2026-05-12 13:54:10] ======================================================================
+======================================================================
+[2026-05-12 18:00:01] ======================================================================
+Calendar Travel Checker - Starting
+[2026-05-12 18:00:01] Calendar Travel Checker - Starting
+2026-05-12 18:00:01
+[2026-05-12 18:00:01] 2026-05-12 18:00:01
+
+[2026-05-12 18:00:01] 
+Calendar loaded: 85 events
+[2026-05-12 18:00:01] Calendar loaded: 85 events
+Found 11 travel events in next 60 days
+[2026-05-12 18:00:01] Found 11 travel events in next 60 days
+Grouped into 3 trips
+[2026-05-12 18:00:01] Grouped into 3 trips
+
+[2026-05-12 18:00:01] 
+Found 0 existing tasks (including completed)
+[2026-05-12 18:00:05] Found 0 existing tasks (including completed)
+
+[2026-05-12 18:00:05] 
+  Trip already processed: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 18:00:05]   Trip already processed: Tasks for Palo Alto Trip on May 12 - DL1430
+  Trip already processed: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 18:00:05]   Trip already processed: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+  Trip already processed: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 18:00:05]   Trip already processed: Tasks for Tahoe Trip on May 22 - DL4099
+======================================================================
+[2026-05-12 18:00:05] ======================================================================
+SUMMARY: Created 0 tasks
+[2026-05-12 18:00:05] SUMMARY: Created 0 tasks
+======================================================================
+[2026-05-12 18:00:05] ======================================================================
+[2026-05-12 18:06:11] ======================================================================
+[2026-05-12 18:06:11] Calendar Travel Checker - Starting
+[2026-05-12 18:06:11] 2026-05-12 18:06:11
+[2026-05-12 18:06:11] 
+[2026-05-12 18:06:11] Calendar loaded: 85 events
+[2026-05-12 18:06:11] Found 11 travel events in next 60 days
+[2026-05-12 18:06:11] Grouped into 3 trips
+[2026-05-12 18:06:11] 
+[2026-05-12 18:06:12] Found 26 existing tasks (including completed)
+[2026-05-12 18:06:12] 
+[2026-05-12 18:06:12]   Trip already processed: Tasks for Palo Alto Trip on May 12 - DL1430
+[2026-05-12 18:06:12]   Trip already processed: Tasks for NYC Trip on May 16 - DL960 GAO7LP
+[2026-05-12 18:06:12]   Trip already processed: Tasks for Tahoe Trip on May 22 - DL4099
+[2026-05-12 18:06:12] ======================================================================
+[2026-05-12 18:06:12] SUMMARY: Created 0 tasks
+[2026-05-12 18:06:12] ======================================================================

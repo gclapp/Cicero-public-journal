@@ -3616,3 +3616,139 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-05-11 21:00:25] ✅ Email sent
 [2026-05-11 21:00:25] Complete
+[2026-05-12 14:00:02] Starting competitive intelligence v3...
+[2026-05-12 14:00:02] Step 1: RSS + Web search...
+[2026-05-12 14:00:02] ======================================================================
+[2026-05-12 14:00:02] Starting Competitive Intelligence Scan v3
+[2026-05-12 14:00:02] ======================================================================
+[2026-05-12 14:00:02] 
+1. Scanning RSS feeds...
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 622, in <module>
+    count = main()
+            ^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 524, in main
+    rss_articles = scan_rss_feeds(config)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 168, in scan_rss_feeds
+    seen = load_seen()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 44, in load_seen
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2108 column 5 (char 94107)
+[2026-05-12 14:00:02] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 4 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 11 job changes
+
+3. Searching for company announcements...
+   Found 2 company posts
+
+✅ Found 3 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 2
+   Executive News: 1
+   Company Posts: 0
+[2026-05-12 14:00:23] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 1 | High: 0 | Medium: 1
+[2026-05-12 14:00:23] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-12 14:00:25] ✅ Email sent
+[2026-05-12 14:00:25] Complete
+[2026-05-12 21:00:02] Starting competitive intelligence v3...
+[2026-05-12 21:00:02] Step 1: RSS + Web search...
+[2026-05-12 21:00:02] ======================================================================
+[2026-05-12 21:00:02] Starting Competitive Intelligence Scan v3
+[2026-05-12 21:00:02] ======================================================================
+[2026-05-12 21:00:02] 
+1. Scanning RSS feeds...
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 622, in <module>
+    count = main()
+            ^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 524, in main
+    rss_articles = scan_rss_feeds(config)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 168, in scan_rss_feeds
+    seen = load_seen()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 44, in load_seen
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2108 column 5 (char 94107)
+[2026-05-12 21:00:03] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 6 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 3 updates
+   Pacify: 4 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 11 job changes
+
+3. Searching for company announcements...
+   Found 2 company posts
+
+✅ Found 1 new LinkedIn/exec updates
+   Saved to: /home/ubuntu/.openclaw/workspace/config/linkedin-updates.json
+
+   Job Changes: 1
+   Executive News: 0
+   Company Posts: 0
+[2026-05-12 21:00:22] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 1 | High: 0 | Medium: 1
+[2026-05-12 21:00:22] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-12 21:00:25] ✅ Email sent
+[2026-05-12 21:00:25] Complete

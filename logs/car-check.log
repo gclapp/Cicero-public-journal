@@ -1114,3 +1114,195 @@ Traceback (most recent call last):
     start_time = start.get("dateTime") or start.get("date")
                  ^^^^^^^^^
 AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 12:00:01] ============================================================
+[2026-05-12 12:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 12:00:01] ============================================================
+[2026-05-12 12:00:01] ============================================================
+[2026-05-12 12:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 12:00:01] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 13:00:02] ============================================================
+[2026-05-12 13:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 13:00:02] ============================================================
+[2026-05-12 13:00:02] ============================================================
+[2026-05-12 13:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 13:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 14:00:02] ============================================================
+[2026-05-12 14:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 14:00:02] ============================================================
+[2026-05-12 14:00:02] ============================================================
+[2026-05-12 14:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 14:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 15:00:02] ============================================================
+[2026-05-12 15:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 15:00:02] ============================================================
+[2026-05-12 15:00:02] ============================================================
+[2026-05-12 15:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 15:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 16:00:01] ============================================================
+[2026-05-12 16:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 16:00:01] ============================================================
+[2026-05-12 16:00:01] ============================================================
+[2026-05-12 16:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 16:00:01] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 17:00:02] ============================================================
+[2026-05-12 17:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 17:00:02] ============================================================
+[2026-05-12 17:00:02] ============================================================
+[2026-05-12 17:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 17:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 18:00:01] ============================================================
+[2026-05-12 18:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 18:00:02] ============================================================
+[2026-05-12 18:00:01] ============================================================
+[2026-05-12 18:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 18:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 19:00:02] ============================================================
+[2026-05-12 19:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 19:00:02] ============================================================
+[2026-05-12 19:00:02] ============================================================
+[2026-05-12 19:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 19:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 20:00:02] ============================================================
+[2026-05-12 20:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 20:00:02] ============================================================
+[2026-05-12 20:00:02] ============================================================
+[2026-05-12 20:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 20:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 21:00:02] ============================================================
+[2026-05-12 21:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 21:00:02] ============================================================
+[2026-05-12 21:00:02] ============================================================
+[2026-05-12 21:00:02] 🚗 Car Reservation Check Starting
+[2026-05-12 21:00:02] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 22:00:01] ============================================================
+[2026-05-12 22:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 22:00:01] ============================================================
+[2026-05-12 22:00:01] ============================================================
+[2026-05-12 22:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 22:00:01] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+[2026-05-12 23:00:01] ============================================================
+[2026-05-12 23:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 23:00:01] ============================================================
+[2026-05-12 23:00:01] ============================================================
+[2026-05-12 23:00:01] 🚗 Car Reservation Check Starting
+[2026-05-12 23:00:01] ============================================================
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 165, in <module>
+    main()
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 146, in main
+    flights = get_flights_needing_car_check()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/car_reservation_check.py", line 125, in get_flights_needing_car_check
+    start_time = start.get("dateTime") or start.get("date")
+                 ^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'

@@ -32,6 +32,30 @@ def load_calendar() -> Optional[Dict]:
     with open(CALENDAR_FILE, 'r') as f:
         return json.load(f)
 
+def load_state() -> Dict:
+    """Load processed trips state"""
+    if STATE_FILE.exists():
+        with open(STATE_FILE, 'r') as f:
+            return json.load(f)
+    return {'processed_trips': []}
+
+def save_state(state: Dict):
+    """Save processed trips state"""
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(STATE_FILE, 'w') as f:
+        json.dump(state, f, indent=2)
+
+def get_trip_id(trip: Dict) -> str:
+    """Generate unique ID for a trip based on flights"""
+    events = trip.get('events', [])
+    if not events:
+        return ""
+    # Use first flight summary + date as ID
+    first = events[0]
+    summary = first.get('summary', '')
+    date = first.get('start_raw', '')
+    return f"{summary}_{date}"
+
 def parse_date(date_str: str) -> Optional[datetime]:
     """Parse date from calendar"""
     if not date_str:
@@ -226,9 +250,26 @@ def get_existing_task_names(project: str = "Travel") -> Set[str]:
     return {task.get('content', '').lower() for task in tasks}
 
 def create_task(text: str, project: str = "Travel", due: Optional[str] = None, 
-                parent_id: Optional[str] = None) -> Optional[str]:
+                parent_id: Optional[str] = None, existing_tasks: Optional[Set[str]] = None) -> Optional[str]:
     """Create a task and return its ID"""
     try:
+        # Check if task already exists (exact match)
+        if existing_tasks and text.lower() in existing_tasks:
+            log(f"  Already exists: {text[:60]}")
+            return None
+        
+        # For Uber tasks, also check for similar existing tasks
+        if "🚗 Schedule Uber" in text and existing_tasks:
+            # Extract flight number from text like "└── 🚗 Schedule Uber to airport for DL1430 to San Jose"
+            flight_match = re.search(r'DL\d+', text)
+            if flight_match:
+                flight_num = flight_match.group(0)
+                # Check if any existing task has this flight number
+                for existing in existing_tasks:
+                    if flight_num in existing and "uber" in existing.lower():
+                        log(f"  Similar Uber task exists for {flight_num}: {existing[:60]}")
+                        return None
+        
         cmd = [TODOIST_PATH, "add", text, "-p", project, "-P", "2"]
         if due:
             cmd.extend(["-d", due])
@@ -417,7 +458,7 @@ def group_events_by_trip(events: List[Dict], calendar_data: Dict) -> List[Dict]:
     
     return trips
 
-def process_trip(trip: Dict, existing_tasks: Set[str]) -> int:
+def process_trip(trip: Dict, existing_tasks: Set[str], processed_trips: List[str]) -> int:
     """Process a single trip and create tasks"""
     created_count = 0
     
@@ -440,14 +481,22 @@ def process_trip(trip: Dict, existing_tasks: Set[str]) -> int:
     if conf_str:
         main_task_name += f" {conf_str}"
     
+    # Check if trip was already processed
+    trip_id = get_trip_id(trip)
+    if trip_id in processed_trips:
+        log(f"  Trip already processed: {main_task_name[:60]}")
+        return 0
+    
     # Check if main task already exists
     if main_task_name.lower() in existing_tasks:
         log(f"  Task already exists: {main_task_name[:60]}")
+        # Mark as processed so we don't try again
+        processed_trips.append(trip_id)
         return 0
     
     # Create main task
     log(f"Creating: {main_task_name}")
-    parent_id = create_task(main_task_name, due=first_date.strftime('%Y-%m-%d'))
+    parent_id = create_task(main_task_name, due=first_date.strftime('%Y-%m-%d'), existing_tasks=existing_tasks)
     if not parent_id:
         log(f"  Could not create main task")
         return 0
@@ -459,23 +508,29 @@ def process_trip(trip: Dict, existing_tasks: Set[str]) -> int:
     
     # 1. Pack task - due day before
     pack_due = (first_date - timedelta(days=1)).strftime('%Y-%m-%d')
-    pack_task = create_task("└── 🧳 Pack", due=pack_due, parent_id=parent_id)
+    pack_text = "└── 🧳 Pack"
+    pack_task = create_task(pack_text, due=pack_due, parent_id=parent_id, existing_tasks=existing_tasks)
     if pack_task:
         created_count += 1
+        existing_tasks.add(pack_text.lower())
         log(f"  Created: └── 🧳 Pack (due {pack_due})")
     
     # 2. Contact Marriott Ambassador - due 7 days before
     marriott_due = (first_date - timedelta(days=7)).strftime('%Y-%m-%d')
-    marriott_task = create_task("└── 🏢 Contact Marriott Ambassador about hotel", due=marriott_due, parent_id=parent_id)
+    marriott_text = "└── 🏢 Contact Marriott Ambassador about hotel"
+    marriott_task = create_task(marriott_text, due=marriott_due, parent_id=parent_id, existing_tasks=existing_tasks)
     if marriott_task:
         created_count += 1
+        existing_tasks.add(marriott_text.lower())
         log(f"  Created: └── 🏢 Contact Marriott Ambassador (due {marriott_due})")
     
     # 3. Schedule Rover - due immediately (today)
     today = datetime.now().strftime('%Y-%m-%d')
-    rover_task = create_task("└── 🐕 Schedule Rover for Greta", due=today, parent_id=parent_id)
+    rover_text = "└── 🐕 Schedule Rover for Greta"
+    rover_task = create_task(rover_text, due=today, parent_id=parent_id, existing_tasks=existing_tasks)
     if rover_task:
         created_count += 1
+        existing_tasks.add(rover_text.lower())
         log(f"  Created: └── 🐕 Schedule Rover (due today)")
     
     # 4. Schedule Uber for each flight leg - due 3 days before each
@@ -498,10 +553,15 @@ def process_trip(trip: Dict, existing_tasks: Set[str]) -> int:
         uber_due = (event_date - timedelta(days=3)).strftime('%Y-%m-%d')
         uber_text = f"└── 🚗 Schedule Uber to airport for {flight_str} to {flight_dest}"
         
-        uber_task = create_task(uber_text, due=uber_due, parent_id=parent_id)
+        uber_task = create_task(uber_text, due=uber_due, parent_id=parent_id, existing_tasks=existing_tasks)
         if uber_task:
             created_count += 1
+            existing_tasks.add(uber_text.lower())
             log(f"  Created: {uber_text[:60]} (due {uber_due})")
+    
+    # Mark trip as processed
+    if trip_id:
+        processed_trips.append(trip_id)
     
     return created_count
 
@@ -510,6 +570,10 @@ def main():
     log("Calendar Travel Checker - Starting")
     log(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     log("")
+    
+    # Load state
+    state = load_state()
+    processed_trips = state.get('processed_trips', [])
     
     # Load calendar
     calendar_data = load_calendar()
@@ -542,10 +606,14 @@ def main():
     # Process each trip
     total_created = 0
     for trip in trips:
-        created = process_trip(trip, existing_tasks)
+        created = process_trip(trip, existing_tasks, processed_trips)
         total_created += created
         if created > 0:
             log("")
+    
+    # Save state
+    state['processed_trips'] = processed_trips
+    save_state(state)
     
     log("=" * 70)
     log(f"SUMMARY: Created {total_created} tasks")
