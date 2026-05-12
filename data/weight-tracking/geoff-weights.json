@@ -60,5 +60,15 @@
   "start_weight": 247.9,
   "current_weight": 240.5,
   "lowest_weight": 240.5,
-  "last_updated": "2026-03-05"
+  "last_updated": "2026-03-05",
+  "weights": [
+    {
+      "date": "2026-05-11",
+      "weight": 236.3950809068565,
+      "email_sent": "2026-05-11T22:16:21-07:00"
+    }
+  ],
+  "metadata": {
+    "last_updated": "2026-05-12T05:20:26.398376"
+  }
 }

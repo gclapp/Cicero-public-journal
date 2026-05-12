@@ -1,589 +1,557 @@
 #!/usr/bin/env python3
 """
-Calendar Travel Checker - 3x/week automated travel task creation
-Runs Mon/Wed/Fri at 9 AM PT to check for upcoming travel and create Todoist tasks
-
-Features:
-- Reads calendar-events.json for travel events
-- Checks for new travel in next 30 days
-- Creates Todoist tasks for travel prep
-- Logs what was checked and what tasks were created
-- Reports changes since last check
-- Prevents duplicate task creation
+Calendar Travel Checker - Creates travel tasks with subtasks
+One main task per trip with subtasks for pack, uber, and rover
 """
 
 import json
-import os
 import subprocess
-import sys
+import re
 from pathlib import Path
 from datetime import datetime, timedelta
-from typing import List, Dict, Optional, Tuple, Set
+from typing import List, Dict, Optional, Set
 
-# Configuration
 CALENDAR_FILE = Path.home() / ".openclaw" / "workspace" / "config" / "calendar-events.json"
 LOG_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "calendar-travel-checker.log"
 STATE_FILE = Path.home() / ".openclaw" / "workspace" / "state" / "travel-checker-state.json"
+TODOIST_PATH = "/home/ubuntu/.npm-global/bin/todoist"
 
-# Travel keywords to identify travel events
-TRAVEL_KEYWORDS = ['flight', 'delta', 'hotel', 'stay at', 'airbnb', 'resort', 'trip to', 'travel to']
+TRAVEL_KEYWORDS = ['flight', 'delta', 'hotel', 'stay at', 'trip to', 'travel to']
 
-# Restaurant reservation keywords
-RESTAURANT_KEYWORDS = ['reservation at', 'dinner at', 'reservation:', 'dinner reservation']
-
-
-def log_message(message: str, print_to_console: bool = True):
-    """Log message to file and optionally print to console"""
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    log_line = f"[{timestamp}] {message}"
-    
-    if print_to_console:
-        print(message)
-    
-    # Ensure log directory exists
+def log(msg: str):
+    """Log to console and file"""
+    print(msg, flush=True)
     LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
-    
     with open(LOG_FILE, 'a') as f:
-        f.write(log_line + '\n')
-
-
-def load_state() -> Dict:
-    """Load the checker state (last run info, known trips, etc.)"""
-    if STATE_FILE.exists():
-        try:
-            with open(STATE_FILE, 'r') as f:
-                return json.load(f)
-        except Exception as e:
-            log_message(f"⚠️  Could not load state file: {e}")
-    
-    return {
-        "last_run": None,
-        "known_trips": [],
-        "created_tasks": [],
-        "run_count": 0
-    }
-
-
-def save_state(state: Dict):
-    """Save the checker state"""
-    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with open(STATE_FILE, 'w') as f:
-        json.dump(state, f, indent=2)
-
+        f.write(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {msg}\n")
 
 def load_calendar() -> Optional[Dict]:
-    """Load calendar events from JSON file"""
+    """Load calendar events"""
     if not CALENDAR_FILE.exists():
-        log_message(f"❌ Calendar file not found: {CALENDAR_FILE}")
         return None
-    
-    try:
-        with open(CALENDAR_FILE, 'r') as f:
-            return json.load(f)
-    except Exception as e:
-        log_message(f"❌ Error loading calendar: {e}")
-        return None
+    with open(CALENDAR_FILE, 'r') as f:
+        return json.load(f)
 
-
-def parse_event_date(date_str: str) -> Optional[datetime]:
-    """Parse various date formats from calendar events - returns naive datetime (no timezone)"""
+def parse_date(date_str: str) -> Optional[datetime]:
+    """Parse date from calendar"""
     if not date_str:
         return None
-    
     try:
-        # ISO format with timezone: 2026-05-16T21:14:00-07:00
         if 'T' in date_str:
-            # Parse with timezone then convert to naive
-            date_str_clean = date_str.replace('Z', '+00:00')
-            dt = datetime.fromisoformat(date_str_clean)
-            # Convert to naive datetime by removing timezone info
-            if dt.tzinfo is not None:
-                dt = dt.replace(tzinfo=None)
-            return dt
-        
-        # Simple date: 2026-05-16
+            dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+            return dt.replace(tzinfo=None) if dt.tzinfo else dt
         return datetime.strptime(date_str, '%Y-%m-%d')
-    except Exception as e:
-        log_message(f"⚠️  Could not parse date '{date_str}': {e}", print_to_console=False)
+    except:
         return None
 
-
 def is_travel_event(event: Dict) -> bool:
-    """Determine if an event is travel-related"""
+    """Check if event is travel-related"""
     summary = event.get('summary', '').lower()
-    description = event.get('description', '').lower()
-    location = event.get('location', '').lower()
+    return any(kw in summary for kw in TRAVEL_KEYWORDS) or event.get('is_travel')
+
+def extract_flight_info(event: Dict) -> Dict:
+    """Extract flight number and confirmation from event"""
+    summary = event.get('summary', '')
+    description = event.get('description', '')
     
-    # Check if already marked as travel
-    if event.get('is_travel'):
+    # Extract flight number - try multiple patterns
+    flight_num = None
+    
+    # Pattern 1: "DL 4099" or "(DL 4099)" in summary
+    match = re.search(r'\(?DL\s*(\d+)\)?', summary, re.IGNORECASE)
+    if match:
+        flight_num = f"DL{match.group(1)}"
+    
+    # Pattern 2: "Delta Air Lines flight 960" or "Delta Air Lines 1430" in summary
+    if not flight_num:
+        match = re.search(r'Delta\s+(?:Air\s+)?(?:Lines?\s+)?(?:flight\s+)?(\d+)', summary, re.IGNORECASE)
+        if match:
+            flight_num = f"DL{match.group(1)}"
+    
+    # Pattern 3: "Delta 1559" in summary
+    if not flight_num:
+        match = re.search(r'Delta\s+(\d+)', summary, re.IGNORECASE)
+        if match:
+            flight_num = f"DL{match.group(1)}"
+    
+    # Extract confirmation code (6 char alphanumeric, typically in description or summary)
+    confirmation = None
+    text = f"{summary} {description}"
+    match = re.search(r'[A-Z0-9]{6}', text)
+    if match:
+        confirmation = match.group(0)
+    
+    return {'flight': flight_num, 'confirmation': confirmation}
+
+def extract_destination(event: Dict) -> str:
+    """Extract destination city from event - looks for arrival airport/city"""
+    location = event.get('location', '')
+    summary = event.get('summary', '')
+    description = event.get('description', '')
+    
+    # First check summary for "Flight to [Destination]" pattern
+    # e.g., "Flight to RNO (DL 4099)" or "Flight to San Francisco"
+    flight_to_match = re.search(r'Flight\s+to\s+([A-Za-z\s]+?)(?:\s+\(|\s*-|\s*$)', summary, re.IGNORECASE)
+    if flight_to_match:
+        dest = flight_to_match.group(1).strip()
+        # Map airport codes to cities
+        airport_map = {
+            'RNO': 'Reno',
+            'LAX': 'Los Angeles',
+            'SFO': 'San Francisco',
+            'SJC': 'San Jose',
+            'JFK': 'NYC',
+            'LGA': 'NYC',
+            'EWR': 'NYC',
+            'PDX': 'Portland',
+            'SEA': 'Seattle',
+            'LAS': 'Las Vegas',
+            'PHX': 'Phoenix',
+            'DEN': 'Denver',
+            'ORD': 'Chicago',
+            'DFW': 'Dallas',
+            'MIA': 'Miami',
+            'BOS': 'Boston',
+            'DCA': 'DC',
+            'IAD': 'DC',
+        }
+        # Check if it's an airport code
+        dest_upper = dest.upper()
+        if dest_upper in airport_map:
+            return airport_map[dest_upper]
+        # Otherwise return the city name as-is
+        return dest
+    
+    # Check if location has "Departure - Arrival" format
+    # e.g., "Los Angeles(LAX) - San Jose(SJC)"
+    if '-' in location:
+        parts = location.split('-')
+        if len(parts) >= 2:
+            # Take the second part (arrival)
+            arrival = parts[1].strip()
+            # Extract city name before parentheses if present
+            city_match = arrival.split('(')[0].strip()
+            if city_match:
+                return city_match
+    
+    # Check description for "to [City]" pattern
+    to_match = re.search(r'to\s+([A-Za-z\s]+?)(?:\s+\(|\s*,|\s*$)', description, re.IGNORECASE)
+    if to_match:
+        city = to_match.group(1).strip()
+        if city and 'detailed information' not in city.lower():
+            return city
+    
+    # Check for common destinations in text
+    text = f"{location} {summary} {description}".lower()
+    
+    # Check for arrival patterns in description
+    if 'arrive' in description.lower() or 'arrival' in description.lower():
+        # Try to find city after arrival
+        arr_match = re.search(r'arriv(?:e|al)(?:\s+in)?\s+([A-Za-z\s]+?)(?:\s+\(|\s*,|\s*$)', description, re.IGNORECASE)
+        if arr_match:
+            city = arr_match.group(1).strip()
+            if city and 'detailed information' not in city.lower():
+                return city
+    
+    if 'new york' in text or 'jfk' in text or 'lga' in text or 'ewr' in text:
+        return 'NYC'
+    if 'reno' in text or 'rno' in text or 'tahoe' in text:
+        return 'Tahoe'
+    if 'san jose' in text or 'sjc' in text:
+        return 'San Jose'
+    if 'palo alto' in text:
+        return 'Palo Alto'
+    if 'portland' in text or 'pdx' in text:
+        return 'Portland'
+    if 'san francisco' in text or 'sfo' in text:
+        return 'San Francisco'
+    if 'los angeles' in text or 'lax' in text:
+        # Only return LA if it's clearly the destination, not departure
+        if 'from' in text and ('lax' in text.split('from')[1] or 'los angeles' in text.split('from')[1]):
+            return 'Los Angeles'
+    
+    # Extract from location as fallback
+    if location:
+        parts = location.split(',')
+        if parts:
+            loc = parts[0].strip()
+            if 'detailed information' not in loc.lower():
+                return loc
+    
+    return 'Trip'
+
+
+def is_return_flight(event: Dict) -> bool:
+    """Check if this is a return flight to LAX (end of trip)"""
+    location = event.get('location', '')
+    description = event.get('description', '')
+    summary = event.get('summary', '')
+    
+    # Check if destination is LAX/Los Angeles
+    text = f"{location} {description}".lower()
+    
+    # Check for "- Los Angeles" or "to LAX" patterns
+    if '-' in location:
+        parts = location.split('-')
+        if len(parts) >= 2:
+            arrival = parts[1].strip().lower()
+            if 'lax' in arrival or 'los angeles' in arrival:
+                return True
+    
+    # Check summary for "to Los Angeles" or "to LAX"
+    if re.search(r'to\s+(Los Angeles|LAX)', summary, re.IGNORECASE):
         return True
     
-    # Check keywords in summary, description, or location
-    text_to_check = f"{summary} {description} {location}"
-    return any(keyword in text_to_check for keyword in TRAVEL_KEYWORDS)
+    return False
 
-
-def is_restaurant_reservation(event: Dict) -> bool:
-    """Determine if an event is a restaurant reservation"""
-    summary = event.get('summary', '').lower()
-    return any(keyword in summary for keyword in RESTAURANT_KEYWORDS)
-
-
-def get_upcoming_travel(calendar_data: Dict, days: int = 30) -> List[Dict]:
-    """Get travel events within the next N days"""
-    travel_events = []
-    now = datetime.now()
-    cutoff = now + timedelta(days=days)
-    
-    for event in calendar_data.get('events', []):
-        # Check if it's a travel event
-        if not is_travel_event(event):
-            continue
-        
-        # Parse the date
-        date_str = event.get('start_raw', '')
-        event_date = parse_event_date(date_str)
-        
-        if not event_date:
-            continue
-        
-        # Check if within our window
-        if now <= event_date <= cutoff:
-            travel_events.append({
-                **event,
-                'parsed_date': event_date
-            })
-    
-    # Sort by date
-    travel_events.sort(key=lambda x: x['parsed_date'])
-    return travel_events
-
-
-def get_restaurant_reservations(calendar_data: Dict, days: int = 30) -> List[Dict]:
-    """Get restaurant reservations within the next N days"""
-    reservations = []
-    now = datetime.now()
-    cutoff = now + timedelta(days=days)
-    
-    for event in calendar_data.get('events', []):
-        if not is_restaurant_reservation(event):
-            continue
-        
-        date_str = event.get('start_raw', '')
-        event_date = parse_event_date(date_str)
-        
-        if not event_date:
-            continue
-        
-        if now <= event_date <= cutoff:
-            reservations.append({
-                **event,
-                'parsed_date': event_date
-            })
-    
-    reservations.sort(key=lambda x: x['parsed_date'])
-    return reservations
-
-
-def get_existing_todoist_tasks() -> Set[str]:
-    """Get set of existing task names from Todoist"""
+def get_all_tasks(project: str = "Travel") -> List[Dict]:
+    """Get all tasks from Todoist including completed ones"""
     try:
+        # Get active tasks
         result = subprocess.run(
-            ["todoist", "list"],
+            [TODOIST_PATH, "tasks", "-p", project, "--all", "--json"],
             capture_output=True, text=True, timeout=30
         )
-        if result.returncode != 0:
-            return set()
-        
-        existing = set()
-        for line in result.stdout.strip().split('\n'):
-            if line.strip():
-                # Format: ID  Task name
-                parts = line.split('  ', 1)
-                if len(parts) > 1:
-                    existing.add(parts[1].strip().lower())
-        return existing
+        tasks = []
+        if result.returncode == 0:
+            tasks = json.loads(result.stdout)
+        return tasks
     except Exception as e:
-        log_message(f"⚠️  Could not fetch existing tasks: {e}")
-        return set()
+        log(f"Could not fetch tasks: {e}")
+        return []
 
+def get_existing_task_names(project: str = "Travel") -> Set[str]:
+    """Get set of existing task names (both active and completed)"""
+    tasks = get_all_tasks(project)
+    return {task.get('content', '').lower() for task in tasks}
 
-def create_todoist_task(task_text: str, project: str = "Travel", 
-                        priority: str = "2", due_date: Optional[str] = None,
-                        existing_tasks: Optional[Set[str]] = None) -> Tuple[bool, str]:
-    """
-    Create a task in Todoist
-    Returns: (success, message)
-    """
-    # Check if task already exists (case-insensitive)
-    if existing_tasks and task_text.lower() in existing_tasks:
-        return False, "already_exists"
-    
+def create_task(text: str, project: str = "Travel", due: Optional[str] = None, 
+                parent_id: Optional[str] = None) -> Optional[str]:
+    """Create a task and return its ID"""
     try:
-        cmd = ["todoist", "add", task_text, "-p", project, "-P", priority]
-        if due_date:
-            cmd.extend(["-d", due_date])
+        cmd = [TODOIST_PATH, "add", text, "-p", project, "-P", "2"]
+        if due:
+            cmd.extend(["-d", due])
+        if parent_id:
+            cmd.extend(["--parent", parent_id])
         
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
         
         if result.returncode != 0:
-            error = result.stderr.strip()
-            if "already exists" in error.lower():
-                return False, "already_exists"
-            return False, f"error: {error}"
+            if "already exists" in result.stderr.lower():
+                return None
+            log(f"  Failed to create: {text[:50]} - {result.stderr}")
+            return None
         
-        return True, "created"
+        # Extract task ID from output like "✓ Added: Task name\n  ID: 6gcjgQ44Q3wFVvJx"
+        match = re.search(r'ID:\s+(\w+)', result.stdout)
+        if match:
+            return match.group(1)
+        return None
     except Exception as e:
-        return False, f"exception: {e}"
+        log(f"  Error creating task: {e}")
+        return None
 
+def get_task_id_by_name(task_name: str, project: str = "Travel") -> Optional[str]:
+    """Find task ID by name"""
+    try:
+        result = subprocess.run(
+            [TODOIST_PATH, "tasks", "-p", project, "--all", "--json"],
+            capture_output=True, text=True, timeout=30
+        )
+        if result.returncode != 0:
+            return None
+        
+        tasks = json.loads(result.stdout)
+        for task in tasks:
+            if task.get('content', '').lower() == task_name.lower():
+                return task.get('id')
+        return None
+    except:
+        return None
 
-def extract_flight_info(event: Dict) -> Dict:
-    """Extract flight details from event summary/description"""
-    summary = event.get('summary', '')
-    description = event.get('description', '')
-    location = event.get('location', '')
+def get_hotel_stays(calendar_data: Dict) -> List[Dict]:
+    """Extract hotel stay events from calendar"""
+    hotels = []
+    hotel_keywords = ['stay at', 'hotel', 'westin', 'ritz', 'marriott', 'hilton']
     
-    info = {
-        'flight_number': None,
-        'confirmation': None,
-        'origin': None,
-        'destination': None,
-        'departure_time': None
-    }
+    for event in calendar_data.get('events', []):
+        summary = event.get('summary', '').lower()
+        if any(kw in summary for kw in hotel_keywords):
+            event_date = parse_date(event.get('start_raw', ''))
+            if event_date:
+                location = extract_destination(event)
+                # Clean up location names
+                if 'palo alto' in summary.lower():
+                    location = 'Palo Alto'
+                elif 'new york' in summary.lower():
+                    location = 'NYC'
+                elif 'tahoe' in summary.lower() or 'truckee' in summary.lower():
+                    location = 'Tahoe'
+                hotels.append({
+                    'event': event,
+                    'date': event_date,
+                    'location': location
+                })
     
-    # Extract flight number (e.g., "Delta 960", "DL 960")
-    import re
-    flight_match = re.search(r'(?:Delta|DL)\s+(\d+)', summary, re.IGNORECASE)
-    if flight_match:
-        info['flight_number'] = f"DL {flight_match.group(1)}"
+    return sorted(hotels, key=lambda x: x['date'])
+
+def group_events_by_trip(events: List[Dict], calendar_data: Dict) -> List[Dict]:
+    """Group flight events into trips using hotel stays as anchors"""
+    if not events:
+        return []
     
-    # Extract confirmation code (e.g., "GAO7LP", "Confirmation code: XYZ123")
-    conf_match = re.search(r'[A-Z0-9]{6}', description)
-    if conf_match:
-        info['confirmation'] = conf_match.group(0)
+    # Get hotel stays for trip detection
+    hotel_stays = get_hotel_stays(calendar_data)
     
-    # Determine origin/destination from location
-    location_lower = location.lower()
-    summary_lower = summary.lower()
+    # Sort flights by date
+    flights = sorted([e for e in events if extract_flight_info(e).get('flight')], 
+                     key=lambda x: parse_date(x.get('start_raw', '')) or datetime.now())
     
-    if 'lax' in location_lower or 'los angeles' in location_lower:
-        if 'jfk' in location_lower or 'new york' in location_lower:
-            # This is a return flight (JFK to LAX)
-            info['origin'] = 'JFK'
-            info['destination'] = 'LAX'
+    trips = []
+    used_flights = set()
+    
+    # Group flights into trips
+    # A trip starts with an outbound flight and ends with a return to LAX
+    current_trip_flights = []
+    current_trip_destination = None
+    
+    for flight in flights:
+        flight_date = parse_date(flight.get('start_raw', ''))
+        if not flight_date:
+            continue
+        
+        flight_id = flight.get('summary', '') + flight.get('start_raw', '')
+        if flight_id in used_flights:
+            continue
+        
+        flight_dest = extract_destination(flight)
+        is_return = is_return_flight(flight)
+        
+        # Check if there's a hotel stay near this flight to determine destination
+        # Find the CLOSEST hotel within 4 days
+        closest_hotel = None
+        closest_days = 5
+        for hotel in hotel_stays:
+            days_from_hotel = abs((flight_date - hotel['date']).days)
+            if days_from_hotel <= 4 and hotel['location'] != 'Trip':
+                if days_from_hotel < closest_days:
+                    closest_days = days_from_hotel
+                    closest_hotel = hotel
+        
+        if closest_hotel:
+            flight_dest = closest_hotel['location']
+        
+        if not current_trip_flights:
+            # Start new trip
+            current_trip_flights = [flight]
+            current_trip_destination = flight_dest if flight_dest != 'Trip' else 'Trip'
+        elif is_return:
+            # This is a return flight - add to current trip and end it
+            current_trip_flights.append(flight)
+            trips.append({
+                'events': current_trip_flights,
+                'start_date': parse_date(current_trip_flights[0].get('start_raw', '')),
+                'end_date': flight_date,
+                'destination': current_trip_destination
+            })
+            for f in current_trip_flights:
+                used_flights.add(f.get('summary', '') + f.get('start_raw', ''))
+            current_trip_flights = []
+            current_trip_destination = None
         else:
-            # LAX departure
-            info['origin'] = 'LAX'
-            info['destination'] = 'JFK' if 'jfk' in summary_lower or 'new york' in summary_lower else 'Unknown'
-    elif 'jfk' in location_lower or 'new york' in location_lower:
-        info['origin'] = 'JFK'
-        info['destination'] = 'LAX'
-    elif 'rno' in location_lower or 'reno' in location_lower:
-        info['origin'] = 'LAX'  # Assuming from LAX
-        info['destination'] = 'RNO'
+            # Continue current trip
+            current_trip_flights.append(flight)
+            if flight_dest != 'Trip' and current_trip_destination == 'Trip':
+                current_trip_destination = flight_dest
     
-    return info
-
-
-def extract_hotel_info(event: Dict) -> Dict:
-    """Extract hotel details from event"""
-    summary = event.get('summary', '')
-    location = event.get('location', '')
-    
-    # Extract hotel name
-    hotel_name = summary
-    if 'stay at' in summary.lower():
-        hotel_name = summary.replace('Stay at ', '').replace('stay at ', '')
-    
-    return {
-        'name': hotel_name,
-        'location': location
-    }
-
-
-def extract_restaurant_info(event: Dict) -> Dict:
-    """Extract restaurant details from event"""
-    summary = event.get('summary', '')
-    location = event.get('location', '')
-    
-    # Extract restaurant name
-    restaurant_name = summary
-    for keyword in ['Reservation at ', 'reservation at ', 'Dinner at ', 'dinner at ']:
-        if keyword in summary:
-            restaurant_name = summary.replace(keyword, '')
-            break
-    
-    return {
-        'name': restaurant_name.strip(),
-        'location': location
-    }
-
-
-def generate_flight_tasks(event: Dict, flight_info: Dict) -> List[Dict]:
-    """Generate tasks for a flight"""
-    tasks = []
-    event_date = event.get('parsed_date', datetime.now())
-    summary = event.get('summary', '')
-    location = event.get('location', '').lower()
-    
-    # Determine if this is an LAX departure (needs Greta care)
-    is_lax_departure = 'lax' in location and not ('jfk' in location and 'lax' in location)
-    
-    # Calculate due dates
-    checkin_due = (event_date - timedelta(days=1)).strftime('%Y-%m-%d')
-    pack_due = (event_date - timedelta(days=2)).strftime('%Y-%m-%d')
-    uber_due = (event_date - timedelta(days=1)).strftime('%Y-%m-%d')
-    rover_due = (event_date - timedelta(days=10)).strftime('%Y-%m-%d')
-    
-    flight_num = flight_info.get('flight_number', 'Flight')
-    conf_code = flight_info.get('confirmation', '')
-    conf_str = f" ({conf_code})" if conf_code else ""
-    
-    # Build task list
-    if is_lax_departure:
-        tasks.append({
-            'text': f"🐕 Book Rover sitter for Greta - {flight_num}{conf_str}",
-            'due': rover_due,
-            'priority': '2'
+    # Handle any remaining flights in current trip
+    if current_trip_flights:
+        trips.append({
+            'events': current_trip_flights,
+            'start_date': parse_date(current_trip_flights[0].get('start_raw', '')),
+            'end_date': parse_date(current_trip_flights[-1].get('start_raw', '')),
+            'destination': current_trip_destination
         })
+        for f in current_trip_flights:
+            used_flights.add(f.get('summary', '') + f.get('start_raw', ''))
     
-    tasks.append({
-        'text': f"✈️ Check in for {flight_num}{conf_str}",
-        'due': checkin_due,
-        'priority': '2'
-    })
+    # Handle any remaining flights not associated with hotels
+    remaining_flights = [f for f in flights 
+                        if (f.get('summary', '') + f.get('start_raw', '')) not in used_flights]
     
-    tasks.append({
-        'text': f"🎒 Pack for trip - {flight_num}",
-        'due': pack_due,
-        'priority': '3'
-    })
+    if remaining_flights:
+        # Group remaining flights by proximity
+        remaining_flights.sort(key=lambda x: parse_date(x.get('start_raw', '')) or datetime.now())
+        
+        current_trip = None
+        for flight in remaining_flights:
+            flight_date = parse_date(flight.get('start_raw', ''))
+            if not flight_date:
+                continue
+            
+            flight_dest = extract_destination(flight)
+            
+            if current_trip is None or (flight_date - current_trip['end_date']).days > 2:
+                # New trip
+                if current_trip:
+                    trips.append(current_trip)
+                current_trip = {
+                    'events': [flight],
+                    'start_date': flight_date,
+                    'end_date': flight_date,
+                    'destination': flight_dest if flight_dest != 'Trip' else 'Trip'
+                }
+            else:
+                # Add to current trip
+                current_trip['events'].append(flight)
+                current_trip['end_date'] = flight_date
+                if flight_dest != 'Trip':
+                    current_trip['destination'] = flight_dest
+        
+        if current_trip:
+            trips.append(current_trip)
     
-    if is_lax_departure:
-        tasks.append({
-            'text': f"🚗 Schedule Uber to airport - {flight_num}",
-            'due': uber_due,
-            'priority': '3'
-        })
-    
-    return tasks
-
-
-def generate_hotel_tasks(event: Dict, hotel_info: Dict) -> List[Dict]:
-    """Generate tasks for a hotel stay"""
-    tasks = []
-    event_date = event.get('parsed_date', datetime.now())
-    hotel_name = hotel_info.get('name', 'Hotel')
-    
-    confirm_due = (event_date - timedelta(days=7)).strftime('%Y-%m-%d')
-    research_due = (event_date - timedelta(days=5)).strftime('%Y-%m-%d')
-    
-    tasks.append({
-        'text': f"🏨 Confirm reservation - {hotel_name}",
-        'due': confirm_due,
-        'priority': '3'
-    })
-    
-    tasks.append({
-        'text': f"📋 Research hotel amenities - {hotel_name}",
-        'due': research_due,
-        'priority': '3'
-    })
-    
-    return tasks
-
-
-def generate_restaurant_tasks(event: Dict, restaurant_info: Dict) -> List[Dict]:
-    """Generate tasks for restaurant reservations that need confirmation"""
-    tasks = []
-    event_date = event.get('parsed_date', datetime.now())
-    restaurant_name = restaurant_info.get('name', 'Restaurant')
-    
-    # Only create confirmation task if it's more than 3 days out
-    days_until = (event_date - datetime.now()).days
-    if days_until > 3:
-        confirm_due = (event_date - timedelta(days=3)).strftime('%Y-%m-%d')
-        tasks.append({
-            'text': f"🍽️ Confirm reservation - {restaurant_name}",
-            'due': confirm_due,
-            'priority': '3'
-        })
-    
-    return tasks
-
-
-def group_trips_by_date(travel_events: List[Dict]) -> Dict[str, List[Dict]]:
-    """Group travel events by date to identify multi-day trips"""
-    trips = {}
-    
-    for event in travel_events:
-        date_key = event.get('parsed_date', datetime.now()).strftime('%Y-%m-%d')
-        if date_key not in trips:
-            trips[date_key] = []
-        trips[date_key].append(event)
+    # Sort trips by start date
+    trips.sort(key=lambda x: x['start_date'])
     
     return trips
 
-
-def run_travel_check() -> Dict:
-    """Main function to check calendar and create travel tasks"""
-    log_message("=" * 70)
-    log_message("🧳 Calendar Travel Checker - Starting Run")
-    log_message(f"📅 {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    log_message("")
+def process_trip(trip: Dict, existing_tasks: Set[str]) -> int:
+    """Process a single trip and create tasks"""
+    created_count = 0
     
-    # Load state
-    state = load_state()
-    state['run_count'] = state.get('run_count', 0) + 1
+    # Get first flight for main task naming
+    first_event = trip['events'][0]
+    first_date = trip['start_date']
+    flight_info = extract_flight_info(first_event)
+    
+    # Use the trip destination from the grouping (which is hotel-based)
+    # This is more accurate than the first flight's destination
+    destination = trip['destination']
+    date_str = first_date.strftime('%b %d')
+    flight_str = flight_info.get('flight', 'Flight')
+    conf_str = flight_info.get('confirmation', '')
+    
+    # Main task name
+    main_task_name = f"Tasks for {destination} Trip on {date_str}"
+    if flight_str and flight_str != 'Flight':
+        main_task_name += f" - {flight_str}"
+    if conf_str:
+        main_task_name += f" {conf_str}"
+    
+    # Check if main task already exists
+    if main_task_name.lower() in existing_tasks:
+        log(f"  Task already exists: {main_task_name[:60]}")
+        return 0
+    
+    # Create main task
+    log(f"Creating: {main_task_name}")
+    parent_id = create_task(main_task_name, due=first_date.strftime('%Y-%m-%d'))
+    if not parent_id:
+        log(f"  Could not create main task")
+        return 0
+    
+    created_count += 1
+    existing_tasks.add(main_task_name.lower())
+    
+    # Create subtasks
+    
+    # 1. Pack task - due day before
+    pack_due = (first_date - timedelta(days=1)).strftime('%Y-%m-%d')
+    pack_task = create_task("└── 🧳 Pack", due=pack_due, parent_id=parent_id)
+    if pack_task:
+        created_count += 1
+        log(f"  Created: └── 🧳 Pack (due {pack_due})")
+    
+    # 2. Contact Marriott Ambassador - due 7 days before
+    marriott_due = (first_date - timedelta(days=7)).strftime('%Y-%m-%d')
+    marriott_task = create_task("└── 🏢 Contact Marriott Ambassador about hotel", due=marriott_due, parent_id=parent_id)
+    if marriott_task:
+        created_count += 1
+        log(f"  Created: └── 🏢 Contact Marriott Ambassador (due {marriott_due})")
+    
+    # 3. Schedule Rover - due immediately (today)
+    today = datetime.now().strftime('%Y-%m-%d')
+    rover_task = create_task("└── 🐕 Schedule Rover for Greta", due=today, parent_id=parent_id)
+    if rover_task:
+        created_count += 1
+        log(f"  Created: └── 🐕 Schedule Rover (due today)")
+    
+    # 4. Schedule Uber for each flight leg - due 3 days before each
+    # Only create for events that have actual flight numbers
+    for event in trip['events']:
+        event_date = parse_date(event.get('start_raw', ''))
+        if not event_date:
+            continue
+        
+        # Only create Uber tasks for actual flights (with flight numbers)
+        flight_info = extract_flight_info(event)
+        flight_str = flight_info.get('flight')
+        
+        if not flight_str:
+            continue  # Skip non-flight events
+        
+        # Get destination for this specific flight
+        flight_dest = extract_destination(event)
+        
+        uber_due = (event_date - timedelta(days=3)).strftime('%Y-%m-%d')
+        uber_text = f"└── 🚗 Schedule Uber to airport for {flight_str} to {flight_dest}"
+        
+        uber_task = create_task(uber_text, due=uber_due, parent_id=parent_id)
+        if uber_task:
+            created_count += 1
+            log(f"  Created: {uber_text[:60]} (due {uber_due})")
+    
+    return created_count
+
+def main():
+    log("=" * 70)
+    log("Calendar Travel Checker - Starting")
+    log(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    log("")
     
     # Load calendar
     calendar_data = load_calendar()
     if not calendar_data:
-        log_message("❌ Failed to load calendar data")
-        return {'success': False, 'error': 'calendar_load_failed'}
+        log("Could not load calendar")
+        return 1
     
-    log_message(f"📅 Calendar loaded: {calendar_data.get('total_events', 0)} total events")
-    log_message(f"📅 Last updated: {calendar_data.get('last_updated', 'unknown')}")
-    log_message("")
+    log(f"Calendar loaded: {calendar_data.get('total_events', 0)} events")
     
-    # Get upcoming travel
-    travel_events = get_upcoming_travel(calendar_data, days=30)
-    log_message(f"✈️  Found {len(travel_events)} travel events in next 30 days")
+    # Get travel events
+    travel_events = []
+    for event in calendar_data.get('events', []):
+        if is_travel_event(event):
+            event_date = parse_date(event.get('start_raw', ''))
+            if event_date and event_date <= datetime.now() + timedelta(days=60):
+                travel_events.append(event)
     
-    # Get restaurant reservations
-    restaurant_events = get_restaurant_reservations(calendar_data, days=30)
-    log_message(f"🍽️  Found {len(restaurant_events)} restaurant reservations in next 30 days")
-    log_message("")
+    log(f"Found {len(travel_events)} travel events in next 60 days")
     
-    # Get existing tasks to avoid duplicates
-    existing_tasks = get_existing_todoist_tasks()
-    log_message(f"📋 Found {len(existing_tasks)} existing Todoist tasks")
-    log_message("")
+    # Group into trips
+    trips = group_events_by_trip(travel_events, calendar_data)
+    log(f"Grouped into {len(trips)} trips")
+    log("")
     
-    # Track what we create
-    created_tasks = []
-    skipped_tasks = []
-    failed_tasks = []
+    # Get existing tasks (including completed)
+    existing_tasks = get_existing_task_names()
+    log(f"Found {len(existing_tasks)} existing tasks (including completed)")
+    log("")
     
-    # Process travel events
-    for event in travel_events:
-        summary = event.get('summary', 'Travel')
-        event_date = event.get('parsed_date', datetime.now())
-        date_str = event_date.strftime('%Y-%m-%d')
-        
-        log_message(f"✈️  Processing: {summary}")
-        log_message(f"   📆 {date_str}", print_to_console=False)
-        
-        # Determine event type and generate tasks
-        if 'flight' in summary.lower() or 'delta' in summary.lower():
-            flight_info = extract_flight_info(event)
-            tasks = generate_flight_tasks(event, flight_info)
-        elif 'hotel' in summary.lower() or 'stay at' in summary.lower():
-            hotel_info = extract_hotel_info(event)
-            tasks = generate_hotel_tasks(event, hotel_info)
-        else:
-            # Generic travel
-            tasks = [{
-                'text': f"🧳 Prepare for: {summary}",
-                'due': date_str,
-                'priority': '3'
-            }]
-        
-        # Create tasks
-        for task in tasks:
-            success, message = create_todoist_task(
-                task['text'], 
-                due_date=task['due'],
-                priority=task['priority'],
-                existing_tasks=existing_tasks
-            )
-            
-            if success:
-                log_message(f"   ✅ Created: {task['text'][:60]}")
-                created_tasks.append(task['text'])
-                existing_tasks.add(task['text'].lower())  # Add to existing set
-            elif message == "already_exists":
-                log_message(f"   ⏭️  Skipped (exists): {task['text'][:50]}...", print_to_console=False)
-                skipped_tasks.append(task['text'])
-            else:
-                log_message(f"   ❌ Failed: {task['text'][:50]}... - {message}")
-                failed_tasks.append({'task': task['text'], 'error': message})
+    # Process each trip
+    total_created = 0
+    for trip in trips:
+        created = process_trip(trip, existing_tasks)
+        total_created += created
+        if created > 0:
+            log("")
     
-    # Process restaurant reservations
-    log_message("")
-    for event in restaurant_events:
-        summary = event.get('summary', 'Reservation')
-        event_date = event.get('parsed_date', datetime.now())
-        date_str = event_date.strftime('%Y-%m-%d')
-        
-        restaurant_info = extract_restaurant_info(event)
-        tasks = generate_restaurant_tasks(event, restaurant_info)
-        
-        for task in tasks:
-            success, message = create_todoist_task(
-                task['text'],
-                due_date=task['due'],
-                priority=task['priority'],
-                existing_tasks=existing_tasks
-            )
-            
-            if success:
-                log_message(f"   ✅ Created: {task['text'][:60]}")
-                created_tasks.append(task['text'])
-                existing_tasks.add(task['text'].lower())
-            elif message == "already_exists":
-                skipped_tasks.append(task['text'])
-            else:
-                log_message(f"   ❌ Failed: {task['text'][:50]}... - {message}")
+    log("=" * 70)
+    log(f"SUMMARY: Created {total_created} tasks")
+    log("=" * 70)
     
-    # Update state
-    state['last_run'] = datetime.now().isoformat()
-    state['known_trips'] = [e.get('summary') for e in travel_events]
-    state['created_tasks'] = state.get('created_tasks', []) + created_tasks
-    save_state(state)
-    
-    # Summary
-    log_message("")
-    log_message("=" * 70)
-    log_message("📊 SUMMARY")
-    log_message(f"   ✅ Created: {len(created_tasks)} new tasks")
-    log_message(f"   ⏭️  Skipped: {len(skipped_tasks)} existing tasks")
-    log_message(f"   ❌ Failed: {len(failed_tasks)} tasks")
-    log_message(f"   📈 Total runs: {state['run_count']}")
-    log_message("=" * 70)
-    log_message("")
-    
-    return {
-        'success': True,
-        'created': created_tasks,
-        'skipped': skipped_tasks,
-        'failed': failed_tasks,
-        'travel_events_found': len(travel_events),
-        'restaurant_events_found': len(restaurant_events)
-    }
-
-
-def main():
-    """Entry point"""
-    # Check if todoist CLI is available
-    try:
-        result = subprocess.run(["todoist", "--version"], capture_output=True, timeout=5)
-        if result.returncode != 0:
-            log_message("❌ Todoist CLI not configured. Run: todoist auth <token>")
-            sys.exit(1)
-    except Exception as e:
-        log_message(f"❌ Todoist CLI not found: {e}")
-        log_message("   Install: npm install -g todoist-ts-cli")
-        sys.exit(1)
-    
-    # Run the check
-    result = run_travel_check()
-    
-    if not result['success']:
-        sys.exit(1)
-    
-    sys.exit(0)
-
+    return 0
 
 if __name__ == "__main__":
-    main()
+    exit(main())

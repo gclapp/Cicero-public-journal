@@ -36,7 +36,15 @@ class WhoopClient:
         # Try file first
         if os.path.exists(self.token_file):
             with open(self.token_file, 'r') as f:
-                return f.read().strip()
+                content = f.read().strip()
+                # Check if content is JSON (new format) or plain token (old format)
+                if content.startswith('{'):
+                    try:
+                        token_data = json.loads(content)
+                        return token_data.get('access_token', '')
+                    except json.JSONDecodeError:
+                        pass
+                return content
         
         # Try environment variable
         token = os.getenv('WHOOP_API_TOKEN')

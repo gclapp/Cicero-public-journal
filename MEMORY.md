@@ -45,6 +45,43 @@
 
 **Failed Example:** Whoop OAuth set up Feb 22, but no automation built. Token expired after 1 hour, no refresh token requested, no daily fetch script, no error reported. Silent failure for 10+ days.
 
+### Token Health Monitoring System (May 12, 2026) — CRITICAL
+**Rule:** Token expiration must be detected and fixed automatically. No silent failures.
+
+**System Architecture:**
+1. **Token Auto-Refresh v2** (`scripts/token_auto_refresh_v2.py`)
+   - Runs every 30 minutes via cron
+   - Proactively refreshes Whoop token before expiration (45 min threshold)
+   - Checks Google Calendar, Google Docs, Gmail SMTP health
+   - Logs to `logs/token-refresh.log`
+
+2. **Token Health Check v2** (`scripts/token_health_check_v2.py`)
+   - Tests ACTUAL token validity (API calls), not just file age
+   - Validates Whoop, Google Calendar, Google Docs, Gmail SMTP
+   - Run manually: `python3 scripts/token_health_check_v2.py`
+
+3. **Whoop Token Monitor** (`agents/health-agent/whoop_token_monitor.py`)
+   - Runs every 6 hours
+   - Deep health check with alerting
+
+**Cron Jobs:**
+```
+*/30 * * * * - Token auto-refresh (Whoop + others)
+0 */6 * * *  - Whoop token monitor
+0 17,5 * * * - Comprehensive token health check
+```
+
+**Token Storage:**
+- Whoop: `~/.whoop_token` (access), `~/.whoop_refresh_token` (refresh)
+- Google Calendar: `~/.openclaw/credentials/calendar-token.pickle`
+- Google Docs: `~/.openclaw/credentials/gdocs-token.pickle`
+- Gmail SMTP: `~/.openclaw/email_config.json`
+
+**Recovery Procedure:**
+1. If Whoop fails: Run `python3 scripts/refresh_whoop_token.py --force`
+2. If Google fails: Run `python3 scripts/calendar_auth.py` (re-auth required)
+3. Check logs: `tail -f ~/.openclaw/workspace/logs/token-refresh.log`
+
 ### Cron Job Persistence (March 8, 2026) — CRITICAL
 **Rule:** System updates and restarts can silently wipe cron jobs. This breaks automations without warning.
 

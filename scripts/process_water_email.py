@@ -278,9 +278,9 @@ def print_water_report():
     
     print()
     status = get_hydration_status()
-    print(f"7-Day Average: {status['average_oz']} oz/day")
-    print(f"Target: {status['target_oz']} oz/day ({status['percent_of_target']}%)")
-    print(f"Status: {status['message']}")
+    print(f"7-Day Average: {status.get('average_oz', 0)} oz/day")
+    print(f"Target: {status.get('target_oz', 80)} oz/day ({status.get('percent_of_target', 0)}%)")
+    print(f"Status: {status.get('message', 'No data available')}")
 
 if __name__ == "__main__":
     import sys

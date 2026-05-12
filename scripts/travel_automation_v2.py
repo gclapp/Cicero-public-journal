@@ -39,7 +39,8 @@ def parse_date(date_str):
 def get_existing_tasks(project="Travel"):
     """Get list of existing task names in the Travel project"""
     try:
-        result = subprocess.run(["todoist", "tasks", "-p", project], 
+        todoist_path = "/home/ubuntu/.npm-global/bin/todoist"
+        result = subprocess.run([todoist_path, "tasks", "-p", project, "--all"], 
                               capture_output=True, text=True, timeout=30)
         if result.returncode != 0:
             return set()
@@ -62,7 +63,8 @@ def create_todoist_task(task_text, project="Travel", priority="2", due_date=None
         return True
     
     try:
-        cmd = ["todoist", "add", task_text, "-p", project, "-P", priority]
+        todoist_path = "/home/ubuntu/.npm-global/bin/todoist"
+        cmd = [todoist_path, "add", task_text, "-p", project, "-P", priority]
         if due_date:
             cmd.extend(["-d", due_date])
         
@@ -410,7 +412,8 @@ def main():
     
     # Check if todoist CLI is available
     try:
-        result = subprocess.run(["todoist", "--version"], capture_output=True, timeout=5)
+        todoist_path = "/home/ubuntu/.npm-global/bin/todoist"
+        result = subprocess.run([todoist_path, "--version"], capture_output=True, timeout=5)
         if result.returncode != 0:
             print("❌ Todoist CLI not configured. Run: todoist auth <token>")
             return

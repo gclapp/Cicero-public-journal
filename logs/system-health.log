@@ -11413,3 +11413,184 @@
 ============================================================
 [2026-05-09 14:12:00] ✅ All systems operational
 [2026-05-09 14:12:00] ============================================================
+[2026-05-12 01:44:36] ============================================================
+[2026-05-12 01:44:36] SYSTEM HEALTH CHECK
+[2026-05-12 01:44:36] ============================================================
+[2026-05-12 01:44:36] 
+📋 Checking Todoist...
+[2026-05-12 01:44:37]   ✅ Todoist: 50 tasks
+[2026-05-12 01:44:37] 
+📅 Checking Google Calendar...
+[2026-05-12 01:44:40]   ✅ Calendar: Token 0 days old
+[2026-05-12 01:44:40] 
+🌤️ Checking Weather...
+[2026-05-12 01:44:40]   ✅ Weather skill installed
+[2026-05-12 01:44:41]   🌡️ Current: los angeles: ☀️ 75°F 54% ↗9mph...
+[2026-05-12 01:44:41] 
+💓 Checking Whoop...
+[2026-05-12 01:44:41]   ✅ Whoop configured
+[2026-05-12 01:44:41] 
+🏥 Checking Health Dashboard...
+[2026-05-12 01:44:41]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-05-12 01:44:41] 
+⌚ Checking Watch Hunt...
+[2026-05-12 01:44:41]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-05-12 01:44:41] 
+🎯 Checking Competitive Intelligence...
+[2026-05-12 01:44:41]   ✅ Competitive Intel cron active
+[2026-05-12 01:44:41] 
+✈️ Checking Travel Automation...
+[2026-05-12 01:44:42]   ✅ Travel Automation: 0 tasks created
+[2026-05-12 01:44:42] 
+============================================================
+[2026-05-12 01:44:42] ✅ All systems operational
+[2026-05-12 01:44:42] ============================================================
+[2026-05-12 03:53:25] ALERT SENT: System Health Issues Detected
+[2026-05-12 03:53:25] 
+============================================================
+SYSTEM HEALTH REPORT - 2026-05-12 03:53 PT
+============================================================
+
+✅ Memory System: OK (5055 bytes, 0.2h old)
+✅ Cron Jobs: All critical jobs present
+✅ Disk Space: OK: 23% full
+✅ Whoop Token: OK (refreshed 0.9h ago)
+🔴 Skills: Issues: whoop missing
+✅ Security: OK
+
+============================================================
+Overall Status: ISSUES DETECTED
+============================================================
+[2026-05-12 03:53:38] 
+============================================================
+SYSTEM HEALTH REPORT - 2026-05-12 03:53 PT
+============================================================
+
+✅ Memory System: OK (5055 bytes, 0.2h old)
+✅ Cron Jobs: All critical jobs present
+✅ Disk Space: OK: 23% full
+✅ Whoop Token: OK (refreshed 0.9h ago)
+✅ Skills: All critical skills present
+✅ Security: OK
+
+============================================================
+Overall Status: ALL SYSTEMS OK
+============================================================
+[2026-05-12 03:54:59] 
+SYSTEM HEALTH REPORT
+Date: Tuesday, May 12, 2026 at 03:54 AM PT
+
+STATUS CHECKS:
+
+✓ Memory System
+  OK (5055 bytes, 0.2h old)
+
+✓ Cron Jobs
+  All critical jobs present
+
+✓ Disk Space
+  OK: 23% full
+
+✓ Whoop Token
+  OK (refreshed 0.9h ago)
+
+✓ Skills
+  All critical skills present
+
+✓ Security
+  OK
+
+----------------------------------------
+
+✓ ALL SYSTEMS OPERATIONAL
+[2026-05-12 04:01:56] ============================================================
+[2026-05-12 04:01:56] SYSTEM HEALTH CHECK
+[2026-05-12 04:01:56] ============================================================
+[2026-05-12 04:01:56] 
+📋 Checking Todoist...
+[2026-05-12 04:01:57]   ✅ Todoist: 50 tasks
+[2026-05-12 04:01:57] 
+📅 Checking Google Calendar...
+[2026-05-12 04:02:01]   ✅ Calendar: Token 0 days old
+[2026-05-12 04:02:01] 
+🌤️ Checking Weather...
+[2026-05-12 04:02:01]   ✅ Weather skill installed
+[2026-05-12 04:02:02]   🌡️ Current: los angeles: 🌤️ 64°F 75% ↗6mph...
+[2026-05-12 04:02:02] 
+💓 Checking Whoop...
+[2026-05-12 04:02:02]   ✅ Whoop configured
+[2026-05-12 04:02:02] 
+🏥 Checking Health Dashboard...
+[2026-05-12 04:02:02]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-05-12 04:02:02] 
+⌚ Checking Watch Hunt...
+[2026-05-12 04:02:02]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-05-12 04:02:02] 
+🎯 Checking Competitive Intelligence...
+[2026-05-12 04:02:02]   ✅ Competitive Intel cron active
+[2026-05-12 04:02:02] 
+✈️ Checking Travel Automation...
+[2026-05-12 04:02:02]   ✅ Travel Automation: 0 tasks created
+[2026-05-12 04:02:02] 
+============================================================
+[2026-05-12 04:02:02] ✅ All systems operational
+[2026-05-12 04:02:02] ============================================================
+[2026-05-12 04:07:01] ============================================================
+[2026-05-12 04:07:01] SYSTEM HEALTH CHECK
+[2026-05-12 04:07:01] ============================================================
+[2026-05-12 04:07:01] 
+📋 Checking Todoist...
+[2026-05-12 04:07:03]   ✅ Todoist: 50 tasks
+[2026-05-12 04:07:03] 
+📅 Checking Google Calendar...
+[2026-05-12 04:07:04]   ✅ Calendar: Token 0 days old
+[2026-05-12 04:07:04] 
+🌤️ Checking Weather...
+[2026-05-12 04:07:04]   ✅ Weather skill installed
+[2026-05-12 04:07:05]   🌡️ Current: los angeles: 🌤️ 64°F 75% ↗6mph...
+[2026-05-12 04:07:05] 
+💓 Checking Whoop...
+[2026-05-12 04:07:05]   ✅ Whoop configured
+[2026-05-12 04:07:05] 
+🏥 Checking Health Dashboard...
+[2026-05-12 04:07:05]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-05-12 04:07:05] 
+⌚ Checking Watch Hunt...
+[2026-05-12 04:07:05]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-05-12 04:07:05] 
+🎯 Checking Competitive Intelligence...
+[2026-05-12 04:07:05]   ✅ Competitive Intel cron active
+[2026-05-12 04:07:05] 
+✈️ Checking Travel Automation...
+[2026-05-12 04:07:06]   ✅ Travel Automation: 0 tasks created
+[2026-05-12 04:07:06] 
+============================================================
+[2026-05-12 04:07:06] ✅ All systems operational
+[2026-05-12 04:07:06] ============================================================
+[2026-05-12 04:08:28] 
+SYSTEM HEALTH REPORT
+Date: Tuesday, May 12, 2026 at 04:08 AM PT
+
+STATUS CHECKS:
+
+✓ Memory System
+  OK (5055 bytes, 0.4h old)
+
+✓ Cron Jobs
+  All critical jobs present
+
+✓ Disk Space
+  OK: 23% full
+
+✓ Whoop Token
+  OK (refreshed 0.1h ago)
+
+✓ Skills
+  All critical skills present
+
+✓ Security
+  OK
+
+----------------------------------------
+
+✓ ALL SYSTEMS OPERATIONAL
