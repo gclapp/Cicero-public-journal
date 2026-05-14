@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClapp - Project Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        header h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 20px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        
+        .project-logo {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover .project-logo img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 30px;
+        }
+        
+        .project-content h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        
+        .project-content p {
+            color: #666;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 80px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ OpenClapp</h1>
+            <p>Project Dashboard & Tools</p>
+        </header>
+        
+        <div class="projects-grid">
+            <!-- NYCEats -->
+            <a href="/" class="project-card">
+                <div class="project-logo">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Lobster body -->
+                        <ellipse cx="60" cy="70" rx="25" ry="35" fill="#FF6B35"/>
+                        <!-- Lobster head -->
+                        <circle cx="60" cy="35" r="20" fill="#FF6B35"/>
+                        <!-- Eyes -->
+                        <circle cx="52" cy="30" r="5" fill="white"/>
+                        <circle cx="68" cy="30" r="5" fill="white"/>
+                        <circle cx="52" cy="30" r="2" fill="black"/>
+                        <circle cx="68" cy="30" r="2" fill="black"/>
+                        <!-- Antennae -->
+                        <path d="M50 20 Q40 5 35 10" stroke="#FF6B35" stroke-width="3" fill="none"/>
+                        <path d="M70 20 Q80 5 85 10" stroke="#FF6B35" stroke-width="3" fill="none"/>
+                        <!-- Claws -->
+                        <ellipse cx="25" cy="55" rx="15" ry="20" fill="#FF6B35" transform="rotate(-30 25 55)"/>
+                        <ellipse cx="95" cy="55" rx="15" ry="20" fill="#FF6B35" transform="rotate(30 95 55)"/>
+                        <!-- Legs -->
+                        <path d="M40 85 L30 100" stroke="#FF6B35" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M50 90 L45 105" stroke="#FF6B35" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M70 90 L75 105" stroke="#FF6B35" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M80 85 L90 100" stroke="#FF6B35" stroke-width="4" stroke-linecap="round"/>
+                        <!-- Chef hat -->
+                        <path d="M40 20 Q60 5 80 20 L75 10 Q60 0 45 10 Z" fill="white" stroke="#ddd" stroke-width="2"/>
+                        <rect x="42" y="18" width="36" height="8" fill="white" stroke="#ddd" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="project-content">
+                    <h2>🦞 NYCEats</h2>
+                    <p>Automated restaurant reservation system for NYC dining. Monitors Resy for availability and books tables automatically.</p>
+                    <div class="project-tags">
+                        <span class="tag">Reservations</span>
+                        <span class="tag">NYC</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- REI Scan -->
+            <a href="http://rei.openclapp.com" class="project-card">
+                <div class="project-logo">
+                    <img src="/static/rei-lobster-logo.png" alt="REI Scan Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div style="display:none; width:100%; height:100%; align-items:center; justify-content:center; background:linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);">
+                        <span style="font-size:60px;">🏥🦞</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h2>🏥 REI Scan</h2>
+                    <p>Provider directory scraper for Reproductive Endocrinology & Infertility specialists. Searches Healthgrades and Cigna to find in-network fertility doctors.</p>
+                    <div class="project-tags">
+                        <span class="tag">Healthcare</span>
+                        <span class="tag">Web Scraper</span>
+                        <span class="tag">PGNY</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2026 OpenClapp - Internal Tools & Projects</p>
+        </footer>
+    </div>
+</body>
+</html>
