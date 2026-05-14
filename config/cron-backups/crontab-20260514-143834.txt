@@ -1,0 +1,4 @@
+28 6 13 5 * /home/ubuntu/.openclaw/workspace/scripts/reminder_flightaware.sh >> ~/.openclaw/workspace/logs/reminders.log 2>&1
+
+# Weekly memory consolidation - Sundays at 11 PM PT
+0 6 * * 0 /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/weekly_memory_consolidation.py >> /home/ubuntu/.openclaw/workspace/logs/weekly-consolidation.log 2>&1
