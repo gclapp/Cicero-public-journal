@@ -23,31 +23,51 @@
         },
         {
           "date": "2026-05-19",
-          "has_reservation": false,
-          "reservation": null,
+          "has_reservation": true,
+          "reservation": {
+            "resy_reservation_id": 876498211,
+            "venue_name": "Crown Shy",
+            "venue_id": "10726",
+            "date": "2026-05-19",
+            "time": "19:30:00",
+            "party_size": 2,
+            "status": "confirmed",
+            "source": "resy_api",
+            "synced_at": "2026-05-16T19:30:01.635294"
+          },
           "is_skipped": false,
           "skip_reason": "",
-          "needs_booking": true
+          "needs_booking": false
         },
         {
           "date": "2026-05-20",
-          "has_reservation": false,
-          "reservation": null,
+          "has_reservation": true,
+          "reservation": {
+            "resy_reservation_id": 874332864,
+            "venue_name": "Eleven Madison Park",
+            "venue_id": "70928",
+            "date": "2026-05-20",
+            "time": "20:45:00",
+            "party_size": 2,
+            "status": "confirmed",
+            "source": "resy_api",
+            "synced_at": "2026-05-11T05:00:03.310043"
+          },
           "is_skipped": false,
           "skip_reason": "",
-          "needs_booking": true
+          "needs_booking": false
         }
       ],
       "total_nights": 4,
-      "booked_nights": 0,
+      "booked_nights": 2,
       "skipped_nights": 0,
-      "pending_nights": 4,
+      "pending_nights": 2,
       "status": "pending",
       "outbound_flight": "Delta Air Lines flight 960 to New York (GAO7LP)",
       "return_flight": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
-      "hotel": "Dinner Reservation",
+      "hotel": "The Westin New York at Times Square",
       "source": "flight_matched"
     }
   ],
-  "last_updated": "2026-05-09T13:04:39.041047"
+  "last_updated": "2026-05-16T19:30:01.707780"
 }

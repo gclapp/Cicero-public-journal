@@ -14,6 +14,8 @@ import json
 import re
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
 from pathlib import Path
 
 # Configuration
@@ -213,8 +215,8 @@ def markdown_to_html(text):
     
     return html
 
-def send_email(to, subject, body, html=False, cc=None):
-    """Send email via Gmail SMTP"""
+def send_email(to, subject, body, html=False, cc=None, attachment=None):
+    """Send email via Gmail SMTP with optional attachment"""
     config = load_config()
     
     if 'app_password' not in config:
@@ -225,7 +227,7 @@ def send_email(to, subject, body, html=False, cc=None):
     app_password = config['app_password']
     
     # Create message
-    msg = MIMEMultipart('alternative')
+    msg = MIMEMultipart()
     msg['From'] = DEFAULT_FROM
     msg['To'] = to
     msg['Subject'] = subject
@@ -267,6 +269,16 @@ blockquote {{ border-left: 4px solid #ddd; padding-left: 20px; color: #666; }}
     else:
         msg.attach(MIMEText(body, 'plain'))
     
+    # Add attachment if provided
+    if attachment and os.path.exists(attachment):
+        with open(attachment, 'rb') as f:
+            part = MIMEBase('application', 'octet-stream')
+            part.set_payload(f.read())
+        encoders.encode_base64(part)
+        part.add_header('Content-Disposition', f'attachment; filename="{os.path.basename(attachment)}"')
+        msg.attach(part)
+        print(f"📎 Attached: {os.path.basename(attachment)}")
+    
     # Send via SMTP
     try:
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
@@ -289,6 +301,7 @@ def main():
     parser.add_argument('--html', action='store_true', default=True, help='Send as HTML (default, auto-converts markdown)')
     parser.add_argument('--plain', action='store_true', help='Send as plain text (no conversion)')
     parser.add_argument('--cc', help='CC recipients (comma-separated)')
+    parser.add_argument('--attach', help='Attachment file path')
     
     args = parser.parse_args()
     
@@ -312,7 +325,7 @@ def main():
     
     # Default to HTML with markdown conversion unless --plain specified
     is_html = not args.plain
-    send_email(args.to, args.subject, body, html=is_html, cc=args.cc)
+    send_email(args.to, args.subject, body, html=is_html, cc=args.cc, attachment=args.attach)
 
 if __name__ == "__main__":
     main()

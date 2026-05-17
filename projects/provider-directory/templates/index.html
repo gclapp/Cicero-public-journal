@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REI Provider Directory - Cigna</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .stats-bar {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-card h3 {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filters input, .filters select {
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            min-width: 200px;
+        }
+        
+        .filters input:focus, .filters select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .filters button {
+            padding: 10px 25px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .filters button:hover {
+            background: #5568d3;
+        }
+        
+        .providers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .provider-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .provider-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .provider-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .provider-card .credentials {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .provider-card .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .provider-card .info-row i {
+            color: #667eea;
+            width: 20px;
+        }
+        
+        .provider-card .specialty {
+            display: inline-block;
+            background: #e8eaf6;
+            color: #3f51b5;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 40px;
+            padding: 20px;
+        }
+        
+        .pagination button {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .pagination button:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .pagination .page-info {
+            color: #666;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 REI Provider Directory</h1>
+            <p>Reproductive Endocrinology & Infertility Specialists accepting Cigna Insurance</p>
+        </header>
+        
+        <div class="stats-bar">
+            <div class="stat-card">
+                <h3>Total Providers</h3>
+                <div class="number" id="totalProviders">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>States</h3>
+                <div class="number" id="totalStates">-</div>
+            </div>
+            <div class="stat-card">
+                <h3>Cities</h3>
+                <div class="number" id="totalCities">-</div>
+            </div>
+        </div>
+        
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search by name...">
+            <select id="stateFilter">
+                <option value="">All States</option>
+            </select>
+            <input type="text" id="cityFilter" placeholder="Filter by city...">
+            <button onclick="loadProviders()">Search</button>
+            <button onclick="clearFilters()">Clear</button>
+        </div>
+        
+        <div id="providersContainer" class="providers-grid">
+            <div class="loading">Loading providers...</div>
+        </div>
+        
+        <div class="pagination" id="pagination">
+            <button onclick="changePage(-1)" id="prevBtn">← Previous</button>
+            <span class="page-info">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+            <button onclick="changePage(1)" id="nextBtn">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        
+        // Load stats on page load
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/stats');
+                const stats = await response.json();
+                document.getElementById('totalProviders').textContent = stats.total_providers.toLocaleString();
+                document.getElementById('totalStates').textContent = stats.states;
+                document.getElementById('totalCities').textContent = stats.cities;
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+        
+        // Load states for filter
+        async function loadStates() {
+            try {
+                const response = await fetch('/api/states');
+                const states = await response.json();
+                const select = document.getElementById('stateFilter');
+                states.forEach(state => {
+                    const option = document.createElement('option');
+                    option.value = state.state;
+                    option.textContent = `${state.state} (${state.count})`;
+                    select.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error loading states:', error);
+            }
+        }
+        
+        // Load providers
+        async function loadProviders() {
+            const container = document.getElementById('providersContainer');
+            container.innerHTML = '<div class="loading">Loading providers...</div>';
+            
+            const search = document.getElementById('searchInput').value;
+            const state = document.getElementById('stateFilter').value;
+            const city = document.getElementById('cityFilter').value;
+            
+            const params = new URLSearchParams({
+                page: currentPage,
+                search: search,
+                state: state,
+                city: city
+            });
+            
+            try {
+                const response = await fetch(`/api/providers?${params}`);
+                const data = await response.json();
+                
+                totalPages = data.pages;
+                document.getElementById('currentPage').textContent = currentPage;
+                document.getElementById('totalPages').textContent = totalPages;
+                document.getElementById('prevBtn').disabled = currentPage === 1;
+                document.getElementById('nextBtn').disabled = currentPage === totalPages;
+                
+                if (data.providers.length === 0) {
+                    container.innerHTML = '<div class="loading">No providers found.</div>';
+                    return;
+                }
+                
+                container.innerHTML = data.providers.map(provider => `
+                    <div class="provider-card">
+                        <h3>${escapeHtml(provider.name)}</h3>
+                        ${provider.credentials ? `<div class="credentials">${escapeHtml(provider.credentials)}</div>` : ''}
+                        
+                        <div class="info-row">
+                            <span>📍</span>
+                            <span>${escapeHtml(provider.street || '')}<br>
+                            ${escapeHtml(provider.city || '')}, ${escapeHtml(provider.state || '')} ${escapeHtml(provider.zip || '')}</span>
+                        </div>
+                        
+                        ${provider.phone ? `
+                        <div class="info-row">
+                            <span>📞</span>
+                            <span>${escapeHtml(provider.phone)}</span>
+                        </div>
+                        ` : ''}
+                        
+                        ${provider.specialties && provider.specialties.length > 0 ? `
+                        <div class="specialty">${escapeHtml(provider.specialties[0])}</div>
+                        ` : ''}
+                    </div>
+                `).join('');
+                
+            } catch (error) {
+                container.innerHTML = `<div class="error">Error loading providers: ${error.message}</div>`;
+            }
+        }
+        
+        // Change page
+        function changePage(delta) {
+            const newPage = currentPage + delta;
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                loadProviders();
+                window.scrollTo(0, 0);
+            }
+        }
+        
+        // Clear filters
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('stateFilter').value = '';
+            document.getElementById('cityFilter').value = '';
+            currentPage = 1;
+            loadProviders();
+        }
+        
+        // Escape HTML
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStats();
+            loadStates();
+            loadProviders();
+        });
+        
+        // Enter key on search
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') loadProviders();
+        });
+    </script>
+</body>
+</html>

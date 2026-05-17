@@ -199,17 +199,6 @@
       "synced_at": "2026-04-11T17:28:17.096651"
     },
     {
-      "resy_reservation_id": 734157995,
-      "venue_name": "Dear Strangers",
-      "venue_id": "84217",
-      "date": "2025-06-01",
-      "time": "20:45:00",
-      "party_size": 2,
-      "status": "confirmed",
-      "source": "resy_api",
-      "synced_at": "2026-04-11T17:28:17.096658"
-    },
-    {
       "resy_reservation_id": 874332864,
       "venue_name": "Eleven Madison Park",
       "venue_id": "70928",
@@ -219,7 +208,18 @@
       "status": "confirmed",
       "source": "resy_api",
       "synced_at": "2026-05-11T05:00:03.310043"
+    },
+    {
+      "resy_reservation_id": 876498211,
+      "venue_name": "Crown Shy",
+      "venue_id": "10726",
+      "date": "2026-05-19",
+      "time": "19:30:00",
+      "party_size": 2,
+      "status": "confirmed",
+      "source": "resy_api",
+      "synced_at": "2026-05-16T19:30:01.635294"
     }
   ],
-  "last_sync": "2026-05-12T12:59:02.859428"
+  "last_sync": "2026-05-16T19:30:01.637627"
 }

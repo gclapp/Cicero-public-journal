@@ -45,6 +45,89 @@
 
 **Failed Example:** Whoop OAuth set up Feb 22, but no automation built. Token expired after 1 hour, no refresh token requested, no daily fetch script, no error reported. Silent failure for 10+ days.
 
+### REI Provider Scraper Deployment (May 15, 2026) — CRITICAL
+**Rule:** This machine (16.59.79.163) IS the production server. Deploy directly.
+
+**Current Version:** 1.1.1
+
+**Version Numbering System (x.y.z format):**
+- **x (Major):** Breaking changes, database schema changes, API redesigns
+- **y (Medium):** New features, significant enhancements, new scrapers
+- **z (Minor):** Bug fixes, small improvements, config tweaks
+
+**How to Increment:**
+- Bug fix → increment z (1.1.0 → 1.1.1)
+- New feature → increment y (1.1.0 → 1.2.0)
+- Breaking change → increment x (1.1.0 → 2.0.0)
+
+**Critical File Paths:**
+- **Code:** `/tmp/rei-provider-scraper` (cloned from GitHub)
+- **Database:** `/home/ubuntu/.openclaw/workspace/projects/provider-directory/data/providers.db`
+- **Schema:** `/home/ubuntu/.openclaw/workspace/projects/provider-directory/schema.sql`
+- **Logs:** `/home/ubuntu/.openclaw/workspace/logs/rei-scraper.log`
+
+**Deployment Process:**
+1. Code is at `/tmp/rei-provider-scraper` (cloned from GitHub)
+2. Database is at `/home/ubuntu/.openclaw/workspace/projects/provider-directory/data/providers.db`
+3. Deploy command:
+   ```bash
+   cd /tmp/rei-provider-scraper
+   git pull origin main
+   docker build -t rei-provider-scraper:latest .
+   docker stop rei-provider-scraper 2>/dev/null
+   docker rm rei-provider-scraper 2>/dev/null
+   docker run -d \
+     --name rei-provider-scraper \
+     --restart unless-stopped \
+     -p 127.0.0.1:5002:5000 \
+     -v /home/ubuntu/.openclaw/workspace/projects/provider-directory/data:/app/data \
+     rei-provider-scraper:latest
+   ```
+4. Verify: `curl http://localhost:5002/health`
+
+**Deployment Checklist:**
+- [ ] Version number updated in code/config
+- [ ] Database schema is compatible (run schema.sql if needed)
+- [ ] Backup database before major version changes
+- [ ] Docker image builds successfully
+- [ ] Container starts without errors
+- [ ] Health check passes (`curl http://localhost:5002/health`)
+- [ ] API endpoints respond correctly
+- [ ] Logs show no errors (`docker logs rei-provider-scraper`)
+
+**Key Facts:**
+- This machine's public IP is 16.59.79.163
+- Docker runs the container on port 5002
+- Nginx proxies from 443 → 5002
+- Database must be mounted as volume
+- I don't need SSH - I'm already on the server
+
+### Memory Logging System (May 14, 2026) — CRITICAL FIX
+**Rule:** Daily memory files must be created automatically at session start.
+
+**Problem:** Memory files (`memory/YYYY-MM-DD.md`) were not being created automatically, causing loss of conversation history.
+
+**Root Cause:** The `daily_memory_logger.py` script existed but was not being triggered automatically at session start.
+
+**Solution Implemented:**
+1. **New Script:** `scripts/session_memory_init.py` — Initializes daily memory at session start
+2. **Integration:** Main agent must run this at EVERY session start (added to AGENTS.md)
+3. **Behavior:** 
+   - Creates `memory/YYYY-MM-DD.md` if it doesn't exist
+   - Opens existing file if it does
+   - Adds timestamped session entry for each new session
+   - Prevents duplicate entries within the same hour
+
+**Usage:**
+```bash
+# Run at start of every main session
+python3 /home/ubuntu/.openclaw/workspace/scripts/session_memory_init.py
+```
+
+**Verification:**
+- Check `logs/memory-system.log` for initialization status
+- Memory file path is printed on initialization
+
 ### Token Health Monitoring System (May 12, 2026) — CRITICAL
 **Rule:** Token expiration must be detected and fixed automatically. No silent failures.
 
@@ -81,6 +164,26 @@
 1. If Whoop fails: Run `python3 scripts/refresh_whoop_token.py --force`
 2. If Google fails: Run `python3 scripts/calendar_auth.py` (re-auth required)
 3. Check logs: `tail -f ~/.openclaw/workspace/logs/token-refresh.log`
+
+### Disk Space Monitoring (May 16, 2026) — ACTIVE
+**Rule:** Monitor disk usage hourly and alert when above threshold.
+
+**Current Status:**
+- **Threshold:** 60% (alerts when exceeded)
+- **Current Usage:** 26% (healthy)
+- **Schedule:** Hourly via cron
+- **Alert Method:** Email to [REDACTED]
+- **Log:** `logs/disk-monitor.log`
+
+**Script:** `scripts/disk-monitor.sh`
+- Logs usage every hour
+- Sends email alert if usage > 60%
+- Auto-rotates logs after 1000 lines
+
+**Cron:**
+```
+0 * * * * /home/ubuntu/.openclaw/workspace/scripts/disk-monitor.sh
+```
 
 ### Cron Job Persistence (March 8, 2026) — CRITICAL
 **Rule:** System updates and restarts can silently wipe cron jobs. This breaks automations without warning.

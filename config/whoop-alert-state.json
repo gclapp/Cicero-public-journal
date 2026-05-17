@@ -1,7 +1,8 @@
 {
   "last_alerts": {
     "critical_recovery": "2026-05-04",
-    "poor_sleep": "2026-05-10"
+    "poor_sleep": "2026-05-10",
+    "hrv_drop": "2026-05-17"
   },
   "alert_counts": {},
   "hrv_baseline": null,

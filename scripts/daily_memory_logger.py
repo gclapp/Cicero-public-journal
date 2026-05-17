@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 """
-Daily Memory Logger - Robust automatic memory logging
-Creates memory/YYYY-MM-DD.md at end of each session
-"""
+Daily Memory Logger - DEPRECATED
+
+⚠️  This script is deprecated. Use session_memory_init.py instead.
+
+The new session_memory_init.py is called at the START of each session
+to ensure memory files exist before conversations begin.
+
+This script is kept for backward compatibility but should not be used.
+""
+
+import warnings
+warnings.warn("daily_memory_logger.py is deprecated. Use session_memory_init.py", DeprecationWarning)
+
 
 import os
 import sys
