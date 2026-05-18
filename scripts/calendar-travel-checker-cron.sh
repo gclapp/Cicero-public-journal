@@ -9,6 +9,19 @@ export HOME="/home/ubuntu"
 
 # Log file
 LOG_FILE="/home/ubuntu/.openclaw/workspace/logs/calendar-travel-cron.log"
+LOCK_FILE="/tmp/calendar_travel_checker.lock"
+
+# Prevent overlapping runs
+if [ -f "$LOCK_FILE" ]; then
+    PID=$(cat "$LOCK_FILE" 2>/dev/null)
+    if ps -p "$PID" > /dev/null 2>&1; then
+        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Another instance is running (PID: $PID). Exiting." >> "$LOG_FILE"
+        exit 0
+    else
+        rm -f "$LOCK_FILE"
+    fi
+fi
+echo $$ > "$LOCK_FILE"
 
 # Timestamp
 echo "========================================" >> "$LOG_FILE"
@@ -25,6 +38,9 @@ if [ $EXIT_CODE -eq 0 ]; then
 else
     echo "❌ Check failed with exit code $EXIT_CODE" >> "$LOG_FILE"
 fi
+
+# Clean up lock file
+rm -f "$LOCK_FILE"
 
 echo "" >> "$LOG_FILE"
 

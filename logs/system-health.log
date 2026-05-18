@@ -12192,3 +12192,37 @@ STATUS CHECKS:
 [2026-05-17 15:12:13] 🔴 ACTION REQUIRED: 1 service(s) need attention
 [2026-05-17 15:12:13]    - calendar: Token file does not exist
 [2026-05-17 15:12:13] ============================================================
+[2026-05-18 15:39:55] ============================================================
+[2026-05-18 15:39:55] SYSTEM HEALTH CHECK
+[2026-05-18 15:39:55] ============================================================
+[2026-05-18 15:39:55] 
+📋 Checking Todoist...
+[2026-05-18 15:39:56]   ✅ Todoist: 50 tasks
+[2026-05-18 15:39:56] 
+📅 Checking Google Calendar...
+[2026-05-18 15:39:56]   🔴 Calendar: Token file does not exist
+[2026-05-18 15:39:56]   📝 ACTION: User needs to authenticate
+[2026-05-18 15:39:56] 
+🌤️ Checking Weather...
+[2026-05-18 15:39:56]   ✅ Weather skill installed
+[2026-05-18 15:39:57]   🌡️ Current: los angeles: 🌤️ 63°F 72% ↑2mph...
+[2026-05-18 15:39:57] 
+💓 Checking Whoop...
+[2026-05-18 15:39:57]   ✅ Whoop configured
+[2026-05-18 15:39:57] 
+🏥 Checking Health Dashboard...
+[2026-05-18 15:39:57]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-05-18 15:39:57] 
+⌚ Checking Watch Hunt...
+[2026-05-18 15:39:57]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-05-18 15:39:57] 
+🎯 Checking Competitive Intelligence...
+[2026-05-18 15:39:57]   ✅ Competitive Intel cron active
+[2026-05-18 15:39:57] 
+✈️ Checking Travel Automation...
+[2026-05-18 15:39:57]   ⚠️ Travel Automation may need attention
+[2026-05-18 15:39:57] 
+============================================================
+[2026-05-18 15:39:57] 🔴 ACTION REQUIRED: 1 service(s) need attention
+[2026-05-18 15:39:57]    - calendar: Token file does not exist
+[2026-05-18 15:39:57] ============================================================

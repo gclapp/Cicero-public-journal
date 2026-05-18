@@ -694,10 +694,11 @@ def get_all_calendar_events():
     except:
         return []
 
-def detect_location_and_travel(calendar_events):
-    """Detect current location and upcoming travel - includes custody status"""
+def detect_location_and_travel(calendar_events, all_events=None):
+    """Detect current location and upcoming travel - includes custody status and hotel stays"""
     pt_now = get_pt_time()
     today_str = pt_now.strftime('%A, %B %d')
+    today_date = pt_now.date()
     
     # Default: Home in Calabasas/LA
     location = "Calabasas"
@@ -706,7 +707,58 @@ def detect_location_and_travel(calendar_events):
     upcoming_flight = None
     has_travel_today = False
     
-    # Check for travel events today
+    # Use all_events if provided, otherwise fall back to calendar_events
+    events_to_check = all_events if all_events else calendar_events
+    
+    # First, check if we're currently at a hotel (determines location even without flights today)
+    for event in events_to_check:
+        summary = event.get('summary', '').lower()
+        location_field = event.get('location', '').lower()
+        
+        # Check for hotel stays
+        if any(keyword in summary for keyword in ['stay at', 'hotel', 'marriott', 'hilton', 'hyatt', 'westin', 'ritz']):
+            # Parse hotel dates
+            start_str = event.get('start_raw', '')
+            try:
+                if 'T' in start_str:
+                    start_date = datetime.fromisoformat(start_str.replace('Z', '+00:00')).date()
+                else:
+                    start_date = datetime.strptime(start_str, '%Y-%m-%d').date()
+                
+                # Hotel stays are typically multi-day, assume checkout is next day or we need to find it
+                # For now, assume we're at the hotel on the start date and day after
+                # Check if today is during the hotel stay
+                
+                # Try to find checkout date from description or assume 1-4 days
+                checkout_date = start_date + timedelta(days=4)  # Default assumption
+                
+                # Check if today falls within hotel stay
+                if start_date <= today_date <= checkout_date:
+                    # Determine location from hotel name/location
+                    if 'new york' in summary or 'times square' in summary or 'westin' in summary and 'new york' in location_field:
+                        location = "New York City"
+                        state = "NY"
+                        status = "Staying in NYC"
+                        has_travel_today = True  # Mark as travel to skip custody check
+                    elif 'tahoe' in summary or 'ritz' in summary and 'tahoe' in location_field:
+                        location = "Lake Tahoe"
+                        state = "CA"
+                        status = "Staying in Tahoe"
+                        has_travel_today = True
+                    elif 'palo alto' in summary or 'westin' in summary and 'palo alto' in location_field:
+                        location = "Palo Alto"
+                        state = "CA"
+                        status = "Staying in Palo Alto"
+                        has_travel_today = True
+                    elif 'san francisco' in summary or 'sf' in location_field:
+                        location = "San Francisco"
+                        state = "CA"
+                        status = "Staying in SF"
+                        has_travel_today = True
+            except:
+                pass
+    
+    # Check for flights today (departures/arrivals)
     for event in calendar_events:
         if not event.get('is_travel'):
             continue
@@ -746,7 +798,7 @@ def detect_location_and_travel(calendar_events):
                     location = "San Francisco"
                     state = "CA"
     
-    # If no travel today, check custody schedule (using calendar events if available)
+    # If no travel today or hotel stay, check custody schedule
     if not has_travel_today:
         has_kids, custody_status = get_custody_status(pt_now, calendar_events)
         if has_kids:
@@ -1010,6 +1062,183 @@ def get_day_events(day_date, all_events):
     
     return result
 
+def get_week_events_detailed(pt_now, all_events, days=7):
+    """Get detailed events for the next N days with full event information"""
+    week_events = []
+    
+    # First, collect all hotel stays with their date ranges
+    hotel_stays = []
+    for event in all_events:
+        summary = event.get('summary', '').lower()
+        if any(word in summary for word in ['hotel', 'stay at', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'algonquin', 'moxy', 'jw marriott', 'westin', 'ritz']):
+            start_str = event.get('start_raw', '')
+            try:
+                if 'T' in start_str:
+                    check_in = datetime.fromisoformat(start_str.replace('Z', '+00:00')).date()
+                else:
+                    check_in = datetime.strptime(start_str, '%Y-%m-%d').date()
+                
+                # Determine checkout date and location from hotel name
+                summary_original = event.get('summary', '')
+                hotel_name = summary_original
+                for prefix in ['Stay at ', 'Hotel: ', 'Geoffrey Clapp - ', 'Mac Spring Break: ']:
+                    hotel_name = hotel_name.replace(prefix, '')
+                import re as re_module
+                hotel_name = re_module.sub(r'\d{8,}', '', hotel_name).strip()
+                hotel_name = hotel_name.rstrip(',').strip()
+                
+                # Determine location and typical stay duration
+                location = 'Unknown'
+                stay_days = 4  # Default
+                
+                if 'new york' in summary or 'times square' in summary:
+                    location = 'NYC'
+                    stay_days = 4  # May 17-21
+                elif 'tahoe' in summary or 'ritz' in summary and 'tahoe' in summary:
+                    location = 'Tahoe'
+                    stay_days = 3  # May 22-25
+                elif 'palo alto' in summary:
+                    location = 'Palo Alto'
+                    stay_days = 2
+                elif 'san francisco' in summary or 'sf' in summary:
+                    location = 'San Francisco'
+                    stay_days = 2
+                
+                checkout = check_in + timedelta(days=stay_days)
+                
+                hotel_stays.append({
+                    'name': hotel_name,
+                    'check_in': check_in,
+                    'checkout': checkout,
+                    'location': location,
+                    'raw_event': event
+                })
+            except:
+                pass
+    
+    for i in range(days):
+        day = pt_now + timedelta(days=i)
+        day_str = day.strftime('%A, %B %d')
+        day_date = day.date()
+        
+        day_info = {
+            'date': day,
+            'date_str': day_str,
+            'flights': [],
+            'hotels': [],
+            'important': [],
+            'is_today': i == 0
+        }
+        
+        # Check if this day falls within any hotel stay
+        for stay in hotel_stays:
+            if stay['check_in'] <= day_date < stay['checkout']:
+                # Determine if this is check-in day or ongoing stay
+                is_checkin = day_date == stay['check_in']
+                stay_text = f"🏨 {stay['name']}"
+                if is_checkin:
+                    stay_text = f"🏨 CHECK-IN: {stay['name']}"
+                
+                # Avoid duplicates
+                if not any(h['name'] == stay['name'] for h in day_info['hotels']):
+                    day_info['hotels'].append({
+                        'name': stay_text,
+                        'location': stay['raw_event'].get('location', ''),
+                        'raw_summary': stay['raw_event'].get('summary', ''),
+                        'is_checkin': is_checkin
+                    })
+        
+        for event in all_events:
+            event_date = event.get('start', '')
+            if day_str not in event_date:
+                continue
+            
+            summary = event.get('summary', '').lower()
+            location = event.get('location', '').lower()
+            summary_original = event.get('summary', '')
+            
+            # Detect flights - check for 'flight' keyword OR airline patterns
+            is_flight = False
+            if 'flight' in summary:
+                is_flight = True
+            elif 'delta air lines' in summary:
+                is_flight = True
+            elif 'united' in summary:
+                is_flight = True
+            elif 'american airlines' in summary:
+                is_flight = True
+            elif __import__('re').search(r'\b(dl|ua|aa|wn|b6|as)\s*\d+', summary):
+                is_flight = True
+            
+            if is_flight:
+                flight_info = {
+                    'time': event.get('start', 'TBD'),
+                    'route': 'TBD',
+                    'details': event.get('location', ''),
+                    'summary': summary_original
+                }
+                # Check location field for route (e.g., "New York(JFK) - Los Angeles(LAX)")
+                location_field = event.get('location', '').lower()
+                
+                if 'jfk' in summary or 'new york' in summary or 'lga' in summary or 'ewr' in summary:
+                    if 'lax' in location_field or 'los angeles' in location_field:
+                        flight_info['route'] = 'LAX → JFK'
+                    else:
+                        flight_info['route'] = '→ NYC'
+                elif 'lax' in summary or 'los angeles' in summary:
+                    if 'jfk' in location_field or 'new york' in location_field:
+                        flight_info['route'] = 'JFK → LAX'
+                    else:
+                        flight_info['route'] = '→ LAX'
+                elif 'atl' in summary or 'atlanta' in summary:
+                    flight_info['route'] = '→ ATL'
+                elif 'sfo' in summary or 'san francisco' in summary:
+                    flight_info['route'] = '→ SFO'
+                elif 'rno' in summary or 'reno' in summary or 'tahoe' in summary:
+                    flight_info['route'] = '→ RNO'
+                elif 'sjc' in summary or 'san jose' in summary:
+                    flight_info['route'] = '→ SJC'
+                elif 'pdx' in summary or 'portland' in summary:
+                    flight_info['route'] = '→ PDX'
+                else:
+                    # Try to extract from location field if it has "X - Y" format
+                    if '-' in location_field:
+                        # Look for airport codes in parentheses like "New York(JFK)"
+                        import re
+                        airport_codes = re.findall(r'\(([a-z]{3})\)', location_field.lower())
+                        if len(airport_codes) >= 2:
+                            origin = airport_codes[0].upper()
+                            dest = airport_codes[1].upper()
+                            flight_info['route'] = f'{origin} → {dest}'
+                        else:
+                            parts = location_field.split('-')
+                            if len(parts) == 2:
+                                origin = parts[0].strip()[:3].upper()
+                                dest = parts[1].strip()[:3].upper()
+                                flight_info['route'] = f'{origin} → {dest}'
+                            else:
+                                flight_info['route'] = summary_original[:50]
+                    else:
+                        flight_info['route'] = summary_original[:50]
+                
+                day_info['flights'].append(flight_info)
+            
+            # Detect important dates (not hotels - those are handled above)
+            elif any(word in summary for word in ['birthday', 'anniversary', 'graduation']):
+                event_type = 'Birthday' if 'birthday' in summary else 'Anniversary' if 'anniversary' in summary else 'Event'
+                name = summary_original.replace('birthday', '').replace('Birthday', '').strip()
+                day_info['important'].append({
+                    'type': event_type,
+                    'name': name,
+                    'note': event.get('description', '')[:100]
+                })
+        
+        # Only add day if it has events
+        if day_info['flights'] or day_info['hotels'] or day_info['important']:
+            week_events.append(day_info)
+    
+    return week_events
+
 def generate_html_email(checkin_type, pt_now):
     """Generate HTML check-in using the locked format from March 22, 2026"""
     
@@ -1017,7 +1246,7 @@ def generate_html_email(checkin_type, pt_now):
     today_events, travel_events = get_calendar_data()
     # Get all events for hotel/birthday detection (not just travel events)
     all_events = get_all_calendar_events()
-    location_info = detect_location_and_travel(travel_events)
+    location_info = detect_location_and_travel(travel_events, all_events)
     
     # Get weather for current location + travel destinations
     # Always include current location first
@@ -1258,32 +1487,48 @@ def generate_html_email(checkin_type, pt_now):
     </div>
 '''
     
-    # Week ahead view with event indicators
-    html += '''
+    # Week ahead view with detailed events
+    week_events_detailed = get_week_events_detailed(pt_now, all_events, days=7)
+    if week_events_detailed:
+        html += '''
     <div class="section">
-        <h2>This Week</h2>
+        <h2>📅 This Week's Schedule</h2>
         <div class="week-view">
 '''
-    for i in range(7):
-        day = pt_now + timedelta(days=i)
-        day_str = day.strftime('%A, %B %d')
-        day_events = get_day_events(day, all_events)
-        
-        event_badges = []
-        if day_events['flight']:
-            event_badges.append('<span style="background: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">✈️ FLIGHT</span>')
-        if day_events['hotel']:
-            event_badges.append('<span style="background: #16a34a; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🏨 HOTEL</span>')
-        if day_events['birthday']:
-            event_badges.append('<span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; margin-left: 5px;">🎂 BDAY</span>')
-        
-        badges_html = ''.join(event_badges)
-        
-        html += f'''            <div class="day">
-                <span class="day-date">{day_str}</span>{badges_html}
-            </div>
+        for day_info in week_events_detailed:
+            day_str = day_info['date_str']
+            is_today = day_info['is_today']
+            today_badge = '<span style="background: #3b82f6; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 10px; font-weight: bold;">TODAY</span>' if is_today else ''
+            
+            html += f'''            <div class="day" style="{'background: #eff6ff;' if is_today else ''}">
+                <div style="font-weight: bold; color: #1e40af; margin-bottom: 8px;">{day_str}{today_badge}</div>
 '''
-    html += '''        </div>
+            
+            # Flights
+            for flight in day_info['flights']:
+                html += f'''                <div style="margin: 6px 0; padding: 10px; background: #fef2f2; border-radius: 6px; border-left: 3px solid #dc2626;">
+                    <span style="font-weight: bold; color: #dc2626;">✈️ {flight['route']}</span>
+                    <span style="color: #666; font-size: 12px; margin-left: 8px;">{flight['time']}</span>
+                </div>
+'''
+            
+            # Hotels
+            for hotel in day_info['hotels']:
+                html += f'''                <div style="margin: 6px 0; padding: 10px; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #16a34a;">
+                    <span style="font-weight: bold; color: #16a34a;">🏨 {hotel['name'][:60]}</span>
+                </div>
+'''
+            
+            # Important events
+            for event in day_info['important']:
+                html += f'''                <div style="margin: 6px 0; padding: 10px; background: #fef3c7; border-radius: 6px; border-left: 3px solid #f59e0b;">
+                    <span style="font-weight: bold; color: #b45309;">🎉 {event['type']}: {event['name'][:40]}</span>
+                </div>
+'''
+            
+            html += '''            </div>
+'''
+        html += '''        </div>
     </div>
 '''
     

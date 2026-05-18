@@ -60,3 +60,17 @@ No nutrition data found
     "protein": null
   }
 }
+{
+  "date": "2026-05-17",
+  "food_calories": 10,
+  "exercise_calories": 204,
+  "net_calories": -194,
+  "deficit": null,
+  "weight": null,
+  "meals": [],
+  "macros": {
+    "carbs": 6,
+    "fat": 0,
+    "protein": 0
+  }
+}

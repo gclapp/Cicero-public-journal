@@ -239,9 +239,17 @@ def get_all_tasks(project: str = "Travel") -> List[Dict]:
         tasks = []
         if result.returncode == 0:
             tasks = json.loads(result.stdout)
+        
+        # If we got 0 tasks, this might be an error - log warning
+        if len(tasks) == 0:
+            log(f"⚠️  WARNING: Todoist returned 0 tasks - this may indicate a connection issue")
+        else:
+            log(f"  Found {len(tasks)} existing tasks from Todoist")
+        
         return tasks
     except Exception as e:
-        log(f"Could not fetch tasks: {e}")
+        log(f"❌ ERROR: Could not fetch tasks from Todoist: {e}")
+        # Return empty list but don't block execution - rely on processed_trips state
         return []
 
 def get_existing_task_names(project: str = "Travel") -> Set[str]:
@@ -481,18 +489,32 @@ def process_trip(trip: Dict, existing_tasks: Set[str], processed_trips: List[str
     if conf_str:
         main_task_name += f" {conf_str}"
     
-    # Check if trip was already processed
+    # Generate trip ID for state tracking
     trip_id = get_trip_id(trip)
-    if trip_id in processed_trips:
-        log(f"  Trip already processed: {main_task_name[:60]}")
+    
+    # DUPLICATE DETECTION LAYER 1: Check processed_trips state (most reliable)
+    if trip_id and trip_id in processed_trips:
+        log(f"  ✓ Trip already processed (state): {main_task_name[:60]}")
         return 0
     
-    # Check if main task already exists
+    # DUPLICATE DETECTION LAYER 2: Check if main task already exists in Todoist
+    # This catches cases where state was lost but tasks exist
     if main_task_name.lower() in existing_tasks:
-        log(f"  Task already exists: {main_task_name[:60]}")
-        # Mark as processed so we don't try again
-        processed_trips.append(trip_id)
+        log(f"  ✓ Task already exists (Todoist): {main_task_name[:60]}")
+        # Mark as processed so we don't check again
+        if trip_id:
+            processed_trips.append(trip_id)
         return 0
+    
+    # DUPLICATE DETECTION LAYER 3: Fuzzy match on trip pattern
+    # Check for similar trip tasks (same destination + date)
+    trip_pattern = f"tasks for {destination.lower()} trip on {date_str.lower()}"
+    for existing in existing_tasks:
+        if trip_pattern in existing:
+            log(f"  ✓ Similar trip found (fuzzy match): {existing[:60]}")
+            if trip_id:
+                processed_trips.append(trip_id)
+            return 0
     
     # Create main task
     log(f"Creating: {main_task_name}")
@@ -562,6 +584,7 @@ def process_trip(trip: Dict, existing_tasks: Set[str], processed_trips: List[str
     # Mark trip as processed
     if trip_id:
         processed_trips.append(trip_id)
+        log(f"  Marked trip as processed: {trip_id}")
     
     return created_count
 
