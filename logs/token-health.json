@@ -1,11 +1,10 @@
 {
-  "timestamp": "2026-05-13T03:55:05.886261",
+  "timestamp": "2026-05-18T03:55:05.132651",
   "results": [
     {
-      "status": "healthy",
-      "age_days": 0,
-      "message": "\u2705 Google Calendar: Healthy (0 days old)",
-      "action_required": false,
+      "status": "missing",
+      "message": "\u274c Google Calendar: Token file not found",
+      "action_required": true,
       "critical": true
     },
     {
@@ -30,12 +29,12 @@
     },
     {
       "status": "stale",
-      "age_days": 77,
-      "message": "\u26a0\ufe0f Gmail SMTP: Token is 77 days old (threshold: 30)",
+      "age_days": 82,
+      "message": "\u26a0\ufe0f Gmail SMTP: Token is 82 days old (threshold: 30)",
       "action_required": true,
       "critical": true
     }
   ],
-  "critical_count": 2,
+  "critical_count": 3,
   "warning_count": 0
 }

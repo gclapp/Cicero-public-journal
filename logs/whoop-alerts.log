@@ -106,3 +106,11 @@ Triggered 1 alert(s):
   - 📉 WARNING: HRV Dropped 25.6% from Baseline
 Alert email sent successfully
 Done.
+[2026-05-18 00:00:03.065607] Checking Whoop alerts...
+Error fetching Whoop: 503 Server Error: Service Unavailable for url: https://api.prod.whoop.com/developer/v2/activity/sleep?limit=3
+Failed to fetch Whoop data
+[2026-05-18 06:00:02.619601] Checking Whoop alerts...
+Triggered 1 alert(s):
+  - 📉 WARNING: HRV Dropped 25.6% from Baseline
+Alert email sent successfully
+Done.
