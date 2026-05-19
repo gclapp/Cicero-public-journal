@@ -211,3 +211,9 @@ Error: 404 Client Error: Not Found for url: https://api.prod.whoop.com/developer
 [2026-05-18 14:30:01] Starting Whoop daily fetch...
 [2026-05-18 14:30:03] ✅ Whoop data saved: Recovery 72.0%, Sleep 70.0%
 [2026-05-18 14:30:04] ✅ Whoop data saved: Recovery 72.0%, Sleep 70.0%
+[2026-05-19 14:30:02] Starting Whoop daily fetch...
+[2026-05-19 14:30:02] Starting Whoop daily fetch...
+[2026-05-19 14:30:05] ❌ Error fetching Whoop data: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/cycle?limit=7
+[2026-05-19 14:30:05] ❌ Failed to fetch Whoop data
+[2026-05-19 14:30:06] ❌ Error fetching Whoop data: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/cycle?limit=7
+[2026-05-19 14:30:06] ❌ Failed to fetch Whoop data
