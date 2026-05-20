@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-20T03:55:04.411103",
+  "timestamp": "2026-05-20T14:00:12.999101",
   "results": [
     {
       "status": "missing",
@@ -29,8 +29,8 @@
     },
     {
       "status": "stale",
-      "age_days": 84,
-      "message": "\u26a0\ufe0f Gmail SMTP: Token is 84 days old (threshold: 30)",
+      "age_days": 85,
+      "message": "\u26a0\ufe0f Gmail SMTP: Token is 85 days old (threshold: 30)",
       "action_required": true,
       "critical": true
     }

@@ -11,7 +11,7 @@
           "reservation": null,
           "is_skipped": false,
           "skip_reason": "",
-          "needs_booking": true
+          "needs_booking": false
         },
         {
           "date": "2026-05-18",
@@ -19,7 +19,7 @@
           "reservation": null,
           "is_skipped": false,
           "skip_reason": "",
-          "needs_booking": true
+          "needs_booking": false
         },
         {
           "date": "2026-05-19",
@@ -61,7 +61,7 @@
       "total_nights": 4,
       "booked_nights": 2,
       "skipped_nights": 0,
-      "pending_nights": 2,
+      "pending_nights": 0,
       "status": "pending",
       "outbound_flight": "Delta Air Lines flight 960 to New York (GAO7LP)",
       "return_flight": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
@@ -69,5 +69,5 @@
       "source": "flight_matched"
     }
   ],
-  "last_updated": "2026-05-16T19:30:01.707780"
+  "last_updated": "2026-05-20T23:08:54.854994"
 }

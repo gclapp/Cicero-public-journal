@@ -7244,3 +7244,62 @@ Error fetching travel tasks: [Errno 2] No such file or directory: 'todoist'
 [2026-05-20 11:00:01 UTC] Heartbeat complete
 [2026-05-20 11:55:01 UTC] Heartbeat triggered
 [2026-05-20 11:55:01 UTC] Heartbeat complete
+[2026-05-20 12:00:01 UTC] Heartbeat triggered
+[2026-05-20 12:00:01 UTC] Heartbeat complete
+[2026-05-20 12:55:01 UTC] Heartbeat triggered
+[2026-05-20 12:55:01 UTC] Heartbeat complete
+[2026-05-20 13:00:01 UTC] Heartbeat triggered
+[2026-05-20 13:00:01 UTC] Heartbeat complete
+[2026-05-20 13:55:01 UTC] Heartbeat triggered
+[2026-05-20 13:55:01 UTC] Heartbeat complete
+[2026-05-20 14:00:01 UTC] Heartbeat triggered
+[2026-05-20 14:00:01 UTC] Morning check-in due (7 AM PT)
+[2026-05-20 14:00:08 UTC] Morning check-in queued
+[2026-05-20 14:00:01 UTC] Heartbeat complete
+Error fetching travel tasks: [Errno 2] No such file or directory: 'todoist'
+/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py:1701: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py:1716: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  f.write(f"[{datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC] {checkin_type.title()} check-in queued\n")
+[2026-05-20 14:00:13 UTC] Morning check-in queued
+✅ Morning check-in queued: 07:00 AM PT
+[2026-05-20 14:55:01 UTC] Heartbeat triggered
+[2026-05-20 14:55:01 UTC] Heartbeat complete
+[2026-05-20 15:00:01 UTC] Heartbeat triggered
+[2026-05-20 15:00:01 UTC] Heartbeat complete
+[2026-05-20 15:55:01 UTC] Heartbeat triggered
+[2026-05-20 15:55:01 UTC] Heartbeat complete
+[2026-05-20 16:00:01 UTC] Heartbeat triggered
+[2026-05-20 16:00:01 UTC] Heartbeat complete
+[2026-05-20 16:55:01 UTC] Heartbeat triggered
+[2026-05-20 16:55:01 UTC] Heartbeat complete
+[2026-05-20 17:00:01 UTC] Heartbeat triggered
+[2026-05-20 17:00:01 UTC] Heartbeat complete
+[2026-05-20 17:55:01 UTC] Heartbeat triggered
+[2026-05-20 17:55:01 UTC] Heartbeat complete
+[2026-05-20 18:00:01 UTC] Heartbeat triggered
+[2026-05-20 18:00:01 UTC] Heartbeat complete
+[2026-05-20 18:55:01 UTC] Heartbeat triggered
+[2026-05-20 18:55:01 UTC] Heartbeat complete
+[2026-05-20 19:00:01 UTC] Heartbeat triggered
+[2026-05-20 19:00:01 UTC] Heartbeat complete
+[2026-05-20 19:55:02 UTC] Heartbeat triggered
+[2026-05-20 19:55:02 UTC] Midday check-in due (12:30 PM PT)
+[2026-05-20 19:55:02 UTC] Heartbeat complete
+[2026-05-20 20:00:01 UTC] Heartbeat triggered
+[2026-05-20 20:00:01 UTC] Heartbeat complete
+[2026-05-20 20:55:01 UTC] Heartbeat triggered
+[2026-05-20 20:55:01 UTC] Heartbeat complete
+[2026-05-20 21:00:01 UTC] Heartbeat triggered
+[2026-05-20 21:00:01 UTC] Heartbeat complete
+[2026-05-20 21:55:01 UTC] Heartbeat triggered
+[2026-05-20 21:55:01 UTC] Heartbeat complete
+[2026-05-20 22:00:01 UTC] Heartbeat triggered
+[2026-05-20 22:00:01 UTC] Heartbeat complete
+[2026-05-20 22:55:01 UTC] Heartbeat triggered
+[2026-05-20 22:55:01 UTC] Heartbeat complete
+[2026-05-20 23:00:01 UTC] Heartbeat triggered
+[2026-05-20 23:00:01 UTC] Heartbeat complete
+[2026-05-20 23:55:01 UTC] Heartbeat triggered
+[2026-05-20 23:55:01 UTC] Afternoon check-in due (4:30 PM PT)
+[2026-05-20 23:55:01 UTC] Heartbeat complete
