@@ -183,11 +183,11 @@ class VitusHealthMonitor:
             },
             'spo2': {
                 'latest': spo2_values[0] if spo2_values else None,
-                'average': sum(spo2_values) / len(spo2_values) if spo2_values else None
+                'average': sum(v for v in spo2_values if v is not None) / len([v for v in spo2_values if v is not None]) if spo2_values and any(v is not None for v in spo2_values) else None
             },
             'skin_temp': {
                 'latest': skin_temp_values[0] if skin_temp_values else None,
-                'average': sum(skin_temp_values) / len(skin_temp_values) if skin_temp_values else None
+                'average': sum(v for v in skin_temp_values if v is not None) / len([v for v in skin_temp_values if v is not None]) if skin_temp_values and any(v is not None for v in skin_temp_values) else None
             }
         }
     

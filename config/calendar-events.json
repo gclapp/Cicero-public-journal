@@ -1,45 +1,13 @@
 {
-  "last_updated": "2026-05-15T13:31:23.909558",
-  "total_events": 81,
-  "travel_events": 11,
+  "last_updated": "2026-05-21T23:30:52.564166",
+  "total_events": 85,
+  "travel_events": 9,
   "events": [
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, May 15 at 01:30 PM",
-      "start_raw": "2026-05-15T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, May 15 at 02:00 PM",
-      "start_raw": "2026-05-15T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Reserved Uber",
-      "start": "Saturday, May 16 at 06:35 PM",
-      "start_raw": "2026-05-16T18:35:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/263748378780980?p=8kQEF28pTvFVSEZpY5\nMeeting ID: 263 74",
-      "is_travel": false
-    },
-    {
-      "summary": "Delta Air Lines flight 960 to New York (GAO7LP)",
-      "start": "Saturday, May 16 at 09:14 PM",
-      "start_raw": "2026-05-16T21:14:00-07:00",
-      "location": "Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)",
-      "description": "Delta Air Lines flight 960 (5 hours, 18 minutes)\nConfirmation code: GAO7LP\n\nPassengers: Geoffrey Clapp\n\nCheck in online<https://www.delta.com/PCCOciWeb/findBy.action>\n\nDeparts at 9:59 PM on Saturday, ",
-      "is_travel": true
-    },
     {
       "summary": "Stay at The Westin New York at Times Square",
       "start": "Sunday, May 17",
       "start_raw": "2026-05-17",
-      "location": "The Westin New York at Times Square, New York",
+      "location": "270 West 43rd Street, New York, 10036, United States",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
@@ -52,75 +20,11 @@
       "is_travel": true
     },
     {
-      "summary": "Reservation at Sadelle's",
-      "start": "Sunday, May 17 at 05:45 AM",
-      "start_raw": "2026-05-17T05:45:00-07:00",
-      "location": "Sadelle's, 463 W Broadway, (Between W Houston St and Prince St), New York, NY 10012",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at Crown Shy",
-      "start": "Sunday, May 17 at 04:30 PM",
-      "start_raw": "2026-05-17T16:30:00-07:00",
-      "location": "Crown Shy, 70 Pine St, (Between William St and Pearl St), New York, NY 10005",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, May 18 at 07:00 AM",
-      "start_raw": "2026-05-18T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "\u26a1\ufe0f Maven LIVE: Mastering 80% of Claude Code, Cowork & Codex in 90 Minutes",
-      "start": "Monday, May 18 at 09:00 AM",
-      "start_raw": "2026-05-18T09:00:00-07:00",
-      "location": "https://maven.com/s/joinworkshop/102a557637",
-      "description": "<span>Join Dr. Ryan Ahmed and Kukesh Kodess for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>Mastering Claude Code, Cowork & Codex for AI Automation</b></s",
-      "is_travel": false
-    },
-    {
-      "summary": "Dinner Reservation",
-      "start": "Monday, May 18 at 05:00 PM",
-      "start_raw": "2026-05-18T17:00:00-07:00",
-      "location": "Philippe Chow, 10 E 52nd St, New York, NY 10022, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at Eleven Madison Park",
-      "start": "Wednesday, May 20 at 05:45 PM",
-      "start_raw": "2026-05-20T17:45:00-07:00",
-      "location": "Eleven Madison Park, 11 Madison Ave, (Between Madison Avenue and E 24th Street), New York, NY 10010",
+      "summary": "Reservation at Bar Benjamin",
+      "start": "Thursday, May 21 at 08:30 PM",
+      "start_raw": "2026-05-21T20:30:00-07:00",
+      "location": "Bar Benjamin, 7174 Melrose Ave, (Between Formosa Ave and N Detroit St), Los Angeles, CA 90046",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
-      "start": "Thursday, May 21 at 04:00 AM",
-      "start_raw": "2026-05-21T04:00:00-07:00",
-      "location": "New York(JFK) - Los Angeles(LAX)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: HKZ4LV Delta Air Lines 742 Business, Scheduled Departure May 21, 2026, 7:00 am, New York, NY, United States of America (JFK-John F. Kennedy Intl.)",
-      "is_travel": true
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, May 21 at 01:30 PM",
-      "start_raw": "2026-05-21T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, May 21 at 02:00 PM",
-      "start_raw": "2026-05-21T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
       "is_travel": false
     },
     {
@@ -135,7 +39,7 @@
       "summary": "Stay at The Ritz-Carlton, Lake Tahoe",
       "start": "Friday, May 22",
       "start_raw": "2026-05-22",
-      "location": "The Ritz-Carlton, Lake Tahoe, Truckee",
+      "location": "13031 Ritz Carlton Highlands Court, Truckee, California 96161, United States",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
@@ -148,10 +52,10 @@
       "is_travel": false
     },
     {
-      "summary": "Flight to RNO (DL 4099)",
+      "summary": "Flight to Reno (DL 4099)",
       "start": "Friday, May 22 at 08:20 AM",
       "start_raw": "2026-05-22T08:20:00-07:00",
-      "location": "",
+      "location": "Los Angeles LAX",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
@@ -161,6 +65,22 @@
       "start_raw": "2026-05-22T10:00:00-07:00",
       "location": "https://maven.com/s/joinworkshop/27b4d76602",
       "description": "<span>Join Hamza Farooq and Aishwarya Ashok for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>What Claude Code Can Actually Build</b></span\n>\n<span><b>Go fr",
+      "is_travel": false
+    },
+    {
+      "summary": "Daytime Scenic Cruise with Zephyr Cove Resort",
+      "start": "Saturday, May 23 at 11:00 AM",
+      "start_raw": "2026-05-23T11:00:00-07:00",
+      "location": "Zephyr Cove Resort, 760 U.S. 50, Zephyr Cove, NV, 89448, US",
+      "description": "Booking #349418874\n\nView details: https://fareharbor.com/embeds/book/zephyrcove-aramark/items/672332/booking/286b8155-8073-444c-a670-e417caadb929/",
+      "is_travel": false
+    },
+    {
+      "summary": "Daytime Scenic Cruise with Zephyr Cove Resort",
+      "start": "Saturday, May 23 at 11:00 AM",
+      "start_raw": "2026-05-23T11:00:00-07:00",
+      "location": "Zephyr Cove Resort, 760 U.S. 50, Zephyr Cove, NV 89448",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -180,10 +100,10 @@
       "is_travel": false
     },
     {
-      "summary": "Flight to LAX (DL 3902)",
+      "summary": "Flight to Los Angeles (DL 3902)",
       "start": "Monday, May 25 at 03:04 PM",
       "start_raw": "2026-05-25T15:04:00-07:00",
-      "location": "",
+      "location": "Reno RNO",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },
@@ -204,6 +124,14 @@
       "is_travel": false
     },
     {
+      "summary": "Call Yaas",
+      "start": "Tuesday, May 26 at 04:00 PM",
+      "start_raw": "2026-05-26T16:00:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/288763633845996?p=L8W9tMQyw0673jR40P\nMeeting ID: 288 76",
+      "is_travel": false
+    },
+    {
       "summary": "Zoom Whitening Boost",
       "start": "Tuesday, May 26 at 07:00 PM",
       "start_raw": "2026-05-26T19:00:00-07:00",
@@ -217,6 +145,14 @@
       "start_raw": "2026-05-27T06:30:00-07:00",
       "location": "Google Meet (instructions in description)",
       "description": "Event Name: Peak Health Longevity Consult\nEvent Description: Learn everything you need to know about Peak's longevity care plans in a free 30-minute consult with a longevity expert.To learn more about",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at The Benjamin Hollywood",
+      "start": "Wednesday, May 27 at 07:15 PM",
+      "start_raw": "2026-05-27T19:15:00-07:00",
+      "location": "The Benjamin Hollywood, 7174 Melrose Ave, (Between Formosa Ave and Melrose Ave), Los Angeles, CA 90046",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
     {
@@ -428,9 +364,9 @@
       "is_travel": false
     },
     {
-      "summary": "Kids with Geoff (Non-standard holiday) ",
-      "start": "Saturday, July 04",
-      "start_raw": "2026-07-04",
+      "summary": "Kids with Geoff (Non-standard holiday)",
+      "start": "Wednesday, July 01 at 04:00 PM",
+      "start_raw": "2026-07-01T16:00:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false
@@ -588,6 +524,14 @@
       "is_travel": false
     },
     {
+      "summary": "Red Sox at Dodgers",
+      "start": "Sunday, August 02 at 01:20 PM",
+      "start_raw": "2026-08-02T13:20:00-07:00",
+      "location": "Dodger Stadium, 1000 Vin Scully Ave, Los Angeles, CA 90012, USA",
+      "description": "Boston Red Sox at Los Angeles Dodgers\nSun, Aug 2, 2026 at 4:20PM\nUNIQLO Field at Dodger Stadium, Los Angeles, CA\nOrder\n2 tickets, Section 33FD, Row E\nOrder number\t6P2-J9Y5MLR\nPurchase date\tMay 16, 202",
+      "is_travel": false
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, August 03 at 07:00 AM",
       "start_raw": "2026-08-03T07:00:00-07:00",
@@ -650,6 +594,94 @@
       "location": "San Francisco SFO",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, August 13 at 01:30 PM",
+      "start_raw": "2026-08-13T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, August 13 at 02:00 PM",
+      "start_raw": "2026-08-13T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stephanie Lynne Foster's Birthday",
+      "start": "Friday, August 14",
+      "start_raw": "2026-08-14",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Stephanie Foster's Birthday",
+      "start": "Friday, August 14",
+      "start_raw": "2026-08-14",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, August 14 at 01:30 PM",
+      "start_raw": "2026-08-14T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, August 14 at 02:00 PM",
+      "start_raw": "2026-08-14T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Momma",
+      "start": "Friday, August 14 at 08:00 PM",
+      "start_raw": "2026-08-14T20:00:00-07:00",
+      "location": "The Bellwether, Los Angeles, California",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Kids with Geoff (non-standard) ",
+      "start": "Sunday, August 16",
+      "start_raw": "2026-08-16",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Kids with Stacey (non-standard)",
+      "start": "Sunday, August 16 at 06:00 PM",
+      "start_raw": "2026-08-16T18:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, August 17 at 07:00 AM",
+      "start_raw": "2026-08-17T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "First Day of School LVUSD",
+      "start": "Wednesday, August 19",
+      "start_raw": "2026-08-19",
+      "location": "",
+      "description": "",
+      "is_travel": false
     }
   ]
 }

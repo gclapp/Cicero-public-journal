@@ -154,3 +154,13 @@ Done.
 [2026-05-21 06:00:02.442466] Checking Whoop alerts...
 No alerts triggered
 Done.
+[2026-05-21 12:00:02.163597] Checking Whoop alerts...
+Triggered 1 alert(s):
+  - 📉 WARNING: HRV Dropped 37.6% from Baseline
+Alert email sent successfully
+Done.
+[2026-05-21 18:00:02.534758] Checking Whoop alerts...
+Triggered 1 alert(s):
+  - 😴 WARNING: Sleep Score Below 50% for 2+ Nights
+Alert email sent successfully
+Done.

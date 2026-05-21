@@ -149,3 +149,15 @@ Traceback (most recent call last):
     'average': sum(spo2_values) / len(spo2_values) if spo2_values else None
                ^^^^^^^^^^^^^^^^
 TypeError: unsupported operand type(s) for +: 'float' and 'NoneType'
+Loaded Whoop data from cache: /home/ubuntu/.openclaw/workspace/data/whoop/whoop-2026-05-21.json
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/agents/health-agent/coach_engine.py", line 1388, in <module>
+    briefing = coach.generate_morning_briefing()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/agents/health-agent/coach_engine.py", line 910, in generate_morning_briefing
+    rec_metrics = self.monitor.extract_recovery_metrics(whoop_data.get('recovery', []))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/agents/health-agent/health_monitor.py", line 186, in extract_recovery_metrics
+    'average': sum(spo2_values) / len(spo2_values) if spo2_values else None
+               ^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for +: 'float' and 'NoneType'
