@@ -36398,3 +36398,4 @@
 127.0.0.1 - - [20/May/2026:23:49:16 +0000] "GET /health HTTP/1.0" 500 78 "https://nyceats.openclapp.com/login" "Mozilla/5.0 (iPhone; CPU iPhone OS 26_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/148.0.7778.166 Mobile/15E148 Safari/604.1"
 127.0.0.1 - - [20/May/2026:23:49:16 +0000] "GET /static/nyceats-logo-xl-transparent.png HTTP/1.1" 304 0 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 26_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/148.0.7778.166 Mobile/15E148 Safari/604.1"
 127.0.0.1 - - [20/May/2026:23:53:13 +0000] "GET /health HTTP/1.0" 500 78 "https://nyceats.openclapp.com/login" "Mozilla/5.0 (iPhone; CPU iPhone OS 26_4_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/148.0.7778.166 Mobile/15E148 Safari/604.1"
+127.0.0.1 - - [21/May/2026:03:53:49 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"
