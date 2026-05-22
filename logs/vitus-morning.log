@@ -161,3 +161,6 @@ Traceback (most recent call last):
     'average': sum(spo2_values) / len(spo2_values) if spo2_values else None
                ^^^^^^^^^^^^^^^^
 TypeError: unsupported operand type(s) for +: 'float' and 'NoneType'
+Cache not found, attempting API fetch...
+Briefing generated. Sending email...
+✅ Morning briefing sent successfully
