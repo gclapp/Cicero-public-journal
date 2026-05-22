@@ -1,16 +1,18 @@
 {
-  "timestamp": "2026-05-21T14:00:11.582735",
+  "timestamp": "2026-05-22T03:55:04.549741",
   "results": [
     {
-      "status": "missing",
-      "message": "\u274c Google Calendar: Token file not found",
-      "action_required": true,
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Google Calendar: Healthy (0 days old)",
+      "action_required": false,
       "critical": true
     },
     {
-      "status": "missing",
-      "message": "\u274c Google Docs: Token file not found",
-      "action_required": true,
+      "status": "healthy",
+      "age_days": 0,
+      "message": "\u2705 Google Docs: Healthy (0 days old)",
+      "action_required": false,
       "critical": true
     },
     {
@@ -35,6 +37,6 @@
       "critical": true
     }
   ],
-  "critical_count": 3,
+  "critical_count": 1,
   "warning_count": 0
 }

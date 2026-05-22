@@ -164,3 +164,12 @@ Triggered 1 alert(s):
   - 😴 WARNING: Sleep Score Below 50% for 2+ Nights
 Alert email sent successfully
 Done.
+[2026-05-22 00:00:02.762007] Checking Whoop alerts...
+Triggered 2 alert(s):
+  - 📉 WARNING: HRV Dropped 37.6% from Baseline
+  - 😴 WARNING: Sleep Score Below 50% for 2+ Nights
+Alert email sent successfully
+Done.
+[2026-05-22 06:00:02.045965] Checking Whoop alerts...
+No alerts triggered
+Done.
