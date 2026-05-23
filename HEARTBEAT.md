@@ -10,10 +10,11 @@
 
 | Check-In | Time (PT) | Purpose |
 |----------|-----------|---------|
-| Evening | 8:30 PM | Day review, tomorrow preview |
+| Morning | 7:00 AM | Day preview, calendar, weather |
+| Evening | 8:00 PM | Day review, tomorrow preview |
 
-**Modified:** April 10, 2026  
-**Current Mode:** 1x daily (Evening only)  
+**Modified:** May 23, 2026  
+**Current Mode:** 2x daily (Morning & Evening)  
 **Delivery:** Email to [REDACTED] + geoffrey.clapp@progyny.com  
 **Stock updates:** End-of-day only (evening check-in)
 
@@ -102,8 +103,6 @@ openclaw weather "Los Angeles"
 
 **Email Subjects:**
 - Morning: "Cicero Check-In: Morning — Monday, March 11"
-- Midday: "Cicero Check-In: Midday — Monday, March 11"
-- Afternoon: "Cicero Check-In: Afternoon — Monday, March 11"
 - Evening: "Cicero Check-In: Evening — Monday, March 11"
 
 **Scripts:**

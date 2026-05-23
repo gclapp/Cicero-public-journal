@@ -37,30 +37,79 @@ def parse_date(date_str):
         return None
 
 def get_existing_tasks(project="Travel"):
-    """Get list of existing task names in the Travel project"""
+    """Get list of all task names (active AND completed) in the Travel project"""
+    existing = set()
+    todoist_path = "/home/ubuntu/.npm-global/bin/todoist"
+    
     try:
-        todoist_path = "/home/ubuntu/.npm-global/bin/todoist"
-        result = subprocess.run([todoist_path, "tasks", "-p", project, "--all"], 
+        # Get active tasks
+        result = subprocess.run([todoist_path, "list", "-p", project], 
                               capture_output=True, text=True, timeout=30)
-        if result.returncode != 0:
-            return set()
-        
-        existing = set()
-        for line in result.stdout.strip().split('\n'):
-            if line.strip():
-                parts = line.split('  ', 1)
-                if len(parts) > 1:
-                    existing.add(parts[1].strip())
-        return existing
+        if result.returncode == 0:
+            for line in result.stdout.strip().split('\n'):
+                if line.strip():
+                    # Parse task line - format varies, extract task name
+                    parts = line.split('  ')
+                    if len(parts) >= 2:
+                        task_name = parts[-1].strip()
+                        existing.add(task_name)
+                        # Also add without emoji prefix for better matching
+                        clean_name = re.sub(r'^[✅✔️✓🟢🔵⚪]\s*', '', task_name)
+                        existing.add(clean_name)
     except Exception as e:
-        print(f"⚠️  Could not fetch existing tasks: {e}")
-        return set()
+        print(f"⚠️  Could not fetch active tasks: {e}")
+    
+    try:
+        # Get completed tasks (last 100)
+        result = subprocess.run([todoist_path, "list", "-p", project, "--completed", "-f", "100"], 
+                              capture_output=True, text=True, timeout=30)
+        if result.returncode == 0:
+            for line in result.stdout.strip().split('\n'):
+                if line.strip():
+                    parts = line.split('  ')
+                    if len(parts) >= 2:
+                        task_name = parts[-1].strip()
+                        existing.add(task_name)
+                        # Also add without emoji prefix
+                        clean_name = re.sub(r'^[✅✔️✓🟢🔵⚪]\s*', '', task_name)
+                        existing.add(clean_name)
+                        # Add with completion indicator for reporting
+                        existing.add(f"[COMPLETED] {task_name}")
+    except Exception as e:
+        print(f"⚠️  Could not fetch completed tasks: {e}")
+    
+    return existing
 
-def create_todoist_task(task_text, project="Travel", priority="2", due_date=None, existing_tasks=None):
-    """Create a task in Todoist if it doesn't already exist"""
+def is_task_completed(task_text, existing_tasks):
+    """Check if a task is already completed"""
+    if not existing_tasks:
+        return False
+    # Check for completed marker
+    return f"[COMPLETED] {task_text}" in existing_tasks
+
+def create_todoist_task(task_text, project="Travel", priority="2", due_date=None, existing_tasks=None, flight_summary=""):
+    """Create a task in Todoist if it doesn't already exist (active or completed)"""
+    
+    # Check if already completed
+    if is_task_completed(task_text, existing_tasks):
+        print(f"   ✅ ALREADY COMPLETED: {task_text[:60]}...")
+        return "completed"
+    
+    # Check if already exists as active task
     if existing_tasks and task_text in existing_tasks:
-        print(f"   ⏭️  Already exists: {task_text[:60]}...")
-        return True
+        print(f"   ⏭️  Already exists (active): {task_text[:60]}...")
+        return "exists"
+    
+    # Also check for similar tasks (same flight, different emoji/format)
+    if existing_tasks and flight_summary:
+        for existing in existing_tasks:
+            if flight_summary in existing and task_text.split(':')[0] in existing:
+                if "[COMPLETED]" in existing:
+                    print(f"   ✅ ALREADY COMPLETED (similar): {task_text[:60]}...")
+                    return "completed"
+                else:
+                    print(f"   ⏭️  Already exists (similar): {task_text[:60]}...")
+                    return "exists"
     
     try:
         todoist_path = "/home/ubuntu/.npm-global/bin/todoist"
@@ -73,14 +122,14 @@ def create_todoist_task(task_text, project="Travel", priority="2", due_date=None
             error = result.stderr.strip()
             if "already exists" in error.lower():
                 print(f"   ⏭️  Already exists: {task_text[:60]}...")
-                return True
+                return "exists"
             print(f"   ❌ Error: {error}")
-            return False
+            return "error"
         print(f"   ✅ Created: {task_text[:60]}...")
-        return True
+        return "created"
     except Exception as e:
         print(f"❌ Error creating task: {e}")
-        return False
+        return "error"
 
 def get_upcoming_travel(days=60):
     """Get travel events in next N days"""
@@ -181,6 +230,85 @@ def save_flight_tracking(flight_data):
     with open(FLIGHT_TRACKING_FILE, 'w') as f:
         json.dump(tracked, f, indent=2)
 
+def is_returning_home(flight):
+    """
+    Determine if this flight is returning home (to LAX/Burbank/SoCal)
+    Returns True if flying TO Los Angeles area (no Rover/Hotel needed)
+    Returns False if flying FROM Los Angeles area (Rover/Hotel needed)
+    
+    Logic: 
+    - The SUMMARY says where we're GOING (e.g., "Flight to Los Angeles")
+    - The LOCATION field is the DEPARTURE airport (e.g., "Reno RNO")
+    - If summary says "to Los Angeles" and location is NOT LA, we're flying TO LA (home)
+    - If summary says "to Reno" and location IS LA, we're flying FROM LA (leaving home)
+    """
+    summary = flight.get('summary', '').lower()
+    location = flight.get('location', '').lower()
+    description = flight.get('description', '').lower()
+    full_text = summary + ' ' + location + ' ' + description
+    
+    # Home airports
+    home_airports = ['lax', 'burbank', 'bur', 'los angeles', 'van nuys', 'vny', 
+                     'long beach', 'lgb', 'ontario', 'ont', 'santa monica', 'smo']
+    
+    # Check if summary says we're flying TO Los Angeles
+    to_la_patterns = [
+        r'to\s+los\s+angeles',
+        r'to\s+lax\b',
+        r'to\s+burbank',
+        r'to\s+bur\b',
+    ]
+    flying_to_la = any(re.search(pattern, full_text) for pattern in to_la_patterns)
+    
+    # Check if summary says we're flying TO a non-home destination
+    away_destinations = ['reno', 'rno', 'san francisco', 'sfo', 'oakland', 'oak', 
+                         'new york', 'jfk', 'lga', 'ewr', 'chicago', 'ord', 'mdw',
+                         'miami', 'mia', 'las vegas', 'las', 'phoenix', 'phx',
+                         'seattle', 'sea', 'portland', 'pdx', 'denver', 'den',
+                         'boston', 'bos', 'atlanta', 'atl', 'dallas', 'dfw']
+    
+    flying_to_destination = None
+    for dest in away_destinations:
+        if f'to {dest}' in full_text or f'to {dest.upper()}' in full_text:
+            flying_to_destination = dest
+            break
+    
+    # Check if location (departure airport) is a home airport
+    departing_from_home = any(airport in location for airport in home_airports)
+    
+    # Logic:
+    # - If summary says "to Los Angeles" → we're going HOME (regardless of departure)
+    if flying_to_la:
+        return True
+    
+    # - If summary says "to [destination]" and location is LA → we're LEAVING home
+    if flying_to_destination and departing_from_home:
+        return False
+    
+    # - If summary says "to [destination]" and location is NOT LA → we're going TO that destination FROM somewhere else
+    #   This is likely a return leg of a multi-city trip
+    if flying_to_destination and not departing_from_home:
+        # We're flying TO [destination] FROM a non-home airport
+        # This could be returning home if [destination] is LA, but we already checked that
+        # So this is an outbound from a non-home location
+        return False
+    
+    # Check if explicitly flying FROM Los Angeles
+    from_la_patterns = [
+        r'from\s+los\s+angeles',
+        r'from\s+lax\b',
+        r'from\s+burbank',
+        r'from\s+bur\b',
+        r'depart\s+los\s+angeles',
+        r'depart\s+lax',
+    ]
+    for pattern in from_la_patterns:
+        if re.search(pattern, full_text):
+            return False
+    
+    # Default: assume outbound (create Rover/Hotel tasks) if uncertain
+    return False
+
 def generate_flight_tasks(flight, existing_tasks):
     """Generate comprehensive tasks for a flight"""
     summary = flight.get('summary', 'Flight')
@@ -192,7 +320,7 @@ def generate_flight_tasks(flight, existing_tasks):
     flight_date = parse_date(flight.get('start_raw', ''))
     if not flight_date:
         print(f"   ⚠️  Could not parse date for: {summary}")
-        return 0, 0, None
+        return 0, 0, 0, None
     
     # Extract confirmation code
     full_text = summary + ' ' + location + ' ' + description
@@ -201,8 +329,16 @@ def generate_flight_tasks(flight, existing_tasks):
     # Extract flight numbers for tracking
     flight_numbers = extract_flight_numbers(full_text)
     
+    # Determine if this is a return flight home
+    returning_home = is_returning_home(flight)
+    
     print(f"\n✈️  {summary}")
     print(f"   📆 {date_str}")
+    print(f"   📍 Departure: {location}")
+    if returning_home:
+        print(f"   🏠 RETURNING HOME (no Rover/Hotel needed)")
+    else:
+        print(f"   🧳 LEAVING HOME (Rover/Hotel needed)")
     if confirmation:
         print(f"   🎫 Confirmation: {confirmation}")
     if flight_numbers:
@@ -211,6 +347,7 @@ def generate_flight_tasks(flight, existing_tasks):
     
     created = 0
     skipped = 0
+    completed = 0
     
     # Calculate due dates
     rover_due = (flight_date - timedelta(days=10)).strftime('%Y-%m-%d')  # 10 days before for Rover
@@ -219,43 +356,65 @@ def generate_flight_tasks(flight, existing_tasks):
     
     # Main flight task
     main_task = f"✈️ FLIGHT: {summary}"
-    if create_todoist_task(main_task, "Travel", "1", rover_due, existing_tasks):
-        if main_task not in existing_tasks:
-            created += 1
-        else:
-            skipped += 1
+    result = create_todoist_task(main_task, "Travel", "1", rover_due, existing_tasks, summary)
+    if result == "created":
+        created += 1
+    elif result == "exists":
+        skipped += 1
+    elif result == "completed":
+        completed += 1
     
-    # Rover task (10 days before)
-    rover_task = f"🐕 ROVER: Schedule sitter for Greta (10 days before) - {summary}"
-    if create_todoist_task(rover_task, "Travel", "2", rover_due, existing_tasks):
-        if rover_task not in existing_tasks:
+    # Rover task (10 days before) - ONLY if leaving home, NOT if returning home
+    if not returning_home:
+        rover_task = f"🐕 ROVER: Schedule sitter for Greta (10 days before) - {summary}"
+        result = create_todoist_task(rover_task, "Travel", "2", rover_due, existing_tasks, summary)
+        if result == "created":
             created += 1
-        else:
+        elif result == "exists":
             skipped += 1
+        elif result == "completed":
+            completed += 1
+    else:
+        print(f"   ⏭️  Skipping Rover task (returning home to Greta)")
     
-    # Hotel check task (2 days before)
-    hotel_task = f"🏨 HOTEL: Confirm reservation for trip - {summary}"
-    if create_todoist_task(hotel_task, "Travel", "2", check_due, existing_tasks):
-        if hotel_task not in existing_tasks:
+    # Hotel check task (2 days before) - ONLY if leaving home, NOT if returning home
+    if not returning_home:
+        hotel_task = f"🏨 HOTEL: Confirm reservation for trip - {summary}"
+        result = create_todoist_task(hotel_task, "Travel", "2", check_due, existing_tasks, summary)
+        if result == "created":
             created += 1
-        else:
+        elif result == "exists":
             skipped += 1
+        elif result == "completed":
+            completed += 1
+    else:
+        print(f"   ⏭️  Skipping Hotel task (sleeping at home)")
     
-    # Uber task (1 day before)
-    uber_task = f"🚗 UBER: Schedule ride to airport - {summary}"
-    if create_todoist_task(uber_task, "Travel", "2", uber_due, existing_tasks):
-        if uber_task not in existing_tasks:
-            created += 1
-        else:
-            skipped += 1
+    # Uber task (1 day before) - Different wording for outbound vs inbound
+    if returning_home:
+        uber_task = f"🚗 UBER: Schedule ride FROM airport - {summary}"
+    else:
+        uber_task = f"🚗 UBER: Schedule ride TO airport - {summary}"
+    result = create_todoist_task(uber_task, "Travel", "2", uber_due, existing_tasks, summary)
+    if result == "created":
+        created += 1
+    elif result == "exists":
+        skipped += 1
+    elif result == "completed":
+        completed += 1
     
-    # Pack task (2 days before)
-    pack_task = f"🎒 PACK: Prepare luggage for {summary}"
-    if create_todoist_task(pack_task, "Travel", "2", check_due, existing_tasks):
-        if pack_task not in existing_tasks:
+    # Pack task (2 days before) - Only needed when leaving home
+    if not returning_home:
+        pack_task = f"🎒 PACK: Prepare luggage for {summary}"
+        result = create_todoist_task(pack_task, "Travel", "2", check_due, existing_tasks, summary)
+        if result == "created":
             created += 1
-        else:
+        elif result == "exists":
             skipped += 1
+        elif result == "completed":
+            completed += 1
+    else:
+        print(f"   ⏭️  Skipping Pack task (returning home)")
     
     # Create flight tracking data
     flight_data = None
@@ -271,12 +430,13 @@ def generate_flight_tasks(flight, existing_tasks):
                 'location': location,
                 'confirmation': confirmation,
                 'added_at': datetime.now().isoformat(),
-                'status': 'pending'
+                'status': 'pending',
+                'returning_home': returning_home
             }
             save_flight_tracking(flight_data)
             print(f"   📊 Added to flight tracking: {airline} {num}")
     
-    return created, skipped, flight_data
+    return created, skipped, completed, flight_data
 
 def generate_hotel_tasks(hotel, existing_tasks):
     """Generate tasks for hotel stays"""
@@ -331,10 +491,10 @@ def generate_travel_tasks():
     
     if not travel_events:
         print("✅ No upcoming travel in next 60 days")
-        return 0, 0, []
+        return 0, 0, 0, []
     
     # Get existing tasks to avoid duplicates
-    print("📋 Fetching existing tasks...")
+    print("📋 Fetching existing tasks (active + completed)...")
     existing_tasks = get_existing_tasks("Travel")
     print(f"   Found {len(existing_tasks)} existing tasks")
     print()
@@ -344,6 +504,7 @@ def generate_travel_tasks():
     
     total_created = 0
     total_skipped = 0
+    total_completed = 0
     tracked_flights = []
     
     for trip in travel_events:
@@ -351,9 +512,10 @@ def generate_travel_tasks():
         
         # Determine trip type
         if 'flight' in summary or 'delta' in summary or 'united' in summary or 'american' in summary:
-            created, skipped, flight_data = generate_flight_tasks(trip, existing_tasks)
+            created, skipped, completed, flight_data = generate_flight_tasks(trip, existing_tasks)
             total_created += created
             total_skipped += skipped
+            total_completed += completed
             if flight_data:
                 tracked_flights.append(flight_data)
         
@@ -362,7 +524,7 @@ def generate_travel_tasks():
             total_created += created
             total_skipped += skipped
     
-    return total_created, total_skipped, tracked_flights
+    return total_created, total_skipped, total_completed, tracked_flights
 
 def run_flight_monitor():
     """Run the flight monitor to check flight status"""
@@ -422,13 +584,15 @@ def main():
         return
     
     # Generate travel tasks
-    created, skipped, tracked_flights = generate_travel_tasks()
+    created, skipped, completed, tracked_flights = generate_travel_tasks()
     
     print()
     print("=" * 70)
     print(f"✅ Travel task generation complete")
     print(f"   Created: {created} new tasks")
     print(f"   Skipped: {skipped} existing tasks")
+    if completed > 0:
+        print(f"   ✅ Already completed: {completed} tasks (not recreated)")
     
     if tracked_flights:
         print(f"   Flights tracked: {len(tracked_flights)}")

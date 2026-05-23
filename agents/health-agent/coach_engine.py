@@ -951,7 +951,8 @@ class VitusCoachEngine:
         nutrition = self.generate_nutrition_plan(rec_metrics, strain_metrics, loseit_data)
         sleep_prep = self.generate_sleep_prep(rec_metrics)
         
-        html = self._build_html_briefing(mission, rec_metrics, sleep_metrics, strain_metrics, workout_metrics, user_data, nutrition, insights, sleep_prep)
+        # Use simplified mobile-friendly HTML
+        html = self._build_simple_mobile_html(mission, rec_metrics, sleep_metrics, strain_metrics, user_data, nutrition, insights, sleep_prep, briefing_type="morning")
         
         self._save_to_history({'recovery': rec_metrics, 'sleep': sleep_metrics, 'strain': strain_metrics, 'mission': mission, 'insights': [asdict(i) for i in insights]})
         
@@ -968,121 +969,93 @@ class VitusCoachEngine:
         
         today = datetime.now().strftime('%A, %B %d')
         
-        html = f"""<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Vitus Midday Check-In</title></head>
-<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:20px;background:#f8f9fa;">
-<div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:30px;border-radius:12px 12px 0 0;text-align:center;">
-    <div style="font-size:32px;margin-bottom:10px;">☀️</div>
-    <h1 style="color:white;margin:0;font-size:24px;">Midday Check-In</h1>
-    <p style="color:rgba(255,255,255,0.9);margin:5px 0 0 0;">{today}</p>
-</div>
-<div style="background:white;padding:30px;border-radius:0 0 12px 12px;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
-"""
-        
-        # Hydration check
+        # Get water data
+        water_oz = 0
         if apple_health_water and apple_health_water.get('available'):
             recent_data = apple_health_water.get('data', [])
             if recent_data:
-                today_water = recent_data[0].get('ounces', 0)
-                water_ml = int(today_water * 29.5735)
-                progress = min(today_water / 80 * 100, 100)  # 80oz goal
-                
-                if today_water < 40:
-                    water_status = '🔴 Behind'
-                    water_color = '#e74c3c'
-                    water_action = 'Drink 16oz water now!'
-                elif today_water < 64:
-                    water_status = '🟡 Getting there'
-                    water_color = '#f39c12'
-                    water_action = 'Drink 8oz with lunch'
-                else:
-                    water_status = '🟢 On track'
-                    water_color = '#27ae60'
-                    water_action = 'Keep sipping!'
-                
-                html += f"""
-<div style="background:#f8f9fa;border-radius:8px;padding:15px;margin:15px 0;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">💧 Hydration Check</div>
-    <div style="font-size:24px;color:{water_color};font-weight:bold;">{today_water:.0f} oz ({water_ml}ml)</div>
-    <div style="color:{water_color};margin:5px 0;">{water_status}</div>
-    <div style="background:#ecf0f1;height:8px;border-radius:4px;margin:10px 0;">
-        <div style="background:{water_color};width:{progress}%;height:100%;border-radius:4px;"></div>
-    </div>
-    <div style="color:#7f8c8d;font-size:14px;">{water_action}</div>
-</div>
-"""
+                water_oz = recent_data[0].get('ounces', 0)
         
-        # Movement check
+        # Get steps data
+        steps = 0
         if apple_health_steps and apple_health_steps.get('available'):
             steps_data = apple_health_steps.get('data', [])
             if steps_data:
-                today_steps = steps_data[0].get('steps', 0)
-                progress = min(today_steps / 8000 * 100, 100)
-                
-                if today_steps < 3000:
-                    move_status = '🔴 Low movement'
-                    move_color = '#e74c3c'
-                    move_action = 'Take a 10-min walk after lunch'
-                elif today_steps < 6000:
-                    move_status = '🟡 Decent'
-                    move_color = '#f39c12'
-                    move_action = 'Aim for a quick walk this afternoon'
-                else:
-                    move_status = '🟢 Great!'
-                    move_color = '#27ae60'
-                    move_action = 'Keep it up!'
-                
-                html += f"""
-<div style="background:#f8f9fa;border-radius:8px;padding:15px;margin:15px 0;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">👟 Movement Check</div>
-    <div style="font-size:24px;color:{move_color};font-weight:bold;">{today_steps:,} steps</div>
-    <div style="color:{move_color};margin:5px 0;">{move_status}</div>
-    <div style="background:#ecf0f1;height:8px;border-radius:4px;margin:10px 0;">
-        <div style="background:{move_color};width:{progress}%;height:100%;border-radius:4px;"></div>
-    </div>
-    <div style="color:#7f8c8d;font-size:14px;">{move_action}</div>
-</div>
-"""
+                steps = steps_data[0].get('steps', 0)
         
-        # Recovery context from Whoop
+        # Get recovery
+        rec_score = 0
         if whoop_data and whoop_data.get('recovery'):
             latest_rec = whoop_data['recovery'][0]
             score_data = latest_rec.get('score', {})
             rec_score = score_data.get('recovery_score', 0) if isinstance(score_data, dict) else score_data
-            
-            if rec_score < 50:
-                rec_msg = "Your recovery is low today — take it easy, maybe a light walk instead of intense exercise."
-                rec_emoji = "🔴"
-            elif rec_score < 70:
-                rec_msg = "Moderate recovery — you can push a bit if you feel good, but listen to your body."
-                rec_emoji = "🟡"
-            else:
-                rec_msg = "Great recovery! You're ready to take on the afternoon with energy."
-                rec_emoji = "🟢"
-            
-            html += f"""
-<div style="background:#f8f9fa;border-radius:8px;padding:15px;margin:15px 0;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">{rec_emoji} Recovery Context</div>
-    <div style="color:#2c3e50;">{rec_msg}</div>
-</div>
-"""
         
-        # Lunch suggestion
-        html += """
-<div style="background:#e8f5e9;border-radius:8px;padding:15px;margin:15px 0;border-left:4px solid #27ae60;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">🥗 Lunch Reminder</div>
-    <div style="color:#2c3e50;">Aim for protein + vegetables. Think: salad with chicken, grain bowl, or leftovers with a side of greens.</div>
-</div>
-"""
+        # Build simple HTML
+        water_status = '✅' if water_oz >= 64 else '⚠️' if water_oz >= 32 else '🔴'
+        water_color = '#27ae60' if water_oz >= 64 else '#f39c12' if water_oz >= 32 else '#e74c3c'
         
-        html += """
-<div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #ecf0f1;color:#7f8c8d;font-size:12px;">
-    Vitus 🫀 Your Health Coach
-</div>
-</div>
+        steps_status = '✅' if steps >= 6000 else '⚠️' if steps >= 3000 else '🔴'
+        steps_color = '#27ae60' if steps >= 6000 else '#f39c12' if steps >= 3000 else '#e74c3c'
+        
+        rec_color = '#27ae60' if rec_score >= 67 else '#f39c12' if rec_score >= 33 else '#e74c3c'
+        
+        html = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitus Midday Check-In</title>
+</head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f5;">
+    <div style="max-width:400px;margin:0 auto;background:white;">
+        <!-- Header -->
+        <div style="background:linear-gradient(135deg,#f39c12 0%,#e67e22 100%);padding:25px 20px;text-align:center;">
+            <div style="font-size:40px;margin-bottom:5px;">☀️</div>
+            <h1 style="color:white;margin:0;font-size:22px;font-weight:600;">Midday Check-In</h1>
+            <p style="color:rgba(255,255,255,0.85);margin:5px 0 0 0;font-size:14px;">{today}</p>
+        </div>
+        
+        <!-- Today's Goals -->
+        <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">🎯 Afternoon Focus</h2>
+            <ul style="margin:0;padding-left:20px;color:#555;font-size:14px;">
+                <li style="margin:8px 0;">Hydrate: Aim for 80oz by end of day</li>
+                <li style="margin:8px 0;">Movement: 10-min walk after lunch</li>
+                <li style="margin:8px 0;">Lunch: Protein + vegetables</li>
+            </ul>
+        </div>
+        
+        <!-- Key Metrics -->
+        <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">📊 Your Progress</h2>
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;">
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:28px;font-weight:bold;color:{water_color};">{water_status} {water_oz:.0f}oz</div>
+                    <div style="font-size:12px;color:#888;">Water</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:28px;font-weight:bold;color:{steps_color};">{steps_status} {steps:,}</div>
+                    <div style="font-size:12px;color:#888;">Steps</div>
+                </div>
+            </div>
+            <div style="text-align:center;padding:10px;background:#f9f9f9;border-radius:8px;">
+                <div style="font-size:14px;color:#555;">Recovery: <span style="color:{rec_color};font-weight:bold;">{rec_score:.0f}%</span></div>
+            </div>
+        </div>
+        
+        <!-- Quick Tip -->
+        <div style="padding:20px;border-bottom:1px solid #eee;background:#fff9e6;">
+            <h2 style="margin:0 0 10px 0;font-size:16px;color:#333;">💡 Quick Tip</h2>
+            <p style="margin:0;font-size:14px;color:#555;line-height:1.5;">Afternoon energy dip? Try 5 minutes of movement + a glass of water before reaching for caffeine.</p>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding:20px;text-align:center;background:#f9f9f9;">
+            <p style="margin:0;font-size:12px;color:#999;">Vitus Health Coach 🫀</p>
+        </div>
+    </div>
 </body>
-</html>"""
+</html>'''
         
         return html
     
@@ -1098,87 +1071,197 @@ class VitusCoachEngine:
         today = datetime.now().strftime('%A, %B %d')
         tomorrow = (datetime.now() + timedelta(days=1)).strftime('%A, %B %d')
         
-        html = f"""<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Vitus Evening Briefing</title></head>
-<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:600px;margin:0 auto;padding:20px;background:#f8f9fa;">
-<div style="background:linear-gradient(135deg,#2c3e50 0%,#4a6741 100%);padding:30px;border-radius:12px 12px 0 0;text-align:center;">
-    <div style="font-size:32px;margin-bottom:10px;">🌙</div>
-    <h1 style="color:white;margin:0;font-size:24px;">Evening Wind-Down</h1>
-    <p style="color:rgba(255,255,255,0.9);margin:5px 0 0 0;">{today}</p>
-</div>
-<div style="background:white;padding:30px;border-radius:0 0 12px 12px;box-shadow:0 4px 6px rgba(0,0,0,0.1);">
-"""
-        
-        # Today's summary
-        html += """
-<div style="background:#f8f9fa;border-radius:8px;padding:15px;margin:15px 0;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:15px;">📊 Today's Summary</div>
-"""
-        
-        # Water summary
+        # Get data
+        water_oz = 0
         if apple_health_water and apple_health_water.get('available'):
             recent_data = apple_health_water.get('data', [])
             if recent_data:
-                today_water = recent_data[0].get('ounces', 0)
-                html += f'<div style="margin:5px 0;">💧 Water: <strong>{today_water:.0f} oz</strong></div>'
+                water_oz = recent_data[0].get('ounces', 0)
         
-        # Steps summary
+        steps = 0
         if apple_health_steps and apple_health_steps.get('available'):
             steps_data = apple_health_steps.get('data', [])
             if steps_data:
-                today_steps = steps_data[0].get('steps', 0)
-                html += f'<div style="margin:5px 0;">👟 Steps: <strong>{today_steps:,}</strong></div>'
+                steps = steps_data[0].get('steps', 0)
         
-        html += '</div>'
-        
-        # Recovery for tomorrow context
+        rec_score = 0
         if whoop_data and whoop_data.get('recovery'):
             latest_rec = whoop_data['recovery'][0]
             score_data = latest_rec.get('score', {})
             rec_score = score_data.get('recovery_score', 0) if isinstance(score_data, dict) else score_data
-            
-            html += f"""
-<div style="background:#f8f9fa;border-radius:8px;padding:15px;margin:15px 0;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">🫀 Recovery Score</div>
-    <div style="font-size:32px;font-weight:bold;color:{'#27ae60' if rec_score >= 67 else '#f39c12' if rec_score >= 33 else '#e74c3c'};">{rec_score:.0f}%</div>
-    <div style="color:#7f8c8d;margin-top:5px;">This affects how you should approach {tomorrow}</div>
-</div>
-"""
         
-        # Sleep prep
-        html += """
-<div style="background:#e3f2fd;border-radius:8px;padding:15px;margin:15px 0;border-left:4px solid #2196f3;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">😴 Sleep Prep</div>
-    <div style="color:#2c3e50;margin-bottom:10px;">Wind down for better recovery:</div>
-    <ul style="margin:0;padding-left:20px;color:#2c3e50;">
-        <li>No screens 30 min before bed</li>
-        <li>Dim lights around 9 PM</li>
-        <li>Room temp: 65-68°F</li>
-        <li>Last call for water (small sip only)</li>
-    </ul>
-</div>
-"""
+        # Colors
+        rec_color = '#27ae60' if rec_score >= 67 else '#f39c12' if rec_score >= 33 else '#e74c3c'
+        water_status = '✅' if water_oz >= 64 else '⚠️' if water_oz >= 32 else '🔴'
+        steps_status = '✅' if steps >= 6000 else '⚠️' if steps >= 3000 else '🔴'
         
-        # Tomorrow preview
-        html += f"""
-<div style="background:#f5f5f5;border-radius:8px;padding:15px;margin:15px 0;">
-    <div style="font-weight:bold;font-size:16px;margin-bottom:10px;">📅 Tomorrow ({tomorrow})</div>
-    <div style="color:#7f8c8d;">Check your morning briefing at 7 AM for personalized recommendations based on tonight's sleep.</div>
-</div>
-"""
+        html = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitus Evening Wind-Down</title>
+</head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f5;">
+    <div style="max-width:400px;margin:0 auto;background:white;">
+        <!-- Header -->
+        <div style="background:linear-gradient(135deg,#2c3e50 0%,#34495e 100%);padding:25px 20px;text-align:center;">
+            <div style="font-size:40px;margin-bottom:5px;">🌙</div>
+            <h1 style="color:white;margin:0;font-size:22px;font-weight:600;">Evening Wind-Down</h1>
+            <p style="color:rgba(255,255,255,0.85);margin:5px 0 0 0;font-size:14px;">{today}</p>
+        </div>
         
-        html += """
-<div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid #ecf0f1;color:#7f8c8d;font-size:12px;">
-    Sleep well! 🌙<br>
-    Vitus 🫀 Your Health Coach
-</div>
-</div>
+        <!-- Today's Summary -->
+        <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">📊 Today's Summary</h2>
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;">
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:24px;font-weight:bold;color:#3498db;">{water_status} {water_oz:.0f}oz</div>
+                    <div style="font-size:12px;color:#888;">Water</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:24px;font-weight:bold;color:#9b59b6;">{steps_status} {steps:,}</div>
+                    <div style="font-size:12px;color:#888;">Steps</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:24px;font-weight:bold;color:{rec_color};">{rec_score:.0f}%</div>
+                    <div style="font-size:12px;color:#888;">Recovery</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sleep Prep -->
+        <div style="padding:20px;border-bottom:1px solid #eee;background:#e8f4f8;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">😴 Tonight's Sleep Prep</h2>
+            <ul style="margin:0;padding-left:20px;color:#555;font-size:14px;">
+                <li style="margin:8px 0;">No screens 30 min before bed</li>
+                <li style="margin:8px 0;">Dim lights around 9 PM</li>
+                <li style="margin:8px 0;">Room temp: 65-68°F</li>
+                <li style="margin:8px 0;">Last call for water (small sip only)</li>
+            </ul>
+        </div>
+        
+        <!-- Tomorrow Preview -->
+        <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 10px 0;font-size:16px;color:#333;">📅 Tomorrow ({tomorrow})</h2>
+            <p style="margin:0;font-size:14px;color:#777;">Morning briefing at 7 AM with personalized recommendations based on tonight's sleep.</p>
+        </div>
+        
+        <!-- Footer -->
+        <div style="padding:20px;text-align:center;background:#f9f9f9;">
+            <p style="margin:0;font-size:14px;color:#555;">Sleep well! 🌙</p>
+            <p style="margin:5px 0 0 0;font-size:12px;color:#999;">Vitus Health Coach 🫀</p>
+        </div>
+    </div>
 </body>
-</html>"""
+</html>'''
         
         return html
     
+    def _build_simple_mobile_html(self, mission, rec_metrics, sleep_metrics, strain_metrics, user_data, nutrition, insights, sleep_prep, briefing_type="morning") -> str:
+        """Build simplified, mobile-friendly HTML focused on today's goals"""
+        today = datetime.now().strftime('%A, %B %d')
+        rec_score = rec_metrics.get('latest_score', 0)
+        
+        # Header emoji based on briefing type
+        header_emoji = {'morning': '🌅', 'midday': '☀️', 'evening': '🌙'}.get(briefing_type, '🫀')
+        header_title = {'morning': 'Morning Briefing', 'midday': 'Midday Check-In', 'evening': 'Evening Wind-Down'}.get(briefing_type, 'Health Briefing')
+        
+        # Get top priority insight (if any)
+        top_insight = insights[0] if insights else None
+        
+        # Build today's goals list
+        goals_html = ""
+        for action in mission.get('actions', [])[:3]:  # Max 3 goals
+            goals_html += f'<li style="margin:8px 0;padding-left:10px;border-left:3px solid {self.COLORS[mission["priority"]]};">{action}</li>'
+        
+        # Recovery status
+        rec_color = self.RISK_LEVELS['green']['color'] if rec_score >= 67 else self.RISK_LEVELS['yellow']['color'] if rec_score >= 33 else self.RISK_LEVELS['red']['color']
+        rec_emoji = '✅' if rec_score >= 67 else '⚠️' if rec_score >= 33 else '🔴'
+        
+        # Sleep data
+        sleep_hours = 0
+        sleep_mins = 0
+        if sleep_metrics:
+            sleep_hours = sleep_metrics.get('in_bed', {}).get('hours', 0)
+            sleep_mins = sleep_metrics.get('in_bed', {}).get('minutes', 0)
+        
+        # Water data
+        water_oz = user_data.get('water', {}).get('ounces', 0)
+        water_status = '✅' if water_oz >= 64 else '⚠️' if water_oz >= 32 else '🔴'
+        
+        html = f'''<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitus {header_title}</title>
+</head>
+<body style="margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f5f5;">
+    <div style="max-width:400px;margin:0 auto;background:white;">
+        <!-- Header -->
+        <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);padding:25px 20px;text-align:center;">
+            <div style="font-size:40px;margin-bottom:5px;">{header_emoji}</div>
+            <h1 style="color:white;margin:0;font-size:22px;font-weight:600;">{header_title}</h1>
+            <p style="color:rgba(255,255,255,0.85);margin:5px 0 0 0;font-size:14px;">{today}</p>
+        </div>
+        
+        <!-- Today's Mission -->
+        <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">🎯 Today's Mission</h2>
+            <p style="margin:0 0 15px 0;font-size:16px;color:#555;line-height:1.5;"><strong>{mission.get('title', 'Stay on track')}</strong></p>
+            <p style="margin:0 0 15px 0;font-size:14px;color:#777;">{mission.get('subtitle', '')}</p>
+            <ul style="margin:0;padding-left:20px;color:#555;font-size:14px;">
+                {goals_html}
+            </ul>
+        </div>
+        
+        <!-- Key Metrics -->
+        <div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">📊 Key Metrics</h2>
+            <div style="display:flex;justify-content:space-between;margin-bottom:15px;">
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:28px;font-weight:bold;color:{rec_color};">{rec_emoji} {rec_score:.0f}%</div>
+                    <div style="font-size:12px;color:#888;">Recovery</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:28px;font-weight:bold;color:#3498db;">{sleep_hours}h {sleep_mins}m</div>
+                    <div style="font-size:12px;color:#888;">Sleep</div>
+                </div>
+                <div style="text-align:center;flex:1;">
+                    <div style="font-size:28px;font-weight:bold;color:#27ae60;">{water_status} {water_oz:.0f}oz</div>
+                    <div style="font-size:12px;color:#888;">Water</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Priority Alert (if any) -->
+        {f'''<div style="padding:20px;border-bottom:1px solid #eee;background:{self.RISK_LEVELS[top_insight.severity]['bg']};">
+            <h2 style="margin:0 0 10px 0;font-size:16px;color:{self.RISK_LEVELS[top_insight.severity]['color']};">{top_insight.title}</h2>
+            <p style="margin:0 0 10px 0;font-size:14px;color:#555;line-height:1.5;">{top_insight.message}</p>
+            <p style="margin:0;font-size:14px;color:#333;font-weight:500;">💡 {top_insight.action}</p>
+        </div>''' if top_insight else ''}
+        
+        <!-- Sleep Prep (for evening) -->
+        {f'''<div style="padding:20px;border-bottom:1px solid #eee;">
+            <h2 style="margin:0 0 15px 0;font-size:18px;color:#333;">🌙 Tonight's Sleep Prep</h2>
+            <p style="margin:0 0 10px 0;font-size:14px;color:#555;"><strong>Target bedtime:</strong> {sleep_prep.get('bedtime', '10:30 PM')}</p>
+            <ul style="margin:0;padding-left:20px;color:#555;font-size:14px;">
+                {''.join([f'<li style="margin:5px 0;">{action}</li>' for action in sleep_prep.get('actions', [])[:3]])}
+            </ul>
+        </div>''' if briefing_type == 'evening' and sleep_prep else ''}
+        
+        <!-- Footer -->
+        <div style="padding:20px;text-align:center;background:#f9f9f9;">
+            <p style="margin:0;font-size:12px;color:#999;">Vitus Health Coach 🫀</p>
+            <p style="margin:5px 0 0 0;font-size:11px;color:#bbb;">Personalized for Geoff</p>
+        </div>
+    </div>
+</body>
+</html>'''
+        
+        return html
+
     def _build_html_briefing(self, mission, rec_metrics, sleep_metrics, strain_metrics, workout_metrics, user_data, nutrition, insights, sleep_prep) -> str:
         today = datetime.now().strftime('%A, %B %d')
         rec_score = rec_metrics.get('latest_score', 0)
@@ -1609,21 +1692,21 @@ if __name__ == '__main__':
         if cmd == 'morning':
             briefing = coach.generate_morning_briefing()
             print("Briefing generated. Sending email...")
-            if coach.send_briefing_email(briefing):
+            if coach.send_briefing_email(briefing, "Morning Briefing"):
                 print("✅ Morning briefing sent successfully")
             else:
                 print("❌ Failed to send briefing")
         elif cmd == 'midday':
             briefing = coach.generate_midday_checkin()
             print("Midday check-in generated. Sending email...")
-            if coach.send_briefing_email(briefing):
+            if coach.send_briefing_email(briefing, "Midday Check-In"):
                 print("✅ Midday check-in sent successfully")
             else:
                 print("❌ Failed to send check-in")
         elif cmd == 'evening':
             briefing = coach.generate_evening_briefing()
             print("Evening briefing generated. Sending email...")
-            if coach.send_briefing_email(briefing):
+            if coach.send_briefing_email(briefing, "Evening Wind-Down"):
                 print("✅ Evening briefing sent successfully")
             else:
                 print("❌ Failed to send briefing")

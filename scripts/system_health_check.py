@@ -134,13 +134,13 @@ def check_competitive_intel():
 
 def check_travel_automation():
     """Check travel automation is running and count recent tasks"""
-    # Check cron job exists
+    # Check cron job exists (looks for calendar-travel-checker or travel_automation)
     cron_check = subprocess.run(
         ['crontab', '-l'],
         capture_output=True,
         text=True
     )
-    if 'travel_automation' not in cron_check.stdout:
+    if 'calendar-travel-checker' not in cron_check.stdout and 'travel_automation' not in cron_check.stdout:
         return {'status': 'not_scheduled'}
     
     # Check log file for recent runs

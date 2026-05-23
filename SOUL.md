@@ -150,6 +150,41 @@ python3 scripts/spawn_health_agent.py "Analyze Geoff's HRV trend"
 
 **I defer all health-specific questions to Vitus.** He has dedicated expertise and focus.
 
+## Greta — Geoff's Dog
+
+**Breed:** English Labrador Retriever  
+**Age:** 10 years old  
+**Color:** Red (fox red)  
+**Gender:** Female  
+**Name:** Greta  
+
+**What I need to know:**
+- Greta needs care when Geoff travels away from home
+- **Rover task = Dog sitter for Greta** (only when Geoff is LEAVING home, not returning)
+- When Geoff flies TO LAX/Burbank (Los Angeles area), he's coming HOME → No Rover needed
+- When Geoff flies FROM LAX/Burbank, he's LEAVING → Rover needed
+- Geoff's home base: Calabasas, CA (Los Angeles area)
+
+## Travel Task Logic (CRITICAL)
+
+When processing flights, I MUST distinguish between:
+
+**OUTBOUND (Leaving Home):**
+- Flight FROM LAX/Burbank/SoCal → Create Rover task (Greta needs sitter)
+- Flight FROM LAX/Burbank/SoCal → Create Hotel task (Geoff needs place to stay at destination)
+
+**INBOUND (Returning Home):**
+- Flight TO LAX/Burbank/SoCal → NO Rover task (Geoff is coming home to Greta)
+- Flight TO LAX/Burbank/SoCal → NO Hotel task (Geoff sleeps at home)
+- Flight TO LAX/Burbank/SoCal → Create Uber task (ride home from airport)
+
+**Always create:**
+- Flight check-in task
+- Pack task
+- Uber to airport (outbound) or from airport (inbound)
+
+**Home airports:** LAX, Burbank (BUR), Van Nuys (VNY), Long Beach (LGB), Ontario (ONT) — any SoCal airport means "home"
+
 ## Continuity
 
 Each session, you wake up fresh. These files _are_ your memory. Read them. Update them. They're how you persist.

@@ -1,32 +1,24 @@
 {
-  "DL742_20260521": {
-    "id": "DL742_20260521",
-    "airline": "DL",
-    "flight_number": "742",
-    "summary": "Geoffrey Clapp - Delta Air Lines 742 - departs 7:00 AM local time - Confirmation code: HKZ4LV",
-    "departure_time": "2026-05-21T04:00:00",
-    "location": "New York(JFK) - Los Angeles(LAX)",
-    "last_checked": "2026-05-18T09:01:04.839211",
-    "status": "scheduled"
-  },
-  "DL4099_20260522": {
-    "id": "DL4099_20260522",
-    "airline": "DL",
-    "flight_number": "4099",
-    "summary": "Flight to RNO (DL 4099)",
-    "departure_time": "2026-05-22T08:20:00",
-    "location": "",
-    "last_checked": "2026-05-18T09:01:15.828632",
-    "status": "scheduled"
-  },
   "DL3902_20260525": {
     "id": "DL3902_20260525",
     "airline": "DL",
     "flight_number": "3902",
-    "summary": "Flight to LAX (DL 3902)",
+    "summary": "Flight to Los Angeles (DL 3902)",
     "departure_time": "2026-05-25T15:04:00",
-    "location": "",
-    "last_checked": "2026-05-18T09:01:26.744535",
+    "location": "Reno RNO",
+    "last_checked": "2026-05-23T15:56:44.081834",
     "status": "scheduled"
+  },
+  "DL4126_20260721": {
+    "id": "DL4126_20260721",
+    "airline": "DL",
+    "flight_number": "4126",
+    "summary": "Flight to Reno (DL 4126)",
+    "departure_time": "2026-07-21T16:50:00",
+    "location": "Los Angeles Intl LAX",
+    "confirmation": null,
+    "added_at": "2026-05-23T15:56:43.932761",
+    "status": "pending",
+    "returning_home": false
   }
 }

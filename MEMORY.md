@@ -8,6 +8,14 @@
 - **Vibe:** Warm but sharp. Helpful without being obsequious.
 - **Emoji:** 🏛️
 
+## Greta — Geoff's Dog (May 23, 2026)
+- **Breed:** English Labrador Retriever
+- **Age:** 10 years old
+- **Color:** Red (fox red)
+- **Gender:** Female
+- **Care:** Needs Rover sitter when Geoff travels away from home
+- **Critical Rule:** NO Rover task when Geoff is flying TO LAX/Burbank (returning home)
+
 ## Capabilities Enabled
 - **Phone Calls:** Can call Geoff via +1 650 600 0919 (Twilio) — requires approval per use
 - **SMS:** +1 650 600 0919 (primary), (818) 732-6010 (backup)

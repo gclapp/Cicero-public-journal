@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-22T01:22:02.970768",
+  "timestamp": "2026-05-23T15:58:17.274045",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -12,7 +12,7 @@
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2600\ufe0f 81\u00b0F 39% \u219710mph",
+    "weather_data": "los angeles: \u2601\ufe0f 63\u00b0F 75% \u21914mph",
     "whoop": {
       "status": "configured"
     },
@@ -28,7 +28,9 @@
       "status": "active"
     },
     "travel_automation": {
-      "status": "not_scheduled"
+      "status": "active",
+      "last_run_hours": 126.9,
+      "tasks_created": 0
     }
   },
   "action_required": []

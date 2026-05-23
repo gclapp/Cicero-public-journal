@@ -88,12 +88,10 @@ def get_check_in_type():
     now = datetime.now(pt)
     hour = now.hour
     
+    # Morning check-in: 7:00 AM PT (cron at 14:00 UTC)
     if 6 <= hour < 9:
         return "morning", "🌅 Morning Check-In"
-    elif 12 <= hour < 14:
-        return "midday", "☀️ Midday Check-In"
-    elif 16 <= hour < 18:
-        return "afternoon", "🌤️ Afternoon Check-In"
+    # Evening check-in: 8:00 PM PT (cron at 04:00 UTC next day)
     elif 20 <= hour < 22:
         return "evening", "🌙 Evening Check-In"
     else:
