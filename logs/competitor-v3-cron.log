@@ -4538,3 +4538,180 @@ LinkedIn Executive & Job Change Monitoring
 ✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
 [2026-05-22 21:00:23] ✅ Email sent
 [2026-05-22 21:00:23] Complete
+[2026-05-23 14:00:02] Starting competitive intelligence v3...
+[2026-05-23 14:00:02] Step 1: RSS + Web search...
+[2026-05-23 14:00:02] ======================================================================
+[2026-05-23 14:00:02] Starting Competitive Intelligence Scan v3
+[2026-05-23 14:00:02] ======================================================================
+[2026-05-23 14:00:02] 
+1. Scanning RSS feeds...
+Traceback (most recent call last):
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 622, in <module>
+    count = main()
+            ^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 524, in main
+    rss_articles = scan_rss_feeds(config)
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 168, in scan_rss_feeds
+    seen = load_seen()
+           ^^^^^^^^^^^
+  File "/home/ubuntu/.openclaw/workspace/scripts/competitor_intelligence_v3.py", line 44, in load_seen
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Unterminated string starting at: line 2108 column 5 (char 94107)
+[2026-05-23 14:00:02] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 7 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 1 updates
+   Midi Health: 6 updates
+   Evernow: 4 updates
+   Pacify: 5 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 2 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-05-23 14:00:22] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 0 | High: 0 | Medium: 0
+[2026-05-23 14:00:23] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-23 14:00:26] ✅ Email sent
+[2026-05-23 14:00:26] Complete
+[2026-05-23 14:19:55] Starting competitive intelligence v3...
+[2026-05-23 14:19:55] Step 1: RSS + Web search...
+[2026-05-23 14:19:56] ======================================================================
+[2026-05-23 14:19:56] Starting Competitive Intelligence Scan v3
+[2026-05-23 14:19:56] ======================================================================
+[2026-05-23 14:19:56] 
+1. Scanning RSS feeds...
+[2026-05-23 14:19:56]    Scanning: Maven - Google Alerts
+[2026-05-23 14:19:56]    Scanning: Carrot - Google Alerts
+[2026-05-23 14:19:56]    Scanning: KindBody - Google Alerts
+[2026-05-23 14:19:56]    Scanning: WIN Fertility - Google Alerts
+[2026-05-23 14:19:57]    Scanning: Pomelo Health - Google Alerts
+[2026-05-23 14:19:57]    Scanning: Oura - Google Alerts
+[2026-05-23 14:19:57]    Scanning: Maven - Press Releases
+[2026-05-23 14:19:58]    Scanning: Carrot - Press Releases
+[2026-05-23 14:19:58]    Scanning: KindBody - Press Releases
+[2026-05-23 14:19:59]    Scanning: Oura - Press Releases
+[2026-05-23 14:19:59]    Scanning: Midi Health - Press Releases
+[2026-05-23 14:19:59]    Scanning: Evernow - Press Releases
+[2026-05-23 14:20:00]    Scanning: FemTech Funding News
+[2026-05-23 14:20:01]    Scanning: Women's Health AI
+[2026-05-23 14:20:01]    Found 16 new articles from RSS
+[2026-05-23 14:20:01] 
+2. Searching web for competitive news...
+[2026-05-23 14:20:03]    Skipping duplicate title: Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 a...
+[2026-05-23 14:20:04]    Skipping duplicate title: Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 a...
+[2026-05-23 14:20:04]    Found 16 new articles from web search
+[2026-05-23 14:20:04] 
+3. Checking LinkedIn executive posts...
+[2026-05-23 14:20:23]    ✓ LinkedIn executive scan complete
+[2026-05-23 14:20:23]    Skipping 6810f7dc... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping 144f8b25... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping 73135aa1... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping c2900d9d... (low FemTech relevance: 12)
+[2026-05-23 14:20:23]    Skipping c5701dd6... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping a50f91e8... (low FemTech relevance: 12)
+[2026-05-23 14:20:23]    Skipping 41191b21... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping b032db87... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping 869dabfc... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping 6aeafca4... (low FemTech relevance: 8)
+[2026-05-23 14:20:23]    Skipping 2653c553... (low FemTech relevance: 8)
+[2026-05-23 14:20:23]    Skipping 7d86a1f5... (low FemTech relevance: 0)
+[2026-05-23 14:20:23]    Skipping ade0c70a... (low FemTech relevance: 16)
+[2026-05-23 14:20:23]    Limiting from 19 to 15 articles
+[2026-05-23 14:20:23] 
+✅ Total new articles: 15
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 15 NEW SIGNALS
+======================================================================
+🔴 Critical: 2 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🔴 [Maven] Maven - 2026 Funding Rounds & List of Investors - Tracxn...
+
+🔴 [General] Fierce Healthcare Funding Tracker '26: Yuzu Health picks up $35M...
+
+🟠 [Carrot] Carrot Brings AI-Native Metabolic Care to Every Stage of Menopause...
+
+🟡 [Carrot] Carrot Fertility COO Brooke Quinn on leading a fertility benefits comp...
+
+🟡 [Maven] <b>Maven Clinic</b> CEO Kate Ryder explains significance of new DTC of...
+
+🟡 [Maven] Maven Clinic officially launches DTC platform for GLP-1s, hormone care...
+
+🟡 [Maven] Maven Clinic launches integrated women’s health platform with GLP-1 th...
+
+🟡 [Maven] Maven Clinic CEO on the significance of new DTC offering...
+
+🟡 [Maven] News from Maven Clinic - PR Newswire...
+
+🟡 [Maven] Qz...
+
+🟡 [Maven] TIME100 Most Influential Companies 2026: Maven Clinic...
+
+🟡 [Maven] The AI that transformed American warfare...
+
+🟡 [Maven] Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 and Hormona...
+
+🟡 [Carrot] Carrot Tackles Rural America's Fertility Care Access Crisis by Integra...
+
+🟡 [Carrot] Carrot creates more plan flexibility with fertility benefit options | ...
+
+======================================================================
+[2026-05-23 14:20:23] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 7 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 1 updates
+   Midi Health: 6 updates
+   Evernow: 4 updates
+   Pacify: 5 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 9 job changes
+
+3. Searching for company announcements...
+   Found 2 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-05-23 14:20:31] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 2 | High: 1 | Medium: 0
+[2026-05-23 14:20:31] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-23 14:20:32] ✅ Email sent
+[2026-05-23 14:20:32] Complete

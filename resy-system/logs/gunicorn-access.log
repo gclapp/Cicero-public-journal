@@ -36438,3 +36438,4 @@
 127.0.0.1 - - [23/May/2026:05:29:50 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com/" "RootEvidence/1.0"
 127.0.0.1 - - [23/May/2026:06:42:37 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
 127.0.0.1 - - [23/May/2026:06:42:37 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+127.0.0.1 - - [23/May/2026:13:43:42 +0000] "GET / HTTP/1.1" 302 199 "http://nyceats.openclapp.com" "Mozilla/5.0 (compatible; CMSDetector/1.0)"

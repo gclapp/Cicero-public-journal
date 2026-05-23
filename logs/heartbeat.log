@@ -7571,3 +7571,22 @@ Error fetching travel tasks: [Errno 2] No such file or directory: 'todoist'
 [2026-05-23 11:00:01 UTC] Heartbeat complete
 [2026-05-23 11:55:01 UTC] Heartbeat triggered
 [2026-05-23 11:55:01 UTC] Heartbeat complete
+[2026-05-23 12:00:01 UTC] Heartbeat triggered
+[2026-05-23 12:00:01 UTC] Heartbeat complete
+[2026-05-23 12:55:01 UTC] Heartbeat triggered
+[2026-05-23 12:55:01 UTC] Heartbeat complete
+[2026-05-23 13:00:01 UTC] Heartbeat triggered
+[2026-05-23 13:00:01 UTC] Heartbeat complete
+[2026-05-23 13:55:01 UTC] Heartbeat triggered
+[2026-05-23 13:55:01 UTC] Heartbeat complete
+[2026-05-23 14:00:01 UTC] Heartbeat triggered
+[2026-05-23 14:00:01 UTC] Morning check-in due (7 AM PT)
+Error fetching travel tasks: [Errno 2] No such file or directory: 'todoist'
+/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py:1701: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py:1716: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  f.write(f"[{datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC] {checkin_type.title()} check-in queued\n")
+[2026-05-23 14:00:06 UTC] Morning check-in queued
+✅ Morning check-in queued: 07:00 AM PT
+[2026-05-23 14:00:06 UTC] Morning check-in queued
+[2026-05-23 14:00:01 UTC] Heartbeat complete
