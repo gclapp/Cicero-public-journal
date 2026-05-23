@@ -36,3 +36,8 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Large log files
+resy-system/logs/gunicorn-error.log
+projects/*/venv/
+*.log
