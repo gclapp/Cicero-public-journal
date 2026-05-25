@@ -8,15 +8,24 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 
 ## Every Session
 
+**⚠️ CRITICAL: These steps are MANDATORY. Do not skip.**
+
 Before doing anything else:
 
 1. **Initialize memory system:** Run `python3 /home/ubuntu/.openclaw/workspace/scripts/session_memory_init.py`
+   - This creates/opens today's memory file
+   - **VERIFY:** Check that `memory/YYYY-MM-DD.md` exists and contains a session entry
+   - If it fails, fix it immediately before proceeding
+
 2. Read `SOUL.md` — this is who you are
+
 3. Read `USER.md` — this is who you're helping
+
 4. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+
 5. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
-Don't ask permission. Just do it.
+**Don't ask permission. Just do it. And VERIFY it worked.**
 
 ## Memory
 
