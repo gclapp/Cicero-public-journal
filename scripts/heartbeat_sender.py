@@ -274,84 +274,60 @@ def get_todoist_count():
 def get_todoist_priorities():
     """Get priority 1 and 2 tasks due today or tomorrow, sorted by priority"""
     try:
-        # Get all tasks
-        result = subprocess.run(['todoist', 'list'], capture_output=True, text=True, timeout=30)
-        if result.returncode != 0:
-            return []
-        
         from datetime import datetime, timedelta
         
         pt_now = get_pt_time()
         today_str = pt_now.strftime('%Y-%m-%d')
         tomorrow = pt_now + timedelta(days=1)
         tomorrow_str = tomorrow.strftime('%Y-%m-%d')
+        today_month_day = pt_now.strftime('%b %d')
+        tomorrow_month_day = tomorrow.strftime('%b %d')
+        
+        # Get p1 tasks
+        p1_result = subprocess.run(['todoist', 'tasks', '--filter', 'p1 & (today | tomorrow)'], 
+                                   capture_output=True, text=True, timeout=15)
+        p2_result = subprocess.run(['todoist', 'tasks', '--filter', 'p2 & (today | tomorrow)'], 
+                                   capture_output=True, text=True, timeout=15)
         
         priority_tasks = []
         
-        for line in result.stdout.strip().split('\n'):
-            if not line.strip():
-                continue
-            
-            # Parse task line - format varies but priority is indicated by p1, p2, etc.
-            # Example: "1234567890  p1  Task title  today" or "1234567890  Task title  tomorrow"
-            
-            # Check for priority markers
-            priority = None
-            if 'p1' in line:
-                priority = 1
-            elif 'p2' in line:
-                priority = 2
-            
-            # Only process priority 1 and 2
-            if priority not in [1, 2]:
-                continue
-            
-            # Check due date
-            is_due_soon = False
-            due_date = None
-            
-            if 'today' in line.lower():
-                is_due_soon = True
-                due_date = 'Today'
-            elif 'tomorrow' in line.lower():
-                is_due_soon = True
-                due_date = 'Tomorrow'
-            else:
-                # Check for date patterns like "May 24" or "2026-05-24"
-                date_patterns = [
-                    r'(\w{3,4}\s+\d{1,2})',  # May 24
-                    r'(\d{4}-\d{2}-\d{2})'   # 2026-05-24
-                ]
-                for pattern in date_patterns:
-                    match = re.search(pattern, line)
-                    if match:
-                        date_str = match.group(1)
-                        # Check if it matches today or tomorrow
-                        if today_str in date_str or date_str in pt_now.strftime('%b %d'):
-                            is_due_soon = True
-                            due_date = 'Today'
-                        elif tomorrow_str in date_str or date_str in tomorrow.strftime('%b %d'):
-                            is_due_soon = True
-                            due_date = 'Tomorrow'
-            
-            if not is_due_soon:
-                continue
-            
-            # Extract task title - remove ID, priority, and date
-            task_title = line
-            # Remove task ID (first word)
-            task_title = re.sub(r'^\d+\s+', '', task_title)
-            # Remove priority marker
-            task_title = re.sub(r'\s*p[12]\s*', ' ', task_title)
-            # Remove date markers
-            task_title = re.sub(r'\s*(today|tomorrow|\w{3,4}\s+\d{1,2}|\d{4}-\d{2}-\d{2})\s*$', '', task_title, flags=re.IGNORECASE)
-            task_title = task_title.strip()
-            
-            priority_tasks.append({
-                'title': task_title,
-                'priority': priority,
-                'due': due_date
-            })
+        # Process P1 tasks
+        if p1_result.returncode == 0:
+            for line in p1_result.stdout.strip().split('\n'):
+                if not line.strip():
+                    continue
+                match = re.match(r'^([a-zA-Z0-9]+)\s+(.+)$', line.strip())
+                if match:
+                    task_content = match.group(2)
+                    # Determine due date from content
+                    due_date = 'Today'  # Default since we filtered by today|tomorrow
+                    if 'tomorrow' in task_content.lower():
+                        due_date = 'Tomorrow'
+                    # Remove date from title
+                    task_title = re.sub(r'\s*\([^)]+\)\s*$', '', task_content).strip()
+                    priority_tasks.append({
+                        'title': task_title,
+                        'priority': 1,
+                        'due': due_date
+                    })
+        
+        # Process P2 tasks
+        if p2_result.returncode == 0:
+            for line in p2_result.stdout.strip().split('\n'):
+                if not line.strip():
+                    continue
+                match = re.match(r'^([a-zA-Z0-9]+)\s+(.+)$', line.strip())
+                if match:
+                    task_content = match.group(2)
+                    due_date = 'Today'
+                    if 'tomorrow' in task_content.lower():
+                        due_date = 'Tomorrow'
+                    task_title = re.sub(r'\s*\([^)]+\)\s*$', '', task_content).strip()
+                    priority_tasks.append({
+                        'title': task_title,
+                        'priority': 2,
+                        'due': due_date
+                    })
         
         # Sort by priority (1 first, then 2)
         priority_tasks.sort(key=lambda x: x['priority'])
@@ -1113,9 +1089,8 @@ def generate_html_email(checkin_type, pt_now):
         }}
         
         .week-schedule {{
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+            display: block;
+            width: 100%;
         }}
         
         .day-card {{
@@ -1124,6 +1099,12 @@ def generate_html_email(checkin_type, pt_now):
             padding: 16px;
             border-left: 4px solid #e2e8f0;
             width: 100%;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }}
+        
+        .day-card:last-child {{
+            margin-bottom: 0;
         }}
         
         .day-card.today {{
@@ -1153,12 +1134,10 @@ def generate_html_email(checkin_type, pt_now):
         }}
         
         .event-item {{
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
+            display: block;
             padding: 10px 0;
             border-bottom: 1px solid #e2e8f0;
-            flex-wrap: wrap;
+            width: 100%;
         }}
         
         .event-item:last-child {{
@@ -1168,13 +1147,15 @@ def generate_html_email(checkin_type, pt_now):
         
         .event-icon {{
             font-size: 20px;
-            min-width: 28px;
-            text-align: center;
-            flex-shrink: 0;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: top;
         }}
         
         .event-content {{
-            flex: 1;
+            display: inline-block;
+            vertical-align: top;
+            max-width: calc(100% - 40px);
         }}
         
         .event-title {{
