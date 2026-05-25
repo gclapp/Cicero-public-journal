@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-23T15:58:20.299305",
-  "total_events": 81,
+  "last_updated": "2026-05-24T14:55:04.195185",
+  "total_events": 82,
   "travel_events": 6,
   "events": [
     {
@@ -16,22 +16,6 @@
       "start": "Friday, May 22",
       "start_raw": "2026-05-22",
       "location": "13031 Ritz Carlton Highlands Court, Truckee, California 96161, United States",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Daytime Scenic Cruise with Zephyr Cove Resort",
-      "start": "Saturday, May 23 at 11:00 AM",
-      "start_raw": "2026-05-23T11:00:00-07:00",
-      "location": "Zephyr Cove Resort, 760 U.S. 50, Zephyr Cove, NV, 89448, US",
-      "description": "Booking #349418874\n\nView details: https://fareharbor.com/embeds/book/zephyrcove-aramark/items/672332/booking/286b8155-8073-444c-a670-e417caadb929/",
-      "is_travel": false
-    },
-    {
-      "summary": "Daytime Scenic Cruise with Zephyr Cove Resort",
-      "start": "Saturday, May 23 at 11:00 AM",
-      "start_raw": "2026-05-23T11:00:00-07:00",
-      "location": "Zephyr Cove Resort, 760 U.S. 50, Zephyr Cove, NV 89448",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
@@ -484,6 +468,14 @@
       "is_travel": false
     },
     {
+      "summary": "Boston Red Sox at Los Angeles Dodgers",
+      "start": "Sunday, August 02 at 04:20 PM",
+      "start_raw": "2026-08-02T16:20:00-07:00",
+      "location": "UNIQLO Field at Dodger Stadium, UNIQLO Field at Dodger Stadium, Los Angeles, CA",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, August 03 at 07:00 AM",
       "start_raw": "2026-08-03T07:00:00-07:00",
@@ -647,6 +639,22 @@
       "summary": "Pick up Oliver from School",
       "start": "Thursday, August 20 at 02:00 PM",
       "start_raw": "2026-08-20T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, August 21 at 01:30 PM",
+      "start_raw": "2026-08-21T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, August 21 at 02:00 PM",
+      "start_raw": "2026-08-21T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false

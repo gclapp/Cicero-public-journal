@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
-heartbeat_sender.py - Sends scheduled check-ins (HTML format)
-Called by heartbeat-check.sh when a check-in is due
-Uses the format locked on March 22, 2026
+heartbeat_sender_v2.py - Updated check-in email format
+Implements Geoff's requested changes:
+1. More professional look - cleaner design, better fonts, mobile/desktop optimized
+2. Weather section - show where you are + weather there for today + 2 days, then Calabasas and NYC weather (avoiding duplicates)
+3. Remove - "At a glance" section and "Upcoming trips" section
+4. This week's schedule - keep it, add dinner reservations (🍽️) with place, time, people
 """
 
 import os
@@ -42,13 +45,8 @@ def load_birthdays():
             try:
                 with open(profile_file, 'r') as f:
                     content = f.read()
-                    # Look for birthday in the file
                     name = profile_file.stem.replace('-', ' ').title()
-                    # Simple regex to find birthday patterns (handles "Birthday: April 8" or "| **Birthday** | April 8 |")
-                    import re
-                    # Try table format first: | **Birthday** | April 8 |
                     birthday_match = re.search(r'\*\*[Bb]irthday\*\*\s*\|\s*([A-Za-z]+ \d{1,2})', content)
-                    # Fall back to regular format: Birthday: April 8
                     if not birthday_match:
                         birthday_match = re.search(r'[Bb]irthday[:\s]+([A-Za-z]+ \d{1,2})', content)
                     if birthday_match:
@@ -61,9 +59,7 @@ def load_birthdays():
             except:
                 continue
     
-    # Add family birthdays
     birthdays.extend(family_birthdays)
-    
     return birthdays
 
 def get_upcoming_birthdays(days_ahead=14):
@@ -74,30 +70,22 @@ def get_upcoming_birthdays(days_ahead=14):
     
     for person in birthdays:
         try:
-            # Parse the birthday date (naive datetime)
             bday_date = datetime.strptime(person['date'], '%B %d')
-            # Set to current year
             bday_this_year = bday_date.replace(year=pt_now.year)
-            
-            # Make it timezone-aware to match pt_now
             bday_this_year = pt_now.tzinfo.localize(bday_this_year)
             
-            # If birthday already passed this year, check next year
             today_start = pt_now.replace(hour=0, minute=0, second=0, microsecond=0)
             if bday_this_year < today_start:
                 bday_this_year = bday_this_year.replace(year=pt_now.year + 1)
             
-            # Check if within lookahead window
             days_until = (bday_this_year - today_start).days
             if 0 <= days_until <= days_ahead:
                 person['days_until'] = days_until
                 person['date_this_year'] = bday_this_year.strftime('%A, %B %d')
                 upcoming.append(person)
         except Exception as e:
-            print(f"Error processing birthday for {person.get('name', 'unknown')}: {e}")
             continue
     
-    # Sort by days until
     upcoming.sort(key=lambda x: x['days_until'])
     return upcoming
 
@@ -105,22 +93,19 @@ def get_checkin_type(hour, minute):
     """Determine which check-in is due based on PT time"""
     time_val = hour * 100 + minute
     
-    # Morning: 7:00-7:30 AM
     if 700 <= time_val <= 730:
         return "morning"
-    # Evening: 8:30-8:55 PM
     elif 2030 <= time_val <= 2055:
         return "evening"
     else:
         return None
 
 def get_weather(location="Los Angeles"):
-    """Get weather with emoji in Fahrenheit - retries 3 times over 4 minutes"""
+    """Get weather with emoji in Fahrenheit - retries 3 times"""
     import time
     
-    for attempt in range(3):  # Try 3 times
+    for attempt in range(3):
         try:
-            # Get emoji and temperature separately
             emoji_result = subprocess.run(
                 ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%c', '--max-time', '10'],
                 capture_output=True, text=True, timeout=15
@@ -134,21 +119,16 @@ def get_weather(location="Los Angeles"):
                 emoji = emoji_result.stdout.strip()
                 temp_str = temp_result.stdout.strip()
                 
-                # Check for wttr.in error message
                 if 'weather data source not available' in temp_str or 'weather data source not available' in emoji:
-                    if attempt < 2:  # Retry if not last attempt
-                        print(f"Weather attempt {attempt+1}/3 failed (source not available), waiting 80s...")
-                        time.sleep(80)  # Wait 80 seconds between attempts (4 min total)
+                    if attempt < 2:
+                        time.sleep(80)
                         continue
                     return f"🌤️ --°F"
                 
-                # Check if wttr.in is already returning Fahrenheit
                 if '°F' in temp_str:
-                    # Already Fahrenheit, just extract the number
                     temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
                     return f"{emoji} {temp_num}°F"
                 elif '°C' in temp_str:
-                    # Celsius - need to convert
                     temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
                     try:
                         temp_c = int(temp_num)
@@ -157,24 +137,128 @@ def get_weather(location="Los Angeles"):
                     except:
                         return f"{emoji} {temp_str}"
                 else:
-                    # Unknown format, return as-is
                     return f"{emoji} {temp_str}"
             
-            # If we got here, curl failed but didn't raise exception
             if attempt < 2:
-                print(f"Weather attempt {attempt+1}/3 failed (curl error), waiting 80s...")
-                time.sleep(80)  # Wait 80 seconds between attempts (4 min total)
+                time.sleep(80)
                 continue
             return f"🌤️ --°F"
             
         except Exception as e:
             if attempt < 2:
-                print(f"Weather attempt {attempt+1}/3 failed (exception: {e}), waiting 80s...")
-                time.sleep(80)  # Wait 80 seconds between attempts (4 min total)
+                time.sleep(80)
                 continue
             return f"🌤️ --°F"
     
     return f"🌤️ --°F"
+
+def get_weather_forecast(location, days=3):
+    """Get multi-day weather forecast"""
+    forecasts = []
+    for day in range(days):
+        try:
+            result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%c+%t', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
+            if result.returncode == 0:
+                forecasts.append(result.stdout.strip())
+            else:
+                forecasts.append("🌤️ --°F")
+        except:
+            forecasts.append("🌤️ --°F")
+    return forecasts
+
+def get_weather_detailed(location):
+    """Get detailed weather with temp, humidity, and precipitation"""
+    import time
+    
+    for attempt in range(2):
+        try:
+            # Get condition emoji
+            emoji_result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%c', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
+            # Get temperature
+            temp_result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%t', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
+            # Get humidity
+            humidity_result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%h', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
+            # Get precipitation probability
+            precip_result = subprocess.run(
+                ['curl', '-s', f'wttr.in/{location.replace(" ", "+")}?format=%p', '--max-time', '10'],
+                capture_output=True, text=True, timeout=15
+            )
+            
+            if emoji_result.returncode == 0 and temp_result.returncode == 0:
+                emoji = emoji_result.stdout.strip()
+                temp_str = temp_result.stdout.strip()
+                humidity = humidity_result.stdout.strip() if humidity_result.returncode == 0 else "--"
+                precip = precip_result.stdout.strip() if precip_result.returncode == 0 else "0"
+                
+                # Parse temperature
+                if '°F' in temp_str:
+                    temp = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                    temp = f"{temp}°F"
+                elif '°C' in temp_str:
+                    temp_num = ''.join([c for c in temp_str if c.isdigit() or c == '-'])
+                    try:
+                        temp_c = int(temp_num)
+                        temp_f = int((temp_c * 9/5) + 32)
+                        temp = f"{temp_f}°F"
+                    except:
+                        temp = temp_str
+                else:
+                    temp = temp_str
+                
+                # Parse precipitation - if empty or 0, show as "0%"
+                precip_val = precip.strip()
+                if not precip_val or precip_val == '0.0' or precip_val == '0':
+                    precip_display = "0%"
+                else:
+                    # wttr.in returns mm, convert to probability approximation
+                    try:
+                        precip_mm = float(precip_val)
+                        if precip_mm == 0:
+                            precip_display = "0%"
+                        elif precip_mm < 1:
+                            precip_display = "20%"
+                        elif precip_mm < 2.5:
+                            precip_display = "40%"
+                        elif precip_mm < 5:
+                            precip_display = "60%"
+                        elif precip_mm < 10:
+                            precip_display = "80%"
+                        else:
+                            precip_display = "90%+"
+                    except:
+                        precip_display = f"{precip_val}mm"
+                
+                return {
+                    'emoji': emoji,
+                    'temp': temp,
+                    'humidity': humidity if humidity else "--",
+                    'precip': precip_display
+                }
+            
+            if attempt < 1:
+                time.sleep(2)
+                continue
+            return {'emoji': '🌤️', 'temp': '--°F', 'humidity': '--', 'precip': '0%'}
+            
+        except Exception as e:
+            if attempt < 1:
+                time.sleep(2)
+                continue
+            return {'emoji': '🌤️', 'temp': '--°F', 'humidity': '--', 'precip': '0%'}
+    
+    return {'emoji': '🌤️', 'temp': '--°F', 'humidity': '--', 'precip': '0%'}
 
 def get_todoist_count():
     """Get Todoist task count"""
@@ -186,6 +270,96 @@ def get_todoist_count():
         return "--"
     except:
         return "--"
+
+def get_todoist_priorities():
+    """Get priority 1 and 2 tasks due today or tomorrow, sorted by priority"""
+    try:
+        # Get all tasks
+        result = subprocess.run(['todoist', 'list'], capture_output=True, text=True, timeout=30)
+        if result.returncode != 0:
+            return []
+        
+        from datetime import datetime, timedelta
+        
+        pt_now = get_pt_time()
+        today_str = pt_now.strftime('%Y-%m-%d')
+        tomorrow = pt_now + timedelta(days=1)
+        tomorrow_str = tomorrow.strftime('%Y-%m-%d')
+        
+        priority_tasks = []
+        
+        for line in result.stdout.strip().split('\n'):
+            if not line.strip():
+                continue
+            
+            # Parse task line - format varies but priority is indicated by p1, p2, etc.
+            # Example: "1234567890  p1  Task title  today" or "1234567890  Task title  tomorrow"
+            
+            # Check for priority markers
+            priority = None
+            if 'p1' in line:
+                priority = 1
+            elif 'p2' in line:
+                priority = 2
+            
+            # Only process priority 1 and 2
+            if priority not in [1, 2]:
+                continue
+            
+            # Check due date
+            is_due_soon = False
+            due_date = None
+            
+            if 'today' in line.lower():
+                is_due_soon = True
+                due_date = 'Today'
+            elif 'tomorrow' in line.lower():
+                is_due_soon = True
+                due_date = 'Tomorrow'
+            else:
+                # Check for date patterns like "May 24" or "2026-05-24"
+                date_patterns = [
+                    r'(\w{3,4}\s+\d{1,2})',  # May 24
+                    r'(\d{4}-\d{2}-\d{2})'   # 2026-05-24
+                ]
+                for pattern in date_patterns:
+                    match = re.search(pattern, line)
+                    if match:
+                        date_str = match.group(1)
+                        # Check if it matches today or tomorrow
+                        if today_str in date_str or date_str in pt_now.strftime('%b %d'):
+                            is_due_soon = True
+                            due_date = 'Today'
+                        elif tomorrow_str in date_str or date_str in tomorrow.strftime('%b %d'):
+                            is_due_soon = True
+                            due_date = 'Tomorrow'
+            
+            if not is_due_soon:
+                continue
+            
+            # Extract task title - remove ID, priority, and date
+            task_title = line
+            # Remove task ID (first word)
+            task_title = re.sub(r'^\d+\s+', '', task_title)
+            # Remove priority marker
+            task_title = re.sub(r'\s*p[12]\s*', ' ', task_title)
+            # Remove date markers
+            task_title = re.sub(r'\s*(today|tomorrow|\w{3,4}\s+\d{1,2}|\d{4}-\d{2}-\d{2})\s*$', '', task_title, flags=re.IGNORECASE)
+            task_title = task_title.strip()
+            
+            priority_tasks.append({
+                'title': task_title,
+                'priority': priority,
+                'due': due_date
+            })
+        
+        # Sort by priority (1 first, then 2)
+        priority_tasks.sort(key=lambda x: x['priority'])
+        
+        return priority_tasks
+    except Exception as e:
+        print(f"Error getting Todoist priorities: {e}")
+        return []
 
 def get_stock_summary():
     """Get stock summary for watchlist"""
@@ -201,42 +375,33 @@ def get_stock_summary():
         return "Stock data unavailable"
 
 def get_custody_status(pt_now, calendar_events=None):
-    """Determine if Geoff has the kids based on custody schedule and calendar events"""
-    # First check calendar for pickup/dropoff events
+    """Determine if Geoff has the kids based on custody schedule"""
     if calendar_events:
         today_str = pt_now.strftime('%A, %B %d')
         for event in calendar_events:
             event_date = event.get('start', '')
             summary = event.get('summary', '').lower()
             
-            # Check for pickup events today
             if today_str in event_date:
                 if any(word in summary for word in ['pick up', 'pickup', 'get oliver', 'get sophie', 'chaparral']):
                     return True, "Picked up Oliver & Sophie today"
                 if any(word in summary for word in ['drop off', 'dropoff', 'stacey']):
                     return False, "Dropped off kids today"
     
-    # Fallback to standard custody schedule: Pick up Thursday 1:50 PM, drop off Saturday 5:00 PM
-    weekday = pt_now.weekday()  # 0=Monday, 3=Thursday, 5=Saturday
+    weekday = pt_now.weekday()
     hour = pt_now.hour
     
-    # Thursday after 1:50 PM = has kids
     if weekday == 3 and hour >= 14:
         return True, "With Oliver & Sophie (custody weekend)"
-    
-    # Friday = has kids
     if weekday == 4:
         return True, "With Oliver & Sophie (custody weekend)"
-    
-    # Saturday before 5:00 PM = has kids
     if weekday == 5 and hour < 17:
         return True, "With Oliver & Sophie (custody weekend)"
     
-    # All other times = no kids
     return False, "Home (solo)"
 
 def validate_whoop_token():
-    """Check if Whoop token is valid by making a test API call"""
+    """Check if Whoop token is valid"""
     try:
         import requests
         token_file = Path.home() / '.whoop_token'
@@ -257,178 +422,57 @@ def validate_whoop_token():
     except:
         return False
 
-def auto_refresh_whoop():
-    """Auto-refresh Whoop token if needed"""
-    try:
-        import requests
-        from pathlib import Path
-        
-        # Load config
-        with open('/home/ubuntu/.openclaw/workspace/config/whoop-config.json') as f:
-            config = json.load(f)
-        
-        # Load refresh token
-        refresh_token_path = Path.home() / '.whoop_refresh_token'
-        if not refresh_token_path.exists():
-            return False, "No refresh token"
-        
-        refresh_token = refresh_token_path.read_text().strip()
-        
-        # Exchange for new tokens
-        data = {
-            'grant_type': 'refresh_token',
-            'refresh_token': refresh_token,
-            'client_id': config['client_id'],
-            'client_secret': config['client_secret'],
-            'redirect_uri': config['redirect_uri']
-        }
-        
-        response = requests.post('https://api.prod.whoop.com/oauth/oauth2/token', data=data)
-        
-        if response.status_code == 200:
-            tokens = response.json()
-            
-            # Save access token
-            (Path.home() / '.whoop_token').write_text(tokens['access_token'])
-            
-            # Update credentials file
-            creds_file = Path.home() / '.openclaw/credentials/whoop-tokens.json'
-            with open(creds_file, 'w') as f:
-                json.dump(tokens, f, indent=2)
-            
-            # Update refresh token if provided
-            if 'refresh_token' in tokens:
-                (Path.home() / '.whoop_refresh_token').write_text(tokens['refresh_token'])
-            
-            return True, "Auto-refreshed"
-        else:
-            return False, f"Refresh failed: {response.status_code}"
-    except Exception as e:
-        return False, str(e)
-
-def get_google_reauth_links():
-    """Generate Google re-authorization links"""
-    import secrets
-    from urllib.parse import urlencode
-    
-    state = secrets.token_urlsafe(16)
-    
-    # Calendar link
-    calendar_params = {
-        'response_type': 'code',
-        'client_id': '[REDACTED]',
-        'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob',
-        'scope': 'https://www.googleapis.com/auth/calendar.readonly',
-        'state': state,
-        'access_type': 'offline',
-        'prompt': 'consent'
-    }
-    calendar_link = f"https://accounts.google.com/o/oauth2/auth?{urlencode(calendar_params)}"
-    
-    # Docs link
-    docs_params = {
-        'response_type': 'code',
-        'client_id': '[REDACTED]',
-        'redirect_uri': 'urn:ietf:wg:oauth:2.0:oob',
-        'scope': 'https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/drive.file',
-        'state': state,
-        'access_type': 'offline',
-        'prompt': 'consent'
-    }
-    docs_link = f"https://accounts.google.com/o/oauth2/auth?{urlencode(docs_params)}"
-    
-    return {'calendar': calendar_link, 'docs': docs_link}
-
-def run_token_health_check():
-    """Run token health check, auto-refresh Whoop, return summary with re-auth links"""
-    try:
-        result = subprocess.run(
-            ['python3', '/home/ubuntu/.openclaw/workspace/scripts/token_health_check.py'],
-            capture_output=True, text=True, timeout=30
-        )
-        output = result.stdout
-        
-        # Try to auto-refresh Whoop if expired
-        whoop_refreshed = False
-        if 'Whoop API' in output and ('expired' in output.lower() or '401' in output):
-            refreshed, msg = auto_refresh_whoop()
-            whoop_refreshed = refreshed
-        
-        # Parse the output
-        lines = output.split('\n')
-        critical_count = 0
-        warning_count = 0
-        issues = []
-        
-        for line in lines:
-            if 'Token Health Check' in line or 'CRITICAL' in line or 'Immediate action' in line:
-                continue
-            if line.strip().startswith('🔴'):
-                critical_count += 1
-                issues.append(line.strip())
-            elif line.strip().startswith('🟡') or line.strip().startswith('⚠️'):
-                warning_count += 1
-                issues.append(line.strip())
-        
-        # Get re-auth links for Google tokens
-        reauth_links = get_google_reauth_links()
-        
-        # Build summary
-        if whoop_refreshed:
-            summary = "✅ Whoop auto-refreshed"
-        elif critical_count > 0:
-            summary = f"🔴 {critical_count} issue{'s' if critical_count > 1 else ''} need attention"
-        elif warning_count > 0:
-            summary = f"🟡 {warning_count} warning{'s' if warning_count > 1 else ''}"
-        else:
-            summary = "✅ All tokens healthy"
-        
-        return {
-            'summary': summary,
-            'issues': issues,
-            'reauth_links': reauth_links,
-            'whoop_refreshed': whoop_refreshed
-        }
-    except Exception as e:
-        return {'summary': f"⚠️ Check failed: {str(e)}", 'issues': [], 'reauth_links': {}, 'whoop_refreshed': False}
-
 def get_whoop_recovery():
-    """Get latest Whoop recovery - only if token is valid"""
-    # First check if token is valid
+    """Get latest Whoop recovery"""
     if not validate_whoop_token():
         return None
+    
+    try:
+        import requests
+        token_file = Path.home() / '.whoop_token'
+        token = token_file.read_text().strip()
+        headers = {'Authorization': f'Bearer {token}'}
+        
+        response = requests.get(
+            'https://api.prod.whoop.com/developer/v2/recovery',
+            headers=headers,
+            params={'limit': 1},
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            data = response.json()
+            if data and 'records' in data and len(data['records']) > 0:
+                record = data['records'][0]
+                score = record.get('score', {})
+                return score.get('recovery_score')
+    except:
+        pass
     
     whoop_file = Path("/home/ubuntu/.openclaw/workspace/data/whoop/latest-summary.txt")
     if whoop_file.exists():
         try:
             with open(whoop_file, 'r') as f:
                 content = f.read()
-                import re
-                # Look for "Recovery:** XX%" (markdown bold format)
-                match = re.search(r'Recovery:\*\*\s*(\d+(?:\.\d+)?)%', content)
-                if match:
-                    return int(float(match.group(1)))
+            match = re.search(r'Recovery:\*\*\s*(\d+(?:\.\d+)?)%', content)
+            if match:
+                return int(float(match.group(1)))
         except:
             pass
     return None
 
 def get_latest_weight():
-    """Get latest weight from tracker - parse from table"""
+    """Get latest weight from tracker"""
     weight_file = Path("/home/ubuntu/.openclaw/workspace/memory/weight-loss-2026.md")
     if weight_file.exists():
         try:
             with open(weight_file, 'r') as f:
                 content = f.read()
-            import re
-            # Look for weight table entries: | Mar 22 | 237.0 | ...
-            # Pattern: | Date | Weight | ...
             table_rows = re.findall(r'\|\s*(\w{3,4}\s+\d{1,2})\s*\|\s*(\d{3}(?:\.\d)?)\s*\|', content)
             if table_rows:
-                # Get the last (most recent) entry
                 latest = table_rows[-1]
-                return float(latest[1]), table_rows  # Return all rows for trend analysis
-        except Exception as e:
-            print(f"Error parsing weight: {e}")
+                return float(latest[1]), table_rows
+        except:
             pass
     return None, []
 
@@ -441,30 +485,22 @@ def get_weight_trend():
     try:
         with open(weight_file, 'r') as f:
             content = f.read()
-        import re
         table_rows = re.findall(r'\|\s*(\w{3,4}\s+\d{1,2})\s*\|\s*(\d{3}(?:\.\d)?)\s*\|\s*([\+\-]?\d+\.?\d*)?\s*\|', content)
         
         if len(table_rows) < 2:
             return None
         
-        # Get first and last weights
         start_weight = float(table_rows[0][1])
         latest_weight = float(table_rows[-1][1])
         total_lost = start_weight - latest_weight
         
-        # Calculate 7-day trend if we have enough data
         week_trend = None
         if len(table_rows) >= 7:
             week_ago = float(table_rows[-7][1])
             week_trend = week_ago - latest_weight
         
-        # Calculate pace
-        # Estimate weeks since start (approximate from row count)
-        weeks = len(table_rows) / 7  # Rough estimate
-        if weeks > 0:
-            pace = total_lost / weeks
-        else:
-            pace = 0
+        weeks = len(table_rows) / 7
+        pace = total_lost / weeks if weeks > 0 else 0
         
         return {
             'start': start_weight,
@@ -472,12 +508,11 @@ def get_weight_trend():
             'total_lost': total_lost,
             'week_trend': week_trend,
             'pace': pace,
-            'goal': 20,  # 20 lb goal
+            'goal': 20,
             'remaining': 20 - total_lost,
             'entries': len(table_rows)
         }
-    except Exception as e:
-        print(f"Error calculating weight trend: {e}")
+    except:
         return None
 
 def get_whoop_trend():
@@ -487,11 +522,10 @@ def get_whoop_trend():
         return None
     
     try:
-        # Get all JSON files sorted by date
         json_files = sorted(whoop_dir.glob("whoop-*.json"))
-        
         recovery_data = []
-        for f in json_files[-7:]:  # Last 7 days
+        
+        for f in json_files[-7:]:
             try:
                 with open(f, 'r') as file:
                     data = json.load(file)
@@ -509,7 +543,6 @@ def get_whoop_trend():
         if not recovery_data:
             return None
         
-        # Calculate trend
         scores = [d['score'] for d in recovery_data if d['score']]
         if not scores:
             return None
@@ -517,7 +550,6 @@ def get_whoop_trend():
         avg_recovery = sum(scores) / len(scores)
         latest = scores[-1] if scores else 0
         
-        # Trend direction
         if len(scores) >= 3:
             trend = "improving" if scores[-1] > scores[-3] else "declining" if scores[-1] < scores[-3] else "stable"
         else:
@@ -530,131 +562,8 @@ def get_whoop_trend():
             'days_tracked': len(scores),
             'data': recovery_data
         }
-    except Exception as e:
-        print(f"Error getting Whoop trend: {e}")
-        return None
-
-def generate_health_recommendations(weight_trend, whoop_trend, checkin_type):
-    """Generate actionable health recommendations based on trends"""
-    recommendations = []
-    
-    # Weight recommendations
-    if weight_trend:
-        if weight_trend['pace'] < 1.0:
-            recommendations.append({
-                'priority': 'high',
-                'category': 'Weight Loss',
-                'action': 'Increase daily protein to 180g and reduce carbs to 20%',
-                'why': f'Current pace ({weight_trend["pace"]:.1f} lbs/week) is below target (1.5-2.0 lbs/week)'
-            })
-        
-        if weight_trend['remaining'] > 15:
-            recommendations.append({
-                'priority': 'medium',
-                'category': 'Weight Loss',
-                'action': 'Add 10-min morning walk before breakfast',
-                'why': f'{weight_trend["remaining"]:.1f} lbs remaining — small daily habits compound'
-            })
-    
-    # Whoop/Sleep recommendations
-    if whoop_trend:
-        if whoop_trend['latest'] < 50:
-            recommendations.append({
-                'priority': 'high',
-                'category': 'Recovery',
-                'action': 'Prioritize 8+ hours sleep tonight — skip evening screen time',
-                'why': f'Recovery at {whoop_trend["latest"]}% — body needs rest'
-            })
-        elif whoop_trend['latest'] < 70:
-            recommendations.append({
-                'priority': 'medium',
-                'category': 'Recovery',
-                'action': 'Light activity only today — walking, stretching, no intense workout',
-                'why': f'Moderate recovery ({whoop_trend["latest"]}%) — avoid overtraining'
-            })
-        
-        if whoop_trend['trend'] == 'declining':
-            recommendations.append({
-                'priority': 'high',
-                'category': 'Sleep',
-                'action': 'Review sleep hygiene — consistent bedtime, cool room, no alcohol',
-                'why': 'Recovery trend declining over past 3 days'
-            })
-    else:
-        # Whoop token issue
-        recommendations.append({
-            'priority': 'high',
-            'category': 'Setup',
-            'action': 'Re-authorize Whoop connection — token expired',
-            'why': 'No recovery data available — need fresh OAuth token'
-        })
-    
-    # Time-of-day specific recommendations
-    if checkin_type == 'morning':
-        recommendations.append({
-            'priority': 'medium',
-            'category': 'Morning Routine',
-            'action': 'Weigh-in, check Whoop, drink 16oz water, log breakfast in Lose It!',
-            'why': 'Consistent morning habits drive daily success'
-        })
-    elif checkin_type == 'evening':
-        recommendations.append({
-            'priority': 'medium',
-            'category': 'Evening Routine',
-            'action': 'Log dinner, review tomorrow\'s schedule, set bedtime alarm',
-            'why': 'Preparation prevents poor evening decisions'
-        })
-    
-    return recommendations
-
-def get_system_status():
-    """Get system health status"""
-    status = {
-        'calendar': 'Unknown',
-        'whoop': 'Unknown',
-        'email': 'Unknown',
-        'cron_jobs': []
-    }
-    
-    # Check token health
-    token_file = Path("/home/ubuntu/.openclaw/workspace/logs/token-health.json")
-    if token_file.exists():
-        try:
-            with open(token_file, 'r') as f:
-                data = json.load(f)
-                for result in data.get('results', []):
-                    message = result.get('message', '')
-                    is_healthy = result.get('status') == 'healthy'
-                    if 'Google Calendar' in message:
-                        status['calendar'] = '✅ Healthy' if is_healthy else '❌ Issue'
-                    elif 'Whoop API' in message and 'Refresh' not in message:
-                        status['whoop'] = '✅ Healthy' if is_healthy else '❌ Issue'
-                    elif 'Gmail' in message:
-                        status['email'] = '✅ Healthy' if is_healthy else '❌ Issue'
-        except:
-            pass
-    
-    # Check cron jobs
-    try:
-        result = subprocess.run(['crontab', '-l'], capture_output=True, text=True, timeout=10)
-        if result.returncode == 0:
-            cron_lines = result.stdout.strip().split('\n')
-            active_jobs = []
-            for line in cron_lines:
-                if line.strip() and not line.startswith('#'):
-                    if 'heartbeat' in line:
-                        active_jobs.append('Heartbeat')
-                    elif 'competitor' in line:
-                        active_jobs.append('Competitive Intel')
-                    elif 'whoop' in line:
-                        active_jobs.append('Whoop Fetch')
-                    elif 'calendar' in line:
-                        active_jobs.append('Calendar Sync')
-            status['cron_jobs'] = active_jobs if active_jobs else ['None found']
     except:
-        status['cron_jobs'] = ['Error checking']
-    
-    return status
+        return None
 
 def get_calendar_data():
     """Get calendar events"""
@@ -682,7 +591,7 @@ def get_calendar_data():
         return [], []
 
 def get_all_calendar_events():
-    """Get all calendar events for hotel/birthday detection"""
+    """Get all calendar events"""
     calendar_file = Path("/home/ubuntu/.openclaw/workspace/config/calendar-events.json")
     if not calendar_file.exists():
         return []
@@ -695,29 +604,25 @@ def get_all_calendar_events():
         return []
 
 def detect_location_and_travel(calendar_events, all_events=None):
-    """Detect current location and upcoming travel - includes custody status and hotel stays"""
+    """Detect current location and upcoming travel"""
     pt_now = get_pt_time()
     today_str = pt_now.strftime('%A, %B %d')
     today_date = pt_now.date()
     
-    # Default: Home in Calabasas/LA
     location = "Calabasas"
     state = "CA"
     status = "Home"
     upcoming_flight = None
     has_travel_today = False
     
-    # Use all_events if provided, otherwise fall back to calendar_events
     events_to_check = all_events if all_events else calendar_events
     
-    # First, check if we're currently at a hotel (determines location even without flights today)
+    # Check for hotel stays
     for event in events_to_check:
         summary = event.get('summary', '').lower()
         location_field = event.get('location', '').lower()
         
-        # Check for hotel stays
         if any(keyword in summary for keyword in ['stay at', 'hotel', 'marriott', 'hilton', 'hyatt', 'westin', 'ritz']):
-            # Parse hotel dates
             start_str = event.get('start_raw', '')
             try:
                 if 'T' in start_str:
@@ -725,27 +630,20 @@ def detect_location_and_travel(calendar_events, all_events=None):
                 else:
                     start_date = datetime.strptime(start_str, '%Y-%m-%d').date()
                 
-                # Hotel stays are typically multi-day, assume checkout is next day or we need to find it
-                # For now, assume we're at the hotel on the start date and day after
-                # Check if today is during the hotel stay
+                checkout_date = start_date + timedelta(days=4)
                 
-                # Try to find checkout date from description or assume 1-4 days
-                checkout_date = start_date + timedelta(days=4)  # Default assumption
-                
-                # Check if today falls within hotel stay
                 if start_date <= today_date <= checkout_date:
-                    # Determine location from hotel name/location
-                    if 'new york' in summary or 'times square' in summary or 'westin' in summary and 'new york' in location_field:
+                    if 'new york' in summary or 'times square' in summary:
                         location = "New York City"
                         state = "NY"
                         status = "Staying in NYC"
-                        has_travel_today = True  # Mark as travel to skip custody check
+                        has_travel_today = True
                     elif 'tahoe' in summary or 'ritz' in summary and 'tahoe' in location_field:
                         location = "Lake Tahoe"
                         state = "CA"
                         status = "Staying in Tahoe"
                         has_travel_today = True
-                    elif 'palo alto' in summary or 'westin' in summary and 'palo alto' in location_field:
+                    elif 'palo alto' in summary:
                         location = "Palo Alto"
                         state = "CA"
                         status = "Staying in Palo Alto"
@@ -755,10 +653,20 @@ def detect_location_and_travel(calendar_events, all_events=None):
                         state = "CA"
                         status = "Staying in SF"
                         has_travel_today = True
+                    elif 'scottsdale' in summary or 'phoenix' in summary:
+                        location = "Scottsdale"
+                        state = "AZ"
+                        status = "Staying in Scottsdale"
+                        has_travel_today = True
+                    elif 'portland' in summary:
+                        location = "Portland"
+                        state = "OR"
+                        status = "Staying in Portland"
+                        has_travel_today = True
             except:
                 pass
     
-    # Check for flights today (departures/arrivals)
+    # Check for flights today
     for event in calendar_events:
         if not event.get('is_travel'):
             continue
@@ -771,34 +679,21 @@ def detect_location_and_travel(calendar_events, all_events=None):
             if is_today:
                 has_travel_today = True
                 if 'jfk' in summary or 'new york' in summary or 'lga' in summary:
-                    upcoming_flight = {
-                        'route': 'LAX → JFK',
-                        'time': event.get('start', 'TBD'),
-                        'type': 'departure'
-                    }
+                    upcoming_flight = {'route': 'LAX → JFK', 'time': event.get('start', 'TBD'), 'type': 'departure'}
                     status = "Traveling to NYC"
                     location = "New York City"
                     state = "NY"
                 elif 'lax' in summary or 'los angeles' in summary:
-                    upcoming_flight = {
-                        'route': '→ LAX',
-                        'time': event.get('start', 'TBD'),
-                        'type': 'arrival'
-                    }
+                    upcoming_flight = {'route': '→ LAX', 'time': event.get('start', 'TBD'), 'type': 'arrival'}
                     status = "Returning to LA"
                     location = "Los Angeles"
                     state = "CA"
                 elif 'sfo' in summary or 'san francisco' in summary:
-                    upcoming_flight = {
-                        'route': '→ SFO',
-                        'time': event.get('start', 'TBD'),
-                        'type': 'arrival'
-                    }
+                    upcoming_flight = {'route': '→ SFO', 'time': event.get('start', 'TBD'), 'type': 'arrival'}
                     status = "Traveling to SF"
                     location = "San Francisco"
                     state = "CA"
     
-    # If no travel today or hotel stay, check custody schedule
     if not has_travel_today:
         has_kids, custody_status = get_custody_status(pt_now, calendar_events)
         if has_kids:
@@ -814,263 +709,15 @@ def detect_location_and_travel(calendar_events, all_events=None):
         'has_kids': get_custody_status(pt_now, calendar_events)[0]
     }
 
-def get_week_travel_destinations(all_events, pt_now):
-    """Get list of cities being traveled to in the next 7 days"""
-    destinations = []
-    
-    for i in range(7):
-        day = pt_now + timedelta(days=i)
-        day_str = day.strftime('%A, %B %d')
-        
-        for event in all_events:
-            if not event.get('is_travel'):
-                continue
-            
-            event_date = event.get('start', '')
-            if day_str not in event_date:
-                continue
-            
-            summary = event.get('summary', '').lower()
-            location = event.get('location', '').lower()
-            
-            # Detect destination city
-            if 'jfk' in summary or 'new york' in summary or 'lga' in summary or 'nyc' in location:
-                if 'New York' not in [d['name'] for d in destinations]:
-                    destinations.append({'name': 'New York', 'code': 'New+York'})
-            elif 'lax' in summary or 'los angeles' in summary:
-                if 'Los Angeles' not in [d['name'] for d in destinations]:
-                    destinations.append({'name': 'Los Angeles', 'code': 'Los+Angeles'})
-            elif 'atl' in summary or 'atlanta' in summary:
-                if 'Atlanta' not in [d['name'] for d in destinations]:
-                    destinations.append({'name': 'Atlanta', 'code': 'Atlanta'})
-            elif 'sfo' in summary or 'san francisco' in summary:
-                if 'San Francisco' not in [d['name'] for d in destinations]:
-                    destinations.append({'name': 'San Francisco', 'code': 'San+Francisco'})
-            elif 'phx' in summary or 'phoenix' in summary or 'scottsdale' in summary:
-                if 'Scottsdale' not in [d['name'] for d in destinations]:
-                    destinations.append({'name': 'Scottsdale', 'code': 'Scottsdale'})
-            elif 'pdx' in summary or 'portland' in summary:
-                if 'Portland' not in [d['name'] for d in destinations]:
-                    destinations.append({'name': 'Portland', 'code': 'Portland'})
-    
-    # Always include LA and NYC as defaults if no travel detected
-    if not destinations:
-        destinations = [
-            {'name': 'Los Angeles', 'code': 'Los+Angeles'},
-            {'name': 'New York', 'code': 'New+York'}
-        ]
-    
-    return destinations
-
-def get_upcoming_trips_for_packing(all_events, pt_now):
-    """Get upcoming trips with weather info for packing decisions"""
-    trips = []
-    
-    for event in all_events:
-        if not event.get('is_travel'):
-            continue
-        
-        # Parse event date
-        event_date_str = event.get('start_raw', '')
-        try:
-            if 'T' in event_date_str:
-                event_date = datetime.fromisoformat(event_date_str.replace('Z', '+00:00'))
-                event_date = event_date.replace(tzinfo=None)
-            else:
-                event_date = datetime.strptime(event_date_str, '%Y-%m-%d')
-        except:
-            continue
-        
-        # Only show trips in next 14 days
-        days_until = (event_date - pt_now.replace(tzinfo=None)).days
-        if days_until < 0 or days_until > 14:
-            continue
-        
-        summary = event.get('summary', '').lower()
-        location = event.get('location', '').lower()
-        
-        # Determine destination
-        destination = None
-        weather_code = None
-        if 'jfk' in summary or 'new york' in summary or 'lga' in summary or 'nyc' in location:
-            destination = 'New York'
-            weather_code = 'New+York'
-        elif 'lax' in summary or 'los angeles' in summary:
-            destination = 'Los Angeles'
-            weather_code = 'Los+Angeles'
-        elif 'atl' in summary or 'atlanta' in summary:
-            destination = 'Atlanta'
-            weather_code = 'Atlanta'
-        elif 'sfo' in summary or 'san francisco' in summary:
-            destination = 'San Francisco'
-            weather_code = 'San+Francisco'
-        elif 'phx' in summary or 'phoenix' in summary or 'scottsdale' in summary:
-            destination = 'Scottsdale'
-            weather_code = 'Scottsdale'
-        elif 'pdx' in summary or 'portland' in summary:
-            destination = 'Portland'
-            weather_code = 'Portland'
-        elif 'fll' in summary or 'fort lauderdale' in summary or 'miami' in summary:
-            destination = 'Fort Lauderdale'
-            weather_code = 'Fort+Lauderdale'
-        elif 'pbi' in summary or 'west palm beach' in summary:
-            destination = 'West Palm Beach'
-            weather_code = 'West+Palm+Beach'
-        
-        if destination and weather_code:
-            # Get weather for destination
-            weather = get_weather(weather_code)
-            
-            trips.append({
-                'destination': destination,
-                'date': event.get('start', 'TBD'),
-                'weather': weather,
-                'days_until': days_until,
-                'type': 'flight' if 'flight' in summary else 'hotel'
-            })
-    
-    # Sort by date
-    trips.sort(key=lambda x: x['days_until'])
-    return trips
-
-def get_pending_travel_tasks():
-    """Get pending travel tasks from Todoist with due dates - sorted by urgency"""
-    try:
-        # Get tasks from Travel project
-        result = subprocess.run(
-            ['todoist', 'tasks', '--project', 'Travel'],
-            capture_output=True,
-            text=True,
-            timeout=30
-        )
-        if result.returncode == 0:
-            tasks = []
-            for line in result.stdout.strip().split('\n'):
-                if line.strip():
-                    # Parse task line - format: ID  Task content (date)
-                    parts = line.strip().split('  ', 1)
-                    if len(parts) > 1:
-                        task_text = parts[1]
-                        # Extract due date from parentheses if present
-                        date_match = re.search(r'\s*\(([^)]+)\)\s*$', task_text)
-                        due_date = date_match.group(1) if date_match else 'No date'
-                        # Remove date suffix from display text
-                        display_text = re.sub(r'\s*\([^)]+\)\s*$', '', task_text)
-                        # Only include Rover, Hotel, Uber, Pack tasks (not check-in/boarding pass)
-                        if any(keyword in display_text for keyword in ['ROVER', 'HOTEL:', 'UBER:', 'PACK:', 'CONFIRM:', 'RESEARCH:', 'DINNER:', '🐕', '🏨', '🚗', '🎒', '🍽️', '📋']):
-                            tasks.append({
-                                'text': display_text,
-                                'due': due_date
-                            })
-            return tasks[:7]  # Return top 7 tasks
-    except Exception as e:
-        print(f"Error fetching travel tasks: {e}", file=sys.stderr)
-    return []
-
-def get_today_events_detailed(pt_now, all_events):
-    """Get detailed breakdown of today's events by category"""
-    today_str = pt_now.strftime('%A, %B %d')
-    
-    result = {
-        'flights': [],
-        'hotels': [],
-        'important': [],
-        'meetings': []
-    }
-    
-    for event in all_events:
-        event_date = event.get('start', '')
-        if today_str not in event_date:
-            continue
-        
-        summary = event.get('summary', '').lower()
-        location = event.get('location', '').lower()
-        
-        # Detect flights
-        if 'flight' in summary:
-            flight_info = {
-                'time': event.get('start', 'TBD'),
-                'route': 'TBD',
-                'details': event.get('location', '')
-            }
-            if 'jfk' in summary or 'new york' in summary or 'lga' in summary:
-                flight_info['route'] = 'LAX → JFK'
-            elif 'lax' in summary or 'los angeles' in summary:
-                flight_info['route'] = '→ LAX'
-            elif 'atl' in summary or 'atlanta' in summary:
-                flight_info['route'] = '→ ATL'
-            elif 'sfo' in summary or 'san francisco' in summary:
-                flight_info['route'] = '→ SFO'
-            result['flights'].append(flight_info)
-        
-        # Detect hotels - check both summary and description for hotel keywords
-        elif any(word in summary for word in ['hotel', 'stay at', 'check-in', 'checkout', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'algonquin', 'moxy', 'jw marriott']):
-            # Extract hotel name from summary
-            hotel_name = event.get('summary', '')
-            # Clean up common prefixes
-            for prefix in ['Stay at ', 'Hotel: ', 'Geoffrey Clapp - ', 'Mac Spring Break: ']:
-                hotel_name = hotel_name.replace(prefix, '')
-            # Clean up confirmation numbers (8+ digit numbers)
-            hotel_name = re.sub(r'\d{8,}', '', hotel_name).strip()
-            # Clean up trailing commas
-            hotel_name = hotel_name.rstrip(',').strip()
-            
-            result['hotels'].append({
-                'name': hotel_name,
-                'location': event.get('location', ''),
-                'raw_summary': event.get('summary', '')
-            })
-        
-        # Detect important dates (birthdays, anniversaries)
-        elif any(word in summary for word in ['birthday', 'anniversary', 'graduation']):
-            event_type = 'Birthday' if 'birthday' in summary else 'Anniversary' if 'anniversary' in summary else 'Event'
-            name = event.get('summary', '').replace('birthday', '').replace('Birthday', '').strip()
-            result['important'].append({
-                'type': event_type,
-                'name': name,
-                'note': event.get('description', '')[:100]
-            })
-    
-    return result
-
-def get_day_events(day_date, all_events):
-    """Get event indicators for a specific day"""
-    day_str = day_date.strftime('%A, %B %d')
-    
-    result = {
-        'flight': False,
-        'hotel': False,
-        'birthday': False,
-        'travel': False
-    }
-    
-    for event in all_events:
-        event_date = event.get('start', '')
-        if day_str not in event_date:
-            continue
-        
-        summary = event.get('summary', '').lower()
-        
-        if 'flight' in summary:
-            result['flight'] = True
-            result['travel'] = True
-        elif any(word in summary for word in ['hotel', 'stay at', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'algonquin', 'moxy', 'jw marriott']):
-            result['hotel'] = True
-            result['travel'] = True
-        elif 'birthday' in summary:
-            result['birthday'] = True
-    
-    return result
-
 def get_week_events_detailed(pt_now, all_events, days=7):
-    """Get detailed events for the next N days with full event information"""
+    """Get detailed events for the next N days with dinner reservations"""
     week_events = []
     
-    # First, collect all hotel stays with their date ranges
+    # Collect hotel stays
     hotel_stays = []
     for event in all_events:
         summary = event.get('summary', '').lower()
-        if any(word in summary for word in ['hotel', 'stay at', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'algonquin', 'moxy', 'jw marriott', 'westin', 'ritz']):
+        if any(word in summary for word in ['hotel', 'stay at', 'marriott', 'hilton', 'hyatt', 'fairfield', 'courtyard', 'westin', 'ritz']):
             start_str = event.get('start_raw', '')
             try:
                 if 'T' in start_str:
@@ -1078,39 +725,22 @@ def get_week_events_detailed(pt_now, all_events, days=7):
                 else:
                     check_in = datetime.strptime(start_str, '%Y-%m-%d').date()
                 
-                # Determine checkout date and location from hotel name
-                summary_original = event.get('summary', '')
-                hotel_name = summary_original
-                for prefix in ['Stay at ', 'Hotel: ', 'Geoffrey Clapp - ', 'Mac Spring Break: ']:
-                    hotel_name = hotel_name.replace(prefix, '')
-                import re as re_module
-                hotel_name = re_module.sub(r'\d{8,}', '', hotel_name).strip()
-                hotel_name = hotel_name.rstrip(',').strip()
-                
-                # Determine location and typical stay duration
-                location = 'Unknown'
-                stay_days = 4  # Default
-                
-                if 'new york' in summary or 'times square' in summary:
-                    location = 'NYC'
-                    stay_days = 4  # May 17-21
-                elif 'tahoe' in summary or 'ritz' in summary and 'tahoe' in summary:
-                    location = 'Tahoe'
-                    stay_days = 3  # May 22-25
+                stay_days = 4
+                if 'new york' in summary:
+                    stay_days = 4
+                elif 'tahoe' in summary:
+                    stay_days = 3
                 elif 'palo alto' in summary:
-                    location = 'Palo Alto'
                     stay_days = 2
-                elif 'san francisco' in summary or 'sf' in summary:
-                    location = 'San Francisco'
+                elif 'san francisco' in summary:
                     stay_days = 2
                 
                 checkout = check_in + timedelta(days=stay_days)
                 
                 hotel_stays.append({
-                    'name': hotel_name,
+                    'name': event.get('summary', '').replace('Stay at ', '').replace('Hotel: ', '')[:50],
                     'check_in': check_in,
                     'checkout': checkout,
-                    'location': location,
                     'raw_event': event
                 })
             except:
@@ -1126,25 +756,22 @@ def get_week_events_detailed(pt_now, all_events, days=7):
             'date_str': day_str,
             'flights': [],
             'hotels': [],
+            'dinners': [],
             'important': [],
             'is_today': i == 0
         }
         
-        # Check if this day falls within any hotel stay
+        # Check hotel stays
         for stay in hotel_stays:
             if stay['check_in'] <= day_date < stay['checkout']:
-                # Determine if this is check-in day or ongoing stay
                 is_checkin = day_date == stay['check_in']
                 stay_text = f"🏨 {stay['name']}"
                 if is_checkin:
                     stay_text = f"🏨 CHECK-IN: {stay['name']}"
                 
-                # Avoid duplicates
                 if not any(h['name'] == stay['name'] for h in day_info['hotels']):
                     day_info['hotels'].append({
                         'name': stay_text,
-                        'location': stay['raw_event'].get('location', ''),
-                        'raw_summary': stay['raw_event'].get('summary', ''),
                         'is_checkin': is_checkin
                     })
         
@@ -1154,127 +781,160 @@ def get_week_events_detailed(pt_now, all_events, days=7):
                 continue
             
             summary = event.get('summary', '').lower()
-            location = event.get('location', '').lower()
             summary_original = event.get('summary', '')
+            location = event.get('location', '')
             
-            # Detect flights - check for 'flight' keyword OR airline patterns
-            is_flight = False
-            if 'flight' in summary:
-                is_flight = True
-            elif 'delta air lines' in summary:
-                is_flight = True
-            elif 'united' in summary:
-                is_flight = True
-            elif 'american airlines' in summary:
-                is_flight = True
-            elif __import__('re').search(r'\b(dl|ua|aa|wn|b6|as)\s*\d+', summary):
-                is_flight = True
-            
+            # Detect flights
+            is_flight = 'flight' in summary or 'delta air lines' in summary or 'united' in summary
             if is_flight:
-                flight_info = {
-                    'time': event.get('start', 'TBD'),
-                    'route': 'TBD',
-                    'details': event.get('location', ''),
-                    'summary': summary_original
-                }
-                # Check location field for route (e.g., "New York(JFK) - Los Angeles(LAX)")
-                location_field = event.get('location', '').lower()
+                flight_info = {'time': event.get('start', 'TBD'), 'route': 'TBD', 'details': location}
                 
-                if 'jfk' in summary or 'new york' in summary or 'lga' in summary or 'ewr' in summary:
-                    if 'lax' in location_field or 'los angeles' in location_field:
-                        flight_info['route'] = 'LAX → JFK'
-                    else:
-                        flight_info['route'] = '→ NYC'
+                if 'jfk' in summary or 'new york' in summary:
+                    flight_info['route'] = '→ NYC'
                 elif 'lax' in summary or 'los angeles' in summary:
-                    if 'jfk' in location_field or 'new york' in location_field:
-                        flight_info['route'] = 'JFK → LAX'
-                    else:
-                        flight_info['route'] = '→ LAX'
-                elif 'atl' in summary or 'atlanta' in summary:
-                    flight_info['route'] = '→ ATL'
+                    flight_info['route'] = '→ LAX'
                 elif 'sfo' in summary or 'san francisco' in summary:
                     flight_info['route'] = '→ SFO'
-                elif 'rno' in summary or 'reno' in summary or 'tahoe' in summary:
-                    flight_info['route'] = '→ RNO'
-                elif 'sjc' in summary or 'san jose' in summary:
-                    flight_info['route'] = '→ SJC'
                 elif 'pdx' in summary or 'portland' in summary:
                     flight_info['route'] = '→ PDX'
+                elif 'phx' in summary or 'phoenix' in summary or 'scottsdale' in summary:
+                    flight_info['route'] = '→ PHX'
                 else:
-                    # Try to extract from location field if it has "X - Y" format
-                    if '-' in location_field:
-                        # Look for airport codes in parentheses like "New York(JFK)"
-                        import re
-                        airport_codes = re.findall(r'\(([a-z]{3})\)', location_field.lower())
-                        if len(airport_codes) >= 2:
-                            origin = airport_codes[0].upper()
-                            dest = airport_codes[1].upper()
-                            flight_info['route'] = f'{origin} → {dest}'
-                        else:
-                            parts = location_field.split('-')
-                            if len(parts) == 2:
-                                origin = parts[0].strip()[:3].upper()
-                                dest = parts[1].strip()[:3].upper()
-                                flight_info['route'] = f'{origin} → {dest}'
-                            else:
-                                flight_info['route'] = summary_original[:50]
-                    else:
-                        flight_info['route'] = summary_original[:50]
+                    flight_info['route'] = summary_original[:40]
                 
                 day_info['flights'].append(flight_info)
             
-            # Detect important dates (not hotels - those are handled above)
+            # Detect dinner reservations
+            elif any(word in summary for word in ['dinner', 'reservation', 'restaurant']):
+                # Extract restaurant name - remove common prefixes
+                restaurant = summary_original
+                for prefix in ['Dinner at ', 'Dinner - ', 'Reservation at ', 'Dinner with ', 'Dinner: ']:
+                    restaurant = restaurant.replace(prefix, '')
+                
+                # Try to extract time from location or summary
+                time_str = "TBD"
+                time_match = re.search(r'(\d{1,2}:\d{2})', location) or re.search(r'(\d{1,2}:\d{2})', summary_original)
+                if time_match:
+                    time_str = time_match.group(1)
+                elif 'pm' in summary:
+                    pm_match = re.search(r'(\d{1,2})\s*pm', summary, re.IGNORECASE)
+                    if pm_match:
+                        time_str = f"{pm_match.group(1)}:00 PM"
+                elif 'am' in summary:
+                    am_match = re.search(r'(\d{1,2})\s*am', summary, re.IGNORECASE)
+                    if am_match:
+                        time_str = f"{am_match.group(1)}:00 AM"
+                
+                # Try to extract people - multiple patterns
+                people = []
+                summary_lower = summary_original.lower()
+                
+                # Pattern 1: "Dinner with [Name] at [Restaurant]"
+                if 'with ' in summary_lower and ' at ' in summary_lower:
+                    with_match = re.search(r'with\s+(.+?)\s+at\s+', summary_original, re.IGNORECASE)
+                    if with_match:
+                        people_str = with_match.group(1).strip()
+                        # Split by common separators
+                        people = [p.strip() for p in re.split(r',|\s+and\s+', people_str) if p.strip()]
+                
+                # Pattern 2: "Dinner at [Restaurant] with [Name]"
+                elif ' at ' in summary_lower and 'with ' in summary_lower:
+                    with_match = re.search(r'with\s+(.+)$', summary_original, re.IGNORECASE)
+                    if with_match:
+                        people_str = with_match.group(1).strip()
+                        # Remove trailing punctuation
+                        people_str = re.sub(r'[\-–].*$', '', people_str).strip()
+                        people = [p.strip() for p in re.split(r',|\s+and\s+', people_str) if p.strip()]
+                
+                # Pattern 3: Just "with [Name]" anywhere
+                elif 'with ' in summary_lower:
+                    with_match = re.search(r'with\s+(.+?)(?:\s*[\-–]|\s+at\s+|\s*$)', summary_original, re.IGNORECASE)
+                    if with_match:
+                        people_str = with_match.group(1).strip()
+                        people = [p.strip() for p in re.split(r',|\s+and\s+', people_str) if p.strip()]
+                
+                # Clean up restaurant name - remove "with [people]" part if it's still there
+                for person in people:
+                    restaurant = re.sub(rf'\s+with\s+{re.escape(person)}.*$', '', restaurant, flags=re.IGNORECASE)
+                    restaurant = re.sub(rf'\s*{re.escape(person)}.*$', '', restaurant, flags=re.IGNORECASE)
+                restaurant = re.sub(r'\s+with\s+.*$', '', restaurant, flags=re.IGNORECASE)
+                restaurant = restaurant.strip()
+                
+                day_info['dinners'].append({
+                    'restaurant': restaurant[:50],
+                    'time': time_str,
+                    'people': people,
+                    'location': location[:50] if location else ''
+                })
+            
+            # Detect important dates
             elif any(word in summary for word in ['birthday', 'anniversary', 'graduation']):
                 event_type = 'Birthday' if 'birthday' in summary else 'Anniversary' if 'anniversary' in summary else 'Event'
                 name = summary_original.replace('birthday', '').replace('Birthday', '').strip()
-                day_info['important'].append({
-                    'type': event_type,
-                    'name': name,
-                    'note': event.get('description', '')[:100]
-                })
+                day_info['important'].append({'type': event_type, 'name': name})
         
-        # Only add day if it has events
-        if day_info['flights'] or day_info['hotels'] or day_info['important']:
+        if day_info['flights'] or day_info['hotels'] or day_info['dinners'] or day_info['important']:
             week_events.append(day_info)
     
     return week_events
 
 def generate_html_email(checkin_type, pt_now):
-    """Generate HTML check-in using the locked format from March 22, 2026"""
+    """Generate professional HTML check-in email with requested changes"""
     
     today_str = pt_now.strftime('%A, %B %d, %Y')
     today_events, travel_events = get_calendar_data()
-    # Get all events for hotel/birthday detection (not just travel events)
     all_events = get_all_calendar_events()
     location_info = detect_location_and_travel(travel_events, all_events)
     
-    # Get weather for current location + travel destinations
-    # Always include current location first
-    weather_cities = []
+    # Get weather data
+    current_location = location_info['city']
+    current_state = location_info['state']
     
-    # Current location based on custody/travel status
-    if location_info['city'] == 'New York City':
-        weather_cities.append({'name': 'New York', 'code': 'New+York'})
-    elif location_info['city'] == 'San Francisco':
-        weather_cities.append({'name': 'San Francisco', 'code': 'San+Francisco'})
-    elif location_info['city'] == 'Atlanta':
-        weather_cities.append({'name': 'Atlanta', 'code': 'Atlanta'})
-    else:
-        # Default to LA/Calabasas
-        weather_cities.append({'name': 'Calabasas', 'code': 'Los+Angeles'})
+    # Build weather section - current location + 2-day forecast
+    weather_data = []
     
-    # Add travel destinations for the week (excluding current location if already included)
-    week_destinations = get_week_travel_destinations(travel_events, pt_now)
-    current_names = [c['name'] for c in weather_cities]
-    for dest in week_destinations[:3]:  # Max 3 additional destinations
-        if dest['name'] not in current_names:
-            weather_cities.append(dest)
+    # Current location weather codes
+    location_codes = {
+        'Calabasas': 'Los+Angeles',
+        'Los Angeles': 'Los+Angeles',
+        'New York City': 'New+York',
+        'San Francisco': 'San+Francisco',
+        'Lake Tahoe': 'South+Lake+Tahoe',
+        'Palo Alto': 'Palo+Alto',
+        'Scottsdale': 'Scottsdale',
+        'Portland': 'Portland+OR'
+    }
     
-    # Fetch weather for all cities
-    destination_weather = []
-    for city in weather_cities[:4]:  # Max 4 total
-        weather = get_weather(city['code'])
-        destination_weather.append({'name': city['name'], 'weather': weather})
+    current_code = location_codes.get(current_location, 'Los+Angeles')
+    
+    # Get detailed weather for all locations
+    weather_data = []
+    
+    # Current location weather (with humidity and precip)
+    current_weather_detailed = get_weather_detailed(current_code)
+    weather_data.append({
+        'location': f"{current_location} (You are here)",
+        'weather': current_weather_detailed,
+        'is_primary': True
+    })
+    
+    # Add Calabasas (if not current location)
+    if current_location != 'Calabasas':
+        calabasas_weather = get_weather_detailed('Los+Angeles')
+        weather_data.append({
+            'location': 'Calabasas (Home)',
+            'weather': calabasas_weather,
+            'is_primary': False
+        })
+    
+    # Add NYC (if not current location)
+    if current_location != 'New York City':
+        nyc_weather = get_weather_detailed('New+York')
+        weather_data.append({
+            'location': 'New York City',
+            'weather': nyc_weather,
+            'is_primary': False
+        })
     
     # Get other data
     todoist_count = get_todoist_count()
@@ -1282,402 +942,586 @@ def generate_html_email(checkin_type, pt_now):
     latest_weight, weight_history = get_latest_weight()
     weight_trend = get_weight_trend()
     whoop_trend = get_whoop_trend()
-    health_recommendations = generate_health_recommendations(weight_trend, whoop_trend, checkin_type)
     
-    # Whoop status color and display
+    # Whoop status
     if whoop_recovery:
         whoop_display = f"{whoop_recovery}%"
-        whoop_color = "#16a34a"  # green
+        whoop_color = "#22c55e"
         whoop_status = "Good"
         if whoop_recovery < 50:
-            whoop_color = "#dc2626"  # red
+            whoop_color = "#ef4444"
             whoop_status = "Low"
         elif whoop_recovery < 70:
-            whoop_color = "#ea580c"  # orange
+            whoop_color = "#f97316"
             whoop_status = "Moderate"
     else:
         whoop_display = "No data"
-        whoop_color = "#6b7280"  # gray
+        whoop_color = "#6b7280"
         whoop_status = "Unavailable"
     
     # Header based on check-in type
     if checkin_type == "morning":
-        header_title = "☀️ Good Morning!"
-    elif checkin_type == "midday":
-        header_title = "☀️ Midday Check-In"
-    elif checkin_type == "afternoon":
-        header_title = "🌤️ Afternoon Check-In"
+        header_title = "🌅 Good Morning"
+        greeting = "Good morning"
     else:
         header_title = "🌙 Evening Check-In"
+        greeting = "Good evening"
     
+    # Get week events with dinner reservations
+    week_events = get_week_events_detailed(pt_now, all_events, days=7)
+    
+    # Build HTML
     html = f'''<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cicero Check-In</title>
     <style>
-        body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 700px; margin: 0 auto; }}
-        .header {{ background: linear-gradient(135deg, #1e40af, #3b82f6); color: white; padding: 25px; text-align: center; }}
-        .header h1 {{ margin: 0; font-size: 28px; }}
-        .header p {{ margin: 10px 0 0 0; opacity: 0.9; }}
-        .location {{ background: #dbeafe; padding: 15px; text-align: center; font-size: 18px; font-weight: bold; color: #1e40af; }}
-        .section {{ margin: 20px 0; padding: 20px; border-left: 4px solid #3b82f6; background: #f8fafc; }}
-        .section h2 {{ margin-top: 0; color: #1e40af; }}
-        .weather {{ display: flex; justify-content: space-around; background: #f3f4f6; padding: 15px; margin: 15px 0; border-radius: 8px; }}
-        .weather-city {{ text-align: center; }}
-        .weather-temp {{ font-size: 24px; font-weight: bold; }}
-        .travel-alert {{ background: #fef3c7; border-left: 4px solid #f59e0b; padding: 15px; margin: 15px 0; }}
-        .travel-alert h3 {{ margin-top: 0; color: #b45309; }}
-        .flight {{ background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }}
-        .flight-time {{ font-size: 24px; font-weight: bold; color: #1e40af; }}
-        .hotel {{ background: #f0fdf4; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #16a34a; }}
-        .stats {{ display: flex; justify-content: space-around; background: #eff6ff; padding: 15px; margin: 15px 0; border-radius: 8px; }}
-        .stat {{ text-align: center; }}
-        .stat-number {{ font-size: 24px; font-weight: bold; color: #1e40af; }}
-        .stat-label {{ font-size: 11px; color: #666; }}
-        .week-view {{ background: white; padding: 15px; margin: 10px 0; border-radius: 8px; border: 1px solid #e5e7eb; }}
-        .day {{ padding: 10px; border-bottom: 1px solid #e5e7eb; }}
-        .day:last-child {{ border-bottom: none; }}
-        .day-date {{ font-weight: bold; color: #1e40af; }}
-        .flight-badge {{ display: inline-block; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-left: 10px; }}
-        .early-flight {{ background: #fef2f2; color: #dc2626; }}
-        .footer {{ background: #f3f4f6; padding: 15px; text-align: center; font-size: 12px; color: #666; margin-top: 30px; }}
-        a {{ color: #3b82f6; }}
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        
+        body {{
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #f3f4f6;
+            -webkit-font-smoothing: antialiased;
+        }}
+        
+        .container {{
+            max-width: 640px;
+            margin: 0 auto;
+            background: #ffffff;
+            min-height: 100vh;
+        }}
+        
+        .header {{
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }}
+        
+        .header h1 {{
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }}
+        
+        .header .date {{
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 400;
+        }}
+        
+        .location-bar {{
+            background: #f8fafc;
+            padding: 16px 30px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 500;
+            color: #475569;
+            border-bottom: 1px solid #e2e8f0;
+        }}
+        
+        .section {{
+            padding: 28px 30px;
+            border-bottom: 1px solid #f1f5f9;
+        }}
+        
+        .section:last-child {{
+            border-bottom: none;
+        }}
+        
+        .section-title {{
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 20px;
+        }}
+        
+        .weather-list {{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }}
+        
+        .weather-row {{
+            display: block;
+            padding: 16px 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+        }}
+        
+        .weather-row.secondary {{
+            background: #f1f5f9;
+            color: #475569;
+        }}
+        
+        .weather-row .location {{
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }}
+        
+        .weather-row .main-info {{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }}
+        
+        .weather-row .emoji {{
+            font-size: 32px;
+        }}
+        
+        .weather-row .temp {{
+            font-size: 28px;
+            font-weight: 700;
+        }}
+        
+        .weather-row .details {{
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 13px;
+            opacity: 0.9;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }}
+        
+        .weather-row.secondary .details {{
+            border-top-color: #e2e8f0;
+            color: #64748b;
+        }}
+        
+        .weather-row .detail-item {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+        
+        .week-schedule {{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }}
+        
+        .day-card {{
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 16px;
+            border-left: 4px solid #e2e8f0;
+            width: 100%;
+        }}
+        
+        .day-card.today {{
+            background: #eff6ff;
+            border-left-color: #3b82f6;
+        }}
+        
+        .day-header {{
+            font-weight: 600;
+            font-size: 15px;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }}
+        
+        .today-badge {{
+            background: #3b82f6;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }}
+        
+        .event-item {{
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+            flex-wrap: wrap;
+        }}
+        
+        .event-item:last-child {{
+            border-bottom: none;
+            padding-bottom: 0;
+        }}
+        
+        .event-icon {{
+            font-size: 20px;
+            min-width: 28px;
+            text-align: center;
+            flex-shrink: 0;
+        }}
+        
+        .event-content {{
+            flex: 1;
+        }}
+        
+        .event-title {{
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 14px;
+        }}
+        
+        .event-meta {{
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 2px;
+        }}
+        
+        .dinner-badge {{
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-left: 8px;
+        }}
+        
+        .priority-list {{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }}
+        
+        .priority-item {{
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border-left: 3px solid #e2e8f0;
+        }}
+        
+        .priority-badge {{
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }}
+        
+        .priority-content {{
+            flex: 1;
+        }}
+        
+        .priority-title {{
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 14px;
+        }}
+        
+        .priority-meta {{
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 2px;
+        }}
+        
+        .stats-row {{
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }}
+        
+        .stat-box {{
+            background: #f8fafc;
+            padding: 16px 20px;
+            border-radius: 10px;
+            min-width: 120px;
+        }}
+        
+        .stat-value {{
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+        }}
+        
+        .stat-label {{
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
+        }}
+        
+        .footer {{
+            background: #f8fafc;
+            padding: 24px 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+        }}
+        
+        @media (max-width: 480px) {{
+            .header {{
+                padding: 24px 16px;
+            }}
+            
+            .header h1 {{
+                font-size: 24px;
+            }}
+            
+            .section {{
+                padding: 20px 16px;
+            }}
+            
+            .weather-row {{
+                flex-wrap: wrap;
+                padding: 12px 16px;
+            }}
+            
+            .weather-row .temp {{
+                font-size: 20px;
+                margin-right: 12px;
+            }}
+            
+            .weather-row .details {{
+                width: 100%;
+                margin-top: 8px;
+                justify-content: flex-start;
+            }}
+            
+            .day-card {{
+                padding: 12px;
+            }}
+            
+            .event-item {{
+                padding: 8px 0;
+            }}
+        }}
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1>{header_title}</h1>
-            <p class="date">{today_str}</p>
+            <div class="date">{today_str}</div>
         </div>
         
         <div class="location-bar">
-            {location_info['city']}, {location_info['state']} — {location_info['status']}
+            📍 {current_location}, {current_state} — {location_info['status']}
         </div>
         
         <div class="section">
-            <h2 class="section-title">Weather</h2>
-            <div class="weather-grid">
-                {''.join([f'<div class="weather-item"><div class="weather-city">{d["name"]}</div><div class="weather-temp">{d["weather"]}</div></div>' for d in destination_weather])}
-            </div>
-        </div>
+            <div class="section-title">Weather</div>
+            <div class="weather-list">
 '''
     
-    # PACKING SECTION: Upcoming trips with weather for packing decisions
-    upcoming_trips = get_upcoming_trips_for_packing(travel_events, pt_now)
-    if upcoming_trips:
-        html += f'''
-    <div class="section" style="border-left-color: #3b82f6; background: #eff6ff;">
-        <h2>🎒 Upcoming Trips (Pack Accordingly)</h2>
-'''
-        for trip in upcoming_trips[:3]:  # Show max 3 trips
-            trip_date = trip.get('date', 'TBD')
-            trip_dest = trip.get('destination', 'Unknown')
-            trip_weather = trip.get('weather', '')
-            days_until = trip.get('days_until', 0)
-            
-            html += f'''
-        <div style="margin: 10px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #3b82f6;">
-            <div style="font-weight: bold; color: #1e40af;">{trip_dest} — {trip_date}</div>
-            <div style="color: #666; font-size: 14px; margin-top: 4px;">
-                {trip_weather} • Pack in {days_until} day{'s' if days_until != 1 else ''}
-            </div>
-        </div>
-'''
-        html += '''    </div>
-'''
-    
-    # PENDING TRAVEL TASKS: Show all upcoming travel todos with due dates
-    pending_travel = get_pending_travel_tasks()
-    if pending_travel:
-        html += f'''
-    <div class="section" style="border-left-color: #dc2626; background: #fef2f2;">
-        <h2>🚨 UPCOMING TRAVEL TASKS</h2>
-        <p style="margin-top: -10px; color: #666; font-size: 13px;">Plan ahead - these need to be done before your trips</p>
-'''
-        for task in pending_travel:
-            task_text = task['text']
-            due_date = task['due']
-            
-            # Extract emoji and task type
-            emoji = '✈️'
-            if '🐕' in task_text:
-                emoji = '🐕'
-            elif '🏨' in task_text:
-                emoji = '🏨'
-            elif '🚗' in task_text:
-                emoji = '🚗'
-            elif '🎒' in task_text:
-                emoji = '🎒'
-            elif '🍽️' in task_text:
-                emoji = '🍽️'
-            elif '📋' in task_text:
-                emoji = '📋'
-            
-            # Clean up task text for display
-            clean_task = task_text.replace('🐕 ROVER: ', '').replace('✈️ FLIGHT: ', '').replace('🏨 HOTEL: ', '').replace('🏨 CONFIRM: ', '').replace('🏨 RESEARCH: ', '').replace('🚗 UBER: ', '').replace('🎒 PACK: ', '').replace('🍽️ DINNER: ', '').replace('📋 RESEARCH: ', '')
-            
-            html += f'''
-        <div style="margin: 8px 0; padding: 12px; background: white; border-radius: 8px; border-left: 4px solid #dc2626;">
-            <div style="font-weight: bold; color: #1e40af;">{emoji} {clean_task[:70]}{'...' if len(clean_task) > 70 else ''}</div>
-            <div style="color: #666; font-size: 12px; margin-top: 4px;">📅 Due: {due_date}</div>
-        </div>
-'''
-        html += '''    </div>
-'''
-    
-    # Get today's detailed calendar events
-    today_events_detailed = get_today_events_detailed(pt_now, travel_events)
-    
-    # PRIORITY SECTION: Today's Travel & Important Events (at the top)
-    if today_events_detailed['flights'] or today_events_detailed['hotels'] or today_events_detailed['important']:
-        html += '''
-    <div class="section" style="border-left-color: #dc2626; background: #fef2f2;">
-        <h2>🔔 TODAY'S PRIORITIES</h2>
-'''
-        
-        # Flights (highest priority)
-        for flight in today_events_detailed['flights']:
-            html += f'''
-        <div class="flight" style="margin: 10px 0; padding: 15px; background: white; border-radius: 8px; border-left: 4px solid #dc2626;">
-            <div style="font-size: 24px; font-weight: bold; color: #dc2626;">✈️ {flight['time']}</div>
-            <p style="margin: 5px 0; font-size: 16px;"><strong>{flight['route']}</strong></p>
-            <p style="margin: 5px 0; color: #666;">{flight.get('details', '')}</p>
-        </div>
-'''
-        
-        # Hotels
-        for hotel in today_events_detailed['hotels']:
-            html += f'''
-        <div style="margin: 10px 0; padding: 12px; background: #f0fdf4; border-radius: 8px; border-left: 4px solid #16a34a;">
-            <strong>🏨 HOTEL:</strong> {hotel['name']}<br>
-            <span style="color: #666;">{hotel.get('location', '')}</span>
-        </div>
-'''
-        
-        # Important events (birthdays, anniversaries, etc.)
-        for event in today_events_detailed['important']:
-            html += f'''
-        <div style="margin: 10px 0; padding: 12px; background: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
-            <strong>🎉 {event['type']}:</strong> {event['name']}<br>
-            <span style="color: #666;">{event.get('note', '')}</span>
-        </div>
-'''
-        
-        html += '''    </div>
-'''
-    
-    # Stats section
-    html += f'''
-    <div class="section">
-        <h2>📊 At a Glance</h2>
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number">{todoist_count}</div>
-                <div class="stat-label">TODOIST TASKS</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" style="color: {whoop_color};">{whoop_display}</div>
-                <div class="stat-label">WHOOP RECOVERY</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">{latest_weight if latest_weight else '--'}</div>
-                <div class="stat-label">LBS</div>
-            </div>
-        </div>
-    </div>
-'''
-    
-    # Week ahead view with detailed events
-    week_events_detailed = get_week_events_detailed(pt_now, all_events, days=7)
-    if week_events_detailed:
-        html += '''
-    <div class="section">
-        <h2>📅 This Week's Schedule</h2>
-        <div class="week-view">
-'''
-        for day_info in week_events_detailed:
-            day_str = day_info['date_str']
-            is_today = day_info['is_today']
-            today_badge = '<span style="background: #3b82f6; color: white; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-left: 10px; font-weight: bold;">TODAY</span>' if is_today else ''
-            
-            html += f'''            <div class="day" style="{'background: #eff6ff;' if is_today else ''}">
-                <div style="font-weight: bold; color: #1e40af; margin-bottom: 8px;">{day_str}{today_badge}</div>
-'''
-            
-            # Flights
-            for flight in day_info['flights']:
-                html += f'''                <div style="margin: 6px 0; padding: 10px; background: #fef2f2; border-radius: 6px; border-left: 3px solid #dc2626;">
-                    <span style="font-weight: bold; color: #dc2626;">✈️ {flight['route']}</span>
-                    <span style="color: #666; font-size: 12px; margin-left: 8px;">{flight['time']}</span>
+    # Add weather rows with detailed info - stacked vertically
+    for i, w in enumerate(weather_data):
+        row_class = "weather-row" if w['is_primary'] else "weather-row secondary"
+        weather = w['weather']
+        html += f'''                <div class="{row_class}">
+                    <div class="location">{w['location']}</div>
+                    <div class="main-info">
+                        <div class="emoji">{weather['emoji']}</div>
+                        <div class="temp">{weather['temp']}</div>
+                    </div>
+                    <div class="details">
+                        <div class="detail-item">💧 Humidity: {weather['humidity']}</div>
+                        <div class="detail-item">🌧️ Precipitation: {weather['precip']}</div>
+                    </div>
                 </div>
+'''
+    
+    html += '''            </div>
+        </div>
+'''
+    
+    # This Week's Schedule - show all 7 days as rows
+    html += '''        <div class="section">
+            <div class="section-title">This Week's Schedule</div>
+            <div class="week-schedule">
+'''
+    
+    # Generate all 7 days, even if no events
+    for i in range(7):
+        day = pt_now + timedelta(days=i)
+        day_str = day.strftime('%A, %B %d')
+        is_today = i == 0
+        
+        # Find events for this day
+        day_events = None
+        for de in week_events:
+            if de['date'].strftime('%A, %B %d') == day_str:
+                day_events = de
+                break
+        
+        day_class = "day-card today" if is_today else "day-card"
+        today_badge = '<span class="today-badge">TODAY</span>' if is_today else ''
+        
+        html += f'''                <div class="{day_class}">
+                    <div class="day-header">{day.strftime('%A, %B %d')}{today_badge}</div>
+'''
+        
+        if day_events and (day_events['flights'] or day_events['hotels'] or day_events['dinners'] or day_events['important']):
+            # Flights
+            for flight in day_events['flights']:
+                html += f'''                    <div class="event-item">
+                        <div class="event-icon">✈️</div>
+                        <div class="event-content">
+                            <div class="event-title">{flight['route']}</div>
+                            <div class="event-meta">{flight['time']}</div>
+                        </div>
+                    </div>
 '''
             
             # Hotels
-            for hotel in day_info['hotels']:
-                html += f'''                <div style="margin: 6px 0; padding: 10px; background: #f0fdf4; border-radius: 6px; border-left: 3px solid #16a34a;">
-                    <span style="font-weight: bold; color: #16a34a;">🏨 {hotel['name'][:60]}</span>
-                </div>
+            for hotel in day_events['hotels']:
+                html += f'''                    <div class="event-item">
+                        <div class="event-icon">🏨</div>
+                        <div class="event-content">
+                            <div class="event-title">{hotel['name']}</div>
+                        </div>
+                    </div>
+'''
+            
+            # Dinner reservations
+            for dinner in day_events['dinners']:
+                people_str = f" with {', '.join(dinner['people'])}" if dinner['people'] else ""
+                location_str = f" • {dinner['location']}" if dinner['location'] else ""
+                
+                # Build the meta line with people prominently displayed
+                meta_parts = [dinner['time']] if dinner['time'] != "TBD" else []
+                if dinner['people']:
+                    meta_parts.append(f"with {', '.join(dinner['people'])}")
+                if dinner['location']:
+                    meta_parts.append(dinner['location'])
+                
+                meta_line = " • ".join(meta_parts) if meta_parts else "Time TBD"
+                
+                html += f'''                    <div class="event-item">
+                        <div class="event-icon">🍽️</div>
+                        <div class="event-content">
+                            <div class="event-title">{dinner['restaurant']}<span class="dinner-badge">RESERVATION</span></div>
+                            <div class="event-meta">{meta_line}</div>
+                        </div>
+                    </div>
 '''
             
             # Important events
-            for event in day_info['important']:
-                html += f'''                <div style="margin: 6px 0; padding: 10px; background: #fef3c7; border-radius: 6px; border-left: 3px solid #f59e0b;">
-                    <span style="font-weight: bold; color: #b45309;">🎉 {event['type']}: {event['name'][:40]}</span>
+            for event in day_events['important']:
+                html += f'''                    <div class="event-item">
+                        <div class="event-icon">🎉</div>
+                        <div class="event-content">
+                            <div class="event-title">{event['type']}: {event['name']}</div>
+                        </div>
+                    </div>
+'''
+        else:
+            # No events for this day
+            html += '''                    <div class="event-item" style="opacity: 0.6;">
+                        <div class="event-icon">📅</div>
+                        <div class="event-content">
+                            <div class="event-title" style="color: #94a3b8; font-weight: 400;">No events scheduled</div>
+                        </div>
+                    </div>
+'''
+        
+        html += '''                </div>
+'''
+    
+    html += '''            </div>
+        </div>
+'''
+    
+    # Today's Priorities - Todoist p1 and p2 tasks due today or tomorrow
+    priority_tasks = get_todoist_priorities()
+    if priority_tasks:
+        html += '''        <div class="section">
+            <div class="section-title">Today's Priorities</div>
+            <div class="priority-list">
+'''
+        for task in priority_tasks:
+            priority_color = '#dc2626' if task['priority'] == 1 else '#ea580c'
+            priority_label = 'P1' if task['priority'] == 1 else 'P2'
+            html += f'''                <div class="priority-item">
+                    <div class="priority-badge" style="background: {priority_color};">{priority_label}</div>
+                    <div class="priority-content">
+                        <div class="priority-title">{task['title']}</div>
+                        <div class="priority-meta">Due: {task['due']}</div>
+                    </div>
                 </div>
 '''
-            
-            html += '''            </div>
-'''
-        html += '''        </div>
-    </div>
+        html += '''            </div>
+        </div>
 '''
     
-    # Upcoming Birthdays section
-    upcoming_birthdays = get_upcoming_birthdays(days_ahead=30)
-    if upcoming_birthdays:
-        html += '''
-    <div class="section">
-        <h2>🎂 Upcoming Birthdays</h2>
-        <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 15px; border-radius: 8px;">
-'''
-        for person in upcoming_birthdays[:5]:  # Show max 5
-            days_text = f"in {person['days_until']} days" if person['days_until'] > 0 else "TODAY! 🎉"
-            html += f'''            <div style="margin: 8px 0; padding: 8px; background: white; border-radius: 6px;">
-                <strong>{person['name']}</strong> — {person['date_this_year']} <span style="color: #666; font-size: 12px;">({days_text})</span>
-                <br><span style="font-size: 12px; color: #888;">{person['relation']}</span>
-            </div>
-'''
-        html += '''        </div>
-    </div>
-'''
-    
-    # Stocks section (only for morning and evening check-ins)
+    # Stocks (morning/evening only)
     if checkin_type in ['morning', 'evening']:
         stock_summary = get_stock_summary()
-        html += f'''
-    <div class="section">
-        <h2>📈 Stocks (30-Day)</h2>
-        <pre style="background: #f3f4f6; padding: 15px; border-radius: 8px; font-size: 13px; overflow-x: auto;">{stock_summary}</pre>
-    </div>
-'''
-    
-    # Token Health section with auto-refresh and re-auth links
-    token_health_data = run_token_health_check()
-    token_summary = token_health_data['summary']
-    token_issues = token_health_data['issues']
-    reauth_links = token_health_data['reauth_links']
-    whoop_refreshed = token_health_data['whoop_refreshed']
-    
-    token_color = "#16a34a" if "✅" in token_summary else "#dc2626" if "🔴" in token_summary else "#ea580c"
-    
-    html += f'''
-    <div class="section">
-        <h2>🔐 Token Health</h2>
-        <p style="color: {token_color}; font-weight: bold;">{token_summary}</p>
-'''
-    
-    # Show Whoop auto-refresh status
-    if whoop_refreshed:
-        html += '<p style="color: #16a34a; font-size: 13px;">✅ Whoop token auto-refreshed</p>'
-    
-    # Show issues and re-auth links
-    if token_issues:
-        html += '<div style="margin-top: 10px;">'
-        for issue in token_issues[:3]:  # Show max 3 issues
-            html += f'<p style="font-size: 12px; margin: 5px 0;">{issue}</p>'
+        # Convert markdown to HTML
+        stock_html = stock_summary
+        # Convert **bold** to <strong>
+        stock_html = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', stock_html)
+        # Convert *italic* to <em>
+        stock_html = re.sub(r'\*(.+?)\*', r'<em>\1</em>', stock_html)
+        # Convert newlines to <br>
+        stock_html = stock_html.replace('\n', '<br>')
+        # Convert | to table-like structure
+        if '|' in stock_html:
+            lines = stock_summary.split('\n')
+            table_html = '<table style="width: 100%; border-collapse: collapse; font-size: 13px;">'
+            for line in lines:
+                if '|' in line and '---' not in line:
+                    cells = [c.strip() for c in line.split('|') if c.strip()]
+                    if cells:
+                        table_html += '<tr>'
+                        for cell in cells:
+                            # Check if it's a header row (all bold)
+                            if '**' in cell:
+                                cell = cell.replace('**', '')
+                                table_html += f'<th style="text-align: left; padding: 8px; border-bottom: 2px solid #e2e8f0; font-weight: 600;">{cell}</th>'
+                            else:
+                                # Color positive/negative changes
+                                cell_html = cell
+                                if '▲' in cell or '+' in cell and '%' in cell:
+                                    cell_html = f'<span style="color: #16a34a;">{cell}</span>'
+                                elif '▼' in cell or ('-' in cell and '%' in cell):
+                                    cell_html = f'<span style="color: #dc2626;">{cell}</span>'
+                                table_html += f'<td style="padding: 8px; border-bottom: 1px solid #f1f5f9;">{cell_html}</td>'
+                        table_html += '</tr>'
+            table_html += '</table>'
+            stock_html = table_html
         
-        # Add re-auth links for Google tokens
-        if 'Calendar' in str(token_issues) or 'calendar' in str(token_issues).lower():
-            html += f'<p style="font-size: 11px; margin: 8px 0;"><a href="{reauth_links.get("calendar", "#")}">Refresh Calendar →</a></p>'
-        if 'Docs' in str(token_issues) or 'docs' in str(token_issues).lower():
-            html += f'<p style="font-size: 11px; margin: 8px 0;"><a href="{reauth_links.get("docs", "#")}">Refresh Google Docs →</a></p>'
-        
-        html += '</div>'
-    
-    html += '<p style="font-size: 12px; color: #666; margin-top: 10px;">Calendar • Docs • Whoop • Email</p>'
-    html += '</div>'
-
-    
-    # Health section with trends and recommendations
-    html += f'''
-    <div class="section">
-        <h2>💓 Health Trends & Actions</h2>
-        
-        <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin-top: 0; color: #166534;">📊 Weight Loss Progress</h3>
-'''
-    
-    if weight_trend:
-        progress_pct = (weight_trend['total_lost'] / weight_trend['goal']) * 100
-        html += f'''
-            <p><strong>Current:</strong> {weight_trend['current']:.1f} lbs | 
-               <strong>Start:</strong> {weight_trend['start']:.1f} lbs | 
-               <strong>Lost:</strong> {weight_trend['total_lost']:.1f} lbs ({progress_pct:.0f}% of goal)</p>
-            <p><strong>Pace:</strong> {weight_trend['pace']:.1f} lbs/week | 
-               <strong>Remaining:</strong> {weight_trend['remaining']:.1f} lbs to goal</p>
-'''
-        if weight_trend['week_trend'] is not None:
-            trend_emoji = "📉" if weight_trend['week_trend'] > 0 else "📈" if weight_trend['week_trend'] < 0 else "➡️"
-            html += f'<p>{trend_emoji} <strong>7-day trend:</strong> {"-" if weight_trend["week_trend"] > 0 else "+"}{abs(weight_trend["week_trend"]):.1f} lbs this week</p>'
-    else:
-        html += '<p>Weight data unavailable</p>'
-    
-    html += '''
-        </div>
-        
-        <div style="background: #eff6ff; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-            <h3 style="margin-top: 0; color: #1e40af;">😴 Recovery & Sleep</h3>
-'''
-    
-    if whoop_trend:
-        trend_emoji = "📈" if whoop_trend['trend'] == 'improving' else "📉" if whoop_trend['trend'] == 'declining' else "➡️"
-        html += f'''
-            <p><strong>Latest recovery:</strong> <span style="color: {whoop_color};">{whoop_trend['latest']}%</span> ({whoop_status})</p>
-            <p><strong>7-day average:</strong> {whoop_trend['average']}% | 
-               <strong>Trend:</strong> {trend_emoji} {whoop_trend['trend']}</p>
-'''
-    else:
-        html += f'''
-            <p><strong>Latest recovery:</strong> <span style="color: {whoop_color};">{whoop_display}</span> ({whoop_status})</p>
-            <p style="color: #dc2626;">⚠️ Whoop token expired — re-authorization needed for full data</p>
-'''
-    
-    html += '''
-        </div>
-        
-        <div style="background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
-            <h3 style="margin-top: 0; color: #b45309;">🎯 Today's Actions</h3>
-'''
-    
-    if health_recommendations:
-        for rec in health_recommendations[:3]:  # Show top 3
-            priority_color = '#dc2626' if rec['priority'] == 'high' else '#ea580c' if rec['priority'] == 'medium' else '#16a34a'
-            html += f'''
-            <div style="margin: 10px 0; padding: 10px; background: white; border-radius: 6px;">
-                <p style="margin: 0; font-weight: bold; color: {priority_color};">{rec['category']}</p>
-                <p style="margin: 5px 0;">✓ {rec['action']}</p>
-                <p style="margin: 0; font-size: 12px; color: #666;">💡 {rec['why']}</p>
+        html += f'''        <div class="section">
+            <div class="section-title">Markets</div>
+            <div style="background: #f8fafc; padding: 16px; border-radius: 8px; overflow-x: auto;">
+                {stock_html}
             </div>
-'''
-    else:
-        html += '<p>No specific recommendations today — keep up the good work!</p>'
-    
-    html += '''
         </div>
-        
-        <p style="margin-top: 15px;"><strong>Dashboard:</strong> <a href="https://gclapp.github.io/health-dashboard/">View full health dashboard →</a></p>
-    </div>
 '''
     
     # Footer
-    html += f'''
-    <div class="footer">
-        <p class="footer-text">Cicero · Executive Assistant</p>
-    </div>
+    html += '''        <div class="footer">
+            <p>Cicero · Your Executive Assistant 🏛️</p>
+            <p style="margin-top: 8px; font-size: 12px;">Need something? Just reply to this email.</p>
+        </div>
     </div>
 </body>
-</html>
-'''
+</html>'''
     
     return html
 
@@ -1689,10 +1533,8 @@ def main():
         print(f"No check-in due at {pt_now.strftime('%I:%M %p PT')}")
         sys.exit(0)
     
-    # Generate HTML email using the new format
     html_message = generate_html_email(checkin_type, pt_now)
     
-    # Write to pending check-in file
     checkin_file = Path("/home/ubuntu/.openclaw/workspace/logs/pending-checkin.json")
     checkin_file.parent.mkdir(parents=True, exist_ok=True)
     
@@ -1700,20 +1542,15 @@ def main():
         json.dump({
             "timestamp": datetime.utcnow().isoformat(),
             "checkin_type": checkin_type,
-            "message": f"{checkin_type.title()} check-in — see HTML email",  # Telegram gets simple message
+            "message": f"{checkin_type.title()} check-in — see HTML email",
             "html_message": html_message,
-            "subject": f"☀️ {checkin_type.title()} Check-In — {pt_now.strftime('%A, %B %d, %Y')}",
+            "subject": f"Cicero Check-In: {checkin_type.title()} — {pt_now.strftime('%A, %B %d')}",
             "pt_time": pt_now.strftime('%Y-%m-%d %H:%M:%S'),
             "sent": False,
             "channels": ["telegram", "email"]
         }, f, indent=2)
     
     print(f"✅ {checkin_type.title()} check-in queued: {pt_now.strftime('%I:%M %p PT')}")
-    
-    # Log it
-    log_file = Path("/home/ubuntu/.openclaw/workspace/logs/heartbeat.log")
-    with open(log_file, 'a') as f:
-        f.write(f"[{datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')} UTC] {checkin_type.title()} check-in queued\n")
 
 if __name__ == "__main__":
     main()

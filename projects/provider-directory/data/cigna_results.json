@@ -1,0 +1,110 @@
+{
+  "results": [
+    {
+      "provider_id": 1158,
+      "name": "Dr. Aida Saliby, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:14:05.308192",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 544,
+      "name": "Dr. Ania Kowalik, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:14:19.422444",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 773,
+      "name": "Dr. Chantel Cross, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:14:32.836745",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 8,
+      "name": "Dr. Craig Witz, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:14:48.396959",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 1263,
+      "name": "Dr. Dorcas Morgan, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:15:01.929103",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 1118,
+      "name": "Dr. Jeffrey Fisch, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:15:17.913546",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 774,
+      "name": "Dr. John Nichols, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:15:31.644477",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 7,
+      "name": "Dr. Kathleen Doody, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:15:47.949843",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 1117,
+      "name": "Dr. Kathryn Honea, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:16:03.170184",
+      "error": "NPI not found"
+    },
+    {
+      "provider_id": 543,
+      "name": "Dr. Kevin Maas, MD",
+      "state": "AL",
+      "npi_found": null,
+      "profile_url": null,
+      "confidence": "none",
+      "timestamp": "2026-05-24T15:16:17.811212",
+      "error": "NPI not found"
+    }
+  ],
+  "stats": {
+    "searched": 10,
+    "found": 0,
+    "errors": 10
+  },
+  "timestamp": "2026-05-24T15:16:27.891467"
+}

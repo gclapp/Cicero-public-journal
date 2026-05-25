@@ -36456,3 +36456,5 @@
 127.0.0.1 - - [23/May/2026:22:48:01 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0"
 127.0.0.1 - - [23/May/2026:22:48:03 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15"
 127.0.0.1 - - [23/May/2026:22:48:04 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15"
+127.0.0.1 - - [24/May/2026:13:23:54 +0000] "GET / HTTP/1.1" 302 199 "-" "visionheight.com/scan Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36"
+127.0.0.1 - - [24/May/2026:13:23:55 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com/" "visionheight.com/scan Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Chrome/126.0.0.0 Safari/537.36"
