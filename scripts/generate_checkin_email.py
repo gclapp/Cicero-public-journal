@@ -81,7 +81,6 @@ def load_whoop():
 def get_check_in_type():
     """Determine which check-in based on current hour (PT)"""
     # Get current PT time
-    from datetime import datetime
     import pytz
     
     pt = pytz.timezone('America/Los_Angeles')
@@ -145,14 +144,31 @@ def get_weather_for_location(location_name):
     
     return None
 
+def parse_flight_time(event_start):
+    """Parse flight time from event start string like 'Monday, May 25 at 03:04 PM'"""
+    import re
+    time_match = re.search(r'(\d{1,2}):(\d{2})\s*(AM|PM)', event_start, re.IGNORECASE)
+    if time_match:
+        hour = int(time_match.group(1))
+        minute = int(time_match.group(2))
+        ampm = time_match.group(3).upper()
+        
+        if ampm == 'PM' and hour != 12:
+            hour += 12
+        elif ampm == 'AM' and hour == 12:
+            hour = 0
+        
+        return hour * 60 + minute  # Minutes since midnight
+    return None
+
 def get_location_and_weather():
-    """Determine Geoff's location based on calendar and get weather"""
+    """Determine Geoff's location based on calendar and flight times"""
     import pytz
-    from datetime import datetime
     
     pt = pytz.timezone('America/Los_Angeles')
     et = pytz.timezone('America/New_York')
     now = datetime.now(pt)
+    current_time_minutes = now.hour * 60 + now.minute
     
     # Default: Los Angeles
     location = "Los Angeles, CA"
@@ -164,47 +180,87 @@ def get_location_and_weather():
     if calendar_data:
         events = calendar_data.get('events', [])
         today_str = now.strftime('%A, %B %d')
+        today_iso = now.strftime('%Y-%m-%d')
         
+        # Look for today's flights first
         for event in events:
+            if not event.get('is_travel'):
+                continue
+            
             event_start = event.get('start', '')
-            # Check if event is today and is travel
-            if today_str in event_start or now.strftime('%Y-%m-%d') in event_start:
-                if event.get('is_travel'):
-                    location_str = event.get('location', '').lower()
-                    if 'new york' in location_str or 'jfk' in location_str or 'lga' in location_str or 'nyc' in location_str:
+            event_raw = event.get('start_raw', '')
+            
+            # Only consider today's flights
+            if today_str not in event_start and today_iso not in event_raw:
+                continue
+            
+            summary = event.get('summary', '').lower()
+            location_str = event.get('location', '').lower()
+            flight_time = parse_flight_time(event_start)
+            
+            # Flight TO LAX/LA - check if departed
+            if 'lax' in summary or 'los angeles' in summary or ('to' in summary and 'la' in summary):
+                if flight_time and current_time_minutes < flight_time:
+                    # Flight hasn't left yet - at origin
+                    if 'reno' in location_str or 'rno' in location_str or 'tahoe' in location_str:
+                        location = "Lake Tahoe, CA"
+                        timezone = "PT (Pacific Time)"
+                        tz_obj = pt
+                    elif 'jfk' in location_str or 'lga' in location_str or 'new york' in location_str:
                         location = "New York, NY"
                         timezone = "ET (Eastern Time)"
                         tz_obj = et
-                    elif 'atlanta' in location_str:
+                    elif 'atlanta' in location_str or 'atl' in location_str:
                         location = "Atlanta, GA"
                         timezone = "ET (Eastern Time)"
                         tz_obj = et
-                    elif 'scottsdale' in location_str or 'phoenix' in location_str or 'arizona' in location_str:
-                        location = "Scottsdale, AZ"
-                        timezone = "MT (Mountain Time)"
-                    elif 'portland' in location_str or 'oregon' in location_str:
-                        location = "Portland, OR"
-                        timezone = "PT (Pacific Time)"
-                    elif 'santa barbara' in location_str:
-                        location = "Santa Barbara, CA"
-                        timezone = "PT (Pacific Time)"
-                # Check for hotel stays
-                elif 'stay at' in event.get('summary', '').lower():
-                    location_str = event.get('location', '').lower()
-                    if 'new york' in location_str:
+                else:
+                    # Flight has departed or no time - in LA
+                    location = "Los Angeles, CA"
+                    timezone = "PT (Pacific Time)"
+                    tz_obj = pt
+            
+            # Flight FROM LAX/LA - check if departed
+            elif 'from lax' in summary or 'from la' in summary or ('lax' in location_str and 'to' in summary):
+                if flight_time and current_time_minutes < flight_time:
+                    # Flight hasn't left yet - still in LA
+                    location = "Los Angeles, CA"
+                    timezone = "PT (Pacific Time)"
+                    tz_obj = pt
+                else:
+                    # Flight has departed - at destination
+                    if 'jfk' in summary or 'lga' in summary or 'new york' in summary:
                         location = "New York, NY"
                         timezone = "ET (Eastern Time)"
                         tz_obj = et
-                    elif 'atlanta' in location_str:
+                    elif 'atlanta' in summary or 'atl' in summary:
                         location = "Atlanta, GA"
                         timezone = "ET (Eastern Time)"
                         tz_obj = et
-                    elif 'scottsdale' in location_str or 'arizona' in location_str:
-                        location = "Scottsdale, AZ"
-                        timezone = "MT (Mountain Time)"
-                    elif 'santa barbara' in location_str:
-                        location = "Santa Barbara, CA"
+                    elif 'reno' in summary or 'rno' in summary or 'tahoe' in summary:
+                        location = "Lake Tahoe, CA"
                         timezone = "PT (Pacific Time)"
+                        tz_obj = pt
+            
+            # Other flights - check origin/destination
+            elif 'to' in summary:
+                # Extract destination
+                if flight_time and current_time_minutes < flight_time:
+                    # At origin
+                    if 'reno' in location_str or 'rno' in location_str:
+                        location = "Lake Tahoe, CA"
+                        timezone = "PT (Pacific Time)"
+                        tz_obj = pt
+                else:
+                    # At destination
+                    if 'new york' in summary or 'jfk' in summary or 'lga' in summary:
+                        location = "New York, NY"
+                        timezone = "ET (Eastern Time)"
+                        tz_obj = et
+                    elif 'atlanta' in summary or 'atl' in summary:
+                        location = "Atlanta, GA"
+                        timezone = "ET (Eastern Time)"
+                        tz_obj = et
     
     # Get current time in detected timezone
     current_time = datetime.now(tz_obj).strftime('%I:%M %p')
@@ -219,6 +275,73 @@ def get_location_and_weather():
         'weather': weather
     }
 
+def generate_7_day_calendar(calendar_data, now):
+    """Generate a 7-day calendar view"""
+    if not calendar_data:
+        return ""
+    
+    events = calendar_data.get('events', [])
+    
+    # Build 7-day view
+    html = """
+<div class="section">
+<h2>📅 Next 7 Days</h2>
+<table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+<tr style="background: #f8f9fa;">
+<th style="padding: 8px; text-align: left; border: 1px solid #dee2e6; width: 25%;">Day</th>
+<th style="padding: 8px; text-align: left; border: 1px solid #dee2e6;">Events</th>
+</tr>
+"""
+    
+    for i in range(7):
+        day_date = now + timedelta(days=i)
+        day_str = day_date.strftime('%A, %B %d')
+        day_iso = day_date.strftime('%Y-%m-%d')
+        
+        # Find events for this day
+        day_events = []
+        for event in events:
+            event_start = event.get('start', '')
+            event_raw = event.get('start_raw', '')
+            if day_str in event_start or day_iso in event_raw:
+                day_events.append(event)
+        
+        # Style based on whether it's today
+        is_today = i == 0
+        row_style = "background: #e3f2fd;" if is_today else ""
+        day_label = f"<span style='color: #1976d2;'>📍 {day_str}</span>" if is_today else day_str
+        
+        html += f"<tr style='{row_style}'>"
+        html += f"<td style='padding: 8px; border: 1px solid #dee2e6; font-weight: bold;'>{day_label}</td>"
+        html += "<td style='padding: 8px; border: 1px solid #dee2e6;'>"
+        
+        if day_events:
+            for event in day_events[:5]:  # Limit to 5 events per day
+                summary = event.get('summary', '')
+                is_travel = event.get('is_travel', False)
+                event_time = event.get('start', '').split(' at ')[-1] if ' at ' in event.get('start', '') else ''
+                
+                if is_travel:
+                    html += f"<div style='margin: 2px 0; color: #d32f2f;'>✈️ {summary}"
+                    if event_time:
+                        html += f" <span style='color: #666; font-size: 11px;'>({event_time})</span>"
+                    html += "</div>"
+                else:
+                    html += f"<div style='margin: 2px 0; color: #333;'>• {summary}"
+                    if event_time and not is_today:
+                        html += f" <span style='color: #666; font-size: 11px;'>({event_time})</span>"
+                    html += "</div>"
+            
+            if len(day_events) > 5:
+                html += f"<div style='color: #666; font-size: 11px;'>... and {len(day_events) - 5} more</div>"
+        else:
+            html += "<span style='color: #999;'>No events</span>"
+        
+        html += "</td></tr>"
+    
+    html += "</table></div>"
+    return html
+
 def generate_morning_update(calendar_data, whoop_data):
     """Generate morning update"""
     today = datetime.now().strftime('%A, %B %d')
@@ -226,31 +349,11 @@ def generate_morning_update(calendar_data, whoop_data):
     # Get location and weather
     loc_data = get_location_and_weather()
     
-    # Build weather HTML if available
+    # Build compact weather HTML
     weather_html = ""
     if loc_data['weather']:
         w = loc_data['weather']
-        weather_html = f"""
-<div class="weather-grid">
-<div class="weather-item">
-<div style="font-size: 24px;">🌡️</div>
-<div style="font-size: 20px; font-weight: bold;">{w['current_temp']}°F</div>
-<div style="font-size: 12px;">Current</div>
-<div style="font-size: 11px; opacity: 0.9;">{w['current_condition']}</div>
-</div>
-<div class="weather-item">
-<div style="font-size: 24px;">💧</div>
-<div style="font-size: 16px; font-weight: bold;">{w['humidity']}%</div>
-<div style="font-size: 12px;">Humidity</div>
-<div style="font-size: 11px; opacity: 0.9;">Wind {w['wind']} mph</div>
-</div>
-</div>
-<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.3);">
-<p style="margin: 5px 0; font-size: 13px;"><strong>Forecast:</strong></p>
-<p style="margin: 3px 0; font-size: 12px;">Tomorrow: {w['tomorrow_high']}°F / {w['tomorrow_low']}°F — {w['tomorrow_condition']}</p>
-<p style="margin: 3px 0; font-size: 12px;">Day after: {w['day2_high']}°F / {w['day2_low']}°F — {w['day2_condition']}</p>
-</div>
-"""
+        weather_html = f"""<span style="margin-left: 15px;">🌡️ {w['current_temp']}°F</span><span style="margin-left: 10px;">💧 {w['humidity']}%</span><span style="margin-left: 10px;">💨 {w['wind']} mph</span>"""
     
     html = f"""<html>
 <head>
@@ -266,49 +369,18 @@ h2 {{ color: #34495e; font-size: 18px; margin-top: 25px; }}
 .checklist li {{ padding: 5px 0; }}
 .checklist li:before {{ content: "☐ "; color: #3498db; }}
 .footer {{ margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #7f8c8d; }}
-.location-box {{ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px; margin: 15px 0; }}
-.location-box h2 {{ color: white; margin-top: 0; }}
-.weather-grid {{ display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }}
-.weather-item {{ background: rgba(255,255,255,0.2); padding: 10px; border-radius: 5px; text-align: center; }}
+.location-bar {{ background: #667eea; color: white; padding: 10px 15px; border-radius: 6px; margin: 15px 0; font-size: 14px; }}
 </style>
 </head>
 <body>
 <h1>🌅 Good Morning — {today}</h1>
 
-<div class="location-box">
-<h2>📍 Where I Think You Are</h2>
-<p style="font-size: 20px; margin: 10px 0;"><strong>{loc_data['location']}</strong></p>
-<p style="margin: 5px 0;">🕐 Current time: {loc_data['current_time']} {loc_data['timezone']}</p>
-<p style="margin: 5px 0; font-size: 12px; opacity: 0.9;">(Based on your calendar)</p>
-{weather_html}
+<div class="location-bar">
+📍 <strong>{loc_data['location']}</strong> | 🕐 {loc_data['current_time']} {loc_data['timezone']}{weather_html}
 </div>
 """
     
-    # Health section
-    if whoop_data and whoop_data.strip() != "No Whoop data available.":
-        html += f"""
-<div class="section">
-<h2>💪 Yesterday's Health (Whoop)</h2>
-<pre style="white-space: pre-wrap; font-family: inherit;">{whoop_data}</pre>
-</div>
-"""
-    
-    # Weight loss section
-    html += """
-<div class="section">
-<h2>🎯 Weight Loss Focus</h2>
-<ul class="checklist">
-<li>Weigh-in (7 AM)</li>
-<li>Log breakfast in Lose It!</li>
-<li>Protein target: 150-180g</li>
-<li>Workout complete</li>
-<li>7+ hours sleep</li>
-</ul>
-<p><strong>This week:</strong> Aggressive phase (2 lbs/week) | Prioritize protein, no sugary drinks, daily movement</p>
-</div>
-"""
-    
-    # Calendar section
+    # Today's Schedule (first)
     if calendar_data:
         today_events = [e for e in calendar_data.get('events', []) 
                        if datetime.now().strftime('%A, %B %d') in e.get('start', '')]
@@ -330,8 +402,26 @@ h2 {{ color: #34495e; font-size: 18px; margin-top: 25px; }}
 </div>
 """
             html += "</div>"
-        
-        # Travel alerts
+    
+    # Todoist tasks section - today and tomorrow only, sorted by priority
+    try:
+        from fetch_todoist_tasks import get_today_tomorrow_html
+        todoist_html = get_today_tomorrow_html()
+        if todoist_html:
+            html += f"""
+<div class="section">
+{todoist_html}
+</div>
+"""
+    except Exception as e:
+        print(f"Could not load Todoist tasks: {e}")
+    
+    # 7-Day Calendar View
+    if calendar_data:
+        html += generate_7_day_calendar(calendar_data, datetime.now())
+    
+    # Travel alerts
+    if calendar_data:
         travel = [e for e in calendar_data.get('events', []) if e.get('is_travel')][:3]
         if travel:
             html += "<div class='section'><h2>✈️ Upcoming Travel</h2>"
@@ -346,16 +436,6 @@ h2 {{ color: #34495e; font-size: 18px; margin-top: 25px; }}
             html += "</div>"
     
     html += """
-<div class="section">
-<h2>❓ Questions for Today</h2>
-<ul>
-<li>How did you sleep? (Check Whoop recovery above)</li>
-<li>What's your main focus for work today?</li>
-<li>Any obstacles I can help remove?</li>
-<li>Dinner plans — cooking or eating out?</li>
-</ul>
-</div>
-
 <div class="footer">
 🏛️ Cicero | Your Digital Familiar<br>
 <a href="mailto:[REDACTED]">Reply to this email</a> or message me directly.

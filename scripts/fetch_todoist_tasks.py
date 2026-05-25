@@ -369,8 +369,97 @@ def get_todoist_html():
     
     return html
 
+def get_today_tomorrow_html():
+    """Get HTML for tasks due today and tomorrow only, sorted by day then priority"""
+    from datetime import datetime, timedelta
+    
+    # Get all tasks
+    all_tasks = run_todoist_command(['tasks'])
+    
+    if not all_tasks:
+        return "<h3>📋 Today's Priorities</h3><p>Unable to fetch tasks</p>"
+    
+    today_str = datetime.now().strftime('%Y-%m-%d')
+    tomorrow_str = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
+    
+    # Filter for today and tomorrow only
+    today_tasks = []
+    tomorrow_tasks = []
+    
+    for task in all_tasks:
+        due = task.get('due')
+        if due:
+            due_date = due.get('date', '')
+            if due_date == today_str:
+                today_tasks.append(task)
+            elif due_date == tomorrow_str:
+                tomorrow_tasks.append(task)
+    
+    # Sort by priority (lower number = higher priority)
+    today_tasks.sort(key=lambda t: t.get('priority', 4))
+    tomorrow_tasks.sort(key=lambda t: t.get('priority', 4))
+    
+    if not today_tasks and not tomorrow_tasks:
+        return "<h3>📋 Today's Priorities</h3><p>No tasks due today or tomorrow! 🎉</p>"
+    
+    html = "<h3>📋 Today's Priorities</h3><div style='display: block; width: 100%;'>"
+    
+    # Today section
+    if today_tasks:
+        html += f"<h4 style='color: #dc3545; margin: 10px 0 5px 0;'>📅 Today ({len(today_tasks)})</h4>"
+        for task in today_tasks:
+            task_id = task.get('id', '')
+            content = task.get('content', '')
+            priority = task.get('priority', 4)
+            
+            # Priority colors
+            if priority == 1:
+                color = "#dc3545"  # Red
+                weight = "font-weight: bold;"
+            elif priority == 2:
+                color = "#fd7e14"  # Orange
+                weight = ""
+            elif priority == 3:
+                color = "#ffc107"  # Yellow
+                weight = ""
+            else:
+                color = "#333"  # Default
+                weight = ""
+            
+            task_url = f"https://app.todoist.com/app/task/{task_id}"
+            html += f"<div style='display: block; margin: 4px 0; margin-left: 15px; font-size: 14px; line-height: 1.4;'><a href='{task_url}' style='color: {color}; {weight}text-decoration: underline;'>{content}</a></div>"
+    
+    # Tomorrow section
+    if tomorrow_tasks:
+        html += f"<h4 style='color: #007bff; margin: 15px 0 5px 0;'>📅 Tomorrow ({len(tomorrow_tasks)})</h4>"
+        for task in tomorrow_tasks:
+            task_id = task.get('id', '')
+            content = task.get('content', '')
+            priority = task.get('priority', 4)
+            
+            if priority == 1:
+                color = "#dc3545"
+                weight = "font-weight: bold;"
+            elif priority == 2:
+                color = "#fd7e14"
+                weight = ""
+            elif priority == 3:
+                color = "#ffc107"
+                weight = ""
+            else:
+                color = "#333"
+                weight = ""
+            
+            task_url = f"https://app.todoist.com/app/task/{task_id}"
+            html += f"<div style='display: block; margin: 4px 0; margin-left: 15px; font-size: 14px; line-height: 1.4;'><a href='{task_url}' style='color: {color}; {weight}text-decoration: underline;'>{content}</a></div>"
+    
+    html += "</div>"
+    return html
+
 if __name__ == "__main__":
     print("Fetching Todoist tasks by actual project...")
     print("\n" + get_todoist_summary())
     print("\nHTML version (first 1000 chars):")
     print(get_todoist_html()[:1000] + "...")
+    print("\n\nToday/Tomorrow version:")
+    print(get_today_tomorrow_html())

@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-24T14:55:04.195185",
-  "total_events": 82,
+  "last_updated": "2026-05-25T14:55:04.974331",
+  "total_events": 87,
   "travel_events": 6,
   "events": [
     {
@@ -25,14 +25,6 @@
       "start_raw": "2026-05-24",
       "location": "",
       "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, May 25 at 07:00 AM",
-      "start_raw": "2026-05-25T07:00:00-07:00",
-      "location": "",
-      "description": "",
       "is_travel": false
     },
     {
@@ -65,14 +57,6 @@
       "start_raw": "2026-05-26T16:00:00-07:00",
       "location": "Microsoft Teams Meeting",
       "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/288763633845996?p=L8W9tMQyw0673jR40P\nMeeting ID: 288 76",
-      "is_travel": false
-    },
-    {
-      "summary": "Zoom Whitening Boost",
-      "start": "Tuesday, May 26 at 07:00 PM",
-      "start_raw": "2026-05-26T19:00:00-07:00",
-      "location": "Carte Blanche Teeth Whitening, 1407 Glen Oaks Blvd, Pasadena, CA 91105, USA",
-      "description": "",
       "is_travel": false
     },
     {
@@ -124,6 +108,14 @@
       "is_travel": false
     },
     {
+      "summary": "Zoom Whitening Boost",
+      "start": "Saturday, May 30 at 10:40 PM",
+      "start_raw": "2026-05-30T22:40:00-07:00",
+      "location": "Carte Blanche Teeth Whitening, 1407 Glen Oaks Blvd, Pasadena, CA 91105, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Greta: Monthly Meds",
       "start": "Monday, June 01",
       "start_raw": "2026-06-01",
@@ -137,6 +129,14 @@
       "start_raw": "2026-06-01T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "\u26a1\ufe0f Maven LIVE: Claude Cowork Masterclass",
+      "start": "Tuesday, June 02 at 10:00 AM",
+      "start_raw": "2026-06-02T10:00:00-07:00",
+      "location": "https://maven.com/s/joinworkshop/38af978cb5",
+      "description": "<span>Join Dr. Ryan Ahmed, Ph.D., MBA and Kukesh Kodess for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>Build Agentic AI workflows in Claude Cowork withou",
       "is_travel": false
     },
     {
@@ -220,11 +220,27 @@
       "is_travel": false
     },
     {
+      "summary": "Grace - LAX to MSP",
+      "start": "Thursday, June 11 at 06:50 PM",
+      "start_raw": "2026-06-11T18:50:00-07:00",
+      "location": "Los Angeles International Airport, 1 World Wy, Los Angeles, CA 90045, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "John Turner Birthday",
       "start": "Sunday, June 14 at 12:00 AM",
       "start_raw": "2026-06-14T00:00:00-07:00",
       "location": "",
       "description": "When: Occurs every June 14 effective 6/14/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
+      "is_travel": false
+    },
+    {
+      "summary": "Grace - MSP to LAX",
+      "start": "Sunday, June 14 at 07:15 AM",
+      "start_raw": "2026-06-14T07:15:00-07:00",
+      "location": "",
+      "description": "",
       "is_travel": false
     },
     {
@@ -244,11 +260,27 @@
       "is_travel": false
     },
     {
+      "summary": "Sophie Dress Rehersal",
+      "start": "Thursday, June 18 at 09:45 AM",
+      "start_raw": "2026-06-18T09:45:00-07:00",
+      "location": "Younes and Soraya Nazarian Center for the Performing Arts, 18111 Nordhoff St, Northridge, CA 91325, USA",
+      "description": "<table> <colgroup><col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup><tbody><tr>  <td>Kindergarten-Grade 1</td>  <td>Sun</td>  <td>10:30 AM</td>",
+      "is_travel": false
+    },
+    {
       "summary": "\u26a1\ufe0f Maven LIVE: Claude for Dummies: Build Your AI Team Without Coding",
       "start": "Saturday, June 20 at 09:00 AM",
       "start_raw": "2026-06-20T09:00:00-07:00",
       "location": "https://maven.com/s/joinworkshop/41ebfbfa00",
       "description": "<span>Join Keyuri Anand for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>How to create reusable AI workflows</b></span\n>\n<span><b>How to make Claude rememb",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Drop Kids off early",
+      "start": "Saturday, June 20 at 01:20 PM",
+      "start_raw": "2026-06-20T13:20:00-07:00",
+      "location": "",
+      "description": "",
       "is_travel": false
     },
     {
@@ -273,6 +305,14 @@
       "start_raw": "2026-06-22T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "\u26a1\ufe0f Maven LIVE: When to Use Claude Cowork vs. Build an AI workflow",
+      "start": "Thursday, June 25 at 09:00 AM",
+      "start_raw": "2026-06-25T09:00:00-07:00",
+      "location": "https://maven.com/s/joinworkshop/8a0f265c47",
+      "description": "<span>Join Jacob Bank and Pietro Montaldo for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>What Is Cowork? What Are Skills? What Are Agents?</b></span\n>\n<s",
       "is_travel": false
     },
     {
@@ -309,8 +349,8 @@
     },
     {
       "summary": "Geoff Drop Kids off with Stacey",
-      "start": "Sunday, July 05 at 06:00 PM",
-      "start_raw": "2026-07-05T18:00:00-07:00",
+      "start": "Sunday, July 05 at 09:00 AM",
+      "start_raw": "2026-07-05T09:00:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false

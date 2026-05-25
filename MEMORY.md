@@ -556,3 +556,59 @@ python3 /home/ubuntu/.openclaw/workspace/scripts/session_memory_init.py
   - Commit to public-journal repo
 
 **Status:** ⏳ Pending setup
+
+## Script Archive Policy (May 25, 2026)
+
+**Rule:** Only actively used scripts remain in `scripts/`. All old versions, experiments, and deprecated scripts belong in `scripts/archive/`.
+
+### Archive Structure
+```
+scripts/archive/
+├── README.md              # Documentation of active vs archived scripts
+├── competitor-intel/      # Old competitor intelligence versions
+├── token-health/          # Deprecated token monitoring scripts
+├── whoop/                 # Old Whoop integration versions
+├── travel/                # Old travel automation versions
+├── heartbeat/             # Old heartbeat system versions
+├── watch-search/          # Old watch search implementations
+├── gdocs/                 # Google Docs experiments (deprecated)
+├── calendar/              # Old calendar auth scripts
+├── progyny/               # Old Progyny intelligence versions
+├── health/                # Old health processing scripts
+├── morning-email/         # Old morning email generators
+└── misc/                  # Experimental/one-off scripts
+```
+
+### Policy Rules
+1. **Active scripts only in scripts/** — If it's not in crontab or actively called, archive it
+2. **Preserve file permissions** when moving to archive
+3. **Update README.md** when archiving — document why it was archived
+4. **Never execute from archive/** — Scripts there may have broken paths/dependencies
+5. **Reference only** — Use for code examples, logic reference, historical context
+
+### Active Scripts (Canonical Versions)
+| Function | Active Script | Archived Versions |
+|----------|---------------|-------------------|
+| Competitor Intel | `daily-competitor-report-v3.sh` | v2, email_v2/v3, intelligence_v2/v3 |
+| Token Auto-Refresh | `token_auto_refresh_v2.py` | token_auto_refresh.py, token_daily_monitor.py, token_health_check.py, token_health_check_v2.py |
+| Whoop Daily Fetch | `whoop_daily_fetch.py` | whoop_auth.py, whoop_exchange.py, whoop_fetch.py, whoop_reauth.py, fetch_whoop_daily.py |
+| Whoop Alerts | `whoop_alerts.py` | — |
+| Travel Checker | `calendar_travel_checker.py` | travel_automation.py, travel_automation_subtasks.py, travel_automation_urgent.py, travel_automation_v2.py |
+| Heartbeat | `heartbeat_sender.py` | heartbeat_sender_v2.py, heartbeat_sender_backup_*.py |
+| Calendar Reader | `calendar_reader.py` | calendar_auth*.py, calendar_intelligence.py |
+| Token Health Monitor | `token_health_monitor.py` | — |
+| Watch Hunt | `watch-hunt-cron.sh` | watch_search*.py (4 versions) |
+| Progyny Intel | `progyny_intel_cron.sh` | progyny_exec_report_strict.py, progyny_executive_report.py, progyny_intelligence.py, progyny_sentiment_monitor.py |
+
+### When to Archive
+- Script has a newer version (v2, v3, etc.)
+- Script was experimental and never put in production
+- Functionality was consolidated into another script
+- Script hasn't been run in 30+ days
+- Dependencies are broken/outdated
+
+### When to Keep in scripts/
+- Script is referenced in crontab
+- Script is called by other active scripts
+- Script is a utility used for manual operations
+- Script is newly created and being tested (< 7 days)
