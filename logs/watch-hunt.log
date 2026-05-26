@@ -28112,3 +28112,8 @@ From https://github.com/gclapp/geoff-watch-hunt
  * branch            main       -> FETCH_HEAD
 Already up to date.
 python3: can't open file '/home/ubuntu/.openclaw/workspace/scripts/watch_search_multi.py': [Errno 2] No such file or directory
+[2026-05-26 02:00:02] Starting watch hunt update...
+From https://github.com/gclapp/geoff-watch-hunt
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+python3: can't open file '/home/ubuntu/.openclaw/workspace/scripts/watch_search_multi.py': [Errno 2] No such file or directory

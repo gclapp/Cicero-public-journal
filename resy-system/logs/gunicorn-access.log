@@ -36604,3 +36604,4 @@
 127.0.0.1 - - [25/May/2026:20:16:13 +0000] "GET /static/favicon-64x64.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
 127.0.0.1 - - [25/May/2026:20:16:14 +0000] "GET /static/favicon-32x32.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
 127.0.0.1 - - [25/May/2026:20:16:14 +0000] "GET /static/nyceats-logo-xl-transparent.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
+127.0.0.1 - - [26/May/2026:09:22:00 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"
