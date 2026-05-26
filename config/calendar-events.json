@@ -1,48 +1,8 @@
 {
-  "last_updated": "2026-05-25T14:55:04.974331",
-  "total_events": 87,
-  "travel_events": 6,
+  "last_updated": "2026-05-26T14:55:04.553647",
+  "total_events": 85,
+  "travel_events": 5,
   "events": [
-    {
-      "summary": "Kids in Tahoe with Geoff (Ritz-Carlton Tahoe) ",
-      "start": "Friday, May 22",
-      "start_raw": "2026-05-22",
-      "location": "The Ritz-Carlton, Lake Tahoe, 13031 Ritz Carlton Highlands Ct, Truckee, CA 96161, USA",
-      "description": "<a href=\"http://www.ritzcarlton.com/en/hotels/rnorz-the-ritz-carlton-lake-tahoe/overview/\"><b><h3><b>The Ritz-Carlton, Lake Tahoe</b></h3></b></a><br><br>Stay Dates<br>Fri, May 22, 2026\u00a0-\u00a0<br>Mon, May",
-      "is_travel": false
-    },
-    {
-      "summary": "Stay at The Ritz-Carlton, Lake Tahoe",
-      "start": "Friday, May 22",
-      "start_raw": "2026-05-22",
-      "location": "13031 Ritz Carlton Highlands Court, Truckee, California 96161, United States",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
-    },
-    {
-      "summary": "Kids with Geoff for Memorial Day",
-      "start": "Sunday, May 24",
-      "start_raw": "2026-05-24",
-      "location": "",
-      "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
-      "is_travel": false
-    },
-    {
-      "summary": "Flight to Los Angeles (DL 3902)",
-      "start": "Monday, May 25 at 03:04 PM",
-      "start_raw": "2026-05-25T15:04:00-07:00",
-      "location": "Reno RNO",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Ramtin/Driver Picking Up [In-person]",
-      "start": "Monday, May 25 at 05:05 PM",
-      "start_raw": "2026-05-25T17:05:00-07:00",
-      "location": "Delta Sky Club (1 CA-1, Los Angeles, CA 90045, United States)",
-      "description": "If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information",
-      "is_travel": false
-    },
     {
       "summary": "House Cleaner (Glowy) ",
       "start": "Tuesday, May 26 at 09:00 AM",
@@ -57,6 +17,14 @@
       "start_raw": "2026-05-26T16:00:00-07:00",
       "location": "Microsoft Teams Meeting",
       "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/288763633845996?p=L8W9tMQyw0673jR40P\nMeeting ID: 288 76",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to Bar Benjamin",
+      "start": "Tuesday, May 26 at 06:20 PM",
+      "start_raw": "2026-05-26T18:20:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "",
       "is_travel": false
     },
     {
@@ -169,6 +137,14 @@
       "start_raw": "2026-06-04T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "OpenAI Executive Dinner",
+      "start": "Thursday, June 04 at 06:00 PM",
+      "start_raw": "2026-06-04T18:00:00-07:00",
+      "location": "Nobu Los Angeles, 903 North La Cienega Boulevard, Los Angeles, CA 90069",
+      "description": "OpenAI Executive Dinner in Los Angeles focusing on practical AI leadership and moving from experimentation into business impact. Guests include senior leaders shaping AI strategy, customer experience,",
       "is_travel": false
     },
     {
@@ -696,6 +672,14 @@
       "start": "Friday, August 21 at 02:00 PM",
       "start_raw": "2026-08-21T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, August 24 at 07:00 AM",
+      "start_raw": "2026-08-24T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     }
