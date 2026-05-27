@@ -12655,3 +12655,299 @@ EOFError: EOF when reading a line
    - Flight to Los Angeles (DL 1559) on Monday, August 10 at 06:50 PM
 
 💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json
+/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py:127: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow()
+📅 Fetching upcoming events (90 days ahead)...
+
+📊 Found 80 upcoming events:
+============================================================
+
+📅 Pick up Sophie from School
+   📆 Thursday, May 28 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, May 28 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, May 29 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, May 29 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Zoom Whitening Boost
+   📆 Saturday, May 30 at 10:40 PM
+   📍 Carte Blanche Teeth Whitening, 1407 Glen Oaks Blvd, Pasadena, CA 91105, USA
+
+📅 Greta: Monthly Meds
+   📆 Monday, June 01
+
+📅 Ollie Consult Call
+   📆 Monday, June 01 at 07:00 AM
+
+📅 ⚡️ Maven LIVE: Claude Cowork Masterclass
+   📆 Tuesday, June 02 at 10:00 AM
+   📍 https://maven.com/s/joinworkshop/38af978cb5
+
+📅 Greta Groomer
+   📆 Thursday, June 04 at 08:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 ⚡️ Maven LIVE: Build No-Code Marketing Agents with Claude Code & Cowork
+   📆 Thursday, June 04 at 09:00 AM
+   📍 https://maven.com/s/joinworkshop/3f1870d886
+
+📅 Pick up Sophie from School
+   📆 Thursday, June 04 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, June 04 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 OpenAI Executive Dinner
+   📆 Thursday, June 04 at 06:00 PM
+   📍 Nobu Los Angeles, 903 North La Cienega Boulevard, Los Angeles, CA 90069
+
+📅 Pick up Sophie from School
+   📆 Friday, June 05 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, June 05 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Dinner with Cass and Andrew
+   📆 Saturday, June 06 at 07:00 PM
+
+📅 Ollie Consult Call
+   📆 Monday, June 08 at 07:00 AM
+
+📅 Geoff Physcial
+   📆 Monday, June 08 at 03:15 PM
+   📍 UCLA Jack Skirball Health Center, 26585 Agoura Rd, Calabasas, CA 91302, USA
+
+📅 Last Day of School
+   📆 Wednesday, June 10
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Grace - LAX to MSP
+   📆 Thursday, June 11 at 06:50 PM
+   📍 Los Angeles International Airport, 1 World Wy, Los Angeles, CA 90045, USA
+
+📅 John Turner Birthday
+   📆 Sunday, June 14 at 12:00 AM
+
+📅 Grace - MSP to LAX
+   📆 Sunday, June 14 at 07:15 AM
+
+📅 Ken Clapp Birthday
+   📆 Monday, June 15 at 12:00 AM
+
+📅 Ollie Consult Call
+   📆 Monday, June 15 at 07:00 AM
+
+📅 Sophie Dress Rehersal
+   📆 Thursday, June 18 at 09:45 AM
+   📍 Younes and Soraya Nazarian Center for the Performing Arts, 18111 Nordhoff St, Northridge, CA 91325, USA
+
+📅 ⚡️ Maven LIVE: Claude for Dummies: Build Your AI Team Without Coding
+   📆 Saturday, June 20 at 09:00 AM
+   📍 https://maven.com/s/joinworkshop/41ebfbfa00
+
+📅 Geoff Drop Kids off early
+   📆 Saturday, June 20 at 01:20 PM
+
+📅 Veronica Tan's birthday
+   📆 Sunday, June 21
+
+📅 Veronica Birthday
+   📆 Sunday, June 21
+
+📅 Ollie Consult Call
+   📆 Monday, June 22 at 07:00 AM
+
+📅 ⚡️ Maven LIVE: When to Use Claude Cowork vs. Build an AI workflow
+   📆 Thursday, June 25 at 09:00 AM
+   📍 https://maven.com/s/joinworkshop/8a0f265c47
+
+📅 Ollie Consult Call
+   📆 Monday, June 29 at 07:00 AM
+
+📅 House Cleaner (Glowy) 
+   📆 Tuesday, June 30 at 09:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Wednesday, July 01
+
+📅 Kids with Geoff (Non-standard holiday)
+   📆 Wednesday, July 01 at 04:00 PM
+
+📅 Geoff Drop Kids off with Stacey
+   📆 Sunday, July 05 at 09:00 AM
+
+📅 Ollie Consult Call
+   📆 Monday, July 06 at 07:00 AM
+
+📅 Bright Horizons Back-up Care
+   📆 Friday, July 10
+
+📅 Ollie Consult Call
+   📆 Monday, July 13 at 07:00 AM
+
+📅 Loic Le Meur's birthday
+   📆 Tuesday, July 14
+
+📅 Stacey Drop Kids with Geoff
+   📆 Sunday, July 19 at 09:00 AM
+
+📅 Ollie Consult Call
+   📆 Monday, July 20 at 07:00 AM
+
+📅 Stay at *NEW*Donner Lakefront Luxury*
+   📆 Tuesday, July 21
+
+📅 Drop Kids with Stacey
+   📆 Tuesday, July 21 at 12:00 PM
+
+✈️ Flight to Reno (DL 4126)
+   📆 Tuesday, July 21 at 03:35 PM
+   📍 Los Angeles Intl LAX
+
+📅 Pick Up Rental Car
+   📆 Tuesday, July 21 at 05:30 PM
+   📍 2001 E Plumb Ln, Reno, NV 89502, USA
+
+📅 Grace Keers's birthday
+   📆 Wednesday, July 22
+
+📅 Kids with Stacey (off schedule) 
+   📆 Wednesday, July 22
+
+📅 Stay at Donner Lake walk to beach, hot tub, gorgeous views
+   📆 Thursday, July 23
+   📍 14816 Denton Ave, Truckee, CA 96161, USA
+
+📅 Return Rental Car
+   📆 Sunday, July 26 at 01:00 PM
+   📍 Reno-Tahoe International Airport, 2001 E Plumb Ln, Reno, NV 89502, USA
+
+✈️ Flight to Los Angeles Intl (DL 3902)
+   📆 Sunday, July 26 at 02:20 PM
+   📍 Reno RNO
+
+📅 Ollie Consult Call
+   📆 Monday, July 27 at 07:00 AM
+
+📅 House Cleaner (Glowy) 
+   📆 Tuesday, July 28 at 09:00 AM
+   📍 23675 Park Capri, Calabasas, CA 91302, USA
+
+📅 Greta: Monthly Meds
+   📆 Saturday, August 01
+
+📅 Red Sox at Dodgers
+   📆 Sunday, August 02 at 01:20 PM
+   📍 Dodger Stadium, 1000 Vin Scully Ave, Los Angeles, CA 90012, USA
+
+📅 Boston Red Sox at Los Angeles Dodgers
+   📆 Sunday, August 02 at 04:20 PM
+   📍 UNIQLO Field at Dodger Stadium, UNIQLO Field at Dodger Stadium, Los Angeles, CA
+
+📅 Ollie Consult Call
+   📆 Monday, August 03 at 07:00 AM
+
+📅 Non-Standard Schedule: Kids with Stacey
+   📆 Thursday, August 06
+
+📅 Geoff Drop Kids off with Stacey
+   📆 Thursday, August 06 at 01:00 PM
+
+✈️ Flight to San Francisco (DL 1559)
+   📆 Thursday, August 06 at 04:25 PM
+   📍 Los Angeles LAX
+
+✈️ Flight to San Francisco - Outside Lands (Delta 1559)
+   📆 Thursday, August 06 at 04:25 PM
+   📍 Los Angeles International Airport (LAX)
+
+📅 Outside Lands Music Festival 2026 - VIP
+   📆 Friday, August 07
+   📍 Golden Gate Park, San Francisco
+
+📅 Ollie Consult Call
+   📆 Monday, August 10 at 07:00 AM
+
+✈️ Flight to Los Angeles (DL 1559)
+   📆 Monday, August 10 at 06:50 PM
+   📍 San Francisco SFO
+
+📅 Pick up Sophie from School
+   📆 Thursday, August 13 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, August 13 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Stephanie Lynne Foster's Birthday
+   📆 Friday, August 14
+
+📅 Stephanie Foster's Birthday
+   📆 Friday, August 14
+
+📅 Pick up Sophie from School
+   📆 Friday, August 14 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, August 14 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Momma
+   📆 Friday, August 14 at 08:00 PM
+   📍 The Bellwether, Los Angeles, California
+
+📅 Kids with Geoff (non-standard) 
+   📆 Sunday, August 16
+
+📅 Drop Kids with Stacey (non-standard)
+   📆 Sunday, August 16 at 06:00 PM
+
+📅 Ollie Consult Call
+   📆 Monday, August 17 at 07:00 AM
+
+📅 First Day of School LVUSD
+   📆 Wednesday, August 19
+
+📅 Pick up Sophie from School
+   📆 Thursday, August 20 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Thursday, August 20 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Sophie from School
+   📆 Friday, August 21 at 01:30 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Pick up Oliver from School
+   📆 Friday, August 21 at 02:00 PM
+   📍 Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA
+
+📅 Ollie Consult Call
+   📆 Monday, August 24 at 07:00 AM
+
+✈️ TRAVEL SUMMARY: 5 trip(s) detected
+   - Flight to Reno (DL 4126) on Tuesday, July 21 at 03:35 PM
+   - Flight to Los Angeles Intl (DL 3902) on Sunday, July 26 at 02:20 PM
+   - Flight to San Francisco (DL 1559) on Thursday, August 06 at 04:25 PM
+   - Flight to San Francisco - Outside Lands (Delta 1559) on Thursday, August 06 at 04:25 PM
+   - Flight to Los Angeles (DL 1559) on Monday, August 10 at 06:50 PM
+
+💾 Saved to: /home/ubuntu/.openclaw/workspace/config/calendar-events.json

@@ -1,48 +1,8 @@
 {
-  "last_updated": "2026-05-26T14:55:04.553647",
-  "total_events": 85,
+  "last_updated": "2026-05-27T14:55:05.107304",
+  "total_events": 80,
   "travel_events": 5,
   "events": [
-    {
-      "summary": "House Cleaner (Glowy) ",
-      "start": "Tuesday, May 26 at 09:00 AM",
-      "start_raw": "2026-05-26T09:00:00-07:00",
-      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
-      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
-      "is_travel": false
-    },
-    {
-      "summary": "Call Yaas",
-      "start": "Tuesday, May 26 at 04:00 PM",
-      "start_raw": "2026-05-26T16:00:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/288763633845996?p=L8W9tMQyw0673jR40P\nMeeting ID: 288 76",
-      "is_travel": false
-    },
-    {
-      "summary": "Reserved Uber to Bar Benjamin",
-      "start": "Tuesday, May 26 at 06:20 PM",
-      "start_raw": "2026-05-26T18:20:00-07:00",
-      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Reservation at The Benjamin Hollywood",
-      "start": "Tuesday, May 26 at 07:45 PM",
-      "start_raw": "2026-05-26T19:45:00-07:00",
-      "location": "The Benjamin Hollywood, 7174 Melrose Ave, (Between Formosa Ave and Melrose Ave), Los Angeles, CA 90046",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": false
-    },
-    {
-      "summary": "Peak Health Longevity Consult with Lynda Masco",
-      "start": "Wednesday, May 27 at 06:30 AM",
-      "start_raw": "2026-05-27T06:30:00-07:00",
-      "location": "Google Meet (instructions in description)",
-      "description": "Event Name: Peak Health Longevity Consult\nEvent Description: Learn everything you need to know about Peak's longevity care plans in a free 30-minute consult with a longevity expert.To learn more about",
-      "is_travel": false
-    },
     {
       "summary": "Pick up Sophie from School",
       "start": "Thursday, May 28 at 01:30 PM",
@@ -380,10 +340,10 @@
       "is_travel": false
     },
     {
-      "summary": "Stay at Truckee",
+      "summary": "Stay at *NEW*Donner Lakefront Luxury*",
       "start": "Tuesday, July 21",
       "start_raw": "2026-07-21",
-      "location": "14600 Donner Pass Rd, Truckee, CA 96161, USA",
+      "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
@@ -397,8 +357,8 @@
     },
     {
       "summary": "Flight to Reno (DL 4126)",
-      "start": "Tuesday, July 21 at 04:50 PM",
-      "start_raw": "2026-07-21T16:50:00-07:00",
+      "start": "Tuesday, July 21 at 03:35 PM",
+      "start_raw": "2026-07-21T15:35:00-07:00",
       "location": "Los Angeles Intl LAX",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
@@ -445,8 +405,8 @@
     },
     {
       "summary": "Flight to Los Angeles Intl (DL 3902)",
-      "start": "Sunday, July 26 at 03:13 PM",
-      "start_raw": "2026-07-26T15:13:00-07:00",
+      "start": "Sunday, July 26 at 02:20 PM",
+      "start_raw": "2026-07-26T14:20:00-07:00",
       "location": "Reno RNO",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
@@ -516,10 +476,10 @@
       "is_travel": false
     },
     {
-      "summary": "Flight to SFO (DL 1559)",
+      "summary": "Flight to San Francisco (DL 1559)",
       "start": "Thursday, August 06 at 04:25 PM",
       "start_raw": "2026-08-06T16:25:00-07:00",
-      "location": "",
+      "location": "Los Angeles LAX",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
     },

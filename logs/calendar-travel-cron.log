@@ -90,3 +90,30 @@ SUMMARY: Created 6 tasks
 ======================================================================
 ✅ Check completed successfully
 
+========================================
+Calendar Travel Checker - 2026-05-27 16:00:01
+========================================
+======================================================================
+Calendar Travel Checker - Starting
+2026-05-27 16:00:02
+
+Calendar loaded: 80 events
+Found 4 travel events in next 60 days
+Grouped into 1 trips
+
+⚠️  WARNING: Todoist returned 0 tasks - this may indicate a connection issue
+Found 0 existing tasks (including completed)
+
+Creating: Tasks for 14816 Denton Ave Trip on Jul 21 - DL4126
+  Created: └── 🧳 Pack (due 2026-07-20)
+  Created: └── 🏢 Contact Marriott Ambassador (due 2026-07-14)
+  Created: └── 🐕 Schedule Rover (due today)
+  Created: └── 🚗 Schedule Uber to airport for DL4126 to Reno (due 2026-07-18)
+  Created: └── 🚗 Schedule Uber to airport for DL3902 to Los Angeles Int (due 2026-07-23)
+  Marked trip as processed: Flight to Reno (DL 4126)_2026-07-21T15:35:00-07:00
+
+======================================================================
+SUMMARY: Created 6 tasks
+======================================================================
+✅ Check completed successfully
+

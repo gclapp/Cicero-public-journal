@@ -8000,3 +8000,58 @@ No check-in due at 09:00 PM PT
 [2026-05-27 11:00:01 UTC] Heartbeat complete
 [2026-05-27 11:55:01 UTC] Heartbeat triggered
 [2026-05-27 11:55:01 UTC] Heartbeat complete
+[2026-05-27 12:00:01 UTC] Heartbeat triggered
+[2026-05-27 12:00:01 UTC] Heartbeat complete
+[2026-05-27 12:55:01 UTC] Heartbeat triggered
+[2026-05-27 12:55:01 UTC] Heartbeat complete
+[2026-05-27 13:00:01 UTC] Heartbeat triggered
+[2026-05-27 13:00:01 UTC] Heartbeat complete
+[2026-05-27 13:55:01 UTC] Heartbeat triggered
+[2026-05-27 13:55:01 UTC] Heartbeat complete
+[2026-05-27 14:00:02 UTC] Heartbeat triggered
+[2026-05-27 14:00:02 UTC] Morning check-in due (7 AM PT)
+[2026-05-27 14:00:02 UTC] Heartbeat complete
+/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py:1524: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "timestamp": datetime.utcnow().isoformat(),
+Error getting Todoist priorities: [Errno 2] No such file or directory: 'todoist'
+✅ Morning check-in queued: 07:00 AM PT
+[2026-05-27 14:55:02 UTC] Heartbeat triggered
+[2026-05-27 14:55:02 UTC] Heartbeat complete
+[2026-05-27 15:00:01 UTC] Heartbeat triggered
+[2026-05-27 15:00:01 UTC] Heartbeat complete
+[2026-05-27 15:55:01 UTC] Heartbeat triggered
+[2026-05-27 15:55:01 UTC] Heartbeat complete
+[2026-05-27 16:00:01 UTC] Heartbeat triggered
+[2026-05-27 16:00:01 UTC] Heartbeat complete
+[2026-05-27 16:55:01 UTC] Heartbeat triggered
+[2026-05-27 16:55:01 UTC] Heartbeat complete
+[2026-05-27 17:00:01 UTC] Heartbeat triggered
+[2026-05-27 17:00:01 UTC] Heartbeat complete
+[2026-05-27 17:55:01 UTC] Heartbeat triggered
+[2026-05-27 17:55:01 UTC] Heartbeat complete
+[2026-05-27 18:00:01 UTC] Heartbeat triggered
+[2026-05-27 18:00:01 UTC] Heartbeat complete
+[2026-05-27 18:55:01 UTC] Heartbeat triggered
+[2026-05-27 18:55:01 UTC] Heartbeat complete
+[2026-05-27 19:00:01 UTC] Heartbeat triggered
+[2026-05-27 19:00:01 UTC] Heartbeat complete
+[2026-05-27 19:55:01 UTC] Heartbeat triggered
+[2026-05-27 19:55:01 UTC] Midday check-in due (12:30 PM PT)
+[2026-05-27 19:55:01 UTC] Heartbeat complete
+[2026-05-27 20:00:01 UTC] Heartbeat triggered
+[2026-05-27 20:00:01 UTC] Heartbeat complete
+[2026-05-27 20:55:01 UTC] Heartbeat triggered
+[2026-05-27 20:55:01 UTC] Heartbeat complete
+[2026-05-27 21:00:02 UTC] Heartbeat triggered
+[2026-05-27 21:00:02 UTC] Heartbeat complete
+[2026-05-27 21:55:01 UTC] Heartbeat triggered
+[2026-05-27 21:55:01 UTC] Heartbeat complete
+[2026-05-27 22:00:01 UTC] Heartbeat triggered
+[2026-05-27 22:00:01 UTC] Heartbeat complete
+[2026-05-27 22:55:01 UTC] Heartbeat triggered
+[2026-05-27 22:55:01 UTC] Heartbeat complete
+[2026-05-27 23:00:01 UTC] Heartbeat triggered
+[2026-05-27 23:00:01 UTC] Heartbeat complete
+[2026-05-27 23:55:01 UTC] Heartbeat triggered
+[2026-05-27 23:55:01 UTC] Afternoon check-in due (4:30 PM PT)
+[2026-05-27 23:55:01 UTC] Heartbeat complete
