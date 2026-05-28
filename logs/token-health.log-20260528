@@ -1,0 +1,409 @@
+[2026-03-23 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-23 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+✅ Whoop API: Healthy (1 days old)
+✅ Whoop Refresh Token: Healthy (1 days old)
+✅ Gmail SMTP: Healthy (27 days old)
+======================================================================
+
+✅ All tokens healthy
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-23 14:25:01] ✅ All tokens healthy
+[2026-03-24 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-24 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+✅ Whoop API: Healthy (2 days old)
+✅ Whoop Refresh Token: Healthy (2 days old)
+✅ Gmail SMTP: Healthy (28 days old)
+======================================================================
+
+✅ All tokens healthy
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-24 14:25:01] ✅ All tokens healthy
+[2026-03-25 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-25 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (3 days old)
+✅ Gmail SMTP: Healthy (29 days old)
+======================================================================
+
+🔴 CRITICAL (1): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-25 14:25:01] ⚠️ Token issues detected
+[2026-03-26 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-26 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (4 days old)
+✅ Gmail SMTP: Healthy (30 days old)
+======================================================================
+
+🔴 CRITICAL (1): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-26 14:25:02] ⚠️ Token issues detected
+[2026-03-27 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-27 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (5 days old)
+⚠️ Gmail SMTP: Token is 31 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 31 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-27 14:25:01] ⚠️ Token issues detected
+[2026-03-28 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-28 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+✅ Google Docs: Healthy (0 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 32 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 32 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-28 14:25:02] ⚠️ Token issues detected
+[2026-03-29 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-29 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (0 days old)
+✅ Google Docs: Healthy (1 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 33 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 33 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-29 14:25:01] ⚠️ Token issues detected
+[2026-03-30 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-30 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (1 days old)
+✅ Google Docs: Healthy (2 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 34 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 34 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-30 14:25:01] ⚠️ Token issues detected
+[2026-03-31 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-03-31 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (2 days old)
+✅ Google Docs: Healthy (3 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 35 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 35 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-03-31 14:25:01] ⚠️ Token issues detected
+[2026-04-01 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-01 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (3 days old)
+✅ Google Docs: Healthy (4 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 36 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 36 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-01 14:25:02] ⚠️ Token issues detected
+[2026-04-02 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-02 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (4 days old)
+✅ Google Docs: Healthy (5 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 37 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 37 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-02 14:25:01] ⚠️ Token issues detected
+[2026-04-03 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-03 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (5 days old)
+✅ Google Docs: Healthy (6 days old)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 38 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (2): Immediate action required
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 38 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-03 14:25:01] ⚠️ Token issues detected
+[2026-04-04 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-04 14:25:01
+======================================================================
+✅ Google Calendar: Healthy (6 days old)
+⚠️ Google Docs: Token is 7 days old (threshold: 6)
+🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 39 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (3): Immediate action required
+   - ⚠️ Google Docs: Token is 7 days old (threshold: 6)
+   - 🔴 Whoop API: Token expired (401) — RE-AUTH REQUIRED
+   - ⚠️ Gmail SMTP: Token is 39 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-04 14:25:01] ⚠️ Token issues detected
+[2026-04-05 14:25:01] Running token health check...
+🔐 Token Health Check - 2026-04-05 14:25:01
+======================================================================
+⚠️ Google Calendar: Token is 7 days old (threshold: 5)
+⚠️ Google Docs: Token is 8 days old (threshold: 5)
+✅ Whoop API: Healthy (0 days old)
+✅ Whoop Refresh Token: Healthy (0 days old)
+⚠️ Gmail SMTP: Token is 40 days old (threshold: 30)
+======================================================================
+
+🔴 CRITICAL (3): Immediate action required
+   - ⚠️ Google Calendar: Token is 7 days old (threshold: 5)
+   - ⚠️ Google Docs: Token is 8 days old (threshold: 5)
+   - ⚠️ Gmail SMTP: Token is 40 days old (threshold: 30)
+
+📄 Report saved: /home/ubuntu/.openclaw/workspace/logs/token-health.json
+[2026-04-05 14:25:01] ⚠️ Token issues detected
+[2026-05-09 13:40:08] [INFO] ======================================================================
+[2026-05-09 13:40:08] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-09 13:40:08] [INFO] ======================================================================
+[2026-05-09 13:40:08] [INFO] Attempting to refresh Calendar token...
+[2026-05-09 13:40:08] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-09 13:40:08] [INFO] Attempting to refresh Whoop token...
+[2026-05-09 13:40:08] [SUCCESS] ✅ Whoop token refreshed successfully
+[2026-05-09 13:40:08] [INFO] ----------------------------------------------------------------------
+[2026-05-09 13:40:08] [INFO] Calendar: ✅ Token auto-refreshed successfully
+[2026-05-09 13:40:08] [INFO] Whoop: ✅ Token auto-refreshed successfully
+[2026-05-09 13:40:08] [INFO] ----------------------------------------------------------------------
+[2026-05-09 13:40:08] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-09 13:40:08] [INFO] ======================================================================
+[2026-05-09 13:40:38] [INFO] ======================================================================
+[2026-05-09 13:40:38] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-09 13:40:38] [INFO] ======================================================================
+[2026-05-09 13:40:38] [INFO] Attempting to refresh Calendar token...
+[2026-05-09 13:40:38] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-09 13:40:39] [INFO] ----------------------------------------------------------------------
+[2026-05-09 13:40:39] [INFO] Calendar: ✅ Token auto-refreshed successfully
+[2026-05-09 13:40:39] [INFO] Whoop: ✅ Token valid
+[2026-05-09 13:40:39] [INFO] ----------------------------------------------------------------------
+[2026-05-09 13:40:39] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-09 13:40:39] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-09 17:00:03] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-09 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-09 17:00:04] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-09 17:00:04] [INFO] Whoop: ✅ Token valid
+[2026-05-09 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-09 17:00:04] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-09 17:00:04] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-09 17:00:02] [INFO] ======================================================================
+[2026-05-09 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-09 17:00:03] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-09 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-09 17:00:04] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-09 17:00:04] [INFO] Whoop: ✅ Token valid
+[2026-05-09 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-09 17:00:04] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-09 17:00:04] [INFO] ======================================================================
+[2026-05-10 05:00:02] [INFO] ======================================================================
+[2026-05-10 05:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-10 05:00:02] [INFO] ======================================================================
+[2026-05-10 05:00:03] [INFO] Attempting to refresh Calendar token...
+[2026-05-10 05:00:03] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-10 05:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-10 05:00:04] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-10 05:00:04] [INFO] Whoop: ✅ Token valid
+[2026-05-10 05:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-10 05:00:04] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-10 05:00:04] [INFO] ======================================================================
+[2026-05-10 05:00:02] [INFO] ======================================================================
+[2026-05-10 05:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-10 05:00:02] [INFO] ======================================================================
+[2026-05-10 05:00:03] [INFO] Attempting to refresh Calendar token...
+[2026-05-10 05:00:03] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-10 05:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-10 05:00:04] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-10 05:00:04] [INFO] Whoop: ✅ Token valid
+[2026-05-10 05:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-10 05:00:04] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-10 05:00:04] [INFO] ======================================================================
+[2026-05-10 17:00:02] [INFO] ======================================================================
+[2026-05-10 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-10 17:00:02] [INFO] ======================================================================
+[2026-05-10 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-10 17:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-10 17:00:06] [INFO] Attempting to refresh Whoop token...
+[2026-05-10 17:00:09] [SUCCESS] ✅ Whoop token refreshed successfully
+[2026-05-10 17:00:09] [INFO] ----------------------------------------------------------------------
+[2026-05-10 17:00:09] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-10 17:00:09] [INFO] Whoop: ✅ Token auto-refreshed successfully
+[2026-05-10 17:00:09] [INFO] ----------------------------------------------------------------------
+[2026-05-10 17:00:09] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-10 17:00:09] [INFO] ======================================================================
+[2026-05-10 17:00:02] [INFO] ======================================================================
+[2026-05-10 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-10 17:00:02] [INFO] ======================================================================
+[2026-05-10 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-10 17:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-10 17:00:06] [INFO] Attempting to refresh Whoop token...
+[2026-05-10 17:00:09] [SUCCESS] ✅ Whoop token refreshed successfully
+[2026-05-10 17:00:09] [INFO] ----------------------------------------------------------------------
+[2026-05-10 17:00:09] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-10 17:00:09] [INFO] Whoop: ✅ Token auto-refreshed successfully
+[2026-05-10 17:00:09] [INFO] ----------------------------------------------------------------------
+[2026-05-10 17:00:09] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-10 17:00:09] [INFO] ======================================================================
+[2026-05-11 05:00:02] [INFO] ======================================================================
+[2026-05-11 05:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-11 05:00:02] [INFO] ======================================================================
+[2026-05-11 05:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-11 05:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-11 05:00:03] [INFO] Attempting to refresh Whoop token...
+[2026-05-11 05:00:10] [SUCCESS] ✅ Whoop token refreshed successfully
+[2026-05-11 05:00:10] [INFO] ----------------------------------------------------------------------
+[2026-05-11 05:00:10] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-11 05:00:10] [INFO] Whoop: ✅ Token auto-refreshed successfully
+[2026-05-11 05:00:10] [INFO] ----------------------------------------------------------------------
+[2026-05-11 05:00:10] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-11 05:00:10] [INFO] ======================================================================
+[2026-05-11 05:00:02] [INFO] ======================================================================
+[2026-05-11 05:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-11 05:00:02] [INFO] ======================================================================
+[2026-05-11 05:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-11 05:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-11 05:00:03] [INFO] Attempting to refresh Whoop token...
+[2026-05-11 05:00:10] [SUCCESS] ✅ Whoop token refreshed successfully
+[2026-05-11 05:00:10] [INFO] ----------------------------------------------------------------------
+[2026-05-11 05:00:10] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-11 05:00:10] [INFO] Whoop: ✅ Token auto-refreshed successfully
+[2026-05-11 05:00:10] [INFO] ----------------------------------------------------------------------
+[2026-05-11 05:00:10] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-11 05:00:10] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-11 17:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-11 17:00:05] [INFO] Attempting to refresh Whoop token...
+[2026-05-11 17:00:07] [ERROR] ❌ Whoop refresh failed: HTTP 400
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-11 17:00:07] [INFO] Whoop: ❌ Token refresh failed - manual re-auth may be required
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] 🚨 Sending alert for 1 failed service(s)...
+[2026-05-11 17:00:09] [SUCCESS] ✅ Alert email sent to [REDACTED]
+[2026-05-11 17:00:09] [INFO] Summary: 2 healthy, 1 failed
+[2026-05-11 17:00:09] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-11 17:00:02] [INFO] ======================================================================
+[2026-05-11 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-11 17:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-11 17:00:05] [INFO] Attempting to refresh Whoop token...
+[2026-05-11 17:00:07] [ERROR] ❌ Whoop refresh failed: HTTP 400
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-11 17:00:07] [INFO] Whoop: ❌ Token refresh failed - manual re-auth may be required
+[2026-05-11 17:00:07] [INFO] ----------------------------------------------------------------------
+[2026-05-11 17:00:07] [INFO] 🚨 Sending alert for 1 failed service(s)...
+[2026-05-11 17:00:09] [SUCCESS] ✅ Alert email sent to [REDACTED]
+[2026-05-11 17:00:09] [INFO] Summary: 2 healthy, 1 failed
+[2026-05-11 17:00:09] [INFO] ======================================================================
+[2026-05-12 05:00:02] [INFO] ======================================================================
+[2026-05-12 05:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-12 05:00:02] [INFO] ======================================================================
+[2026-05-12 05:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-12 05:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-12 05:00:05] [INFO] ----------------------------------------------------------------------
+[2026-05-12 05:00:05] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-12 05:00:05] [INFO] Whoop: ✅ Token valid
+[2026-05-12 05:00:05] [INFO] ----------------------------------------------------------------------
+[2026-05-12 05:00:05] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-12 05:00:05] [INFO] ======================================================================
+[2026-05-12 05:00:02] [INFO] ======================================================================
+[2026-05-12 05:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-12 05:00:02] [INFO] ======================================================================
+[2026-05-12 05:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-12 05:00:02] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-12 05:00:05] [INFO] ----------------------------------------------------------------------
+[2026-05-12 05:00:05] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-12 05:00:05] [INFO] Whoop: ✅ Token valid
+[2026-05-12 05:00:05] [INFO] ----------------------------------------------------------------------
+[2026-05-12 05:00:05] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-12 05:00:05] [INFO] ======================================================================
+[2026-05-12 17:00:02] [INFO] ======================================================================
+[2026-05-12 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-12 17:00:02] [INFO] ======================================================================
+[2026-05-12 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-12 17:00:03] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-12 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-12 17:00:04] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-12 17:00:04] [INFO] Whoop: ✅ Token valid
+[2026-05-12 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-12 17:00:04] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-12 17:00:04] [INFO] ======================================================================
+[2026-05-12 17:00:02] [INFO] ======================================================================
+[2026-05-12 17:00:02] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-05-12 17:00:02] [INFO] ======================================================================
+[2026-05-12 17:00:02] [INFO] Attempting to refresh Calendar token...
+[2026-05-12 17:00:03] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-05-12 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-12 17:00:04] [INFO] Calendar: ✅ Token refreshed successfully
+[2026-05-12 17:00:04] [INFO] Whoop: ✅ Token valid
+[2026-05-12 17:00:04] [INFO] ----------------------------------------------------------------------
+[2026-05-12 17:00:04] [INFO] Summary: 2 healthy, 0 failed
+[2026-05-12 17:00:04] [INFO] ======================================================================

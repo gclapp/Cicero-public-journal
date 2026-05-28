@@ -1,0 +1,13 @@
+{
+  "api_key": "your_flightaware_api_key_here",
+  "rate_limit": {
+    "min_request_interval_ms": 100,
+    "max_retries": 3,
+    "retry_delay_seconds": 1
+  },
+  "defaults": {
+    "timeout_seconds": 30,
+    "airport_hours_ahead": 2,
+    "airport_hours_behind": 1
+  }
+}

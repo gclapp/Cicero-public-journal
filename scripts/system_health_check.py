@@ -132,6 +132,36 @@ def check_competitive_intel():
         return {'status': 'active'}
     return {'status': 'unknown'}
 
+def check_model_status():
+    """Check current AI model status"""
+    PRIMARY_MODEL = "openai/gpt-5.5"
+    FALLBACK_MODELS = ["openai/gpt-5.4-mini", "moonshot/kimi-k2.5"]
+    
+    # Try to read from marker file
+    marker_file = Path.home() / ".openclaw" / "workspace" / "logs" / "current-model.txt"
+    current = None
+    if marker_file.exists():
+        try:
+            with open(marker_file) as f:
+                current = f.read().strip()
+        except:
+            pass
+    
+    # Fallback to environment
+    if not current:
+        current = os.environ.get('OPENCLAW_CURRENT_MODEL', 'unknown')
+    
+    is_fallback = any(fb in current for fb in FALLBACK_MODELS)
+    is_primary = PRIMARY_MODEL in current or "gpt-5.5" in current
+    
+    return {
+        'status': 'ok' if is_primary else 'fallback',
+        'current': current,
+        'primary': PRIMARY_MODEL,
+        'is_fallback': is_fallback,
+        'is_primary': is_primary
+    }
+
 def check_travel_automation():
     """Check travel automation is running and count recent tasks"""
     # Check cron job exists (looks for calendar-travel-checker or travel_automation)
@@ -342,6 +372,17 @@ def run_health_check():
     else:
         log("  ⚠️ Travel Automation may need attention")
     
+    # Check Model Status
+    log("\n🤖 Checking Model Status...")
+    model_status = check_model_status()
+    results['checks']['model'] = model_status
+    if model_status['status'] == 'ok':
+        log(f"  ✅ Model: {model_status.get('current', 'Unknown')} (Primary: {model_status.get('primary', 'Unknown')})")
+    elif model_status.get('is_fallback'):
+        log(f"  ⚠️ Model: Using fallback {model_status.get('current')} (Expected: {model_status.get('primary')})")
+    else:
+        log(f"  ⚠️ Model: Status unknown")
+    
     log("\n" + "=" * 60)
     
     # Determine overall status
@@ -402,6 +443,15 @@ def generate_heartbeat_summary(health_results):
         lines.append("✅ Whoop: Configured")
     else:
         lines.append("⚠️ Whoop: Not configured")
+    
+    # Model Status
+    model = health_results['checks'].get('model', {})
+    if model.get('is_primary'):
+        lines.append(f"✅ Model: {model.get('primary', 'GPT-4o')} (Primary)")
+    elif model.get('is_fallback'):
+        lines.append(f"⚠️ Model: FALLBACK - Using {model.get('current', 'Unknown')} (Expected: {model.get('primary', 'GPT-4o')})")
+    else:
+        lines.append("⚠️ Model: Status unknown")
     
     # Dashboards
     health_dash = health_results['checks'].get('health_dashboard', {})

@@ -1,0 +1,57 @@
+/home/ubuntu/.openclaw/workspace/scripts/calendar_intelligence.py:26: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow()
+🔍 Scanning next 30 days of calendar...
+======================================================================
+
+📊 FOUND 37 EVENTS
+======================================================================
+
+🍽️  RESTAURANTS (2):
+   • Reservation at L'Artusi
+     📍 L'Artusi, 228 West 10th Street, (Between Bleecker St. and Hudson St.), New York, NY 
+10014
+   • Reservation at Nowon East Village
+     📍 Nowon East Village, 507 E 6th St, (Between E 6th St and Ave A), New York, NY 10009
+
+✈️  FLIGHTS (11):
+   • Reserved Uber to Airport
+     📍 Microsoft Teams Meeting
+   • Geoff Flight to Delta - Delta Air Lines 471
+     📍 Los Angeles(LAX) - Atlanta(ATL)
+   • Geoff Flight to Delta -  Delta Air Lines 763 
+     📍 Atlanta(ATL) - Los Angeles(LAX)
+   • Reserved Uber to LAX
+   • Delta Air Lines flight 960 to New York (HCTGNK)
+     📍 Los Angeles International Airport (1 World Way, Los Angeles, CA 90045, United States)
+   • Mac Spring Break: Courtyard
+     📍 Courtyard by Marriott Santa Barbara Downtown, 1601 State St, Santa Barbara, CA 93101, USA
+   • Delta Air Lines flight 707 to Los Angeles (HCTGNK)
+     📍 John F. Kennedy International Airport (New York, NY 11430, United States)
+   • Delta Air Lines 960 - Confirmation code: G959VX
+     📍 Los Angeles(LAX) - New York(JFK)
+   • The Algonquin Hotel Times Square, Autograph Collection, 95280672
+     📍 59 W 44th St, New York, NY, 10036, USA
+   • Delta Air Lines 752 - Confirmation code: G9WPJ6
+     📍 New York(JFK) - Los Angeles(LAX)
+   • Flight to PHX (DL 4119)
+
+🏨 HOTELS (5):
+   • Stay at Courtyard by Marriott Santa Barbara Downtown
+   • Mac Spring Break: Courtyard
+   • Stay at The Algonquin Hotel Times Square, Autograph Collection
+   • The Algonquin Hotel Times Square, Autograph Collection, 95280672
+   • Stay at JW Marriott Phoenix Desert Ridge Resort & Spa
+
+👶 KID EVENTS (14):
+   • Pick up Sophie from School
+   • Pick up Oliver from School
+   • Geoff Drop off Kids at Stacey's House
+   • Ollie Consult Call
+   • Pick up Sophie from School
+
+❓ QUESTIONS TO ASK:
+   • I see you have reservations at Reservation at L'Artusi, Reservation at Nowon East Village. Are these business dinners or personal?
+   • You have 11 flights in the next 30 days. Is this a heavy travel month or typical for you?
+   • I see regular school pickups for Sophie and Oliver. Do you share custody or is this your regular schedule?
+
+💾 Profile saved to: /home/ubuntu/.openclaw/workspace/memory/geoff-profile-calendar.md

@@ -1,0 +1,47 @@
+{
+  "flightaware": {
+    "api_key": null,
+    "api_secret": null,
+    "base_url": "https://aeroapi.flightaware.com/aeroapi",
+    "version": "v4",
+    "rate_limit": 100,
+    "rate_limit_window": 60
+  },
+  "geoff_preferences": {
+    "home_airports": ["LAX", "BUR", "VNY", "LGB", "ONT"],
+    "preferred_airlines": ["Delta", "American", "Alaska"],
+    "seat_preference": "aisle",
+    "loyalty_programs": {
+      "delta": "SkyMiles",
+      "marriott": "Bonvoy"
+    },
+ "check_in_reminders": {
+      "t_24h": true,
+      "t_4h": true,
+      "t_1h": true
+    },
+    "arrival_buffer": {
+      "domestic": 60,
+      "international": 120
+    }
+  },
+  "alert_settings": {
+    "critical": {
+      "channels": ["telegram", "email"],
+      "immediate": true
+    },
+    "warning": {
+      "channels": ["telegram"],
+      "immediate": false
+    },
+    "info": {
+      "channels": ["briefing_only"],
+      "immediate": false
+    }
+  },
+  "monitoring": {
+    "poll_interval_minutes": 15,
+    "active_flight_lookback_hours": 2,
+    "upcoming_flight_lookahead_hours": 48
+  }
+}

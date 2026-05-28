@@ -1,0 +1,13 @@
+{
+  "fallbacks": [
+    {
+      "timestamp": "2026-05-28T04:32:07.245694",
+      "fallback_model": "moonshot/kimi-k2.5",
+      "expected_primary": "openai/gpt-5.5",
+      "alert_sent": true,
+      "recovery_time": "2026-05-28T04:34:18.896965"
+    }
+  ],
+  "last_alert": "2026-05-28T04:32:08.857227",
+  "current_model": "openai/gpt-5.5"
+}

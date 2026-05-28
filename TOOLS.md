@@ -1,5 +1,45 @@
 # TOOLS.md - Local Notes
 
+## AI Model Configuration (May 28, 2026)
+
+### Primary Model
+- **Model:** `openai/gpt-5.5` (GPT-4o)
+- **Why:** Superior reasoning, better tool use, native vision, more consistent output
+- **Alias:** GPT-4o
+
+### Fallback Models (in order)
+1. `openai/gpt-5.4-mini` (GPT-4o Mini) — OpenAI backup
+2. `moonshot/kimi-k2.5` (Kimi K2.5) — Third-party backup
+
+### Model Fallback Monitoring
+**Script:** `scripts/model_fallback_monitor.py`
+**Schedule:** Every 5 minutes via cron
+**Log:** `logs/model-fallbacks.json`
+**Alerts:** Email to [REDACTED]
+
+**What it does:**
+- Monitors which model is currently active
+- Sends email alert when fallback occurs (with reason, timestamp, recovery steps)
+- Sends recovery email when returning to primary model
+- Rate-limited: max 1 alert per hour to prevent spam
+
+**Manual check:**
+```bash
+# Report current model status
+python3 scripts/model_fallback_monitor.py "openai/gpt-5.5"
+
+# View fallback history
+cat logs/model-fallbacks.json
+```
+
+### Session Model Override
+To switch models for current session:
+```bash
+openclaw session-status --model openai/gpt-5.5
+```
+
+---
+
 ## Email Configuration
 - **From:** [REDACTED]
 - **Method:** Gmail SMTP with app password
@@ -514,6 +554,7 @@ bash scripts/cron-backup.sh verify
 | Whoop Auto-Refresh | Every 30 min | `token_auto_refresh_v2.py` | Proactive Whoop token refresh |
 | Whoop Token Monitor | Every 6 hours | `whoop_token_monitor.py` | Vitus health agent token check |
 | Vitus Health Agent | 3x daily | `coach_engine.py` | Morning/midday/evening health briefings |
+| **Model Fallback Monitor** | **Every 5 min** | **`model_fallback_monitor.py`** | **Alert when using backup AI model** |
 
 ### Post-Update Checklist
 After ANY system update or restart:

@@ -29,6 +29,75 @@
   - Refresh: Daily at 6:55 AM PT (before morning check-in)
   - Includes: All events, travel detection, location tracking
 
+### Aero Travel Manager v2.0 (May 28, 2026) — MIGRATED
+**Agent:** `travel-bot` (Aero)  
+**Location:** `agents/travel-bot/`  
+**Purpose:** Complete travel automation — trip detection, smart task creation, day-of-travel monitoring
+
+**What Aero Does:**
+1. **Smart Task Creation** — Creates tasks only for new trips (no duplicates)
+   - Pack, Marriott Ambassador, Rover (outbound only), Uber (to/from)
+2. **Day-of-Travel Monitoring** — Every 30 minutes, checks flights today/tomorrow
+   - Gate changes, terminal changes, delays 15+ min, cancellations
+3. **Flight Validation** — Multi-source confidence scoring (FlightAware + Calendar)
+4. **Proactive Alerts** — Email + Telegram for critical changes
+
+**Flight Information Validation:**
+- **FlightAware API (50% weight)** — Real-time status, gates, delays
+- **Calendar Cross-Reference (30% weight)** — Confirms flight is in Geoff's schedule
+- **Schedule Search (20% weight)** — Validates route exists
+- **Confidence Thresholds:** 80%+ CONFIRMED, 50-79% LIKELY, <50% UNVERIFIED
+
+**Rover Logic (Smart):**
+- Creates Rover task for outbound flights FROM LAX/Burbank (leaving home)
+- NO Rover task for inbound flights TO LAX/Burbank (returning home)
+
+**Cron Jobs:**
+```
+Mon/Wed/Fri 4 PM PT — Task creation
+Every 30 minutes — Day-of-travel monitoring
+Daily 6 AM PT — Full run (tasks + monitoring)
+```
+
+**Commands:**
+```bash
+python3 agents/travel-bot/aero_travel_manager.py tasks      # Create tasks
+python3 agents/travel-bot/aero_travel_manager.py monitor    # Monitor flights
+python3 agents/travel-bot/aero_travel_manager.py full       # Both
+python3 agents/travel-bot/aero_travel_manager.py validate DL123 2026-06-15  # Validate
+python3 agents/travel-bot/aero_travel_manager.py test       # Test API
+```
+
+**Files:**
+- Main: `agents/travel-bot/aero_travel_manager.py`
+- Config: `agents/travel-bot/config.json`
+- State: `~/.openclaw/workspace/state/aero-travel-state.json`
+- Logs: `~/.openclaw/workspace/logs/aero-cron.log`
+
+**Migration:** Run `bash scripts/migrate-to-aero.sh` to switch from old scripts
+
+---
+
+### AI Model Configuration (May 28, 2026)
+**Primary Model:** `openai/gpt-5.5` (GPT-4o) — Best quality, full capabilities
+**Fallback Models:** 
+- `openai/gpt-5.4-mini` (GPT-4o Mini) — OpenAI backup
+- `moonshot/kimi-k2.5` (Kimi K2.5) — Third-party backup
+
+**Model Fallback Alerts:**
+- Email alerts sent to [REDACTED] when fallback occurs
+- Recovery alerts sent when returning to primary model
+- Monitored every 5 minutes via cron
+- Script: `scripts/model_fallback_monitor.py`
+- Log: `logs/model-fallbacks.json`
+
+**Why GPT-4o as Primary:**
+- Superior reasoning and instruction following
+- Better tool use and function calling
+- Native vision capabilities
+- More consistent output quality
+- Better at complex multi-step tasks
+
 ## Geoff's Expectations — Critical Rules
 
 ### Calendar Integration Rules (March 4, 2026) — HIGHEST PRIORITY

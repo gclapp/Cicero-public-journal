@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-05-27T14:55:05.107304",
-  "total_events": 80,
-  "travel_events": 5,
+  "last_updated": "2026-05-28T05:28:37.670422",
+  "total_events": 85,
+  "travel_events": 7,
   "events": [
     {
       "summary": "Pick up Sophie from School",
@@ -97,6 +97,22 @@
       "start_raw": "2026-06-04T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Grace help with Kids (OAI Dinner)",
+      "start": "Thursday, June 04 at 04:45 PM",
+      "start_raw": "2026-06-04T16:45:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/274393461126215?p=7MXl9MY7HOSvyTP5hg\nMeeting ID: 274 39",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to OpenAI Dinner",
+      "start": "Thursday, June 04 at 04:50 PM",
+      "start_raw": "2026-06-04T16:50:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/26189066434995?p=qQ1Gxc7U1WCvg57ewd\nMeeting ID: 261 890",
       "is_travel": false
     },
     {
@@ -236,12 +252,28 @@
       "is_travel": false
     },
     {
+      "summary": "Delta Air Lines 979 Confirmation code: HWL2WF",
+      "start": "Sunday, June 21 at 07:00 AM",
+      "start_raw": "2026-06-21T07:00:00-07:00",
+      "location": "Los Angeles(LAX) - New York(JFK)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: HWL2WF Delta Air Lines 979 Business, Scheduled Departure Jun 21, 2026, 7:00 am, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.),",
+      "is_travel": true
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, June 22 at 07:00 AM",
       "start_raw": "2026-06-22T07:00:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false
+    },
+    {
+      "summary": "Delta Air Lines 742 - Confirmation code: HWL3CM",
+      "start": "Thursday, June 25 at 04:00 AM",
+      "start_raw": "2026-06-25T04:00:00-07:00",
+      "location": "New York(JFK) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: HWL3CM Delta Air Lines 742 Business, Scheduled Departure Jun 25, 2026, 7:00 am, New York, NY, United States of America (JFK-John F. Kennedy Intl.)",
+      "is_travel": true
     },
     {
       "summary": "\u26a1\ufe0f Maven LIVE: When to Use Claude Cowork vs. Build an AI workflow",
@@ -564,11 +596,11 @@
       "is_travel": false
     },
     {
-      "summary": "Momma",
+      "summary": "Momma & Rocket Concert",
       "start": "Friday, August 14 at 08:00 PM",
       "start_raw": "2026-08-14T20:00:00-07:00",
       "location": "The Bellwether, Los Angeles, California",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "description": "Momma\nThe Bellwether, Los Angeles, California\n\nConfirmation number: 39-33015/LA1",
       "is_travel": false
     },
     {
@@ -641,6 +673,14 @@
       "start_raw": "2026-08-24T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "House Cleaner (Glowy) ",
+      "start": "Tuesday, August 25 at 09:00 AM",
+      "start_raw": "2026-08-25T09:00:00-07:00",
+      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
+      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
       "is_travel": false
     }
   ]
