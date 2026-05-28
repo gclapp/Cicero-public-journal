@@ -1135,11 +1135,51 @@ def test_flight_aware_connection() -> bool:
         return False
 
 
+def setup_flightaware(api_key: str):
+    """Setup FlightAware API credentials"""
+    config = {}
+    if CONFIG_PATH.exists():
+        with open(CONFIG_PATH) as f:
+            config = json.load(f)
+    
+    if "flightaware" not in config:
+        config["flightaware"] = {}
+    
+    config["flightaware"]["api_key"] = api_key
+    config["flightaware"]["base_url"] = "https://aeroapi.flightaware.com/aeroapi"
+    
+    # Ensure memory directory exists
+    MEMORY_PATH = Path(__file__).parent / "memory"
+    MEMORY_PATH.mkdir(parents=True, exist_ok=True)
+    (MEMORY_PATH / "trips").mkdir(exist_ok=True)
+    
+    with open(CONFIG_PATH, "w") as f:
+        json.dump(config, f, indent=2)
+    
+    print("✅ FlightAware configuration saved!")
+    print(f"   Config location: {CONFIG_PATH}")
+    
+    # Test the connection
+    try:
+        client = FlightAwareClient()
+        url = f"{client.base_url}/flights/DL123"
+        response = requests.get(url, headers=client._headers(), timeout=10)
+        if response.status_code == 200:
+            print("✅ Connection test successful!")
+        elif response.status_code == 401:
+            print("⚠️  Connection test failed: Invalid API key")
+        else:
+            print(f"⚠️  Connection test returned: {response.status_code}")
+    except Exception as e:
+        print(f"⚠️  Could not test connection: {e}")
+
+
 def main():
     import sys
     
     if len(sys.argv) < 2:
         print("Usage:")
+        print("  python aero_travel_manager.py setup <api_key>")
         print("  python aero_travel_manager.py tasks")
         print("  python aero_travel_manager.py monitor")
         print("  python aero_travel_manager.py full")
@@ -1148,6 +1188,15 @@ def main():
         sys.exit(1)
     
     command = sys.argv[1]
+    
+    if command == "setup":
+        if len(sys.argv) < 3:
+            print("Error: API key required")
+            print("Usage: python aero_travel_manager.py setup <api_key>")
+            sys.exit(1)
+        api_key = sys.argv[2]
+        setup_flightaware(api_key)
+        sys.exit(0)
     
     # Initialize FlightAware client if configured
     fa_client = None

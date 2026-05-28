@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-28T05:28:37.670422",
-  "total_events": 85,
+  "last_updated": "2026-05-28T14:55:03.860090",
+  "total_events": 86,
   "travel_events": 7,
   "events": [
     {
@@ -681,6 +681,14 @@
       "start_raw": "2026-08-25T09:00:00-07:00",
       "location": "23675 Park Capri, Calabasas, CA 91302, USA",
       "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
+      "summary": "Trish Cavestany's birthday",
+      "start": "Wednesday, August 26",
+      "start_raw": "2026-08-26",
+      "location": "",
+      "description": "",
       "is_travel": false
     }
   ]

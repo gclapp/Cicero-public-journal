@@ -29,10 +29,13 @@
   - Refresh: Daily at 6:55 AM PT (before morning check-in)
   - Includes: All events, travel detection, location tracking
 
-### Aero Travel Manager v2.0 (May 28, 2026) — MIGRATED
+### Aero Travel Manager v2.0 (May 28, 2026) — ACTIVE ✅
 **Agent:** `travel-bot` (Aero)  
 **Location:** `agents/travel-bot/`  
 **Purpose:** Complete travel automation — trip detection, smart task creation, day-of-travel monitoring
+
+**Status:** FlightAware API configured and tested ✅  
+**FlightAware Portal:** https://www.flightaware.com/aeroapi/portal
 
 **What Aero Does:**
 1. **Smart Task Creation** — Creates tasks only for new trips (no duplicates)

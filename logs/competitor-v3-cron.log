@@ -1,0 +1,83 @@
+[2026-05-28 14:00:01] Starting competitive intelligence v3...
+[2026-05-28 14:00:01] Step 1: RSS + Web search...
+[2026-05-28 14:00:02] ======================================================================
+[2026-05-28 14:00:02] Starting Competitive Intelligence Scan v3
+[2026-05-28 14:00:02] ======================================================================
+[2026-05-28 14:00:02] 
+1. Scanning RSS feeds...
+[2026-05-28 14:00:02]    Scanning: Maven - Google Alerts
+[2026-05-28 14:00:02]    Scanning: Carrot - Google Alerts
+[2026-05-28 14:00:02]    Scanning: KindBody - Google Alerts
+[2026-05-28 14:00:02]    Scanning: WIN Fertility - Google Alerts
+[2026-05-28 14:00:03]    Scanning: Pomelo Health - Google Alerts
+[2026-05-28 14:00:03]    Scanning: Oura - Google Alerts
+[2026-05-28 14:00:03]    Scanning: Maven - Press Releases
+[2026-05-28 14:00:04]    Scanning: Carrot - Press Releases
+[2026-05-28 14:00:04]    Skipping duplicate title: Carrot Tackles Rural America's Fertility Care Access Crisis ...
+[2026-05-28 14:00:04]    Skipping duplicate title: Carrot Brings AI-Native Metabolic Care to Every Stage of Men...
+[2026-05-28 14:00:04]    Scanning: KindBody - Press Releases
+[2026-05-28 14:00:05]    Scanning: Oura - Press Releases
+[2026-05-28 14:00:06]    Scanning: Midi Health - Press Releases
+[2026-05-28 14:00:06]    Scanning: Evernow - Press Releases
+[2026-05-28 14:00:07]    Scanning: FemTech Funding News
+[2026-05-28 14:00:08]    Scanning: Women's Health AI
+[2026-05-28 14:00:08]    Found 4 new articles from RSS
+[2026-05-28 14:00:08] 
+2. Searching web for competitive news...
+[2026-05-28 14:00:10]    Skipping duplicate title: Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 a...
+[2026-05-28 14:00:10]    Skipping duplicate title: TIME100 Most Influential Companies 2026: Maven Clinic...
+[2026-05-28 14:00:11]    Found 3 new articles from web search
+[2026-05-28 14:00:11] 
+3. Checking LinkedIn executive posts...
+[2026-05-28 14:00:32]    ✓ LinkedIn executive scan complete
+[2026-05-28 14:00:32]    Skipping a4287f13... (low FemTech relevance: 8)
+[2026-05-28 14:00:32]    Skipping 405f0e27... (low FemTech relevance: 8)
+[2026-05-28 14:00:32]    Skipping 229bb213... (low FemTech relevance: 8)
+[2026-05-28 14:00:32] 
+✅ Total new articles: 4
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 4 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 0 | 🟡 Medium: 1
+======================================================================
+
+🟡 [General] Three menopause innovators shortlisted for Femtech World Award - FemTe...
+
+🟡 [Maven] Project Maven : a marine colonel, his team, and the dawn of AI warfare...
+
+🟡 [General] AVATAi Introduces Next-Generation AI SaaS Platform Featuring Customiza...
+
+🟡 [Oura] Oura unveils its Ring 5 with a thinner, lighter design starting at $39...
+
+======================================================================
+[2026-05-28 14:00:32] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 7 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 1 updates
+   Midi Health: 6 updates
+   Evernow: 4 updates
+   Pacify: 5 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 10 job changes
+
+3. Searching for company announcements...
+   Found 2 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-05-28 14:00:39] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 4 | High: 2 | Medium: 2
+[2026-05-28 14:00:39] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-05-28 14:00:41] ✅ Email sent
+[2026-05-28 14:00:41] Complete
