@@ -36727,3 +36727,6 @@
 127.0.0.1 - - [28/May/2026:11:59:06 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:149.0) Gecko/20100101 Firefox/149.0"
 127.0.0.1 - - [28/May/2026:11:59:08 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com" "Mozilla/5.0 (X11; Linux x86_64; rv:149.0) Gecko/20100101 Firefox/149.0"
 127.0.0.1 - - [28/May/2026:18:13:01 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [29/May/2026:07:27:05 +0000] "GET /wp-login.php HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [29/May/2026:09:33:37 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+127.0.0.1 - - [29/May/2026:09:33:42 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
