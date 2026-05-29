@@ -43,6 +43,13 @@ TOKEN_CONFIG = {
         "critical": True,
         "auto_refresh": True,
         "expiry_threshold_hours": 1,  # Whoop tokens expire in 1 hour
+    },
+    "github": {
+        "name": "GitHub PAT",
+        "token_file": CREDENTIALS_DIR / "github-token.txt",
+        "critical": False,  # Not critical for daily operations
+        "auto_refresh": False,  # GitHub PATs don't auto-refresh
+        "expiry_threshold_days": 7,  # Alert if expires within 7 days
     }
 }
 
@@ -230,6 +237,80 @@ def refresh_calendar_token(creds, pickle_path):
     except Exception as e:
         log(f"❌ Calendar token refresh failed: {e}", "ERROR")
         return False
+
+
+def check_github_token():
+    """Check GitHub PAT health"""
+    config = TOKEN_CONFIG["github"]
+    result = {
+        "service": "github",
+        "name": config["name"],
+        "status": "unknown",
+        "valid": False,
+        "expires_soon": False,
+        "action_required": False,
+        "message": "",
+        "checked_at": datetime.now().isoformat()
+    }
+    
+    token_file = config["token_file"]
+    
+    if not token_file.exists():
+        result["status"] = "missing"
+        result["message"] = "❌ GitHub token file not found"
+        result["action_required"] = True
+        return result
+    
+    try:
+        # Read token
+        token = token_file.read_text().strip()
+        
+        if not token:
+            result["status"] = "missing"
+            result["message"] = "❌ GitHub token file is empty"
+            result["action_required"] = True
+            return result
+        
+        # Validate token with GitHub API
+        headers = {
+            "Authorization": f"token {token}",
+            "Accept": "application/vnd.github.v3+json"
+        }
+        response = requests.get(
+            "https://api.github.com/user",
+            headers=headers,
+            timeout=10
+        )
+        
+        if response.status_code == 200:
+            user_data = response.json()
+            result["status"] = "valid"
+            result["valid"] = True
+            result["message"] = f"✅ Token valid ({user_data.get('login', 'unknown')})"
+            
+            # Check token expiration if available
+            # GitHub classic tokens don't have expiry, fine-grained tokens do
+            scopes = response.headers.get('X-OAuth-Scopes', 'unknown')
+            log(f"GitHub token scopes: {scopes}")
+            
+        elif response.status_code == 401:
+            result["status"] = "invalid"
+            result["message"] = "❌ Token invalid (401) - may be expired or revoked"
+            result["action_required"] = True
+        else:
+            result["status"] = "error"
+            result["message"] = f"⚠️ Unexpected response: HTTP {response.status_code}"
+            result["action_required"] = True
+            
+    except requests.exceptions.Timeout:
+        result["status"] = "timeout"
+        result["message"] = "⚠️ GitHub API timeout"
+    except Exception as e:
+        result["status"] = "error"
+        result["message"] = f"❌ Error checking token: {str(e)}"
+        result["action_required"] = True
+    
+    return result
 
 
 def check_whoop_token():
@@ -463,6 +544,20 @@ python3 ~/.openclaw/workspace/skills/whoop-openclaw-skill/scripts/whoop_oauth.py
   --config ~/.openclaw/credentials/whoop-config.json
 </div>
 
+<h3>For GitHub:</h3>
+<div class="code">
+# Generate new token at:
+https://github.com/settings/tokens
+
+# Save to file:
+echo 'ghp_YOUR_NEW_TOKEN' > ~/.openclaw/credentials/github-token.txt
+chmod 600 ~/.openclaw/credentials/github-token.txt
+</div>
+<p>Then update git remote URL:</p>
+<div class="code">
+git remote set-url origin https://gclapp:ghp_YOUR_NEW_TOKEN@github.com/gclapp/REPO_NAME.git
+</div>
+
 <div class="footer">
 <p>Token Health Monitor<br>
 Checked at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} UTC</p>
@@ -527,19 +622,22 @@ def main():
     # Load previous status for rate limiting
     previous_status = load_previous_status()
     
-    # Check both tokens
+    # Check all tokens
     calendar_result = check_calendar_token()
     whoop_result = check_whoop_token()
+    github_result = check_github_token()
     
     results = {
         "calendar": calendar_result,
-        "whoop": whoop_result
+        "whoop": whoop_result,
+        "github": github_result
     }
     
     # Log results
     log("-" * 70)
     log(f"Calendar: {calendar_result['message']}")
     log(f"Whoop: {whoop_result['message']}")
+    log(f"GitHub: {github_result['message']}")
     log("-" * 70)
     
     # Determine failed services
@@ -571,6 +669,7 @@ def main():
     failed_count = len(failed_services)
     
     log(f"Summary: {healthy_count} healthy, {failed_count} failed")
+    log(f"Services: Calendar ({'✅' if calendar_result.get('valid') else '❌'}), Whoop ({'✅' if whoop_result.get('valid') else '❌'}), GitHub ({'✅' if github_result.get('valid') else '❌'})")
     log("=" * 70)
     
     # Exit with error code if any failed
