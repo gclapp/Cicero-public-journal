@@ -1,3 +1,11 @@
 [2026-05-30 06:00:03.030914] Checking Whoop alerts...
 No alerts triggered
 Done.
+[2026-05-30 12:00:01.780575] Checking Whoop alerts...
+Triggered 1 alert(s):
+  - 📉 WARNING: HRV Dropped 26.9% from Baseline
+Alert email sent successfully
+Done.
+[2026-05-30 18:00:02.974009] Checking Whoop alerts...
+No alerts triggered
+Done.

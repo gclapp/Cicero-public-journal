@@ -37000,3 +37000,5 @@
 127.0.0.1 - - [29/May/2026:21:20:34 +0000] "GET /aa.php HTTP/1.1" 500 0 "-" "-"
 127.0.0.1 - - [29/May/2026:21:20:34 +0000] "GET /wp-admin/css/index.php HTTP/1.1" 500 0 "-" "-"
 127.0.0.1 - - [29/May/2026:21:20:35 +0000] "GET /wp-admin/css/about.php HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [30/May/2026:20:35:23 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0"
+127.0.0.1 - - [30/May/2026:20:51:35 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:149.0) Gecko/20100101 Firefox/149.0"
