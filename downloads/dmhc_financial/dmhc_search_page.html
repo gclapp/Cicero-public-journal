@@ -1,0 +1,620 @@
+
+
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if (gt IE 9)]><!--><html class="no-js" lang="en-US" xml:lang="en-US"><!--<![endif]-->
+
+<head>
+    <!--
+        California State Template
+        Version 5.0.6
+        
+        Based on Twitter Bootstrap
+        Last updated on 10/25/2019
+    -->
+    <meta charset="utf-8" /><title>
+	California Department of Managed Health Care 
+</title>
+
+    <!-- Include head Content (starting section) -->
+    
+
+    <!-- Include Custom Metadata -->
+    
+        <meta name="Author" content="State of California" />
+        <meta name="Description" content="State of California" />
+        <meta name="Keywords" content="California, government, DMHC" />
+    
+
+    <!-- Use highest compatibility mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- http://t.co/dKP3o1e -->
+    <meta name="HandheldFriendly" content="True" />
+    <!-- for Blackberry, AvantGo -->
+    <meta name="MobileOptimized" content="320" />
+    <!-- for Windows mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css" />
+    <!-- For all browsers -->
+    <link rel="stylesheet" href="/common/StateTemplate/5.0.6/css/cagov.core.min.css" />
+    
+    <!-- DMHC color scheme -->
+    <link rel="stylesheet" href="/common/StateTemplate/5.0.6/css/colorscheme-dmhc.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/common/StateTemplate/5.0.6/css/custom.css" />
+
+    <!-- selectivizr.com, emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8 -->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+    <script src="/common/StateTemplate/5.0.6/js/libs/selectivizr-min.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="100x100" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-precomposed.png" /><link rel="icon" sizes="192x192" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-192x192.png" /><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-180x180.png" /><link rel="apple-touch-icon-precomposed" sizes="152x152" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-152x152.png" /><link rel="apple-touch-icon-precomposed" sizes="144x144" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-144x144.png" /><link rel="apple-touch-icon-precomposed" sizes="120x120" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-120x120.png" /><link rel="apple-touch-icon-precomposed" sizes="114x114" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-114x114.png" /><link rel="apple-touch-icon-precomposed" sizes="72x72" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon-precomposed" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" href="/common/StateTemplate/5.0.6/images/apple-touch-icon.png" /><link rel="shortcut icon" href="/common/StateTemplate/5.0.6/images/apple-touch-icon-57x57.png" />
+    <!-- For everything else -->
+    <link rel="shortcut icon" href="/common/StateTemplate/5.0.6/favicon.ico" />
+
+    <!-- Activate ClearType for Mobile IE -->
+    <!--[if IE]>
+    <meta http-equiv="cleartype" content="on" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/common/StateTemplate/5.0.6/js/libs/html5shiv.min.js"></script>
+    <script src="/common/StateTemplate/5.0.6/js/libs/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Load jQuery -->
+    <script src="/common/jquery/3.4.1/jquery-3.4.1.min.js" type="text/javascript"></script>
+
+    <!-- Load jQuery migrate -->
+    <script src="/common/jquery/3.4.1/jquery-migrate-3.0.1.min.js"></script>
+
+    <!-- Include Web Analytics -->
+    
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-521906-4']); // DMHC analytics
+            _gaq.push(['_gat._anonymizeIp']);
+            _gaq.push(['_setDomainName', '.ca.gov']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+        <script type="text/javascript">
+            /*<![CDATA[*/
+            (function() {
+                var sz = document.createElement('script'); sz.type = 'text/javascript'; sz.async = true;
+                sz.src = '//siteimproveanalytics.com/js/siteanalyze_6006815.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sz, s);
+            })();
+            /*]]>*/
+        </script>
+    
+
+    <!-- Include head Content (ending section) -->
+    
+    
+    <!-- Kendo UI -->
+    <link rel="stylesheet" href="/common/kendo/2019.1.220/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="/common/kendo/2019.1.220/styles/kendo.dmhc.all.css" />
+    <link rel="stylesheet" href="/common/kendo/2019.1.220/styles/kendo.dmhc.custom.css" />
+    <script src="/common/kendo/2019.1.220/scripts/jszip.min.js"></script>
+    <script src="/common/kendo/2019.1.220/scripts/kendo.all.min.js"></script>
+    <!-- Application custom styles and scripts -->
+    <!-- ... -->
+
+    
+    
+    <style type="text/css">
+        .Grid td {
+            border: 1px solid #5B656B;
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+
+        .Grid th {
+            background-color: #E1ECF7;
+            border: 1px solid #5B656B;
+            text-align: center;
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+
+        .ChildGrid td {
+            outline: none;
+            border: none;
+        }
+
+        .g1 {
+            background-color: white;
+        }
+
+        .g2 {
+            background-color: #F2F0EF;
+        }
+    </style>
+
+</head>
+
+<body id="MasterBodyNode">
+
+    <!-- Include body Content (starting section) -->
+    
+
+    <header role="banner" id="header" class="global-header">
+        <div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
+
+        <!-- Include System Maintenance Message -->
+        
+            <div class="system-maintenance-message section-standout collapse show" id="systemMaintenanceMessage"></div>
+        
+
+
+        <!-- Utility Header -->
+        <div class="utility-header">
+            <div class="container">
+                <div class="group flex-row">
+                    <div class="social-media-links">
+                        <div class="header-cagov-logo"><a href="https://www.ca.gov" target="_blank"><span class="sr-only">CA.gov</span><img src="/common/StateTemplate/5.0.6/images/cagov-logo-white.svg" class="pos-rel" alt="CA.gov Logo" aria-hidden="true" /></a></div>
+                        <a href="https://www.facebook.com/CaliforniaDMHC" class="ca-gov-icon-facebook" title="Follow Us on Facebook" target="_blank"><span class="sr-only">Facebook</span></a>
+                        <a href="https://www.youtube.com/user/CaliforniaDMHC" class="ca-gov-icon-youtube" title="Follow Us on YouTube" target="_blank"><span class="sr-only">YouTube</span></a>
+                        <a href="https://x.com/CADMHC" class="ca-gov-icon-twitter" target="_blank"><span class="sr-only" target="_blank">X (former Twitter)</span></a>
+                        <a href="https://www.linkedin.com/company/cadmhc" class="ca-gov-icon-linkedin" title="Follow Us on LinkedIn" target="_blank"><span class="sr-only">LinkedIn</span></a>
+                    </div>
+                     <div class="settings-links">
+                        <a href="https://www.dmhc.ca.gov/AboutUs/Accessibility.aspx"><span class="ca-gov-icon-accessibility" aria-hidden="true"></span> Accessibility</a>
+                        <a href="https://www.dmhc.ca.gov/ContactUs.aspx"><span class="ca-gov-icon-contact-us" aria-hidden="true"></span> Contact Us</a>
+                     <!--    <a href="#siteSettings" data-toggle="collapse" aria-expanded="false" aria-controls="siteSettings"><span class="ca-gov-icon-gear" aria-hidden="true"></span> Settings</a>-->
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Settings Bar -->
+        <div class="site-settings section section-standout collapse collapsed" role="alert" id="siteSettings">
+            <div class="container  p-y">
+                <button type="button" class="close" data-toggle="collapse" data-target="#siteSettings" aria-expanded="false" aria-controls="siteSettings" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                <div class="btn-group btn-group-justified-sm" role="group" aria-label="Contrast Mode">
+                    <div class="btn-group"><button type="button" class="btn btn-standout disableHighContrastMode">Default</button></div>
+                    <div class="btn-group"><button type="button" class="btn btn-standout enableHighContrastMode">High Contrast</button></div>
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Text Size Mode">
+                    <div class="btn-group"><button type="button" class="btn btn-standout increaseTextSize"><span class="hidden-xs">Increase Font Size</span><span class="visible-xs">Font <span class="sr-only">Increase</span><span class="ca-gov-icon-plus-line font-size-sm" aria-hidden="true"></span></span></button></div>
+                    <div class="btn-group"><button type="button" class="btn btn-standout decreaseTextSize"><span class="hidden-xs">Decrease Font Size</span><span class="visible-xs">Font <span class="sr-only">Decrease</span><span class="ca-gov-icon-minus-line font-size-sm" aria-hidden="true"></span></span></button></div>
+                    <div class="btn-group"><button type="button" class="btn btn-standout resetTextSize"><span class="hidden-xs">Reset Font Size</span><span class="visible-xs">Reset<span class="sr-only"> Font Size</span></span></button></div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Branding -->
+        <div class="branding">
+            <div class="header-organization-banner"><a href="https://www.dmhc.ca.gov/" title="Department of Managed Health Care"><img src="/images/logo/dmhc_logo_245x87.png" alt="Department of Managed Health Care Logo" /></a></div>
+        </div>
+
+
+        <!-- Mobile Navigation Controls -->
+        <div class="mobile-controls">
+            <span class="mobile-control-group mobile-header-icons">
+                <!-- Include Mobile Navigation Header Controls -->
+                
+                    <!-- Add more mobile controls here. These will be on the right side of the mobile page header section. -->
+                
+            </span>
+            <div class="mobile-control-group main-nav-icons float-right">
+                <button id="nav-icon-menu" type="button" class="mobile-control toggle-menu float-right" aria-expanded="false" aria-controls="navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span class="sr-only">Menu</span>
+                </button>
+                <!-- Include Mobile Navigation Main Controls -->
+                
+                    <!--
+                    <button class="mobile-control toggle-search">
+                        <span class="ca-gov-icon-search hidden-print" aria-hidden="true"></span><span class="sr-only">Search</span>
+                    </button>
+                    -->
+                
+            </div>
+        </div>
+
+
+        <!--  Navigation -->
+        <div class="navigation-search">
+
+            <!-- Include Navigation -->
+            <!-- Top Level Navigation Only -->
+            <nav id="navigation" class="main-navigation singlelevelnav auto-highlight">
+                <ul id="nav_list" class="top-level-nav">
+                    
+                </ul>
+            </nav>
+            <!-- Include Custom Search -->
+            
+                <div id="head-search" class="hidden"></div>
+            
+        </div>
+
+        <!--  Include Header Banner -->
+        
+        <div class="header-decoration"></div>
+    </header>
+    
+    <form method="post" action="./" id="MasterForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['MasterForm'];
+if (!theForm) {
+    theForm = document.MasterForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="65C80424" />
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+    <!--  Main Content -->
+    <div id="main-content" class="main-content" role="main">
+        <!--  Include Main Banner -->
+        
+        <div class="section">
+            <!--  Include Main Content -->
+            
+    
+    <h1 class="text-center">HMO/Health Plan's Financial Statement Search</h1>
+    <p>
+        Finances affect your HMO care.  This database allows you to
+			    download HMO and health plan financial information since January 2002.
+    </p>
+    <p>
+        The search allows you to download financial statement filings by
+			    specifying the plan name, type of HMO or health plan, statement type, and/or
+			    period ending date. If more search criteria is selected, then the
+			    search will be more refined. For example, if "Monthly" is chosen for
+			    the statement type, then ALL monthly filings received will be listed.
+			    If "Monthly" is chosen for statement type, "Dental" is chosen for
+			    Type of HMO or Health Plan, and "January 2002" is chosen for Period Ending Date,
+			    then all monthly financial statements for all dental plans with the
+			    period ending January 2002 will be listed.
+    </p>
+    <p>
+        NOTE: Not all HMOs or health plans are required to file monthly financial
+			statements.
+    </p>
+    <p>
+        If a specific financial statement is not listed,
+			please email Financial Reporting at <a href="mailto:HealthPlanReporting@dmhc.ca.gov" title="Send Email to Financial Reporting">HealthPlanReporting@dmhc.ca.gov</a>.
+
+    </p>
+    <br />
+    <a name="form"></a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <label for="MainContent_MainContent_ddlHPType" id="MainContent_MainContent_lblHPType">Health Plan Type</label>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-3">
+                <select name="ctl00$ctl00$MainContent$MainContent$ddlHPType" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$MainContent$MainContent$ddlHPType\&#39;,\&#39;\&#39;)&#39;, 0)" id="MainContent_MainContent_ddlHPType" data-placeholder="Select Health Plan Type" style="width:100%;">
+	<option selected="selected" value="0">Any Health Plan Type</option>
+	<option value="Chiropractic">Chiropractic</option>
+	<option value="Dental">Dental</option>
+	<option value="Dental/Vision">Dental/Vision</option>
+	<option value="Discount Plan">Discount Plan</option>
+	<option value="Full Service">Full Service</option>
+	<option value="Pharmacy">Pharmacy</option>
+	<option value="Psychological">Psychological</option>
+	<option value="Vision">Vision</option>
+
+</select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <label for="MainContent_MainContent_ddlHP" id="MainContent_MainContent_lblHP">Health Plan</label>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-5">
+                <select name="ctl00$ctl00$MainContent$MainContent$ddlHP" id="MainContent_MainContent_ddlHP" data-placeholder="Select Health Plan" style="width:100%;">
+	<option selected="selected" value="0">Any Health Plan</option>
+	<option value="933 0318">Access Dental Plan</option>
+	<option value="933 0407">ACN Group of California, Inc.</option>
+	<option value="933 0508">Adventist Health Plan, Inc.</option>
+	<option value="933 0521">Aetna Better Health of California Inc. </option>
+	<option value="933 0313">Aetna Dental of California Inc.</option>
+	<option value="933 0176">Aetna Health of California Inc.</option>
+	<option value="933 0432">AIDS Healthcare Foundation</option>
+	<option value="933 0328">Alameda Alliance For Health</option>
+	<option value="933 0554">Align Senior Care California, Inc.</option>
+	<option value="933 0581">Alignment Health Advantage Plan, Inc.</option>
+	<option value="933 0414">Alignment Health Plan</option>
+	<option value="933 0492">AltaMed Health Network, Inc.</option>
+	<option value="933 0315">American Specialty Health Plans of California, Inc.</option>
+	<option value="933 0468">Arcadian Health Plan, Inc.</option>
+	<option value="933 0496">Aspire Health Plan  </option>
+	<option value="933 0558">Astiva Health, Inc.</option>
+	<option value="933 0519">Bay Area Accountable Care Network, Inc. </option>
+	<option value="933 0303">Blue Cross of California</option>
+	<option value="933 0415">Blue Cross of California Partnership Plan, Inc.</option>
+	<option value="933 0326">Blue Shield of California Promise Health Plan</option>
+	<option value="933 0494">Brown &amp; Toland Health Services, Inc.</option>
+	<option value="933 0506">BZ Health Network of California, Inc. </option>
+	<option value="933 0286">California Dental Network, Inc.</option>
+	<option value="933 0043">California Physicians&#39; Service</option>
+	<option value="933 0293">Carelon Behavioral Health of California, Inc.</option>
+	<option value="933 0408">CareMore Health of California, Inc.</option>
+	<option value="933 0404">Central Health Plan of California, Inc.</option>
+	<option value="933 0547">Central Valley Health Plan, Inc.</option>
+	<option value="933 0582">Champion Health Plan of California, Inc. </option>
+	<option value="933 0431">CHG Foundation</option>
+	<option value="933 0523">Children&#39;s Health Plan of California</option>
+	<option value="933 0278">Chinese Community Health Plan</option>
+	<option value="933 0470">Choice Physicians Network, Inc.</option>
+	<option value="933 0258">Cigna Dental Health of California, Inc.</option>
+	<option value="933 0152">Cigna HealthCare of California, Inc.</option>
+	<option value="933 0514">Claremont Behavioral Services, Inc.</option>
+	<option value="933 0545">Clever Care of Golden State Inc.</option>
+	<option value="933 0487">Community Care Health Plan, Inc.</option>
+	<option value="933 0564">Community Family Care Health Plan, Inc.</option>
+	<option value="933 0200">Community Health Group</option>
+	<option value="933 0402">CONCERN:  Employee Assistance Program</option>
+	<option value="933 0215">Consumer Health, Inc.</option>
+	<option value="933 0054">Contra Costa County Medical Services</option>
+	<option value="933 0344">County of Ventura</option>
+	<option value="933 0092">Delta Dental of California</option>
+	<option value="933 0255">Dental Benefit Providers of California, Inc.</option>
+	<option value="933 0059">Dental Health Services</option>
+	<option value="933 0515">Dignity Health Provider Resources, Inc. </option>
+	<option value="933 0591">Elite Health Plan, Inc.</option>
+	<option value="933 0409">Empathia Pacific, Inc.</option>
+	<option value="933 0483">EPIC Health Plan</option>
+	<option value="933 0298">Evernorth Behavioral Health of California, Inc.</option>
+	<option value="933 0264">EYEXAM of California, Inc.</option>
+	<option value="933 0568">Family Choice Health Services, Inc.</option>
+	<option value="933 0342">FirstSight Vision Services, Inc.</option>
+	<option value="933 0544">For Your Benefit, Inc.</option>
+	<option value="933 0484">Fresno-Kings-Madera Regional Health Authority</option>
+	<option value="933 0542">FYidoctors of California, Inc.</option>
+	<option value="933 0566">Golden Bay Health, Inc.</option>
+	<option value="933 0580">Guidant Health Plan</option>
+	<option value="933 0502">Health Advocate West, Inc.</option>
+	<option value="933 0319">Health and Human Resource Center, Inc.</option>
+	<option value="933 0426">Health Net Community Solutions, Inc. </option>
+	<option value="933 0300">Health Net of California, Inc.</option>
+	<option value="933 0561">Healthy Valley Provider Network, Inc.</option>
+	<option value="933 0357">Heritage Provider Network, Inc.</option>
+	<option value="933 0557">Hill Physicians Care Solutions, Inc.</option>
+	<option value="933 0231">Holman Professional Counseling Centers</option>
+	<option value="933 0292">Human Affairs International of California</option>
+	<option value="933 0476">Humana Health Plan of California, Inc.</option>
+	<option value="933 0546">Humana Health Plan of Texas, Inc.</option>
+	<option value="933 0573">Imperial County Local Health Authority</option>
+	<option value="933 0520">Imperial Health Plan of California, Inc.</option>
+	<option value="933 0346">Inland Empire Health Plan</option>
+	<option value="933 0055">Kaiser Foundation Health Plan, Inc.</option>
+	<option value="933 0335">Kern Health Systems</option>
+	<option value="933 0504">L.A. Care Health Plan Joint Powers Authority</option>
+	<option value="933 0361">Landmark Healthplan of California, Inc.</option>
+	<option value="933 0592">LaSalle Health Plan, Inc.</option>
+	<option value="933 0052">Liberty Dental Plan of California, Inc.</option>
+	<option value="933 0355">Local Initiative Health Authority for Los Angeles County</option>
+	<option value="933 0248">Los Angeles County Department of Health Services (Inactive)</option>
+	<option value="933 0541">Lyra Behavioral Health, Inc. </option>
+	<option value="933 0102">Magellan Health Services of California, Inc. - Employer Services</option>
+	<option value="933 0302">Managed Dental Care</option>
+	<option value="933 0562">MedCare Partners, Inc.</option>
+	<option value="933 0528">Medcore HP</option>
+	<option value="933 0486">Medi-Excel, S.A. de C.V.</option>
+	<option value="933 0495">MemorialCare Select Health Plan</option>
+	<option value="933 0595">Modern Life CA, Inc.</option>
+	<option value="933 0322">Molina Healthcare of California</option>
+	<option value="933 0453">Monarch Health Plan, Inc.</option>
+	<option value="933 0586">New Century Health Plan, Inc.</option>
+	<option value="933 0385">On Lok Senior Health Services</option>
+	<option value="933 0498">Optum Health Plan of California</option>
+	<option value="933 0394">Orange County Health Authority</option>
+	<option value="933 0516">Oscar Health Plan of California</option>
+	<option value="933 0416">Partnership HealthPlan of California</option>
+	<option value="933 0594">Patient Choice Health Plan of California, Inc.</option>
+	<option value="933 0501">PIH Health Care Solutions</option>
+	<option value="933 0513">Premier Eye Care, Inc.</option>
+	<option value="933 0367">PRIMECARE Medical Network, Inc.</option>
+	<option value="933 0529">PromiseCare Health Plan, Inc.</option>
+	<option value="933 0500">Prospect Health Plan, Inc.</option>
+	<option value="933 0533">Providence Health Assurance</option>
+	<option value="933 0497">Providence Health Network</option>
+	<option value="933 0579">Rios Health Plan, Inc.</option>
+	<option value="933 0034">SafeGuard Health Plans, Inc.</option>
+	<option value="933 0349">San Francisco Health Authority</option>
+	<option value="933 0338">San Joaquin County Health Commission</option>
+	<option value="933 0358">San Mateo Health Commission</option>
+	<option value="933 0400">Santa Barbara San Luis Obispo Regional Health Authority</option>
+	<option value="933 0236">Santa Clara County</option>
+	<option value="933 0351">Santa Clara County Health Authority</option>
+	<option value="933 0401">Santa Cruz-Monterey-Merced-San Benito-Mariposa Managed Medical Care Commission</option>
+	<option value="933 0212">Scan Health Plan</option>
+	<option value="933 0377">Scripps Health Plan Services, Inc.</option>
+	<option value="933 0526">Sequoia Health Plan, Inc.</option>
+	<option value="933 0310">Sharp Health Plan</option>
+	<option value="933 0464">SilverScript Insurance Company</option>
+	<option value="933 0393">Sistemas Medicos Nacionales, S.A.de C.V.</option>
+	<option value="933 0584">Spring Care of California, Inc.</option>
+	<option value="933 0571">Starlife Holdings Inc.</option>
+	<option value="933 0197">Starmount Managed Dental of California, Inc.</option>
+	<option value="933 0490">Sutter Health Alliance</option>
+	<option value="933 0551">TELUS Health (California) Ltd.</option>
+	<option value="933 0466">The CDI Group, Inc.</option>
+	<option value="933 0259">U.S. Behavioral Health Plan, California</option>
+	<option value="933 0473">UCI Health Plan Network</option>
+	<option value="933 0291">UDC Dental California, Inc.</option>
+	<option value="933 0126">UHC of California</option>
+	<option value="933 0046">United Concordia Dental Plans of California, Inc.</option>
+	<option value="933 0517">UnitedHealthcare Benefits Plan of California</option>
+	<option value="933 0590">Universal Health Plan, Inc.</option>
+	<option value="933 0589">Ventura County Medi-Cal Managed Care Commission</option>
+	<option value="933 0268">Vision Plan of America</option>
+	<option value="933 0049">Vision Service Plan</option>
+	<option value="933 0457">WellCare of California, Inc.</option>
+	<option value="933 0469">WellCare Prescription Insurance, Inc.</option>
+	<option value="933 0224">Western Dental Services, Inc.</option>
+	<option value="933 0348">Western Health Advantage</option>
+
+</select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <label for="MainContent_MainContent_ddlStatementType" id="MainContent_MainContent_lblStatementType" class="col-xs-2">Statement Type</label>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-4">
+                <select name="ctl00$ctl00$MainContent$MainContent$ddlStatementType" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ctl00$MainContent$MainContent$ddlStatementType\&#39;,\&#39;\&#39;)&#39;, 0)" id="MainContent_MainContent_ddlStatementType" data-placeholder="Select Statement Type" style="width:100%;">
+	<option selected="selected" value="0">Any Statement Type</option>
+	<option value="4">Annual Consolidating Report</option>
+	<option value="12">Annual Dental Medical Loss Ratio Report</option>
+	<option value="1">Annual DMHC Financial Reporting Form</option>
+	<option value="6">Annual Independent Auditor&#39;s Report</option>
+	<option value="11">Annual Medical Loss Ratio Report</option>
+	<option value="5">Annual Other Report</option>
+	<option value="7">Monthly Consolidating Report</option>
+	<option value="3">Monthly DMHC Financial Reporting Form</option>
+	<option value="8">Monthly Other Report</option>
+	<option value="13">Partial Quarterly DMHC Financial Reporting Form</option>
+	<option value="14">Partial Year Annual DMHC Financial Reporting Form</option>
+	<option value="15">Partial Year Annual Independent Auditor&#39;s Report</option>
+	<option value="9">Quarterly Consolidating Report</option>
+	<option value="2">Quarterly DMHC Financial Reporting Form</option>
+	<option value="10">Quarterly Other Report</option>
+
+</select>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+
+    <div class="mt-2 col-md-12">&nbsp;</div>
+    <p>
+        <input type="submit" name="ctl00$ctl00$MainContent$MainContent$btnSearch" value="Search" id="MainContent_MainContent_btnSearch" />&nbsp;
+			<input type="submit" name="ctl00$ctl00$MainContent$MainContent$btnReset" value="Reset" id="MainContent_MainContent_btnReset" />
+    </p>
+
+    <div class="mt-2 col-md-12">&nbsp;</div>
+
+    <a name="results"></a>
+    
+
+
+        </div>
+    </div>
+    </form>		
+	
+    <!-- Global Footer -->
+   <div id="footer" class="global-footer">
+    <div class="container">
+        <div class="group">
+            <div class="three-quarters">
+                    <ul class="footer-links">
+					<li><a href="https://www.dmhc.ca.gov/">Back to Homepage</a></li>
+                    <li><a href="https://www.dmhc.ca.gov/AboutUs/PrivacyPolicy.aspx">Privacy Policy &amp; Conditions of Use</a></li>
+                    <li><a href="https://www.dmhc.ca.gov/Portals/0/Docs/DO/accessibilitycert.pdf" target="_blank">Accessibility Certification</a></li>
+                    <li><a href="https://www.dmhc.ca.gov/DMHCSiteMap.aspx">Site Map</a></li>
+                    <li><a href="https://www.dmhc.ca.gov/AboutUs/Accessibility.aspx">Accessibility</a></li>
+                    <li><a href="https://www.dmhc.ca.gov/ContactUs.aspx">Contact Us</a></li>
+                    </ul>
+                </div>
+           
+			
+            <div class="quarter text-right">
+                <ul class="socialsharer-container">
+                    <li>
+                        <a href="https://www.facebook.com/CaliforniaDMHC" target="_blank"><span class="ca-gov-icon-facebook"></span><span class="sr-only">Facebook</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/user/CaliforniaDMHC" target="_blank"><span class="ca-gov-icon-youtube"></span><span class="sr-only">YouTube</span></a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/CADMHC" target="_blank"><span class="ca-gov-icon-twitter"></span><span class="sr-only">X (former Twitter)</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/company/cadmhc/" target="_blank"><span class="ca-gov-icon-linkedin"></span><span class="sr-only">LinkedIn</span></a>
+                    </li>
+                </ul>
+				 </div>
+			
+            </div>
+        </div>
+
+        <!-- Copyright Statement -->
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="quarter"></div>
+                    <div class="half">
+                        Copyright &copy;
+                        2026
+                         DMHC</a>
+                    </div>
+                    <div class="quarter"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Extra Decorative Content -->
+    <div class="decoration-last">&nbsp;</div>
+
+    
+    <!-- Load template core -->
+    <script src="/common/StateTemplate/5.0.6/js/cagov.core.min.js"></script>
+    <script src="/common/StateTemplate/5.0.6/js/search.js"></script>
+    <script src="/common/StateTemplate/5.0.6/js/custom.js"></script>
+    <script src='/common/StateTemplate/5.0.6/js/maintenance.js?version=5-29-2026v1'></script>
+    
+
+    <script>
+        $(document).ready(function () {
+            // Backward compatability fix for removing wrapper on new "sections"
+            $('.main-primary > .section').closest('div.wrapper').removeClass('wrapper');
+        });
+    </script>
+
+    <!-- Include body Content (ending section) -->
+    
+
+</body>
+</html>

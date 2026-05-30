@@ -1,0 +1,169 @@
+{
+  "accrual_periodicity": "other",
+  "additional_limitations": "",
+  "citation": "DMHC Rate Review Data, 2011 - Current",
+  "contact_email": "OpenData@dmhc.ca.gov",
+  "data_collection_tool": "http://wpso.dmhc.ca.gov/ratereview/",
+  "data_license": "Terms of Use",
+  "de_identification_method": null,
+  "description": "This data is from the California Department of Managed Health Care (DMHC). It contains all information on health plan proposed premium rates filed with the DMHC since January 1, 2011. The DMHC is committed to providing the public with information in order to expand consumer understanding about premium rate increases. The DMHC does not have the authority to approve or deny rate increases; however, the DMHC's review of proposed premium rates improves accountability in health plan rate setting and often results in a reduction in the proposed rate.",
+  "geo_coverage": "Statewide",
+  "geographic_granularity": "statewide",
+  "keywords": [
+    "dmhc",
+    "filing",
+    "premium",
+    "rate increase",
+    "rate review",
+    "rates"
+  ],
+  "limitations": "Limitations",
+  "name": "rate-review-detail-trend",
+  "program_web_page": "https://www.dmhc.ca.gov/AbouttheDMHC.aspx#financial ",
+  "related_resources": null,
+  "resources": [
+    {
+      "format": "CSV",
+      "hash": "1a85729f6c307c6a36faf31de557f0c3",
+      "name": "rate-review-detail-trend-csv",
+      "path": "rate-review-detail-trend-.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "ReferenceID",
+            "type": "string"
+          },
+          {
+            "name": "LegalName",
+            "type": "string"
+          },
+          {
+            "name": "ReportingYear",
+            "type": "string"
+          },
+          {
+            "name": "FilingType",
+            "type": "string"
+          },
+          {
+            "name": "FilingStatus",
+            "type": "string"
+          },
+          {
+            "name": "MarketType",
+            "type": "string"
+          },
+          {
+            "name": "ProductName",
+            "type": "string"
+          },
+          {
+            "name": "ProposedRateIncrease",
+            "type": "string"
+          },
+          {
+            "name": "FinalRateIncrease",
+            "type": "string"
+          },
+          {
+            "name": "MemberAffected",
+            "type": "string"
+          },
+          {
+            "name": "DateEffective",
+            "type": "string"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "path": "https://data.chhs.ca.gov/dataset/38ae8345-39a0-419c-8a83-6de3fc79ad00/resource/713ea6aa-ce0b-41d0-9e7b-6e5eda906688/download/rate-review-detail-trend.csv",
+          "title": "Rate Review Detail, Trend (CSV)"
+        }
+      ],
+      "title": "Rate Review Detail, Trend (CSV)"
+    },
+    {
+      "description": "This data is from the California Department of Managed Health Care (DMHC). It contains all information on health plan proposed premium rates filed with the DMHC since January 1, 2011. The DMHC is committed to providing the public with information in order to expand consumer understanding about premium rate increases. The DMHC does not have the authority to approve or deny rate increases; however, the DMHC's review of proposed premium rates improves accountability in health plan rate setting and often results in a reduction in the proposed rate.",
+      "format": "PDF",
+      "name": "data-dictionary",
+      "path": "data-dictionary.pdf",
+      "sources": [
+        {
+          "path": "https://data.chhs.ca.gov/dataset/38ae8345-39a0-419c-8a83-6de3fc79ad00/resource/43a891d2-3952-467b-aa88-91ed0173fa20/download/ratereviewdatadictionary.pdf",
+          "title": "data-dictionary"
+        }
+      ],
+      "title": "data-dictionary"
+    },
+    {
+      "format": "CSV",
+      "hash": "ce8c1bb72f2167fd7608209d3803c65d",
+      "name": "345f4593-74c1-4fef-849b-77b7fd4264c7",
+      "path": "345f4593-74c1-4fef-849b-77b7fd4264c7.csv",
+      "schema": {
+        "fields": [
+          {
+            "name": "ReferenceID",
+            "type": "string"
+          },
+          {
+            "name": "LegalName",
+            "type": "string"
+          },
+          {
+            "name": "ReportingYear",
+            "type": "string"
+          },
+          {
+            "name": "FilingType",
+            "type": "string"
+          },
+          {
+            "name": "FilingStatus",
+            "type": "string"
+          },
+          {
+            "name": "MarketType",
+            "type": "string"
+          },
+          {
+            "name": "ProductName",
+            "type": "string"
+          },
+          {
+            "name": "ProposedRateIncrease",
+            "type": "string"
+          },
+          {
+            "name": "FinalRateIncrease",
+            "type": "string"
+          },
+          {
+            "name": "MemberAffected",
+            "type": "string"
+          },
+          {
+            "name": "DateEffective",
+            "type": "string"
+          }
+        ]
+      },
+      "sources": [
+        {
+          "path": "https://data.chhs.ca.gov/dataset/38ae8345-39a0-419c-8a83-6de3fc79ad00/resource/345f4593-74c1-4fef-849b-77b7fd4264c7/download/ratereviewtest.csv",
+          "title": ""
+        }
+      ]
+    }
+  ],
+  "secondary_sources": null,
+  "sources": [
+    {
+      "name": "Department of Managed Health Care, Office of Financial Review, Premium Rate Review",
+      "web": "https://www.dmhc.ca.gov/HealthCareinCalifornia/ChoosetheRightPlan/PremiumRateReviewProcess.aspx"
+    }
+  ],
+  "temporal_coverage": "2011 - Current",
+  "title": "Rate Review Detail, Trend"
+}
