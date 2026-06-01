@@ -1,0 +1,89 @@
+[2026-06-01 14:00:01] Starting competitive intelligence v3...
+[2026-06-01 14:00:01] Step 1: RSS + Web search...
+[2026-06-01 14:00:03] ======================================================================
+[2026-06-01 14:00:03] Starting Competitive Intelligence Scan v3
+[2026-06-01 14:00:03] ======================================================================
+[2026-06-01 14:00:03] 
+1. Scanning RSS feeds...
+[2026-06-01 14:00:03]    Scanning: Maven - Google Alerts
+[2026-06-01 14:00:03]    Scanning: Carrot - Google Alerts
+[2026-06-01 14:00:04]    Scanning: KindBody - Google Alerts
+[2026-06-01 14:00:04]    Scanning: WIN Fertility - Google Alerts
+[2026-06-01 14:00:04]    Scanning: Pomelo Health - Google Alerts
+[2026-06-01 14:00:05]    Scanning: Oura - Google Alerts
+[2026-06-01 14:00:05]    Scanning: Maven - Press Releases
+[2026-06-01 14:00:06]    Scanning: Carrot - Press Releases
+[2026-06-01 14:00:06]    Skipping duplicate title: Carrot Tackles Rural America's Fertility Care Access Crisis ...
+[2026-06-01 14:00:06]    Skipping duplicate title: Carrot Brings AI-Native Metabolic Care to Every Stage of Men...
+[2026-06-01 14:00:06]    Scanning: KindBody - Press Releases
+[2026-06-01 14:00:07]    Scanning: Oura - Press Releases
+[2026-06-01 14:00:08]    Scanning: Midi Health - Press Releases
+[2026-06-01 14:00:08]    Scanning: Evernow - Press Releases
+[2026-06-01 14:00:09]    Scanning: FemTech Funding News
+[2026-06-01 14:00:09]    Scanning: Women's Health AI
+[2026-06-01 14:00:10]    Found 10 new articles from RSS
+[2026-06-01 14:00:10] 
+2. Searching web for competitive news...
+[2026-06-01 14:00:12]    Skipping duplicate title: Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 a...
+[2026-06-01 14:00:13]    Found 2 new articles from web search
+[2026-06-01 14:00:13] 
+3. Checking LinkedIn executive posts...
+[2026-06-01 14:00:32]    ✓ LinkedIn executive scan complete
+[2026-06-01 14:00:32]    Skipping 4ca9eb54... (low FemTech relevance: 12)
+[2026-06-01 14:00:32]    Skipping 55420386... (low FemTech relevance: 8)
+[2026-06-01 14:00:32]    Skipping 4676c2b4... (low FemTech relevance: 8)
+[2026-06-01 14:00:32]    Skipping 1fb770bb... (low FemTech relevance: 0)
+[2026-06-01 14:00:32]    Skipping 94064fc0... (low FemTech relevance: 8)
+[2026-06-01 14:00:32]    Skipping 7df768e2... (low FemTech relevance: 8)
+[2026-06-01 14:00:32] 
+✅ Total new articles: 6
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 6 NEW SIGNALS
+======================================================================
+🔴 Critical: 4 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🔴 [General] Daloopa Raises $47 Million Series C to Power the Data Layer Behind AI-...
+
+🔴 [General] Top 10 AI Startups to Watch in 2026 | SwitchPitch Insights...
+
+🔴 [General] Solstice Raises Series A to Radically Accelerate Pharma Commercializat...
+
+🔴 [General] Black founders raise highest amount of quarterly funding since 2022, b...
+
+🟠 [General] Replit Expands Enterprise Leadership with Visa Investment and Partners...
+
+🟡 [Carrot] Carrot Fertility Expands Sprints AI Metabolic Program to Perimenopause...
+
+======================================================================
+[2026-06-01 14:00:32] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 7 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 1 updates
+   Midi Health: 6 updates
+   Evernow: 4 updates
+   Pacify: 4 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 8 job changes
+
+3. Searching for company announcements...
+   Found 4 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-06-01 14:00:40] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 5 | High: 2 | Medium: 2
+[2026-06-01 14:00:40] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-06-01 14:00:43] ✅ Email sent
+[2026-06-01 14:00:43] Complete

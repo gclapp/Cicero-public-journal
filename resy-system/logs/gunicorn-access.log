@@ -37110,3 +37110,5 @@
 127.0.0.1 - - [01/Jun/2026:03:46:25 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
 127.0.0.1 - - [01/Jun/2026:03:46:25 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
 127.0.0.1 - - [01/Jun/2026:06:22:05 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [01/Jun/2026:21:00:53 +0000] "POST / HTTP/1.1" 405 153 "-" "Mozilla/5.0"
+127.0.0.1 - - [01/Jun/2026:21:00:53 +0000] "POST / HTTP/1.1" 405 153 "-" "Mozilla/5.0"
