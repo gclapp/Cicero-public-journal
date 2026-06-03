@@ -37128,3 +37128,4 @@
 127.0.0.1 - - [02/Jun/2026:14:51:45 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"
 127.0.0.1 - - [02/Jun/2026:14:51:46 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"
 127.0.0.1 - - [02/Jun/2026:14:51:46 +0000] "GET /static/nyceats-logo-xl-transparent.png HTTP/1.1" 200 0 "https://nyceats.openclapp.com/login" "Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0"
+127.0.0.1 - - [03/Jun/2026:06:07:54 +0000] "POST / HTTP/1.1" 405 153 "https://nyceats.openclapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36"

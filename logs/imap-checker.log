@@ -1,595 +1,346 @@
-[2026-06-02 00:00:02 UTC] === IMAP check started ===
+[2026-06-03 00:00:03 UTC] ✅ Check completed
+[2026-06-03 00:00:03 UTC] === Check completed ===
+[2026-06-03 00:15:01 UTC] === IMAP check started ===
+
+[2026-06-03T00:15:01.455037] Checking emails...
+✅ Processed 0 new emails
+[2026-06-03 00:15:01 UTC] ✅ Check completed
+[2026-06-03 00:15:01 UTC] === Check completed ===
+[2026-06-03 00:30:01 UTC] === IMAP check started ===
+
+[2026-06-03T00:30:02.186163] Checking emails...
+✅ Processed 0 new emails
+[2026-06-03 00:30:03 UTC] ✅ Check completed
+[2026-06-03 00:30:03 UTC] === Check completed ===
+[2026-06-03 00:45:01 UTC] === IMAP check started ===
+
+[2026-06-03T00:45:02.299012] Checking emails...
+✅ Processed 0 new emails
+[2026-06-03 00:45:02 UTC] ✅ Check completed
+[2026-06-03 00:45:02 UTC] === Check completed ===
+[2026-06-03 01:00:01 UTC] === IMAP check started ===
+
+[2026-06-03T01:00:02.304727] Checking emails...
+✅ Processed 0 new emails
+[2026-06-03 01:00:02 UTC] ✅ Check completed
+[2026-06-03 01:00:02 UTC] === Check completed ===
+[2026-06-03 01:15:01 UTC] === IMAP check started ===
+
+[2026-06-03T01:15:01.866538] Checking emails...
+✅ Processed 0 new emails
+[2026-06-03 01:15:02 UTC] ✅ Check completed
+[2026-06-03 01:15:02 UTC] === Check completed ===
+[2026-06-03 01:30:01 UTC] === IMAP check started ===
+
+[2026-06-03T01:30:02.673954] Checking emails...
 
-[2026-06-02T00:00:03.350801] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 00:00:04 UTC] ✅ Check completed
-[2026-06-02 00:00:04 UTC] === Check completed ===
-[2026-06-02 00:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T00:15:01.831303] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 00:15:02 UTC] ✅ Check completed
-[2026-06-02 00:15:02 UTC] === Check completed ===
-[2026-06-02 00:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T00:30:02.472375] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 00:30:02 UTC] ✅ Check completed
-[2026-06-02 00:30:03 UTC] === Check completed ===
-[2026-06-02 00:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T00:45:01.766385] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 00:45:02 UTC] ✅ Check completed
-[2026-06-02 00:45:02 UTC] === Check completed ===
-[2026-06-02 01:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T01:00:02.532682] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 01:00:03 UTC] ✅ Check completed
-[2026-06-02 01:00:03 UTC] === Check completed ===
-[2026-06-02 01:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T01:15:01.856463] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 01:15:02 UTC] ✅ Check completed
-[2026-06-02 01:15:02 UTC] === Check completed ===
-[2026-06-02 01:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T01:30:02.714677] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 01:30:03 UTC] ✅ Check completed
-[2026-06-02 01:30:03 UTC] === Check completed ===
-[2026-06-02 01:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T01:45:02.100364] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 01:45:02 UTC] ✅ Check completed
-[2026-06-02 01:45:02 UTC] === Check completed ===
-[2026-06-02 02:00:02 UTC] === IMAP check started ===
-
-[2026-06-02T02:00:03.509540] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 02:00:04 UTC] ✅ Check completed
-[2026-06-02 02:00:04 UTC] === Check completed ===
-[2026-06-02 02:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T02:15:02.338522] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 02:15:02 UTC] ✅ Check completed
-[2026-06-02 02:15:02 UTC] === Check completed ===
-[2026-06-02 02:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T02:30:02.056364] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 02:30:02 UTC] ✅ Check completed
-[2026-06-02 02:30:02 UTC] === Check completed ===
-[2026-06-02 02:45:02 UTC] === IMAP check started ===
-
-[2026-06-02T02:45:02.382061] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 02:45:02 UTC] ✅ Check completed
-[2026-06-02 02:45:02 UTC] === Check completed ===
-[2026-06-02 03:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T03:00:02.169568] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 03:00:02 UTC] ✅ Check completed
-[2026-06-02 03:00:02 UTC] === Check completed ===
-[2026-06-02 03:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T03:15:01.427695] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 03:15:02 UTC] ✅ Check completed
-[2026-06-02 03:15:02 UTC] === Check completed ===
-[2026-06-02 03:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T03:30:02.280672] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 03:30:03 UTC] ✅ Check completed
-[2026-06-02 03:30:03 UTC] === Check completed ===
-[2026-06-02 03:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T03:45:01.969537] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 03:45:02 UTC] ✅ Check completed
-[2026-06-02 03:45:02 UTC] === Check completed ===
-[2026-06-02 04:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T04:00:03.423584] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 04:00:03 UTC] ✅ Check completed
-[2026-06-02 04:00:04 UTC] === Check completed ===
-[2026-06-02 04:15:02 UTC] === IMAP check started ===
-
-[2026-06-02T04:15:02.474856] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 04:15:03 UTC] ✅ Check completed
-[2026-06-02 04:15:03 UTC] === Check completed ===
-[2026-06-02 04:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T04:30:02.564227] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 04:30:03 UTC] ✅ Check completed
-[2026-06-02 04:30:03 UTC] === Check completed ===
-[2026-06-02 04:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T04:45:01.880749] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 04:45:02 UTC] ✅ Check completed
-[2026-06-02 04:45:02 UTC] === Check completed ===
-[2026-06-02 05:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T05:00:02.743993] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 05:00:03 UTC] ✅ Check completed
-[2026-06-02 05:00:03 UTC] === Check completed ===
-[2026-06-02 05:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T05:15:02.153769] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 05:15:02 UTC] ✅ Check completed
-[2026-06-02 05:15:02 UTC] === Check completed ===
-[2026-06-02 05:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T05:30:02.060131] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 05:30:02 UTC] ✅ Check completed
-[2026-06-02 05:30:02 UTC] === Check completed ===
-[2026-06-02 05:45:02 UTC] === IMAP check started ===
-
-[2026-06-02T05:45:02.449725] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 05:45:03 UTC] ✅ Check completed
-[2026-06-02 05:45:03 UTC] === Check completed ===
-[2026-06-02 06:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T06:00:03.177559] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 06:00:04 UTC] ✅ Check completed
-[2026-06-02 06:00:04 UTC] === Check completed ===
-[2026-06-02 06:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T06:15:02.206147] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 06:15:02 UTC] ✅ Check completed
-[2026-06-02 06:15:02 UTC] === Check completed ===
-[2026-06-02 06:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T06:30:02.100816] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 06:30:02 UTC] ✅ Check completed
-[2026-06-02 06:30:02 UTC] === Check completed ===
-[2026-06-02 06:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T06:45:01.751904] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 06:45:02 UTC] ✅ Check completed
-[2026-06-02 06:45:02 UTC] === Check completed ===
-[2026-06-02 07:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T07:00:02.647518] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 07:00:03 UTC] ✅ Check completed
-[2026-06-02 07:00:03 UTC] === Check completed ===
-[2026-06-02 07:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T07:15:01.773495] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 07:15:02 UTC] ✅ Check completed
-[2026-06-02 07:15:02 UTC] === Check completed ===
-[2026-06-02 07:30:02 UTC] === IMAP check started ===
-
-[2026-06-02T07:30:02.762073] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 07:30:03 UTC] ✅ Check completed
-[2026-06-02 07:30:03 UTC] === Check completed ===
-[2026-06-02 07:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T07:45:02.134310] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 07:45:02 UTC] ✅ Check completed
-[2026-06-02 07:45:02 UTC] === Check completed ===
-[2026-06-02 08:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T08:00:02.006694] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 08:00:02 UTC] ✅ Check completed
-[2026-06-02 08:00:02 UTC] === Check completed ===
-[2026-06-02 08:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T08:15:01.503159] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 08:15:02 UTC] ✅ Check completed
-[2026-06-02 08:15:02 UTC] === Check completed ===
-[2026-06-02 08:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T08:30:02.410353] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 08:30:03 UTC] ✅ Check completed
-[2026-06-02 08:30:03 UTC] === Check completed ===
-[2026-06-02 08:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T08:45:01.936375] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 08:45:02 UTC] ✅ Check completed
-[2026-06-02 08:45:02 UTC] === Check completed ===
-[2026-06-02 09:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T09:00:02.822634] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 09:00:03 UTC] ✅ Check completed
-[2026-06-02 09:00:03 UTC] === Check completed ===
-[2026-06-02 09:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T09:15:02.168646] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 09:15:02 UTC] ✅ Check completed
-[2026-06-02 09:15:02 UTC] === Check completed ===
-[2026-06-02 09:30:01 UTC] === IMAP check started ===
+📧 New email from: Geoffrey Clapp <[REDACTED]>
+   Subject: Updated invitation: Red Sox at Dodgers @ Sun Aug 2 4:20pm - Mon Aug
+ 3, 2026 8am (PDT) ([REDACTED])
+   Body preview: This event has been updated
+Changed: time
 
-[2026-06-02T09:30:01.889070] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 09:30:02 UTC] ✅ Check completed
-[2026-06-02 09:30:02 UTC] === Check completed ===
-[2026-06-02 09:45:01 UTC] === IMAP check started ===
-
-[2026-06-02T09:45:02.206385] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 09:45:02 UTC] ✅ Check completed
-[2026-06-02 09:45:02 UTC] === Check completed ===
-[2026-06-02 10:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T10:00:02.319018] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 10:00:02 UTC] ✅ Check completed
-[2026-06-02 10:00:02 UTC] === Check completed ===
-[2026-06-02 10:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T10:15:01.886841] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 10:15:02 UTC] ✅ Check completed
-[2026-06-02 10:15:02 UTC] === Check completed ===
-[2026-06-02 10:30:02 UTC] === IMAP check started ===
-
-[2026-06-02T10:30:02.768879] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 10:30:03 UTC] ✅ Check completed
-[2026-06-02 10:30:03 UTC] === Check completed ===
-[2026-06-02 10:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T10:45:02.113783] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 10:45:02 UTC] ✅ Check completed
-[2026-06-02 10:45:02 UTC] === Check completed ===
-[2026-06-02 11:00:01 UTC] === IMAP check started ===
-
-[2026-06-02T11:00:02.237701] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 11:00:02 UTC] ✅ Check completed
-[2026-06-02 11:00:02 UTC] === Check completed ===
-[2026-06-02 11:15:01 UTC] === IMAP check started ===
+Red Sox at Dodgers
+Sunday Aug 2 ⋅ 4:20pm – Monday Aug 3, 2026 ⋅ 8am
+Pacific Time - Los Angeles
 
-[2026-06-02T11:15:01.510090] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 11:15:02 UTC] ✅ Check completed
-[2026-06-02 11:15:02 UTC] === Check completed ===
-[2026-06-02 11:30:01 UTC] === IMAP check started ===
+Location
+Dodger Stadium, 1000 Vin Scully Ave, Los A...
+   ✅ Authorized sender: [REDACTED]
+   💬 Detected: Reply to my email
+   ✅ Reply sent to [REDACTED]
 
-[2026-06-02T11:30:02.187506] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 11:30:02 UTC] ✅ Check completed
-[2026-06-02 11:30:02 UTC] === Check completed ===
-[2026-06-02 11:45:01 UTC] === IMAP check started ===
+📧 New email from: Geoffrey Clapp <[REDACTED]>
+   Subject: Updated invitation: Red Sox at Dodgers @ Sun Aug 2, 2026 4:20pm - 8pm
+ (PDT) ([REDACTED])
+   Body preview: This event has been updated
+Changed: time
 
-[2026-06-02T11:45:01.364304] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 11:45:01 UTC] ✅ Check completed
-[2026-06-02 11:45:01 UTC] === Check completed ===
-[2026-06-02 12:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T12:00:02.464676] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 12:00:02 UTC] ✅ Check completed
-[2026-06-02 12:00:02 UTC] === Check completed ===
-[2026-06-02 12:15:01 UTC] === IMAP check started ===
+Red Sox at Dodgers
+Sunday Aug 2, 2026 ⋅ 4:20pm – 8pm
+Pacific Time - Los Angeles
 
-[2026-06-02T12:15:02.174612] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 12:15:02 UTC] ✅ Check completed
-[2026-06-02 12:15:02 UTC] === Check completed ===
-[2026-06-02 12:30:01 UTC] === IMAP check started ===
+Location
+Dodger Stadium, 1000 Vin Scully Ave, Los Angeles, CA 9001...
+   ✅ Authorized sender: [REDACTED]
+   💬 Detected: Reply to my email
+   ✅ Reply sent to [REDACTED]
+✅ Processed 2 new emails
+[2026-06-03 01:30:06 UTC] ✅ Check completed
+[2026-06-03 01:30:06 UTC] === Check completed ===
+[2026-06-03 01:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T12:30:02.064975] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 12:30:02 UTC] ✅ Check completed
-[2026-06-02 12:30:02 UTC] === Check completed ===
-[2026-06-02 12:45:01 UTC] === IMAP check started ===
+[2026-06-03T01:45:02.023318] Checking emails...
 
-[2026-06-02T12:45:01.446770] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 12:45:02 UTC] ✅ Check completed
-[2026-06-02 12:45:02 UTC] === Check completed ===
-[2026-06-02 13:00:01 UTC] === IMAP check started ===
+📧 New email from: Geoffrey Clapp <[REDACTED]>
+   Subject: Invitation: Reserve Uber to Dodger Stadium @ Sun Aug 2, 2026 2:20pm -
+ 3:10pm (PDT) ([REDACTED])
+   Body preview: Reserve Uber to Dodger Stadium
+Sunday Aug 2, 2026 ⋅ 2:20pm – 3:10pm
+Pacific Time - Los Angeles
 
-[2026-06-02T13:00:02.411902] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 13:00:03 UTC] ✅ Check completed
-[2026-06-02 13:00:03 UTC] === Check completed ===
-[2026-06-02 13:15:01 UTC] === IMAP check started ===
+Location
+Park Capri, Calabasas, CA 91302, USA	
+https://www.google.com/maps/search/Park+Capri,+Cala...
+   ✅ Authorized sender: [REDACTED]
+   💬 Detected: Reply to my email
+   ✅ Reply sent to [REDACTED]
 
-[2026-06-02T13:15:01.901640] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 13:15:02 UTC] ✅ Check completed
-[2026-06-02 13:15:02 UTC] === Check completed ===
-[2026-06-02 13:30:01 UTC] === IMAP check started ===
+📧 New email from: Geoffrey Clapp <[REDACTED]>
+   Subject: Invitation: Reserve Uber Home from Dodger Stadium @ Sun Aug 2, 2026
+ 8pm - 8:50pm (PDT) ([REDACTED])
+   Body preview: Reserve Uber Home from Dodger Stadium
+Sunday Aug 2, 2026 ⋅ 8pm – 8:50pm
+Pacific Time - Los Angeles
 
-[2026-06-02T13:30:02.501476] Checking emails...
-✅ Processed 0 new emails
-[2026-06-02 13:30:03 UTC] ✅ Check completed
-[2026-06-02 13:30:03 UTC] === Check completed ===
-[2026-06-02 13:45:01 UTC] === IMAP check started ===
+Location
+Parking Lot 1, Lot 1, Los Angeles, CA 90012, USA	
+https://www.google.com/maps/search/...
+   ✅ Authorized sender: [REDACTED]
+   💬 Detected: Reply to my email
+   ✅ Reply sent to [REDACTED]
+✅ Processed 2 new emails
+[2026-06-03 01:45:05 UTC] ✅ Check completed
+[2026-06-03 01:45:05 UTC] === Check completed ===
+[2026-06-03 02:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T13:45:01.835053] Checking emails...
+[2026-06-03T02:00:03.145512] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 13:45:02 UTC] ✅ Check completed
-[2026-06-02 13:45:02 UTC] === Check completed ===
-[2026-06-02 14:00:01 UTC] === IMAP check started ===
+[2026-06-03 02:00:03 UTC] ✅ Check completed
+[2026-06-03 02:00:03 UTC] === Check completed ===
+[2026-06-03 02:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T14:00:03.652454] Checking emails...
+[2026-06-03T02:15:02.162392] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 14:00:04 UTC] ✅ Check completed
-[2026-06-02 14:00:04 UTC] === Check completed ===
-[2026-06-02 14:15:01 UTC] === IMAP check started ===
+[2026-06-03 02:15:02 UTC] ✅ Check completed
+[2026-06-03 02:15:02 UTC] === Check completed ===
+[2026-06-03 02:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T14:15:02.388367] Checking emails...
+[2026-06-03T02:30:01.840126] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 14:15:02 UTC] ✅ Check completed
-[2026-06-02 14:15:02 UTC] === Check completed ===
-[2026-06-02 14:30:01 UTC] === IMAP check started ===
+[2026-06-03 02:30:02 UTC] ✅ Check completed
+[2026-06-03 02:30:02 UTC] === Check completed ===
+[2026-06-03 02:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T14:30:02.358988] Checking emails...
+[2026-06-03T02:45:02.101336] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 14:30:02 UTC] ✅ Check completed
-[2026-06-02 14:30:02 UTC] === Check completed ===
-[2026-06-02 14:45:01 UTC] === IMAP check started ===
+[2026-06-03 02:45:02 UTC] ✅ Check completed
+[2026-06-03 02:45:02 UTC] === Check completed ===
+[2026-06-03 03:00:02 UTC] === IMAP check started ===
 
-[2026-06-02T14:45:01.726422] Checking emails...
+[2026-06-03T03:00:02.933249] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 14:45:02 UTC] ✅ Check completed
-[2026-06-02 14:45:02 UTC] === Check completed ===
-[2026-06-02 15:00:02 UTC] === IMAP check started ===
+[2026-06-03 03:00:03 UTC] ✅ Check completed
+[2026-06-03 03:00:03 UTC] === Check completed ===
+[2026-06-03 03:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T15:00:03.059063] Checking emails...
+[2026-06-03T03:15:02.219088] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 15:00:03 UTC] ✅ Check completed
-[2026-06-02 15:00:03 UTC] === Check completed ===
-[2026-06-02 15:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T15:15:01.484320] Checking emails...
+[2026-06-03 03:15:02 UTC] ✅ Check completed
+[2026-06-03 03:15:02 UTC] === Check completed ===
+[2026-06-03 03:30:01 UTC] === IMAP check started ===
 
-📧 New email from: Lose It! <donotreply@loseit.com>
-   Subject: Lose It! Daily Summary for Mon, Jun 1st
-   Body preview: <html>
-<head>
-</head>
-<body style="font-family: 'Segoe UI', 'Lucida Grande', 'Tahoma', 'Helvetica';">
-<table border="0" cellpadding="0" cellspacing="0">
-    <tr><td style="padding-bottom: 12px"><...
-   ✅ Authorized sender: donotreply@loseit.com
-   ℹ️ General email
-   ✅ Reply sent to donotreply@loseit.com
-✅ Processed 1 new emails
-[2026-06-02 15:15:03 UTC] ✅ Check completed
-[2026-06-02 15:15:03 UTC] === Check completed ===
-[2026-06-02 15:30:01 UTC] === IMAP check started ===
-
-[2026-06-02T15:30:02.062204] Checking emails...
+[2026-06-03T03:30:02.007981] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 15:30:02 UTC] ✅ Check completed
-[2026-06-02 15:30:02 UTC] === Check completed ===
-[2026-06-02 15:45:02 UTC] === IMAP check started ===
+[2026-06-03 03:30:02 UTC] ✅ Check completed
+[2026-06-03 03:30:02 UTC] === Check completed ===
+[2026-06-03 03:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T15:45:02.364303] Checking emails...
+[2026-06-03T03:45:01.423585] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 15:45:02 UTC] ✅ Check completed
-[2026-06-02 15:45:02 UTC] === Check completed ===
-[2026-06-02 16:00:01 UTC] === IMAP check started ===
+[2026-06-03 03:45:02 UTC] ✅ Check completed
+[2026-06-03 03:45:02 UTC] === Check completed ===
+[2026-06-03 04:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T16:00:02.009667] Checking emails...
+[2026-06-03T04:00:02.984624] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 16:00:02 UTC] ✅ Check completed
-[2026-06-02 16:00:02 UTC] === Check completed ===
-[2026-06-02 16:15:01 UTC] === IMAP check started ===
-
-[2026-06-02T16:15:02.335429] Checking emails...
+[2026-06-03 04:00:03 UTC] ✅ Check completed
+[2026-06-03 04:00:03 UTC] === Check completed ===
+[2026-06-03 04:15:01 UTC] === IMAP check started ===
 
-📧 New email from: Tanisha Selden <tanisha.selden@progyny.com>
-   Subject: Canceled: Delta Air Lines 979 Confirmation code: HWL2WF
-   Body preview: If you are not the intended recipient of this email, please let the sender know and delete it along with its attachments. It is possible that this email contains privileged or confidential information...
-   ⚠️ UNAUTHORIZED SENDER: tanisha.selden@progyny.com
-   🚫 No reply sent. Email logged only.
-   🚨 ALERT SENT TO GEOFF
+[2026-06-03T04:15:02.350214] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 16:15:05 UTC] ✅ Check completed
-[2026-06-02 16:15:05 UTC] === Check completed ===
-[2026-06-02 16:30:01 UTC] === IMAP check started ===
+[2026-06-03 04:15:02 UTC] ✅ Check completed
+[2026-06-03 04:15:02 UTC] === Check completed ===
+[2026-06-03 04:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T16:30:02.202300] Checking emails...
+[2026-06-03T04:30:02.279829] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 16:30:02 UTC] ✅ Check completed
-[2026-06-02 16:30:02 UTC] === Check completed ===
-[2026-06-02 16:45:01 UTC] === IMAP check started ===
+[2026-06-03 04:30:02 UTC] ✅ Check completed
+[2026-06-03 04:30:02 UTC] === Check completed ===
+[2026-06-03 04:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T16:45:01.753297] Checking emails...
+[2026-06-03T04:45:01.553803] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 16:45:02 UTC] ✅ Check completed
-[2026-06-02 16:45:02 UTC] === Check completed ===
-[2026-06-02 17:00:01 UTC] === IMAP check started ===
+[2026-06-03 04:45:02 UTC] ✅ Check completed
+[2026-06-03 04:45:02 UTC] === Check completed ===
+[2026-06-03 05:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T17:00:03.193149] Checking emails...
+[2026-06-03T05:00:02.423751] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 17:00:04 UTC] ✅ Check completed
-[2026-06-02 17:00:04 UTC] === Check completed ===
-[2026-06-02 17:15:01 UTC] === IMAP check started ===
+[2026-06-03 05:00:03 UTC] ✅ Check completed
+[2026-06-03 05:00:03 UTC] === Check completed ===
+[2026-06-03 05:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T17:15:01.749276] Checking emails...
+[2026-06-03T05:15:01.662718] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 17:15:02 UTC] ✅ Check completed
-[2026-06-02 17:15:02 UTC] === Check completed ===
-[2026-06-02 17:30:01 UTC] === IMAP check started ===
+[2026-06-03 05:15:02 UTC] ✅ Check completed
+[2026-06-03 05:15:02 UTC] === Check completed ===
+[2026-06-03 05:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T17:30:02.561975] Checking emails...
+[2026-06-03T05:30:02.397453] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 17:30:03 UTC] ✅ Check completed
-[2026-06-02 17:30:03 UTC] === Check completed ===
-[2026-06-02 17:45:01 UTC] === IMAP check started ===
+[2026-06-03 05:30:03 UTC] ✅ Check completed
+[2026-06-03 05:30:03 UTC] === Check completed ===
+[2026-06-03 05:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T17:45:01.963536] Checking emails...
+[2026-06-03T05:45:02.014914] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 17:45:02 UTC] ✅ Check completed
-[2026-06-02 17:45:02 UTC] === Check completed ===
-[2026-06-02 18:00:02 UTC] === IMAP check started ===
+[2026-06-03 05:45:02 UTC] ✅ Check completed
+[2026-06-03 05:45:02 UTC] === Check completed ===
+[2026-06-03 06:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T18:00:03.103715] Checking emails...
+[2026-06-03T06:00:02.462802] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 18:00:03 UTC] ✅ Check completed
-[2026-06-02 18:00:03 UTC] === Check completed ===
-[2026-06-02 18:15:01 UTC] === IMAP check started ===
+[2026-06-03 06:00:03 UTC] ✅ Check completed
+[2026-06-03 06:00:03 UTC] === Check completed ===
+[2026-06-03 06:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T18:15:01.483726] Checking emails...
+[2026-06-03T06:15:01.773265] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 18:15:01 UTC] ✅ Check completed
-[2026-06-02 18:15:01 UTC] === Check completed ===
-[2026-06-02 18:30:01 UTC] === IMAP check started ===
+[2026-06-03 06:15:02 UTC] ✅ Check completed
+[2026-06-03 06:15:02 UTC] === Check completed ===
+[2026-06-03 06:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T18:30:02.323209] Checking emails...
+[2026-06-03T06:30:01.971394] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 18:30:03 UTC] ✅ Check completed
-[2026-06-02 18:30:03 UTC] === Check completed ===
-[2026-06-02 18:45:01 UTC] === IMAP check started ===
+[2026-06-03 06:30:02 UTC] ✅ Check completed
+[2026-06-03 06:30:02 UTC] === Check completed ===
+[2026-06-03 06:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T18:45:01.870168] Checking emails...
+[2026-06-03T06:45:02.323667] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 18:45:02 UTC] ✅ Check completed
-[2026-06-02 18:45:02 UTC] === Check completed ===
-[2026-06-02 19:00:01 UTC] === IMAP check started ===
+[2026-06-03 06:45:03 UTC] ✅ Check completed
+[2026-06-03 06:45:03 UTC] === Check completed ===
+[2026-06-03 07:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T19:00:02.983083] Checking emails...
+[2026-06-03T07:00:02.274293] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 19:00:03 UTC] ✅ Check completed
-[2026-06-02 19:00:03 UTC] === Check completed ===
-[2026-06-02 19:15:02 UTC] === IMAP check started ===
+[2026-06-03 07:00:02 UTC] ✅ Check completed
+[2026-06-03 07:00:02 UTC] === Check completed ===
+[2026-06-03 07:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T19:15:02.374768] Checking emails...
+[2026-06-03T07:15:01.464567] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 19:15:02 UTC] ✅ Check completed
-[2026-06-02 19:15:03 UTC] === Check completed ===
-[2026-06-02 19:30:01 UTC] === IMAP check started ===
+[2026-06-03 07:15:01 UTC] ✅ Check completed
+[2026-06-03 07:15:01 UTC] === Check completed ===
+[2026-06-03 07:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T19:30:02.239648] Checking emails...
+[2026-06-03T07:30:02.111267] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 19:30:04 UTC] ✅ Check completed
-[2026-06-02 19:30:04 UTC] === Check completed ===
-[2026-06-02 19:45:01 UTC] === IMAP check started ===
+[2026-06-03 07:30:02 UTC] ✅ Check completed
+[2026-06-03 07:30:02 UTC] === Check completed ===
+[2026-06-03 07:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T19:45:01.963949] Checking emails...
+[2026-06-03T07:45:02.338832] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 19:45:02 UTC] ✅ Check completed
-[2026-06-02 19:45:02 UTC] === Check completed ===
-[2026-06-02 20:00:01 UTC] === IMAP check started ===
+[2026-06-03 07:45:03 UTC] ✅ Check completed
+[2026-06-03 07:45:03 UTC] === Check completed ===
+[2026-06-03 08:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T20:00:02.289032] Checking emails...
+[2026-06-03T08:00:02.108455] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 20:00:02 UTC] ✅ Check completed
-[2026-06-02 20:00:02 UTC] === Check completed ===
-[2026-06-02 20:15:01 UTC] === IMAP check started ===
+[2026-06-03 08:00:02 UTC] ✅ Check completed
+[2026-06-03 08:00:02 UTC] === Check completed ===
+[2026-06-03 08:15:02 UTC] === IMAP check started ===
 
-[2026-06-02T20:15:01.664317] Checking emails...
+[2026-06-03T08:15:02.388986] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 20:15:02 UTC] ✅ Check completed
-[2026-06-02 20:15:02 UTC] === Check completed ===
-[2026-06-02 20:30:01 UTC] === IMAP check started ===
+[2026-06-03 08:15:03 UTC] ✅ Check completed
+[2026-06-03 08:15:03 UTC] === Check completed ===
+[2026-06-03 08:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T20:30:02.468496] Checking emails...
+[2026-06-03T08:30:02.564689] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 20:30:04 UTC] ✅ Check completed
-[2026-06-02 20:30:04 UTC] === Check completed ===
-[2026-06-02 20:45:01 UTC] === IMAP check started ===
+[2026-06-03 08:30:03 UTC] ✅ Check completed
+[2026-06-03 08:30:03 UTC] === Check completed ===
+[2026-06-03 08:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T20:45:01.790167] Checking emails...
+[2026-06-03T08:45:01.870602] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 20:45:02 UTC] ✅ Check completed
-[2026-06-02 20:45:02 UTC] === Check completed ===
-[2026-06-02 21:00:01 UTC] === IMAP check started ===
+[2026-06-03 08:45:02 UTC] ✅ Check completed
+[2026-06-03 08:45:02 UTC] === Check completed ===
+[2026-06-03 09:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T21:00:02.689822] Checking emails...
+[2026-06-03T09:00:02.754110] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 21:00:03 UTC] ✅ Check completed
-[2026-06-02 21:00:03 UTC] === Check completed ===
-[2026-06-02 21:15:01 UTC] === IMAP check started ===
+[2026-06-03 09:00:03 UTC] ✅ Check completed
+[2026-06-03 09:00:03 UTC] === Check completed ===
+[2026-06-03 09:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T21:15:02.202590] Checking emails...
+[2026-06-03T09:15:02.019310] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 21:15:02 UTC] ✅ Check completed
-[2026-06-02 21:15:02 UTC] === Check completed ===
-[2026-06-02 21:30:01 UTC] === IMAP check started ===
+[2026-06-03 09:15:02 UTC] ✅ Check completed
+[2026-06-03 09:15:02 UTC] === Check completed ===
+[2026-06-03 09:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T21:30:01.773670] Checking emails...
+[2026-06-03T09:30:01.904441] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 21:30:02 UTC] ✅ Check completed
-[2026-06-02 21:30:02 UTC] === Check completed ===
-[2026-06-02 21:45:01 UTC] === IMAP check started ===
+[2026-06-03 09:30:02 UTC] ✅ Check completed
+[2026-06-03 09:30:02 UTC] === Check completed ===
+[2026-06-03 09:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T21:45:02.318230] Checking emails...
+[2026-06-03T09:45:02.209485] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 21:45:02 UTC] ✅ Check completed
-[2026-06-02 21:45:02 UTC] === Check completed ===
-[2026-06-02 22:00:01 UTC] === IMAP check started ===
+[2026-06-03 09:45:02 UTC] ✅ Check completed
+[2026-06-03 09:45:02 UTC] === Check completed ===
+[2026-06-03 10:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T22:00:02.081987] Checking emails...
+[2026-06-03T10:00:01.992620] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 22:00:03 UTC] ✅ Check completed
-[2026-06-02 22:00:03 UTC] === Check completed ===
-[2026-06-02 22:15:01 UTC] === IMAP check started ===
+[2026-06-03 10:00:02 UTC] ✅ Check completed
+[2026-06-03 10:00:02 UTC] === Check completed ===
+[2026-06-03 10:15:02 UTC] === IMAP check started ===
 
-[2026-06-02T22:15:01.398831] Checking emails...
+[2026-06-03T10:15:02.408111] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 22:15:01 UTC] ✅ Check completed
-[2026-06-02 22:15:01 UTC] === Check completed ===
-[2026-06-02 22:30:01 UTC] === IMAP check started ===
+[2026-06-03 10:15:03 UTC] ✅ Check completed
+[2026-06-03 10:15:03 UTC] === Check completed ===
+[2026-06-03 10:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T22:30:02.136301] Checking emails...
+[2026-06-03T10:30:02.328888] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 22:30:02 UTC] ✅ Check completed
-[2026-06-02 22:30:02 UTC] === Check completed ===
-[2026-06-02 22:45:01 UTC] === IMAP check started ===
+[2026-06-03 10:30:02 UTC] ✅ Check completed
+[2026-06-03 10:30:02 UTC] === Check completed ===
+[2026-06-03 10:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T22:45:01.459992] Checking emails...
+[2026-06-03T10:45:01.748920] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 22:45:04 UTC] ✅ Check completed
-[2026-06-02 22:45:04 UTC] === Check completed ===
-[2026-06-02 23:00:01 UTC] === IMAP check started ===
+[2026-06-03 10:45:02 UTC] ✅ Check completed
+[2026-06-03 10:45:02 UTC] === Check completed ===
+[2026-06-03 11:00:01 UTC] === IMAP check started ===
 
-[2026-06-02T23:00:02.803299] Checking emails...
+[2026-06-03T11:00:02.099299] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 23:00:03 UTC] ✅ Check completed
-[2026-06-02 23:00:03 UTC] === Check completed ===
-[2026-06-02 23:15:01 UTC] === IMAP check started ===
+[2026-06-03 11:00:02 UTC] ✅ Check completed
+[2026-06-03 11:00:02 UTC] === Check completed ===
+[2026-06-03 11:15:01 UTC] === IMAP check started ===
 
-[2026-06-02T23:15:02.148498] Checking emails...
+[2026-06-03T11:15:02.341500] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 23:15:02 UTC] ✅ Check completed
-[2026-06-02 23:15:02 UTC] === Check completed ===
-[2026-06-02 23:30:01 UTC] === IMAP check started ===
+[2026-06-03 11:15:02 UTC] ✅ Check completed
+[2026-06-03 11:15:02 UTC] === Check completed ===
+[2026-06-03 11:30:01 UTC] === IMAP check started ===
 
-[2026-06-02T23:30:02.069676] Checking emails...
+[2026-06-03T11:30:01.898234] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 23:30:03 UTC] ✅ Check completed
-[2026-06-02 23:30:03 UTC] === Check completed ===
-[2026-06-02 23:45:01 UTC] === IMAP check started ===
+[2026-06-03 11:30:02 UTC] ✅ Check completed
+[2026-06-03 11:30:02 UTC] === Check completed ===
+[2026-06-03 11:45:01 UTC] === IMAP check started ===
 
-[2026-06-02T23:45:01.964321] Checking emails...
+[2026-06-03T11:45:01.483194] Checking emails...
 ✅ Processed 0 new emails
-[2026-06-02 23:45:02 UTC] ✅ Check completed
-[2026-06-02 23:45:02 UTC] === Check completed ===
+[2026-06-03 11:45:02 UTC] ✅ Check completed
+[2026-06-03 11:45:02 UTC] === Check completed ===
