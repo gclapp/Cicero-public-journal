@@ -1,0 +1,30 @@
+=== DMHC Processing Completion Check ===
+Timestamp: 2026-06-10 03:14 UTC
+Status: INCOMPLETE - Pending LLM processing
+
+Database Statistics:
+- Documents: 8,424 (all downloaded)
+- Text chunks: 13,340
+- Total leads: 829
+- Candidates pending LLM: 2,993 (50.6%)
+- Candidates processed (no lead): 2,676 (45.2%)
+- Candidates extracted (leads found): 248 (4.2%)
+
+Progress Calculation:
+- Total candidates: 5,917
+- Processed: 2,924 (49.4%)
+- Pending: 2,993 (50.6%)
+- Completion: 49.4% (unchanged from previous check)
+
+Breakdown by Source:
+- Enforcement Actions: 2,977 pending, 124 extracted, 2,047 no_lead
+- Financial Exams: 16 pending, 124 extracted, 629 no_lead
+
+Analysis:
+- Financial Exams are nearly complete (only 16 pending - 97.4% done)
+- Enforcement Actions have significant backlog (2,977 pending - 41.0% done)
+- Overall processing is at ~50% completion
+- No progress since last check (2026-06-09 23:07 UTC)
+
+Action Taken: No completion email sent - processing still in progress.
+Next Check: Scheduled via cron

@@ -1,0 +1,27 @@
+DMHC Processing Completion Check
+================================
+Timestamp: 2026-06-05 19:49 UTC
+Status: INCOMPLETE
+
+Processing Statistics:
+- Total text chunks: 13,340
+- Processed via LLM: 2,924 (22%)
+- Pending: 2,993 (22%)
+- Completion: ~49.4%
+
+Breakdown:
+- Extracted (has leads): 248 chunks
+- No lead found: 2,676 chunks  
+- Pending processing: 2,993 chunks
+
+Lead Summary:
+- Total leads: 829
+- High confidence (99-100): 188
+- Medium confidence (80-98): 461
+- Lower confidence (<80): 180
+
+Source Connectors: All 3 active (Medical Surveys, Enforcement Actions, Financial Exams)
+LLM Mode: Real GPT-4o-mini
+
+Action: No completion email sent - processing still in progress.
+Next check: Scheduled via cron

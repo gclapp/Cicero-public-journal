@@ -1,0 +1,14 @@
+=== DMHC Processing Completion Check ===
+Timestamp: $(date -u +"%Y-%m-%d %H:%M UTC")
+Status: INCOMPLETE - Pending LLM processing
+
+Database Statistics:
+- Documents: 8,424
+- Text chunks: 13,340
+- Total leads: 829
+- Candidates pending LLM: 2,993
+- Candidates processed (no lead): 2,676
+- Candidates extracted: 248
+
+Action: No email sent - processing not complete
+Next check: Will retry at next scheduled interval

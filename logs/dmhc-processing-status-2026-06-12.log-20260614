@@ -1,0 +1,37 @@
+DMHC Processing Status Check
+==============================
+Timestamp: 2026-06-12 15:40 UTC (Friday, June 12th, 2026 - 3:40 PM UTC)
+Status: INCOMPLETE - Processing still ongoing
+
+Database Statistics:
+-------------------
+Total Source Documents: 8,424
+Total Text Chunks: 13,340
+Total Candidate Chunks: 5,917
+
+LLM Processing Status:
+---------------------
+✅ Extracted (leads found): 248 candidates → 829 total leads
+❌ No Lead Found: 2,676 candidates
+⏳ Pending (awaiting LLM): 2,993 candidates
+
+Completion Percentage:
+---------------------
+Candidates Processed: 49.4% (2,924 / 5,917)
+Candidates Pending: 50.6% (2,993 / 5,917)
+
+Document Sources:
+-----------------
+- Financial Statements: 9 PDFs
+- Medical Surveys: 18 PDFs  
+- Enforcement Documents: 83 PDFs downloaded
+- Open Data Portal: 8,172 enforcement summaries (CSV)
+
+Action Taken:
+-------------
+Processing incomplete. No completion email sent.
+Next check scheduled via cron.
+
+Estimated Time to Completion:
+-----------------------------
+At current rate, approximately 2,993 candidates remain to be processed.

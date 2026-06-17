@@ -1,0 +1,8 @@
+{
+  "task": "Re-auth Google Calendar token",
+  "created": "2026-06-05T01:07:00Z",
+  "due": "2026-06-05T05:07:00Z",
+  "priority": "critical",
+  "instructions": "Run: python3 /home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py",
+  "details": "Then visit the Google auth URL and paste the authorization code back to complete the authentication."
+}

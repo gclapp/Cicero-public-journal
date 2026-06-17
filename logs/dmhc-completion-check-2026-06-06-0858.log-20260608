@@ -1,0 +1,19 @@
+DMHC Processing Completion Check
+================================
+Timestamp: 2026-06-06 08:58 UTC
+Status: INCOMPLETE
+
+Processing Statistics:
+- Total candidate chunks: 5,917
+- Extracted (has leads): 248 chunks
+- No lead found: 2,676 chunks
+- Pending LLM processing: 2,993 chunks
+- Completion: ~49.4%
+
+Lead Summary:
+- Total leads extracted: 829
+
+Source Categories: Medical Surveys, Enforcement Actions, Financial Exams
+
+Action: No completion email sent - processing still in progress.
+Next check: Scheduled via cron

@@ -8,6 +8,53 @@
 - **Vibe:** Warm but sharp. Helpful without being obsequious.
 - **Emoji:** 🏛️
 
+## Grace's Birthday Trip 2026 — PRIORITY EVENT 🎂
+**Dates:** July 21-26, 2026  
+**Destination:** Truckee/Tahoe  
+**Occasion:** Grace's 30th Birthday (July 22, 1996)  
+**Status:** HIGH PRIORITY — Active tracking
+
+### Trip Logistics
+- **Flights:** DL 4126 (outbound), DL 3902 (return)
+- **Stay:** **Two houses on Donner Lake via Airbnb** (walk to beach, hot tub, views)
+- **Car:** Rental pickup at Reno airport
+- **Who:** Geoff + Grace (no kids)
+
+### Why This Matters
+- Grace's 30th birthday — milestone celebration
+- Romantic getaway, not a family trip
+- Requires proactive planning and attention to detail
+- Source: Geoff clarification June 17, 2026
+
+### Tracking Checklist
+- [ ] Birthday dinner reservation (July 22)
+- [ ] Special activity/experience planning
+- [ ] Gift/surprise coordination
+- [ ] Weather monitoring
+- [ ] Lodging confirmations
+- [ ] Car rental verification
+
+---
+
+## Progyny Executive Offsite — July 2026
+**Dates:** July 12-13, 2026  
+**Destination:** Providence, RI (via Atlanta)  
+**Purpose:** Progyny Executive Team Offsite  
+**Status:** HIGH PRIORITY — Work event
+
+### Trip Logistics
+- **Outbound:** DL 782, July 12 at 8:05 AM (LAX → Atlanta)
+- **Connection:** DL 2659, July 12 at 2:40 PM (Atlanta → Providence)
+- **Return:** July 13 (per calendar — details TBD)
+- **Confirmation:** JMCGIZ
+
+### Context
+- Executive team gathering — important for CPO role
+- Different from Ollie consult calls (those are separate Monday meetings)
+- Source: Geoff clarification June 17, 2026
+
+---
+
 ## Greta — Geoff's Dog (May 23, 2026)
 - **Breed:** English Labrador Retriever
 - **Age:** 10 years old

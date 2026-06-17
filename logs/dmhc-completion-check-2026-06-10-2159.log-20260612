@@ -1,0 +1,18 @@
+DMHC Processing Completion Check - 2026-06-10 21:59 UTC
+================================================================
+
+Status: INCOMPLETE - Processing still ongoing
+
+Database Statistics:
+- Total documents: 8,424
+- Text chunks: 13,340
+- Total leads found: 829
+
+Candidate Processing Status:
+- extracted: 248 (completed)
+- no_lead: 2,676 (completed - no delegation leads found)
+- pending: 2,993 (STILL PENDING - awaiting LLM processing)
+
+Progress: ~55% complete (5,724 / 8,424 documents processed)
+
+Action: No completion email sent. Will check again on next scheduled run.

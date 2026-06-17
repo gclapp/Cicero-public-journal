@@ -1,0 +1,18 @@
+DMHC Processing Status Check - 2026-06-04 14:27 UTC
+=====================================================
+
+Status: INCOMPLETE (49.4% processed)
+
+Breakdown:
+- Total candidates: 5,917
+- Pending (awaiting LLM): 2,993 (50.6%)
+- Extracted (leads found): 248 (4.2%)
+- No lead (processed, no delegation): 2,676 (45.2%)
+
+Current leads: 829 total
+- High confidence (90-100): 292 leads
+- Medium confidence (60-89): 371 leads
+- Lower confidence (<60): 166 leads
+
+Action: No email sent - processing not complete.
+Next check: Scheduled or manual trigger.

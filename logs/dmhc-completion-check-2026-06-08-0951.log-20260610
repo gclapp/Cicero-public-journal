@@ -1,0 +1,32 @@
+DMHC Processing Completion Check
+================================
+Timestamp: 2026-06-08 09:51 UTC
+Check Type: LLM Processing Completion
+Job ID: e0b1cb83-6c9a-4d7c-a18f-c65b9f15f386
+
+STATUS: INCOMPLETE - LLM processing still in progress
+
+Database Statistics:
+- Documents: 8,424
+- Text chunks: 13,340
+- Total leads: 829
+
+Candidate Processing Status:
+- extracted: 248 (processed by LLM, leads found)
+- no_lead: 2,676 (processed by LLM, no leads found)
+- pending: 2,993 (NOT YET PROCESSED by LLM)
+
+Progress Calculation:
+- Total candidates: 5,917
+- Processed: 2,924 (49.4%)
+- Pending: 2,993 (50.6%)
+- Completion: 49.4%
+
+Leads by Confidence (High Value):
+- 100: 81
+- 99: 107
+- 90: 104
+- 89: 322
+
+Action Taken: No completion email sent - processing incomplete.
+Next Check: Scheduled via cron

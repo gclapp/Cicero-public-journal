@@ -1,214 +1,38 @@
 {
-  "last_updated": "2026-05-28T14:55:03.860090",
-  "total_events": 86,
-  "travel_events": 7,
+  "last_updated": "2026-06-17T11:47:30.600791",
+  "total_events": 100,
+  "travel_events": 11,
   "events": [
     {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, May 28 at 01:30 PM",
-      "start_raw": "2026-05-28T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Wednesday, June 17 at 07:00 AM",
+      "start_raw": "2026-06-17T07:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
       "is_travel": false
     },
     {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, May 28 at 02:00 PM",
-      "start_raw": "2026-05-28T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, May 29 at 01:30 PM",
-      "start_raw": "2026-05-29T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, May 29 at 02:00 PM",
-      "start_raw": "2026-05-29T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Zoom Whitening Boost",
-      "start": "Saturday, May 30 at 10:40 PM",
-      "start_raw": "2026-05-30T22:40:00-07:00",
-      "location": "Carte Blanche Teeth Whitening, 1407 Glen Oaks Blvd, Pasadena, CA 91105, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Greta: Monthly Meds",
-      "start": "Monday, June 01",
-      "start_raw": "2026-06-01",
+      "summary": "Crane Club Application",
+      "start": "Wednesday, June 17 at 02:00 PM",
+      "start_raw": "2026-06-17T14:00:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false
     },
     {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, June 01 at 07:00 AM",
-      "start_raw": "2026-06-01T07:00:00-07:00",
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Thursday, June 18 at 07:00 AM",
+      "start_raw": "2026-06-18T07:00:00-07:00",
       "location": "",
-      "description": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
       "is_travel": false
     },
     {
-      "summary": "\u26a1\ufe0f Maven LIVE: Claude Cowork Masterclass",
-      "start": "Tuesday, June 02 at 10:00 AM",
-      "start_raw": "2026-06-02T10:00:00-07:00",
-      "location": "https://maven.com/s/joinworkshop/38af978cb5",
-      "description": "<span>Join Dr. Ryan Ahmed, Ph.D., MBA and Kukesh Kodess for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>Build Agentic AI workflows in Claude Cowork withou",
-      "is_travel": false
-    },
-    {
-      "summary": "Greta Groomer",
-      "start": "Thursday, June 04 at 08:00 AM",
-      "start_raw": "2026-06-04T08:00:00-07:00",
-      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
-      "description": "Thursday, Dec 18th\n8 AM\n\nStylist:\u00a0Isidora L\nPet: Greta\nSignature Service (No Haircut)",
-      "is_travel": false
-    },
-    {
-      "summary": "\u26a1\ufe0f Maven LIVE: Build No-Code Marketing Agents with Claude Code & Cowork",
-      "start": "Thursday, June 04 at 09:00 AM",
-      "start_raw": "2026-06-04T09:00:00-07:00",
-      "location": "https://maven.com/s/joinworkshop/3f1870d886",
-      "description": "<span>Join Grace Man for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>How Claude Cowork and Claude Code Work Together</b></span\n>\n<span><b>Turn One Transcr",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, June 04 at 01:30 PM",
-      "start_raw": "2026-06-04T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, June 04 at 02:00 PM",
-      "start_raw": "2026-06-04T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Grace help with Kids (OAI Dinner)",
-      "start": "Thursday, June 04 at 04:45 PM",
-      "start_raw": "2026-06-04T16:45:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/274393461126215?p=7MXl9MY7HOSvyTP5hg\nMeeting ID: 274 39",
-      "is_travel": false
-    },
-    {
-      "summary": "Reserved Uber to OpenAI Dinner",
-      "start": "Thursday, June 04 at 04:50 PM",
-      "start_raw": "2026-06-04T16:50:00-07:00",
-      "location": "Microsoft Teams Meeting",
-      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/26189066434995?p=qQ1Gxc7U1WCvg57ewd\nMeeting ID: 261 890",
-      "is_travel": false
-    },
-    {
-      "summary": "OpenAI Executive Dinner",
-      "start": "Thursday, June 04 at 06:00 PM",
-      "start_raw": "2026-06-04T18:00:00-07:00",
-      "location": "Nobu Los Angeles, 903 North La Cienega Boulevard, Los Angeles, CA 90069",
-      "description": "OpenAI Executive Dinner in Los Angeles focusing on practical AI leadership and moving from experimentation into business impact. Guests include senior leaders shaping AI strategy, customer experience,",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, June 05 at 01:30 PM",
-      "start_raw": "2026-06-05T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, June 05 at 02:00 PM",
-      "start_raw": "2026-06-05T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Dinner with Cass and Andrew",
-      "start": "Saturday, June 06 at 07:00 PM",
-      "start_raw": "2026-06-06T19:00:00-07:00",
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Thursday, June 18 at 09:00 AM",
+      "start_raw": "2026-06-18T09:00:00-07:00",
       "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, June 08 at 07:00 AM",
-      "start_raw": "2026-06-08T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoff Physcial",
-      "start": "Monday, June 08 at 03:15 PM",
-      "start_raw": "2026-06-08T15:15:00-07:00",
-      "location": "UCLA Jack Skirball Health Center, 26585 Agoura Rd, Calabasas, CA 91302, USA",
-      "description": "<br><br><br><br><br><br><br><a href=\"https://my.uclahealth.org/MyChart/Visits/VisitDetails?csn=WP-24Ro2K1TxTxCPf9lWuu9sL-2Fg-3D-3D-24-2BAt446YCS8WR4JNMp0v6259-2F05VkbKA2G4b0fZNh8Dk-3D&amp;rescheduled=",
-      "is_travel": false
-    },
-    {
-      "summary": "Last Day of School",
-      "start": "Wednesday, June 10",
-      "start_raw": "2026-06-10",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Grace - LAX to MSP",
-      "start": "Thursday, June 11 at 06:50 PM",
-      "start_raw": "2026-06-11T18:50:00-07:00",
-      "location": "Los Angeles International Airport, 1 World Wy, Los Angeles, CA 90045, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "John Turner Birthday",
-      "start": "Sunday, June 14 at 12:00 AM",
-      "start_raw": "2026-06-14T00:00:00-07:00",
-      "location": "",
-      "description": "When: Occurs every June 14 effective 6/14/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
-      "is_travel": false
-    },
-    {
-      "summary": "Grace - MSP to LAX",
-      "start": "Sunday, June 14 at 07:15 AM",
-      "start_raw": "2026-06-14T07:15:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ken Clapp Birthday",
-      "start": "Monday, June 15 at 12:00 AM",
-      "start_raw": "2026-06-15T00:00:00-07:00",
-      "location": "",
-      "description": "When: Occurs every June 15 effective 6/15/2010 (GMT-08:00) Pacific Time (US & Canada).\n\nNote: The GMT offset above does not reflect daylight saving time adjustments.\n\n*~*~*~*~*~*~*~*~*~*\n\n\n\n",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, June 15 at 07:00 AM",
-      "start_raw": "2026-06-15T07:00:00-07:00",
-      "location": "",
-      "description": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
       "is_travel": false
     },
     {
@@ -217,6 +41,14 @@
       "start_raw": "2026-06-18T09:45:00-07:00",
       "location": "Younes and Soraya Nazarian Center for the Performing Arts, 18111 Nordhoff St, Northridge, CA 91325, USA",
       "description": "<table> <colgroup><col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup><tbody><tr>  <td>Kindergarten-Grade 1</td>  <td>Sun</td>  <td>10:30 AM</td>",
+      "is_travel": false
+    },
+    {
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Friday, June 19 at 07:00 AM",
+      "start_raw": "2026-06-19T07:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
       "is_travel": false
     },
     {
@@ -229,11 +61,43 @@
     },
     {
       "summary": "Geoff Drop Kids off early",
-      "start": "Saturday, June 20 at 01:20 PM",
-      "start_raw": "2026-06-20T13:20:00-07:00",
+      "start": "Saturday, June 20 at 01:05 PM",
+      "start_raw": "2026-06-20T13:05:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false
+    },
+    {
+      "summary": "Sophie's Ballet Show",
+      "start": "Saturday, June 20 at 03:00 PM",
+      "start_raw": "2026-06-20T15:00:00-07:00",
+      "location": "Younes and Soraya Nazarian Center for the Performing Arts, 18111 Nordhoff St, Northridge, CA 91325, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to LAX",
+      "start": "Saturday, June 20 at 06:30 PM",
+      "start_raw": "2026-06-20T18:30:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Flight to New York (DL 960)",
+      "start": "Saturday, June 20 at 09:10 PM",
+      "start_raw": "2026-06-20T21:10:00-07:00",
+      "location": "Los Angeles LAX",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 960 - departs 9:10 PM local time - Confirmation code: G9SXNC",
+      "start": "Saturday, June 20 at 09:10 PM",
+      "start_raw": "2026-06-20T21:10:00-07:00",
+      "location": "Los Angeles(LAX) - New York(JFK)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: G9SXNC Delta Air Lines 960 Business, Scheduled Departure Jun 20, 2026, 9:10 pm, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.),",
+      "is_travel": true
     },
     {
       "summary": "Veronica Tan's birthday",
@@ -252,12 +116,28 @@
       "is_travel": false
     },
     {
-      "summary": "Delta Air Lines 979 Confirmation code: HWL2WF",
-      "start": "Sunday, June 21 at 07:00 AM",
-      "start_raw": "2026-06-21T07:00:00-07:00",
-      "location": "Los Angeles(LAX) - New York(JFK)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: HWL2WF Delta Air Lines 979 Business, Scheduled Departure Jun 21, 2026, 7:00 am, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.),",
-      "is_travel": true
+      "summary": "Radiohead: Kid A MNESIA",
+      "start": "Sunday, June 21 at 12:30 PM",
+      "start_raw": "2026-06-21T12:30:00-07:00",
+      "location": "Agger Fish Building, Brooklyn, NY 11201, USA",
+      "description": "Order details for Radiohead Motion Picture House KID A MNESIA at Agger Fish Building scheduled on 6/21/2026\nQuantity\tType\tEntry\nTime\tPrice\tTotal\n2\tRegular\t3:30PM\t$65.00\t$130.00\nMethod of Delivery: AXS",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Cecconi's Dumbo",
+      "start": "Sunday, June 21 at 03:30 PM",
+      "start_raw": "2026-06-21T15:30:00-07:00",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
+      "is_travel": false
+    },
+    {
+      "summary": "Cecconi's Dumbo",
+      "start": "Sunday, June 21 at 03:30 PM",
+      "start_raw": "2026-06-21T15:30:00-07:00",
+      "location": "55 Water St  Brooklyn, NY United States 11201",
+      "description": "(718) 650-3900\nCecconi\u2019s Dumbo is a modern day classic Italian restaurant near Brooklyn Bridge park, specializing in hand-made pasta, wood-fired pizza and other Italian staples. Originating in Venice ",
+      "is_travel": false
     },
     {
       "summary": "Ollie Consult Call",
@@ -265,6 +145,54 @@
       "start_raw": "2026-06-22T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Philippe Chow - Fifth Avenue",
+      "start": "Monday, June 22 at 04:30 PM",
+      "start_raw": "2026-06-22T16:30:00-07:00",
+      "location": "10 E 52nd Street  New York, NY United States 10022",
+      "description": "(212) 644-8885\nPhilippe Fifth Avenue is a refined Chinese fine dining destination in Midtown Manhattan, located along one of the world\u2019s most prestigious shopping corridors and just moments from Rocke",
+      "is_travel": false
+    },
+    {
+      "summary": "Reservation at Keens Steakhouse",
+      "start": "Monday, June 22 at 05:15 PM",
+      "start_raw": "2026-06-22T17:15:00-07:00",
+      "location": "Keens Steakhouse, 72 W 36th St, (Between 6th Ave and 5th Ave), New York, NY 10018",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
+      "is_travel": false
+    },
+    {
+      "summary": "Harvard Intensive Agentic AI Build ",
+      "start": "Tuesday, June 23 at 06:00 AM",
+      "start_raw": "2026-06-23T06:00:00-07:00",
+      "location": "Microsoft Teams Meeting",
+      "description": "\n________________________________________________________________________________\nMicrosoft Teams meeting\nJoin: https://teams.microsoft.com/meet/242720612989545?p=D67dr83msRztE0CjAU\nMeeting ID: 242 72",
+      "is_travel": false
+    },
+    {
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Tuesday, June 23 at 07:00 AM",
+      "start_raw": "2026-06-23T07:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
+      "is_travel": false
+    },
+    {
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Tuesday, June 23 at 09:00 AM",
+      "start_raw": "2026-06-23T09:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
+      "is_travel": false
+    },
+    {
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Wednesday, June 24 at 07:00 AM",
+      "start_raw": "2026-06-24T07:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
       "is_travel": false
     },
     {
@@ -276,11 +204,27 @@
       "is_travel": true
     },
     {
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Thursday, June 25 at 07:00 AM",
+      "start_raw": "2026-06-25T07:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
+      "is_travel": false
+    },
+    {
       "summary": "\u26a1\ufe0f Maven LIVE: When to Use Claude Cowork vs. Build an AI workflow",
       "start": "Thursday, June 25 at 09:00 AM",
       "start_raw": "2026-06-25T09:00:00-07:00",
       "location": "https://maven.com/s/joinworkshop/8a0f265c47",
       "description": "<span>Join Jacob Bank and Pietro Montaldo for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>What Is Cowork? What Are Skills? What Are Agents?</b></span\n>\n<s",
+      "is_travel": false
+    },
+    {
+      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
+      "start": "Thursday, June 25 at 09:00 AM",
+      "start_raw": "2026-06-25T09:00:00-07:00",
+      "location": "",
+      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
       "is_travel": false
     },
     {
@@ -332,6 +276,38 @@
       "is_travel": false
     },
     {
+      "summary": "Oh, Mary!",
+      "start": "Monday, July 06 at 04:30 PM",
+      "start_raw": "2026-07-06T16:30:00-07:00",
+      "location": "Lyceum Theatre, 149 West 45th Street, New York, NY 10036",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Oh Mary! Play",
+      "start": "Monday, July 06 at 04:30 PM",
+      "start_raw": "2026-07-06T16:30:00-07:00",
+      "location": "Lyceum Theatre, 149 W 45th St, New York, NY 10036, USA",
+      "description": "Order 100546511\n[REDACTED]\nOh Mary Broadway Play Tickets\nOh, Mary!\nLyceum Theatre\n149 West 45th Street\nBetween Broadway and 6th Avenue\nNew York, NY, 10036\nBlue Location Pin\nMonday, July 6, ",
+      "is_travel": false
+    },
+    {
+      "summary": "Mackenzie Hotel (US Grant, San Diego)",
+      "start": "Wednesday, July 08",
+      "start_raw": "2026-07-08",
+      "location": "The US Grant, a Luxury Collection Hotel, San Diego, 326 Broadway, San Diego, CA 92101, USA",
+      "description": "\u2022\tReservation confirmation number: 83297815\n\u2022\tHotel: LC THE US GRANT, SAN DIEGO\n\u2022\tStay dates: 2026-07-08 through 2026-07-13",
+      "is_travel": true
+    },
+    {
+      "summary": "Stay at The US Grant, a Luxury Collection Hotel, San Diego",
+      "start": "Wednesday, July 08",
+      "start_raw": "2026-07-08",
+      "location": "326 Broadway, San Diego, California 92101, United States",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": true
+    },
+    {
       "summary": "Bright Horizons Back-up Care",
       "start": "Friday, July 10",
       "start_raw": "2026-07-10",
@@ -340,11 +316,35 @@
       "is_travel": false
     },
     {
+      "summary": "Geoffrey Clapp - Delta Air Lines 782 - departs 8:05 AM local time - Confirmation code: JMCGIZ",
+      "start": "Sunday, July 12 at 08:05 AM",
+      "start_raw": "2026-07-12T08:05:00-07:00",
+      "location": "Los Angeles(LAX) - Atlanta(ATL)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: JMCGIZ Delta Air Lines 782 First, Scheduled Departure Jul 12, 2026, 8:05 am, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.), Te",
+      "is_travel": true
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 2659 - departs 5:40 PM local time - Confirmation code: JMCGIZ",
+      "start": "Sunday, July 12 at 02:40 PM",
+      "start_raw": "2026-07-12T14:40:00-07:00",
+      "location": "Atlanta(ATL) - Providence(PVD)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: JMCGIZ Delta Air Lines 2659 First, Scheduled Departure Jul 12, 2026, 5:40 pm, Atlanta, GA, United States of America (ATL-Hartsfield-Jackson Atlant",
+      "is_travel": true
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, July 13 at 07:00 AM",
       "start_raw": "2026-07-13T07:00:00-07:00",
       "location": "",
       "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Appointment at POLESTAR LOS ANGELES",
+      "start": "Monday, July 13 at 01:00 PM",
+      "start_raw": "2026-07-13T13:00:00-07:00",
+      "location": "POLESTAR LOS ANGELES, 8333 Sepulveda Blvd (at Galpin Volvo), North Hills, California 91343",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
       "is_travel": false
     },
     {
@@ -373,6 +373,14 @@
     },
     {
       "summary": "Stay at *NEW*Donner Lakefront Luxury*",
+      "start": "Tuesday, July 21",
+      "start_raw": "2026-07-21",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Stay at Truckee",
       "start": "Tuesday, July 21",
       "start_raw": "2026-07-21",
       "location": "",
@@ -428,6 +436,14 @@
       "is_travel": false
     },
     {
+      "summary": "Stay at Truckee",
+      "start": "Thursday, July 23",
+      "start_raw": "2026-07-23",
+      "location": "",
+      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
       "summary": "Return Rental Car",
       "start": "Sunday, July 26 at 01:00 PM",
       "start_raw": "2026-07-26T13:00:00-07:00",
@@ -468,9 +484,17 @@
       "is_travel": false
     },
     {
+      "summary": "Reserve Uber to Dodger Stadium",
+      "start": "Sunday, August 02 at 02:20 PM",
+      "start_raw": "2026-08-02T14:20:00-07:00",
+      "location": "Park Capri, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Red Sox at Dodgers",
-      "start": "Sunday, August 02 at 01:20 PM",
-      "start_raw": "2026-08-02T13:20:00-07:00",
+      "start": "Sunday, August 02 at 04:20 PM",
+      "start_raw": "2026-08-02T16:20:00-07:00",
       "location": "Dodger Stadium, 1000 Vin Scully Ave, Los Angeles, CA 90012, USA",
       "description": "Boston Red Sox at Los Angeles Dodgers\nSun, Aug 2, 2026 at 4:20PM\nUNIQLO Field at Dodger Stadium, Los Angeles, CA\nOrder\n2 tickets, Section 33FD, Row E\nOrder number\t6P2-J9Y5MLR\nPurchase date\tMay 16, 202",
       "is_travel": false
@@ -481,6 +505,14 @@
       "start_raw": "2026-08-02T16:20:00-07:00",
       "location": "UNIQLO Field at Dodger Stadium, UNIQLO Field at Dodger Stadium, Los Angeles, CA",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserve Uber Home from Dodger Stadium",
+      "start": "Sunday, August 02 at 08:00 PM",
+      "start_raw": "2026-08-02T20:00:00-07:00",
+      "location": "Parking Lot 1, Lot 1, Los Angeles, CA 90012, USA",
+      "description": "",
       "is_travel": false
     },
     {
@@ -508,20 +540,28 @@
       "is_travel": false
     },
     {
-      "summary": "Flight to San Francisco (DL 1559)",
-      "start": "Thursday, August 06 at 04:25 PM",
-      "start_raw": "2026-08-06T16:25:00-07:00",
-      "location": "Los Angeles LAX",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
+      "summary": "Reserved Uber to LAX",
+      "start": "Thursday, August 06 at 03:15 PM",
+      "start_raw": "2026-08-06T15:15:00-07:00",
+      "location": "Los Angeles International Airport, 1 World Wy, Los Angeles, CA 90045, USA",
+      "description": "",
+      "is_travel": false
     },
     {
       "summary": "Flight to San Francisco - Outside Lands (Delta 1559)",
-      "start": "Thursday, August 06 at 04:25 PM",
-      "start_raw": "2026-08-06T16:25:00-07:00",
+      "start": "Thursday, August 06 at 06:15 PM",
+      "start_raw": "2026-08-06T18:15:00-07:00",
       "location": "Los Angeles International Airport (LAX)",
       "description": "Outbound flight to San Francisco for Outside Lands Music Festival\n\nFlight: Delta 1559\nDate: Thursday, August 6, 2026\nDeparture: 4:25 PM PT from LAX\nArrival: 5:50 PM PT at SFO\nRoute: Los Angeles to San",
       "is_travel": true
+    },
+    {
+      "summary": "Reserve Uber",
+      "start": "Thursday, August 06 at 07:45 PM",
+      "start_raw": "2026-08-06T19:45:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
     },
     {
       "summary": "Outside Lands Music Festival 2026 - VIP",
@@ -636,6 +676,14 @@
       "is_travel": false
     },
     {
+      "summary": "Kids First Day of School",
+      "start": "Wednesday, August 19 at 01:00 PM",
+      "start_raw": "2026-08-19T13:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Pick up Sophie from School",
       "start": "Thursday, August 20 at 01:30 PM",
       "start_raw": "2026-08-20T13:30:00-07:00",
@@ -688,6 +736,70 @@
       "start": "Wednesday, August 26",
       "start_raw": "2026-08-26",
       "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, August 27 at 01:30 PM",
+      "start_raw": "2026-08-27T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, August 27 at 02:00 PM",
+      "start_raw": "2026-08-27T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Gort Bday Weekend",
+      "start": "Friday, August 28 at 01:00 PM",
+      "start_raw": "2026-08-28T13:00:00-07:00",
+      "location": "Trixie Motel, 210 W Stevens Rd, Palm Springs, CA 92262, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, August 28 at 01:30 PM",
+      "start_raw": "2026-08-28T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, August 28 at 02:00 PM",
+      "start_raw": "2026-08-28T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, August 31 at 07:00 AM",
+      "start_raw": "2026-08-31T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Greta: Monthly Meds",
+      "start": "Tuesday, September 01",
+      "start_raw": "2026-09-01",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, September 03 at 01:30 PM",
+      "start_raw": "2026-09-03T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false
     }

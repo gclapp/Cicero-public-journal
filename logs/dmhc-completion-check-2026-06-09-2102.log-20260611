@@ -1,0 +1,25 @@
+=== DMHC Processing Completion Check ===
+Timestamp: 2026-06-09 21:02 UTC
+Status: INCOMPLETE - Pending LLM processing
+
+Database Statistics:
+- Source documents: 8,424
+- Text chunks: 13,340
+- Total candidates: 5,917
+- Candidates pending LLM: 2,993
+- Candidates processed (no lead): 2,676
+- Candidates extracted: 248
+
+Progress Calculation:
+- Total candidates: 5,917
+- Processed: 2,924 (248 + 2,676)
+- Pending: 2,993
+- Completion: 49.4%
+
+Leads by Status:
+- Extracted: 248
+- No lead found: 2,676
+- Pending LLM: 2,993
+
+Action Taken: No completion email sent - processing incomplete.
+Next Check: Scheduled via cron

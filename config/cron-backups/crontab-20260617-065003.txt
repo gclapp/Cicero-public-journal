@@ -1,0 +1,73 @@
+# OpenClaw Automated Jobs
+
+# Heartbeat - every 55 minutes
+*/55 * * * * /home/ubuntu/.openclaw/workspace/scripts/heartbeat-check.sh
+
+# Check-in delivery - every 5 minutes
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/deliver_checkin.py >> /home/ubuntu/.openclaw/workspace/logs/checkin-delivery.log 2>&1
+
+# IMAP email check - every 15 minutes
+*/15 * * * * /home/ubuntu/.openclaw/workspace/scripts/imap-check-cron.sh >> /home/ubuntu/.openclaw/workspace/logs/imap-cron.log 2>&1
+
+# Calendar refresh - daily at 6:55 AM PT
+55 14 * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py >> /home/ubuntu/.openclaw/workspace/logs/calendar.log 2>&1
+
+# COMPETITIVE INTELLIGENCE - CRITICAL (7 AM and 2 PM PT daily)
+0 14,21 * * * /home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh >> /home/ubuntu/.openclaw/workspace/logs/competitor-v3-cron.log 2>&1
+
+# Whoop data fetch - 7:30 AM PT
+30 14 * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/whoop_daily_fetch.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-daily.log 2>&1
+
+# Whoop auto-refresh - every 30 minutes
+*/30 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/token_auto_refresh_v2.py >> /home/ubuntu/.openclaw/workspace/logs/token-refresh.log 2>&1
+
+# Watch hunt - 9 AM and 6 PM PT
+0 17,2 * * * /home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh >> /home/ubuntu/.openclaw/workspace/logs/watch-hunt.log 2>&1
+
+# Stock price fetch - 6 PM PT
+0 2 * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py >> /home/ubuntu/.openclaw/workspace/logs/stock-fetch.log 2>&1
+
+# Weekly reports (Sundays)
+0 16 * * 0 /home/ubuntu/.openclaw/workspace/scripts/weekly-security-audit.sh >> /home/ubuntu/.openclaw/workspace/logs/security-audit.log 2>&1
+0 17 * * 0 /home/ubuntu/.openclaw/workspace/scripts/reddit-weekly-report.sh >> /home/ubuntu/.openclaw/workspace/logs/reddit-report.log 2>&1
+0 9 * * 6 /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/weekly-email-report.py >> /home/ubuntu/.openclaw/workspace/logs/weekly-report.log 2>&1
+
+# Daily GitHub sync - 11:59 AM and 11:59 PM PT
+59 11,23 * * * /home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh
+
+# Progyny Intelligence - daily at 8 AM PT
+0 15 * * * /home/ubuntu/.openclaw/workspace/scripts/progyny_intel_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/progyny-cron.log 2>&1
+# Aero Travel Manager - Task creation (9 AM and 9 PM PT daily)
+0 17,5 * * * /home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/aero-cron.log 2>&1
+
+# Aero Day-of-Travel Monitoring - Every 30 minutes
+*/30 * * * * /home/ubuntu/.openclaw/workspace/scripts/aero_monitor_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/aero-monitor.log 2>&1
+30 13 * * * cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py >> /home/ubuntu/.openclaw/workspace/resy-system/logs/cron-scan.log 2>&1
+0 14 * * * cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py >> /home/ubuntu/.openclaw/workspace/resy-system/logs/cron-scan.log 2>&1
+59 12 * * * cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py >> /home/ubuntu/.openclaw/workspace/resy-system/logs/cron-scan.log 2>&1
+3 13 * * * cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py >> /home/ubuntu/.openclaw/workspace/resy-system/logs/cron-scan.log 2>&1
+0 5 * * * cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py >> /home/ubuntu/.openclaw/workspace/resy-system/logs/cron-scan.log 2>&1
+
+# Whoop health alerts - check every 6 hours
+0 */6 * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/whoop_alerts.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-alerts.log 2>&1
+
+# Vitus Health Agent - Daily morning briefing at 7:00 AM PT
+
+# Morning Check-In - 7:00 AM PT daily
+0 14 * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py >> /home/ubuntu/.openclaw/workspace/logs/heartbeat.log 2>&1
+
+0 15 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py morning >> /home/ubuntu/.openclaw/workspace/logs/vitus-morning.log 2>&1
+
+0 20 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday >> /home/ubuntu/.openclaw/workspace/logs/vitus-midday.log 2>&1
+
+0 4 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py evening >> /home/ubuntu/.openclaw/workspace/logs/vitus-evening.log 2>&1
+
+30 14 * * * python3 /home/ubuntu/.openclaw/workspace/scripts/whoop_daily_fetch.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-daily.log 2>&1
+
+0 17 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 loseit_integration.py latest >> /home/ubuntu/.openclaw/workspace/logs/loseit-sync.log 2>&1
+
+# Whoop Token Health Monitor - Check every 6 hours
+0 */6 * * * python3 /home/ubuntu/.openclaw/workspace/agents/health-agent/whoop_token_monitor.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-token-monitor.log 2>&1
+
+# Disk space monitoring - every hour
+0 * * * * /home/ubuntu/.openclaw/workspace/scripts/disk-monitor.sh

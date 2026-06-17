@@ -1,0 +1,20 @@
+DMHC Processing Completion Check - 2026-06-06 16:05 UTC
+=============================================================
+
+Status: INCOMPLETE - Processing still ongoing
+
+Current Statistics:
+- Documents: 8,424
+- Text chunks: 13,340
+- Total leads: 829
+- Candidates extracted: 248
+- Candidates pending: 2,993
+
+Progress:
+✅ Step 1/4: Source connectors created
+✅ Step 2/4: Extraction run (has leads)
+✅ Step 3/4: LLM configured for real mode
+⏳ Step 4/4: Final validation (pending - 2,993 candidates remaining)
+
+Action: No completion email sent (processing not finished)
+Next check: Scheduled via cron

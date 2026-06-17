@@ -1,0 +1,14 @@
+DMHC Processing Completion Check
+================================
+Timestamp: 2026-06-12 17:50 UTC (Friday, June 12th, 2026 - 5:50 PM UTC)
+Status: INCOMPLETE - Processing still ongoing
+
+Progress Summary:
+-----------------
+- Candidates Processed: 2,924 / 5,917 (49.4%)
+- Candidates Pending: 2,993 / 5,917 (50.6%)
+- Total Leads Extracted: 829
+- No Lead Found: 2,676 candidates
+
+Action: No completion email sent (processing not complete)
+Next check: Scheduled via cron

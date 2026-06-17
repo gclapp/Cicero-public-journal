@@ -14,6 +14,7 @@ from pathlib import Path
 # Token file paths
 CREDENTIALS_DIR = Path.home() / ".openclaw" / "credentials"
 LOG_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "token-refresh.log"
+ALERT_STATE_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "token-alert-state.json"
 
 TOKEN_CONFIG = {
     "whoop": {
@@ -238,6 +239,74 @@ def check_gmail_smtp():
         log(f"✅ Gmail SMTP: Config is {age_days} days old (healthy)")
         return "healthy"
 
+def should_send_alert(issue_key, cooldown_hours=4):
+    """Check if we should send alert (rate limiting)"""
+    try:
+        if ALERT_STATE_FILE.exists():
+            with open(ALERT_STATE_FILE) as f:
+                state = json.load(f)
+        else:
+            state = {}
+        
+        now = datetime.now()
+        last_alert = state.get(issue_key)
+        
+        if last_alert:
+            last_time = datetime.fromisoformat(last_alert)
+            hours_since = (now - last_time).total_seconds() / 3600
+            if hours_since < cooldown_hours:
+                return False
+        
+        # Update state
+        state[issue_key] = now.isoformat()
+        ALERT_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with open(ALERT_STATE_FILE, 'w') as f:
+            json.dump(state, f)
+        
+        return True
+    except Exception as e:
+        log(f"Error checking alert state: {e}", "ERROR")
+        return True  # Send alert if we can't check state
+
+def send_alert(message, is_critical=True, issue_key="general"):
+    """Send alert via email and Telegram"""
+    import subprocess
+    
+    # Rate limiting
+    if not should_send_alert(issue_key, cooldown_hours=4):
+        log(f"Alert suppressed (rate limit): {message[:50]}...")
+        return
+    
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S PT")
+    emoji = "🔴" if is_critical else "🟡"
+    
+    # Send email
+    try:
+        email_script = Path.home() / ".openclaw" / "workspace" / "scripts" / "send_email.py"
+        if email_script.exists():
+            subject = f"{emoji} Token Alert: {'CRITICAL' if is_critical else 'Warning'}"
+            body = f"<h3>{emoji} Token Health Alert</h3><p><strong>{message}</strong></p><p>Time: {timestamp}</p><p>Run: python3 /home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py</p>"
+            subprocess.run([
+                "python3", str(email_script),
+                "--to", "[REDACTED]",
+                "--subject", subject,
+                "--body", body,
+                "--html"
+            ], capture_output=True, timeout=30)
+    except Exception as e:
+        log(f"Failed to send email alert: {e}", "ERROR")
+    
+    # Send Telegram
+    try:
+        telegram_script = Path.home() / ".openclaw" / "workspace" / "scripts" / "send_telegram.py"
+        if telegram_script.exists():
+            telegram_msg = f"{emoji} **Token Alert**\n\n{message}\n\nTime: {timestamp}\n\nAction needed: Run calendar_reader.py"
+            subprocess.run([
+                "python3", str(telegram_script), telegram_msg
+            ], capture_output=True, timeout=30)
+    except Exception as e:
+        log(f"Failed to send Telegram alert: {e}", "ERROR")
+
 def run_health_check():
     """Run full token health check"""
     log("=" * 70)
@@ -260,6 +329,19 @@ def run_health_check():
     
     log(f"Summary: {healthy} healthy | {warning} warning | {critical} critical")
     log("=" * 70)
+    
+    # Send alerts for critical issues
+    critical_issues = []
+    for name, status in results.items():
+        if status in ["critical", "missing"]:
+            if name == "google_calendar":
+                critical_issues.append("Google Calendar token expired — re-auth required")
+            elif name == "google_docs":
+                critical_issues.append("Google Docs token expired — re-auth required")
+    
+    if critical_issues:
+        alert_msg = "\n".join(f"• {issue}" for issue in critical_issues)
+        send_alert(alert_msg, is_critical=True, issue_key="google_tokens_critical")
     
     return results
 

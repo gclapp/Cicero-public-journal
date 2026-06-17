@@ -1,12 +1,22 @@
 {
   "processed_trips": [
     "Delta Air Lines 979 Confirmation code: HWL2WF_2026-06-21T07:00:00-07:00",
-    "Flight to Reno (DL 4126)_2026-07-21T15:35:00-07:00"
+    "Flight to Reno (DL 4126)_2026-07-21T15:35:00-07:00",
+    "Flight to San Francisco (DL 1559)_2026-08-06T16:25:00-07:00",
+    "Flight to New York (DL 960)_2026-06-20T21:10:00-07:00",
+    "Geoffrey Clapp - Delta Air Lines 782 - departs 8:05 AM local time - Confirmation code: JMCGIZ_2026-07-12T08:05:00-07:00",
+    "Flight to San Francisco - Outside Lands (Delta 1559)_2026-08-06T18:15:00-07:00"
   ],
   "processed_tasks": [
     "\u2514\u2500\u2500 \ud83d\udc15 schedule rover for greta",
     "\u2514\u2500\u2500 \ud83d\ude97 schedule uber to airport for dl979 to new york",
-    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber to airport for dl742 to los angeles"
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber to airport for dl742 to los angeles",
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber to airport for dl1559 to san francisco",
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber from airport for dl1559 from los angeles",
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber to airport for dl960 to new york",
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber to airport for dl782 to atlanta",
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber from airport for dl2659 from providence",
+    "\u2514\u2500\u2500 \ud83d\ude97 schedule uber from airport for dl3902 from los angeles intl"
   ],
   "version": "2.0"
 }
