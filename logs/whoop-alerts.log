@@ -1,0 +1,8 @@
+[2026-06-17 12:00:01.982488] Checking Whoop alerts...
+Triggered 1 alert(s):
+  - 😴 WARNING: Sleep Score Below 50% for 2+ Nights
+Alert email sent successfully
+Done.
+[2026-06-17 18:00:02.535933] Checking Whoop alerts...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/cycle?limit=3
+Failed to fetch Whoop data
