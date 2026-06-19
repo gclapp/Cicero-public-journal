@@ -1,32 +1,8 @@
 {
-  "last_updated": "2026-06-18T14:55:04.123748",
+  "last_updated": "2026-06-19T23:15:38.247139",
   "total_events": 100,
-  "travel_events": 11,
+  "travel_events": 10,
   "events": [
-    {
-      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
-      "start": "Thursday, June 18 at 09:00 AM",
-      "start_raw": "2026-06-18T09:00:00-07:00",
-      "location": "",
-      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
-      "is_travel": false
-    },
-    {
-      "summary": "Sophie Dress Rehersal",
-      "start": "Thursday, June 18 at 09:45 AM",
-      "start_raw": "2026-06-18T09:45:00-07:00",
-      "location": "Younes and Soraya Nazarian Center for the Performing Arts, 18111 Nordhoff St, Northridge, CA 91325, USA",
-      "description": "<table> <colgroup><col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> <col /> </colgroup><tbody><tr>  <td>Kindergarten-Grade 1</td>  <td>Sun</td>  <td>10:30 AM</td>",
-      "is_travel": false
-    },
-    {
-      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
-      "start": "Friday, June 19 at 07:00 AM",
-      "start_raw": "2026-06-19T07:00:00-07:00",
-      "location": "",
-      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
-      "is_travel": false
-    },
     {
       "summary": "\u26a1\ufe0f Maven LIVE: Claude for Dummies: Build Your AI Team Without Coding",
       "start": "Saturday, June 20 at 09:00 AM",
@@ -58,14 +34,6 @@
       "location": "",
       "description": "",
       "is_travel": false
-    },
-    {
-      "summary": "Flight to New York (DL 960)",
-      "start": "Saturday, June 20 at 09:10 PM",
-      "start_raw": "2026-06-20T21:10:00-07:00",
-      "location": "Los Angeles LAX",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
     },
     {
       "summary": "Geoffrey Clapp - Delta Air Lines 960 - departs 9:10 PM local time - Confirmation code: G9SXNC",
@@ -169,6 +137,14 @@
       "start_raw": "2026-06-24T07:00:00-07:00",
       "location": "",
       "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
+      "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to JFK",
+      "start": "Thursday, June 25 at 01:00 AM",
+      "start_raw": "2026-06-25T01:00:00-07:00",
+      "location": "The Westin New York at Times Square, 270 W 43rd St, New York, NY 10036, USA",
+      "description": "",
       "is_travel": false
     },
     {
@@ -800,6 +776,30 @@
       "start": "Friday, September 04 at 02:00 PM",
       "start_raw": "2026-09-04T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Takes Kids to Malibu Chili Cookoff",
+      "start": "Friday, September 04 at 04:00 PM",
+      "start_raw": "2026-09-04T16:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Malibu Chili Cookoff",
+      "start": "Saturday, September 05 at 06:00 PM",
+      "start_raw": "2026-09-05T18:00:00-07:00",
+      "location": "",
+      "description": "I got tickets for us and Lila.",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, September 07 at 07:00 AM",
+      "start_raw": "2026-09-07T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     }

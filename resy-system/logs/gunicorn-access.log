@@ -37825,3 +37825,8 @@
 127.0.0.1 - - [19/Jun/2026:10:53:38 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
 127.0.0.1 - - [19/Jun/2026:10:53:40 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
 127.0.0.1 - - [19/Jun/2026:10:53:42 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+127.0.0.1 - - [19/Jun/2026:16:17:38 +0000] "GET / HTTP/1.1" 302 199 "https://nyceats.openclapp.com" "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)"
+127.0.0.1 - - [19/Jun/2026:16:17:40 +0000] "GET /login HTTP/1.1" 200 13628 "https://nyceats.openclapp.com" "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)"
+127.0.0.1 - - [19/Jun/2026:16:17:44 +0000] "GET /static/favicon-128x128.png HTTP/1.1" 200 0 "https://nyceats.openclapp.com" "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)"
+127.0.0.1 - - [19/Jun/2026:18:08:47 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [19/Jun/2026:19:00:33 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0"

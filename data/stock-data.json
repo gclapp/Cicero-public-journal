@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-19T03:55:04.351123",
+  "timestamp": "2026-06-19T14:00:07.337183",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
@@ -7,7 +7,7 @@
       "change": 26.08,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:04.559314",
+      "timestamp": "2026-06-19T14:00:07.543045",
       "change_30d": {
         "price_30d_ago": 24.66,
         "change": 1.4199999999999982,
@@ -21,7 +21,7 @@
       "change": 298.01,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:04.716641",
+      "timestamp": "2026-06-19T14:00:07.676173",
       "change_30d": {
         "price_30d_ago": 300.095,
         "change": -2.0850000000000364,
@@ -35,7 +35,7 @@
       "change": 210.69,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:04.851585",
+      "timestamp": "2026-06-19T14:00:07.816586",
       "change_30d": {
         "price_30d_ago": 221.975,
         "change": -11.284999999999997,
@@ -49,7 +49,7 @@
       "change": 17.64,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:04.949252",
+      "timestamp": "2026-06-19T14:00:07.958032",
       "change_30d": {
         "price_30d_ago": 16.785,
         "change": 0.8550000000000004,
@@ -63,7 +63,7 @@
       "change": 369.99,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:05.156208",
+      "timestamp": "2026-06-19T14:00:08.091933",
       "change_30d": {
         "price_30d_ago": 361.26,
         "change": 8.730000000000018,
@@ -79,7 +79,7 @@
       "change": 7500.58,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:05.261995"
+      "timestamp": "2026-06-19T14:00:08.211999"
     },
     "Dow Jones": {
       "symbol": "^DJI",
@@ -87,7 +87,7 @@
       "change": 51564.7,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-19T03:55:05.461829"
+      "timestamp": "2026-06-19T14:00:08.359336"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "last_check": "2026-05-12T17:00:04.477802",
+  "last_check": "2026-06-19T21:11:34.129253",
   "results": {
     "calendar": {
       "service": "calendar",
@@ -9,7 +9,7 @@
       "expires_soon": false,
       "action_required": false,
       "message": "\u2705 Token refreshed successfully",
-      "checked_at": "2026-05-12T17:00:02.675038"
+      "checked_at": "2026-06-19T21:11:33.429436"
     },
     "whoop": {
       "service": "whoop",
@@ -19,7 +19,17 @@
       "expires_soon": false,
       "action_required": false,
       "message": "\u2705 Token valid",
-      "checked_at": "2026-05-12T17:00:03.045865"
+      "checked_at": "2026-06-19T21:11:33.721522"
+    },
+    "github": {
+      "service": "github",
+      "name": "GitHub PAT",
+      "status": "valid",
+      "valid": true,
+      "expires_soon": false,
+      "action_required": false,
+      "message": "\u2705 Token valid (gclapp)",
+      "checked_at": "2026-06-19T21:11:33.936279"
     }
   }
 }
