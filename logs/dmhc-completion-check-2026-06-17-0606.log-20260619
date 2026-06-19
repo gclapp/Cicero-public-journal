@@ -1,0 +1,34 @@
+DMHC Processing Completion Check - 2026-06-17 06:06 UTC
+================================================================
+
+STATUS: INCOMPLETE - LLM processing still in progress
+
+Summary Statistics:
+-------------------
+Documents Downloaded:     8,424 (100%)
+  - Enforcement Actions:  8,258
+  - Financial Exams:        143
+  - Financial Statements:     9
+  - Medical Surveys:         14
+
+Text Chunks Extracted:   13,340
+
+Candidate Chunks:         5,917
+  - Pending LLM Processing: 2,993 (50.6%)
+  - Processed:              2,924 (49.4%)
+    * Extracted as leads:     248
+    * No lead found:        2,676
+
+Delegation Leads Extracted: 829
+  - From Enforcement Actions: 394
+  - From Financial Exams:     435
+  - Average Confidence Score: 79.3
+  - High Confidence (90+):    292
+  - Reviewed:                   0
+
+Conclusion:
+-----------
+Approximately 50.6% of candidate chunks (2,993 out of 5,917) are still
+pending LLM processing. Completion email NOT sent.
+
+Next check scheduled via cron.

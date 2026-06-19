@@ -1,1 +1,22 @@
-{}
+{
+  "DL960_20260620": {
+    "flight_number": "DAL960",
+    "airline": "DAL",
+    "origin": "KLAX",
+    "destination": "KJFK",
+    "scheduled_departure": "2026-06-20T04:10:00+00:00",
+    "estimated_departure": "2026-06-20T04:10:00+00:00",
+    "scheduled_arrival": "2026-06-20T09:25:00+00:00",
+    "estimated_arrival": "2026-06-20T09:17:00+00:00",
+    "departure_gate": "25A",
+    "arrival_gate": "B26",
+    "departure_terminal": null,
+    "arrival_terminal": null,
+    "status": "scheduled",
+    "aircraft_type": "B763",
+    "delay_minutes": 0,
+    "progress_percent": 0,
+    "altitude": null,
+    "groundspeed": null
+  }
+}

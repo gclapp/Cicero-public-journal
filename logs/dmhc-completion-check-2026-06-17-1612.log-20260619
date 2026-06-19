@@ -1,0 +1,24 @@
+DMHC Processing Completion Check
+================================
+Timestamp: 2026-06-17 16:12 UTC
+Status: INCOMPLETE - LLM processing still ongoing
+
+Document Processing Summary:
+----------------------------
+Total source documents: 8,424 (all downloaded)
+Total text chunks extracted: 13,340
+
+LLM Processing Status (candidate_chunks):
+-----------------------------------------
+Pending LLM processing: 2,993 (50.6%)
+Processed (leads extracted): 248 (4.2%)
+No lead found: 2,676 (45.2%)
+Total candidate chunks: 5,917
+
+Delegation leads found: 829
+
+Conclusion:
+-----------
+LLM processing is NOT complete. 2,993 candidate chunks still pending.
+No completion email sent.
+Next check scheduled via cron.
