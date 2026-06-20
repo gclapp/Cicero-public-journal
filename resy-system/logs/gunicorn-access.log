@@ -37835,3 +37835,8 @@
 127.0.0.1 - - [20/Jun/2026:01:40:51 +0000] "GET /static/favicon-192x192.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
 127.0.0.1 - - [20/Jun/2026:01:41:00 +0000] "GET /static/favicon-64x64.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
 127.0.0.1 - - [20/Jun/2026:01:41:08 +0000] "GET /static/nyceats-logo-xl-transparent.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; CensysInspect/1.1; +https://about.censys.io/)"
+127.0.0.1 - - [20/Jun/2026:14:31:14 +0000] "GET / HTTP/1.1" 302 199 "-" "Hello from Palo Alto Networks, find out more about our scans in https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity"
+127.0.0.1 - - [20/Jun/2026:14:31:14 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Hello from Palo Alto Networks, find out more about our scans in https://docs-cortex.paloaltonetworks.com/r/1/Cortex-Xpanse/Scanning-activity"
+127.0.0.1 - - [20/Jun/2026:17:37:09 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [20/Jun/2026:18:06:53 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+127.0.0.1 - - [20/Jun/2026:18:06:54 +0000] "GET /login HTTP/1.1" 200 13628 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"

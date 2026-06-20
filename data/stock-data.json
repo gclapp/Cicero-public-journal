@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-20T03:55:04.440320",
+  "timestamp": "2026-06-20T14:00:08.383011",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
@@ -7,7 +7,7 @@
       "change": 26.08,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:04.566180",
+      "timestamp": "2026-06-20T14:00:08.646383",
       "change_30d": {
         "price_30d_ago": 25.305,
         "change": 0.7749999999999986,
@@ -21,7 +21,7 @@
       "change": 298.01,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:04.637056",
+      "timestamp": "2026-06-20T14:00:09.315671",
       "change_30d": {
         "price_30d_ago": 302.725,
         "change": -4.715000000000032,
@@ -35,7 +35,7 @@
       "change": 210.69,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:04.768616",
+      "timestamp": "2026-06-20T14:00:09.423124",
       "change_30d": {
         "price_30d_ago": 222.415,
         "change": -11.724999999999994,
@@ -49,7 +49,7 @@
       "change": 17.64,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:04.858060",
+      "timestamp": "2026-06-20T14:00:09.563905",
       "change_30d": {
         "price_30d_ago": 16.205,
         "change": 1.4350000000000023,
@@ -63,7 +63,7 @@
       "change": 369.99,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:04.978016",
+      "timestamp": "2026-06-20T14:00:09.691557",
       "change_30d": {
         "price_30d_ago": 363.46,
         "change": 6.53000000000003,
@@ -79,7 +79,7 @@
       "change": 7500.58,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:05.091561"
+      "timestamp": "2026-06-20T14:00:09.791954"
     },
     "Dow Jones": {
       "symbol": "^DJI",
@@ -87,7 +87,7 @@
       "change": 51564.7,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-20T03:55:05.227578"
+      "timestamp": "2026-06-20T14:00:09.886296"
     }
   }
 }

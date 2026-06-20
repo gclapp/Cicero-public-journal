@@ -1,2 +1,113 @@
 [2026-06-20 11:59:01 UTC] Starting daily GitHub sync...
 [2026-06-20 11:59:01 UTC] Uncommitted changes found, committing...
+[main 332355a] Daily sync: 20260620-115901
+ 140 files changed, 7282 insertions(+), 7314 deletions(-)
+ create mode 100644 data/whoop/whoop-2026-06-20.json
+ delete mode 100644 logs/aero-cron.log-20260602.gz
+ delete mode 100644 logs/aero-cron.log-20260619
+ create mode 100644 logs/aero-cron.log-20260619.gz
+ create mode 100644 logs/aero-cron.log-20260620
+ delete mode 100644 logs/aero-monitor.log-20260619
+ create mode 100644 logs/aero-monitor.log-20260619.gz
+ create mode 100644 logs/aero-monitor.log-20260620
+ delete mode 100644 logs/aero-travel-manager.log-20260604.gz
+ delete mode 100644 logs/aero-travel-manager.log-20260619
+ create mode 100644 logs/aero-travel-manager.log-20260619.gz
+ create mode 100644 logs/aero-travel-manager.log-20260620
+ delete mode 100644 logs/calendar.log-20260601.gz
+ create mode 100644 logs/calendar.log-20260619.gz
+ rename logs/{calendar.log-20260619 => calendar.log-20260620} (96%)
+ delete mode 100644 logs/checkin-delivery.log-20260602.gz
+ create mode 100644 logs/checkin-delivery.log-20260619.gz
+ rename logs/{checkin-delivery.log-20260619 => checkin-delivery.log-20260620} (100%)
+ delete mode 100644 logs/competitor-v3-cron.log-20260601.gz
+ delete mode 100644 logs/competitor-v3-cron.log-20260619
+ create mode 100644 logs/competitor-v3-cron.log-20260619.gz
+ create mode 100644 logs/competitor-v3-cron.log-20260620
+ delete mode 100644 logs/competitor-v3.log-20260601.gz
+ delete mode 100644 logs/competitor-v3.log-20260619
+ create mode 100644 logs/competitor-v3.log-20260619.gz
+ create mode 100644 logs/competitor-v3.log-20260620
+ delete mode 100644 logs/disk-monitor.log-20260602.gz
+ delete mode 100644 logs/disk-monitor.log-20260619
+ create mode 100644 logs/disk-monitor.log-20260619.gz
+ create mode 100644 logs/disk-monitor.log-20260620
+ delete mode 100644 logs/github-sync.log-20260601.gz
+ delete mode 100644 logs/github-sync.log-20260619
+ create mode 100644 logs/github-sync.log-20260619.gz
+ create mode 100644 logs/github-sync.log-20260620
+ delete mode 100644 logs/heartbeat.log-20260602.gz
+ delete mode 100644 logs/heartbeat.log-20260619
+ create mode 100644 logs/heartbeat.log-20260619.gz
+ create mode 100644 logs/heartbeat.log-20260620
+ delete mode 100644 logs/imap-checker.log-20260602.gz
+ delete mode 100644 logs/imap-checker.log-20260619
+ create mode 100644 logs/imap-checker.log-20260619.gz
+ create mode 100644 logs/imap-checker.log-20260620
+ delete mode 100644 logs/loseit-sync.log-20260601.gz
+ delete mode 100644 logs/loseit-sync.log-20260619
+ create mode 100644 logs/loseit-sync.log-20260619.gz
+ create mode 100644 logs/loseit-sync.log-20260620
+ delete mode 100644 logs/progyny-cron.log-20260601.gz
+ delete mode 100644 logs/progyny-cron.log-20260619
+ create mode 100644 logs/progyny-cron.log-20260619.gz
+ create mode 100644 logs/progyny-cron.log-20260620
+ delete mode 100644 logs/progyny-intel.log-20260601.gz
+ create mode 100644 logs/progyny-intel.log-20260619.gz
+ rename logs/{progyny-intel.log-20260619 => progyny-intel.log-20260620} (100%)
+ delete mode 100644 logs/stock-fetch.log-20260531.gz
+ delete mode 100644 logs/stock-fetch.log-20260619
+ create mode 100644 logs/stock-fetch.log-20260619.gz
+ create mode 100644 logs/stock-fetch.log-20260620
+ delete mode 100644 logs/system-health.log-20260606.gz
+ delete mode 100644 logs/system-health.log-20260619
+ create mode 100644 logs/system-health.log-20260619.gz
+ create mode 100644 logs/system-health.log-20260620
+ delete mode 100644 logs/token-health.log-20260528
+ create mode 100644 logs/token-health.log-20260528.gz
+ create mode 100644 logs/token-health.log-20260620
+ delete mode 100644 logs/token-refresh.log-20260603.gz
+ delete mode 100644 logs/token-refresh.log-20260619
+ create mode 100644 logs/token-refresh.log-20260619.gz
+ create mode 100644 logs/token-refresh.log-20260620
+ delete mode 100644 logs/vitus-evening.log-20260531.gz
+ delete mode 100644 logs/vitus-evening.log-20260619
+ create mode 100644 logs/vitus-evening.log-20260619.gz
+ create mode 100644 logs/vitus-evening.log-20260620
+ delete mode 100644 logs/vitus-midday.log-20260601.gz
+ create mode 100644 logs/vitus-midday.log-20260619.gz
+ rename logs/{vitus-midday.log-20260619 => vitus-midday.log-20260620} (82%)
+ delete mode 100644 logs/vitus-morning.log-20260601.gz
+ create mode 100644 logs/vitus-morning.log-20260619.gz
+ rename logs/{vitus-morning.log-20260619 => vitus-morning.log-20260620} (81%)
+ delete mode 100644 logs/watch-hunt.log-20260601.gz
+ create mode 100644 logs/watch-hunt.log-20260619.gz
+ rename logs/{watch-hunt.log-20260619 => watch-hunt.log-20260620} (75%)
+ delete mode 100644 logs/whoop-alerts.log-20260601.gz
+ delete mode 100644 logs/whoop-alerts.log-20260619
+ create mode 100644 logs/whoop-alerts.log-20260619.gz
+ create mode 100644 logs/whoop-alerts.log-20260620
+ delete mode 100644 logs/whoop-daily.log-20260601.gz
+ delete mode 100644 logs/whoop-daily.log-20260619
+ create mode 100644 logs/whoop-daily.log-20260619.gz
+ create mode 100644 logs/whoop-daily.log-20260620
+ delete mode 100644 logs/whoop-fetch.log-20260601.gz
+ delete mode 100644 logs/whoop-fetch.log-20260619
+ create mode 100644 logs/whoop-fetch.log-20260619.gz
+ create mode 100644 logs/whoop-fetch.log-20260620
+ delete mode 100644 logs/whoop-token-monitor.log-20260602.gz
+ delete mode 100644 logs/whoop-token-monitor.log-20260619
+ create mode 100644 logs/whoop-token-monitor.log-20260619.gz
+ create mode 100644 logs/whoop-token-monitor.log-20260620
+ create mode 100755 scripts/gdocs_simple.py
+ create mode 100644 scripts/gdocs_token_refresh.py
+fatal: could not read Password for 'https://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@github.com': No such device or address
+[2026-06-20 11:59:01 UTC] ❌ GitHub push failed
+[2026-06-20 11:59:01 UTC] Checking for journal entries to publish...
+📊 No new journal entries to sync
+[2026-06-20 11:59:01 UTC] Updating content analytics...
+python3: can't open file '/home/ubuntu/.openclaw/workspace/scripts/content_analytics_collector.py': [Errno 2] No such file or directory
+[2026-06-20 11:59:01 UTC] Daily sync complete
+---
+[2026-06-20 23:59:01 UTC] Starting daily GitHub sync...
+[2026-06-20 23:59:01 UTC] Uncommitted changes found, committing...
