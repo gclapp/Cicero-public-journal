@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-21T03:55:03.676979",
+  "timestamp": "2026-06-21T14:00:08.368368",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
@@ -7,7 +7,7 @@
       "change": 26.08,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:03.803276",
+      "timestamp": "2026-06-21T14:00:08.542223",
       "change_30d": {
         "price_30d_ago": 24.79,
         "change": 1.2899999999999991,
@@ -21,7 +21,7 @@
       "change": 298.01,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:03.970238",
+      "timestamp": "2026-06-21T14:00:08.768908",
       "change_30d": {
         "price_30d_ago": 308.555,
         "change": -10.545000000000016,
@@ -35,7 +35,7 @@
       "change": 210.69,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:04.112104",
+      "timestamp": "2026-06-21T14:00:08.986783",
       "change_30d": {
         "price_30d_ago": 217.83,
         "change": -7.140000000000015,
@@ -49,7 +49,7 @@
       "change": 17.64,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:04.209925",
+      "timestamp": "2026-06-21T14:00:09.128673",
       "change_30d": {
         "price_30d_ago": 16.42,
         "change": 1.2199999999999989,
@@ -63,7 +63,7 @@
       "change": 369.99,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:04.324979",
+      "timestamp": "2026-06-21T14:00:09.190436",
       "change_30d": {
         "price_30d_ago": 367.285,
         "change": 2.704999999999984,
@@ -79,7 +79,7 @@
       "change": 7500.58,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:04.416803"
+      "timestamp": "2026-06-21T14:00:09.325785"
     },
     "Dow Jones": {
       "symbol": "^DJI",
@@ -87,7 +87,7 @@
       "change": 51564.7,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-21T03:55:04.534237"
+      "timestamp": "2026-06-21T14:00:09.413009"
     }
   }
 }

@@ -1,0 +1,35 @@
+[2026-06-21 23:25:13] ============================================================
+[2026-06-21 23:25:13] SYSTEM HEALTH CHECK
+[2026-06-21 23:25:13] ============================================================
+[2026-06-21 23:25:13] 
+📋 Checking Todoist...
+[2026-06-21 23:25:15]   ✅ Todoist: 50 tasks
+[2026-06-21 23:25:15] 
+📅 Checking Google Calendar...
+[2026-06-21 23:25:17]   ✅ Calendar: Token 0 days old
+[2026-06-21 23:25:17] 
+🌤️ Checking Weather...
+[2026-06-21 23:25:17]   ✅ Weather skill installed
+[2026-06-21 23:25:18]   🌡️ Current: los angeles: ☀️ 71°F 57% ↗10mph...
+[2026-06-21 23:25:18] 
+💓 Checking Whoop...
+[2026-06-21 23:25:18]   ✅ Whoop configured
+[2026-06-21 23:25:18] 
+🏥 Checking Health Dashboard...
+[2026-06-21 23:25:18]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-06-21 23:25:18] 
+⌚ Checking Watch Hunt...
+[2026-06-21 23:25:18]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-06-21 23:25:18] 
+🎯 Checking Competitive Intelligence...
+[2026-06-21 23:25:18]   ✅ Competitive Intel cron active
+[2026-06-21 23:25:18] 
+✈️ Checking Travel Automation...
+[2026-06-21 23:25:18]   ⚠️ Travel Automation may need attention
+[2026-06-21 23:25:18] 
+🤖 Checking Model Status...
+[2026-06-21 23:25:18]   ✅ Model: openai/gpt-5.5 (Primary: openai/gpt-5.5)
+[2026-06-21 23:25:18] 
+============================================================
+[2026-06-21 23:25:18] ✅ All systems operational
+[2026-06-21 23:25:18] ============================================================

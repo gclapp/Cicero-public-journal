@@ -1,40 +1,8 @@
 {
-  "last_updated": "2026-06-20T20:53:26.691145",
+  "last_updated": "2026-06-21T23:25:17.018004",
   "total_events": 100,
-  "travel_events": 11,
+  "travel_events": 9,
   "events": [
-    {
-      "summary": "Sophie's Ballet Show",
-      "start": "Saturday, June 20 at 03:00 PM",
-      "start_raw": "2026-06-20T15:00:00-07:00",
-      "location": "Younes and Soraya Nazarian Center for the Performing Arts, 18111 Nordhoff St, Northridge, CA 91325, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Reserved Uber to LAX",
-      "start": "Saturday, June 20 at 06:30 PM",
-      "start_raw": "2026-06-20T18:30:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoffrey Clapp - Delta Air Lines 960 - departs 9:10 PM local time - Confirmation code: G9SXNC",
-      "start": "Saturday, June 20 at 09:10 PM",
-      "start_raw": "2026-06-20T21:10:00-07:00",
-      "location": "Los Angeles(LAX) - New York(JFK)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: G9SXNC Delta Air Lines 960 Business, Scheduled Departure Jun 20, 2026, 9:10 pm, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.),",
-      "is_travel": true
-    },
-    {
-      "summary": "Flight to New York (DL 960)",
-      "start": "Saturday, June 20 at 09:10 PM",
-      "start_raw": "2026-06-20T21:10:00-07:00",
-      "location": "Los Angeles LAX",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar",
-      "is_travel": true
-    },
     {
       "summary": "Veronica Tan's birthday",
       "start": "Sunday, June 21",
@@ -52,18 +20,10 @@
       "is_travel": false
     },
     {
-      "summary": "Radiohead: Kid A MNESIA",
-      "start": "Sunday, June 21 at 12:30 PM",
-      "start_raw": "2026-06-21T12:30:00-07:00",
-      "location": "Agger Fish Building, Brooklyn, NY 11201, USA",
-      "description": "Order details for Radiohead Motion Picture House KID A MNESIA at Agger Fish Building scheduled on 6/21/2026\nQuantity\tType\tEntry\nTime\tPrice\tTotal\n2\tRegular\t3:30PM\t$65.00\t$130.00\nMethod of Delivery: AXS",
-      "is_travel": false
-    },
-    {
       "summary": "Reservation at Cecconi's Dumbo",
       "start": "Sunday, June 21 at 03:30 PM",
       "start_raw": "2026-06-21T15:30:00-07:00",
-      "location": "Cecconi's Dumbo, 55 Water St, Brooklyn, NY 11201",
+      "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": false
     },
@@ -800,6 +760,46 @@
       "start": "Thursday, September 03 at 02:00 PM",
       "start_raw": "2026-09-03T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, September 04 at 01:30 PM",
+      "start_raw": "2026-09-04T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, September 04 at 02:00 PM",
+      "start_raw": "2026-09-04T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoff Takes Kids to Malibu Chili Cookoff",
+      "start": "Friday, September 04 at 04:00 PM",
+      "start_raw": "2026-09-04T16:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Malibu Chili Cookoff",
+      "start": "Saturday, September 05 at 06:00 PM",
+      "start_raw": "2026-09-05T18:00:00-07:00",
+      "location": "",
+      "description": "I got tickets for us and Lila.",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, September 07 at 07:00 AM",
+      "start_raw": "2026-09-07T07:00:00-07:00",
+      "location": "",
       "description": "",
       "is_travel": false
     }
