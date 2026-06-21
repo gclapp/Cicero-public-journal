@@ -1,0 +1,87 @@
+[2026-06-20 05:00:01] === Aero Travel Manager Starting ===
+[2026-06-20 05:00:01] ✅ FlightAware client initialized
+[2026-06-20 05:00:01] ======================================================================
+[2026-06-20 05:00:01] Aero Travel Manager: Creating Travel Tasks
+[2026-06-20 05:00:01] 2026-06-20 05:00:01
+[2026-06-20 05:00:01] ======================================================================
+[2026-06-20 05:00:01] Calendar loaded: 100 events
+[2026-06-20 05:00:01] Found 15 travel events in next 60 days
+[2026-06-20 05:00:01] Grouped into 3 trips
+[2026-06-20 05:00:01] 
+[2026-06-20 05:00:03] Found 0 existing tasks
+[2026-06-20 05:00:03] 
+[2026-06-20 05:00:03] Creating: Tasks for New York Trip on Jun 20 - DL960 G9SXNC
+[2026-06-20 05:00:05]   Failed to create: Tasks for New York Trip on Jun 20 - DL960 G9SXNC - Error: HTTP 503: Service Unavailable
+
+[2026-06-20 05:00:05]   Could not create main task
+[2026-06-20 05:00:05]   ✓ Trip already processed (state): Tasks for The US Grant Trip on Jul 12 - DL782 JMCGIZ
+[2026-06-20 05:00:05]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-20 05:00:05] ======================================================================
+[2026-06-20 05:00:05] SUMMARY: Created 0 tasks for 3 trips
+[2026-06-20 05:00:05] ======================================================================
+[2026-06-20 05:00:05] ======================================================================
+[2026-06-20 05:00:05] Aero: Day-of-Travel Monitoring
+[2026-06-20 05:00:05] ======================================================================
+[2026-06-20 05:00:05] 
+✈️ Checking DL960 on 2026-06-20 21:10
+[2026-06-20 05:00:05]   Status: unknown
+[2026-06-20 05:00:05]   Gate: 34A
+[2026-06-20 05:00:05]   Terminal: N/A
+[2026-06-20 05:00:05]   Delay: 0 minutes
+[2026-06-20 05:00:05]   ✓ No changes detected
+[2026-06-20 05:00:05] 
+✈️ Checking DL960 on 2026-06-20 21:10
+[2026-06-20 05:00:06]   Status: unknown
+[2026-06-20 05:00:06]   Gate: 34A
+[2026-06-20 05:00:06]   Terminal: N/A
+[2026-06-20 05:00:06]   Delay: 0 minutes
+[2026-06-20 05:00:06]   ✓ No changes detected
+[2026-06-20 05:00:06] 
+======================================================================
+[2026-06-20 05:00:06] Summary: 2 flights checked, 0 alerts sent
+[2026-06-20 05:00:06] ======================================================================
+[2026-06-20 05:00:06] ✅ Aero completed successfully
+[2026-06-20 17:00:01] === Aero Travel Manager Starting ===
+[2026-06-20 17:00:02] ✅ FlightAware client initialized
+[2026-06-20 17:00:02] ======================================================================
+[2026-06-20 17:00:02] Aero Travel Manager: Creating Travel Tasks
+[2026-06-20 17:00:02] 2026-06-20 17:00:02
+[2026-06-20 17:00:02] ======================================================================
+[2026-06-20 17:00:02] Calendar loaded: 100 events
+[2026-06-20 17:00:02] Found 15 travel events in next 60 days
+[2026-06-20 17:00:02] Grouped into 3 trips
+[2026-06-20 17:00:02] 
+[2026-06-20 17:00:06] Found 15 existing tasks
+[2026-06-20 17:00:06] 
+[2026-06-20 17:00:06] Creating: Tasks for New York Trip on Jun 20 - DL960 G9SXNC
+[2026-06-20 17:00:10]   Already exists: └── 🧳 Pack
+[2026-06-20 17:00:12]   Created: └── 🏢 Contact Marriott Ambassador (due 2026-06-13)
+[2026-06-20 17:00:12]   Marked trip as processed: Geoffrey Clapp - Delta Air Lines 960 - departs 9:10 PM local time - Confirmation code: G9SXNC_2026-06-20T21:10:00-07:00
+[2026-06-20 17:00:12] 
+[2026-06-20 17:00:12]   ✓ Trip already processed (state): Tasks for The US Grant Trip on Jul 12 - DL782 JMCGIZ
+[2026-06-20 17:00:12]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-20 17:00:12] ======================================================================
+[2026-06-20 17:00:12] SUMMARY: Created 2 tasks for 3 trips
+[2026-06-20 17:00:12] ======================================================================
+[2026-06-20 17:00:12] ======================================================================
+[2026-06-20 17:00:12] Aero: Day-of-Travel Monitoring
+[2026-06-20 17:00:12] ======================================================================
+[2026-06-20 17:00:12] 
+✈️ Checking DL960 on 2026-06-20 21:10
+[2026-06-20 17:00:13]   Status: unknown
+[2026-06-20 17:00:13]   Gate: 34A
+[2026-06-20 17:00:13]   Terminal: N/A
+[2026-06-20 17:00:13]   Delay: 0 minutes
+[2026-06-20 17:00:13]   ✓ No changes detected
+[2026-06-20 17:00:13] 
+✈️ Checking DL960 on 2026-06-20 21:10
+[2026-06-20 17:00:13]   Status: unknown
+[2026-06-20 17:00:13]   Gate: 34A
+[2026-06-20 17:00:13]   Terminal: N/A
+[2026-06-20 17:00:13]   Delay: 0 minutes
+[2026-06-20 17:00:13]   ✓ No changes detected
+[2026-06-20 17:00:13] 
+======================================================================
+[2026-06-20 17:00:13] Summary: 2 flights checked, 0 alerts sent
+[2026-06-20 17:00:13] ======================================================================
+[2026-06-20 17:00:14] ✅ Aero completed successfully

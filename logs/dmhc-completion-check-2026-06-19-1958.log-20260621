@@ -1,0 +1,33 @@
+================================================================================
+DMHC Processing Status Check - 2026-06-19 19:58 UTC (Cron Check)
+================================================================================
+
+📊 OVERALL STATUS: INCOMPLETE - LLM processing still in progress
+
+📁 SOURCE DOCUMENTS:
+   Total documents: 8,424
+
+💾 DATABASE STATE (dmhc_search.db):
+   Text chunks: 13,340
+   Candidate chunks: 5,917
+   Delegation leads found: 829
+
+📋 CANDIDATE PROCESSING BREAKDOWN:
+   Extracted (leads found): 248
+   No lead found: 2,676
+   Pending LLM processing: 2,993
+
+📈 PROGRESS:
+   Total candidates: 5,917
+   Processed: 2,924 (49.4%)
+   Remaining: 2,993 (50.6%)
+
+📅 LAST ACTIVITY:
+   Latest lead extraction: 2026-05-30T13:17:10.282694
+   Leads extracted in last 24h: 0
+   Leads extracted in last 7 days: 0
+
+⏸️  ACTION: Processing incomplete. No email sent.
+   Next check scheduled via cron.
+
+================================================================================
