@@ -1,0 +1,29 @@
+================================================================================
+DMHC Processing Status Check - 2026-06-20 06:13 UTC (Cron Check)
+================================================================================
+
+📊 OVERALL STATUS: INCOMPLETE - No active processing data found
+
+📁 RAW DOCUMENTS:
+   Total PDFs found: 0 files in data/raw/financial_statements/
+
+💾 DATABASE STATE:
+   Database file: dmhc_financials.db (0 bytes - EMPTY)
+   Status: Database appears to be uninitialized or was cleared
+
+📋 CANDIDATE PROCESSING BREAKDOWN:
+   No processing data available - database is empty
+
+📈 PROGRESS:
+   Previous check (2026-06-19): 2,924 of 5,917 processed (49.4%)
+   Current check: No data available
+
+📅 LAST ACTIVITY:
+   Latest lead extraction: Unknown (database empty)
+   Last check: 2026-06-19 17:55 UTC
+
+⚠️  ACTION: Processing incomplete. Database is empty - may need re-initialization.
+   No email sent (processing not complete).
+   Next check scheduled via cron.
+
+================================================================================

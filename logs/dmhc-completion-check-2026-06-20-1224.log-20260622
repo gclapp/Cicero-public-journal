@@ -1,0 +1,32 @@
+================================================================================
+DMHC Processing Status Check - 2026-06-20 12:24 UTC (Cron Check)
+================================================================================
+
+📊 OVERALL STATUS: INCOMPLETE - Processing still in progress
+
+📁 SOURCE DOCUMENTS:
+   Total documents in database: 8,424
+
+📋 CANDIDATE CHUNKS BREAKDOWN:
+   Total candidates: 5,917
+   - Pending: 2,993 (50.6%)
+   - No lead found: 2,676 (45.2%)
+   - Extracted: 248 (4.2%)
+
+✅ DELEGATION LEADS EXTRACTED:
+   Total leads found: 829
+
+📈 PROGRESS:
+   Previous check (2026-06-20 09:18): 2,924 of 5,917 processed (49.4%)
+   Current check: 2,924 of 5,917 processed (49.4%)
+   
+   No change since last check - processing continues in background.
+
+📅 LAST ACTIVITY:
+   Latest check: 2026-06-20 12:24 UTC
+
+⚠️  ACTION: Processing incomplete. 2,993 candidates still pending (50.6%).
+   No email sent (processing not complete).
+   Next check scheduled via cron.
+
+================================================================================
