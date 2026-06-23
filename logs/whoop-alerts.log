@@ -1,9 +1,8 @@
-[2026-06-22 06:00:03.127902] Checking Whoop alerts...
-Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/cycle?limit=3
+[2026-06-23 00:00:02.423957] Checking Whoop alerts...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
 Failed to fetch Whoop data
-[2026-06-22 12:00:02.556987] Checking Whoop alerts...
-Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/activity/sleep?limit=3
-Failed to fetch Whoop data
-[2026-06-22 18:00:02.511147] Checking Whoop alerts...
-Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/cycle?limit=3
-Failed to fetch Whoop data
+[2026-06-23 06:00:01.530312] Checking Whoop alerts...
+Triggered 1 alert(s):
+  - 📉 WARNING: HRV Dropped 37.7% from Baseline
+Alert email sent successfully
+Done.

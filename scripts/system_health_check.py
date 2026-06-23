@@ -164,20 +164,34 @@ def check_model_status():
 
 def check_travel_automation():
     """Check travel automation is running and count recent tasks"""
-    # Check cron job exists (looks for calendar-travel-checker or travel_automation)
+    # Check cron job exists. Aero is the current travel automation; keep older
+    # names for compatibility with archived/legacy deployments.
     cron_check = subprocess.run(
         ['crontab', '-l'],
         capture_output=True,
         text=True
     )
-    if 'calendar-travel-checker' not in cron_check.stdout and 'travel_automation' not in cron_check.stdout:
+    travel_cron_names = [
+        'aero_travel_cron.sh',
+        'aero_monitor_cron.sh',
+        'calendar-travel-checker',
+        'travel_automation',
+    ]
+    if not any(name in cron_check.stdout for name in travel_cron_names):
         return {'status': 'not_scheduled'}
     
     # Check log file for recent runs
-    log_file = Path.home() / ".openclaw" / "workspace" / "logs" / "travel-automation-v2.log"
-    if log_file.exists():
+    log_dir = Path.home() / ".openclaw" / "workspace" / "logs"
+    log_files = [
+        log_dir / "aero-monitor.log",
+        log_dir / "aero-cron.log",
+        log_dir / "travel-automation-v2.log",
+    ]
+    existing_logs = [path for path in log_files if path.exists()]
+    if existing_logs:
         try:
-            # Get last modified time
+            # Get most recent travel automation log update.
+            log_file = max(existing_logs, key=lambda path: path.stat().st_mtime)
             stat = log_file.stat()
             last_run = datetime.fromtimestamp(stat.st_mtime)
             hours_since = (datetime.now() - last_run).total_seconds() / 3600
@@ -194,7 +208,8 @@ def check_travel_automation():
             return {
                 'status': 'active',
                 'last_run_hours': round(hours_since, 1),
-                'tasks_created': task_count
+                'tasks_created': task_count,
+                'log_file': log_file.name
             }
         except Exception as e:
             return {'status': 'error', 'error': str(e)}
