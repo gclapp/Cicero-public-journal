@@ -78,7 +78,10 @@ def check_telegram_failures():
             log(f"⚠️ SQLite schema unsupported for plugin_state_entries; missing: {missing}")
             return failures
         
-        # Look for error messages in plugin_state_entries
+        # Look for error records in plugin_state_entries. Do not scan normal
+        # Telegram message-cache JSON: user/assistant text often contains words
+        # like "error" or "failure" when we are discussing incidents, which
+        # creates false alerts even when delivery is healthy.
         cutoff = datetime.now(timezone.utc) - timedelta(minutes=ERROR_WINDOW_MINUTES)
         cutoff_ms = int(cutoff.timestamp() * 1000)
         
@@ -86,6 +89,11 @@ def check_telegram_failures():
             SELECT namespace, entry_key, value_json, created_at
             FROM plugin_state_entries 
             WHERE plugin_id = 'telegram'
+            AND namespace NOT IN (
+                'telegram.message-cache',
+                'telegram.sent-messages',
+                'telegram.bot-info-cache'
+            )
             AND (
                 lower(value_json) LIKE '%error%'
                 OR lower(value_json) LIKE '%fail%'

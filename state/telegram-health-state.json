@@ -1,16 +1,5 @@
 {
-  "failed_messages": [
-    {
-      "key": "telegram.message-cache:038d81e87a34b019df1d29db:default:5187735980:8130",
-      "value": "{\"sourceMessage\":{\"message_id\":8130,\"from\":{\"id\":8324672012,\"is_bot\":true,\"first_name\":\"Cicero\",\"username\":\"JamesClapp_bot\"},\"chat\":{\"id\":5187735980,\"type\":\"private\",\"username\":\"geoffclapp\"},\"date\":17",
-      "timestamp": 1782214426138
-    },
-    {
-      "key": "telegram.message-cache:038d81e87a34b019df1d29db:default:5187735980:8128",
-      "value": "{\"sourceMessage\":{\"message_id\":8128,\"from\":{\"id\":5187735980,\"is_bot\":false,\"first_name\":\"Geoffrey\",\"last_name\":\"Clapp\",\"username\":\"geoffclapp\",\"language_code\":\"en\"},\"chat\":{\"id\":5187735980,\"first_name",
-      "timestamp": 1782214198407
-    }
-  ],
+  "failed_messages": [],
   "last_alert": "2026-06-23T11:35:03.715115",
-  "last_check": "2026-06-23T11:55:01.506262"
+  "last_check": "2026-06-23T23:55:01.911780"
 }
