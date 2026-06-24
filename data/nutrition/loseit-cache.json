@@ -1,14 +1,14 @@
 {
-  "date": "2026-06-22",
-  "food_calories": 1305,
-  "exercise_calories": 0,
-  "net_calories": 1305,
+  "date": "2026-06-23",
+  "food_calories": 0,
+  "exercise_calories": 74,
+  "net_calories": -74,
   "deficit": null,
   "weight": null,
   "meals": [],
   "macros": {
-    "carbs": 132,
-    "fat": 58,
-    "protein": 79
+    "carbs": null,
+    "fat": null,
+    "protein": null
   }
 }

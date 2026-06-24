@@ -2,6 +2,8 @@
 # Progyny Intelligence Daily Cron
 # Runs daily to collect and store Progyny mentions
 
+set -euo pipefail
+
 cd /home/ubuntu/.openclaw/workspace
 
 echo "$(date): Starting Progyny intelligence collection..."

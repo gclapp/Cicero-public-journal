@@ -7,6 +7,9 @@ Attempts automatic recovery before alerting user
 
 import json
 import os
+import base64
+import hashlib
+import secrets
 from pathlib import Path
 from datetime import datetime, timedelta
 import subprocess
@@ -15,6 +18,34 @@ import sys
 # Paths
 CREDENTIALS_DIR = Path.home() / ".openclaw" / "credentials"
 LOG_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "system-health.log"
+TODOIST_PATH = "/home/ubuntu/.npm-global/bin/todoist"
+
+def get_calendar_auth_url():
+    """Build the same PKCE calendar auth URL used by calendar_reader.py."""
+    code_verifier_file = CREDENTIALS_DIR / "calendar-code-verifier.txt"
+    if code_verifier_file.exists():
+        code_verifier = code_verifier_file.read_text().strip()
+    else:
+        code_verifier = base64.urlsafe_b64encode(
+            secrets.token_bytes(32)
+        ).decode('utf-8').rstrip('=')
+        code_verifier_file.write_text(code_verifier)
+
+    code_challenge = base64.urlsafe_b64encode(
+        hashlib.sha256(code_verifier.encode()).digest()
+    ).decode('utf-8').rstrip('=')
+
+    return (
+        "https://accounts.google.com/o/oauth2/auth"
+        "?response_type=code"
+        "&client_id=[REDACTED]"
+        "&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob"
+        "&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly"
+        f"&code_challenge={code_challenge}"
+        "&code_challenge_method=S256"
+        "&prompt=consent"
+        "&access_type=offline"
+    )
 
 def log(msg):
     """Log message with timestamp"""
@@ -38,14 +69,14 @@ def check_todoist():
     """Check Todoist connection"""
     try:
         result = subprocess.run(
-            ['todoist', 'today'],
+            [TODOIST_PATH, 'today', '--json'],
             capture_output=True,
             text=True,
             timeout=30
         )
         if result.returncode == 0:
-            # Count tasks
-            task_count = len([l for l in result.stdout.strip().split('\n') if l.strip()])
+            tasks = json.loads(result.stdout or '[]')
+            task_count = len(tasks)
             return {'status': 'ok', 'tasks': task_count}
         else:
             return {'status': 'error', 'error': result.stderr}
@@ -61,7 +92,7 @@ def check_calendar():
             'status': 'missing',
             'error': 'Token file does not exist',
             'action_required': True,
-            'auth_url': 'https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly'
+            'auth_url': get_calendar_auth_url()
         }
     
     age = check_token_age(token_file)
@@ -70,26 +101,46 @@ def check_calendar():
             'status': 'stale',
             'error': f'Token is {age.days} days old',
             'action_required': True,
-            'auth_url': 'https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%alendar.readonly'
+            'auth_url': get_calendar_auth_url()
         }
     
     # Try to actually fetch calendar
     try:
         result = subprocess.run(
-            ['python3', str(Path.home() / '.openclaw' / 'workspace' / 'scripts' / 'calendar_reader.py')],
+            [
+                'python3',
+                str(Path.home() / '.openclaw' / 'workspace' / 'scripts' / 'calendar_reader.py'),
+                '--days',
+                '1',
+                '--max',
+                '1',
+            ],
             capture_output=True,
             text=True,
             timeout=60
         )
-        if result.returncode == 0 or 'Authorization Required' not in result.stderr:
+        if result.returncode == 0:
             return {'status': 'ok', 'token_age_days': age.days if age else 0}
-        else:
+        output = f"{result.stdout}\n{result.stderr}".lower()
+        if (
+            'authorization required' in output
+            or 'invalid_grant' in output
+            or 'refresherror' in output
+            or 'expired or revoked' in output
+            or 'expired or been revoked' in output
+            or 'has expired' in output
+            or 'been revoked' in output
+        ):
             return {
                 'status': 'auth_error',
-                'error': 'Calendar auth required',
+                'error': 'Calendar auth token expired or revoked',
                 'action_required': True,
-                'auth_url': 'https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly'
+                'auth_url': get_calendar_auth_url()
             }
+        return {
+            'status': 'error',
+            'error': (result.stderr or result.stdout or 'Calendar reader failed').strip()[-500:]
+        }
     except Exception as e:
         return {'status': 'error', 'error': str(e)}
 
@@ -198,7 +249,7 @@ def check_travel_automation():
             
             # Count travel tasks in Todoist
             result = subprocess.run(
-                ['todoist', 'list', '-f', 'travel'],
+                [TODOIST_PATH, 'list', '-f', 'travel'],
                 capture_output=True,
                 text=True,
                 timeout=30

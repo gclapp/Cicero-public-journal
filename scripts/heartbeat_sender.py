@@ -12,12 +12,15 @@ import os
 import sys
 import json
 import re
+import html as html_lib
 import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # Add workspace to path for imports
 sys.path.insert(0, '/home/ubuntu/.openclaw/workspace')
+
+TODOIST_PATH = '/home/ubuntu/.npm-global/bin/todoist'
 
 def get_pt_time():
     """Get current Pacific Time"""
@@ -262,80 +265,74 @@ def get_weather_detailed(location):
 
 def get_todoist_count():
     """Get Todoist task count"""
+    tasks = run_todoist_json(['today'])
+    if tasks is None:
+        return "--"
+    return len(tasks)
+
+def run_todoist_json(args):
+    """Run Todoist CLI with JSON output using the cron-safe absolute path."""
     try:
-        result = subprocess.run(['todoist', 'today'], capture_output=True, text=True, timeout=30)
-        if result.returncode == 0:
-            lines = [l for l in result.stdout.strip().split('\n') if l.strip()]
-            return len(lines)
-        return "--"
-    except:
-        return "--"
+        cmd = [TODOIST_PATH] + args
+        if '--json' not in cmd:
+            cmd.append('--json')
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        if result.returncode != 0:
+            print(f"Todoist command failed: {result.stderr.strip()}")
+            return None
+        output = result.stdout.strip()
+        if not output:
+            return []
+        return json.loads(output)
+    except Exception as e:
+        print(f"Error running Todoist command: {e}")
+        return None
+
+def get_todoist_due_label(task):
+    """Return a concise PT-aware due label for a Todoist task."""
+    due = task.get('due') or {}
+    due_date = (due.get('date') or '')[:10]
+    if not due_date:
+        return "No due date"
+
+    pt_now = get_pt_time()
+    today = pt_now.date()
+    tomorrow = today + timedelta(days=1)
+
+    try:
+        due_day = datetime.strptime(due_date, '%Y-%m-%d').date()
+    except ValueError:
+        return due.get('string') or due_date
+
+    if due_day < today:
+        return f"Overdue: {due_day.strftime('%b %-d')}"
+    if due_day == today:
+        return "Today"
+    if due_day == tomorrow:
+        return "Tomorrow"
+    return due_day.strftime('%b %-d')
 
 def get_todoist_priorities():
-    """Get priority 1 and 2 tasks due today or tomorrow, sorted by priority"""
-    try:
-        from datetime import datetime, timedelta
-        
-        pt_now = get_pt_time()
-        today_str = pt_now.strftime('%Y-%m-%d')
-        tomorrow = pt_now + timedelta(days=1)
-        tomorrow_str = tomorrow.strftime('%Y-%m-%d')
-        today_month_day = pt_now.strftime('%b %d')
-        tomorrow_month_day = tomorrow.strftime('%b %d')
-        
-        # Get p1 tasks
-        p1_result = subprocess.run(['todoist', 'tasks', '--filter', 'p1 & (today | tomorrow)'], 
-                                   capture_output=True, text=True, timeout=15)
-        p2_result = subprocess.run(['todoist', 'tasks', '--filter', 'p2 & (today | tomorrow)'], 
-                                   capture_output=True, text=True, timeout=15)
-        
-        priority_tasks = []
-        
-        # Process P1 tasks
-        if p1_result.returncode == 0:
-            for line in p1_result.stdout.strip().split('\n'):
-                if not line.strip():
-                    continue
-                match = re.match(r'^([a-zA-Z0-9]+)\s+(.+)$', line.strip())
-                if match:
-                    task_content = match.group(2)
-                    # Determine due date from content
-                    due_date = 'Today'  # Default since we filtered by today|tomorrow
-                    if 'tomorrow' in task_content.lower():
-                        due_date = 'Tomorrow'
-                    # Remove date from title
-                    task_title = re.sub(r'\s*\([^)]+\)\s*$', '', task_content).strip()
-                    priority_tasks.append({
-                        'title': task_title,
-                        'priority': 1,
-                        'due': due_date
-                    })
-        
-        # Process P2 tasks
-        if p2_result.returncode == 0:
-            for line in p2_result.stdout.strip().split('\n'):
-                if not line.strip():
-                    continue
-                match = re.match(r'^([a-zA-Z0-9]+)\s+(.+)$', line.strip())
-                if match:
-                    task_content = match.group(2)
-                    due_date = 'Today'
-                    if 'tomorrow' in task_content.lower():
-                        due_date = 'Tomorrow'
-                    task_title = re.sub(r'\s*\([^)]+\)\s*$', '', task_content).strip()
-                    priority_tasks.append({
-                        'title': task_title,
-                        'priority': 2,
-                        'due': due_date
-                    })
-        
-        # Sort by priority (1 first, then 2)
-        priority_tasks.sort(key=lambda x: x['priority'])
-        
-        return priority_tasks
-    except Exception as e:
-        print(f"Error getting Todoist priorities: {e}")
+    """Get Todoist P1/P2 tasks that are overdue, due today, or due tomorrow."""
+    todoist_tasks = run_todoist_json(['tasks', '--filter', '(p1 | p2) & (overdue | today | tomorrow)'])
+    if todoist_tasks is None:
         return []
+
+    priority_tasks = []
+    for task in todoist_tasks:
+        todoist_priority = task.get('priority', 1)
+        # Todoist JSON priorities are inverted: 4=P1, 3=P2, 2=P3, 1=P4.
+        if todoist_priority < 3:
+            continue
+        priority_tasks.append({
+            'title': task.get('content', 'Untitled task'),
+            'priority': 1 if todoist_priority == 4 else 2,
+            'due': get_todoist_due_label(task),
+            'due_sort': ((task.get('due') or {}).get('date') or '9999-12-31')[:10],
+        })
+
+    priority_tasks.sort(key=lambda x: (x['priority'], x['due_sort'], x['title'].lower()))
+    return priority_tasks
 
 def get_stock_summary():
     """Get stock summary for watchlist"""
@@ -1441,7 +1438,7 @@ def generate_html_email(checkin_type, pt_now):
             html += f'''                <div class="priority-item">
                     <div class="priority-badge" style="background: {priority_color};">{priority_label}</div>
                     <div class="priority-content">
-                        <div class="priority-title">{task['title']}</div>
+                        <div class="priority-title">{html_lib.escape(task['title'])}</div>
                         <div class="priority-meta">Due: {task['due']}</div>
                     </div>
                 </div>
@@ -1521,7 +1518,7 @@ def main():
     
     with open(checkin_file, 'w') as f:
         json.dump({
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now(timezone.utc).isoformat(),
             "checkin_type": checkin_type,
             "message": f"{checkin_type.title()} check-in — see HTML email",
             "html_message": html_message,

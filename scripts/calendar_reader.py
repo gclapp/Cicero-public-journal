@@ -6,50 +6,45 @@ Calendar Reader - Device Auth Flow (No Browser Required)
 import os
 import json
 import pickle
+import sys
 from pathlib import Path
 from datetime import datetime, timedelta
 from google.auth.transport.requests import Request
+from google.auth.exceptions import RefreshError
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
 CREDENTIALS_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-credentials.json"
 TOKEN_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-token.pickle"
+CODE_VERIFIER_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-code-verifier.txt"
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-def authenticate(auth_code=None):
-    """Authenticate using device flow (no browser)"""
-    from google_auth_oauthlib.flow import Flow
+def get_code_verifier():
+    """Load or create the PKCE code verifier used for calendar auth."""
+    import base64
+    import secrets
+
+    if CODE_VERIFIER_FILE.exists():
+        return CODE_VERIFIER_FILE.read_text().strip()
+
+    code_verifier = base64.urlsafe_b64encode(
+        secrets.token_bytes(32)
+    ).decode('utf-8').rstrip('=')
+    CODE_VERIFIER_FILE.write_text(code_verifier)
+    return code_verifier
+
+def get_auth_url():
+    """Build the Google Calendar auth URL for manual reauthorization."""
     import base64
     import hashlib
-    import secrets
-    
-    # Use a fixed code verifier for consistency
-    code_verifier_file = Path.home() / ".openclaw" / "credentials" / "calendar-code-verifier.txt"
-    
-    if code_verifier_file.exists():
-        with open(code_verifier_file) as f:
-            code_verifier = f.read().strip()
-    else:
-        # Generate a new code verifier
-        code_verifier = base64.urlsafe_b64encode(
-            secrets.token_bytes(32)
-        ).decode('utf-8').rstrip('=')
-        with open(code_verifier_file, 'w') as f:
-            f.write(code_verifier)
-    
-    # Generate code challenge
+
+    code_verifier = get_code_verifier()
     code_challenge = base64.urlsafe_b64encode(
         hashlib.sha256(code_verifier.encode()).digest()
     ).decode('utf-8').rstrip('=')
-    
-    flow = Flow.from_client_secrets_file(
-        str(CREDENTIALS_FILE),
-        scopes=SCOPES,
-        redirect_uri='urn:ietf:wg:oauth:2.0:oob')
-    
-    # Build auth URL manually with our code challenge
-    auth_url = (
+
+    return (
         f"https://accounts.google.com/o/oauth2/auth"
         f"?response_type=code"
         f"&client_id=[REDACTED]"
@@ -60,6 +55,18 @@ def authenticate(auth_code=None):
         f"&prompt=consent"
         f"&access_type=offline"
     )
+
+def authenticate(auth_code=None):
+    """Authenticate using device flow (no browser)"""
+    from google_auth_oauthlib.flow import Flow
+    
+    code_verifier = get_code_verifier()
+    auth_url = get_auth_url()
+    
+    flow = Flow.from_client_secrets_file(
+        str(CREDENTIALS_FILE),
+        scopes=SCOPES,
+        redirect_uri='urn:ietf:wg:oauth:2.0:oob')
     
     if auth_code is None:
         print("\n" + "="*70)
@@ -110,7 +117,14 @@ def get_calendar_service():
     
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            try:
+                creds.refresh(Request())
+            except RefreshError:
+                raise RuntimeError(
+                    "Calendar authorization has expired or been revoked.\n"
+                    "Open this URL, approve access, then rerun with --auth-code CODE:\n"
+                    f"{get_auth_url()}"
+                )
             with open(TOKEN_FILE, 'wb') as f:
                 pickle.dump(creds, f)
         else:
@@ -185,7 +199,11 @@ def main():
     
     print(f"📅 Fetching upcoming events ({args.days} days ahead)...")
     
-    events = get_upcoming_events(days=args.days, max_results=args.max)
+    try:
+        events = get_upcoming_events(days=args.days, max_results=args.max)
+    except RuntimeError as e:
+        print(f"🔴 {e}")
+        sys.exit(2)
     
     if not events:
         print("No upcoming events found.")

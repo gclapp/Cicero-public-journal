@@ -6,6 +6,7 @@ Tracks scans, bookings, errors, and system health
 
 import json
 import os
+import tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Dict, List, Optional, Any
@@ -15,16 +16,8 @@ DATA_DIR = Path(__file__).parent / "data"
 LOGS_DIR = Path(__file__).parent / "logs"
 MONITORING_FILE = DATA_DIR / "monitoring.json"
 
-def ensure_dirs():
-    """Ensure data and logs directories exist"""
-    DATA_DIR.mkdir(exist_ok=True)
-    LOGS_DIR.mkdir(exist_ok=True)
-
-def load_monitoring_data() -> Dict:
-    """Load monitoring data from file"""
-    if MONITORING_FILE.exists():
-        with open(MONITORING_FILE, 'r') as f:
-            return json.load(f)
+def default_monitoring_data() -> Dict:
+    """Return a fresh monitoring data structure."""
     return {
         "scans": [],
         "bookings": [],
@@ -40,11 +33,35 @@ def load_monitoring_data() -> Dict:
         }
     }
 
+def ensure_dirs():
+    """Ensure data and logs directories exist"""
+    DATA_DIR.mkdir(exist_ok=True)
+    LOGS_DIR.mkdir(exist_ok=True)
+
+def load_monitoring_data() -> Dict:
+    """Load monitoring data from file"""
+    if MONITORING_FILE.exists():
+        raw = MONITORING_FILE.read_text()
+        if not raw.strip():
+            return default_monitoring_data()
+        try:
+            return json.loads(raw)
+        except json.JSONDecodeError:
+            # Old overlapping cron runs sometimes concatenated two JSON docs.
+            data, _ = json.JSONDecoder().raw_decode(raw.lstrip())
+            return data
+    return default_monitoring_data()
+
 def save_monitoring_data(data: Dict):
     """Save monitoring data to file"""
     ensure_dirs()
-    with open(MONITORING_FILE, 'w') as f:
+    with tempfile.NamedTemporaryFile('w', dir=DATA_DIR, delete=False) as f:
+        temp_path = Path(f.name)
         json.dump(data, f, indent=2, default=str)
+        f.write('\n')
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(temp_path, MONITORING_FILE)
 
 def log_scan(trip_dates: List[str], restaurants_checked: int, 
              reservations_found: int, reservations_attempted: int,

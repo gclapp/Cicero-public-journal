@@ -100,7 +100,7 @@
  delete mode 100644 logs/whoop-token-monitor.log-20260622
  create mode 100644 logs/whoop-token-monitor.log-20260622.gz
  create mode 100644 logs/whoop-token-monitor.log-20260623
-fatal: could not read Password for 'https://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@github.com': No such device or address
+fatal: could not read Password for 'https://GITHUB_TOKEN_REDACTED@github.com': No such device or address
 [2026-06-23 11:59:01 UTC] ❌ GitHub push failed
 [2026-06-23 11:59:01 UTC] Checking for journal entries to publish...
 ✅ Synced: 2026-06-23.md
@@ -116,7 +116,7 @@ python3: can't open file '/home/ubuntu/.openclaw/workspace/scripts/content_analy
  48 files changed, 4701 insertions(+), 1457 deletions(-)
  create mode 100644 config/bootstrap-archives/TOOLS-full-2026-06-23.redacted.md
  create mode 100644 data/whoop/whoop-2026-06-23.json
-fatal: could not read Password for 'https://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@github.com': No such device or address
+fatal: could not read Password for 'https://GITHUB_TOKEN_REDACTED@github.com': No such device or address
 [2026-06-23 23:59:01 UTC] ❌ GitHub push failed
 [2026-06-23 23:59:01 UTC] Checking for journal entries to publish...
 📊 No new journal entries to sync

@@ -125,7 +125,7 @@ View: `tail -f ~/.openclaw/workspace/logs/heartbeat.log`
 
 **Cron Job:**
 ```
-*/55 * * * * /home/ubuntu/.openclaw/workspace/scripts/heartbeat-check.sh
+55 * * * * /home/ubuntu/.openclaw/workspace/scripts/heartbeat-check.sh
 ```
 
 **Script:** `scripts/heartbeat-check.sh`

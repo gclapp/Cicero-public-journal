@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-06-24T11:25:15.203337",
+  "timestamp": "2026-06-24T23:20:22.744906",
   "checks": {
     "todoist": {
       "status": "ok",
       "tasks": 50
     },
     "calendar": {
-      "status": "ok",
-      "token_age_days": 0
+      "status": "auth_error",
+      "error": "Calendar auth token expired or revoked",
+      "action_required": true,
+      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&code_challenge=6mv5JoLb0O08fQT7mmVA59La7J8PcU24rgSmNl1Ycz0&code_challenge_method=S256&prompt=consent&access_type=offline"
     },
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2601\ufe0f 64\u00b0F 84% \u21973mph",
+    "weather_data": "los angeles: \u2600\ufe0f 83\u00b0F 48% \u219710mph",
     "whoop": {
       "status": "configured"
     },
@@ -29,7 +31,7 @@
     },
     "travel_automation": {
       "status": "active",
-      "last_run_hours": 0.4,
+      "last_run_hours": 0.3,
       "tasks_created": 0,
       "log_file": "aero-monitor.log"
     },
@@ -41,5 +43,11 @@
       "is_primary": true
     }
   },
-  "action_required": []
+  "action_required": [
+    {
+      "service": "calendar",
+      "error": "Calendar auth token expired or revoked",
+      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&code_challenge=6mv5JoLb0O08fQT7mmVA59La7J8PcU24rgSmNl1Ycz0&code_challenge_method=S256&prompt=consent&access_type=offline"
+    }
+  ]
 }

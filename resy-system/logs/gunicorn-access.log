@@ -38300,3 +38300,4 @@
 127.0.0.1 - - [24/Jun/2026:04:19:18 +0000] "GET /static/favicon-32x32.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; InternetMeasurement/1.0; +https://internet-measurement.com/)"
 127.0.0.1 - - [24/Jun/2026:04:19:18 +0000] "GET /static/nyceats-logo-xl-transparent.png HTTP/1.1" 200 0 "-" "Mozilla/5.0 (compatible; InternetMeasurement/1.0; +https://internet-measurement.com/)"
 127.0.0.1 - - [24/Jun/2026:04:19:19 +0000] "GET /favicon.ico HTTP/1.1" 500 0 "-" "-"
+127.0.0.1 - - [24/Jun/2026:14:22:07 +0000] "GET /robots.txt HTTP/1.1" 500 0 "-" "-"

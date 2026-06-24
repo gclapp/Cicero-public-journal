@@ -122,7 +122,7 @@ cat ~/.ssh/id_ed25519.pub  # Add this to GitHub → Settings → SSH Keys
 2. Generate new token (classic) with "repo" scope
 3. Store in: ~/.openclaw/github_token.txt (chmod 600)
 
-**Current PAT (stored in public-journal remote):** ghp_REDACTED
+**Current PAT (stored in public-journal remote):** GITHUB_TOKEN_REDACTED
 - Scope: repo access
 - Expires: Check GitHub settings
 - Usage: `https://gclapp:TOKEN@github.com/gclapp/REPO_NAME.git`
