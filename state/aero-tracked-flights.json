@@ -18,5 +18,25 @@
     "progress_percent": 100,
     "altitude": null,
     "groundspeed": null
+  },
+  "DL742_20260625": {
+    "flight_number": "DAL742",
+    "airline": "DAL",
+    "origin": "KJFK",
+    "destination": "KLAX",
+    "scheduled_departure": "2026-06-25T11:00:00+00:00",
+    "estimated_departure": "2026-06-25T11:00:00+00:00",
+    "scheduled_arrival": "2026-06-25T17:00:00+00:00",
+    "estimated_arrival": "2026-06-25T16:54:00+00:00",
+    "departure_gate": "B24",
+    "arrival_gate": "32A",
+    "departure_terminal": null,
+    "arrival_terminal": null,
+    "status": "scheduled",
+    "aircraft_type": "A339",
+    "delay_minutes": 0,
+    "progress_percent": 0,
+    "altitude": null,
+    "groundspeed": null
   }
 }
