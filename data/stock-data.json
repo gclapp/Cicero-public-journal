@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T03:55:06.584034",
+  "timestamp": "2026-06-25T13:13:11.146754",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
@@ -7,7 +7,7 @@
       "change": 26.89,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:06.678443",
+      "timestamp": "2026-06-25T13:13:11.246368",
       "change_30d": {
         "price_30d_ago": 25.245,
         "change": 1.6449999999999996,
@@ -21,7 +21,7 @@
       "change": 293.08,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:06.733535",
+      "timestamp": "2026-06-25T13:13:11.423849",
       "change_30d": {
         "price_30d_ago": 310.8,
         "change": -17.720000000000027,
@@ -35,7 +35,7 @@
       "change": 199.0,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:06.813684",
+      "timestamp": "2026-06-25T13:13:11.549434",
       "change_30d": {
         "price_30d_ago": 215.695,
         "change": -16.694999999999993,
@@ -49,7 +49,7 @@
       "change": 18.6,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:06.875382",
+      "timestamp": "2026-06-25T13:13:11.644671",
       "change_30d": {
         "price_30d_ago": 16.51,
         "change": 2.09,
@@ -63,7 +63,7 @@
       "change": 363.65,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:07.117918",
+      "timestamp": "2026-06-25T13:13:11.744962",
       "change_30d": {
         "price_30d_ago": 369.59,
         "change": -5.939999999999998,
@@ -79,7 +79,7 @@
       "change": 7358.22,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:07.180525"
+      "timestamp": "2026-06-25T13:13:11.873943"
     },
     "Dow Jones": {
       "symbol": "^DJI",
@@ -87,7 +87,7 @@
       "change": 51848.9,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-06-25T03:55:07.308446"
+      "timestamp": "2026-06-25T13:13:12.002056"
     }
   }
 }

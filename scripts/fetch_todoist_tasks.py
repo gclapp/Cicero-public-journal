@@ -6,8 +6,16 @@ FIXED: Better filtering to show today's tasks and upcoming priorities
 
 import subprocess
 import json
-from pathlib import Path
+import html
 from datetime import datetime, timedelta
+
+PGNY_PROJECT_ID = '6CrfqHJrvp7PW7P3'
+PERSONAL_PROJECT_ID = '6CrfqHJrvJ3jFqHf'
+MAX_FOCUS_TASKS = 25
+
+# Todoist's API uses 4 for P1, 3 for P2, 2 for P3, and 1 for P4.
+TODOIST_P1 = 4
+TODOIST_P2 = 3
 
 def run_todoist_command(args):
     """Run todoist CLI command and return JSON output"""
@@ -39,9 +47,7 @@ def get_project_mapping():
     mapping = {}
     work_project_ids = set()
     personal_project_ids = set()
-    
-    # Define work project IDs (PGNY and all sub-projects)
-    work_root = '6CrfqHJrvp7PW7P3'  # PGNY
+    children_by_parent = {}
     
     for project in projects:
         pid = project['id']
@@ -49,21 +55,58 @@ def get_project_mapping():
         parent_id = project.get('parentId')
         
         mapping[pid] = name
+        if parent_id:
+            children_by_parent.setdefault(parent_id, []).append(pid)
+
+    def descendants(root_id):
+        found = set()
+        stack = [root_id]
+        while stack:
+            pid = stack.pop()
+            if pid in found:
+                continue
+            found.add(pid)
+            stack.extend(children_by_parent.get(pid, []))
+        return found
+
+    pgny_project_ids = descendants(PGNY_PROJECT_ID)
+    personal_root_ids = descendants(PERSONAL_PROJECT_ID)
+    work_project_ids.update(pgny_project_ids)
+    personal_project_ids.update(personal_root_ids)
+    
+    for project in projects:
+        pid = project['id']
+        name = project['name']
         
-        # Categorize as work if it's PGNY or has PGNY as parent
-        if pid == work_root or parent_id == work_root:
+        if pid in work_project_ids or pid in personal_project_ids:
+            continue
+        if 'openclaw' in name.lower() or 'from cicero' in name.lower():
             work_project_ids.add(pid)
-        # Categorize as personal if it's Personal or has Personal as parent
-        elif parent_id == '6CrfqHJrvJ3jFqHf' or pid == '6CrfqHJrvJ3jFqHf':
-            personal_project_ids.add(pid)
-        # OpenClaw projects are work
-        elif 'openclaw' in name.lower() or 'from cicero' in name.lower():
-            work_project_ids.add(pid)
-        # Everything else defaults to personal
         else:
             personal_project_ids.add(pid)
     
     return mapping, work_project_ids, personal_project_ids
+
+def get_pgny_project_ids(project_map):
+    """Return PGNY and all nested PGNY sub-project IDs."""
+    projects = run_todoist_command(['projects'])
+    children_by_parent = {}
+    project_ids = set(project_map.keys())
+
+    for project in projects:
+        parent_id = project.get('parentId')
+        if parent_id:
+            children_by_parent.setdefault(parent_id, []).append(project['id'])
+
+    found = set()
+    stack = [PGNY_PROJECT_ID] if PGNY_PROJECT_ID in project_ids else []
+    while stack:
+        pid = stack.pop()
+        if pid in found:
+            continue
+        found.add(pid)
+        stack.extend(children_by_parent.get(pid, []))
+    return found
 
 def is_relevant_task(task):
     """
@@ -74,10 +117,10 @@ def is_relevant_task(task):
     - Due within next 3 days
     - Overdue (but we'll flag these separately)
     """
-    priority = task.get('priority', 4)
+    priority = task.get('priority', 1)
     
     # P1 or P2 are always relevant
-    if priority <= 2:
+    if priority >= TODOIST_P2:
         return True
     
     # Check due date
@@ -137,324 +180,197 @@ def get_due_date_label(task):
         except:
             return f" 📅 {due_date}"
 
-def get_todoist_summary():
-    """Get formatted todoist summary using actual project structure"""
-    
-    # Get project mapping
+def get_priority_label(task):
+    priority = task.get('priority', 1)
+    if priority == TODOIST_P1:
+        return "P1"
+    if priority == TODOIST_P2:
+        return "P2"
+    return f"P{5 - priority}"
+
+def get_priority_marker(task):
+    priority = task.get('priority', 1)
+    if priority == TODOIST_P1:
+        return "🔴 "
+    if priority == TODOIST_P2:
+        return "🟠 "
+    return "  "
+
+def priority_style(task):
+    priority = task.get('priority', 1)
+    if priority == TODOIST_P1:
+        return "color: #dc3545; font-weight: bold;"
+    if priority == TODOIST_P2:
+        return "color: #fd7e14;"
+    return ""
+
+def get_focus_task_selection(limit=MAX_FOCUS_TASKS):
+    """Select Todoist check-in tasks: P1s first, PGNY P1s guaranteed, P2s only as filler."""
     project_map, work_ids, personal_ids = get_project_mapping()
-    
-    # Get all tasks
+    pgny_ids = get_pgny_project_ids(project_map)
     all_tasks = run_todoist_command(['tasks'])
-    
+
     if not all_tasks:
-        return "📋 **Tasks:** Unable to fetch tasks (check Todoist connection)\n"
-    
-    # Separate into categories
-    relevant_tasks = []
-    overdue_tasks = []
-    
-    for task in all_tasks:
-        if is_overdue(task):
-            overdue_tasks.append(task)
-        elif is_relevant_task(task):
-            relevant_tasks.append(task)
-    
-    # Categorize by actual project
-    work_tasks = []
-    personal_tasks = []
-    
-    for task in relevant_tasks:
-        project_id = task.get('projectId')
-        
-        if project_id in work_ids:
-            work_tasks.append(task)
-        elif project_id in personal_ids:
-            personal_tasks.append(task)
-        else:
-            # Default to personal if unknown
-            personal_tasks.append(task)
-    
-    # Sort tasks: P1 first, then P2, then by due date, then by project name
+        return {
+            'tasks': [],
+            'project_map': project_map,
+            'work_ids': work_ids,
+            'personal_ids': personal_ids,
+            'pgny_ids': pgny_ids,
+            'counts': {},
+            'fetch_failed': True,
+        }
+
     def task_sort_key(task):
-        priority = task.get('priority', 4)
+        project_id = task.get('projectId')
         due = task.get('due', {})
         due_date = due.get('date', '9999-12-31') if due else '9999-12-31'
-        project_name = project_map.get(task.get('projectId'), 'Unknown')
-        return (priority, due_date, project_name.lower())
-    
-    work_tasks.sort(key=task_sort_key)
-    personal_tasks.sort(key=task_sort_key)
-    
-    total = len(work_tasks) + len(personal_tasks)
-    
-    if total == 0 and not overdue_tasks:
-        return "📋 **Tasks:** No urgent tasks for today! 🎉\n"
-    
-    summary = f"📋 **Today's Focus ({total} tasks)**\n\n"
-    
-    # Overdue tasks section (if any)
-    if overdue_tasks:
-        summary += f"⚠️ **Overdue ({len(overdue_tasks)})**\n"
-        for task in overdue_tasks[:5]:
-            content = task.get('content', '')[:50]
-            summary += f"  • {content}...\n"
-        if len(overdue_tasks) > 5:
-            summary += f"  ... and {len(overdue_tasks) - 5} more overdue\n"
-        summary += "\n"
-    
-    # Work tasks grouped by project
-    if work_tasks:
-        summary += f"💼 **Work** ({len(work_tasks)})\n"
-        
-        # Group by project
-        current_project = None
-        for task in work_tasks[:20]:  # Top 20 work tasks
-            project_id = task.get('projectId')
-            project_name = project_map.get(project_id, 'Unknown')
-            
-            # Show project name when it changes
-            if project_name != current_project:
-                summary += f"  📁 {project_name}\n"
-                current_project = project_name
-            
-            content = task.get('content', '')[:55]
-            priority_marker = "🔴 " if task.get('priority') == 1 else "🟠 " if task.get('priority') == 2 else "  "
+        is_pgny = project_id in pgny_ids
+        project_name = project_map.get(project_id, 'Unknown')
+        return (
+            0 if is_pgny else 1,
+            due_date,
+            project_name.lower(),
+            task.get('content', '').lower(),
+        )
+
+    p1_tasks = [task for task in all_tasks if task.get('priority') == TODOIST_P1]
+    p2_tasks = [task for task in all_tasks if task.get('priority') == TODOIST_P2]
+    pgny_p1 = [task for task in p1_tasks if task.get('projectId') in pgny_ids]
+    other_p1 = [task for task in p1_tasks if task.get('projectId') not in pgny_ids]
+
+    pgny_p1.sort(key=task_sort_key)
+    other_p1.sort(key=task_sort_key)
+    p2_tasks.sort(key=task_sort_key)
+
+    selected = pgny_p1[:]
+    if len(selected) < limit:
+        selected.extend(other_p1[:limit - len(selected)])
+    if len(selected) < limit:
+        selected.extend(p2_tasks[:limit - len(selected)])
+
+    counts = {
+        'selected': len(selected),
+        'limit': limit,
+        'p1_total': len(p1_tasks),
+        'p2_total': len(p2_tasks),
+        'pgny_p1_total': len(pgny_p1),
+        'p2_included': sum(1 for task in selected if task.get('priority') == TODOIST_P2),
+        'limit_exceeded_for_pgny_p1': len(pgny_p1) > limit,
+    }
+
+    return {
+        'tasks': selected,
+        'project_map': project_map,
+        'work_ids': work_ids,
+        'personal_ids': personal_ids,
+        'pgny_ids': pgny_ids,
+        'counts': counts,
+        'fetch_failed': False,
+    }
+
+def group_tasks_by_bucket(tasks, project_map, work_ids):
+    buckets = []
+    grouped = {}
+    for task in tasks:
+        project_id = task.get('projectId')
+        bucket = 'Work' if project_id in work_ids else 'Personal'
+        project_name = project_map.get(project_id, 'Unknown')
+        key = (bucket, project_name)
+        grouped.setdefault(key, []).append(task)
+
+    for bucket in ('Work', 'Personal'):
+        for (group_bucket, project_name), project_tasks in grouped.items():
+            if group_bucket == bucket:
+                buckets.append((bucket, project_name, project_tasks))
+    return buckets
+
+def get_todoist_summary():
+    """Get formatted todoist summary using actual project structure"""
+
+    selection = get_focus_task_selection()
+    if selection['fetch_failed']:
+        return "📋 **Tasks:** Unable to fetch tasks (check Todoist connection)\n"
+
+    tasks = selection['tasks']
+    counts = selection['counts']
+    if not tasks:
+        return "📋 **Tasks:** No P1/P2 priorities right now.\n"
+
+    summary = (
+        f"📋 **Todoist Priorities ({counts['selected']}/{counts['limit']} shown)**\n"
+        f"P1: {counts['p1_total']} total, {counts['pgny_p1_total']} PGNY | "
+        f"P2 filler shown: {counts['p2_included']}\n\n"
+    )
+
+    for bucket, project_name, project_tasks in group_tasks_by_bucket(
+        tasks,
+        selection['project_map'],
+        selection['work_ids'],
+    ):
+        bucket_icon = "💼" if bucket == "Work" else "🏠"
+        summary += f"{bucket_icon} **{project_name}** ({len(project_tasks)})\n"
+        for task in project_tasks:
+            content = task.get('content', '')[:65]
+            priority_marker = get_priority_marker(task)
+            priority_label = get_priority_label(task)
             due_label = get_due_date_label(task)
-            summary += f"    {priority_marker}• {content}{due_label}\n"
-        
-        if len(work_tasks) > 20:
-            summary += f"    ... and {len(work_tasks) - 20} more\n"
+            summary += f"  {priority_marker}{priority_label} • {content}{due_label}\n"
         summary += "\n"
-    
-    # Personal tasks grouped by project
-    if personal_tasks:
-        summary += f"🏠 **Personal** ({len(personal_tasks)})\n"
-        
-        # Group by project
-        current_project = None
-        for task in personal_tasks[:15]:  # Top 15 personal tasks
-            project_id = task.get('projectId')
-            project_name = project_map.get(project_id, 'Unknown')
-            
-            # Show project name when it changes
-            if project_name != current_project:
-                summary += f"  📁 {project_name}\n"
-                current_project = project_name
-            
-            content = task.get('content', '')[:55]
-            priority_marker = "🔴 " if task.get('priority') == 1 else "🟠 " if task.get('priority') == 2 else "  "
-            due_label = get_due_date_label(task)
-            summary += f"    {priority_marker}• {content}{due_label}\n"
-        
-        if len(personal_tasks) > 15:
-            summary += f"    ... and {len(personal_tasks) - 15} more\n"
-        summary += "\n"
-    
+
     return summary
 
 def get_todoist_html():
     """Get HTML formatted todoist section using actual project structure"""
-    
-    # Get project mapping
-    project_map, work_ids, personal_ids = get_project_mapping()
-    
-    # Get all tasks
-    all_tasks = run_todoist_command(['tasks'])
-    
-    if not all_tasks:
+
+    selection = get_focus_task_selection()
+    if selection['fetch_failed']:
         return "<h3>📋 Today's Tasks</h3><p>Unable to fetch tasks (check Todoist connection)</p>"
-    
-    # Separate into categories
-    relevant_tasks = []
-    overdue_tasks = []
-    
-    for task in all_tasks:
-        if is_overdue(task):
-            overdue_tasks.append(task)
-        elif is_relevant_task(task):
-            relevant_tasks.append(task)
-    
-    # Categorize
-    work_tasks = []
-    personal_tasks = []
-    
-    for task in relevant_tasks:
-        project_id = task.get('projectId')
-        
-        if project_id in work_ids:
-            work_tasks.append(task)
-        elif project_id in personal_ids:
-            personal_tasks.append(task)
-        else:
-            personal_tasks.append(task)
-    
-    # Sort tasks
-    def task_sort_key(task):
-        priority = task.get('priority', 4)
-        due = task.get('due', {})
-        due_date = due.get('date', '9999-12-31') if due else '9999-12-31'
-        project_name = project_map.get(task.get('projectId'), 'Unknown')
-        return (priority, due_date, project_name.lower())
-    
-    work_tasks.sort(key=task_sort_key)
-    personal_tasks.sort(key=task_sort_key)
-    
-    total = len(work_tasks) + len(personal_tasks)
-    
-    if total == 0 and not overdue_tasks:
-        return "<h3>📋 Today's Tasks</h3><p>No urgent tasks for today! 🎉</p>"
-    
-    html = f"<h3>📋 Today's Focus ({total} tasks)</h3>"
-    
-    # Overdue tasks
-    if overdue_tasks:
-        html += f"<h4 style='color: #dc3545; margin-top: 15px; margin-bottom: 8px; font-size: 15px;'>⚠️ Overdue ({len(overdue_tasks)})</h4>"
-        for task in overdue_tasks[:5]:
-            content = task.get('content', '')[:60]
-            html += f"<div style='margin: 3px 0; margin-left: 15px; font-size: 14px; color: #dc3545;'>• {content}</div>"
-        if len(overdue_tasks) > 5:
-            html += f"<div style='color: #666; font-style: italic; margin-left: 15px;'>... and {len(overdue_tasks) - 5} more overdue</div>"
-    
-    # Work tasks
-    if work_tasks:
-        html += f"<h4 style='color: #007bff; margin-top: 15px; margin-bottom: 8px; font-size: 15px;'>💼 Work ({len(work_tasks)})</h4>"
-        
-        current_project = None
-        for task in work_tasks[:20]:
-            project_id = task.get('projectId')
-            project_name = project_map.get(project_id, 'Unknown')
-            
-            if project_name != current_project:
-                html += f"<div style='font-weight: bold; color: #666; margin-top: 10px; margin-bottom: 5px; font-size: 13px;'>📁 {project_name}</div>"
-                current_project = project_name
-            
-            content = task.get('content', '')[:65]
-            priority = task.get('priority', 4)
-            due = task.get('due', {})
-            due_date = due.get('date', '') if due else ''
-            
-            priority_style = "color: #dc3545; font-weight: bold;" if priority == 1 else "color: #fd7e14;" if priority == 2 else ""
-            due_badge = f" <span style='background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 11px; color: #666;'>Due {due_date}</span>" if due_date and due_date != datetime.now().strftime('%Y-%m-%d') else ""
-            
-            html += f"<div style='margin: 3px 0; margin-left: 15px; font-size: 14px; {priority_style}'>• {content}{due_badge}</div>"
-        
-        if len(work_tasks) > 20:
-            html += f"<div style='color: #666; font-style: italic; margin-left: 15px;'>... and {len(work_tasks) - 20} more</div>"
-    
-    # Personal tasks
-    if personal_tasks:
-        html += f"<h4 style='color: #fd7e14; margin-top: 15px; margin-bottom: 8px; font-size: 15px;'>🏠 Personal ({len(personal_tasks)})</h4>"
-        
-        current_project = None
-        for task in personal_tasks[:15]:
-            project_id = task.get('projectId')
-            project_name = project_map.get(project_id, 'Unknown')
-            
-            if project_name != current_project:
-                html += f"<div style='font-weight: bold; color: #666; margin-top: 10px; margin-bottom: 5px; font-size: 13px;'>📁 {project_name}</div>"
-                current_project = project_name
-            
-            content = task.get('content', '')[:65]
-            priority = task.get('priority', 4)
-            due = task.get('due', {})
-            due_date = due.get('date', '') if due else ''
-            
-            priority_style = "color: #dc3545; font-weight: bold;" if priority == 1 else "color: #fd7e14;" if priority == 2 else ""
-            due_badge = f" <span style='background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 11px; color: #666;'>Due {due_date}</span>" if due_date and due_date != datetime.now().strftime('%Y-%m-%d') else ""
-            
-            html += f"<div style='margin: 3px 0; margin-left: 15px; font-size: 14px; {priority_style}'>• {content}{due_badge}</div>"
-        
-        if len(personal_tasks) > 15:
-            html += f"<div style='color: #666; font-style: italic; margin-left: 15px;'>... and {len(personal_tasks) - 15} more</div>"
-    
-    return html
+
+    tasks = selection['tasks']
+    counts = selection['counts']
+    if not tasks:
+        return "<h3>📋 Todoist Priorities</h3><p>No P1/P2 priorities right now.</p>"
+
+    html_out = (
+        f"<h3>📋 Todoist Priorities ({counts['selected']}/{counts['limit']} shown)</h3>"
+        f"<p style='margin: 4px 0 10px 0; color: #666; font-size: 13px;'>"
+        f"P1: {counts['p1_total']} total, {counts['pgny_p1_total']} PGNY. "
+        f"P2 filler shown: {counts['p2_included']}.</p>"
+    )
+
+    for bucket, project_name, project_tasks in group_tasks_by_bucket(
+        tasks,
+        selection['project_map'],
+        selection['work_ids'],
+    ):
+        heading_color = "#007bff" if bucket == "Work" else "#fd7e14"
+        html_out += (
+            f"<h4 style='color: {heading_color}; margin-top: 15px; margin-bottom: 8px; "
+            f"font-size: 15px;'>{html.escape(project_name)} ({len(project_tasks)})</h4>"
+        )
+        for task in project_tasks:
+            content = html.escape(task.get('content', '')[:80])
+            task_id = task.get('id', '')
+            task_url = f"https://app.todoist.com/app/task/{task_id}"
+            due_label = html.escape(get_due_date_label(task).strip())
+            due_badge = (
+                f" <span style='background: #e9ecef; padding: 2px 6px; border-radius: 4px; "
+                f"font-size: 11px; color: #666;'>{due_label}</span>"
+                if due_label else ""
+            )
+            html_out += (
+                f"<div style='margin: 4px 0; margin-left: 15px; font-size: 14px; "
+                f"line-height: 1.4; {priority_style(task)}'>"
+                f"<a href='{task_url}' style='{priority_style(task)} text-decoration: underline;'>"
+                f"{get_priority_label(task)} • {content}</a>{due_badge}</div>"
+            )
+
+    return html_out
 
 def get_today_tomorrow_html():
-    """Get HTML for tasks due today and tomorrow only, sorted by day then priority"""
-    from datetime import datetime, timedelta
-    
-    # Get all tasks
-    all_tasks = run_todoist_command(['tasks'])
-    
-    if not all_tasks:
-        return "<h3>📋 Today's Priorities</h3><p>Unable to fetch tasks</p>"
-    
-    today_str = datetime.now().strftime('%Y-%m-%d')
-    tomorrow_str = (datetime.now() + timedelta(days=1)).strftime('%Y-%m-%d')
-    
-    # Filter for today and tomorrow only
-    today_tasks = []
-    tomorrow_tasks = []
-    
-    for task in all_tasks:
-        due = task.get('due')
-        if due:
-            due_date = due.get('date', '')
-            if due_date == today_str:
-                today_tasks.append(task)
-            elif due_date == tomorrow_str:
-                tomorrow_tasks.append(task)
-    
-    # Sort by priority (lower number = higher priority)
-    today_tasks.sort(key=lambda t: t.get('priority', 4))
-    tomorrow_tasks.sort(key=lambda t: t.get('priority', 4))
-    
-    if not today_tasks and not tomorrow_tasks:
-        return "<h3>📋 Today's Priorities</h3><p>No tasks due today or tomorrow! 🎉</p>"
-    
-    html = "<h3>📋 Today's Priorities</h3><div style='display: block; width: 100%;'>"
-    
-    # Today section
-    if today_tasks:
-        html += f"<h4 style='color: #dc3545; margin: 10px 0 5px 0;'>📅 Today ({len(today_tasks)})</h4>"
-        for task in today_tasks:
-            task_id = task.get('id', '')
-            content = task.get('content', '')
-            priority = task.get('priority', 4)
-            
-            # Priority colors
-            if priority == 1:
-                color = "#dc3545"  # Red
-                weight = "font-weight: bold;"
-            elif priority == 2:
-                color = "#fd7e14"  # Orange
-                weight = ""
-            elif priority == 3:
-                color = "#ffc107"  # Yellow
-                weight = ""
-            else:
-                color = "#333"  # Default
-                weight = ""
-            
-            task_url = f"https://app.todoist.com/app/task/{task_id}"
-            html += f"<div style='display: block; margin: 4px 0; margin-left: 15px; font-size: 14px; line-height: 1.4;'><a href='{task_url}' style='color: {color}; {weight}text-decoration: underline;'>{content}</a></div>"
-    
-    # Tomorrow section
-    if tomorrow_tasks:
-        html += f"<h4 style='color: #007bff; margin: 15px 0 5px 0;'>📅 Tomorrow ({len(tomorrow_tasks)})</h4>"
-        for task in tomorrow_tasks:
-            task_id = task.get('id', '')
-            content = task.get('content', '')
-            priority = task.get('priority', 4)
-            
-            if priority == 1:
-                color = "#dc3545"
-                weight = "font-weight: bold;"
-            elif priority == 2:
-                color = "#fd7e14"
-                weight = ""
-            elif priority == 3:
-                color = "#ffc107"
-                weight = ""
-            else:
-                color = "#333"
-                weight = ""
-            
-            task_url = f"https://app.todoist.com/app/task/{task_id}"
-            html += f"<div style='display: block; margin: 4px 0; margin-left: 15px; font-size: 14px; line-height: 1.4;'><a href='{task_url}' style='color: {color}; {weight}text-decoration: underline;'>{content}</a></div>"
-    
-    html += "</div>"
-    return html
+    """Compatibility wrapper used by check-in emails; now uses the shared 25-item priority selector."""
+    return get_todoist_html()
 
 if __name__ == "__main__":
     print("Fetching Todoist tasks by actual project...")

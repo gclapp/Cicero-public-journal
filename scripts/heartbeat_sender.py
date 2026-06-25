@@ -22,11 +22,15 @@ sys.path.insert(0, '/home/ubuntu/.openclaw/workspace')
 
 TODOIST_PATH = '/home/ubuntu/.npm-global/bin/todoist'
 
+from scripts.user_timezone import local_now, resolve_timezone
+
+def get_local_time():
+    """Get Geoff's current local time from calendar/travel context."""
+    return local_now()
+
 def get_pt_time():
-    """Get current Pacific Time"""
-    import pytz
-    pt = pytz.timezone('America/Los_Angeles')
-    return datetime.now(pt)
+    """Backward-compatible alias for Geoff's current local time."""
+    return get_local_time()
 
 def load_birthdays():
     """Load birthdays from USER.md and friend profiles"""
@@ -93,7 +97,7 @@ def get_upcoming_birthdays(days_ahead=14):
     return upcoming
 
 def get_checkin_type(hour, minute):
-    """Determine which check-in is due based on PT time"""
+    """Determine which check-in is due based on Geoff's resolved local time."""
     time_val = hour * 100 + minute
     
     if 700 <= time_val <= 730:
@@ -548,7 +552,7 @@ def get_calendar_data():
         with open(calendar_file, 'r') as f:
             data = json.load(f)
         
-        today = datetime.now().strftime('%A, %B %d')
+        today = get_local_time().strftime('%A, %B %d')
         today_events = []
         travel_events = []
         
@@ -1504,14 +1508,18 @@ def generate_html_email(checkin_type, pt_now):
     return html
 
 def main():
-    pt_now = get_pt_time()
-    checkin_type = get_checkin_type(pt_now.hour, pt_now.minute)
+    local_time = get_local_time()
+    timezone_match = resolve_timezone()
+    checkin_type = get_checkin_type(local_time.hour, local_time.minute)
     
     if not checkin_type:
-        print(f"No check-in due at {pt_now.strftime('%I:%M %p PT')}")
+        print(
+            f"No check-in due at {local_time.strftime('%I:%M %p %Z')} "
+            f"({timezone_match.timezone_name}, {timezone_match.label})"
+        )
         sys.exit(0)
     
-    html_message = generate_html_email(checkin_type, pt_now)
+    html_message = generate_html_email(checkin_type, local_time)
     
     checkin_file = Path("/home/ubuntu/.openclaw/workspace/logs/pending-checkin.json")
     checkin_file.parent.mkdir(parents=True, exist_ok=True)
@@ -1522,13 +1530,19 @@ def main():
             "checkin_type": checkin_type,
             "message": f"{checkin_type.title()} check-in — see HTML email",
             "html_message": html_message,
-            "subject": f"Cicero Check-In: {checkin_type.title()} — {pt_now.strftime('%A, %B %d')}",
-            "pt_time": pt_now.strftime('%Y-%m-%d %H:%M:%S'),
+            "subject": f"Cicero Check-In: {checkin_type.title()} — {local_time.strftime('%A, %B %d')}",
+            "local_time": local_time.strftime('%Y-%m-%d %H:%M:%S %Z'),
+            "local_timezone": timezone_match.timezone_name,
+            "timezone_reason": timezone_match.label,
+            "pt_time": local_time.strftime('%Y-%m-%d %H:%M:%S'),
             "sent": False,
             "channels": ["telegram", "email"]
         }, f, indent=2)
     
-    print(f"✅ {checkin_type.title()} check-in queued: {pt_now.strftime('%I:%M %p PT')}")
+    print(
+        f"✅ {checkin_type.title()} check-in queued: "
+        f"{local_time.strftime('%I:%M %p %Z')} ({timezone_match.timezone_name})"
+    )
 
 if __name__ == "__main__":
     main()

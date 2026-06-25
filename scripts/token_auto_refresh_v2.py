@@ -8,6 +8,7 @@ import os
 import json
 import requests
 import time
+import smtplib
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -15,6 +16,10 @@ from pathlib import Path
 CREDENTIALS_DIR = Path.home() / ".openclaw" / "credentials"
 LOG_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "token-refresh.log"
 ALERT_STATE_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "token-alert-state.json"
+GMAIL_SMTP_STATE_FILE = Path.home() / ".openclaw" / "workspace" / "state" / "gmail-smtp-status.json"
+GMAIL_SMTP_USER = "[REDACTED]"
+GMAIL_SMTP_HOST = "smtp.gmail.com"
+GMAIL_SMTP_PORT = 587
 
 TOKEN_CONFIG = {
     "whoop": {
@@ -38,8 +43,8 @@ TOKEN_CONFIG = {
     },
     "gmail_smtp": {
         "config": Path.home() / ".openclaw" / "email_config.json",
-        "alert_days": 25,
-        "max_age_days": 60
+        "validation_interval_hours": 24,
+        "timeout_seconds": 15
     }
 }
 
@@ -221,23 +226,88 @@ def check_google_token(name, config):
         return "healthy"
 
 def check_gmail_smtp():
-    """Check Gmail SMTP config"""
+    """Check Gmail SMTP config with non-destructive login/NOOP validation."""
     config = TOKEN_CONFIG["gmail_smtp"]
-    age_days = get_file_age_days(config["config"])
+    config_path = config["config"]
+    age_days = get_file_age_days(config_path)
     
     if age_days is None:
         log("⚠️ Gmail SMTP: Config not found", "WARNING")
         return "missing"
+
+    try:
+        with open(config_path) as f:
+            email_config = json.load(f)
+    except json.JSONDecodeError:
+        log("🔴 Gmail SMTP: Config is not valid JSON", "ERROR")
+        return "critical"
+    except Exception as e:
+        log(f"🔴 Gmail SMTP: Unable to read config: {e}", "ERROR")
+        return "critical"
+
+    app_password = email_config.get("app_password")
+    if not app_password:
+        log("🔴 Gmail SMTP: App password missing from config", "ERROR")
+        return "critical"
+
+    config_mtime = config_path.stat().st_mtime
+    now = datetime.now()
+    state = {}
+    if GMAIL_SMTP_STATE_FILE.exists():
+        try:
+            with open(GMAIL_SMTP_STATE_FILE) as f:
+                state = json.load(f)
+        except Exception:
+            state = {}
+
+    last_success_raw = state.get("last_success")
+    state_config_mtime = state.get("config_mtime")
+    if last_success_raw and state_config_mtime == config_mtime:
+        try:
+            last_success = datetime.fromisoformat(last_success_raw)
+            verified_age = now - last_success
+            if verified_age < timedelta(hours=config["validation_interval_hours"]):
+                hours = verified_age.total_seconds() / 3600
+                log(
+                    f"✅ Gmail SMTP: Last login/NOOP verified {hours:.1f}h ago; "
+                    f"config unchanged ({age_days} days old)"
+                )
+                return "healthy"
+        except ValueError:
+            pass
     
-    if age_days >= config["max_age_days"]:
-        log(f"🔴 Gmail SMTP: Config is {age_days} days old — verify still working", "WARNING")
-        return "warning"
-    elif age_days >= config["alert_days"]:
-        log(f"🟡 Gmail SMTP: Config is {age_days} days old — monitor", "WARNING")
-        return "warning"
-    else:
-        log(f"✅ Gmail SMTP: Config is {age_days} days old (healthy)")
+    try:
+        with smtplib.SMTP(
+            GMAIL_SMTP_HOST,
+            GMAIL_SMTP_PORT,
+            timeout=config["timeout_seconds"]
+        ) as server:
+            server.starttls()
+            server.login(GMAIL_SMTP_USER, app_password)
+            server.noop()
+
+        GMAIL_SMTP_STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        with open(GMAIL_SMTP_STATE_FILE, "w") as f:
+            json.dump({
+                "last_success": now.isoformat(),
+                "config_mtime": config_mtime,
+                "config_age_days": age_days,
+                "method": "smtp_login_noop"
+            }, f, indent=2)
+        os.chmod(GMAIL_SMTP_STATE_FILE, 0o600)
+
+        log(f"✅ Gmail SMTP: Login/NOOP verified; config is {age_days} days old")
         return "healthy"
+    except smtplib.SMTPAuthenticationError:
+        log(
+            "🔴 Gmail SMTP: Authentication failed; update app_password in "
+            "~/.openclaw/email_config.json with a fresh Gmail App Password",
+            "ERROR"
+        )
+        return "critical"
+    except (smtplib.SMTPException, OSError) as e:
+        log(f"🟡 Gmail SMTP: Verification unavailable ({type(e).__name__})", "WARNING")
+        return "warning"
 
 def should_send_alert(issue_key, cooldown_hours=4):
     """Check if we should send alert (rate limiting)"""
@@ -338,6 +408,8 @@ def run_health_check():
                 critical_issues.append("Google Calendar token expired — re-auth required")
             elif name == "google_docs":
                 critical_issues.append("Google Docs token expired — re-auth required")
+            elif name == "gmail_smtp":
+                critical_issues.append("Gmail SMTP login failed — app password/config review required")
     
     if critical_issues:
         alert_msg = "\n".join(f"• {issue}" for issue in critical_issues)

@@ -27,7 +27,7 @@
     "scheduled_departure": "2026-06-25T11:00:00+00:00",
     "estimated_departure": "2026-06-25T11:15:00+00:00",
     "scheduled_arrival": "2026-06-25T17:00:00+00:00",
-    "estimated_arrival": "2026-06-25T17:20:00+00:00",
+    "estimated_arrival": "2026-06-25T17:18:00+00:00",
     "departure_gate": "B24",
     "arrival_gate": "32A",
     "departure_terminal": null,
@@ -35,7 +35,7 @@
     "status": "unknown",
     "aircraft_type": "A339",
     "delay_minutes": 15,
-    "progress_percent": 0,
+    "progress_percent": 58,
     "altitude": null,
     "groundspeed": null
   }

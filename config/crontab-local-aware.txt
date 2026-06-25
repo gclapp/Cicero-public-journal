@@ -1,0 +1,46 @@
+# OpenClaw Automated Jobs
+# Installed by Cicero. Server cron runs in UTC, but human-facing jobs below use
+# scripts/run_at_user_local_time.py to follow Geoff's resolved local timezone.
+
+# Interval monitors and delivery jobs (timezone-independent)
+55 * * * * /home/ubuntu/.openclaw/workspace/scripts/heartbeat-check.sh
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/deliver_checkin.py >> /home/ubuntu/.openclaw/workspace/logs/checkin-delivery.log 2>&1
+*/15 * * * * /home/ubuntu/.openclaw/workspace/scripts/imap-check-cron.sh >> /home/ubuntu/.openclaw/workspace/logs/imap-cron.log 2>&1
+*/30 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/token_auto_refresh_v2.py >> /home/ubuntu/.openclaw/workspace/logs/token-refresh.log 2>&1
+*/30 * * * * /home/ubuntu/.openclaw/workspace/scripts/aero_monitor_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/aero-monitor.log 2>&1
+0 */6 * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/whoop_alerts.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-alerts.log 2>&1
+0 */6 * * * cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 whoop_token_monitor.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-token-monitor.log 2>&1
+0 * * * * /home/ubuntu/.openclaw/workspace/scripts/disk-monitor.sh
+*/10 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/api_health_monitor.py >> /home/ubuntu/.openclaw/workspace/logs/api-health.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/model_fallback_monitor.py >> /home/ubuntu/.openclaw/workspace/logs/model-monitor-cron.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/telegram_health_monitor.py >> /home/ubuntu/.openclaw/workspace/logs/telegram-health.log 2>&1
+
+# Local-time daily work. Each wrapper resolves Geoff's current timezone from
+# calendar/travel context and dedupes by local date + job.
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id calendar-refresh --at 06:45 --window-minutes 10 -- /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py >> /home/ubuntu/.openclaw/workspace/logs/calendar.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id morning-checkin --at 07:00 --window-minutes 30 --skip-in-transit -- /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py >> /home/ubuntu/.openclaw/workspace/logs/heartbeat.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id evening-checkin --at 20:30 --window-minutes 25 --skip-in-transit -- /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py >> /home/ubuntu/.openclaw/workspace/logs/heartbeat.log 2>&1
+
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id competitor-report-morning --at 07:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh >> /home/ubuntu/.openclaw/workspace/logs/competitor-v3-cron.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id competitor-report-afternoon --at 14:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh >> /home/ubuntu/.openclaw/workspace/logs/competitor-v3-cron.log 2>&1
+
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id whoop-daily-fetch --at 07:30 --window-minutes 10 -- /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/whoop_daily_fetch.py >> /home/ubuntu/.openclaw/workspace/logs/whoop-daily.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id watch-hunt-morning --at 09:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh >> /home/ubuntu/.openclaw/workspace/logs/watch-hunt.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id watch-hunt-evening --at 18:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh >> /home/ubuntu/.openclaw/workspace/logs/watch-hunt.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id stock-fetch --at 18:00 --window-minutes 10 -- /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py >> /home/ubuntu/.openclaw/workspace/logs/stock-fetch.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id daily-github-sync-midday --at 12:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh >> /home/ubuntu/.openclaw/workspace/logs/daily-github-sync.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id daily-github-sync-night --at 23:55 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh >> /home/ubuntu/.openclaw/workspace/logs/daily-github-sync.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id progyny-intel --at 08:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/progyny_intel_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/progyny-cron.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id aero-travel-morning --at 09:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/aero-cron.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id aero-travel-evening --at 21:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh >> /home/ubuntu/.openclaw/workspace/logs/aero-cron.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id resy-calendar-scan --at 06:30 --window-minutes 10 -- bash -lc 'cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py' >> /home/ubuntu/.openclaw/workspace/resy-system/logs/cron-scan.log 2>&1
+
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id vitus-morning --at 07:00 --window-minutes 10 --skip-in-transit -- bash -lc 'cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py morning' >> /home/ubuntu/.openclaw/workspace/logs/vitus-morning.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id vitus-midday --at 12:00 --window-minutes 10 --skip-in-transit -- bash -lc 'cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday' >> /home/ubuntu/.openclaw/workspace/logs/vitus-midday.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id vitus-evening --at 20:00 --window-minutes 10 --skip-in-transit -- bash -lc 'cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py evening' >> /home/ubuntu/.openclaw/workspace/logs/vitus-evening.log 2>&1
+*/5 * * * * /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id loseit-sync --at 10:00 --window-minutes 10 -- bash -lc 'cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 loseit_integration.py latest' >> /home/ubuntu/.openclaw/workspace/logs/loseit-sync.log 2>&1
+
+# Weekly local-time reports
+*/5 * * * 0 /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id weekly-security-audit --at 08:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/weekly-security-audit.sh >> /home/ubuntu/.openclaw/workspace/logs/security-audit.log 2>&1
+*/5 * * * 0 /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id reddit-weekly-report --at 09:00 --window-minutes 10 -- /home/ubuntu/.openclaw/workspace/scripts/reddit-weekly-report.sh >> /home/ubuntu/.openclaw/workspace/logs/reddit-report.log 2>&1
+*/5 * * * 6 /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/run_at_user_local_time.py --job-id weekly-email-report --at 09:00 --window-minutes 10 -- /usr/bin/python3 /home/ubuntu/.openclaw/workspace/scripts/weekly-email-report.py >> /home/ubuntu/.openclaw/workspace/logs/weekly-report.log 2>&1

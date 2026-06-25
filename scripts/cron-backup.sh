@@ -3,7 +3,7 @@
 # Run this after any system update or restart to ensure cron jobs persist
 
 BACKUP_DIR="/home/ubuntu/.openclaw/workspace/config/cron-backups"
-BACKUP_FILE="$BACKUP_DIR/crontab-$(date +%Y%m%d-%H%M%S).txt"
+BACKUP_FILE="$BACKUP_DIR/crontab-$(date +%Y%m%d-%H%M%S-%N).txt"
 LATEST_LINK="$BACKUP_DIR/crontab-latest.txt"
 
 mkdir -p "$BACKUP_DIR"
@@ -34,19 +34,19 @@ case "${1:-backup}" in
         echo ""
         echo "=== EXPECTED JOBS ==="
         cat << 'EXPECTED'
-1. Heartbeat check - every 55 minutes
-2. Watch hunt - 9 AM & 6 PM PT daily
-3. Calendar refresh - 6:55 AM PT daily
+1. Heartbeat check - hourly at :55 UTC for warm cache/status pulse
+2. Local-time scheduler - every 5 minutes for human-facing jobs
+3. Calendar refresh - 6:45 AM in Geoff's resolved local timezone
 4. IMAP email check - every 15 minutes
-5. Daily competitor report - 7 AM & 2 PM PT daily
-6. Weekly security audit - Sundays 8 AM PT
-7. Reddit weekly report - Sundays 9 AM PT
-8. Weekly email report - Saturdays 9 AM PT
-9. Stock price fetch with 30-day history - 6 PM PT daily
-10. Token health monitor - 9 AM & 9 PM PT daily (Whoop + Calendar)
+5. Daily competitor report - 7 AM & 2 PM local daily
+6. Weekly security audit - Sundays 8 AM local
+7. Reddit weekly report - Sundays 9 AM local
+8. Weekly email report - Saturdays 9 AM local
+9. Stock price fetch with 30-day history - 6 PM local daily
+10. Token health monitor - interval-based
 11. Whoop token monitor - every 6 hours
 12. Whoop auto-refresh - every 30 minutes
-13. Vitus health agent - 3x daily (morning/midday/evening)
+13. Vitus health agent - 3x daily in Geoff's resolved local timezone
 EXPECTED
         ;;
     *)

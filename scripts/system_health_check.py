@@ -114,6 +114,7 @@ def check_calendar():
                 '1',
                 '--max',
                 '1',
+                '--no-save',
             ],
             capture_output=True,
             text=True,

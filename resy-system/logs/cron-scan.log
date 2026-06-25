@@ -8483,3 +8483,11 @@ Traceback (most recent call last):
   File "/usr/lib/python3.12/json/decoder.py", line 340, in decode
     raise JSONDecodeError("Extra data", s, end)
 json.decoder.JSONDecodeError: Extra data: line 8108 column 2 (char 234272)
+🔍 Resy Calendar Scanner
+============================================================
+⏰ Woke up at: 2026-06-25 13:30:02
+📅 Checking calendar for NYC trips and reservation status...
+
+📅 Scanning calendar for NYC trips...
+✅ No upcoming NYC trips found.
+running resy-calendar-scan at 2026-06-25 06:30 PDT (America/Los_Angeles, aero in transit: DAL742 to KLAX)

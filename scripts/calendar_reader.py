@@ -8,7 +8,7 @@ import json
 import pickle
 import sys
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from google.auth.transport.requests import Request
 from google.auth.exceptions import RefreshError
 from google.oauth2.credentials import Credentials
@@ -138,9 +138,9 @@ def get_upcoming_events(days=14, max_results=20):
     if not service:
         return []
     
-    now = datetime.utcnow()
-    time_min = now.isoformat() + 'Z'
-    time_max = (now + timedelta(days=days)).isoformat() + 'Z'
+    now = datetime.now(timezone.utc)
+    time_min = now.isoformat().replace('+00:00', 'Z')
+    time_max = (now + timedelta(days=days)).isoformat().replace('+00:00', 'Z')
     
     try:
         events_result = service.events().list(
@@ -179,9 +179,7 @@ def get_upcoming_events(days=14, max_results=20):
         
     except Exception as e:
         print(f"❌ Error fetching calendar: {e}")
-        import traceback
-        traceback.print_exc()
-        return []
+        return None
 
 def main():
     """Main function to fetch and display calendar"""
@@ -190,6 +188,7 @@ def main():
     parser.add_argument('--days', type=int, default=90, help='Number of days to look ahead')
     parser.add_argument('--max', type=int, default=100, help='Maximum events to fetch')
     parser.add_argument('--auth-code', type=str, help='Authorization code from Google')
+    parser.add_argument('--no-save', action='store_true', help='Fetch events without updating the shared calendar cache')
     args = parser.parse_args()
     
     # If auth code provided, authenticate immediately
@@ -204,6 +203,8 @@ def main():
     except RuntimeError as e:
         print(f"🔴 {e}")
         sys.exit(2)
+    if events is None:
+        sys.exit(1)
     
     if not events:
         print("No upcoming events found.")
@@ -225,17 +226,18 @@ def main():
         for t in travel:
             print(f"   - {t['summary']} on {t['start']}")
     
-    # Save to file
-    output_file = Path.home() / ".openclaw" / "workspace" / "config" / "calendar-events.json"
-    with open(output_file, 'w') as f:
-        json.dump({
-            'last_updated': datetime.now().isoformat(),
-            'total_events': len(events),
-            'travel_events': len(travel),
-            'events': events
-        }, f, indent=2)
-    
-    print(f"\n💾 Saved to: {output_file}")
+    if not args.no_save:
+        # Save to file
+        output_file = Path.home() / ".openclaw" / "workspace" / "config" / "calendar-events.json"
+        with open(output_file, 'w') as f:
+            json.dump({
+                'last_updated': datetime.now(timezone.utc).isoformat(),
+                'total_events': len(events),
+                'travel_events': len(travel),
+                'events': events
+            }, f, indent=2)
+        
+        print(f"\n💾 Saved to: {output_file}")
 
 if __name__ == "__main__":
     main()

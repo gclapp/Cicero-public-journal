@@ -282,3 +282,198 @@
 ✅ Processed 0 new emails
 [2026-06-25 11:45:02 UTC] ✅ Check completed
 [2026-06-25 11:45:02 UTC] === Check completed ===
+[2026-06-25 12:00:01 UTC] === IMAP check started ===
+
+[2026-06-25T12:00:01.854853] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 12:00:02 UTC] ✅ Check completed
+[2026-06-25 12:00:02 UTC] === Check completed ===
+[2026-06-25 12:15:01 UTC] === IMAP check started ===
+
+[2026-06-25T12:15:01.811296] Checking emails...
+
+📧 New email from: Lose It! <donotreply@loseit.com>
+   Subject: Lose It! Daily Summary for Wed, Jun 24th
+   Body preview: <html>
+<head>
+</head>
+<body style="font-family: 'Segoe UI', 'Lucida Grande', 'Tahoma', 'Helvetica';">
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr><td style="padding-bottom: 12px"><...
+   ✅ Authorized sender: donotreply@loseit.com
+   ℹ️ General email
+   ✅ Reply sent to donotreply@loseit.com
+✅ Processed 1 new emails
+[2026-06-25 12:15:04 UTC] ✅ Check completed
+[2026-06-25 12:15:04 UTC] === Check completed ===
+[2026-06-25 12:30:01 UTC] === IMAP check started ===
+
+[2026-06-25T12:30:01.736099] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 12:30:02 UTC] ✅ Check completed
+[2026-06-25 12:30:02 UTC] === Check completed ===
+[2026-06-25 12:45:01 UTC] === IMAP check started ===
+
+[2026-06-25T12:45:01.624036] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 12:45:02 UTC] ✅ Check completed
+[2026-06-25 12:45:02 UTC] === Check completed ===
+[2026-06-25 13:00:01 UTC] === IMAP check started ===
+
+[2026-06-25T13:00:01.709394] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 13:00:04 UTC] ✅ Check completed
+[2026-06-25 13:00:04 UTC] === Check completed ===
+[2026-06-25 13:15:01 UTC] === IMAP check started ===
+
+[2026-06-25T13:15:01.726178] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 13:15:02 UTC] ✅ Check completed
+[2026-06-25 13:15:02 UTC] === Check completed ===
+[2026-06-25 13:30:01 UTC] === IMAP check started ===
+
+[2026-06-25T13:30:03.042523] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 13:30:03 UTC] ✅ Check completed
+[2026-06-25 13:30:03 UTC] === Check completed ===
+[2026-06-25 13:45:01 UTC] === IMAP check started ===
+
+[2026-06-25T13:45:03.007052] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 13:45:03 UTC] ✅ Check completed
+[2026-06-25 13:45:03 UTC] === Check completed ===
+[2026-06-25 14:00:02 UTC] === IMAP check started ===
+
+[2026-06-25T14:00:03.593107] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 14:00:04 UTC] ✅ Check completed
+[2026-06-25 14:00:04 UTC] === Check completed ===
+[2026-06-25 14:15:43 UTC] === IMAP check started ===
+
+[2026-06-25T14:15:48.241543] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 14:15:48 UTC] ✅ Check completed
+[2026-06-25 14:15:48 UTC] === Check completed ===
+[2026-06-25 14:37:52 UTC] === IMAP check started ===
+
+[2026-06-25T14:37:59.085159] Checking emails...
+
+📧 New email from: Geoffrey Clapp <[REDACTED]>
+   Subject: Are you online?
+   Body preview: If so, you stopped replying via telegram. Can you fix that?
+
+--gjc
+
+------------
+Geoffrey Clapp
+@geoffclapp
+...
+   ✅ Authorized sender: [REDACTED]
+   ℹ️ General email
+   ✅ Reply sent to [REDACTED]
+✅ Processed 1 new emails
+[2026-06-25 14:38:01 UTC] ✅ Check completed
+[2026-06-25 14:38:01 UTC] === Check completed ===
+[2026-06-25 15:00:56 UTC] === IMAP check started ===
+[2026-06-25 15:00:58 UTC] === IMAP check started ===
+
+[2026-06-25T15:01:05.877904] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 15:01:06 UTC] ✅ Check completed
+[2026-06-25 15:01:06 UTC] === Check completed ===
+
+[2026-06-25T15:01:05.877904] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 15:01:07 UTC] ✅ Check completed
+[2026-06-25 15:01:07 UTC] === Check completed ===
+[2026-06-25 15:17:06 UTC] === IMAP check started ===
+
+[2026-06-25T15:17:10.741038] Checking emails...
+✅ Processed 0 new emails
+[2026-06-25 15:17:11 UTC] ✅ Check completed
+[2026-06-25 15:17:11 UTC] === Check completed ===
+[2026-06-25 15:31:08 UTC] === IMAP check started ===
+
+[2026-06-25T15:31:09.877758] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 15:31:09 UTC] ✅ Check completed
+[2026-06-25 15:31:09 UTC] === Check completed ===
+[2026-06-25 15:45:01 UTC] === IMAP check started ===
+
+[2026-06-25T15:45:02.456933] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 15:45:02 UTC] ✅ Check completed
+[2026-06-25 15:45:02 UTC] === Check completed ===
+[2026-06-25 16:00:02 UTC] === IMAP check started ===
+
+[2026-06-25T16:00:03.721555] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 16:00:03 UTC] ✅ Check completed
+[2026-06-25 16:00:03 UTC] === Check completed ===
+[2026-06-25 16:15:01 UTC] === IMAP check started ===
+
+[2026-06-25T16:15:02.520250] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 16:15:02 UTC] ✅ Check completed
+[2026-06-25 16:15:02 UTC] === Check completed ===
+[2026-06-25 16:30:01 UTC] === IMAP check started ===
+
+[2026-06-25T16:30:03.026357] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 16:30:03 UTC] ✅ Check completed
+[2026-06-25 16:30:03 UTC] === Check completed ===
+[2026-06-25 16:45:01 UTC] === IMAP check started ===
+
+[2026-06-25T16:45:02.567988] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 16:45:02 UTC] ✅ Check completed
+[2026-06-25 16:45:02 UTC] === Check completed ===
+[2026-06-25 17:00:02 UTC] === IMAP check started ===
+
+[2026-06-25T17:00:03.716416] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 17:00:03 UTC] ✅ Check completed
+[2026-06-25 17:00:03 UTC] === Check completed ===
+[2026-06-25 17:15:02 UTC] === IMAP check started ===
+
+[2026-06-25T17:15:03.268629] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 17:15:03 UTC] ✅ Check completed
+[2026-06-25 17:15:03 UTC] === Check completed ===
+[2026-06-25 17:30:01 UTC] === IMAP check started ===
+
+[2026-06-25T17:30:03.033037] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 17:30:03 UTC] ✅ Check completed
+[2026-06-25 17:30:03 UTC] === Check completed ===
+[2026-06-25 17:45:01 UTC] === IMAP check started ===
+
+[2026-06-25T17:45:02.364195] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 17:45:02 UTC] ✅ Check completed
+[2026-06-25 17:45:02 UTC] === Check completed ===
+[2026-06-25 18:00:02 UTC] === IMAP check started ===
+
+[2026-06-25T18:00:03.640810] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 18:00:03 UTC] ✅ Check completed
+[2026-06-25 18:00:03 UTC] === Check completed ===
+[2026-06-25 18:15:02 UTC] === IMAP check started ===
+
+[2026-06-25T18:15:03.194995] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 18:15:03 UTC] ✅ Check completed
+[2026-06-25 18:15:03 UTC] === Check completed ===
+[2026-06-25 18:30:01 UTC] === IMAP check started ===
+
+[2026-06-25T18:30:03.156193] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 18:30:03 UTC] ✅ Check completed
+[2026-06-25 18:30:03 UTC] === Check completed ===
+[2026-06-25 18:45:02 UTC] === IMAP check started ===
+
+[2026-06-25T18:45:03.239574] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-25 18:45:03 UTC] ✅ Check completed
+[2026-06-25 18:45:03 UTC] === Check completed ===
+[2026-06-25 19:00:01 UTC] === IMAP check started ===
