@@ -1,4 +1,12 @@
 {
+  "aero-travel-evening:2026-06-25:21:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
+    ],
+    "ran_at_utc": "2026-06-26T04:00:02.226007+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
   "aero-travel-morning:2026-06-25:09:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
@@ -16,12 +24,37 @@
     "reason": "aero in transit: DAL742 to KLAX",
     "timezone": "America/Los_Angeles"
   },
+  "competitor-report-afternoon:2026-06-25:14:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
+    ],
+    "ran_at_utc": "2026-06-25T21:00:02.425148+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
   "competitor-report-morning:2026-06-25:07:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
     ],
     "ran_at_utc": "2026-06-25T14:00:02.965092+00:00",
     "reason": "aero in transit: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
+  "daily-github-sync-midday:2026-06-25:12:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
+    ],
+    "ran_at_utc": "2026-06-25T19:00:02.739048+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
+  "evening-checkin:2026-06-25:20:30": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py"
+    ],
+    "ran_at_utc": "2026-06-26T03:30:02.712018+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
     "timezone": "America/Los_Angeles"
   },
   "loseit-sync:2026-06-25:10:00": {
@@ -57,6 +90,15 @@
     "reason": "aero in transit: DAL742 to KLAX",
     "timezone": "America/Los_Angeles"
   },
+  "stock-fetch:2026-06-25:18:00": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py"
+    ],
+    "ran_at_utc": "2026-06-26T01:00:02.524391+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
   "test-local-scheduler-run:2026-06-25:06:21": {
     "command": [
       "/bin/echo",
@@ -64,6 +106,26 @@
     ],
     "ran_at_utc": "2026-06-25T13:21:45.816765+00:00",
     "reason": "recent travel: los angeles",
+    "timezone": "America/Los_Angeles"
+  },
+  "vitus-evening:2026-06-25:20:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py evening"
+    ],
+    "ran_at_utc": "2026-06-26T03:00:02.175041+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
+  "vitus-midday:2026-06-25:12:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday"
+    ],
+    "ran_at_utc": "2026-06-25T19:05:02.424726+00:00",
+    "reason": "aero recent arrival: DAL742 to KLAX",
     "timezone": "America/Los_Angeles"
   },
   "vitus-morning:2026-06-25:07:00:skipped-in-transit": {
