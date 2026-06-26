@@ -978,3 +978,983 @@ Failed: [2]
  2 files changed, 3 insertions(+), 3 deletions(-)
 fatal: unable to access 'https://github.com/gclapp/geoff-watch-hunt.git/': Could not resolve host: github.com
 running watch-hunt-evening at 2026-06-25 18:05 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)
+[2026-06-26 16:00:02] Starting watch hunt update...
+fatal: unable to access 'https://github.com/gclapp/geoff-watch-hunt.git/': Could not resolve host: github.com
+[2026-06-26 16:00:04] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:05] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:06] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+
+[2026-06-26 16:00:08] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:09] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:10] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+
+[2026-06-26 16:00:11] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:12] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:13] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+
+[2026-06-26 16:00:15] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:16] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:17] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+
+[2026-06-26 16:00:19] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:20] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:21] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+
+[2026-06-26 16:00:22] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:23] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:24] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+
+[2026-06-26 16:00:26] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:27] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:28] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+
+[2026-06-26 16:00:29] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:30] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:31] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+
+[2026-06-26 16:00:32] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:34] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:35] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+
+[2026-06-26 16:00:36] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:37] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:38] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+
+[2026-06-26 16:00:40] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:41] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:42] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+[2026-06-26 16:00:43] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:44] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:45] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+
+[2026-06-26 16:00:47] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:48] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:49] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+
+[2026-06-26 16:00:50] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:51] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:52] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+
+[2026-06-26 16:00:54] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:55] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:56] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+
+[2026-06-26 16:00:57] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:58] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:00:59] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+
+[2026-06-26 16:01:01] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:02] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:03] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+
+[2026-06-26 16:01:05] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:06] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:07] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+
+[2026-06-26 16:01:08] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:09] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:10] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+
+[2026-06-26 16:01:11] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:13] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:14] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+
+[2026-06-26 16:01:16] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:17] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:18] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+
+[2026-06-26 16:01:19] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:20] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:21] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+🏛️ Multi-Search Watch Hunt
+📅 2026-06-26 16:00:03
+
+📋 Found 2 active search(es)
+
+
+============================================================
+🎯 Running Search: 1973 Rolex Datejust
+   Brand: Rolex
+   Models: 1601, 1603, 16014
+   Years: 1970-1985
+============================================================
+
+🔍 Searching Chrono24 for: 1973 Rolex Datejust
+  Checking: https://www.chrono24.com/rolex/ref-1601.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/rolex/ref-1603.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/rolex/ref-16014.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+
+  📊 Found 0 matching watches from Chrono24
+
+🔍 Searching eBay for: 1973 Rolex Datejust
+  Checking: https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+  ❌ Error searching eBay: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+
+
+🔍 Searching Bob's Watches for: 1973 Rolex Datejust
+  Checking: https://www.bobswatches.com/rolex/1601.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/1601.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+
+  Checking: https://www.bobswatches.com/rolex/1603.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/1603.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+
+  📊 Found 0 matching watches from Bob's Watches
+
+🔍 Searching Bulang & Sons for: 1973 Rolex Datejust
+  Checking: https://bulangandsons.com/collections/rolex
+    ⚠️  Could not fetch https://bulangandsons.com/collections/rolex: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+
+  Checking: https://bulangandsons.com/collections/rolex-watches
+    ⚠️  Could not fetch https://bulangandsons.com/collections/rolex-watches: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+
+  📊 Found 0 matching watches from Bulang & Sons
+
+🔍 Searching Bezel for: 1973 Rolex Datejust
+  Checking: https://www.getbezel.com/search?q=rolex+1601
+  ❌ Error searching Bezel: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+
+
+🔍 Searching Crown & Caliber for: 1973 Rolex Datejust
+  Checking: https://www.crownandcaliber.com/collections/rolex
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/rolex: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+
+  Checking: https://www.crownandcaliber.com/collections/all
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/all: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+  📊 Found 0 matching watches from Crown & Caliber
+
+============================================================
+🎯 Running Search: Omega Speedmaster Moonwatch
+   Brand: Omega
+   Models: 145.022, 145.0022, 3570.50
+   Years: 1965-1975
+============================================================
+
+🔍 Searching Chrono24 for: Omega Speedmaster Moonwatch
+  Checking: https://www.chrono24.com/omega/ref-145.022.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/omega/ref-145.0022.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/omega/ref-3570.50.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+
+  📊 Found 0 matching watches from Chrono24
+
+🔍 Searching eBay for: Omega Speedmaster Moonwatch
+  Checking: https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+  ❌ Error searching eBay: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+
+
+🔍 Searching Bob's Watches for: Omega Speedmaster Moonwatch
+  Checking: https://www.bobswatches.com/rolex/145.022.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/145.022.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+
+  Checking: https://www.bobswatches.com/rolex/145.0022.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/145.0022.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+
+  📊 Found 0 matching watches from Bob's Watches
+
+🔍 Searching Bulang & Sons for: Omega Speedmaster Moonwatch
+  Checking: https://bulangandsons.com/collections/omega
+    ⚠️  Could not fetch https://bulangandsons.com/collections/omega: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+
+  Checking: https://bulangandsons.com/collections/omega-watches
+    ⚠️  Could not fetch https://bulangandsons.com/collections/omega-watches: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+
+  📊 Found 0 matching watches from Bulang & Sons
+
+🔍 Searching Bezel for: Omega Speedmaster Moonwatch
+  Checking: https://www.getbezel.com/search?q=omega+145.022
+  ❌ Error searching Bezel: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+
+
+🔍 Searching Crown & Caliber for: Omega Speedmaster Moonwatch
+  Checking: https://www.crownandcaliber.com/collections/omega
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/omega: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+
+  Checking: https://www.crownandcaliber.com/collections/all
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/all: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+  📊 Found 0 matching watches from Crown & Caliber
+
+============================================================
+📊 SUMMARY
+============================================================
+   Original listings: 21
+   New listings added: 0
+   Total listings: 21
+   Active searches: 2
+   Last updated: 2026-06-26T16:01:21Z
+============================================================
+
+ℹ️  No new watches found this run.
+[2026-06-26 16:01:23] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:24] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:01:25] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+
+🏛️ Downloading Watch Images via Browser
+📅 2026-06-26 16:01:22
+
+✅ Watch #6: Already has image
+✅ Watch #7: Already has image
+✅ Watch #8: Already has image
+✅ Watch #1: Already has image
+
+🖼️  Watch #2 (Bulang & Sons)
+Fetching page for watch #2...
+  ❌ Page fetch error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+
+✅ Watch #3: Already has image
+✅ Watch #4: Already has image
+✅ Watch #5: Already has image
+✅ Watch #9: Already has image
+✅ Watch #10: Already has image
+✅ Watch #11: Already has image
+✅ Watch #12: Already has image
+✅ Watch #13: Already has image
+✅ Watch #14: Already has image
+✅ Watch #15: Already has image
+✅ Watch #16: Already has image
+✅ Watch #17: Already has image
+✅ Watch #18: Already has image
+✅ Watch #19: Already has image
+✅ Watch #20: Already has image
+✅ Watch #21: Already has image
+
+============================================================
+📊 Downloaded: 0, Failed: 1
+Failed: [2]
+============================================================
+[main 809d3de] Auto-update: New watch listings found at 2026-06-26 16:00:02
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+fatal: unable to access 'https://github.com/gclapp/geoff-watch-hunt.git/': Could not resolve host: github.com
+running watch-hunt-morning at 2026-06-26 09:00 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)
+[2026-06-26 16:05:01] Starting watch hunt update...
+fatal: unable to access 'https://github.com/gclapp/geoff-watch-hunt.git/': Could not resolve host: github.com
+[2026-06-26 16:05:03] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:04] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:05] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+
+[2026-06-26 16:05:06] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:08] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:09] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+
+[2026-06-26 16:05:10] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:11] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:12] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+
+[2026-06-26 16:05:13] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:14] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:16] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+
+[2026-06-26 16:05:17] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:18] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:19] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+
+[2026-06-26 16:05:20] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:21] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:22] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+
+[2026-06-26 16:05:24] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:25] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:26] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+
+[2026-06-26 16:05:27] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:28] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:29] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+
+[2026-06-26 16:05:31] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:32] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:33] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+
+[2026-06-26 16:05:35] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:36] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:37] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+
+[2026-06-26 16:05:38] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:39] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:40] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+[2026-06-26 16:05:41] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:43] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:44] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+
+[2026-06-26 16:05:45] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:47] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:48] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+
+[2026-06-26 16:05:49] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:50] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:51] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+
+[2026-06-26 16:05:52] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:53] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:54] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+
+[2026-06-26 16:05:56] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:57] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:05:58] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+
+[2026-06-26 16:05:59] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:00] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:01] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+
+[2026-06-26 16:06:03] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:04] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:05] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+
+[2026-06-26 16:06:06] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:07] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:08] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+
+[2026-06-26 16:06:10] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:11] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:12] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+
+[2026-06-26 16:06:13] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:14] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:16] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+
+[2026-06-26 16:06:17] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:18] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:19] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+🏛️ Multi-Search Watch Hunt
+📅 2026-06-26 16:05:02
+
+📋 Found 2 active search(es)
+
+
+============================================================
+🎯 Running Search: 1973 Rolex Datejust
+   Brand: Rolex
+   Models: 1601, 1603, 16014
+   Years: 1970-1985
+============================================================
+
+🔍 Searching Chrono24 for: 1973 Rolex Datejust
+  Checking: https://www.chrono24.com/rolex/ref-1601.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1601.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1601.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/rolex/ref-1603.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-1603.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-1603.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/rolex/ref-16014.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/rolex/ref-16014.htm
+Call log:
+  - navigating to "https://www.chrono24.com/rolex/ref-16014.htm", waiting until "load"
+
+  📊 Found 0 matching watches from Chrono24
+
+🔍 Searching eBay for: 1973 Rolex Datejust
+  Checking: https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+  ❌ Error searching eBay: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Rolex+1601&_sacat=260324&_ipg=240", waiting until "load"
+
+
+🔍 Searching Bob's Watches for: 1973 Rolex Datejust
+  Checking: https://www.bobswatches.com/rolex/1601.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/1601.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1601.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1601.html", waiting until "load"
+
+  Checking: https://www.bobswatches.com/rolex/1603.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/1603.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/1603.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/1603.html", waiting until "load"
+
+  📊 Found 0 matching watches from Bob's Watches
+
+🔍 Searching Bulang & Sons for: 1973 Rolex Datejust
+  Checking: https://bulangandsons.com/collections/rolex
+    ⚠️  Could not fetch https://bulangandsons.com/collections/rolex: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex", waiting until "load"
+
+  Checking: https://bulangandsons.com/collections/rolex-watches
+    ⚠️  Could not fetch https://bulangandsons.com/collections/rolex-watches: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/rolex-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/rolex-watches", waiting until "load"
+
+  📊 Found 0 matching watches from Bulang & Sons
+
+🔍 Searching Bezel for: 1973 Rolex Datejust
+  Checking: https://www.getbezel.com/search?q=rolex+1601
+  ❌ Error searching Bezel: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=rolex+1601
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=rolex+1601", waiting until "load"
+
+
+🔍 Searching Crown & Caliber for: 1973 Rolex Datejust
+  Checking: https://www.crownandcaliber.com/collections/rolex
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/rolex: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/rolex
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/rolex", waiting until "load"
+
+  Checking: https://www.crownandcaliber.com/collections/all
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/all: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+  📊 Found 0 matching watches from Crown & Caliber
+
+============================================================
+🎯 Running Search: Omega Speedmaster Moonwatch
+   Brand: Omega
+   Models: 145.022, 145.0022, 3570.50
+   Years: 1965-1975
+============================================================
+
+🔍 Searching Chrono24 for: Omega Speedmaster Moonwatch
+  Checking: https://www.chrono24.com/omega/ref-145.022.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.022.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/omega/ref-145.0022.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-145.0022.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-145.0022.htm", waiting until "load"
+
+  Checking: https://www.chrono24.com/omega/ref-3570.50.htm
+    ❌ Error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.chrono24.com/omega/ref-3570.50.htm
+Call log:
+  - navigating to "https://www.chrono24.com/omega/ref-3570.50.htm", waiting until "load"
+
+  📊 Found 0 matching watches from Chrono24
+
+🔍 Searching eBay for: Omega Speedmaster Moonwatch
+  Checking: https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+  ❌ Error searching eBay: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240
+Call log:
+  - navigating to "https://www.ebay.com/sch/i.html?_nkw=Omega+145.022&_sacat=260324&_ipg=240", waiting until "load"
+
+
+🔍 Searching Bob's Watches for: Omega Speedmaster Moonwatch
+  Checking: https://www.bobswatches.com/rolex/145.022.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/145.022.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.022.html", waiting until "load"
+
+  Checking: https://www.bobswatches.com/rolex/145.0022.html
+    ⚠️  Could not fetch https://www.bobswatches.com/rolex/145.0022.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.bobswatches.com/rolex/145.0022.html
+Call log:
+  - navigating to "https://www.bobswatches.com/rolex/145.0022.html", waiting until "load"
+
+  📊 Found 0 matching watches from Bob's Watches
+
+🔍 Searching Bulang & Sons for: Omega Speedmaster Moonwatch
+  Checking: https://bulangandsons.com/collections/omega
+    ⚠️  Could not fetch https://bulangandsons.com/collections/omega: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega", waiting until "load"
+
+  Checking: https://bulangandsons.com/collections/omega-watches
+    ⚠️  Could not fetch https://bulangandsons.com/collections/omega-watches: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/collections/omega-watches
+Call log:
+  - navigating to "https://bulangandsons.com/collections/omega-watches", waiting until "load"
+
+  📊 Found 0 matching watches from Bulang & Sons
+
+🔍 Searching Bezel for: Omega Speedmaster Moonwatch
+  Checking: https://www.getbezel.com/search?q=omega+145.022
+  ❌ Error searching Bezel: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.getbezel.com/search?q=omega+145.022
+Call log:
+  - navigating to "https://www.getbezel.com/search?q=omega+145.022", waiting until "load"
+
+
+🔍 Searching Crown & Caliber for: Omega Speedmaster Moonwatch
+  Checking: https://www.crownandcaliber.com/collections/omega
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/omega: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/omega
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/omega", waiting until "load"
+
+  Checking: https://www.crownandcaliber.com/collections/all
+    ⚠️  Could not fetch https://www.crownandcaliber.com/collections/all: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.crownandcaliber.com/collections/all
+Call log:
+  - navigating to "https://www.crownandcaliber.com/collections/all", waiting until "load"
+
+  📊 Found 0 matching watches from Crown & Caliber
+
+============================================================
+📊 SUMMARY
+============================================================
+   Original listings: 21
+   New listings added: 0
+   Total listings: 21
+   Active searches: 2
+   Last updated: 2026-06-26T16:06:19Z
+============================================================
+
+ℹ️  No new watches found this run.
+[2026-06-26 16:06:21] WARNING: Attempt 1 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:22] WARNING: Attempt 2 failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+. Retrying in 1s...
+[2026-06-26 16:06:23] ERROR: Failed after 3 attempts: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+
+🏛️ Downloading Watch Images via Browser
+📅 2026-06-26 16:06:19
+
+✅ Watch #6: Already has image
+✅ Watch #7: Already has image
+✅ Watch #8: Already has image
+✅ Watch #1: Already has image
+
+🖼️  Watch #2 (Bulang & Sons)
+Fetching page for watch #2...
+  ❌ Page fetch error: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415
+Call log:
+  - navigating to "https://bulangandsons.com/products/rolex-datejust-steel-and-gold-16013-blue-dial-w1415", waiting until "load"
+
+✅ Watch #3: Already has image
+✅ Watch #4: Already has image
+✅ Watch #5: Already has image
+✅ Watch #9: Already has image
+✅ Watch #10: Already has image
+✅ Watch #11: Already has image
+✅ Watch #12: Already has image
+✅ Watch #13: Already has image
+✅ Watch #14: Already has image
+✅ Watch #15: Already has image
+✅ Watch #16: Already has image
+✅ Watch #17: Already has image
+✅ Watch #18: Already has image
+✅ Watch #19: Already has image
+✅ Watch #20: Already has image
+✅ Watch #21: Already has image
+
+============================================================
+📊 Downloaded: 0, Failed: 1
+Failed: [2]
+============================================================
+[main 542be35] Auto-update: New watch listings found at 2026-06-26 16:05:01
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+fatal: unable to access 'https://github.com/gclapp/geoff-watch-hunt.git/': Could not resolve host: github.com
+running watch-hunt-morning at 2026-06-26 09:05 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)

@@ -1,0 +1,66 @@
+[2026-06-26 14:00:03] ======================================================================
+[2026-06-26 14:00:03] Starting Competitive Intelligence Scan v3
+[2026-06-26 14:00:03] ======================================================================
+[2026-06-26 14:00:03] 
+1. Scanning RSS feeds...
+[2026-06-26 14:00:03]    Scanning: Maven - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Carrot - Google Alerts
+[2026-06-26 14:00:03]    Scanning: KindBody - Google Alerts
+[2026-06-26 14:00:03]    Scanning: WIN Fertility - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Pomelo Health - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Oura - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Maven - Press Releases
+[2026-06-26 14:00:03]    Scanning: Carrot - Press Releases
+[2026-06-26 14:00:03]    Scanning: KindBody - Press Releases
+[2026-06-26 14:00:03]    Scanning: Oura - Press Releases
+[2026-06-26 14:00:03]    Scanning: Midi Health - Press Releases
+[2026-06-26 14:00:03]    Scanning: Evernow - Press Releases
+[2026-06-26 14:00:03]    Scanning: FemTech Funding News
+[2026-06-26 14:00:03]    Scanning: Women's Health AI
+[2026-06-26 14:00:03]    Found 0 new articles from RSS
+[2026-06-26 14:00:03] 
+2. Searching web for competitive news...
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Maven Clinic funding OR acquisition OR partnership...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+funding+OR+acquisition+OR+partnership+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7fe1730>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Maven Intelligence AI platform launch 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Intelligence+AI+platform+launch+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7c69130>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Maven Clinic press release announcement 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+press+release+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7c6aa50>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Kate Ryder Maven CEO interview keynote 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Kate+Ryder+Maven+CEO+interview+keynote+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7d008f0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Carrot Fertility funding partnership announcement ...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Carrot+Fertility+funding+partnership+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7c696d0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    Found 0 new articles from web search
+[2026-06-26 14:00:03] 
+3. Checking LinkedIn executive posts...
+[2026-06-26 14:00:03]    ✓ LinkedIn executive scan complete
+[2026-06-26 14:00:03] 
+✅ No new competitive signals found
+[2026-06-26 14:05:03] ======================================================================
+[2026-06-26 14:05:03] Starting Competitive Intelligence Scan v3
+[2026-06-26 14:05:03] ======================================================================
+[2026-06-26 14:05:03] 
+1. Scanning RSS feeds...
+[2026-06-26 14:05:03]    Scanning: Maven - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Carrot - Google Alerts
+[2026-06-26 14:05:03]    Scanning: KindBody - Google Alerts
+[2026-06-26 14:05:03]    Scanning: WIN Fertility - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Pomelo Health - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Oura - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Maven - Press Releases
+[2026-06-26 14:05:03]    Scanning: Carrot - Press Releases
+[2026-06-26 14:05:03]    Scanning: KindBody - Press Releases
+[2026-06-26 14:05:03]    Scanning: Oura - Press Releases
+[2026-06-26 14:05:04]    Scanning: Midi Health - Press Releases
+[2026-06-26 14:05:04]    Scanning: Evernow - Press Releases
+[2026-06-26 14:05:04]    Scanning: FemTech Funding News
+[2026-06-26 14:05:04]    Scanning: Women's Health AI
+[2026-06-26 14:05:04]    Found 0 new articles from RSS
+[2026-06-26 14:05:04] 
+2. Searching web for competitive news...
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Maven Clinic funding OR acquisition OR partnership...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+funding+OR+acquisition+OR+partnership+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436c0e07830>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Maven Intelligence AI platform launch 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Intelligence+AI+platform+launch+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfccdd90>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Maven Clinic press release announcement 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+press+release+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfcce270>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Kate Ryder Maven CEO interview keynote 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Kate+Ryder+Maven+CEO+interview+keynote+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfd58440>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Carrot Fertility funding partnership announcement ...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Carrot+Fertility+funding+partnership+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfccdaf0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    Found 0 new articles from web search
+[2026-06-26 14:05:04] 
+3. Checking LinkedIn executive posts...
+[2026-06-26 14:05:04]    ✓ LinkedIn executive scan complete
+[2026-06-26 14:05:04] 
+✅ No new competitive signals found

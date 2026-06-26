@@ -1,0 +1,194 @@
+[2026-06-26 14:00:02] Starting competitive intelligence v3...
+[2026-06-26 14:00:02] Step 1: RSS + Web search...
+[2026-06-26 14:00:03] ======================================================================
+[2026-06-26 14:00:03] Starting Competitive Intelligence Scan v3
+[2026-06-26 14:00:03] ======================================================================
+[2026-06-26 14:00:03] 
+1. Scanning RSS feeds...
+[2026-06-26 14:00:03]    Scanning: Maven - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Carrot - Google Alerts
+[2026-06-26 14:00:03]    Scanning: KindBody - Google Alerts
+[2026-06-26 14:00:03]    Scanning: WIN Fertility - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Pomelo Health - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Oura - Google Alerts
+[2026-06-26 14:00:03]    Scanning: Maven - Press Releases
+[2026-06-26 14:00:03]    Scanning: Carrot - Press Releases
+[2026-06-26 14:00:03]    Scanning: KindBody - Press Releases
+[2026-06-26 14:00:03]    Scanning: Oura - Press Releases
+[2026-06-26 14:00:03]    Scanning: Midi Health - Press Releases
+[2026-06-26 14:00:03]    Scanning: Evernow - Press Releases
+[2026-06-26 14:00:03]    Scanning: FemTech Funding News
+[2026-06-26 14:00:03]    Scanning: Women's Health AI
+[2026-06-26 14:00:03]    Found 0 new articles from RSS
+[2026-06-26 14:00:03] 
+2. Searching web for competitive news...
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Maven Clinic funding OR acquisition OR partnership...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+funding+OR+acquisition+OR+partnership+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7fe1730>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Maven Intelligence AI platform launch 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Intelligence+AI+platform+launch+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7c69130>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Maven Clinic press release announcement 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+press+release+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7c6aa50>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Kate Ryder Maven CEO interview keynote 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Kate+Ryder+Maven+CEO+interview+keynote+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7d008f0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    ⚠️ Error searching web for 'Carrot Fertility funding partnership announcement ...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Carrot+Fertility+funding+partnership+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe197d7c696d0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:00:03]    Found 0 new articles from web search
+[2026-06-26 14:00:03] 
+3. Checking LinkedIn executive posts...
+[2026-06-26 14:00:03]    ✓ LinkedIn executive scan complete
+[2026-06-26 14:00:03] 
+✅ No new competitive signals found
+[2026-06-26 14:00:04] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+Error searching for Kate Ryder: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Kate+Ryder%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de720140>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Samantha Wertheimer: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Samantha+Wertheimer%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de720ec0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Nisha Gopal: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Nisha+Gopal%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de7201d0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Shaina Harris: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Shaina+Harris%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de7215e0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Maven: 0 updates
+Error searching for Tammy Sun: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Tammy+Sun%22+%22Carrot%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de721d30>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Juli Insinger: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Juli+Insinger%22+%22Carrot%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722420>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Rachel Simmons: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Rachel+Simmons%22+%22Carrot%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722b40>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Carrot: 0 updates
+Error searching for Gina Bartasi: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Gina+Bartasi%22+%22KindBody%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de7221b0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Stephanie Gorman: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Stephanie+Gorman%22+%22KindBody%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de721910>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Anate Brauer: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Anate+Brauer%22+%22KindBody%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de720110>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   KindBody: 0 updates
+Error searching for Roger Shedlin: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Roger+Shedlin%22+%22WIN+Fertility%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de723380>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Kimberly Maloni: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Kimberly+Maloni%22+%22WIN+Fertility%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de723c50>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   WIN Fertility: 0 updates
+Error searching for Marta Bralic Kerns: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Marta+Bralic+Kerns%22+%22Pomelo+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de4fc590>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for John Kerns: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22John+Kerns%22+%22Pomelo+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de723800>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Pomelo Health: 0 updates
+Error searching for Joanna Strober: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Joanna+Strober%22+%22Midi+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722f90>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Sharon Meers: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Sharon+Meers%22+%22Midi+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de721340>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Midi Health: 0 updates
+Error searching for Alicia Jackson: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Alicia+Jackson%22+%22Evernow%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722000>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Katherine Ryder: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Katherine+Ryder%22+%22Evernow%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de7228a0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Evernow: 0 updates
+Error searching for Ben Lundin: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Ben+Lundin%22+%22Pacify%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de720b00>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Melanie Silverman: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Melanie+Silverman%22+%22Pacify%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de720c20>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Pacify: 0 updates
+Error searching for Tom Hale: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Tom+Hale%22+%22Oura%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722bd0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Dorothy Kilroy: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Dorothy+Kilroy%22+%22Oura%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de721790>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Oura: 0 updates
+
+2. Searching for executive job changes...
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de721550>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Carrot+Fertility+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de723710>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=KindBody+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de8597f0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=WIN+Fertility+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de723c50>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=fertility+benefits+executive+job+change+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de7231a0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Found 0 job changes
+
+3. Searching for company announcements...
+Error searching company posts for Maven Clinic: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22Maven+Clinic%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de720a40>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching company posts for Carrot Fertility: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22Carrot+Fertility%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722000>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching company posts for KindBody: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22KindBody%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722c30>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching company posts for WIN Fertility: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22WIN+Fertility%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe7a8de722090>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-06-26 14:00:04] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 4 | High: 2 | Medium: 2
+[2026-06-26 14:00:04] Sending competitive intelligence email...
+❌ Failed to send email: [Errno -3] Temporary failure in name resolution
+[2026-06-26 14:00:04] ✅ Email sent
+[2026-06-26 14:00:04] Complete
+running competitor-report-morning at 2026-06-26 07:00 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)
+[2026-06-26 14:05:03] Starting competitive intelligence v3...
+[2026-06-26 14:05:03] Step 1: RSS + Web search...
+[2026-06-26 14:05:03] ======================================================================
+[2026-06-26 14:05:03] Starting Competitive Intelligence Scan v3
+[2026-06-26 14:05:03] ======================================================================
+[2026-06-26 14:05:03] 
+1. Scanning RSS feeds...
+[2026-06-26 14:05:03]    Scanning: Maven - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Carrot - Google Alerts
+[2026-06-26 14:05:03]    Scanning: KindBody - Google Alerts
+[2026-06-26 14:05:03]    Scanning: WIN Fertility - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Pomelo Health - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Oura - Google Alerts
+[2026-06-26 14:05:03]    Scanning: Maven - Press Releases
+[2026-06-26 14:05:03]    Scanning: Carrot - Press Releases
+[2026-06-26 14:05:03]    Scanning: KindBody - Press Releases
+[2026-06-26 14:05:03]    Scanning: Oura - Press Releases
+[2026-06-26 14:05:04]    Scanning: Midi Health - Press Releases
+[2026-06-26 14:05:04]    Scanning: Evernow - Press Releases
+[2026-06-26 14:05:04]    Scanning: FemTech Funding News
+[2026-06-26 14:05:04]    Scanning: Women's Health AI
+[2026-06-26 14:05:04]    Found 0 new articles from RSS
+[2026-06-26 14:05:04] 
+2. Searching web for competitive news...
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Maven Clinic funding OR acquisition OR partnership...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+funding+OR+acquisition+OR+partnership+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436c0e07830>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Maven Intelligence AI platform launch 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Intelligence+AI+platform+launch+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfccdd90>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Maven Clinic press release announcement 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+press+release+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfcce270>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Kate Ryder Maven CEO interview keynote 2026...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Kate+Ryder+Maven+CEO+interview+keynote+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfd58440>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    ⚠️ Error searching web for 'Carrot Fertility funding partnership announcement ...': HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Carrot+Fertility+funding+partnership+announcement+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf436bfccdaf0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 14:05:04]    Found 0 new articles from web search
+[2026-06-26 14:05:04] 
+3. Checking LinkedIn executive posts...
+[2026-06-26 14:05:04]    ✓ LinkedIn executive scan complete
+[2026-06-26 14:05:04] 
+✅ No new competitive signals found
+[2026-06-26 14:05:04] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+Error searching for Kate Ryder: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Kate+Ryder%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec00380>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Samantha Wertheimer: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Samantha+Wertheimer%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec01190>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Nisha Gopal: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Nisha+Gopal%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec00260>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Shaina Harris: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Shaina+Harris%22+%22Maven%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec018e0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Maven: 0 updates
+Error searching for Tammy Sun: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Tammy+Sun%22+%22Carrot%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec01fd0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Juli Insinger: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Juli+Insinger%22+%22Carrot%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec026c0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Rachel Simmons: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Rachel+Simmons%22+%22Carrot%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec02d80>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Carrot: 0 updates
+Error searching for Gina Bartasi: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Gina+Bartasi%22+%22KindBody%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec02240>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Stephanie Gorman: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Stephanie+Gorman%22+%22KindBody%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec015e0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Anate Brauer: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Anate+Brauer%22+%22KindBody%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec00140>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   KindBody: 0 updates
+Error searching for Roger Shedlin: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Roger+Shedlin%22+%22WIN+Fertility%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec03680>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Kimberly Maloni: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Kimberly+Maloni%22+%22WIN+Fertility%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec03f50>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   WIN Fertility: 0 updates
+Error searching for Marta Bralic Kerns: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Marta+Bralic+Kerns%22+%22Pomelo+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4e9ec890>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for John Kerns: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22John+Kerns%22+%22Pomelo+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec038f0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Pomelo Health: 0 updates
+Error searching for Joanna Strober: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Joanna+Strober%22+%22Midi+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec03140>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Sharon Meers: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Sharon+Meers%22+%22Midi+Health%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec018e0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Midi Health: 0 updates
+Error searching for Alicia Jackson: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Alicia+Jackson%22+%22Evernow%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec020f0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Katherine Ryder: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Katherine+Ryder%22+%22Evernow%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec02e10>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Evernow: 0 updates
+Error searching for Ben Lundin: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Ben+Lundin%22+%22Pacify%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec00dd0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Melanie Silverman: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Melanie+Silverman%22+%22Pacify%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec01130>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Pacify: 0 updates
+Error searching for Tom Hale: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Tom+Hale%22+%22Oura%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec02b70>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching for Dorothy Kilroy: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/web/search?q=%22Dorothy+Kilroy%22+%22Oura%22+LinkedIn+OR+hired+OR+appointed+OR+joined+OR+left&count=3&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec01bb0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Oura: 0 updates
+
+2. Searching for executive job changes...
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Maven+Clinic+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec00b00>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=Carrot+Fertility+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec03560>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=KindBody+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4fb43800>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=WIN+Fertility+executive+hired+OR+appointed+OR+joined&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec03bc0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching job changes: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=fertility+benefits+executive+job+change+2026&count=5&freshness=week (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec030b0>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Found 0 job changes
+
+3. Searching for company announcements...
+Error searching company posts for Maven Clinic: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22Maven+Clinic%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec01820>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching company posts for Carrot Fertility: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22Carrot+Fertility%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec01a00>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching company posts for KindBody: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22KindBody%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec02c00>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+Error searching company posts for WIN Fertility: HTTPSConnectionPool(host='api.search.brave.com', port=443): Max retries exceeded with url: /res/v1/news/search?q=%22WIN+Fertility%22+announcement+OR+launch+OR+partnership+OR+milestone+site%3Alinkedin.com+OR+site%3Atwitter.com+OR+site%3Ax.com&count=3&freshness=day (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfcff4ec02930>: Failed to resolve 'api.search.brave.com' ([Errno -3] Temporary failure in name resolution)"))
+   Found 0 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-06-26 14:05:04] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 4 | High: 2 | Medium: 2
+[2026-06-26 14:05:05] Sending competitive intelligence email...
+❌ Failed to send email: [Errno -3] Temporary failure in name resolution
+[2026-06-26 14:05:05] ✅ Email sent
+[2026-06-26 14:05:05] Complete
+running competitor-report-morning at 2026-06-26 07:05 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)
