@@ -1345,3 +1345,33 @@
 [2026-06-26 19:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9e6870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
 [2026-06-26 19:00:02] [INFO] 🔄 Whoop token invalid (1679 min old) — refreshing...
 [2026-06-26 19:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-06-26 19:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9e7170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:07] [INFO] Whoop refresh attempt 2/3...
+[2026-06-26 19:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9e7950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:12] [INFO] Whoop refresh attempt 3/3...
+[2026-06-26 19:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9bba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-06-26 19:00:12] [ERROR] 🔴 Google Docs: Token is 35 days old — CRITICAL
+[2026-06-26 19:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
+[2026-06-26 19:00:12] [INFO] ======================================================================
+[2026-06-26 19:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-06-26 19:00:12] [INFO] ======================================================================
+[2026-06-26 19:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-26 19:00:02] [INFO] ======================================================================
+[2026-06-26 19:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-26 19:00:02] [INFO] ======================================================================
+[2026-06-26 19:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9e6870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:02] [INFO] 🔄 Whoop token invalid (1679 min old) — refreshing...
+[2026-06-26 19:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-06-26 19:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9e7170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:07] [INFO] Whoop refresh attempt 2/3...
+[2026-06-26 19:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9e7950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:12] [INFO] Whoop refresh attempt 3/3...
+[2026-06-26 19:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4668a9bba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-26 19:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-06-26 19:00:12] [ERROR] 🔴 Google Docs: Token is 35 days old — CRITICAL
+[2026-06-26 19:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
+[2026-06-26 19:00:12] [INFO] ======================================================================
+[2026-06-26 19:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
+[2026-06-26 19:00:12] [INFO] ======================================================================
+[2026-06-26 19:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...

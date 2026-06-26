@@ -451,3 +451,8 @@
 [2026-06-26 18:45:02 UTC] ✅ Check completed
 [2026-06-26 18:45:02 UTC] === Check completed ===
 [2026-06-26 19:00:01 UTC] === IMAP check started ===
+
+[2026-06-26T19:00:02.882390] Checking emails...
+❌ IMAP connection failed: [Errno -3] Temporary failure in name resolution
+[2026-06-26 19:00:02 UTC] ✅ Check completed
+[2026-06-26 19:00:02 UTC] === Check completed ===

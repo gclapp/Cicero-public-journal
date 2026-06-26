@@ -189,6 +189,16 @@
     "reason": "aero recent arrival: DAL742 to KLAX",
     "timezone": "America/Los_Angeles"
   },
+  "vitus-midday:2026-06-26:12:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday"
+    ],
+    "ran_at_utc": "2026-06-26T19:00:02.221728+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "vitus-morning:2026-06-25:07:00:skipped-in-transit": {
     "reason": "aero in transit: DAL742 to KLAX",
     "skipped_at_utc": "2026-06-25T14:05:08.907454+00:00",
