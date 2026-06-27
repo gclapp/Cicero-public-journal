@@ -22,9 +22,33 @@ CONFIG_PATH = Path(__file__).parent / "config.json"
 TODOIST_PATH = "/home/ubuntu/.npm-global/bin/todoist"
 
 # Constants
-TRAVEL_KEYWORDS = ['flight', 'delta', 'united', 'american', 'alaska', 'jetblue', 
+TRAVEL_KEYWORDS = ['flight', 'delta', 'united', 'american', 'alaska', 'jetblue',
                    'southwest', 'hotel', 'stay at', 'trip to', 'travel to']
+DESTINATION_KEYWORDS = {
+    'new york': 'NYC',
+    'nyc': 'NYC',
+    'jfk': 'NYC',
+    'lga': 'NYC',
+    'ewr': 'NYC',
+    'providence': 'Providence',
+    'pvd': 'Providence',
+    'san diego': 'San Diego',
+    'truckee': 'Tahoe',
+    'tahoe': 'Tahoe',
+    'reno': 'Tahoe',
+    'rno': 'Tahoe',
+    'san francisco': 'San Francisco',
+    'sfo': 'San Francisco',
+    'portland': 'Portland',
+    'pdx': 'Portland',
+    'scottsdale': 'Scottsdale',
+    'phoenix': 'Phoenix',
+    'phx': 'Phoenix',
+    'prince of wales': 'Prince of Wales Hotel',
+    'niagara': 'Prince of Wales Hotel',
+}
 HOME_AIRPORTS = ['LAX', 'BUR', 'VNY', 'LGB', 'ONT']  # SoCal airports
+NON_GEOFF_PLACEHOLDER_NAMES = ['mackenzie']
 
 
 @dataclass
@@ -48,11 +72,11 @@ class FlightStatus:
     progress_percent: Optional[int]
     altitude: Optional[int]
     groundspeed: Optional[int]
-    
+
     def to_dict(self) -> Dict:
         result = asdict(self)
         # Convert datetime objects to strings for JSON serialization
-        for key in ['scheduled_departure', 'estimated_departure', 
+        for key in ['scheduled_departure', 'estimated_departure',
                     'scheduled_arrival', 'estimated_arrival']:
             if isinstance(result[key], datetime):
                 result[key] = result[key].isoformat()
@@ -61,49 +85,49 @@ class FlightStatus:
 
 class FlightAwareClient:
     """Client for FlightAware AeroAPI v4"""
-    
+
     def __init__(self):
         self.config = self._load_config()
         self.api_key = self.config.get("flightaware", {}).get("api_key")
         self.base_url = "https://aeroapi.flightaware.com/aeroapi"
-        
+
         if not self.api_key:
             raise ValueError("FlightAware API key not configured")
-    
+
     def _load_config(self) -> Dict:
         if CONFIG_PATH.exists():
             with open(CONFIG_PATH) as f:
                 return json.load(f)
         return {}
-    
+
     def _headers(self) -> Dict[str, str]:
         return {
             "x-apikey": self.api_key,
             "Accept": "application/json"
         }
-    
-    def get_flight_status(self, flight_number: str, 
+
+    def get_flight_status(self, flight_number: str,
                           date: Optional[str] = None) -> Optional[FlightStatus]:
         """Get current status of a flight"""
         try:
             url = f"{self.base_url}/flights/{flight_number}"
             if date:
                 url += f"?start={date}T00:00:00Z&end={date}T23:59:59Z"
-            
+
             response = requests.get(url, headers=self._headers(), timeout=15)
             response.raise_for_status()
             data = response.json()
-            
+
             if not data.get("flights"):
                 return None
-            
+
             flight = data["flights"][0]
             return self._parse_flight_data(flight)
-            
+
         except requests.exceptions.RequestException as e:
             log(f"FlightAware API error: {e}")
             return None
-    
+
     def get_airport_delays(self, airport_code: str) -> Dict:
         """Get current delays and status for an airport"""
         try:
@@ -114,12 +138,12 @@ class FlightAwareClient:
         except requests.exceptions.RequestException as e:
             log(f"Error fetching airport delays: {e}")
             return {}
-    
+
     def _parse_flight_data(self, flight: Dict) -> FlightStatus:
         """Parse FlightAware flight data into FlightStatus"""
         origin = flight.get("origin", {})
         destination = flight.get("destination", {})
-        
+
         return FlightStatus(
             flight_number=flight.get("ident", "Unknown"),
             airline=flight.get("operator", "Unknown"),
@@ -140,7 +164,7 @@ class FlightAwareClient:
             altitude=flight.get("altitude"),
             groundspeed=flight.get("groundspeed")
         )
-    
+
     def _parse_datetime(self, dt_str: Optional[str]) -> datetime:
         """Parse ISO datetime string"""
         if not dt_str:
@@ -150,7 +174,7 @@ class FlightAwareClient:
             return datetime.fromisoformat(dt_str)
         except:
             return datetime.now()
-    
+
     def _map_status(self, fa_status: str) -> str:
         """Map FlightAware status to our status"""
         status_map = {
@@ -162,12 +186,12 @@ class FlightAwareClient:
             "Diverted": "diverted"
         }
         return status_map.get(fa_status, "unknown")
-    
+
     def _calculate_delay(self, flight: Dict) -> int:
         """Calculate delay in minutes"""
         scheduled_out = flight.get("scheduled_out")
         estimated_out = flight.get("estimated_out")
-        
+
         if scheduled_out and estimated_out:
             sched = self._parse_datetime(scheduled_out)
             est = self._parse_datetime(estimated_out)
@@ -242,44 +266,104 @@ def parse_date(date_str: str) -> Optional[datetime]:
 
 def is_travel_event(event: Dict) -> bool:
     """Check if event is travel-related"""
+    text = " ".join([
+        event.get('summary', ''),
+        event.get('location', ''),
+        event.get('description', ''),
+    ]).lower()
+    return (
+        any(kw in text for kw in TRAVEL_KEYWORDS)
+        or any(kw in text for kw in DESTINATION_KEYWORDS)
+        or event.get('is_travel')
+    )
+
+
+def event_text(event: Dict) -> str:
+    return " ".join([
+        event.get('summary', ''),
+        event.get('location', ''),
+        event.get('description', ''),
+    ]).lower()
+
+
+def is_stay_event(event: Dict) -> bool:
+    text = event_text(event)
+    return any(kw in text for kw in ['hotel', 'stay at', 'reservation', 'marriott', 'ritz', 'westin', 'hilton', 'four seasons'])
+
+
+def is_trip_anchor_event(event: Dict) -> bool:
+    """Non-flight events that can represent a trip on their own."""
+    if extract_flight_info(event).get('flight'):
+        return True
+    text = event_text(event)
+    return is_stay_event(event) or any(kw in text for kw in DESTINATION_KEYWORDS)
+
+
+def placeholder_key(event: Dict) -> Optional[Tuple[str, str]]:
+    event_date = parse_date(event.get('start_raw', ''))
+    if not event_date:
+        return None
+    destination = extract_destination(event)
+    if not destination or destination == 'Trip':
+        return None
+    return (event_date.strftime('%Y-%m-%d'), destination)
+
+
+def non_geoff_placeholder_keys(calendar_data: Dict) -> Set[Tuple[str, str]]:
+    """Find date/destination placeholders that are explicitly for someone else."""
+    keys = set()
+    for event in calendar_data.get('events', []):
+        summary = event.get('summary', '').lower()
+        if any(name in summary for name in NON_GEOFF_PLACEHOLDER_NAMES):
+            key = placeholder_key(event)
+            if key:
+                keys.add(key)
+    return keys
+
+
+def is_non_geoff_placeholder(event: Dict, placeholder_keys: Set[Tuple[str, str]]) -> bool:
+    """Exclude family/member placeholder travel from Geoff's task creation."""
     summary = event.get('summary', '').lower()
-    return any(kw in summary for kw in TRAVEL_KEYWORDS) or event.get('is_travel')
+    if any(name in summary for name in NON_GEOFF_PLACEHOLDER_NAMES):
+        return True
+    key = placeholder_key(event)
+    return bool(key and key in placeholder_keys and is_stay_event(event))
 
 
 def extract_flight_info(event: Dict) -> Dict:
     """Extract flight number and confirmation from event"""
     summary = event.get('summary', '')
     description = event.get('description', '')
-    
+
     flight_num = None
     airline_code = 'DL'  # Default to Delta
-    
+
     # Pattern 1: "DL 4099" or "(DL 4099)"
     match = re.search(r'\(?(DL|UA|AA|AS|B6|WN)\s*(\d+)\)?', summary, re.IGNORECASE)
     if match:
         airline_code = match.group(1).upper()
         flight_num = f"{airline_code}{match.group(2)}"
-    
+
     # Pattern 2: "Delta Air Lines flight 960"
     if not flight_num:
         match = re.search(r'Delta\s+(?:Air\s+)?(?:Lines?\s+)?(?:flight\s+)?(\d+)', summary, re.IGNORECASE)
         if match:
             flight_num = f"DL{match.group(1)}"
-    
+
     # Pattern 3: "United flight 123"
     if not flight_num:
         match = re.search(r'United\s+(?:Airlines?\s+)?(?:flight\s+)?(\d+)', summary, re.IGNORECASE)
         if match:
             airline_code = 'UA'
             flight_num = f"UA{match.group(1)}"
-    
+
     # Pattern 4: "American flight 123"
     if not flight_num:
         match = re.search(r'American\s+(?:Airlines?\s+)?(?:flight\s+)?(\d+)', summary, re.IGNORECASE)
         if match:
             airline_code = 'AA'
             flight_num = f"AA{match.group(1)}"
-    
+
     # Extract confirmation code (6 char alphanumeric)
     confirmation = None
     text = f"{summary} {description}"
@@ -289,7 +373,7 @@ def extract_flight_info(event: Dict) -> Dict:
         # Filter out common non-confirmation patterns
         if potential not in ['FLIGHT', 'DELTA', 'UNITED', 'TRAVEL']:
             confirmation = potential
-    
+
     return {
         'flight': flight_num,
         'airline': airline_code,
@@ -302,7 +386,7 @@ def extract_destination(event: Dict) -> str:
     location = event.get('location', '')
     summary = event.get('summary', '')
     description = event.get('description', '')
-    
+
     # Check summary for "Flight to [Destination]" pattern
     flight_to_match = re.search(r'Flight\s+to\s+([A-Za-z\s]+?)(?:\s+\(|\s*-|\s*$)', summary, re.IGNORECASE)
     if flight_to_match:
@@ -320,23 +404,22 @@ def extract_destination(event: Dict) -> str:
         if dest_upper in airport_map:
             return airport_map[dest_upper]
         return dest
-    
-    # Check location for "Departure - Arrival" format
-    if '-' in location:
-        parts = location.split('-')
-        if len(parts) >= 2:
-            arrival = parts[1].strip()
+
+    # Check location for "Departure - Arrival" format. Require spaces around
+    # the route dash so place names like "Reno-Tahoe" are not split.
+    route_parts = re.split(r'\s+-\s+', location, maxsplit=1)
+    if len(route_parts) >= 2:
+            arrival = route_parts[1].strip()
             city_match = arrival.split('(')[0].strip()
             if city_match and 'detailed information' not in city_match.lower():
                 return city_match
-    
+
     # Check for common destinations
     text = f"{location} {summary} {description}".lower()
-    
-    if 'new york' in text or 'jfk' in text or 'lga' in text or 'ewr' in text:
-        return 'NYC'
-    if 'reno' in text or 'rno' in text or 'tahoe' in text:
-        return 'Tahoe'
+
+    for keyword, destination in DESTINATION_KEYWORDS.items():
+        if keyword in text:
+            return destination
     if 'san jose' in text or 'sjc' in text:
         return 'San Jose'
     if 'palo alto' in text:
@@ -348,14 +431,14 @@ def extract_destination(event: Dict) -> str:
     if 'los angeles' in text or 'lax' in text:
         if 'from' in text and ('lax' in text.split('from')[1] or 'los angeles' in text.split('from')[1]):
             return 'Los Angeles'
-    
+
     if location:
         parts = location.split(',')
         if parts:
             loc = parts[0].strip()
             if 'detailed information' not in loc.lower():
                 return loc
-    
+
     return 'Trip'
 
 
@@ -363,19 +446,18 @@ def is_return_flight(event: Dict) -> bool:
     """Check if this is a return flight to LAX/Burbank (end of trip)"""
     location = event.get('location', '')
     summary = event.get('summary', '')
-    
+
     text = f"{location} {summary}".lower()
-    
-    if '-' in location:
-        parts = location.split('-')
-        if len(parts) >= 2:
-            arrival = parts[1].strip().lower()
-            if any(ap in arrival for ap in ['lax', 'los angeles', 'burbank', 'bur']):
+
+    route_parts = re.split(r'\s+-\s+', location, maxsplit=1)
+    if len(route_parts) >= 2:
+            arrival = route_parts[1].strip().lower()
+            if any(ap.lower() in arrival for ap in HOME_AIRPORTS) or 'los angeles' in arrival or 'burbank' in arrival:
                 return True
-    
+
     if re.search(r'to\s+(Los Angeles|LAX|Burbank|BUR)', summary, re.IGNORECASE):
         return True
-    
+
     return False
 
 
@@ -383,14 +465,23 @@ def is_outbound_from_home(event: Dict) -> bool:
     """Check if flight departs from home airport (LAX/BUR/etc)"""
     location = event.get('location', '')
     summary = event.get('summary', '')
-    
+
+    route_parts = re.split(r'\s+-\s+', location, maxsplit=1)
+    if len(route_parts) >= 2:
+        origin = route_parts[0].lower()
+        return any(ap.lower() in origin for ap in HOME_AIRPORTS) or 'los angeles' in origin or 'burbank' in origin
+
+    summary_lower = summary.lower()
+    if re.search(r'to\s+(Los Angeles|LAX|Burbank|BUR)', summary, re.IGNORECASE):
+        return False
+
     text = f"{location} {summary}".lower()
-    
+
     # Check if departing from home airport
     for airport in ['lax', 'burbank', 'bur', 'van nuys', 'vny', 'long beach', 'lgb', 'ontario', 'ont']:
         if airport in text:
             return True
-    
+
     return False
 
 
@@ -418,11 +509,11 @@ def get_existing_task_names(project: str = "Travel") -> Set[str]:
 def task_exists(task_name: str, existing_tasks: Set[str]) -> bool:
     """Smart task existence check with fuzzy matching"""
     task_lower = task_name.lower()
-    
+
     # Exact match
     if task_lower in existing_tasks:
         return True
-    
+
     # For Uber tasks, check if similar task exists for same flight
     if "uber" in task_lower:
         flight_match = re.search(r'(DL|UA|AA|AS|B6|WN)\d+', task_lower)
@@ -431,17 +522,11 @@ def task_exists(task_name: str, existing_tasks: Set[str]) -> bool:
             for existing in existing_tasks:
                 if flight_num in existing and "uber" in existing:
                     return True
-    
-    # For pack tasks, check if any pack task exists for similar timeframe
-    if "pack" in task_lower:
-        for existing in existing_tasks:
-            if "pack" in existing:
-                return True
-    
+
     return False
 
 
-def create_task(text: str, project: str = "Travel", due: Optional[str] = None, 
+def create_task(text: str, project: str = "Travel", due: Optional[str] = None,
                 parent_id: Optional[str] = None, existing_tasks: Optional[Set[str]] = None) -> Optional[str]:
     """Create a task and return its ID"""
     try:
@@ -449,22 +534,28 @@ def create_task(text: str, project: str = "Travel", due: Optional[str] = None,
         if existing_tasks and task_exists(text, existing_tasks):
             log(f"  Already exists: {text[:60]}")
             return None
-        
-        cmd = [TODOIST_PATH, "add", text, "-p", project, "-P", "2"]
+
+        cmd = [TODOIST_PATH, "add", text, "-p", project, "-P", "2", "--json"]
         if due:
             cmd.extend(["-d", due])
         if parent_id:
             cmd.extend(["--parent", parent_id])
-        
+
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
-        
+
         if result.returncode != 0:
             if "already exists" in result.stderr.lower():
                 return None
             log(f"  Failed to create: {text[:50]} - {result.stderr}")
             return None
-        
-        # Extract task ID
+
+        # Extract task ID from JSON output. Fall back to legacy text parsing.
+        try:
+            created = json.loads(result.stdout)
+            if isinstance(created, dict) and created.get("id"):
+                return created["id"]
+        except json.JSONDecodeError:
+            pass
         match = re.search(r'ID:\s+(\w+)', result.stdout)
         if match:
             return match.group(1)
@@ -477,11 +568,9 @@ def create_task(text: str, project: str = "Travel", due: Optional[str] = None,
 def get_hotel_stays(calendar_data: Dict) -> List[Dict]:
     """Extract hotel stay events from calendar"""
     hotels = []
-    hotel_keywords = ['stay at', 'hotel', 'westin', 'ritz', 'marriott', 'hilton', 'four seasons']
-    
+
     for event in calendar_data.get('events', []):
-        summary = event.get('summary', '').lower()
-        if any(kw in summary for kw in hotel_keywords):
+        if is_stay_event(event):
             event_date = parse_date(event.get('start_raw', ''))
             if event_date:
                 location = extract_destination(event)
@@ -490,115 +579,132 @@ def get_hotel_stays(calendar_data: Dict) -> List[Dict]:
                     'date': event_date,
                     'location': location
                 })
-    
+
     return sorted(hotels, key=lambda x: x['date'])
 
 
+def infer_trip_destination(events: List[Dict]) -> str:
+    """Infer destination, preferring the final non-home flight destination."""
+    destination = 'Trip'
+    for event in events:
+        dest = extract_destination(event)
+        if dest and dest != 'Trip':
+            if is_return_flight(event):
+                continue
+            destination = dest
+    return destination
+
+
 def group_events_by_trip(events: List[Dict], calendar_data: Dict) -> List[Dict]:
-    """Group flight events into trips using hotel stays as anchors"""
+    """Group travel events into trips.
+
+    Flights are primary. Non-flight anchors, like hotels or destination events, are
+    attached when close to those flights or become their own trip if no flight is
+    present. This prevents separate July trips from being merged just because no
+    homebound return flight appears between them.
+    """
     if not events:
         return []
-    
-    hotel_stays = get_hotel_stays(calendar_data)
-    
-    # Sort flights by date
-    flights = sorted([e for e in events if extract_flight_info(e).get('flight')], 
+
+    placeholder_keys = non_geoff_placeholder_keys(calendar_data)
+    events = [event for event in events if not is_non_geoff_placeholder(event, placeholder_keys)]
+    if not events:
+        return []
+
+    flights = sorted([e for e in events if extract_flight_info(e).get('flight')],
                      key=lambda x: parse_date(x.get('start_raw', '')) or datetime.now())
-    
+    anchors = sorted([e for e in events if not extract_flight_info(e).get('flight') and is_trip_anchor_event(e)],
+                     key=lambda x: parse_date(x.get('start_raw', '')) or datetime.now())
+
     trips = []
-    used_flights = set()
-    current_trip_flights = []
-    current_trip_destination = None
-    
+    used_event_ids = set()
+    max_flight_gap_days = 7
+
+    def event_id(event: Dict) -> str:
+        return event.get('summary', '') + event.get('start_raw', '')
+
+    def make_trip(cluster: List[Dict]) -> Optional[Dict]:
+        dated = [(parse_date(e.get('start_raw', '')), e) for e in cluster]
+        dated = [(d, e) for d, e in dated if d]
+        if not dated:
+            return None
+        dated.sort(key=lambda x: x[0])
+        trip_events = [e for _, e in dated]
+        return {
+            'events': trip_events,
+            'start_date': dated[0][0],
+            'end_date': dated[-1][0],
+            'destination': infer_trip_destination(trip_events)
+        }
+
+    # Build flight clusters first.
+    flight_clusters = []
+    current_cluster = []
+    last_date = None
     for flight in flights:
         flight_date = parse_date(flight.get('start_raw', ''))
         if not flight_date:
             continue
-        
-        flight_id = flight.get('summary', '') + flight.get('start_raw', '')
-        if flight_id in used_flights:
+        if current_cluster and last_date and (flight_date - last_date).days > max_flight_gap_days:
+            flight_clusters.append(current_cluster)
+            current_cluster = []
+        current_cluster.append(flight)
+        last_date = flight_date
+    if current_cluster:
+        flight_clusters.append(current_cluster)
+
+    # Attach nearby anchors to flight clusters.
+    for cluster in flight_clusters:
+        dates = [parse_date(e.get('start_raw', '')) for e in cluster]
+        dates = [d for d in dates if d]
+        if not dates:
             continue
-        
-        flight_dest = extract_destination(flight)
-        is_return = is_return_flight(flight)
-        
-        # Find closest hotel within 4 days
-        closest_hotel = None
-        closest_days = 5
-        for hotel in hotel_stays:
-            days_from_hotel = abs((flight_date - hotel['date']).days)
-            if days_from_hotel <= 4 and hotel['location'] != 'Trip':
-                if days_from_hotel < closest_days:
-                    closest_days = days_from_hotel
-                    closest_hotel = hotel
-        
-        if closest_hotel:
-            flight_dest = closest_hotel['location']
-        
-        if not current_trip_flights:
-            current_trip_flights = [flight]
-            current_trip_destination = flight_dest if flight_dest != 'Trip' else 'Trip'
-        elif is_return:
-            current_trip_flights.append(flight)
-            trips.append({
-                'events': current_trip_flights,
-                'start_date': parse_date(current_trip_flights[0].get('start_raw', '')),
-                'end_date': flight_date,
-                'destination': current_trip_destination
-            })
-            for f in current_trip_flights:
-                used_flights.add(f.get('summary', '') + f.get('start_raw', ''))
-            current_trip_flights = []
-            current_trip_destination = None
-        else:
-            current_trip_flights.append(flight)
-            if flight_dest != 'Trip' and current_trip_destination == 'Trip':
-                current_trip_destination = flight_dest
-    
-    # Handle remaining flights
-    if current_trip_flights:
-        trips.append({
-            'events': current_trip_flights,
-            'start_date': parse_date(current_trip_flights[0].get('start_raw', '')),
-            'end_date': parse_date(current_trip_flights[-1].get('start_raw', '')),
-            'destination': current_trip_destination
-        })
-        for f in current_trip_flights:
-            used_flights.add(f.get('summary', '') + f.get('start_raw', ''))
-    
-    # Handle remaining ungrouped flights
-    remaining_flights = [f for f in flights 
-                        if (f.get('summary', '') + f.get('start_raw', '')) not in used_flights]
-    
-    if remaining_flights:
-        remaining_flights.sort(key=lambda x: parse_date(x.get('start_raw', '')) or datetime.now())
-        current_trip = None
-        
-        for flight in remaining_flights:
-            flight_date = parse_date(flight.get('start_raw', ''))
-            if not flight_date:
+        start = min(dates) - timedelta(days=1)
+        end = max(dates) + timedelta(days=1)
+        trip_events = list(cluster)
+        for anchor in anchors:
+            anchor_date = parse_date(anchor.get('start_raw', ''))
+            if not anchor_date:
                 continue
-            
-            flight_dest = extract_destination(flight)
-            
-            if current_trip is None or (flight_date - current_trip['end_date']).days > 2:
-                if current_trip:
-                    trips.append(current_trip)
-                current_trip = {
-                    'events': [flight],
-                    'start_date': flight_date,
-                    'end_date': flight_date,
-                    'destination': flight_dest if flight_dest != 'Trip' else 'Trip'
-                }
-            else:
-                current_trip['events'].append(flight)
-                current_trip['end_date'] = flight_date
-                if flight_dest != 'Trip':
-                    current_trip['destination'] = flight_dest
-        
-        if current_trip:
-            trips.append(current_trip)
-    
+            if start <= anchor_date <= end:
+                trip_events.append(anchor)
+                used_event_ids.add(event_id(anchor))
+        for flight in cluster:
+            used_event_ids.add(event_id(flight))
+        trip = make_trip(trip_events)
+        if trip:
+            trips.append(trip)
+
+    # Remaining destination/hotel anchors become their own trips.
+    current_anchor_cluster = []
+    current_destination = None
+    last_anchor_date = None
+    for anchor in anchors:
+        if event_id(anchor) in used_event_ids:
+            continue
+        anchor_date = parse_date(anchor.get('start_raw', ''))
+        if not anchor_date:
+            continue
+        anchor_destination = extract_destination(anchor)
+        should_start = (
+            not current_anchor_cluster
+            or anchor_destination != current_destination
+            or (last_anchor_date and (anchor_date - last_anchor_date).days > 2)
+        )
+        if should_start and current_anchor_cluster:
+            trip = make_trip(current_anchor_cluster)
+            if trip:
+                trips.append(trip)
+            current_anchor_cluster = []
+        current_anchor_cluster.append(anchor)
+        current_destination = anchor_destination
+        last_anchor_date = anchor_date
+        used_event_ids.add(event_id(anchor))
+    if current_anchor_cluster:
+        trip = make_trip(current_anchor_cluster)
+        if trip:
+            trips.append(trip)
+
     trips.sort(key=lambda x: x['start_date'])
     return trips
 
@@ -608,49 +714,53 @@ def get_trip_id(trip: Dict) -> str:
     events = trip.get('events', [])
     if not events:
         return ""
-    first = events[0]
+    first = next((event for event in events if extract_flight_info(event).get('flight')), events[0])
     summary = first.get('summary', '')
     date = first.get('start_raw', '')
     return f"{summary}_{date}"
 
 
-def process_trip(trip: Dict, existing_tasks: Set[str], state: Dict, 
+def process_trip(trip: Dict, existing_tasks: Set[str], state: Dict,
                  fa_client: Optional[FlightAwareClient] = None) -> int:
     """Process a single trip and create tasks"""
     created_count = 0
     processed_trips = state.get('processed_trips', [])
     processed_tasks = state.get('processed_tasks', [])
-    
+
     first_event = trip['events'][0]
+    first_flight_event = next((event for event in trip['events'] if extract_flight_info(event).get('flight')), first_event)
     first_date = trip['start_date']
-    flight_info = extract_flight_info(first_event)
-    
+    flight_info = extract_flight_info(first_flight_event)
+
     destination = trip['destination']
     date_str = first_date.strftime('%b %d')
     flight_str = flight_info.get('flight', 'Flight')
     conf_str = flight_info.get('confirmation', '')
-    
+
     # Main task name
     main_task_name = f"Tasks for {destination} Trip on {date_str}"
     if flight_str and flight_str != 'Flight':
         main_task_name += f" - {flight_str}"
     if conf_str:
         main_task_name += f" {conf_str}"
-    
+
     trip_id = get_trip_id(trip)
-    
+
+    def task_key(task_text: str) -> str:
+        return f"{trip_id}::{task_text.lower()}" if trip_id else task_text.lower()
+
     # DUPLICATE DETECTION: Check state first
     if trip_id and trip_id in processed_trips:
         log(f"  ✓ Trip already processed (state): {main_task_name[:60]}")
         return 0
-    
+
     # Check if main task exists
     if main_task_name.lower() in existing_tasks:
         log(f"  ✓ Task already exists (Todoist): {main_task_name[:60]}")
         if trip_id:
             processed_trips.append(trip_id)
         return 0
-    
+
     # Fuzzy match
     trip_pattern = f"tasks for {destination.lower()} trip on {date_str.lower()}"
     for existing in existing_tasks:
@@ -659,102 +769,122 @@ def process_trip(trip: Dict, existing_tasks: Set[str], state: Dict,
             if trip_id:
                 processed_trips.append(trip_id)
             return 0
-    
+
     # Create main task
     log(f"Creating: {main_task_name}")
-    parent_id = create_task(main_task_name, due=first_date.strftime('%Y-%m-%d'), 
+    parent_id = create_task(main_task_name, due=first_date.strftime('%Y-%m-%d'),
                            existing_tasks=existing_tasks)
     if not parent_id:
         log(f"  Could not create main task")
         return 0
-    
+
     created_count += 1
     existing_tasks.add(main_task_name.lower())
     if trip_id:
         processed_trips.append(trip_id)
-    
+
     # Create subtasks
     today = datetime.now().strftime('%Y-%m-%d')
-    
+
     # 1. Pack task - due day before
     pack_due = (first_date - timedelta(days=1)).strftime('%Y-%m-%d')
     pack_text = "└── 🧳 Pack"
-    if pack_text.lower() not in processed_tasks:
-        pack_task = create_task(pack_text, due=pack_due, parent_id=parent_id, 
-                               existing_tasks=existing_tasks)
+    pack_key = task_key(pack_text)
+    if pack_key not in processed_tasks:
+        pack_task = create_task(pack_text, due=pack_due, parent_id=parent_id,
+                               existing_tasks=None)
         if pack_task:
             created_count += 1
-            processed_tasks.append(pack_text.lower())
+            processed_tasks.append(pack_key)
             log(f"  Created: └── 🧳 Pack (due {pack_due})")
-    
+
     # 2. Contact Marriott Ambassador - due 7 days before
     marriott_due = (first_date - timedelta(days=7)).strftime('%Y-%m-%d')
     marriott_text = "└── 🏢 Contact Marriott Ambassador about hotel"
-    if marriott_text.lower() not in processed_tasks:
+    marriott_key = task_key(marriott_text)
+    if marriott_key not in processed_tasks:
         marriott_task = create_task(marriott_text, due=marriott_due, parent_id=parent_id,
-                                   existing_tasks=existing_tasks)
+                                   existing_tasks=None)
         if marriott_task:
             created_count += 1
-            processed_tasks.append(marriott_text.lower())
+            processed_tasks.append(marriott_key)
             log(f"  Created: └── 🏢 Contact Marriott Ambassador (due {marriott_due})")
-    
+
     # 3. Schedule Rover - only for outbound flights from home
-    # Check if first flight is outbound from LAX/Burbank
-    if is_outbound_from_home(first_event):
-        rover_text = "└── 🐕 Schedule Rover for Greta"
-        if rover_text.lower() not in processed_tasks:
+    if first_flight_event is not first_event or extract_flight_info(first_event).get('flight'):
+        outbound_from_home = is_outbound_from_home(first_flight_event)
+    else:
+        outbound_from_home = False
+    if outbound_from_home:
+        rover_text = f"└── 🐕 Schedule Rover for Greta for {destination} trip"
+        rover_key = task_key(rover_text)
+        if rover_key not in processed_tasks:
             rover_task = create_task(rover_text, due=today, parent_id=parent_id,
-                                   existing_tasks=existing_tasks)
+                                   existing_tasks=None)
             if rover_task:
                 created_count += 1
-                processed_tasks.append(rover_text.lower())
+                processed_tasks.append(rover_key)
                 log(f"  Created: └── 🐕 Schedule Rover (due today)")
-    
+
+    # 3b. If the trip was inferred from a destination event without a flight,
+    # explicitly prompt for missing logistics instead of pretending they exist.
+    if not extract_flight_info(first_flight_event).get('flight'):
+        logistics_text = f"└── 🔎 Confirm flights, hotel, and ground transport for {destination}"
+        logistics_key = task_key(logistics_text)
+        if logistics_key not in processed_tasks:
+            logistics_task = create_task(logistics_text, due=today, parent_id=parent_id,
+                                        existing_tasks=None)
+            if logistics_task:
+                created_count += 1
+                processed_tasks.append(logistics_key)
+                log(f"  Created: {logistics_text[:60]} (due today)")
+
     # 4. Schedule Uber for each flight leg
     for event in trip['events']:
         event_date = parse_date(event.get('start_raw', ''))
         if not event_date:
             continue
-        
+
         flight_info = extract_flight_info(event)
         flight_str = flight_info.get('flight')
-        
+
         if not flight_str:
             continue
-        
+
         flight_dest = extract_destination(event)
         uber_due = (event_date - timedelta(days=3)).strftime('%Y-%m-%d')
-        
+
         # Determine if this is to airport or from airport
         if is_outbound_from_home(event):
             uber_text = f"└── 🚗 Schedule Uber TO airport for {flight_str} to {flight_dest}"
         else:
             uber_text = f"└── 🚗 Schedule Uber FROM airport for {flight_str} from {flight_dest}"
-        
-        if uber_text.lower() not in processed_tasks:
+
+        uber_key = task_key(uber_text)
+        if uber_key not in processed_tasks:
             uber_task = create_task(uber_text, due=uber_due, parent_id=parent_id,
-                                   existing_tasks=existing_tasks)
+                                   existing_tasks=None)
             if uber_task:
                 created_count += 1
-                processed_tasks.append(uber_text.lower())
+                processed_tasks.append(uber_key)
                 log(f"  Created: {uber_text[:60]} (due {uber_due})")
-    
+
     log(f"  Marked trip as processed: {trip_id}")
     return created_count
 
 
-def check_flight_changes(flight_number: str, current_status: FlightStatus, 
+def check_flight_changes(flight_number: str, current_status: FlightStatus,
                         tracked_flights: Dict) -> List[str]:
     """Check for changes in flight status and return alerts"""
     alerts = []
     flight_id = f"{flight_number}_{current_status.scheduled_departure.strftime('%Y%m%d')}"
-    
+
     if flight_id not in tracked_flights:
         # New flight being tracked
         return []
-    
+
     previous = tracked_flights[flight_id]
-    
+
     # Check for gate changes
     prev_departure_gate = previous.get('departure_gate')
     curr_departure_gate = current_status.departure_gate
@@ -763,7 +893,7 @@ def check_flight_changes(flight_number: str, current_status: FlightStatus,
             alerts.append(f"🔄 GATE CHANGE: Departure gate changed from {prev_departure_gate} to {curr_departure_gate}")
         else:
             alerts.append(f"📍 GATE ASSIGNED: Departure gate is now {curr_departure_gate}")
-    
+
     # Check for arrival gate changes
     prev_arrival_gate = previous.get('arrival_gate')
     curr_arrival_gate = current_status.arrival_gate
@@ -772,19 +902,19 @@ def check_flight_changes(flight_number: str, current_status: FlightStatus,
             alerts.append(f"🔄 ARRIVAL GATE CHANGE: Arrival gate changed from {prev_arrival_gate} to {curr_arrival_gate}")
         else:
             alerts.append(f"📍 ARRIVAL GATE ASSIGNED: Arrival gate is now {curr_arrival_gate}")
-    
+
     # Check for terminal changes
     prev_terminal = previous.get('departure_terminal')
     curr_terminal = current_status.departure_terminal
     if prev_terminal != curr_terminal and curr_terminal:
         alerts.append(f"🔄 TERMINAL CHANGE: Now departing from Terminal {curr_terminal}")
-    
+
     # Check for delays
     prev_delay = previous.get('delay_minutes', 0)
     curr_delay = current_status.delay_minutes
     if curr_delay > prev_delay and curr_delay >= 15:
         alerts.append(f"⏰ DELAY ALERT: Flight delayed by {curr_delay} minutes")
-    
+
     # Check for status changes
     prev_status = previous.get('status', 'unknown')
     curr_status = current_status.status
@@ -793,7 +923,7 @@ def check_flight_changes(flight_number: str, current_status: FlightStatus,
             alerts.append(f"🚨 FLIGHT CANCELLED: {flight_number} has been cancelled")
         elif curr_status == 'delayed':
             alerts.append(f"⏰ STATUS: Flight now showing as DELAYED")
-    
+
     return alerts
 
 
@@ -802,85 +932,87 @@ def monitor_day_of_travel(fa_client: FlightAwareClient) -> Dict:
     log("=" * 70)
     log("Aero: Day-of-Travel Monitoring")
     log("=" * 70)
-    
+
     calendar = load_calendar()
     if not calendar:
         log("No calendar data found")
         return {'alerts_sent': 0, 'flights_checked': 0}
-    
+
     tracked_flights = load_tracked_flights()
     today = datetime.now().date()
     alerts_sent = 0
     flights_checked = 0
-    
+
     # Find flights departing today or tomorrow (for early morning flights)
     for event in calendar.get('events', []):
         if not is_travel_event(event):
             continue
-        
+        if is_non_geoff_placeholder(event, non_geoff_placeholder_keys(calendar)):
+            continue
+
         flight_info = extract_flight_info(event)
         flight_number = flight_info.get('flight')
-        
+
         if not flight_number:
             continue
-        
+
         event_date = parse_date(event.get('start_raw', ''))
         if not event_date:
             continue
-        
+
         # Check flights departing today or tomorrow
         event_date_only = event_date.date()
         if event_date_only not in [today, today + timedelta(days=1)]:
             continue
-        
+
         flights_checked += 1
         log(f"\n✈️ Checking {flight_number} on {event_date.strftime('%Y-%m-%d %H:%M')}")
-        
+
         # Get current status from FlightAware
         date_str = event_date.strftime('%Y-%m-%d')
         current_status = fa_client.get_flight_status(flight_number, date_str)
-        
+
         if not current_status:
             log(f"  Could not fetch status from FlightAware")
             continue
-        
+
         log(f"  Status: {current_status.status}")
         log(f"  Gate: {current_status.departure_gate or 'Not assigned'}")
         log(f"  Terminal: {current_status.departure_terminal or 'N/A'}")
         log(f"  Delay: {current_status.delay_minutes} minutes")
-        
+
         # Check for changes
         alerts = check_flight_changes(flight_number, current_status, tracked_flights)
-        
+
         if alerts:
             log(f"  🔔 {len(alerts)} alert(s) detected:")
             for alert in alerts:
                 log(f"    - {alert}")
-            
+
             # Send alerts
             send_flight_alerts(flight_number, current_status, alerts)
             alerts_sent += len(alerts)
         else:
             log(f"  ✓ No changes detected")
-        
+
         # Update tracked flights
         flight_id = f"{flight_number}_{event_date.strftime('%Y%m%d')}"
         tracked_flights[flight_id] = current_status.to_dict()
-    
+
     # Save updated tracking data
     save_tracked_flights(tracked_flights)
-    
+
     log(f"\n{'=' * 70}")
     log(f"Summary: {flights_checked} flights checked, {alerts_sent} alerts sent")
     log("=" * 70)
-    
+
     return {'alerts_sent': alerts_sent, 'flights_checked': flights_checked}
 
 
 def send_flight_alerts(flight_number: str, status: FlightStatus, alerts: List[str]):
     """Send flight alerts via email and Telegram"""
     subject = f"✈️ Flight Alert: {flight_number}"
-    
+
     # Build email body
     email_body = f"""<h2>✈️ Flight Alert: {flight_number}</h2>
 
@@ -895,7 +1027,7 @@ def send_flight_alerts(flight_number: str, status: FlightStatus, alerts: List[st
 """
     for alert in alerts:
         email_body += f"<li>{alert}</li>\n"
-    
+
     email_body += f"""</ul>
 
 <h3>📍 Current Information:</h3>
@@ -910,7 +1042,7 @@ def send_flight_alerts(flight_number: str, status: FlightStatus, alerts: List[st
 
 <p><em>Checked at: {datetime.now().strftime('%Y-%m-%d %H:%M %Z')}</em></p>
 """
-    
+
     # Send email
     try:
         email_script = Path.home() / ".openclaw" / "workspace" / "scripts" / "send_email.py"
@@ -925,7 +1057,7 @@ def send_flight_alerts(flight_number: str, status: FlightStatus, alerts: List[st
             log(f"  📧 Email alert sent")
     except Exception as e:
         log(f"  ⚠️ Failed to send email: {e}")
-    
+
     # Send Telegram
     try:
         telegram_script = Path.home() / ".openclaw" / "workspace" / "scripts" / "telegram_notify.py"
@@ -937,7 +1069,7 @@ def send_flight_alerts(flight_number: str, status: FlightStatus, alerts: List[st
             for alert in alerts:
                 telegram_text += f"• {alert}\n"
             telegram_text += f"\nGate: {status.departure_gate or 'TBD'}"
-            
+
             subprocess.run([
                 "python3", str(telegram_script),
                 telegram_text
@@ -953,39 +1085,43 @@ def create_travel_tasks(fa_client: Optional[FlightAwareClient] = None) -> Dict:
     log("Aero Travel Manager: Creating Travel Tasks")
     log(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     log("=" * 70)
-    
+
     state = load_state()
     processed_trips = state.get('processed_trips', [])
     processed_tasks = state.get('processed_tasks', [])
-    
+
     calendar_data = load_calendar()
     if not calendar_data:
         log("Could not load calendar")
         return {'created': 0, 'trips_processed': 0}
-    
+
     log(f"Calendar loaded: {calendar_data.get('total_events', 0)} events")
-    
+
     # Get travel events in next 60 days
     travel_events = []
+    placeholder_keys = non_geoff_placeholder_keys(calendar_data)
     cutoff = datetime.now() + timedelta(days=60)
     for event in calendar_data.get('events', []):
         if is_travel_event(event):
+            if is_non_geoff_placeholder(event, placeholder_keys):
+                log(f"  Skipping non-Geoff placeholder: {event.get('summary', '')[:60]}")
+                continue
             event_date = parse_date(event.get('start_raw', ''))
             if event_date and event_date <= cutoff:
                 travel_events.append(event)
-    
+
     log(f"Found {len(travel_events)} travel events in next 60 days")
-    
+
     # Group into trips
     trips = group_events_by_trip(travel_events, calendar_data)
     log(f"Grouped into {len(trips)} trips")
     log("")
-    
+
     # Get existing tasks
     existing_tasks = get_existing_task_names()
     log(f"Found {len(existing_tasks)} existing tasks")
     log("")
-    
+
     # Process each trip
     total_created = 0
     for trip in trips:
@@ -993,16 +1129,16 @@ def create_travel_tasks(fa_client: Optional[FlightAwareClient] = None) -> Dict:
         total_created += created
         if created > 0:
             log("")
-    
+
     # Save state
     state['processed_trips'] = processed_trips
     state['processed_tasks'] = processed_tasks
     save_state(state)
-    
+
     log("=" * 70)
     log(f"SUMMARY: Created {total_created} tasks for {len(trips)} trips")
     log("=" * 70)
-    
+
     return {'created': total_created, 'trips_processed': len(trips)}
 
 
@@ -1012,7 +1148,7 @@ def validate_flight_info(flight_number: str, date_str: str) -> Dict:
     Returns validation results with confidence score.
     """
     log(f"\n🔍 Validating flight: {flight_number} on {date_str}")
-    
+
     results = {
         'flight_number': flight_number,
         'date': date_str,
@@ -1021,7 +1157,7 @@ def validate_flight_info(flight_number: str, date_str: str) -> Dict:
         'validated': False,
         'details': {}
     }
-    
+
     # Source 1: FlightAware API (primary)
     try:
         fa_client = FlightAwareClient()
@@ -1042,7 +1178,7 @@ def validate_flight_info(flight_number: str, date_str: str) -> Dict:
             log(f"  ⚠️ FlightAware: Flight not found")
     except Exception as e:
         log(f"  ❌ FlightAware error: {e}")
-    
+
     # Source 2: Calendar cross-reference
     calendar = load_calendar()
     if calendar:
@@ -1060,7 +1196,7 @@ def validate_flight_info(flight_number: str, date_str: str) -> Dict:
                     results['confidence'] += 30
                     log(f"  ✅ Calendar: Found matching event")
                     break
-    
+
     # Source 3: FlightAware schedule search (if we have origin/destination)
     if 'flightaware' in results['details']:
         details = results['details']['flightaware']
@@ -1083,7 +1219,7 @@ def validate_flight_info(flight_number: str, date_str: str) -> Dict:
                         break
         except Exception as e:
             log(f"  ⚠️ Schedule search error: {e}")
-    
+
     # Determine validation status
     if results['confidence'] >= 80:
         results['validated'] = True
@@ -1093,9 +1229,9 @@ def validate_flight_info(flight_number: str, date_str: str) -> Dict:
         results['status'] = 'LIKELY'
     else:
         results['status'] = 'UNVERIFIED'
-    
+
     log(f"  📊 Validation confidence: {results['confidence']}% - {results['status']}")
-    
+
     return results
 
 
@@ -1103,17 +1239,17 @@ def test_flight_aware_connection() -> bool:
     """Test FlightAware API connection"""
     log("\n🧪 Testing FlightAware API Connection")
     log("=" * 50)
-    
+
     try:
         fa_client = FlightAwareClient()
-        
+
         # Test with a known Delta flight
         test_flight = "DL123"
         url = f"{fa_client.base_url}/flights/{test_flight}"
-        
+
         log(f"Testing with flight: {test_flight}")
         response = requests.get(url, headers=fa_client._headers(), timeout=10)
-        
+
         if response.status_code == 200:
             log("✅ FlightAware API connection successful")
             data = response.json()
@@ -1126,7 +1262,7 @@ def test_flight_aware_connection() -> bool:
         else:
             log(f"⚠️ FlightAware API returned: {response.status_code}")
             return False
-            
+
     except ValueError as e:
         log(f"❌ FlightAware not configured: {e}")
         return False
@@ -1141,24 +1277,24 @@ def setup_flightaware(api_key: str):
     if CONFIG_PATH.exists():
         with open(CONFIG_PATH) as f:
             config = json.load(f)
-    
+
     if "flightaware" not in config:
         config["flightaware"] = {}
-    
+
     config["flightaware"]["api_key"] = api_key
     config["flightaware"]["base_url"] = "https://aeroapi.flightaware.com/aeroapi"
-    
+
     # Ensure memory directory exists
     MEMORY_PATH = Path(__file__).parent / "memory"
     MEMORY_PATH.mkdir(parents=True, exist_ok=True)
     (MEMORY_PATH / "trips").mkdir(exist_ok=True)
-    
+
     with open(CONFIG_PATH, "w") as f:
         json.dump(config, f, indent=2)
-    
+
     print("✅ FlightAware configuration saved!")
     print(f"   Config location: {CONFIG_PATH}")
-    
+
     # Test the connection
     try:
         client = FlightAwareClient()
@@ -1176,7 +1312,7 @@ def setup_flightaware(api_key: str):
 
 def main():
     import sys
-    
+
     if len(sys.argv) < 2:
         print("Usage:")
         print("  python aero_travel_manager.py setup <api_key>")
@@ -1186,9 +1322,9 @@ def main():
         print("  python aero_travel_manager.py validate <flight_number> <date>")
         print("  python aero_travel_manager.py test")
         sys.exit(1)
-    
+
     command = sys.argv[1]
-    
+
     if command == "setup":
         if len(sys.argv) < 3:
             print("Error: API key required")
@@ -1197,7 +1333,7 @@ def main():
         api_key = sys.argv[2]
         setup_flightaware(api_key)
         sys.exit(0)
-    
+
     # Initialize FlightAware client if configured
     fa_client = None
     try:
@@ -1206,7 +1342,7 @@ def main():
     except ValueError as e:
         log(f"⚠️ FlightAware not configured: {e}")
         log("   Day-of-travel monitoring will be limited")
-    
+
     if command == "tasks":
         create_travel_tasks(fa_client)
     elif command == "monitor":

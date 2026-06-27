@@ -2,6 +2,18 @@
 
 Welcome to the OpenClaw knowledge base — a living document of our setup, configurations, and ongoing work.
 
+## Existing Obsidian System Links
+
+This folder documents the agent and automation layer. It should not become the canonical place for all work notes.
+
+- Work knowledge base: `../work/README.md`
+- PGNY operating system and briefs: `../work/PGNY/README.md`
+- Shared inbox and sync channel: `../../shared-inbox/README.md`
+- Multi-device sync architecture: `../../shared-inbox/OBSIDIAN_SYNC_ARCHITECTURE.md`
+- Workspace-as-vault setup: `../../OBSIDIAN_SETUP.md`
+- Multi-AI second brain model: `Multi-AI Second Brain.md`
+- Context packs for other AI systems: `context-packs/`
+
 ## 🏛️ Cicero (Main Agent)
 
 **Identity:** Your digital familiar — warm, sharp, quietly effective  
@@ -56,4 +68,4 @@ Welcome to the OpenClaw knowledge base — a living document of our setup, confi
 
 ---
 
-_Last updated: May 27, 2026_
+_Last updated: June 27, 2026_

@@ -1,80 +1,8 @@
 {
-  "last_updated": "2026-06-25T13:45:04.062490+00:00",
-  "total_events": 100,
-  "travel_events": 11,
+  "last_updated": "2026-06-27T15:51:49.117086+00:00",
+  "total_events": 99,
+  "travel_events": 19,
   "events": [
-    {
-      "summary": "Delta Air Lines 742 - Confirmation code: HWL3CM",
-      "start": "Thursday, June 25 at 04:00 AM",
-      "start_raw": "2026-06-25T04:00:00-07:00",
-      "location": "New York(JFK) - Los Angeles(LAX)",
-      "description": "External Sender.\n\n Delta Air Lines confirmation code: HWL3CM Delta Air Lines 742 Business, Scheduled Departure Jun 25, 2026, 7:00 am, New York, NY, United States of America (JFK-John F. Kennedy Intl.)",
-      "is_travel": true
-    },
-    {
-      "summary": "Flight to Los Angeles Intl (DL 742)",
-      "start": "Thursday, June 25 at 04:00 AM",
-      "start_raw": "2026-06-25T04:00:00-07:00",
-      "location": "Kennedy Intl JFK",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
-      "start": "Thursday, June 25 at 07:00 AM",
-      "start_raw": "2026-06-25T07:00:00-07:00",
-      "location": "",
-      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
-      "is_travel": false
-    },
-    {
-      "summary": "\u26a1\ufe0f Maven LIVE: When to Use Claude Cowork vs. Build an AI workflow",
-      "start": "Thursday, June 25 at 09:00 AM",
-      "start_raw": "2026-06-25T09:00:00-07:00",
-      "location": "https://maven.com/s/joinworkshop/8a0f265c47",
-      "description": "<span>Join Jacob Bank and Pietro Montaldo for a high-impact lesson with live Q&amp;A.</span>\n</br>\n<span>You'll learn:</span>\n\n<span><b>What Is Cowork? What Are Skills? What Are Agents?</b></span\n>\n<s",
-      "is_travel": false
-    },
-    {
-      "summary": "Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build | Live Session",
-      "start": "Thursday, June 25 at 09:00 AM",
-      "start_raw": "2026-06-25T09:00:00-07:00",
-      "location": "",
-      "description": "Join us for the Harvard Data Science Review | 2.5 Week Intensive | Agentic AI Build live session. To join or for more information, please visit: <a href='https://courses.nxgl.ai'>courses.nxgl.ai</a>",
-      "is_travel": false
-    },
-    {
-      "summary": "Drop Oliver off at ESY",
-      "start": "Friday, June 26 at 08:30 AM",
-      "start_raw": "2026-06-26T08:30:00-07:00",
-      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Drop Sophie at Art Camp",
-      "start": "Friday, June 26 at 09:00 AM",
-      "start_raw": "2026-06-26T09:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver at ESY",
-      "start": "Friday, June 26 at 12:30 PM",
-      "start_raw": "2026-06-26T12:30:00-07:00",
-      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick Up Sophie from Art Camp",
-      "start": "Friday, June 26 at 03:00 PM",
-      "start_raw": "2026-06-26T15:00:00-07:00",
-      "location": "27400 Canwood St, Agoura Hills, CA 91301, USA",
-      "description": "",
-      "is_travel": false
-    },
     {
       "summary": "Ollie Consult Call",
       "start": "Monday, June 29 at 07:00 AM",
@@ -124,6 +52,14 @@
       "is_travel": false
     },
     {
+      "summary": "Westlake Fireworks Show",
+      "start": "Saturday, July 04 at 05:00 PM",
+      "start_raw": "2026-07-04T17:00:00-07:00",
+      "location": "4812 Lakeview Canyon Road!",
+      "description": "<a href=\"https://www.wlv.org/366/4th-of-July-Fireworks-Show\">https://www.wlv.org/366/4th-of-July-Fireworks-Show</a><br><br>Park here: 32110 Agoura Road",
+      "is_travel": false
+    },
+    {
       "summary": "Geoff Drop Kids off with Stacey",
       "start": "Sunday, July 05 at 09:00 AM",
       "start_raw": "2026-07-05T09:00:00-07:00",
@@ -145,7 +81,7 @@
       "start_raw": "2026-07-06T16:30:00-07:00",
       "location": "Lyceum Theatre, 149 West 45th Street, New York, NY 10036",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Oh Mary! Play",
@@ -153,7 +89,7 @@
       "start_raw": "2026-07-06T16:30:00-07:00",
       "location": "Lyceum Theatre, 149 W 45th St, New York, NY 10036, USA",
       "description": "Order 100546511\n[REDACTED]\nOh Mary Broadway Play Tickets\nOh, Mary!\nLyceum Theatre\n149 West 45th Street\nBetween Broadway and 6th Avenue\nNew York, NY, 10036\nBlue Location Pin\nMonday, July 6, ",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Mackenzie Hotel (US Grant, San Diego)",
@@ -241,7 +177,7 @@
       "start_raw": "2026-07-21",
       "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Stay at Truckee",
@@ -249,7 +185,7 @@
       "start_raw": "2026-07-21",
       "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Drop Kids with Stacey",
@@ -273,7 +209,7 @@
       "start_raw": "2026-07-21T17:30:00-07:00",
       "location": "2001 E Plumb Ln, Reno, NV 89502, USA",
       "description": "<table><tbody><tr><td><p>Your confirmation number is 70126791.<strong></strong></p><p><strong><br></strong></p><p><strong>Location</strong></p></td><td><p><strong>Reno-Tahoe International Airport (RNO",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Grace Keers's birthday",
@@ -297,7 +233,7 @@
       "start_raw": "2026-07-23",
       "location": "14816 Denton Ave, Truckee, CA 96161, USA",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Stay at Truckee",
@@ -305,7 +241,7 @@
       "start_raw": "2026-07-23",
       "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Return Rental Car",
@@ -313,7 +249,7 @@
       "start_raw": "2026-07-26T13:00:00-07:00",
       "location": "Reno-Tahoe International Airport, 2001 E Plumb Ln, Reno, NV 89502, USA",
       "description": "<table><tbody><tr><td><p><strong>Location</strong></p></td><td><p><strong>Reno-Tahoe International Airport (RNO)</strong></p></td></tr><tr><td><p><strong>Date &amp; Time</strong></p></td><td><p><stron",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Flight to Los Angeles Intl (DL 3902)",
@@ -433,7 +369,7 @@
       "start_raw": "2026-08-07",
       "location": "Golden Gate Park, San Francisco",
       "description": "",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Ollie Consult Call",
@@ -729,7 +665,7 @@
       "start_raw": "2026-09-10",
       "location": "6 Picton Street, Niagara on the Lake, ON, Canada, LOS 1J0",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": false
+      "is_travel": true
     },
     {
       "summary": "Pick up Sophie from School",
@@ -799,6 +735,62 @@
       "summary": "Pick up Oliver from School",
       "start": "Thursday, September 17 at 02:00 PM",
       "start_raw": "2026-09-17T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Friday, September 18 at 01:30 PM",
+      "start_raw": "2026-09-18T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Friday, September 18 at 02:00 PM",
+      "start_raw": "2026-09-18T14:00:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Ollie Consult Call",
+      "start": "Monday, September 21 at 07:00 AM",
+      "start_raw": "2026-09-21T07:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Suneel Birthday",
+      "start": "Thursday, September 24",
+      "start_raw": "2026-09-24",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Kim Hedges Birthday",
+      "start": "Thursday, September 24",
+      "start_raw": "2026-09-24",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Sophie from School",
+      "start": "Thursday, September 24 at 01:30 PM",
+      "start_raw": "2026-09-24T13:30:00-07:00",
+      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver from School",
+      "start": "Thursday, September 24 at 02:00 PM",
+      "start_raw": "2026-09-24T14:00:00-07:00",
       "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
       "description": "",
       "is_travel": false

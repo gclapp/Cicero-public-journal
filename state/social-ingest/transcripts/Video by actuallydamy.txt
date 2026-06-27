@@ -1,0 +1,31 @@
+Very exactly how you're going to use Obsidian as your AI memory system, and if you
+ask someone who uses AI every day for your work projects, personal projects, etc,
+please do this because it means that when the models change, the pricing change can literally
+switch models within a matter of minutes because your work flows aren't trapped into one company's
+ecosystem. The first thing you want to do is download the Obsidian desktop app. It is completely
+free and you want to set up a new fault. This is basically just a fancy name for a folder that
+sits on your computer. The next thing you want to do is pick the first project that you want to
+migrate. You want to create a folder inside your Obsidian Vault for that project. Once that project
+is set up, you want to find that file in your computer and connect it to whatever AI tool that you're
+using. I'm assuming most people use Claude so I would connect this to Claude co-work. You can use
+any tool that you want, it just has to have read and write access to your local files because this is
+exactly what keeps the memory updated. Once you've connected that folder, I would feed it this
+startup prompt. It is basically telling the AI to create four core files within that project. The
+readme markdown file is an overview of what the project is who it's for, why it matters and how
+the AI will help. The status on MD is the current snapshot of where the project is right now.
+The progress markdown file tracks what's happened, what's changed, and what should happen next.
+And the decision MD file stores what decisions have already been made up into this point. This
+prompt essentially tells Claude to consider the project context, history, et cetera, and summarized
+everything important that's happened. I'm break it down into the four core files that we just
+created. If all your context actually just lives in a Claude project or a chat, it's still doable,
+but it's going to be a little bit more manual. I would feed it this prompt instead and just ask it
+to write those four files for you and you can manually copy and paste it into those markdown files
+in obsidian. And now that your context is loaded into the markdown file, give any AI tool access
+the folder and it will understand completely what the project is where it's at, what decisions have
+been made, et cetera. And the last thing to keep in mind is that the system actually only works
+if you keep these markdown files updated as you make progress on your projects. At the end of each
+productive session, I would just manually ask the AI to update the memory files with a prompt like this.
+And that's literally it. You can rinse and repeat for every other project that you have,
+and you now have built your own AI memory system that sits on your computer and that you actually
+own. Hopefully that was helpful. Comment up, city, and I'll send you all my prompts, and make
+sure you follow for more AI content.

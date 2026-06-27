@@ -20,10 +20,12 @@ GATEWAY_LOG = Path.home() / ".openclaw" / "logs" / "gateway.log"
 EMAIL_SCRIPT = Path.home() / ".openclaw" / "workspace" / "scripts" / "send_email.py"
 
 # Expected primary model
-PRIMARY_MODEL = "openai/gpt-5.5"
-PRIMARY_ALIAS = "GPT-4o"
+PRIMARY_MODEL = "moonshot/kimi-k2.7-code"
+PRIMARY_ALIAS = "Kimi K2.7 Code"
 FALLBACK_MODELS = {
-    "openai/gpt-5.4-mini": "GPT-4o Mini",
+    "openai/gpt-5.5": "GPT-5.5",
+    "openai/gpt-5.4-mini": "GPT-5.4 Mini",
+    "openai/o3-mini": "o3 Mini",
     "moonshot/kimi-k2.5": "Kimi K2.5"
 }
 
@@ -80,23 +82,23 @@ def send_alert_email(fallback_model, fallback_name, reason="Automatic fallback d
     </table>
     
     <h3>What This Means</h3>
-    <p>OpenClaw has fallen back to a backup model because the primary OpenAI model 
-    (GPT-4o) is unavailable or returned an error. The backup model is still functional 
+    <p>OpenClaw has fallen back to a backup model because the primary Kimi model
+    is unavailable or returned an error. The backup model is still functional
     but may have different capabilities or performance characteristics.</p>
     
     <h3>Common Causes</h3>
     <ul>
-        <li>OpenAI API rate limiting</li>
-        <li>OpenAI service outage</li>
+        <li>Kimi/Moonshot API rate limiting</li>
+        <li>Kimi/Moonshot service outage</li>
         <li>API key issues or expiration</li>
-        <li>Network connectivity to OpenAI</li>
+        <li>Network connectivity to Moonshot</li>
         <li>Model overload/high demand</li>
     </ul>
     
     <h3>What You Can Do</h3>
     <ul>
-        <li>Check <a href="https://status.openai.com">OpenAI Status Page</a></li>
-        <li>Verify API key is valid at <a href="https://platform.openai.com">OpenAI Platform</a></li>
+        <li>Check Moonshot/Kimi service status</li>
+        <li>Verify the Moonshot API key is valid</li>
         <li>Wait for service to recover (fallback is automatic)</li>
         <li>Contact support if persistent</li>
     </ul>
@@ -156,7 +158,7 @@ def send_recovery_email():
         </tr>
     </table>
     
-    <p>OpenClaw has successfully returned to the primary OpenAI model (GPT-4o). 
+    <p>OpenClaw has successfully returned to the primary Kimi model.
     All systems are operating normally.</p>
     
     <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
@@ -218,6 +220,7 @@ def main():
     log("=" * 60)
     log("Model Fallback Monitor Check")
     log("=" * 60)
+    current = None
     
     # Check for command line arguments
     if len(sys.argv) > 1:
@@ -234,9 +237,8 @@ def main():
             pass
         else:
             current = sys.argv[1]
-    else:
-        # Get current model from marker file or environment
-        current = None
+    # Get current model from marker file/logs/environment when not supplied.
+    if not current:
         marker_file = Path.home() / ".openclaw" / "workspace" / "logs" / "current-model.txt"
         if marker_file.exists():
             try:
@@ -244,14 +246,12 @@ def main():
                     current = f.read().strip()
             except:
                 pass
-        
-        # Fallback: try to detect from logs
-        if not current:
-            current = detect_model_from_logs()
-        
-        # Fallback: use environment if available
-        if not current:
-            current = os.environ.get('OPENCLAW_CURRENT_MODEL')
+
+    if not current:
+        current = detect_model_from_logs()
+
+    if not current:
+        current = os.environ.get('OPENCLAW_CURRENT_MODEL')
     
     if not current:
         log("⚠️ Could not determine current model, skipping check")
@@ -266,7 +266,7 @@ def main():
     
     # Determine if we're on primary or fallback
     is_fallback = any(fb in current for fb in FALLBACK_MODELS.keys())
-    is_primary = PRIMARY_MODEL in current or PRIMARY_ALIAS in current or "gpt-5.5" in current
+    is_primary = PRIMARY_MODEL in current or PRIMARY_ALIAS in current or "kimi-k2.7-code" in current
     
     previous_model = data.get("current_model")
     

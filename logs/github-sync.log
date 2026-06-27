@@ -1,2 +1,130 @@
 [2026-06-27 06:55:03 UTC] Starting daily GitHub sync...
 [2026-06-27 06:55:03 UTC] Uncommitted changes found, committing...
+[main a334656] Daily sync: 20260627-065503
+ 146 files changed, 16867 insertions(+), 19505 deletions(-)
+ delete mode 100644 logs/aero-cron.log-20260620.gz
+ delete mode 100644 logs/aero-cron.log-20260626
+ create mode 100644 logs/aero-cron.log-20260626.gz
+ create mode 100644 logs/aero-cron.log-20260627
+ delete mode 100644 logs/aero-monitor.log-20260620.gz
+ delete mode 100644 logs/aero-monitor.log-20260626
+ create mode 100644 logs/aero-monitor.log-20260626.gz
+ create mode 100644 logs/aero-monitor.log-20260627
+ delete mode 100644 logs/aero-travel-manager.log-20260620.gz
+ delete mode 100644 logs/aero-travel-manager.log-20260626
+ create mode 100644 logs/aero-travel-manager.log-20260626.gz
+ create mode 100644 logs/aero-travel-manager.log-20260627
+ delete mode 100644 logs/api-health-alerts.log-20260626
+ create mode 100644 logs/api-health-alerts.log-20260626.gz
+ create mode 100644 logs/api-health-alerts.log-20260627
+ delete mode 100644 logs/api-health.log-20260626
+ create mode 100644 logs/api-health.log-20260626.gz
+ create mode 100644 logs/api-health.log-20260627
+ delete mode 100644 logs/calendar.log-20260620.gz
+ delete mode 100644 logs/calendar.log-20260626
+ create mode 100644 logs/calendar.log-20260626.gz
+ create mode 100644 logs/calendar.log-20260627
+ delete mode 100644 logs/checkin-delivery.log-20260620.gz
+ create mode 100644 logs/checkin-delivery.log-20260626.gz
+ rename logs/{checkin-delivery.log-20260626 => checkin-delivery.log-20260627} (85%)
+ delete mode 100644 logs/competitor-v3-cron.log-20260620.gz
+ delete mode 100644 logs/competitor-v3-cron.log-20260626
+ create mode 100644 logs/competitor-v3-cron.log-20260626.gz
+ create mode 100644 logs/competitor-v3-cron.log-20260627
+ delete mode 100644 logs/competitor-v3.log-20260620.gz
+ delete mode 100644 logs/competitor-v3.log-20260626
+ create mode 100644 logs/competitor-v3.log-20260626.gz
+ create mode 100644 logs/competitor-v3.log-20260627
+ create mode 100644 logs/daily-github-sync.log-20260627
+ delete mode 100644 logs/disk-monitor.log-20260620.gz
+ delete mode 100644 logs/disk-monitor.log-20260626
+ create mode 100644 logs/disk-monitor.log-20260626.gz
+ create mode 100644 logs/disk-monitor.log-20260627
+ delete mode 100644 logs/github-sync.log-20260620.gz
+ delete mode 100644 logs/github-sync.log-20260626
+ create mode 100644 logs/github-sync.log-20260626.gz
+ create mode 100644 logs/github-sync.log-20260627
+ delete mode 100644 logs/heartbeat.log-20260620.gz
+ delete mode 100644 logs/heartbeat.log-20260626
+ create mode 100644 logs/heartbeat.log-20260626.gz
+ create mode 100644 logs/heartbeat.log-20260627
+ delete mode 100644 logs/imap-checker.log-20260620.gz
+ delete mode 100644 logs/imap-checker.log-20260626
+ create mode 100644 logs/imap-checker.log-20260626.gz
+ create mode 100644 logs/imap-checker.log-20260627
+ delete mode 100644 logs/loseit-sync.log-20260620.gz
+ delete mode 100644 logs/loseit-sync.log-20260626
+ create mode 100644 logs/loseit-sync.log-20260626.gz
+ create mode 100644 logs/loseit-sync.log-20260627
+ delete mode 100644 logs/model-alerts.log-20260603.gz
+ delete mode 100644 logs/model-alerts.log-20260626
+ create mode 100644 logs/model-alerts.log-20260626.gz
+ create mode 100644 logs/model-alerts.log-20260627
+ delete mode 100644 logs/model-monitor-cron.log-20260603.gz
+ delete mode 100644 logs/model-monitor-cron.log-20260626
+ create mode 100644 logs/model-monitor-cron.log-20260626.gz
+ create mode 100644 logs/model-monitor-cron.log-20260627
+ delete mode 100644 logs/progyny-cron.log-20260620.gz
+ delete mode 100644 logs/progyny-cron.log-20260626
+ create mode 100644 logs/progyny-cron.log-20260626.gz
+ create mode 100644 logs/progyny-cron.log-20260627
+ delete mode 100644 logs/progyny-intel.log-20260620.gz
+ delete mode 100644 logs/progyny-intel.log-20260626
+ create mode 100644 logs/progyny-intel.log-20260626.gz
+ create mode 100644 logs/progyny-intel.log-20260627
+ delete mode 100644 logs/stock-fetch.log-20260620.gz
+ delete mode 100644 logs/stock-fetch.log-20260626
+ create mode 100644 logs/stock-fetch.log-20260626.gz
+ create mode 100644 logs/stock-fetch.log-20260627
+ delete mode 100644 logs/telegram-health-alerts.log-20260626
+ create mode 100644 logs/telegram-health-alerts.log-20260626.gz
+ create mode 100644 logs/telegram-health-alerts.log-20260627
+ delete mode 100644 logs/telegram-health.log-20260626
+ create mode 100644 logs/telegram-health.log-20260626.gz
+ create mode 100644 logs/telegram-health.log-20260627
+ delete mode 100644 logs/token-refresh.log-20260620.gz
+ delete mode 100644 logs/token-refresh.log-20260626
+ create mode 100644 logs/token-refresh.log-20260626.gz
+ create mode 100644 logs/token-refresh.log-20260627
+ delete mode 100644 logs/vitus-evening.log-20260620.gz
+ delete mode 100644 logs/vitus-evening.log-20260626
+ create mode 100644 logs/vitus-evening.log-20260626.gz
+ create mode 100644 logs/vitus-evening.log-20260627
+ delete mode 100644 logs/vitus-midday.log-20260620.gz
+ delete mode 100644 logs/vitus-midday.log-20260626
+ create mode 100644 logs/vitus-midday.log-20260626.gz
+ create mode 100644 logs/vitus-midday.log-20260627
+ delete mode 100644 logs/vitus-morning.log-20260620.gz
+ delete mode 100644 logs/vitus-morning.log-20260626
+ create mode 100644 logs/vitus-morning.log-20260626.gz
+ create mode 100644 logs/vitus-morning.log-20260627
+ delete mode 100644 logs/watch-hunt.log-20260620.gz
+ delete mode 100644 logs/watch-hunt.log-20260626
+ create mode 100644 logs/watch-hunt.log-20260626.gz
+ create mode 100644 logs/watch-hunt.log-20260627
+ delete mode 100644 logs/whoop-alerts.log-20260620.gz
+ delete mode 100644 logs/whoop-alerts.log-20260626
+ create mode 100644 logs/whoop-alerts.log-20260626.gz
+ create mode 100644 logs/whoop-alerts.log-20260627
+ delete mode 100644 logs/whoop-daily.log-20260620.gz
+ delete mode 100644 logs/whoop-daily.log-20260626
+ create mode 100644 logs/whoop-daily.log-20260626.gz
+ create mode 100644 logs/whoop-daily.log-20260627
+ delete mode 100644 logs/whoop-fetch.log-20260620.gz
+ delete mode 100644 logs/whoop-fetch.log-20260626
+ create mode 100644 logs/whoop-fetch.log-20260626.gz
+ create mode 100644 logs/whoop-fetch.log-20260627
+ delete mode 100644 logs/whoop-token-monitor.log-20260620.gz
+ delete mode 100644 logs/whoop-token-monitor.log-20260626
+ create mode 100644 logs/whoop-token-monitor.log-20260626.gz
+ create mode 100644 logs/whoop-token-monitor.log-20260627
+fatal: unable to access 'https://github.com/gclapp/Cicero-public-journal.git/': Could not resolve host: github.com
+[2026-06-27 06:55:03 UTC] ❌ GitHub push failed
+[2026-06-27 06:55:03 UTC] Checking for journal entries to publish...
+📊 No new journal entries to sync
+[2026-06-27 06:55:03 UTC] Updating content analytics...
+[2026-06-27 06:55:03 UTC] Content analytics collector not installed; skipping.
+[2026-06-27 06:55:03 UTC] Daily sync complete
+---
+[2026-06-27 19:00:02 UTC] Starting daily GitHub sync...
+[2026-06-27 19:00:02 UTC] Uncommitted changes found, committing...

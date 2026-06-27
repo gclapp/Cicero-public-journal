@@ -1,5 +1,12 @@
 # Agent Registry
 
+This registry documents who does what. It is part of the existing Obsidian system:
+
+- Agent layer: `obsidian/openclaw/`
+- Work knowledge: `obsidian/work/`
+- PGNY briefs: `obsidian/work/PGNY/Briefs/`
+- Capture and sync: `shared-inbox/`
+
 ## Active Agents
 
 ### 🏛️ Cicero (Main)

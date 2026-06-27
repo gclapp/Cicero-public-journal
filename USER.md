@@ -140,6 +140,9 @@ _Learn about the person you're helping. Update this as you go._
     - Thai food, Chinese food, steak (traditional steakhouse preferred, open to outstanding non-traditional), burgers, great salads
   - **Travel ask:** Recommendations for these cuisines when traveling
   - **Bonus:** Always appreciates Michelin-starred restaurants
+- **Task organization:**
+  - Strongly prefers parent tasks with clear subtasks for multi-step workflows, especially travel.
+  - Likes emoji/icon prefixes on subtasks when they make task type scannable, e.g. 🐕 Rover, 🚗 Uber, 🧳 Pack.
 
 ## Favorite Restaurants & Places
 

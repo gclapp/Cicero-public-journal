@@ -8,8 +8,8 @@ Purpose: keep active operational commands and system notes in bootstrap without 
 - For external actions (email, public posts, purchases), ask first unless already explicitly authorized.
 
 ## Model And Monitor
-- Primary model: `openai/gpt-5.5`.
-- Main fallback: `openai/gpt-5.4-mini`; third-party fallback: Moonshot/Kimi.
+- Primary model: `moonshot/kimi-k2.7-code` (Kimi), chosen for lower routine operating cost.
+- Main fallback: `openai/gpt-5.5`; lower-cost fallback: `openai/gpt-5.4-mini`.
 - Fallback monitor: `scripts/model_fallback_monitor.py`.
 - Cron: every 5 minutes, log `logs/model-monitor-cron.log`; state/history `logs/model-fallbacks.json`.
 - Manual check:

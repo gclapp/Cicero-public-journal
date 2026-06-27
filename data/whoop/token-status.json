@@ -1,7 +1,9 @@
 {
   "valid": false,
-  "error": "HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0xf8b91a89fda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)\"))",
+  "error": "Token expired",
+  "status_code": 401,
   "action_required": true,
-  "checked_at": "2026-06-27T06:00:03.769459",
-  "last_alert_sent": "2026-06-27T06:00:03.914332"
+  "reauth_needed": true,
+  "checked_at": "2026-06-27T18:00:03.572438",
+  "last_alert_sent": "2026-06-27T18:00:05.074758"
 }

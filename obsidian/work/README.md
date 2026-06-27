@@ -9,6 +9,10 @@ Professional knowledge base for Progyny and work-related activities.
 - Product initiatives
 - Board meeting notes
 - Competitive intelligence
+- PGNY operating system: `PGNY/README.md`
+- Weekly brief cadence: `PGNY/Briefs/`
+- Calendar snapshots: `PGNY/Sources/Calendar/`
+- Brief templates: `PGNY/Templates/`
 
 ### Travel
 - NYC trip patterns
@@ -25,4 +29,11 @@ Professional knowledge base for Progyny and work-related activities.
 - Fertility market
 - Competitor analysis
 
-_Last updated: May 27, 2026_
+## How This Links To OpenClaw
+
+- Use `../openclaw/README.md` for the agent and automation model.
+- Use `../openclaw/AGENTS.md` for delegation rules between Cicero, Vitus, and Aero.
+- Use `/home/ubuntu/Obsidian/OpenAI Work/00 Cicero Inbox/` for raw work drops inside Obsidian.
+- Work notes that have been processed should live here, especially under `PGNY/`.
+
+_Last updated: June 27, 2026_

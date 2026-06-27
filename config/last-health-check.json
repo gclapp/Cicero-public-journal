@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-25T13:37:56.059388",
+  "timestamp": "2026-06-27T18:15:06.983491",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -12,7 +12,7 @@
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2601\ufe0f 63\u00b0F 81% \u21913mph",
+    "weather_data": "los angeles: \u2601\ufe0f 69\u00b0F 61% \u21916mph",
     "whoop": {
       "status": "configured"
     },
@@ -29,16 +29,86 @@
     },
     "travel_automation": {
       "status": "active",
-      "last_run_hours": 0.1,
+      "last_run_hours": 0.3,
       "tasks_created": 0,
       "log_file": "aero-monitor.log"
     },
     "model": {
-      "status": "ok",
-      "current": "openai/gpt-5.5",
+      "status": "fallback",
+      "current": "moonshot/kimi-k2.7-code",
       "primary": "openai/gpt-5.5",
       "is_fallback": false,
-      "is_primary": true
+      "is_primary": false
+    },
+    "host": {
+      "status": "ok",
+      "issues": [],
+      "memory": {
+        "total_mib": 3825.9,
+        "available_mib": 2642.3,
+        "available_pct": 69.1
+      },
+      "swap": {
+        "total_mib": 2048.0,
+        "free_mib": 1786.5,
+        "used_pct": 12.8
+      },
+      "dns_ok": true,
+      "dns_error": null,
+      "openclaw_running": true,
+      "openclaw_rss_mib": 559.9,
+      "recent_events": [],
+      "top_memory_processes": [
+        {
+          "pid": "32754",
+          "command": "node",
+          "rss_mib": 559.9,
+          "args": "/usr/bin/node /home/ubuntu/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789"
+        },
+        {
+          "pid": "18645",
+          "command": "node",
+          "rss_mib": 66.6,
+          "args": "node /home/ubuntu/.npm-global/bin/ob sync --path /home/ubuntu/Obsidian/geoffclapp --continuous"
+        },
+        {
+          "pid": "727",
+          "command": "fail2ban-server",
+          "rss_mib": 32.8,
+          "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
+        },
+        {
+          "pid": "1070",
+          "command": "dockerd",
+          "rss_mib": 26.6,
+          "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
+        },
+        {
+          "pid": "1335",
+          "command": "gunicorn",
+          "rss_mib": 25.4,
+          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
+        },
+        {
+          "pid": "216",
+          "command": "multipathd",
+          "rss_mib": 24.6,
+          "args": "/sbin/multipathd -d -s"
+        },
+        {
+          "pid": "799",
+          "command": "containerd",
+          "rss_mib": 22.0,
+          "args": "/usr/bin/containerd"
+        },
+        {
+          "pid": "1351",
+          "command": "gunicorn",
+          "rss_mib": 19.4,
+          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
+        }
+      ],
+      "action_required": false
     }
   },
   "action_required": []

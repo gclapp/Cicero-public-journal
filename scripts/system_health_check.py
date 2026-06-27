@@ -14,6 +14,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import subprocess
 import sys
+import socket
 
 # Paths
 CREDENTIALS_DIR = Path.home() / ".openclaw" / "credentials"
@@ -265,8 +266,183 @@ def check_travel_automation():
             }
         except Exception as e:
             return {'status': 'error', 'error': str(e)}
-    
+
     return {'status': 'active', 'note': 'No log yet'}
+
+def _read_meminfo():
+    """Read /proc/meminfo values in KiB."""
+    values = {}
+    try:
+        with open('/proc/meminfo') as f:
+            for line in f:
+                key, raw_value = line.split(':', 1)
+                parts = raw_value.strip().split()
+                if parts and parts[0].isdigit():
+                    values[key] = int(parts[0])
+    except Exception:
+        pass
+    return values
+
+def _recent_journal_matches(minutes=90):
+    """Return recent host-level OOM/power/reboot warning evidence."""
+    patterns = [
+        'oom',
+        'out of memory',
+        'killed by the oom',
+        'power key pressed',
+        'the system will power off now',
+        'temporary failure resolving',
+        'eai_again',
+        'err_name_not_resolved',
+    ]
+    try:
+        result = subprocess.run(
+            [
+                'journalctl',
+                '-b',
+                '--since',
+                f'{minutes} minutes ago',
+                '--no-pager',
+                '-o',
+                'short-iso',
+            ],
+            capture_output=True,
+            text=True,
+            timeout=20,
+        )
+        if result.returncode != 0:
+            return []
+        matches = []
+        for line in result.stdout.splitlines():
+            lower = line.lower()
+            if any(pattern in lower for pattern in patterns):
+                matches.append(line[-500:])
+        return matches[-12:]
+    except Exception:
+        return []
+
+def _top_memory_processes(limit=8):
+    try:
+        result = subprocess.run(
+            ['ps', '-eo', 'pid,comm,rss,args', '--sort=-rss'],
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        if result.returncode != 0:
+            return []
+        processes = []
+        for line in result.stdout.splitlines()[1:limit + 1]:
+            parts = line.split(None, 3)
+            if len(parts) < 4:
+                continue
+            pid, command, rss_kib, args = parts
+            try:
+                rss_mib = round(int(rss_kib) / 1024, 1)
+            except ValueError:
+                rss_mib = None
+            processes.append({
+                'pid': pid,
+                'command': command,
+                'rss_mib': rss_mib,
+                'args': args[:180],
+            })
+        return processes
+    except Exception:
+        return []
+
+def check_host_health():
+    """Check host-level uptime risks: RAM, swap, DNS, reboot/OOM evidence, OpenClaw."""
+    meminfo = _read_meminfo()
+    mem_total = meminfo.get('MemTotal', 0)
+    mem_available = meminfo.get('MemAvailable', 0)
+    swap_total = meminfo.get('SwapTotal', 0)
+    swap_free = meminfo.get('SwapFree', 0)
+
+    mem_available_pct = round((mem_available / mem_total) * 100, 1) if mem_total else None
+    swap_used_pct = round(((swap_total - swap_free) / swap_total) * 100, 1) if swap_total else 0
+
+    issues = []
+    status = 'ok'
+    if mem_available_pct is not None and mem_available_pct < 12:
+        status = 'critical'
+        issues.append(f'Available memory is critically low: {mem_available_pct}%')
+    elif mem_available_pct is not None and mem_available_pct < 20:
+        status = 'warn'
+        issues.append(f'Available memory is low: {mem_available_pct}%')
+
+    if swap_used_pct >= 75:
+        status = 'critical'
+        issues.append(f'Swap usage is critically high: {swap_used_pct}%')
+    elif swap_used_pct >= 50 and status != 'critical':
+        status = 'warn'
+        issues.append(f'Swap usage is elevated: {swap_used_pct}%')
+
+    dns_ok = True
+    dns_error = None
+    try:
+        socket.getaddrinfo('api.openai.com', 443)
+        socket.getaddrinfo('github.com', 443)
+    except Exception as exc:
+        dns_ok = False
+        dns_error = str(exc)
+        status = 'critical'
+        issues.append(f'DNS resolution failed: {dns_error}')
+
+    openclaw_running = False
+    openclaw_rss_mib = 0.0
+    try:
+        result = subprocess.run(
+            ['pgrep', '-af', 'openclaw/dist/index.js gateway'],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+        openclaw_running = result.returncode == 0 and bool(result.stdout.strip())
+        if not openclaw_running:
+            status = 'critical'
+            issues.append('OpenClaw gateway process is not running')
+        for line in result.stdout.splitlines():
+            pid = line.split(None, 1)[0]
+            try:
+                with open(f'/proc/{pid}/status') as f:
+                    for status_line in f:
+                        if status_line.startswith('VmRSS:'):
+                            openclaw_rss_mib += int(status_line.split()[1]) / 1024
+                            break
+            except Exception:
+                pass
+    except Exception as exc:
+        if status != 'critical':
+            status = 'warn'
+        issues.append(f'Could not check OpenClaw process: {exc}')
+
+    recent_events = _recent_journal_matches()
+    if recent_events and status == 'ok':
+        status = 'warn'
+        issues.append('Recent host-level warning events found in journal')
+
+    return {
+        'status': status,
+        'issues': issues,
+        'memory': {
+            'total_mib': round(mem_total / 1024, 1) if mem_total else None,
+            'available_mib': round(mem_available / 1024, 1) if mem_available else None,
+            'available_pct': mem_available_pct,
+        },
+        'swap': {
+            'total_mib': round(swap_total / 1024, 1) if swap_total else 0,
+            'free_mib': round(swap_free / 1024, 1) if swap_free else 0,
+            'used_pct': swap_used_pct,
+        },
+        'dns_ok': dns_ok,
+        'dns_error': dns_error,
+        'openclaw_running': openclaw_running,
+        'openclaw_rss_mib': round(openclaw_rss_mib, 1),
+        'recent_events': recent_events,
+        'top_memory_processes': _top_memory_processes(),
+        'action_required': status == 'critical',
+    }
 
 def get_weather():
     """Get current weather for LA using wttr.in in Fahrenheit"""
@@ -449,6 +625,29 @@ def run_health_check():
         log(f"  ⚠️ Model: Using fallback {model_status.get('current')} (Expected: {model_status.get('primary')})")
     else:
         log(f"  ⚠️ Model: Status unknown")
+
+    # Check Host Health
+    log("\n🖥️ Checking Host Health...")
+    host = check_host_health()
+    results['checks']['host'] = host
+    mem = host.get('memory', {})
+    swap = host.get('swap', {})
+    host_line = (
+        f"mem avail {mem.get('available_mib')} MiB "
+        f"({mem.get('available_pct')}%), "
+        f"swap used {swap.get('used_pct')}%, "
+        f"OpenClaw RSS {host.get('openclaw_rss_mib')} MiB"
+    )
+    if host['status'] == 'ok':
+        log(f"  ✅ Host: {host_line}")
+    elif host['status'] == 'warn':
+        log(f"  ⚠️ Host: {host_line}")
+        for issue in host.get('issues', []):
+            log(f"     - {issue}")
+    else:
+        log(f"  🔴 Host: {host_line}")
+        for issue in host.get('issues', []):
+            log(f"     - {issue}")
     
     log("\n" + "=" * 60)
     
@@ -519,6 +718,22 @@ def generate_heartbeat_summary(health_results):
         lines.append(f"⚠️ Model: FALLBACK - Using {model.get('current', 'Unknown')} (Expected: {model.get('primary', 'GPT-4o')})")
     else:
         lines.append("⚠️ Model: Status unknown")
+
+    # Host Health
+    host = health_results['checks'].get('host', {})
+    if host:
+        mem = host.get('memory', {})
+        swap = host.get('swap', {})
+        host_text = (
+            f"{mem.get('available_mib')} MiB available "
+            f"({mem.get('available_pct')}%), swap {swap.get('used_pct')}%"
+        )
+        if host.get('status') == 'ok':
+            lines.append(f"✅ Host: {host_text}")
+        elif host.get('status') == 'warn':
+            lines.append(f"⚠️ Host: {host_text}")
+        else:
+            lines.append(f"🔴 Host: {host_text}")
     
     # Dashboards
     health_dash = health_results['checks'].get('health_dashboard', {})

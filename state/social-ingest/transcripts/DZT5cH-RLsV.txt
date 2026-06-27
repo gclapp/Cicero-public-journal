@@ -1,0 +1,29 @@
+What is the difference between a personal AI brain built in Obsidian?
+And one that is completely custom built for enterprise applications.
+This is completely custom built in Claude code.
+I think the biggest difference is quite clearly
+you're using it in an enterprise where all your employees
+are using different parts of it.
+So you can't have someone in sales accessing
+part of the HR brain and data that they aren't allowed to see.
+So that introduces a bit of complexity.
+We need to be able to say this employee manages these people.
+They're working on these projects.
+This is who they are in the organization.
+Their experience at credentials.
+And also what projects are working on and the context
+of those projects and the strategy behind them.
+So when they're actually using their chat
+and their large language models, it knows them.
+If you think about what a chat is kind of looking like,
+we have all our subagents say on the left
+and the AI knows when to use them with this AI brain,
+you can see who the employees are.
+And then also the software you have access to.
+So it's quite clear to me that this is probably the best way
+to structure more enterprise, AI brain, chat,
+cut-a-use cases and personal AI brains are great.
+If you're the only one using it,
+until then I think you do need a custom build solution.
+I don't think obsidian can probably cut it.
+But I'd love to know what you think.

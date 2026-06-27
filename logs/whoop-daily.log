@@ -1,0 +1,4 @@
+[2026-06-27 14:30:02] Starting Whoop daily fetch...
+[2026-06-27 14:30:02] ❌ Error fetching Whoop data: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/recovery?limit=7 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefa93e4aac00>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-06-27 14:30:02] ❌ Failed to fetch Whoop data
+running whoop-daily-fetch at 2026-06-27 07:30 PDT (America/Los_Angeles, default home timezone)

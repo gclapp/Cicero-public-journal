@@ -132,6 +132,29 @@ def get_calendar_service():
     
     return build('calendar', 'v3', credentials=creds)
 
+TRAVEL_KEYWORDS = [
+    'flight', 'travel', 'trip', 'hotel', 'stay at',
+    'delta', 'united', 'american', 'alaska', 'jetblue', 'southwest',
+    'nyc', 'new york', 'jfk', 'lga', 'ewr',
+    'san francisco', 'sfo',
+    'san diego',
+    'portland', 'pdx',
+    'scottsdale', 'phoenix', 'phx',
+    'truckee', 'tahoe', 'reno', 'rno',
+    'providence', 'pvd'
+]
+
+
+def is_travel_event(event):
+    """Classify travel using title, location, and description."""
+    text = " ".join([
+        event.get('summary', ''),
+        event.get('location', ''),
+        event.get('description', ''),
+    ]).lower()
+    return any(word in text for word in TRAVEL_KEYWORDS)
+
+
 def get_upcoming_events(days=14, max_results=20):
     """Get upcoming calendar events"""
     service = get_calendar_service()
@@ -171,8 +194,7 @@ def get_upcoming_events(days=14, max_results=20):
                 'start_raw': start,
                 'location': event.get('location', ''),
                 'description': event.get('description', '')[:200],
-                'is_travel': any(word in event.get('summary', '').lower() 
-                               for word in ['flight', 'travel', 'trip', 'hotel', 'nyc', 'new york', 'portland', 'scottsdale', 'delta', 'united', 'american'])
+                'is_travel': is_travel_event(event)
             })
         
         return formatted
