@@ -1,7 +1,7 @@
 {
   "valid": false,
-  "error": "HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0xf50a1dacd0a0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)\"))",
+  "error": "HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0xf8b91a89fda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)\"))",
   "action_required": true,
-  "checked_at": "2026-06-26T18:00:03.218822",
-  "last_alert_sent": "2026-06-26T18:00:03.371926"
+  "checked_at": "2026-06-27T06:00:03.769459",
+  "last_alert_sent": "2026-06-27T06:00:03.914332"
 }

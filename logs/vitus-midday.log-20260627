@@ -1,0 +1,6 @@
+Cache not found, attempting API fetch...
+Error fetching Whoop: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/recovery?limit=3 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe00c068ca690>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
+Loaded fallback data from: /home/ubuntu/.openclaw/workspace/data/whoop/whoop-2026-06-25.json
+Midday check-in generated. Sending email...
+✅ Midday check-in sent successfully
+running vitus-midday at 2026-06-26 12:00 PDT (America/Los_Angeles, default home timezone)

@@ -1,65 +1,25 @@
-[2026-06-26 00:55:02 UTC] Heartbeat triggered
-[2026-06-26 00:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=17:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 00:55:02 UTC] Heartbeat complete
-[2026-06-26 01:55:01 UTC] Heartbeat triggered
-[2026-06-26 01:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=18:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 01:55:01 UTC] Heartbeat complete
-[2026-06-26 02:55:02 UTC] Heartbeat triggered
-[2026-06-26 02:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=19:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 02:55:02 UTC] Heartbeat complete
+[2026-06-27 00:55:01 UTC] Heartbeat triggered
+[2026-06-27 00:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=17:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 00:55:01 UTC] Heartbeat complete
+[2026-06-27 01:55:02 UTC] Heartbeat triggered
+[2026-06-27 01:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=18:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 01:55:02 UTC] Heartbeat complete
+[2026-06-27 02:55:01 UTC] Heartbeat triggered
+[2026-06-27 02:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=19:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 02:55:01 UTC] Heartbeat complete
 Todoist command failed: Error: fetch failed
 Todoist command failed: Error: fetch failed
 ✅ Evening check-in queued: 08:30 PM PDT (America/Los_Angeles)
-running evening-checkin at 2026-06-25 20:30 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)
-[2026-06-26 03:55:02 UTC] Heartbeat triggered
-[2026-06-26 03:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=20:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 03:55:02 UTC] Heartbeat complete
-[2026-06-26 04:55:01 UTC] Heartbeat triggered
-[2026-06-26 04:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=21:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 04:55:01 UTC] Heartbeat complete
-[2026-06-26 05:55:01 UTC] Heartbeat triggered
-[2026-06-26 05:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=22:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 05:55:01 UTC] Heartbeat complete
-[2026-06-26 06:55:02 UTC] Heartbeat triggered
-[2026-06-26 06:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-25 LOCAL_TIME=23:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 06:55:02 UTC] Heartbeat complete
-[2026-06-26 07:55:01 UTC] Heartbeat triggered
-[2026-06-26 07:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=00:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 07:55:01 UTC] Heartbeat complete
-[2026-06-26 08:55:01 UTC] Heartbeat triggered
-[2026-06-26 08:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=01:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 08:55:01 UTC] Heartbeat complete
-[2026-06-26 09:55:02 UTC] Heartbeat triggered
-[2026-06-26 09:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=02:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 09:55:02 UTC] Heartbeat complete
-[2026-06-26 10:55:01 UTC] Heartbeat triggered
-[2026-06-26 10:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=03:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 10:55:01 UTC] Heartbeat complete
-[2026-06-26 11:55:01 UTC] Heartbeat triggered
-[2026-06-26 11:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=04:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 11:55:01 UTC] Heartbeat complete
-[2026-06-26 12:55:01 UTC] Heartbeat triggered
-[2026-06-26 12:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=05:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 12:55:01 UTC] Heartbeat complete
-[2026-06-26 13:55:02 UTC] Heartbeat triggered
-[2026-06-26 13:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=06:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 13:55:02 UTC] Heartbeat complete
-Todoist command failed: Error: fetch failed
-Todoist command failed: Error: fetch failed
-✅ Morning check-in queued: 07:00 AM PDT (America/Los_Angeles)
-running morning-checkin at 2026-06-26 07:00 PDT (America/Los_Angeles, aero recent arrival: DAL742 to KLAX)
-[2026-06-26 14:55:01 UTC] Heartbeat triggered
-[2026-06-26 14:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=07:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 14:55:01 UTC] Heartbeat complete
-[2026-06-26 15:55:02 UTC] Heartbeat triggered
-[2026-06-26 15:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=08:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 15:55:02 UTC] Heartbeat complete
-[2026-06-26 16:55:01 UTC] Heartbeat triggered
-[2026-06-26 16:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=09:55 LOCAL_ABBR=PDT TZ_REASON=aero recent arrival: DAL742 to KLAX IN_TRANSIT=0 
-[2026-06-26 16:55:01 UTC] Heartbeat complete
-[2026-06-26 17:55:01 UTC] Heartbeat triggered
-[2026-06-26 17:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=10:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-06-26 17:55:01 UTC] Heartbeat complete
-[2026-06-26 18:55:02 UTC] Heartbeat triggered
-[2026-06-26 18:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=11:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-06-26 18:55:02 UTC] Heartbeat complete
+running evening-checkin at 2026-06-26 20:30 PDT (America/Los_Angeles, default home timezone)
+[2026-06-27 03:55:02 UTC] Heartbeat triggered
+[2026-06-27 03:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=20:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 03:55:02 UTC] Heartbeat complete
+[2026-06-27 04:55:01 UTC] Heartbeat triggered
+[2026-06-27 04:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=21:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 04:55:01 UTC] Heartbeat complete
+[2026-06-27 05:55:01 UTC] Heartbeat triggered
+[2026-06-27 05:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=22:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 05:55:01 UTC] Heartbeat complete
+[2026-06-27 06:55:02 UTC] Heartbeat triggered
+[2026-06-27 06:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-06-26 LOCAL_TIME=23:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-06-27 06:55:02 UTC] Heartbeat complete
