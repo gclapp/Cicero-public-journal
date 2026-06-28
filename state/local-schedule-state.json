@@ -47,6 +47,14 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "aero-travel-morning:2026-06-28:09:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
+    ],
+    "ran_at_utc": "2026-06-28T16:05:02.110354+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "calendar-refresh:2026-06-25:06:45": {
     "command": [
       "/usr/bin/python3",
@@ -54,6 +62,15 @@
     ],
     "ran_at_utc": "2026-06-25T13:45:02.667095+00:00",
     "reason": "aero in transit: DAL742 to KLAX",
+    "timezone": "America/Los_Angeles"
+  },
+  "calendar-refresh:2026-06-28:06:45": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/calendar_reader.py"
+    ],
+    "ran_at_utc": "2026-06-28T13:45:02.129919+00:00",
+    "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
   "competitor-report-afternoon:2026-06-25:14:00": {
@@ -104,6 +121,14 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "competitor-report-morning:2026-06-28:07:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
+    ],
+    "ran_at_utc": "2026-06-28T14:00:02.278588+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "daily-github-sync-midday:2026-06-25:12:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
@@ -141,6 +166,14 @@
       "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
     ],
     "ran_at_utc": "2026-06-27T06:55:02.964969+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "daily-github-sync-night:2026-06-27:23:55": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
+    ],
+    "ran_at_utc": "2026-06-28T06:55:02.281667+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
@@ -201,6 +234,16 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "loseit-sync:2026-06-28:10:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 loseit_integration.py latest"
+    ],
+    "ran_at_utc": "2026-06-28T17:00:02.424640+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "morning-checkin:2026-06-25:07:00:skipped-in-transit": {
     "reason": "aero in transit: DAL742 to KLAX",
     "skipped_at_utc": "2026-06-25T14:15:47.377632+00:00",
@@ -221,6 +264,15 @@
       "/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py"
     ],
     "ran_at_utc": "2026-06-27T14:00:02.329967+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "morning-checkin:2026-06-28:07:00": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py"
+    ],
+    "ran_at_utc": "2026-06-28T14:05:02.272417+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
@@ -245,6 +297,14 @@
       "/home/ubuntu/.openclaw/workspace/scripts/progyny_intel_cron.sh"
     ],
     "ran_at_utc": "2026-06-27T15:00:02.848240+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "progyny-intel:2026-06-28:08:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/progyny_intel_cron.sh"
+    ],
+    "ran_at_utc": "2026-06-28T15:00:02.184814+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
@@ -275,6 +335,16 @@
       "cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py"
     ],
     "ran_at_utc": "2026-06-27T13:30:03.017941+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "resy-calendar-scan:2026-06-28:06:30": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/resy-system && /usr/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/calendar_scanner.py"
+    ],
+    "ran_at_utc": "2026-06-28T13:30:03.540799+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
@@ -395,6 +465,22 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "watch-hunt-morning:2026-06-28:09:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh"
+    ],
+    "ran_at_utc": "2026-06-28T16:00:02.185065+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "weekly-security-audit:2026-06-28:08:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/weekly-security-audit.sh"
+    ],
+    "ran_at_utc": "2026-06-28T15:05:02.501226+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "whoop-daily-fetch:2026-06-25:07:30": {
     "command": [
       "/usr/bin/python3",
@@ -419,6 +505,15 @@
       "/home/ubuntu/.openclaw/workspace/scripts/whoop_daily_fetch.py"
     ],
     "ran_at_utc": "2026-06-27T14:30:02.204835+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "whoop-daily-fetch:2026-06-28:07:30": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/whoop_daily_fetch.py"
+    ],
+    "ran_at_utc": "2026-06-28T14:30:02.771608+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   }

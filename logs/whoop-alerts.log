@@ -1,3 +1,9 @@
 [2026-06-28 06:00:03.060009] Checking Whoop alerts...
 No alerts triggered
 Done.
+[2026-06-28 12:00:02.728404] Checking Whoop alerts...
+No alerts triggered
+Done.
+[2026-06-28 18:00:03.618997] Checking Whoop alerts...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
+Failed to fetch Whoop data

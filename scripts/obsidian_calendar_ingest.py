@@ -7,10 +7,14 @@ import argparse
 import hashlib
 import json
 import re
+import sys
 from dataclasses import dataclass
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from obsidian_filename import sanitize_filename
 
 from dateutil.tz import gettz
 from icalendar import Calendar
@@ -92,9 +96,7 @@ def iso_dt(value: datetime | date | None) -> str:
 
 
 def slug(text: str, max_len: int = 80) -> str:
-    text = re.sub(r"[\\/:*?\"<>|\n\r\t]+", " ", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text[:max_len].strip(" .") or "Untitled Meeting"
+    return sanitize_filename(text, max_len=max_len, default="Untitled Meeting")
 
 
 def uid_hash(uid: str) -> str:

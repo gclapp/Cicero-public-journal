@@ -151,3 +151,38 @@ PGNY briefs:
 ```text
 /home/ubuntu/Obsidian/geoffclapp/22_PGNY_PROCESSED/Briefs/
 ```
+
+## Windows Filename Compatibility
+
+Obsidian Sync supports many characters that Windows refuses in filenames (`|`, `"`, `*`, `:`, `<`, `>`, `?`, `\`, `/`, leading/trailing spaces, trailing dots, newlines). iOS share-sheet saves and clipped web content often include `|` or multi-line titles, which then fail to sync to Windows clients with errors like:
+
+- `Ignoring remote file name with illegal characters ...`
+- `ENOENT: no such file or directory, open 'C:\Vaults\geoffclapp\...'`
+
+A shared `sanitize_filename()` helper lives in:
+
+```text
+scripts/obsidian_filename.py
+```
+
+Two scripts use it for all filenames they create:
+
+```text
+scripts/obsidian_social_ingest.py
+scripts/obsidian_calendar_ingest.py
+```
+
+A daily cleanup job scans the synced vault and renames any Windows-unsafe files created by other devices:
+
+```text
+obsidian-windows-cleanup.timer -> obsidian-windows-cleanup.service
+```
+
+Manual check or cleanup:
+
+```bash
+python3 scripts/obsidian_windows_filename_cleanup.py
+python3 scripts/obsidian_windows_filename_cleanup.py --execute
+```
+
+Renaming preserves content and avoids Windows-reserved device names, trailing dots/spaces, control characters, and paths longer than 260 characters.

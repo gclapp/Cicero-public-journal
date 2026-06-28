@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06-27T15:51:49.117086+00:00",
-  "total_events": 99,
-  "travel_events": 19,
+  "last_updated": "2026-06-28T13:45:03.601075+00:00",
+  "total_events": 100,
+  "travel_events": 22,
   "events": [
     {
       "summary": "Ollie Consult Call",
@@ -36,6 +36,14 @@
       "is_travel": false
     },
     {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Thursday, July 02 at 08:00 AM",
+      "start_raw": "2026-07-02T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Drop Sophie at Art Camp",
       "start": "Thursday, July 02 at 09:00 AM",
       "start_raw": "2026-07-02T09:00:00-07:00",
@@ -44,9 +52,49 @@
       "is_travel": false
     },
     {
+      "summary": "Pick up Oliver at ESY",
+      "start": "Thursday, July 02 at 12:00 PM",
+      "start_raw": "2026-07-02T12:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Pick Up Sophie at Art Camp",
       "start": "Thursday, July 02 at 03:15 PM",
       "start_raw": "2026-07-02T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Friday, July 03 at 08:00 AM",
+      "start_raw": "2026-07-03T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, July 03 at 09:00 AM",
+      "start_raw": "2026-07-03T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver at ESY",
+      "start": "Friday, July 03 at 12:00 PM",
+      "start_raw": "2026-07-03T12:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, July 03 at 03:15 PM",
+      "start_raw": "2026-07-03T15:15:00-07:00",
       "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
       "description": "",
       "is_travel": false
@@ -66,6 +114,22 @@
       "location": "",
       "description": "",
       "is_travel": false
+    },
+    {
+      "summary": "Reserved Uber to LAX",
+      "start": "Sunday, July 05 at 09:20 AM",
+      "start_raw": "2026-07-05T09:20:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 939 - departs 11:20 AM local time - Confirmation code: GH5NZL",
+      "start": "Sunday, July 05 at 11:20 AM",
+      "start_raw": "2026-07-05T11:20:00-07:00",
+      "location": "Los Angeles(LAX) - New York(JFK)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: GH5NZL Delta Air Lines 939 Business, Scheduled Departure Jul 5, 2026, 11:20 am, Los Angeles, CA, United States of America (LAX-Los Angeles Intl.),",
+      "is_travel": true
     },
     {
       "summary": "Ollie Consult Call",
@@ -108,11 +172,91 @@
       "is_travel": true
     },
     {
+      "summary": "Reserve Uber to JFK",
+      "start": "Wednesday, July 08 at 02:00 PM",
+      "start_raw": "2026-07-08T14:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": true
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 752 - departs 8:20 PM local time - Confirmation code: GHYLAV",
+      "start": "Wednesday, July 08 at 05:20 PM",
+      "start_raw": "2026-07-08T17:20:00-07:00",
+      "location": "New York(JFK) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: GHYLAV Delta Air Lines 752 Business, Scheduled Departure Jul 8, 2026, 8:20 pm, New York, NY, United States of America (JFK-John F. Kennedy Intl.),",
+      "is_travel": true
+    },
+    {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Thursday, July 09 at 08:00 AM",
+      "start_raw": "2026-07-09T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Thursday, July 09 at 09:00 AM",
+      "start_raw": "2026-07-09T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver at ESY",
+      "start": "Thursday, July 09 at 12:00 PM",
+      "start_raw": "2026-07-09T12:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Thursday, July 09 at 03:15 PM",
+      "start_raw": "2026-07-09T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Bright Horizons Back-up Care",
       "start": "Friday, July 10",
       "start_raw": "2026-07-10",
       "location": "",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Friday, July 10 at 08:00 AM",
+      "start_raw": "2026-07-10T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, July 10 at 09:00 AM",
+      "start_raw": "2026-07-10T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver at ESY",
+      "start": "Friday, July 10 at 12:00 PM",
+      "start_raw": "2026-07-10T12:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, July 10 at 03:15 PM",
+      "start_raw": "2026-07-10T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
       "is_travel": false
     },
     {
@@ -152,6 +296,86 @@
       "start": "Tuesday, July 14",
       "start_raw": "2026-07-14",
       "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 4040 - departs 5:00 PM local time - Confirmation code: JMTGV8",
+      "start": "Wednesday, July 15 at 02:00 PM",
+      "start_raw": "2026-07-15T14:00:00-07:00",
+      "location": "Providence(PVD) - Detroit(DTW)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: JMTGV8 Delta Air Lines 4040 First, Scheduled Departure Jul 15, 2026, 5:00 pm, Providence, RI, United States of America (PVD-T.F. Green) Arrives Ju",
+      "is_travel": true
+    },
+    {
+      "summary": "Geoffrey Clapp - Delta Air Lines 694 - departs 8:59 PM local time - Confirmation code: JMTGV8",
+      "start": "Wednesday, July 15 at 05:59 PM",
+      "start_raw": "2026-07-15T17:59:00-07:00",
+      "location": "Detroit(DTW) - Los Angeles(LAX)",
+      "description": "External Sender.\n\n Delta Air Lines confirmation code: JMTGV8 Delta Air Lines 694 First, Scheduled Departure Jul 15, 2026, 8:59 pm, Detroit, MI, United States of America (DTW-Detroit Metropolitan Wayne",
+      "is_travel": true
+    },
+    {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Thursday, July 16 at 08:00 AM",
+      "start_raw": "2026-07-16T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Thursday, July 16 at 09:00 AM",
+      "start_raw": "2026-07-16T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver at ESY",
+      "start": "Thursday, July 16 at 12:00 PM",
+      "start_raw": "2026-07-16T12:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Thursday, July 16 at 03:15 PM",
+      "start_raw": "2026-07-16T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Friday, July 17 at 08:00 AM",
+      "start_raw": "2026-07-17T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, July 17 at 09:00 AM",
+      "start_raw": "2026-07-17T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick up Oliver at ESY",
+      "start": "Friday, July 17 at 12:00 PM",
+      "start_raw": "2026-07-17T12:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, July 17 at 03:15 PM",
+      "start_raw": "2026-07-17T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
       "description": "",
       "is_travel": false
     },
@@ -244,6 +468,54 @@
       "is_travel": true
     },
     {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Thursday, July 23 at 08:00 AM",
+      "start_raw": "2026-07-23T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Thursday, July 23 at 09:00 AM",
+      "start_raw": "2026-07-23T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Thursday, July 23 at 03:15 PM",
+      "start_raw": "2026-07-23T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Oliver off at ESY",
+      "start": "Friday, July 24 at 08:00 AM",
+      "start_raw": "2026-07-24T08:00:00-07:00",
+      "location": "Yerba Buena Elementary School, 6098 Reyes Adobe Rd, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, July 24 at 09:00 AM",
+      "start_raw": "2026-07-24T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, July 24 at 03:15 PM",
+      "start_raw": "2026-07-24T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Return Rental Car",
       "start": "Sunday, July 26 at 01:00 PM",
       "start_raw": "2026-07-26T13:00:00-07:00",
@@ -273,6 +545,38 @@
       "start_raw": "2026-07-28T09:00:00-07:00",
       "location": "23675 Park Capri, Calabasas, CA 91302, USA",
       "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Thursday, July 30 at 09:00 AM",
+      "start_raw": "2026-07-30T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Thursday, July 30 at 03:15 PM",
+      "start_raw": "2026-07-30T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, July 31 at 09:00 AM",
+      "start_raw": "2026-07-31T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, July 31 at 03:15 PM",
+      "start_raw": "2026-07-31T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
       "is_travel": false
     },
     {
@@ -332,10 +636,26 @@
       "is_travel": false
     },
     {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Thursday, August 06 at 09:00 AM",
+      "start_raw": "2026-08-06T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Geoff Drop Kids off with Stacey",
       "start": "Thursday, August 06 at 01:00 PM",
       "start_raw": "2026-08-06T13:00:00-07:00",
       "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Thursday, August 06 at 03:15 PM",
+      "start_raw": "2026-08-06T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
       "description": "",
       "is_travel": false
     },
@@ -372,6 +692,22 @@
       "is_travel": true
     },
     {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, August 07 at 09:00 AM",
+      "start_raw": "2026-08-07T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, August 07 at 03:15 PM",
+      "start_raw": "2026-08-07T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Ollie Consult Call",
       "start": "Monday, August 10 at 07:00 AM",
       "start_raw": "2026-08-10T07:00:00-07:00",
@@ -386,6 +722,14 @@
       "location": "San Francisco SFO",
       "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
       "is_travel": true
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Thursday, August 13 at 09:00 AM",
+      "start_raw": "2026-08-13T09:00:00-07:00",
+      "location": "",
+      "description": "",
+      "is_travel": false
     },
     {
       "summary": "Pick up Sophie from School",
@@ -404,6 +748,14 @@
       "is_travel": false
     },
     {
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Thursday, August 13 at 03:15 PM",
+      "start_raw": "2026-08-13T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
       "summary": "Stephanie Lynne Foster's Birthday",
       "start": "Friday, August 14",
       "start_raw": "2026-08-14",
@@ -415,6 +767,14 @@
       "summary": "Stephanie Foster's Birthday",
       "start": "Friday, August 14",
       "start_raw": "2026-08-14",
+      "location": "",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Drop Sophie at Art Camp",
+      "start": "Friday, August 14 at 09:00 AM",
+      "start_raw": "2026-08-14T09:00:00-07:00",
       "location": "",
       "description": "",
       "is_travel": false
@@ -436,362 +796,10 @@
       "is_travel": false
     },
     {
-      "summary": "Momma & Rocket Concert",
-      "start": "Friday, August 14 at 08:00 PM",
-      "start_raw": "2026-08-14T20:00:00-07:00",
-      "location": "The Bellwether, Los Angeles, California",
-      "description": "Momma\nThe Bellwether, Los Angeles, California\n\nConfirmation number: 39-33015/LA1",
-      "is_travel": false
-    },
-    {
-      "summary": "Kids with Geoff (non-standard) ",
-      "start": "Sunday, August 16",
-      "start_raw": "2026-08-16",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Drop Kids with Stacey (non-standard)",
-      "start": "Sunday, August 16 at 06:00 PM",
-      "start_raw": "2026-08-16T18:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, August 17 at 07:00 AM",
-      "start_raw": "2026-08-17T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "First Day of School LVUSD",
-      "start": "Wednesday, August 19",
-      "start_raw": "2026-08-19",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Kids First Day of School",
-      "start": "Wednesday, August 19 at 01:00 PM",
-      "start_raw": "2026-08-19T13:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, August 20 at 01:30 PM",
-      "start_raw": "2026-08-20T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, August 20 at 02:00 PM",
-      "start_raw": "2026-08-20T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, August 21 at 01:30 PM",
-      "start_raw": "2026-08-21T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, August 21 at 02:00 PM",
-      "start_raw": "2026-08-21T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, August 24 at 07:00 AM",
-      "start_raw": "2026-08-24T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "House Cleaner (Glowy) ",
-      "start": "Tuesday, August 25 at 09:00 AM",
-      "start_raw": "2026-08-25T09:00:00-07:00",
-      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
-      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
-      "is_travel": false
-    },
-    {
-      "summary": "Trish Cavestany's birthday",
-      "start": "Wednesday, August 26",
-      "start_raw": "2026-08-26",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, August 27 at 01:30 PM",
-      "start_raw": "2026-08-27T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, August 27 at 02:00 PM",
-      "start_raw": "2026-08-27T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Gort Bday Weekend",
-      "start": "Friday, August 28 at 01:00 PM",
-      "start_raw": "2026-08-28T13:00:00-07:00",
-      "location": "Trixie Motel, 210 W Stevens Rd, Palm Springs, CA 92262, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, August 28 at 01:30 PM",
-      "start_raw": "2026-08-28T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, August 28 at 02:00 PM",
-      "start_raw": "2026-08-28T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, August 31 at 07:00 AM",
-      "start_raw": "2026-08-31T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Greta: Monthly Meds",
-      "start": "Tuesday, September 01",
-      "start_raw": "2026-09-01",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, September 03 at 01:30 PM",
-      "start_raw": "2026-09-03T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, September 03 at 02:00 PM",
-      "start_raw": "2026-09-03T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, September 04 at 01:30 PM",
-      "start_raw": "2026-09-04T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, September 04 at 02:00 PM",
-      "start_raw": "2026-09-04T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Geoff Takes Kids to Malibu Chili Cookoff",
-      "start": "Friday, September 04 at 04:00 PM",
-      "start_raw": "2026-09-04T16:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Malibu Chili Cookoff",
-      "start": "Saturday, September 05 at 06:00 PM",
-      "start_raw": "2026-09-05T18:00:00-07:00",
-      "location": "",
-      "description": "I got tickets for us and Lila.",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, September 07 at 07:00 AM",
-      "start_raw": "2026-09-07T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ontario Trip",
-      "start": "Thursday, September 10",
-      "start_raw": "2026-09-10",
-      "location": "Prince of Wales Hotel, 6 Picton St, Niagara-on-the-Lake, ON L0S 1J0, Canada",
-      "description": "Confirmation\nYour reservation is confirmed\nplease make a note of the Confirmation Number.\nConfirmation Number\nrepw87516\nYou have Reserved:\nNumber of Rooms\n1\nRoom Type\nSuite with King Bed, Fireplace & ",
-      "is_travel": true
-    },
-    {
-      "summary": "Stay at Prince of Wales",
-      "start": "Thursday, September 10",
-      "start_raw": "2026-09-10",
-      "location": "6 Picton Street, Niagara on the Lake, ON, Canada, LOS 1J0",
-      "description": "To see detailed information for automatically created events like this one, use the official Google Calendar app. https://g.co/calendar\n\nThis event was created from an email you received in Gmail. htt",
-      "is_travel": true
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, September 10 at 01:30 PM",
-      "start_raw": "2026-09-10T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, September 10 at 02:00 PM",
-      "start_raw": "2026-09-10T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Nichole Marconi's birthday",
-      "start": "Friday, September 11",
-      "start_raw": "2026-09-11",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, September 11 at 01:30 PM",
-      "start_raw": "2026-09-11T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, September 11 at 02:00 PM",
-      "start_raw": "2026-09-11T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Niagara on the Lake Polo",
-      "start": "Saturday, September 12 at 09:00 AM",
-      "start_raw": "2026-09-12T09:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, September 14 at 07:00 AM",
-      "start_raw": "2026-09-14T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, September 17 at 01:30 PM",
-      "start_raw": "2026-09-17T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, September 17 at 02:00 PM",
-      "start_raw": "2026-09-17T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Friday, September 18 at 01:30 PM",
-      "start_raw": "2026-09-18T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Friday, September 18 at 02:00 PM",
-      "start_raw": "2026-09-18T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, September 21 at 07:00 AM",
-      "start_raw": "2026-09-21T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Suneel Birthday",
-      "start": "Thursday, September 24",
-      "start_raw": "2026-09-24",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Kim Hedges Birthday",
-      "start": "Thursday, September 24",
-      "start_raw": "2026-09-24",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Sophie from School",
-      "start": "Thursday, September 24 at 01:30 PM",
-      "start_raw": "2026-09-24T13:30:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "Pick up Oliver from School",
-      "start": "Thursday, September 24 at 02:00 PM",
-      "start_raw": "2026-09-24T14:00:00-07:00",
-      "location": "Chaparral Elementary, 22601 Liberty Bell Rd, Calabasas, CA 91302, USA",
+      "summary": "Pick Up Sophie at Art Camp",
+      "start": "Friday, August 14 at 03:15 PM",
+      "start_raw": "2026-08-14T15:15:00-07:00",
+      "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
       "description": "",
       "is_travel": false
     }

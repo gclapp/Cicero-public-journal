@@ -7,10 +7,14 @@ import argparse
 import json
 import re
 import subprocess
+import sys
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from obsidian_filename import sanitize_filename
 
 
 VAULT = Path("/home/ubuntu/Obsidian/geoffclapp")
@@ -254,9 +258,7 @@ def write_pilot_report(results: list[dict[str, Any]]) -> Path:
 
 
 def note_slug(text: str, max_len: int = 90) -> str:
-    text = re.sub(r"[\\/:*?\"<>|\n\r\t]+", " ", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return (text[:max_len].strip(" .") or "Untitled")
+    return sanitize_filename(text, max_len=max_len, default="Untitled")
 
 
 def summary_from_description(title: str, description: str) -> str:
