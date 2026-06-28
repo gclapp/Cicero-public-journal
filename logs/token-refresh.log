@@ -1,1251 +1,321 @@
-[2026-06-27 00:00:03] [INFO] ======================================================================
-[2026-06-27 00:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 00:00:03] [INFO] ======================================================================
-[2026-06-27 00:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfe640aae5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:00:03] [INFO] 🔄 Whoop token invalid (1979 min old) — refreshing...
-[2026-06-27 00:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 00:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfe640aae7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 00:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfe640aae7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 00:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfe640aabacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 00:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 00:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 00:00:13] [INFO] ======================================================================
-[2026-06-27 00:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 00:00:13] [INFO] ======================================================================
-[2026-06-27 00:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 00:30:02] [INFO] ======================================================================
-[2026-06-27 00:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 00:30:02] [INFO] ======================================================================
-[2026-06-27 00:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef908a780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:02] [INFO] 🔄 Whoop token invalid (2009 min old) — refreshing...
-[2026-06-27 00:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 00:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef908b0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 00:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef908b8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 00:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef9efe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 00:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 00:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 00:30:12] [INFO] ======================================================================
-[2026-06-27 00:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 00:30:12] [INFO] ======================================================================
-[2026-06-27 00:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 00:30:02] [INFO] ======================================================================
-[2026-06-27 00:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 00:30:02] [INFO] ======================================================================
-[2026-06-27 00:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef908a780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:02] [INFO] 🔄 Whoop token invalid (2009 min old) — refreshing...
-[2026-06-27 00:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 00:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef908b0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 00:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef908b8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 00:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6fef9efe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 00:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 00:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 00:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 00:30:12] [INFO] ======================================================================
-[2026-06-27 00:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 00:30:12] [INFO] ======================================================================
-[2026-06-27 00:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 01:00:03] [INFO] ======================================================================
-[2026-06-27 01:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 01:00:03] [INFO] ======================================================================
-[2026-06-27 01:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb470470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:03] [INFO] 🔄 Whoop token invalid (2039 min old) — refreshing...
-[2026-06-27 01:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 01:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb46472ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 01:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb464737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 01:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb4667f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 01:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 01:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 01:00:13] [INFO] ======================================================================
-[2026-06-27 01:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 01:00:13] [INFO] ======================================================================
-[2026-06-27 01:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 01:00:03] [INFO] ======================================================================
-[2026-06-27 01:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 01:00:03] [INFO] ======================================================================
-[2026-06-27 01:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb470470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:03] [INFO] 🔄 Whoop token invalid (2039 min old) — refreshing...
-[2026-06-27 01:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 01:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb46472ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 01:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb464737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 01:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf0eb4667f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 01:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 01:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 01:00:13] [INFO] ======================================================================
-[2026-06-27 01:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 01:00:13] [INFO] ======================================================================
-[2026-06-27 01:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 01:30:03] [INFO] ======================================================================
-[2026-06-27 01:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 01:30:03] [INFO] ======================================================================
-[2026-06-27 01:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7ba470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:03] [INFO] 🔄 Whoop token invalid (2069 min old) — refreshing...
-[2026-06-27 01:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 01:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7ae72ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 01:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7ae737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 01:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7b07f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 01:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 01:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 01:30:13] [INFO] ======================================================================
-[2026-06-27 01:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 01:30:13] [INFO] ======================================================================
-[2026-06-27 01:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 01:30:03] [INFO] ======================================================================
-[2026-06-27 01:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 01:30:03] [INFO] ======================================================================
-[2026-06-27 01:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7ba470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:03] [INFO] 🔄 Whoop token invalid (2069 min old) — refreshing...
-[2026-06-27 01:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 01:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7ae72ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 01:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7ae737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 01:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe28d7b07f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 01:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 01:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 01:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 01:30:13] [INFO] ======================================================================
-[2026-06-27 01:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 01:30:13] [INFO] ======================================================================
-[2026-06-27 01:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 02:00:02] [INFO] ======================================================================
-[2026-06-27 02:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 02:00:02] [INFO] ======================================================================
-[2026-06-27 02:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b543f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:02] [INFO] 🔄 Whoop token invalid (2099 min old) — refreshing...
-[2026-06-27 02:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 02:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b49bee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 02:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b49bf680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 02:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b57cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 02:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 02:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 02:00:12] [INFO] ======================================================================
-[2026-06-27 02:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 02:00:12] [INFO] ======================================================================
-[2026-06-27 02:00:02] [INFO] ======================================================================
-[2026-06-27 02:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 02:00:02] [INFO] ======================================================================
-[2026-06-27 02:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b543f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:02] [INFO] 🔄 Whoop token invalid (2099 min old) — refreshing...
-[2026-06-27 02:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 02:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b49bee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 02:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b49bf680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 02:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xeab1b57cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 02:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 02:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 02:00:12] [INFO] ======================================================================
-[2026-06-27 02:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 02:00:12] [INFO] ======================================================================
-[2026-06-27 02:30:02] [INFO] ======================================================================
-[2026-06-27 02:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 02:30:02] [INFO] ======================================================================
-[2026-06-27 02:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627e6870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:02] [INFO] 🔄 Whoop token invalid (2129 min old) — refreshing...
-[2026-06-27 02:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 02:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627e7170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 02:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627e7950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 02:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627bba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 02:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 02:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 02:30:12] [INFO] ======================================================================
-[2026-06-27 02:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 02:30:12] [INFO] ======================================================================
-[2026-06-27 02:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 02:30:02] [INFO] ======================================================================
-[2026-06-27 02:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 02:30:02] [INFO] ======================================================================
-[2026-06-27 02:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627e6870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:02] [INFO] 🔄 Whoop token invalid (2129 min old) — refreshing...
-[2026-06-27 02:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 02:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627e7170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 02:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627e7950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 02:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf85e627bba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 02:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 02:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 02:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 02:30:12] [INFO] ======================================================================
-[2026-06-27 02:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 02:30:12] [INFO] ======================================================================
-[2026-06-27 02:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 03:00:03] [INFO] ======================================================================
-[2026-06-27 03:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 03:00:03] [INFO] ======================================================================
-[2026-06-27 03:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea4388a470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:03] [INFO] 🔄 Whoop token invalid (2159 min old) — refreshing...
-[2026-06-27 03:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 03:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea4387e72ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 03:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea4387e737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 03:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea438807f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 03:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 03:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 03:00:13] [INFO] ======================================================================
-[2026-06-27 03:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 03:00:13] [INFO] ======================================================================
-[2026-06-27 03:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 03:00:03] [INFO] ======================================================================
-[2026-06-27 03:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 03:00:03] [INFO] ======================================================================
-[2026-06-27 03:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea4388a470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:03] [INFO] 🔄 Whoop token invalid (2159 min old) — refreshing...
-[2026-06-27 03:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 03:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea4387e72ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 03:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea4387e737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 03:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xea438807f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 03:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 03:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 03:00:13] [INFO] ======================================================================
-[2026-06-27 03:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 03:00:13] [INFO] ======================================================================
-[2026-06-27 03:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 03:30:02] [INFO] ======================================================================
-[2026-06-27 03:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 03:30:02] [INFO] ======================================================================
-[2026-06-27 03:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b4a2070b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:02] [INFO] 🔄 Whoop token invalid (2189 min old) — refreshing...
-[2026-06-27 03:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 03:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b49632ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 03:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b496337d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 03:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b4983f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 03:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 03:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 03:30:12] [INFO] ======================================================================
-[2026-06-27 03:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 03:30:12] [INFO] ======================================================================
-[2026-06-27 03:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 03:30:02] [INFO] ======================================================================
-[2026-06-27 03:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 03:30:02] [INFO] ======================================================================
-[2026-06-27 03:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b4a2070b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:02] [INFO] 🔄 Whoop token invalid (2189 min old) — refreshing...
-[2026-06-27 03:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 03:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b49632ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 03:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b496337d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 03:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe30b4983f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 03:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 03:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 03:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 03:30:12] [INFO] ======================================================================
-[2026-06-27 03:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 03:30:12] [INFO] ======================================================================
-[2026-06-27 03:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 04:00:02] [INFO] ======================================================================
-[2026-06-27 04:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 04:00:02] [INFO] ======================================================================
-[2026-06-27 04:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe83480026870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:02] [INFO] 🔄 Whoop token invalid (2219 min old) — refreshing...
-[2026-06-27 04:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 04:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe83480027170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 04:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe83480027950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 04:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8347fffba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 04:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 04:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 04:00:12] [INFO] ======================================================================
-[2026-06-27 04:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 04:00:12] [INFO] ======================================================================
-[2026-06-27 04:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 04:00:02] [INFO] ======================================================================
-[2026-06-27 04:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 04:00:02] [INFO] ======================================================================
-[2026-06-27 04:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe83480026870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:02] [INFO] 🔄 Whoop token invalid (2219 min old) — refreshing...
-[2026-06-27 04:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 04:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe83480027170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 04:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe83480027950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 04:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8347fffba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 04:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 04:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 04:00:12] [INFO] ======================================================================
-[2026-06-27 04:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 04:00:12] [INFO] ======================================================================
-[2026-06-27 04:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 04:30:03] [INFO] ======================================================================
-[2026-06-27 04:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 04:30:03] [INFO] ======================================================================
-[2026-06-27 04:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d492315100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:03] [INFO] 🔄 Whoop token invalid (2249 min old) — refreshing...
-[2026-06-27 04:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 04:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d492317020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 04:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d492317920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 04:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d4922eacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 04:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 04:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 04:30:13] [INFO] ======================================================================
-[2026-06-27 04:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 04:30:13] [INFO] ======================================================================
-[2026-06-27 04:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 04:30:03] [INFO] ======================================================================
-[2026-06-27 04:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 04:30:03] [INFO] ======================================================================
-[2026-06-27 04:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d492315100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:03] [INFO] 🔄 Whoop token invalid (2249 min old) — refreshing...
-[2026-06-27 04:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 04:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d492317020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 04:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d492317920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 04:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf9d4922eacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 04:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 04:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 04:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 04:30:13] [INFO] ======================================================================
-[2026-06-27 04:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 04:30:13] [INFO] ======================================================================
-[2026-06-27 04:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 05:00:02] [INFO] ======================================================================
-[2026-06-27 05:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 05:00:02] [INFO] ======================================================================
-[2026-06-27 05:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0e5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:02] [INFO] 🔄 Whoop token invalid (2279 min old) — refreshing...
-[2026-06-27 05:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 05:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0e7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 05:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0e7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 05:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0bacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 05:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 05:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 05:00:12] [INFO] ======================================================================
-[2026-06-27 05:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 05:00:12] [INFO] ======================================================================
-[2026-06-27 05:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 05:00:02] [INFO] ======================================================================
-[2026-06-27 05:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 05:00:02] [INFO] ======================================================================
-[2026-06-27 05:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0e5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:02] [INFO] 🔄 Whoop token invalid (2279 min old) — refreshing...
-[2026-06-27 05:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 05:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0e7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 05:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0e7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 05:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe8290a0bacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 05:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 05:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 05:00:12] [INFO] ======================================================================
-[2026-06-27 05:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 05:00:12] [INFO] ======================================================================
-[2026-06-27 05:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 05:30:03] [INFO] ======================================================================
-[2026-06-27 05:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 05:30:03] [INFO] ======================================================================
-[2026-06-27 05:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b76870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:03] [INFO] 🔄 Whoop token invalid (2309 min old) — refreshing...
-[2026-06-27 05:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 05:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b77170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 05:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b77950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 05:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b4ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 05:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 05:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 05:30:13] [INFO] ======================================================================
-[2026-06-27 05:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 05:30:13] [INFO] ======================================================================
-[2026-06-27 05:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 05:30:03] [INFO] ======================================================================
-[2026-06-27 05:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 05:30:03] [INFO] ======================================================================
-[2026-06-27 05:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b76870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:03] [INFO] 🔄 Whoop token invalid (2309 min old) — refreshing...
-[2026-06-27 05:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 05:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b77170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 05:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b77950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 05:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf56af5b4ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 05:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 05:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 05:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 05:30:13] [INFO] ======================================================================
-[2026-06-27 05:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 05:30:13] [INFO] ======================================================================
-[2026-06-27 05:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 06:00:03] [INFO] ======================================================================
-[2026-06-27 06:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 06:00:03] [INFO] ======================================================================
-[2026-06-27 06:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980e5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:03] [INFO] 🔄 Whoop token invalid (2339 min old) — refreshing...
-[2026-06-27 06:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 06:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980e7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 06:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980e7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 06:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980bacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 06:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 06:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 06:00:13] [INFO] ======================================================================
-[2026-06-27 06:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 06:00:13] [INFO] ======================================================================
-[2026-06-27 06:00:03] [INFO] ======================================================================
-[2026-06-27 06:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 06:00:03] [INFO] ======================================================================
-[2026-06-27 06:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980e5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:03] [INFO] 🔄 Whoop token invalid (2339 min old) — refreshing...
-[2026-06-27 06:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 06:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980e7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 06:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980e7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 06:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe577980bacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 06:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 06:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 06:00:13] [INFO] ======================================================================
-[2026-06-27 06:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 06:00:13] [INFO] ======================================================================
-[2026-06-27 06:30:02] [INFO] ======================================================================
-[2026-06-27 06:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 06:30:02] [INFO] ======================================================================
-[2026-06-27 06:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e16336870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:02] [INFO] 🔄 Whoop token invalid (2369 min old) — refreshing...
-[2026-06-27 06:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 06:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e16337170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 06:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e16337950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 06:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e1630ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 06:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 06:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 06:30:12] [INFO] ======================================================================
-[2026-06-27 06:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 06:30:12] [INFO] ======================================================================
-[2026-06-27 06:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 06:30:02] [INFO] ======================================================================
-[2026-06-27 06:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 06:30:02] [INFO] ======================================================================
-[2026-06-27 06:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e16336870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:02] [INFO] 🔄 Whoop token invalid (2369 min old) — refreshing...
-[2026-06-27 06:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 06:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e16337170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 06:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e16337950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 06:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed5e1630ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 06:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 06:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 06:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 06:30:12] [INFO] ======================================================================
-[2026-06-27 06:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 06:30:12] [INFO] ======================================================================
-[2026-06-27 06:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 07:00:03] [INFO] ======================================================================
-[2026-06-27 07:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 07:00:03] [INFO] ======================================================================
-[2026-06-27 07:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee156870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:03] [INFO] 🔄 Whoop token invalid (2399 min old) — refreshing...
-[2026-06-27 07:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 07:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee157170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 07:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee157950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 07:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee12ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 07:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 07:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 07:00:13] [INFO] ======================================================================
-[2026-06-27 07:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 07:00:13] [INFO] ======================================================================
-[2026-06-27 07:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 07:00:03] [INFO] ======================================================================
-[2026-06-27 07:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 07:00:03] [INFO] ======================================================================
-[2026-06-27 07:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee156870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:03] [INFO] 🔄 Whoop token invalid (2399 min old) — refreshing...
-[2026-06-27 07:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 07:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee157170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 07:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee157950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 07:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xed33ee12ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 07:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 07:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 07:00:13] [INFO] ======================================================================
-[2026-06-27 07:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 07:00:13] [INFO] ======================================================================
-[2026-06-27 07:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 07:30:03] [INFO] ======================================================================
-[2026-06-27 07:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 07:30:03] [INFO] ======================================================================
-[2026-06-27 07:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deae26870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:03] [INFO] 🔄 Whoop token invalid (2429 min old) — refreshing...
-[2026-06-27 07:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 07:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deae27170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 07:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deae27950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 07:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deadfba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 07:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 07:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 07:30:13] [INFO] ======================================================================
-[2026-06-27 07:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 07:30:13] [INFO] ======================================================================
-[2026-06-27 07:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 07:30:03] [INFO] ======================================================================
-[2026-06-27 07:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 07:30:03] [INFO] ======================================================================
-[2026-06-27 07:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deae26870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:03] [INFO] 🔄 Whoop token invalid (2429 min old) — refreshing...
-[2026-06-27 07:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 07:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deae27170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 07:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deae27950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 07:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe47deadfba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 07:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 07:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 07:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 07:30:13] [INFO] ======================================================================
-[2026-06-27 07:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 07:30:13] [INFO] ======================================================================
-[2026-06-27 07:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 08:00:03] [INFO] ======================================================================
-[2026-06-27 08:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 08:00:03] [INFO] ======================================================================
-[2026-06-27 08:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b621e0f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:03] [INFO] 🔄 Whoop token invalid (2459 min old) — refreshing...
-[2026-06-27 08:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 08:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b62138ee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 08:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b62138f680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 08:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b6221cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 08:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 08:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 08:00:13] [INFO] ======================================================================
-[2026-06-27 08:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 08:00:13] [INFO] ======================================================================
-[2026-06-27 08:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 08:00:03] [INFO] ======================================================================
-[2026-06-27 08:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 08:00:03] [INFO] ======================================================================
-[2026-06-27 08:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b621e0f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:03] [INFO] 🔄 Whoop token invalid (2459 min old) — refreshing...
-[2026-06-27 08:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 08:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b62138ee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 08:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b62138f680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 08:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3b6221cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 08:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 08:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 08:00:13] [INFO] ======================================================================
-[2026-06-27 08:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 08:00:13] [INFO] ======================================================================
-[2026-06-27 08:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 08:30:02] [INFO] ======================================================================
-[2026-06-27 08:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 08:30:02] [INFO] ======================================================================
-[2026-06-27 08:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f606870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:02] [INFO] 🔄 Whoop token invalid (2489 min old) — refreshing...
-[2026-06-27 08:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 08:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f607170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 08:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f607950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 08:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f5dba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 08:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 08:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 08:30:12] [INFO] ======================================================================
-[2026-06-27 08:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 08:30:12] [INFO] ======================================================================
-[2026-06-27 08:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 08:30:02] [INFO] ======================================================================
-[2026-06-27 08:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 08:30:02] [INFO] ======================================================================
-[2026-06-27 08:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f606870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:02] [INFO] 🔄 Whoop token invalid (2489 min old) — refreshing...
-[2026-06-27 08:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 08:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f607170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 08:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f607950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 08:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xee279f5dba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 08:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 08:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 08:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 08:30:12] [INFO] ======================================================================
-[2026-06-27 08:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 08:30:12] [INFO] ======================================================================
-[2026-06-27 08:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 09:00:02] [INFO] ======================================================================
-[2026-06-27 09:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 09:00:02] [INFO] ======================================================================
-[2026-06-27 09:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe378012470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:02] [INFO] 🔄 Whoop token invalid (2519 min old) — refreshing...
-[2026-06-27 09:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 09:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe37800672ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 09:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe378006737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 09:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3780087f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 09:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 09:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 09:00:12] [INFO] ======================================================================
-[2026-06-27 09:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 09:00:12] [INFO] ======================================================================
-[2026-06-27 09:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 09:00:02] [INFO] ======================================================================
-[2026-06-27 09:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 09:00:02] [INFO] ======================================================================
-[2026-06-27 09:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe378012470b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:02] [INFO] 🔄 Whoop token invalid (2519 min old) — refreshing...
-[2026-06-27 09:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 09:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe37800672ed0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 09:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe378006737d0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 09:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe3780087f110>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 09:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 09:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 09:00:12] [INFO] ======================================================================
-[2026-06-27 09:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 09:00:12] [INFO] ======================================================================
-[2026-06-27 09:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 09:30:03] [INFO] ======================================================================
-[2026-06-27 09:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 09:30:03] [INFO] ======================================================================
-[2026-06-27 09:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d740f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:03] [INFO] 🔄 Whoop token invalid (2549 min old) — refreshing...
-[2026-06-27 09:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 09:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d698ee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 09:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d698f680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 09:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d77cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 09:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 09:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 09:30:13] [INFO] ======================================================================
-[2026-06-27 09:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 09:30:13] [INFO] ======================================================================
-[2026-06-27 09:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 09:30:03] [INFO] ======================================================================
-[2026-06-27 09:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 09:30:03] [INFO] ======================================================================
-[2026-06-27 09:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d740f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:03] [INFO] 🔄 Whoop token invalid (2549 min old) — refreshing...
-[2026-06-27 09:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 09:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d698ee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 09:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d698f680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 09:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf1c7d77cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 09:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 09:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 09:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 09:30:13] [INFO] ======================================================================
-[2026-06-27 09:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 09:30:13] [INFO] ======================================================================
-[2026-06-27 09:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 10:00:04] [INFO] ======================================================================
-[2026-06-27 10:00:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 10:00:04] [INFO] ======================================================================
-[2026-06-27 10:00:04] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c9500f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:04] [INFO] 🔄 Whoop token invalid (2579 min old) — refreshing...
-[2026-06-27 10:00:04] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 10:00:04] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c9458ee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:09] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 10:00:09] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c9458f680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:14] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 10:00:14] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c953cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:14] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 10:00:14] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 10:00:14] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 10:00:14] [INFO] ======================================================================
-[2026-06-27 10:00:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 10:00:14] [INFO] ======================================================================
-[2026-06-27 10:00:04] [INFO] ======================================================================
-[2026-06-27 10:00:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 10:00:04] [INFO] ======================================================================
-[2026-06-27 10:00:04] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c9500f0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:04] [INFO] 🔄 Whoop token invalid (2579 min old) — refreshing...
-[2026-06-27 10:00:04] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 10:00:04] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c9458ee70>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:09] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 10:00:09] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c9458f680>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:14] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 10:00:14] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe13c953cbda0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:00:14] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 10:00:14] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 10:00:14] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 10:00:14] [INFO] ======================================================================
-[2026-06-27 10:00:14] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 10:00:14] [INFO] ======================================================================
-[2026-06-27 10:30:03] [INFO] ======================================================================
-[2026-06-27 10:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 10:30:03] [INFO] ======================================================================
-[2026-06-27 10:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb98aba780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:03] [INFO] 🔄 Whoop token invalid (2609 min old) — refreshing...
-[2026-06-27 10:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 10:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb98abb0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 10:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb98abb8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 10:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb998fe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 10:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 10:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 10:30:13] [INFO] ======================================================================
-[2026-06-27 10:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 10:30:13] [INFO] ======================================================================
-[2026-06-27 10:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 10:30:03] [INFO] ======================================================================
-[2026-06-27 10:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 10:30:03] [INFO] ======================================================================
-[2026-06-27 10:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb98aba780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:03] [INFO] 🔄 Whoop token invalid (2609 min old) — refreshing...
-[2026-06-27 10:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 10:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb98abb0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 10:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb98abb8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 10:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf4cb998fe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 10:30:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 10:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 10:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 10:30:13] [INFO] ======================================================================
-[2026-06-27 10:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 10:30:13] [INFO] ======================================================================
-[2026-06-27 10:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 11:00:02] [INFO] ======================================================================
-[2026-06-27 11:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 11:00:02] [INFO] ======================================================================
-[2026-06-27 11:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fe6870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:02] [INFO] 🔄 Whoop token invalid (2639 min old) — refreshing...
-[2026-06-27 11:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 11:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fe7170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 11:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fe7950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 11:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fbba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 11:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 11:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 11:00:12] [INFO] ======================================================================
-[2026-06-27 11:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 11:00:12] [INFO] ======================================================================
-[2026-06-27 11:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 11:00:02] [INFO] ======================================================================
-[2026-06-27 11:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 11:00:02] [INFO] ======================================================================
-[2026-06-27 11:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fe6870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:02] [INFO] 🔄 Whoop token invalid (2639 min old) — refreshing...
-[2026-06-27 11:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 11:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fe7170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 11:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fe7950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 11:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf79b42fbba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 11:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 11:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 11:00:12] [INFO] ======================================================================
-[2026-06-27 11:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 11:00:12] [INFO] ======================================================================
-[2026-06-27 11:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 11:30:02] [INFO] ======================================================================
-[2026-06-27 11:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 11:30:02] [INFO] ======================================================================
-[2026-06-27 11:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270c26870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:02] [INFO] 🔄 Whoop token invalid (2669 min old) — refreshing...
-[2026-06-27 11:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 11:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270c27170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 11:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270c27950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 11:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270bfba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 11:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 11:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 11:30:12] [INFO] ======================================================================
-[2026-06-27 11:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 11:30:12] [INFO] ======================================================================
-[2026-06-27 11:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 11:30:02] [INFO] ======================================================================
-[2026-06-27 11:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 11:30:02] [INFO] ======================================================================
-[2026-06-27 11:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270c26870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:02] [INFO] 🔄 Whoop token invalid (2669 min old) — refreshing...
-[2026-06-27 11:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 11:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270c27170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 11:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270c27950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 11:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf13270bfba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 11:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 11:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 11:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 11:30:12] [INFO] ======================================================================
-[2026-06-27 11:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 11:30:12] [INFO] ======================================================================
-[2026-06-27 11:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 12:00:02] [INFO] ======================================================================
-[2026-06-27 12:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 12:00:02] [INFO] ======================================================================
-[2026-06-27 12:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62bcba780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:02] [INFO] 🔄 Whoop token invalid (2699 min old) — refreshing...
-[2026-06-27 12:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 12:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62bcbb0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 12:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62bcbb8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 12:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62cafe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 12:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 12:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 12:00:12] [INFO] ======================================================================
-[2026-06-27 12:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 12:00:12] [INFO] ======================================================================
-[2026-06-27 12:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 12:00:02] [INFO] ======================================================================
-[2026-06-27 12:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 12:00:02] [INFO] ======================================================================
-[2026-06-27 12:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62bcba780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:02] [INFO] 🔄 Whoop token invalid (2699 min old) — refreshing...
-[2026-06-27 12:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 12:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62bcbb0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 12:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62bcbb8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 12:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xefb62cafe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:00:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 12:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 12:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 12:00:12] [INFO] ======================================================================
-[2026-06-27 12:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 12:00:12] [INFO] ======================================================================
-[2026-06-27 12:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 12:30:02] [INFO] ======================================================================
-[2026-06-27 12:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 12:30:02] [INFO] ======================================================================
-[2026-06-27 12:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aee5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:02] [INFO] 🔄 Whoop token invalid (2729 min old) — refreshing...
-[2026-06-27 12:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 12:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aee7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 12:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aee7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 12:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aebacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 12:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 12:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 12:30:12] [INFO] ======================================================================
-[2026-06-27 12:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 12:30:12] [INFO] ======================================================================
-[2026-06-27 12:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 12:30:02] [INFO] ======================================================================
-[2026-06-27 12:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 12:30:02] [INFO] ======================================================================
-[2026-06-27 12:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aee5100>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:02] [INFO] 🔄 Whoop token invalid (2729 min old) — refreshing...
-[2026-06-27 12:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 12:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aee7020>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 12:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aee7920>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 12:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf6158aebacf0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 12:30:12] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 12:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 12:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 12:30:12] [INFO] ======================================================================
-[2026-06-27 12:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 12:30:12] [INFO] ======================================================================
-[2026-06-27 12:30:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 13:00:03] [INFO] ======================================================================
-[2026-06-27 13:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 13:00:03] [INFO] ======================================================================
-[2026-06-27 13:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5ceba780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:03] [INFO] 🔄 Whoop token invalid (2759 min old) — refreshing...
-[2026-06-27 13:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 13:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5cebb0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 13:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5cebb8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 13:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5dcfe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 13:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 13:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 13:00:13] [INFO] ======================================================================
-[2026-06-27 13:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 13:00:13] [INFO] ======================================================================
-[2026-06-27 13:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 13:00:03] [INFO] ======================================================================
-[2026-06-27 13:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 13:00:03] [INFO] ======================================================================
-[2026-06-27 13:00:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5ceba780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:03] [INFO] 🔄 Whoop token invalid (2759 min old) — refreshing...
-[2026-06-27 13:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 13:00:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5cebb0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 13:00:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5cebb8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 13:00:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xe38f5dcfe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:00:13] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
-[2026-06-27 13:00:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 13:00:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 13:00:13] [INFO] ======================================================================
-[2026-06-27 13:00:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 13:00:13] [INFO] ======================================================================
-[2026-06-27 13:00:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 13:30:03] [INFO] ======================================================================
-[2026-06-27 13:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 13:30:03] [INFO] ======================================================================
-[2026-06-27 13:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd36870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:03] [INFO] 🔄 Whoop token invalid (2789 min old) — refreshing...
-[2026-06-27 13:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 13:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd37170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 13:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd37950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 13:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd0ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:13] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
-[2026-06-27 13:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 13:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 13:30:13] [INFO] ======================================================================
-[2026-06-27 13:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 13:30:13] [INFO] ======================================================================
-[2026-06-27 13:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 13:30:03] [INFO] ======================================================================
-[2026-06-27 13:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 13:30:03] [INFO] ======================================================================
-[2026-06-27 13:30:03] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd36870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:03] [INFO] 🔄 Whoop token invalid (2789 min old) — refreshing...
-[2026-06-27 13:30:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 13:30:03] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd37170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:08] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 13:30:08] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd37950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:13] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 13:30:13] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xfc975dd0ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 13:30:13] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
-[2026-06-27 13:30:13] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 13:30:13] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 13:30:13] [INFO] ======================================================================
-[2026-06-27 13:30:13] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 13:30:13] [INFO] ======================================================================
-[2026-06-27 13:30:13] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 14:00:02] [INFO] ======================================================================
-[2026-06-27 14:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 14:00:02] [INFO] ======================================================================
-[2026-06-27 14:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd976870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:02] [INFO] 🔄 Whoop token invalid (2819 min old) — refreshing...
-[2026-06-27 14:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 14:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd977170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 14:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd977950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 14:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd94ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:12] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
-[2026-06-27 14:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 14:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 14:00:12] [INFO] ======================================================================
-[2026-06-27 14:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 14:00:12] [INFO] ======================================================================
-[2026-06-27 14:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 14:00:02] [INFO] ======================================================================
-[2026-06-27 14:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 14:00:02] [INFO] ======================================================================
-[2026-06-27 14:00:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd976870>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:02] [INFO] 🔄 Whoop token invalid (2819 min old) — refreshing...
-[2026-06-27 14:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 14:00:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd977170>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 14:00:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd977950>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 14:00:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf417dd94ba40>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:00:12] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
-[2026-06-27 14:00:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 14:00:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 14:00:12] [INFO] ======================================================================
-[2026-06-27 14:00:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 14:00:12] [INFO] ======================================================================
-[2026-06-27 14:00:12] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 14:30:02] [INFO] ======================================================================
-[2026-06-27 14:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 14:30:02] [INFO] ======================================================================
-[2026-06-27 14:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15945e8a780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:02] [INFO] 🔄 Whoop token invalid (2849 min old) — refreshing...
-[2026-06-27 14:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 14:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15945e8b0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 14:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15945e8b8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 14:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15946cfe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:12] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
-[2026-06-27 14:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 14:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 14:30:12] [INFO] ======================================================================
-[2026-06-27 14:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 14:30:12] [INFO] ======================================================================
-[2026-06-27 14:30:02] [INFO] ======================================================================
-[2026-06-27 14:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 14:30:02] [INFO] ======================================================================
-[2026-06-27 14:30:02] [ERROR] Token validation error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /developer/v2/user/profile/basic (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15945e8a780>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:02] [INFO] 🔄 Whoop token invalid (2849 min old) — refreshing...
-[2026-06-27 14:30:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 14:30:02] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15945e8b0b0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:07] [INFO] Whoop refresh attempt 2/3...
-[2026-06-27 14:30:07] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15945e8b8c0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:12] [INFO] Whoop refresh attempt 3/3...
-[2026-06-27 14:30:12] [ERROR] ❌ Whoop refresh error: HTTPSConnectionPool(host='api.prod.whoop.com', port=443): Max retries exceeded with url: /oauth/oauth2/token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xf15946cfe0f0>: Failed to resolve 'api.prod.whoop.com' ([Errno -3] Temporary failure in name resolution)"))
-[2026-06-27 14:30:12] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
-[2026-06-27 14:30:12] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 14:30:12] [WARNING] 🟡 Gmail SMTP: Verification unavailable (gaierror)
-[2026-06-27 14:30:12] [INFO] ======================================================================
-[2026-06-27 14:30:12] [INFO] Summary: 1 healthy | 1 warning | 2 critical
-[2026-06-27 14:30:12] [INFO] ======================================================================
-[2026-06-27 15:00:03] [INFO] ======================================================================
-[2026-06-27 15:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 15:00:03] [INFO] ======================================================================
-[2026-06-27 15:00:03] [INFO] 🔄 Whoop token invalid (2879 min old) — refreshing...
-[2026-06-27 15:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 15:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 15:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 15:00:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 15:00:04] [INFO] ✅ Gmail SMTP: Login/NOOP verified; config is 123 days old
-[2026-06-27 15:00:04] [INFO] ======================================================================
-[2026-06-27 15:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 15:00:04] [INFO] ======================================================================
-[2026-06-27 15:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 15:00:03] [INFO] ======================================================================
-[2026-06-27 15:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 15:00:03] [INFO] ======================================================================
-[2026-06-27 15:00:03] [INFO] 🔄 Whoop token invalid (2879 min old) — refreshing...
-[2026-06-27 15:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 15:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 15:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 15:00:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 15:00:04] [INFO] ✅ Gmail SMTP: Login/NOOP verified; config is 123 days old
-[2026-06-27 15:00:04] [INFO] ======================================================================
-[2026-06-27 15:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 15:00:04] [INFO] ======================================================================
-[2026-06-27 15:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 15:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 15:30:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 15:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 0.5h ago; config unchanged (123 days old)
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 15:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 15:30:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 15:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 0.5h ago; config unchanged (123 days old)
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 15:30:03] [INFO] ======================================================================
-[2026-06-27 15:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 16:00:04] [INFO] ======================================================================
-[2026-06-27 16:00:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 16:00:04] [INFO] ======================================================================
-[2026-06-27 16:00:05] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
-[2026-06-27 16:00:05] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 16:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 16:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 16:00:05] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 16:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 1.0h ago; config unchanged (123 days old)
-[2026-06-27 16:00:05] [INFO] ======================================================================
-[2026-06-27 16:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 16:00:05] [INFO] ======================================================================
-[2026-06-27 16:00:05] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 16:00:04] [INFO] ======================================================================
-[2026-06-27 16:00:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 16:00:04] [INFO] ======================================================================
-[2026-06-27 16:00:05] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
-[2026-06-27 16:00:05] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 16:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 16:00:05] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 16:00:05] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 16:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 1.0h ago; config unchanged (123 days old)
-[2026-06-27 16:00:05] [INFO] ======================================================================
-[2026-06-27 16:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 16:00:05] [INFO] ======================================================================
-[2026-06-27 16:00:05] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 16:30:02] [INFO] ======================================================================
-[2026-06-27 16:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 16:30:02] [INFO] ======================================================================
-[2026-06-27 16:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 16:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 16:30:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 16:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 1.5h ago; config unchanged (123 days old)
-[2026-06-27 16:30:03] [INFO] ======================================================================
-[2026-06-27 16:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 16:30:03] [INFO] ======================================================================
-[2026-06-27 16:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 16:30:02] [INFO] ======================================================================
-[2026-06-27 16:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 16:30:02] [INFO] ======================================================================
-[2026-06-27 16:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 16:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 16:30:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 16:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 1.5h ago; config unchanged (123 days old)
-[2026-06-27 16:30:03] [INFO] ======================================================================
-[2026-06-27 16:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 16:30:03] [INFO] ======================================================================
-[2026-06-27 16:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 17:00:02] [INFO] ======================================================================
-[2026-06-27 17:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 17:00:02] [INFO] ======================================================================
-[2026-06-27 17:00:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
-[2026-06-27 17:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 17:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 17:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 17:00:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 17:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 2.0h ago; config unchanged (123 days old)
-[2026-06-27 17:00:03] [INFO] ======================================================================
-[2026-06-27 17:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 17:00:03] [INFO] ======================================================================
-[2026-06-27 17:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 17:00:02] [INFO] ======================================================================
-[2026-06-27 17:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 17:00:02] [INFO] ======================================================================
-[2026-06-27 17:00:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
-[2026-06-27 17:00:02] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 17:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 17:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 17:00:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 17:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 2.0h ago; config unchanged (123 days old)
-[2026-06-27 17:00:03] [INFO] ======================================================================
-[2026-06-27 17:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 17:00:03] [INFO] ======================================================================
-[2026-06-27 17:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 17:30:02] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 17:30:02] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 17:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 2.5h ago; config unchanged (123 days old)
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 17:30:02] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 17:30:02] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 17:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 2.5h ago; config unchanged (123 days old)
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 17:30:02] [INFO] ======================================================================
-[2026-06-27 17:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 18:00:03] [INFO] ======================================================================
-[2026-06-27 18:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 18:00:03] [INFO] ======================================================================
-[2026-06-27 18:00:03] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
-[2026-06-27 18:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 18:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 18:00:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 18:00:04] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 18:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 3.0h ago; config unchanged (123 days old)
-[2026-06-27 18:00:04] [INFO] ======================================================================
-[2026-06-27 18:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 18:00:04] [INFO] ======================================================================
-[2026-06-27 18:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 18:00:03] [INFO] ======================================================================
-[2026-06-27 18:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 18:00:03] [INFO] ======================================================================
-[2026-06-27 18:00:03] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
-[2026-06-27 18:00:03] [INFO] Whoop refresh attempt 1/3...
-[2026-06-27 18:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
-[2026-06-27 18:00:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 18:00:04] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 18:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 3.0h ago; config unchanged (123 days old)
-[2026-06-27 18:00:04] [INFO] ======================================================================
-[2026-06-27 18:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 18:00:04] [INFO] ======================================================================
-[2026-06-27 18:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 18:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 18:30:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 18:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 3.5h ago; config unchanged (123 days old)
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
-[2026-06-27 18:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
-[2026-06-27 18:30:03] [ERROR] 🔴 Google Docs: Token is 36 days old — CRITICAL
-[2026-06-27 18:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 3.5h ago; config unchanged (123 days old)
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
-[2026-06-27 18:30:03] [INFO] ======================================================================
-[2026-06-27 18:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
-[2026-06-27 19:00:02] [INFO] ======================================================================
-[2026-06-27 19:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
-[2026-06-27 19:00:02] [INFO] ======================================================================
-[2026-06-27 19:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
-[2026-06-27 19:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 00:00:03] [INFO] ======================================================================
+[2026-06-28 00:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 00:00:03] [INFO] ======================================================================
+[2026-06-28 00:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 00:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 00:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 00:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 00:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 00:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 9.0h ago; config unchanged (123 days old)
+[2026-06-28 00:00:03] [INFO] ======================================================================
+[2026-06-28 00:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 00:00:03] [INFO] ======================================================================
+[2026-06-28 00:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 00:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 00:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 00:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 9.5h ago; config unchanged (123 days old)
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 00:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 00:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 00:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 9.5h ago; config unchanged (123 days old)
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 00:30:03] [INFO] ======================================================================
+[2026-06-28 00:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 01:00:02] [INFO] ======================================================================
+[2026-06-28 01:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 01:00:02] [INFO] ======================================================================
+[2026-06-28 01:00:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 01:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 01:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 01:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 01:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 01:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 10.0h ago; config unchanged (123 days old)
+[2026-06-28 01:00:03] [INFO] ======================================================================
+[2026-06-28 01:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 01:00:03] [INFO] ======================================================================
+[2026-06-28 01:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 01:00:02] [INFO] ======================================================================
+[2026-06-28 01:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 01:00:02] [INFO] ======================================================================
+[2026-06-28 01:00:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 01:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 01:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 01:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 01:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 01:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 10.0h ago; config unchanged (123 days old)
+[2026-06-28 01:00:03] [INFO] ======================================================================
+[2026-06-28 01:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 01:00:03] [INFO] ======================================================================
+[2026-06-28 01:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 01:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 01:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 01:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 10.5h ago; config unchanged (123 days old)
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 01:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 01:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 01:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 10.5h ago; config unchanged (123 days old)
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 01:30:03] [INFO] ======================================================================
+[2026-06-28 01:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 02:00:02] [INFO] ======================================================================
+[2026-06-28 02:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 02:00:02] [INFO] ======================================================================
+[2026-06-28 02:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 02:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 02:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 02:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 02:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 02:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 11.0h ago; config unchanged (123 days old)
+[2026-06-28 02:00:03] [INFO] ======================================================================
+[2026-06-28 02:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 02:00:03] [INFO] ======================================================================
+[2026-06-28 02:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 02:00:02] [INFO] ======================================================================
+[2026-06-28 02:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 02:00:02] [INFO] ======================================================================
+[2026-06-28 02:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 02:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 02:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 02:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 02:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 02:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 11.0h ago; config unchanged (123 days old)
+[2026-06-28 02:00:03] [INFO] ======================================================================
+[2026-06-28 02:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 02:00:03] [INFO] ======================================================================
+[2026-06-28 02:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 02:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 02:30:04] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 02:30:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 11.5h ago; config unchanged (123 days old)
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 02:30:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 02:30:04] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 02:30:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 11.5h ago; config unchanged (123 days old)
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 02:30:04] [INFO] ======================================================================
+[2026-06-28 02:30:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 03:00:02] [INFO] ======================================================================
+[2026-06-28 03:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 03:00:02] [INFO] ======================================================================
+[2026-06-28 03:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 03:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 03:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 03:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 03:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 03:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 12.0h ago; config unchanged (123 days old)
+[2026-06-28 03:00:03] [INFO] ======================================================================
+[2026-06-28 03:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 03:00:03] [INFO] ======================================================================
+[2026-06-28 03:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 03:00:02] [INFO] ======================================================================
+[2026-06-28 03:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 03:00:02] [INFO] ======================================================================
+[2026-06-28 03:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 03:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 03:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 03:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 03:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 03:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 12.0h ago; config unchanged (123 days old)
+[2026-06-28 03:00:03] [INFO] ======================================================================
+[2026-06-28 03:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 03:00:03] [INFO] ======================================================================
+[2026-06-28 03:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 03:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 03:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 03:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 12.5h ago; config unchanged (123 days old)
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 03:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 03:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 03:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 12.5h ago; config unchanged (123 days old)
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 03:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 03:30:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-06-28 04:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 04:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 04:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 04:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 04:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 13.0h ago; config unchanged (123 days old)
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-06-28 04:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 04:00:03] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 04:00:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 04:00:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 04:00:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 13.0h ago; config unchanged (123 days old)
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 04:00:03] [INFO] ======================================================================
+[2026-06-28 04:00:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 04:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 04:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 04:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 13.5h ago; config unchanged (123 days old)
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 04:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 04:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 04:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 13.5h ago; config unchanged (123 days old)
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 04:30:03] [INFO] ======================================================================
+[2026-06-28 04:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 05:00:02] [INFO] ======================================================================
+[2026-06-28 05:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 05:00:02] [INFO] ======================================================================
+[2026-06-28 05:00:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 05:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 05:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 05:00:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 05:00:04] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 05:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.0h ago; config unchanged (123 days old)
+[2026-06-28 05:00:04] [INFO] ======================================================================
+[2026-06-28 05:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 05:00:04] [INFO] ======================================================================
+[2026-06-28 05:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 05:00:02] [INFO] ======================================================================
+[2026-06-28 05:00:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 05:00:02] [INFO] ======================================================================
+[2026-06-28 05:00:02] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-06-28 05:00:02] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 05:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 05:00:04] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 05:00:04] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 05:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.0h ago; config unchanged (123 days old)
+[2026-06-28 05:00:04] [INFO] ======================================================================
+[2026-06-28 05:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 05:00:04] [INFO] ======================================================================
+[2026-06-28 05:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 05:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 05:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 05:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.5h ago; config unchanged (124 days old)
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 05:30:03] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 05:30:03] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 05:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.5h ago; config unchanged (124 days old)
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 05:30:03] [INFO] ======================================================================
+[2026-06-28 05:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 06:00:03] [INFO] ======================================================================
+[2026-06-28 06:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 06:00:03] [INFO] ======================================================================
+[2026-06-28 06:00:09] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-06-28 06:00:09] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 06:00:09] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 06:00:09] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 06:00:09] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 06:00:09] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.0h ago; config unchanged (124 days old)
+[2026-06-28 06:00:09] [INFO] ======================================================================
+[2026-06-28 06:00:09] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 06:00:09] [INFO] ======================================================================
+[2026-06-28 06:00:09] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 06:00:03] [INFO] ======================================================================
+[2026-06-28 06:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 06:00:03] [INFO] ======================================================================
+[2026-06-28 06:00:09] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-06-28 06:00:09] [INFO] Whoop refresh attempt 1/3...
+[2026-06-28 06:00:09] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-06-28 06:00:09] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 06:00:09] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 06:00:09] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.0h ago; config unchanged (124 days old)
+[2026-06-28 06:00:09] [INFO] ======================================================================
+[2026-06-28 06:00:09] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 06:00:09] [INFO] ======================================================================
+[2026-06-28 06:00:09] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 06:30:02] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 06:30:02] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 06:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.5h ago; config unchanged (124 days old)
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-06-28 06:30:02] [INFO] ✅ Google Calendar: Token is 0 days old (healthy)
+[2026-06-28 06:30:02] [ERROR] 🔴 Google Docs: Token is 37 days old — CRITICAL
+[2026-06-28 06:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.5h ago; config unchanged (124 days old)
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-06-28 06:30:02] [INFO] ======================================================================
+[2026-06-28 06:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...

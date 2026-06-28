@@ -187,9 +187,15 @@ def check_competitive_intel():
 
 def check_model_status():
     """Check current AI model status"""
-    PRIMARY_MODEL = "openai/gpt-5.5"
-    FALLBACK_MODELS = ["openai/gpt-5.4-mini", "moonshot/kimi-k2.5"]
-    
+    PRIMARY_MODEL = "moonshot/kimi-k2.7-code"
+    FALLBACK_MODELS = [
+        "openai/gpt-5.5",
+        "openai/gpt-5.4-mini",
+        "openai/o3-mini",
+        "moonshot/kimi-k2.5",
+        "openai/gpt-5.4-nano",
+    ]
+
     # Try to read from marker file
     marker_file = Path.home() / ".openclaw" / "workspace" / "logs" / "current-model.txt"
     current = None
@@ -199,16 +205,16 @@ def check_model_status():
                 current = f.read().strip()
         except:
             pass
-    
+
     # Fallback to environment
     if not current:
         current = os.environ.get('OPENCLAW_CURRENT_MODEL', 'unknown')
-    
-    is_fallback = any(fb in current for fb in FALLBACK_MODELS)
-    is_primary = PRIMARY_MODEL in current or "gpt-5.5" in current
-    
+
+    is_primary = current == PRIMARY_MODEL
+    is_fallback = not is_primary and any(fb in current for fb in FALLBACK_MODELS)
+
     return {
-        'status': 'ok' if is_primary else 'fallback',
+        'status': 'ok' if is_primary else ('fallback' if is_fallback else 'unknown'),
         'current': current,
         'primary': PRIMARY_MODEL,
         'is_fallback': is_fallback,
