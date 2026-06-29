@@ -38650,3 +38650,8 @@
 127.0.0.1 - - [28/Jun/2026:18:54:43 +0000] "GET /class-t.api.php HTTP/1.1" 404 22 "-" "-"
 127.0.0.1 - - [28/Jun/2026:18:54:43 +0000] "GET /wp-ws68.php HTTP/1.1" 404 22 "-" "-"
 127.0.0.1 - - [28/Jun/2026:18:54:44 +0000] "GET /a11.php HTTP/1.1" 404 22 "-" "-"
+127.0.0.1 - - [28/Jun/2026:23:01:40 +0000] "GET / HTTP/1.1" 302 199 "-" "HTC_Dream Mozilla/5.0 (Linux; U; Android 1.5; en-ca; Build/CUPCAKE) AppleWebKit/528.5  (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
+127.0.0.1 - - [29/Jun/2026:01:27:42 +0000] "GET / HTTP/1.1" 302 199 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
+127.0.0.1 - - [29/Jun/2026:01:27:42 +0000] "POST / HTTP/1.1" 405 153 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
+127.0.0.1 - - [29/Jun/2026:01:27:42 +0000] "POST /en HTTP/1.1" 404 22 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36"
+127.0.0.1 - - [29/Jun/2026:04:53:16 +0000] "GET /components/com_jce/editor/index.html HTTP/1.1" 404 22 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0 Safari/537.36"

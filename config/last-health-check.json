@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-28T15:35:10.960684",
+  "timestamp": "2026-06-29T06:01:05.776887",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -12,7 +12,7 @@
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2601\ufe0f 64\u00b0F 75% \u219610mph",
+    "weather_data": "los angeles: \u2600\ufe0f 65\u00b0F 70% \u21915mph",
     "whoop": {
       "status": "configured"
     },
@@ -29,7 +29,7 @@
     },
     "travel_automation": {
       "status": "active",
-      "last_run_hours": 0.1,
+      "last_run_hours": 0.0,
       "tasks_created": 0,
       "log_file": "aero-monitor.log"
     },
@@ -44,68 +44,68 @@
       "status": "ok",
       "issues": [],
       "memory": {
-        "total_mib": 3825.9,
-        "available_mib": 2517.5,
-        "available_pct": 65.8
+        "total_mib": 7804.0,
+        "available_mib": 5560.3,
+        "available_pct": 71.2
       },
       "swap": {
         "total_mib": 2048.0,
-        "free_mib": 1686.0,
-        "used_pct": 17.7
+        "free_mib": 2048.0,
+        "used_pct": 0.0
       },
       "dns_ok": true,
       "dns_error": null,
       "openclaw_running": true,
-      "openclaw_rss_mib": 644.9,
+      "openclaw_rss_mib": 688.3,
       "recent_events": [],
       "top_memory_processes": [
         {
-          "pid": "32754",
+          "pid": "5454",
           "command": "node",
-          "rss_mib": 644.9,
+          "rss_mib": 688.3,
           "args": "/usr/bin/node /home/ubuntu/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789"
         },
         {
-          "pid": "18645",
+          "pid": "6538",
+          "command": "openclaw-tui",
+          "rss_mib": 363.0,
+          "args": "openclaw-tui"
+        },
+        {
+          "pid": "4339",
+          "command": "openclaw-onboar",
+          "rss_mib": 349.2,
+          "args": "openclaw-onboard"
+        },
+        {
+          "pid": "1005",
           "command": "node",
-          "rss_mib": 68.4,
+          "rss_mib": 92.1,
           "args": "node /home/ubuntu/.npm-global/bin/ob sync --path /home/ubuntu/Obsidian/geoffclapp --continuous"
         },
         {
-          "pid": "727",
+          "pid": "10414",
+          "command": "codex",
+          "rss_mib": 89.3,
+          "args": "/home/ubuntu/.openclaw/npm/projects/openclaw-codex-8902d781d4/node_modules/@openclaw/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex app-se"
+        },
+        {
+          "pid": "1092",
+          "command": "dockerd",
+          "rss_mib": 79.0,
+          "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
+        },
+        {
+          "pid": "726",
           "command": "fail2ban-server",
-          "rss_mib": 52.1,
+          "rss_mib": 71.5,
           "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
         },
         {
-          "pid": "155",
-          "command": "systemd-journal",
-          "rss_mib": 41.1,
-          "args": "/usr/lib/systemd/systemd-journald"
-        },
-        {
-          "pid": "1335",
-          "command": "gunicorn",
-          "rss_mib": 36.9,
-          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
-        },
-        {
-          "pid": "89665",
-          "command": "containerd",
-          "rss_mib": 35.1,
-          "args": "/usr/bin/containerd"
-        },
-        {
-          "pid": "1351",
-          "command": "gunicorn",
-          "rss_mib": 34.0,
-          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
-        },
-        {
-          "pid": "1370",
-          "command": "gunicorn",
-          "rss_mib": 33.7,
-          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
+          "pid": "3869",
+          "command": "openclaw",
+          "rss_mib": 55.0,
+          "args": "openclaw"
         }
       ],
       "action_required": false

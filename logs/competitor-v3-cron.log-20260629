@@ -1,0 +1,161 @@
+[2026-06-28 14:00:02] Starting competitive intelligence v3...
+[2026-06-28 14:00:02] Step 1: RSS + Web search...
+[2026-06-28 14:00:03] ======================================================================
+[2026-06-28 14:00:03] Starting Competitive Intelligence Scan v3
+[2026-06-28 14:00:03] ======================================================================
+[2026-06-28 14:00:03] 
+1. Scanning RSS feeds...
+[2026-06-28 14:00:03]    Scanning: Maven - Google Alerts
+[2026-06-28 14:00:03]    Scanning: Carrot - Google Alerts
+[2026-06-28 14:00:03]    Scanning: KindBody - Google Alerts
+[2026-06-28 14:00:03]    Scanning: WIN Fertility - Google Alerts
+[2026-06-28 14:00:03]    Scanning: Pomelo Health - Google Alerts
+[2026-06-28 14:00:04]    Scanning: Oura - Google Alerts
+[2026-06-28 14:00:04]    Scanning: Maven - Press Releases
+[2026-06-28 14:00:05]    Skipping duplicate title: Maven Clinic Launches Clinical Research Institute to Set the...
+[2026-06-28 14:00:05]    Scanning: Carrot - Press Releases
+[2026-06-28 14:00:05]    Skipping duplicate title: Carrot Brings AI-Native Metabolic Care to Every Stage of Men...
+[2026-06-28 14:00:05]    Skipping duplicate title: Carrot Tackles Rural America's Fertility Care Access Crisis ...
+[2026-06-28 14:00:05]    Scanning: KindBody - Press Releases
+[2026-06-28 14:00:06]    Scanning: Oura - Press Releases
+[2026-06-28 14:00:06]    Scanning: Midi Health - Press Releases
+[2026-06-28 14:00:07]    Scanning: Evernow - Press Releases
+[2026-06-28 14:00:07]    Scanning: FemTech Funding News
+[2026-06-28 14:00:08]    Scanning: Women's Health AI
+[2026-06-28 14:00:08]    Found 8 new articles from RSS
+[2026-06-28 14:00:08] 
+2. Searching web for competitive news...
+[2026-06-28 14:00:10]    Skipping duplicate title: What Is Maven Smart System, and What Does It Do? | CSIS...
+[2026-06-28 14:00:10]    Skipping duplicate title: Combat AI will hit Beijing - Pravda Japan...
+[2026-06-28 14:00:10]    Skipping duplicate title: Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 a...
+[2026-06-28 14:00:11]    Found 3 new articles from web search
+[2026-06-28 14:00:11] 
+3. Checking LinkedIn executive posts...
+[2026-06-28 14:00:29]    ✓ LinkedIn executive scan complete
+[2026-06-28 14:00:29]    Skipping 3b016918... (low FemTech relevance: 0)
+[2026-06-28 14:00:29]    Skipping 3fda6795... (low FemTech relevance: 0)
+[2026-06-28 14:00:29]    Skipping 9bc36f4a... (low FemTech relevance: 0)
+[2026-06-28 14:00:29]    Skipping 6bfe9252... (low FemTech relevance: 0)
+[2026-06-28 14:00:29]    Skipping 9bf120eb... (low FemTech relevance: 8)
+[2026-06-28 14:00:29]    Skipping a4cb99a3... (low FemTech relevance: 0)
+[2026-06-28 14:00:29]    Skipping e70fd589... (low FemTech relevance: 0)
+[2026-06-28 14:00:29]    Skipping 9a2de8db... (low FemTech relevance: 0)
+[2026-06-28 14:00:29] 
+✅ Total new articles: 3
+
+======================================================================
+COMPETITIVE INTELLIGENCE: 3 NEW SIGNALS
+======================================================================
+🔴 Critical: 0 | 🟠 High: 1 | 🟡 Medium: 0
+======================================================================
+
+🟠 [General] State of Professional Services: Mid-2026 — Fertility Bridge...
+
+🟡 [General] AI Infrastructure Investment 2026: $600B Hyperscaler Boom...
+
+🟡 [General] AI Investment Boom 2026: $800B Spending Spree Reshaping Markets...
+
+======================================================================
+[2026-06-28 14:00:29] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 7 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 4 updates
+   Pacify: 4 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 18 job changes
+
+3. Searching for company announcements...
+   Found 8 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-06-28 14:00:36] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 5 | High: 3 | Medium: 2
+[2026-06-28 14:00:36] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-06-28 14:00:38] ✅ Email sent
+[2026-06-28 14:00:38] Complete
+running competitor-report-morning at 2026-06-28 07:00 PDT (America/Los_Angeles, default home timezone)
+[2026-06-28 21:00:03] Starting competitive intelligence v3...
+[2026-06-28 21:00:03] Step 1: RSS + Web search...
+[2026-06-28 21:00:03] ======================================================================
+[2026-06-28 21:00:03] Starting Competitive Intelligence Scan v3
+[2026-06-28 21:00:03] ======================================================================
+[2026-06-28 21:00:03] 
+1. Scanning RSS feeds...
+[2026-06-28 21:00:03]    Scanning: Maven - Google Alerts
+[2026-06-28 21:00:04]    Scanning: Carrot - Google Alerts
+[2026-06-28 21:00:04]    Scanning: KindBody - Google Alerts
+[2026-06-28 21:00:04]    Scanning: WIN Fertility - Google Alerts
+[2026-06-28 21:00:05]    Scanning: Pomelo Health - Google Alerts
+[2026-06-28 21:00:05]    Scanning: Oura - Google Alerts
+[2026-06-28 21:00:05]    Scanning: Maven - Press Releases
+[2026-06-28 21:00:06]    Skipping duplicate title: Maven Clinic Launches Clinical Research Institute to Set the...
+[2026-06-28 21:00:06]    Scanning: Carrot - Press Releases
+[2026-06-28 21:00:06]    Skipping duplicate title: Carrot Brings AI-Native Metabolic Care to Every Stage of Men...
+[2026-06-28 21:00:06]    Skipping duplicate title: Carrot Tackles Rural America's Fertility Care Access Crisis ...
+[2026-06-28 21:00:06]    Scanning: KindBody - Press Releases
+[2026-06-28 21:00:07]    Scanning: Oura - Press Releases
+[2026-06-28 21:00:07]    Scanning: Midi Health - Press Releases
+[2026-06-28 21:00:08]    Scanning: Evernow - Press Releases
+[2026-06-28 21:00:08]    Scanning: FemTech Funding News
+[2026-06-28 21:00:09]    Scanning: Women's Health AI
+[2026-06-28 21:00:09]    Found 6 new articles from RSS
+[2026-06-28 21:00:09] 
+2. Searching web for competitive news...
+[2026-06-28 21:00:11]    Skipping duplicate title: What Is Maven Smart System, and What Does It Do? | CSIS...
+[2026-06-28 21:00:11]    Skipping duplicate title: Maven Expands Virtual Clinic Nationwide, Integrating GLP-1 a...
+[2026-06-28 21:00:12]    Found 0 new articles from web search
+[2026-06-28 21:00:12] 
+3. Checking LinkedIn executive posts...
+[2026-06-28 21:00:31]    ✓ LinkedIn executive scan complete
+[2026-06-28 21:00:31]    Skipping f1ff5785... (low FemTech relevance: 0)
+[2026-06-28 21:00:31]    Skipping 45da4d8b... (low FemTech relevance: 0)
+[2026-06-28 21:00:31]    Skipping c6efbb00... (low FemTech relevance: 8)
+[2026-06-28 21:00:31]    Skipping 35ab6a3c... (low FemTech relevance: 0)
+[2026-06-28 21:00:31]    Skipping 20281285... (low FemTech relevance: 0)
+[2026-06-28 21:00:31]    Skipping 8b8e0a3f... (low FemTech relevance: 0)
+[2026-06-28 21:00:31] 
+✅ No new competitive signals found
+[2026-06-28 21:00:31] Step 2: LinkedIn + job changes...
+======================================================================
+LinkedIn Executive & Job Change Monitoring
+======================================================================
+
+1. Searching for executive team updates...
+   Maven: 3 updates
+   Carrot: 9 updates
+   KindBody: 7 updates
+   WIN Fertility: 2 updates
+   Pomelo Health: 2 updates
+   Midi Health: 6 updates
+   Evernow: 4 updates
+   Pacify: 4 updates
+   Oura: 6 updates
+
+2. Searching for executive job changes...
+   Found 18 job changes
+
+3. Searching for company announcements...
+   Found 8 company posts
+
+✅ No new LinkedIn/exec updates found
+[2026-06-28 21:00:38] Step 3: Generating email...
+✅ Email generated: /home/ubuntu/.openclaw/workspace/config/competitor-email-v3.html
+   Critical: 5 | High: 3 | Medium: 2
+[2026-06-28 21:00:39] Sending competitive intelligence email...
+✅ Email sent successfully to ['[REDACTED],geoffrey.clapp@progyny.com', 'steven.leist@progyny.com']
+[2026-06-28 21:00:40] ✅ Email sent
+[2026-06-28 21:00:40] Complete
+running competitor-report-afternoon at 2026-06-28 14:00 PDT (America/Los_Angeles, default home timezone)

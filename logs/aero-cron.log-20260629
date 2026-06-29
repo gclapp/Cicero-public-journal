@@ -1,0 +1,99 @@
+[2026-06-28 04:00:02] === Aero Travel Manager Starting ===
+[2026-06-28 04:00:03] ✅ FlightAware client initialized
+[2026-06-28 04:00:03] ======================================================================
+[2026-06-28 04:00:03] Aero Travel Manager: Creating Travel Tasks
+[2026-06-28 04:00:03] 2026-06-28 04:00:03
+[2026-06-28 04:00:03] ======================================================================
+[2026-06-28 04:00:03] Calendar loaded: 99 events
+[2026-06-28 04:00:03]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-06-28 04:00:03]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-06-28 04:00:03] Found 15 travel events in next 60 days
+[2026-06-28 04:00:03] Grouped into 4 trips
+[2026-06-28 04:00:03] 
+[2026-06-28 04:00:05] Found 0 existing tasks
+[2026-06-28 04:00:05] 
+[2026-06-28 04:00:05]   ✓ Trip already processed (state): Tasks for NYC Trip on Jul 06
+[2026-06-28 04:00:05]   ✓ Trip already processed (state): Tasks for Providence Trip on Jul 12 - DL782 JMCGIZ
+[2026-06-28 04:00:05]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 21 - DL4126
+[2026-06-28 04:00:05]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-28 04:00:05] ======================================================================
+[2026-06-28 04:00:05] SUMMARY: Created 0 tasks for 4 trips
+[2026-06-28 04:00:05] ======================================================================
+[2026-06-28 04:00:05] ======================================================================
+[2026-06-28 04:00:05] Aero: Day-of-Travel Monitoring
+[2026-06-28 04:00:05] ======================================================================
+[2026-06-28 04:00:05] 
+======================================================================
+[2026-06-28 04:00:05] Summary: 0 flights checked, 0 alerts sent
+[2026-06-28 04:00:05] ======================================================================
+[2026-06-28 04:00:05] ✅ Aero completed successfully
+running aero-travel-evening at 2026-06-27 21:00 PDT (America/Los_Angeles, default home timezone)
+[2026-06-28 16:00:02] === Aero Travel Manager Starting ===
+[2026-06-28 16:00:02] ✅ FlightAware client initialized
+[2026-06-28 16:00:02] ======================================================================
+[2026-06-28 16:00:02] Aero Travel Manager: Creating Travel Tasks
+[2026-06-28 16:00:02] 2026-06-28 16:00:02
+[2026-06-28 16:00:02] ======================================================================
+[2026-06-28 16:00:02] Calendar loaded: 100 events
+[2026-06-28 16:00:02]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-06-28 16:00:02]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-06-28 16:00:02] Found 20 travel events in next 60 days
+[2026-06-28 16:00:02] Grouped into 2 trips
+[2026-06-28 16:00:02] 
+[2026-06-28 16:00:04] Found 0 existing tasks
+[2026-06-28 16:00:04] 
+[2026-06-28 16:00:04] Creating: Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-06-28 16:00:12]   Created: └── 🧳 Pack (due 2026-07-04)
+[2026-06-28 16:00:13]   Created: └── 🏢 Contact Marriott Ambassador (due 2026-06-28)
+[2026-06-28 16:00:15]   Created: └── 🐕 Schedule Rover (due today)
+[2026-06-28 16:00:16]   Created: └── 🚗 Schedule Uber TO airport for DL939 to New York (due 2026-07-02)
+[2026-06-28 16:00:19]   Created: └── 🚗 Schedule Uber FROM airport for DL752 from Los Angeles (due 2026-07-05)
+[2026-06-28 16:00:21]   Created: └── 🚗 Schedule Uber TO airport for DL782 to Atlanta (due 2026-07-09)
+[2026-06-28 16:00:23]   Created: └── 🚗 Schedule Uber FROM airport for DL2659 from Providence (due 2026-07-09)
+[2026-06-28 16:00:26]   Created: └── 🚗 Schedule Uber FROM airport for DL4040 from Detroit (due 2026-07-12)
+[2026-06-28 16:00:28]   Created: └── 🚗 Schedule Uber FROM airport for DL694 from Los Angeles (due 2026-07-12)
+[2026-06-28 16:00:30]   Created: └── 🚗 Schedule Uber TO airport for DL4126 to Reno (due 2026-07-18)
+[2026-06-28 16:00:32]   Created: └── 🚗 Schedule Uber FROM airport for DL3902 from Los Angeles (due 2026-07-23)
+[2026-06-28 16:00:32]   Marked trip as processed: Geoffrey Clapp - Delta Air Lines 939 - departs 11:20 AM local time - Confirmation code: GH5NZL_2026-07-05T11:20:00-07:00
+[2026-06-28 16:00:32] 
+[2026-06-28 16:00:32]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-28 16:00:32] ======================================================================
+[2026-06-28 16:00:32] SUMMARY: Created 12 tasks for 2 trips
+[2026-06-28 16:00:32] ======================================================================
+[2026-06-28 16:00:32] ======================================================================
+[2026-06-28 16:00:32] Aero: Day-of-Travel Monitoring
+[2026-06-28 16:00:32] ======================================================================
+[2026-06-28 16:00:32] 
+======================================================================
+[2026-06-28 16:00:32] Summary: 0 flights checked, 0 alerts sent
+[2026-06-28 16:00:32] ======================================================================
+[2026-06-28 16:00:32] ✅ Aero completed successfully
+running aero-travel-morning at 2026-06-28 09:00 PDT (America/Los_Angeles, default home timezone)
+[2026-06-28 16:05:02] === Aero Travel Manager Starting ===
+[2026-06-28 16:05:02] ✅ FlightAware client initialized
+[2026-06-28 16:05:02] ======================================================================
+[2026-06-28 16:05:02] Aero Travel Manager: Creating Travel Tasks
+[2026-06-28 16:05:02] 2026-06-28 16:05:02
+[2026-06-28 16:05:02] ======================================================================
+[2026-06-28 16:05:02] Calendar loaded: 100 events
+[2026-06-28 16:05:02]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-06-28 16:05:02]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-06-28 16:05:02] Found 20 travel events in next 60 days
+[2026-06-28 16:05:02] Grouped into 2 trips
+[2026-06-28 16:05:02] 
+[2026-06-28 16:05:04] Found 18 existing tasks
+[2026-06-28 16:05:04] 
+[2026-06-28 16:05:04]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-06-28 16:05:04]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-28 16:05:04] ======================================================================
+[2026-06-28 16:05:04] SUMMARY: Created 0 tasks for 2 trips
+[2026-06-28 16:05:04] ======================================================================
+[2026-06-28 16:05:04] ======================================================================
+[2026-06-28 16:05:04] Aero: Day-of-Travel Monitoring
+[2026-06-28 16:05:04] ======================================================================
+[2026-06-28 16:05:04] 
+======================================================================
+[2026-06-28 16:05:04] Summary: 0 flights checked, 0 alerts sent
+[2026-06-28 16:05:04] ======================================================================
+[2026-06-28 16:05:04] ✅ Aero completed successfully
+running aero-travel-morning at 2026-06-28 09:05 PDT (America/Los_Angeles, default home timezone)

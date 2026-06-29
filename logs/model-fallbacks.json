@@ -6,8 +6,15 @@
       "expected_primary": "openai/gpt-5.5",
       "alert_sent": true,
       "recovery_time": "2026-05-28T04:34:18.896965"
+    },
+    {
+      "timestamp": "2026-06-29T04:39:12.704090",
+      "fallback_model": "openai/gpt-5.5",
+      "expected_primary": "moonshot/kimi-k2.7-code",
+      "alert_sent": true,
+      "recovery_time": "2026-06-29T04:40:02.232065"
     }
   ],
-  "last_alert": "2026-05-28T04:32:08.857227",
+  "last_alert": "2026-06-29T04:39:13.933806",
   "current_model": "moonshot/kimi-k2.7-code"
 }

@@ -1,9 +1,9 @@
 Fetching stock data with 30-day history...
-✅ PGNY: $28.51 (30d: +12.02%)
-✅ AAPL: $283.78 (30d: -9.44%)
-✅ NVDA: $192.53 (30d: -11.31%)
-✅ OMDA: $20.89 (30d: +16.35%)
-✅ VTI: $362.22 (30d: -2.90%)
+✅ PGNY: $28.51 (30d: +11.54%)
+✅ AAPL: $283.78 (30d: -9.06%)
+✅ NVDA: $192.53 (30d: -8.81%)
+✅ OMDA: $20.89 (30d: +16.25%)
+✅ VTI: $362.22 (30d: -2.77%)
 ✅ S&P 500: 7,354.02 (+0.00%)
 ✅ Dow Jones: 51,876.11 (+0.00%)
 
@@ -17,11 +17,11 @@ Stock summary for check-in:
 🟢 Dow Jones: 51,876.11 (+0.00% today)
 
 **Your Watchlist (30-Day Change):**
-🟢 **PGNY:** $28.51 (+12.02% / 30d)
-🔴 AAPL: $283.78 (-9.44% / 30d)
-🔴 NVDA: $192.53 (-11.31% / 30d)
-🟢 OMDA: $20.89 (+16.35% / 30d)
-🔴 VTI: $362.22 (-2.90% / 30d)
+🟢 **PGNY:** $28.51 (+11.54% / 30d)
+🔴 AAPL: $283.78 (-9.06% / 30d)
+🔴 NVDA: $192.53 (-8.81% / 30d)
+🟢 OMDA: $20.89 (+16.25% / 30d)
+🔴 VTI: $362.22 (-2.77% / 30d)
 
 
 ==================================================
@@ -37,27 +37,27 @@ Detailed summary:
 
 🟢 **PGNY:** $28.51
    ├─ Today: +28.51 (+0.00%)
-   └─ 30-Day: +12.02% (30d)
+   └─ 30-Day: +11.54% (30d)
 
 🔴 **AAPL:** $283.78
    ├─ Today: +283.78 (+0.00%)
-   └─ 30-Day: -9.44% (30d)
+   └─ 30-Day: -9.06% (30d)
 
 🔴 **NVDA:** $192.53
    ├─ Today: +192.53 (+0.00%)
-   └─ 30-Day: -11.31% (30d)
+   └─ 30-Day: -8.81% (30d)
 
 🟢 **OMDA:** $20.89
    ├─ Today: +20.89 (+0.00%)
-   └─ 30-Day: +16.35% (30d)
+   └─ 30-Day: +16.25% (30d)
 
-running stock-fetch at 2026-06-27 18:00 PDT (America/Los_Angeles, default home timezone)
+running stock-fetch at 2026-06-28 18:00 PDT (America/Los_Angeles, default home timezone)
 Fetching stock data with 30-day history...
-✅ PGNY: $28.51 (30d: +12.02%)
-✅ AAPL: $283.78 (30d: -9.44%)
-✅ NVDA: $192.53 (30d: -11.31%)
-✅ OMDA: $20.89 (30d: +16.35%)
-✅ VTI: $362.22 (30d: -2.90%)
+✅ PGNY: $28.51 (30d: +11.54%)
+✅ AAPL: $283.78 (30d: -9.06%)
+✅ NVDA: $192.53 (30d: -8.81%)
+✅ OMDA: $20.89 (30d: +16.25%)
+✅ VTI: $362.22 (30d: -2.77%)
 ✅ S&P 500: 7,354.02 (+0.00%)
 ✅ Dow Jones: 51,876.11 (+0.00%)
 
@@ -71,11 +71,11 @@ Stock summary for check-in:
 🟢 Dow Jones: 51,876.11 (+0.00% today)
 
 **Your Watchlist (30-Day Change):**
-🟢 **PGNY:** $28.51 (+12.02% / 30d)
-🔴 AAPL: $283.78 (-9.44% / 30d)
-🔴 NVDA: $192.53 (-11.31% / 30d)
-🟢 OMDA: $20.89 (+16.35% / 30d)
-🔴 VTI: $362.22 (-2.90% / 30d)
+🟢 **PGNY:** $28.51 (+11.54% / 30d)
+🔴 AAPL: $283.78 (-9.06% / 30d)
+🔴 NVDA: $192.53 (-8.81% / 30d)
+🟢 OMDA: $20.89 (+16.25% / 30d)
+🔴 VTI: $362.22 (-2.77% / 30d)
 
 
 ==================================================
@@ -91,18 +91,18 @@ Detailed summary:
 
 🟢 **PGNY:** $28.51
    ├─ Today: +28.51 (+0.00%)
-   └─ 30-Day: +12.02% (30d)
+   └─ 30-Day: +11.54% (30d)
 
 🔴 **AAPL:** $283.78
    ├─ Today: +283.78 (+0.00%)
-   └─ 30-Day: -9.44% (30d)
+   └─ 30-Day: -9.06% (30d)
 
 🔴 **NVDA:** $192.53
    ├─ Today: +192.53 (+0.00%)
-   └─ 30-Day: -11.31% (30d)
+   └─ 30-Day: -8.81% (30d)
 
 🟢 **OMDA:** $20.89
    ├─ Today: +20.89 (+0.00%)
-   └─ 30-Day: +16.35% (30d)
+   └─ 30-Day: +16.25% (30d)
 
-running stock-fetch at 2026-06-27 18:05 PDT (America/Los_Angeles, default home timezone)
+running stock-fetch at 2026-06-28 18:05 PDT (America/Los_Angeles, default home timezone)

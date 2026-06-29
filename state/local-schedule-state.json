@@ -23,6 +23,14 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "aero-travel-evening:2026-06-28:21:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
+    ],
+    "ran_at_utc": "2026-06-29T04:00:02.636298+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "aero-travel-morning:2026-06-25:09:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
@@ -97,6 +105,14 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "competitor-report-afternoon:2026-06-28:14:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
+    ],
+    "ran_at_utc": "2026-06-28T21:00:03.172023+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "competitor-report-morning:2026-06-25:07:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
@@ -153,6 +169,14 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "daily-github-sync-midday:2026-06-28:12:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
+    ],
+    "ran_at_utc": "2026-06-28T19:00:02.948045+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "daily-github-sync-night:2026-06-25:23:55": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
@@ -201,6 +225,15 @@
       "/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py"
     ],
     "ran_at_utc": "2026-06-28T03:30:02.956663+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "evening-checkin:2026-06-28:20:30": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py"
+    ],
+    "ran_at_utc": "2026-06-29T03:30:02.569897+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
@@ -375,6 +408,15 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "stock-fetch:2026-06-28:18:00": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py"
+    ],
+    "ran_at_utc": "2026-06-29T01:05:02.300073+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "test-local-scheduler-run:2026-06-25:06:21": {
     "command": [
       "/bin/echo",
@@ -414,6 +456,16 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "vitus-evening:2026-06-28:20:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py evening"
+    ],
+    "ran_at_utc": "2026-06-29T03:00:02.653957+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "vitus-midday:2026-06-25:12:00": {
     "command": [
       "bash",
@@ -444,6 +496,16 @@
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
+  "vitus-midday:2026-06-28:12:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday"
+    ],
+    "ran_at_utc": "2026-06-28T19:05:02.684121+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "vitus-morning:2026-06-25:07:00:skipped-in-transit": {
     "reason": "aero in transit: DAL742 to KLAX",
     "skipped_at_utc": "2026-06-25T14:05:08.907454+00:00",
@@ -454,6 +516,14 @@
       "/home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh"
     ],
     "ran_at_utc": "2026-06-28T01:00:02.145630+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
+  "watch-hunt-evening:2026-06-28:18:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh"
+    ],
+    "ran_at_utc": "2026-06-29T01:00:02.934156+00:00",
     "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
