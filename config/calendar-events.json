@@ -1,24 +1,8 @@
 {
-  "last_updated": "2026-06-29T13:45:04.464744+00:00",
+  "last_updated": "2026-06-30T13:45:04.148237+00:00",
   "total_events": 100,
   "travel_events": 22,
   "events": [
-    {
-      "summary": "Ollie Consult Call",
-      "start": "Monday, June 29 at 07:00 AM",
-      "start_raw": "2026-06-29T07:00:00-07:00",
-      "location": "",
-      "description": "",
-      "is_travel": false
-    },
-    {
-      "summary": "House Cleaner (Glowy) ",
-      "start": "Monday, June 29 at 09:00 AM",
-      "start_raw": "2026-06-29T09:00:00-07:00",
-      "location": "23675 Park Capri, Calabasas, CA 91302, USA",
-      "description": "<table><tbody><tr><td><table><tbody><tr><td><br><table><tbody><tr><td><br><h2><b>Hi Geoff,</b></h2><p>Thank you very much for booking with us. Here is your invoice and appointment details.</p></td></t",
-      "is_travel": false
-    },
     {
       "summary": "Greta: Monthly Meds",
       "start": "Wednesday, July 01",
@@ -800,6 +784,22 @@
       "start": "Friday, August 14 at 03:15 PM",
       "start_raw": "2026-08-14T15:15:00-07:00",
       "location": "Ilan Ramon Day School, 27400 Canwood St, Agoura Hills, CA 91301, USA",
+      "description": "",
+      "is_travel": false
+    },
+    {
+      "summary": "Momma & Rocket Concert",
+      "start": "Friday, August 14 at 08:00 PM",
+      "start_raw": "2026-08-14T20:00:00-07:00",
+      "location": "The Bellwether, Los Angeles, California",
+      "description": "Momma\nThe Bellwether, Los Angeles, California\n\nConfirmation number: 39-33015/LA1",
+      "is_travel": false
+    },
+    {
+      "summary": "Kids with Geoff (non-standard) ",
+      "start": "Sunday, August 16",
+      "start_raw": "2026-08-16",
+      "location": "",
       "description": "",
       "is_travel": false
     }
