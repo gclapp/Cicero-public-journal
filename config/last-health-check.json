@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-29T18:51:04.196558",
+  "timestamp": "2026-06-30T06:46:04.292078",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -12,7 +12,7 @@
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2601\ufe0f 67\u00b0F 71% \u21917mph",
+    "weather_data": "los angeles: \u2601\ufe0f 66\u00b0F 75% \u21916mph",
     "whoop": {
       "status": "configured"
     },
@@ -29,7 +29,7 @@
     },
     "travel_automation": {
       "status": "active",
-      "last_run_hours": 0.4,
+      "last_run_hours": 0.3,
       "tasks_created": 0,
       "log_file": "aero-monitor.log"
     },
@@ -45,8 +45,8 @@
       "issues": [],
       "memory": {
         "total_mib": 7804.0,
-        "available_mib": 5539.6,
-        "available_pct": 71.0
+        "available_mib": 5577.5,
+        "available_pct": 71.5
       },
       "swap": {
         "total_mib": 2048.0,
@@ -56,13 +56,13 @@
       "dns_ok": true,
       "dns_error": null,
       "openclaw_running": true,
-      "openclaw_rss_mib": 734.0,
+      "openclaw_rss_mib": 707.4,
       "recent_events": [],
       "top_memory_processes": [
         {
           "pid": "5454",
           "command": "node",
-          "rss_mib": 734.0,
+          "rss_mib": 707.4,
           "args": "/usr/bin/node /home/ubuntu/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789"
         },
         {
@@ -80,26 +80,26 @@
         {
           "pid": "10414",
           "command": "codex",
-          "rss_mib": 91.0,
+          "rss_mib": 93.3,
           "args": "/home/ubuntu/.openclaw/npm/projects/openclaw-codex-8902d781d4/node_modules/@openclaw/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex app-se"
-        },
-        {
-          "pid": "726",
-          "command": "fail2ban-server",
-          "rss_mib": 83.8,
-          "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
         },
         {
           "pid": "1005",
           "command": "node",
-          "rss_mib": 83.2,
+          "rss_mib": 83.5,
           "args": "node /home/ubuntu/.npm-global/bin/ob sync --path /home/ubuntu/Obsidian/geoffclapp --continuous"
         },
         {
           "pid": "1092",
           "command": "dockerd",
-          "rss_mib": 79.2,
+          "rss_mib": 79.4,
           "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
+        },
+        {
+          "pid": "154",
+          "command": "systemd-journal",
+          "rss_mib": 56.1,
+          "args": "/usr/lib/systemd/systemd-journald"
         },
         {
           "pid": "3869",
