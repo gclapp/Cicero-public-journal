@@ -1,798 +1,304 @@
-[2026-06-30 00:21:09] ============================================================
-[2026-06-30 00:21:09] SYSTEM HEALTH CHECK
-[2026-06-30 00:21:09] ============================================================
-[2026-06-30 00:21:09] 
+[2026-07-01 00:11:07] ============================================================
+[2026-07-01 00:11:07] SYSTEM HEALTH CHECK
+[2026-07-01 00:11:07] ============================================================
+[2026-07-01 00:11:07] 
 📋 Checking Todoist...
-[2026-06-30 00:21:10]   ✅ Todoist: 50 tasks
-[2026-06-30 00:21:10] 
+[2026-07-01 00:11:08]   ✅ Todoist: 50 tasks
+[2026-07-01 00:11:08] 
 📅 Checking Google Calendar...
-[2026-06-30 00:21:11]   ✅ Calendar: Token 0 days old
-[2026-06-30 00:21:11] 
+[2026-07-01 00:11:09]   ✅ Calendar: Token 0 days old
+[2026-07-01 00:11:09] 
 🌤️ Checking Weather...
-[2026-06-30 00:21:11]   ✅ Weather skill installed
-[2026-06-30 00:21:12]   🌡️ Current: los angeles: ☁️ 70°F 64% ↗11mph...
-[2026-06-30 00:21:12] 
+[2026-07-01 00:11:09]   ✅ Weather skill installed
+[2026-07-01 00:11:10]   🌡️ Current: los angeles: 🌤️ 70°F 64% ↗11mph...
+[2026-07-01 00:11:10] 
 💓 Checking Whoop...
-[2026-06-30 00:21:12]   ✅ Whoop configured
-[2026-06-30 00:21:12] 
+[2026-07-01 00:11:10]   ✅ Whoop configured
+[2026-07-01 00:11:10] 
 🏥 Checking Health Dashboard...
-[2026-06-30 00:21:12]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 00:21:12] 
+[2026-07-01 00:11:10]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 00:11:10] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 00:21:12]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 00:21:12] 
+[2026-07-01 00:11:10]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 00:11:10] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 00:21:12]   ✅ Competitive Intel cron active
-[2026-06-30 00:21:12] 
+[2026-07-01 00:11:10]   ✅ Competitive Intel cron active
+[2026-07-01 00:11:10] 
 ✈️ Checking Travel Automation...
-[2026-06-30 00:21:13]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 00:21:13] 
+[2026-07-01 00:11:11]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 00:11:11] 
 🤖 Checking Model Status...
-[2026-06-30 00:21:13]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 00:21:13] 
+[2026-07-01 00:11:11]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 00:11:11] 
 🖥️ Checking Host Health...
-[2026-06-30 00:21:13]   ✅ Host: mem avail 5529.8 MiB (70.9%), swap used 0.0%, OpenClaw RSS 734.1 MiB
-[2026-06-30 00:21:13] 
+[2026-07-01 00:11:11]   ✅ Host: mem avail 5510.2 MiB (70.6%), swap used 0.0%, OpenClaw RSS 695.1 MiB
+[2026-07-01 00:11:11] 
 ============================================================
-[2026-06-30 00:21:13] ✅ All systems operational
-[2026-06-30 00:21:13] ============================================================
-[2026-06-30 01:16:05] ============================================================
-[2026-06-30 01:16:05] SYSTEM HEALTH CHECK
-[2026-06-30 01:16:05] ============================================================
-[2026-06-30 01:16:05] 
+[2026-07-01 00:11:11] ✅ All systems operational
+[2026-07-01 00:11:11] ============================================================
+[2026-07-01 01:06:09] ============================================================
+[2026-07-01 01:06:09] SYSTEM HEALTH CHECK
+[2026-07-01 01:06:09] ============================================================
+[2026-07-01 01:06:09] 
 📋 Checking Todoist...
-[2026-06-30 01:16:07]   ✅ Todoist: 50 tasks
-[2026-06-30 01:16:07] 
+[2026-07-01 01:06:10]   ✅ Todoist: 50 tasks
+[2026-07-01 01:06:10] 
 📅 Checking Google Calendar...
-[2026-06-30 01:16:08]   ✅ Calendar: Token 0 days old
-[2026-06-30 01:16:08] 
+[2026-07-01 01:06:11]   ✅ Calendar: Token 0 days old
+[2026-07-01 01:06:11] 
 🌤️ Checking Weather...
-[2026-06-30 01:16:08]   ✅ Weather skill installed
-[2026-06-30 01:16:09]   🌡️ Current: los angeles: ☀️ 71°F 61% ↗10mph...
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:11]   ✅ Weather skill installed
+[2026-07-01 01:06:13]   🌡️ Current: los angeles: 🌤️ 70°F 64% ↗11mph...
+[2026-07-01 01:06:13] 
 💓 Checking Whoop...
-[2026-06-30 01:16:09]   ✅ Whoop configured
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Whoop configured
+[2026-07-01 01:06:13] 
 🏥 Checking Health Dashboard...
-[2026-06-30 01:16:09]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 01:06:13] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 01:16:09]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 01:06:13] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 01:16:09]   ✅ Competitive Intel cron active
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Competitive Intel cron active
+[2026-07-01 01:06:13] 
 ✈️ Checking Travel Automation...
-[2026-06-30 01:16:09]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 01:06:13] 
 🤖 Checking Model Status...
-[2026-06-30 01:16:09]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 01:06:13] 
 🖥️ Checking Host Health...
-[2026-06-30 01:16:09]   ✅ Host: mem avail 5342.9 MiB (68.5%), swap used 0.0%, OpenClaw RSS 700.4 MiB
-[2026-06-30 01:16:09] 
+[2026-07-01 01:06:13]   ✅ Host: mem avail 5475.5 MiB (70.2%), swap used 0.0%, OpenClaw RSS 747.4 MiB
+[2026-07-01 01:06:13] 
 ============================================================
-[2026-06-30 01:16:09] ✅ All systems operational
-[2026-06-30 01:16:09] ============================================================
-[2026-06-30 02:11:27] ============================================================
-[2026-06-30 02:11:27] SYSTEM HEALTH CHECK
-[2026-06-30 02:11:27] ============================================================
-[2026-06-30 02:11:27] 
+[2026-07-01 01:06:13] ✅ All systems operational
+[2026-07-01 01:06:13] ============================================================
+[2026-07-01 02:01:09] ============================================================
+[2026-07-01 02:01:09] SYSTEM HEALTH CHECK
+[2026-07-01 02:01:09] ============================================================
+[2026-07-01 02:01:09] 
 📋 Checking Todoist...
-[2026-06-30 02:11:29]   ✅ Todoist: 50 tasks
-[2026-06-30 02:11:29] 
+[2026-07-01 02:01:10]   ✅ Todoist: 50 tasks
+[2026-07-01 02:01:10] 
 📅 Checking Google Calendar...
-[2026-06-30 02:11:30]   ✅ Calendar: Token 0 days old
-[2026-06-30 02:11:30] 
+[2026-07-01 02:01:12]   ✅ Calendar: Token 0 days old
+[2026-07-01 02:01:12] 
 🌤️ Checking Weather...
-[2026-06-30 02:11:30]   ✅ Weather skill installed
-[2026-06-30 02:11:31]   🌡️ Current: los angeles: ☀️ 71°F 61% ↗10mph...
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:12]   ✅ Weather skill installed
+[2026-07-01 02:01:13]   🌡️ Current: los angeles: ☀️ 70°F 61% ↗10mph...
+[2026-07-01 02:01:13] 
 💓 Checking Whoop...
-[2026-06-30 02:11:31]   ✅ Whoop configured
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:13]   ✅ Whoop configured
+[2026-07-01 02:01:13] 
 🏥 Checking Health Dashboard...
-[2026-06-30 02:11:31]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:13]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 02:01:13] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 02:11:31]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:13]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 02:01:13] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 02:11:31]   ✅ Competitive Intel cron active
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:13]   ✅ Competitive Intel cron active
+[2026-07-01 02:01:13] 
 ✈️ Checking Travel Automation...
-[2026-06-30 02:11:31]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:14]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 02:01:14] 
 🤖 Checking Model Status...
-[2026-06-30 02:11:31]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 02:11:31] 
+[2026-07-01 02:01:14]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 02:01:14] 
 🖥️ Checking Host Health...
-[2026-06-30 02:11:32]   ✅ Host: mem avail 5555.1 MiB (71.2%), swap used 0.0%, OpenClaw RSS 717.4 MiB
-[2026-06-30 02:11:32] 
+[2026-07-01 02:01:14]   ✅ Host: mem avail 5467.1 MiB (70.1%), swap used 0.0%, OpenClaw RSS 725.7 MiB
+[2026-07-01 02:01:14] 
 ============================================================
-[2026-06-30 02:11:32] ✅ All systems operational
-[2026-06-30 02:11:32] ============================================================
-[2026-06-30 03:06:27] ============================================================
-[2026-06-30 03:06:27] SYSTEM HEALTH CHECK
-[2026-06-30 03:06:27] ============================================================
-[2026-06-30 03:06:27] 
+[2026-07-01 02:01:14] ✅ All systems operational
+[2026-07-01 02:01:14] ============================================================
+[2026-07-01 02:56:08] ============================================================
+[2026-07-01 02:56:08] SYSTEM HEALTH CHECK
+[2026-07-01 02:56:08] ============================================================
+[2026-07-01 02:56:08] 
 📋 Checking Todoist...
-[2026-06-30 03:06:28]   ✅ Todoist: 50 tasks
-[2026-06-30 03:06:28] 
+[2026-07-01 02:56:10]   ✅ Todoist: 50 tasks
+[2026-07-01 02:56:10] 
 📅 Checking Google Calendar...
-[2026-06-30 03:06:29]   ✅ Calendar: Token 0 days old
-[2026-06-30 03:06:29] 
+[2026-07-01 02:56:11]   ✅ Calendar: Token 0 days old
+[2026-07-01 02:56:11] 
 🌤️ Checking Weather...
-[2026-06-30 03:06:29]   ✅ Weather skill installed
-[2026-06-30 03:06:30]   🌡️ Current: los angeles: ☀️ 69°F 68% ↑9mph...
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:11]   ✅ Weather skill installed
+[2026-07-01 02:56:12]   🌡️ Current: los angeles: 🌤️ 68°F 65% ↗9mph...
+[2026-07-01 02:56:12] 
 💓 Checking Whoop...
-[2026-06-30 03:06:30]   ✅ Whoop configured
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:12]   ✅ Whoop configured
+[2026-07-01 02:56:12] 
 🏥 Checking Health Dashboard...
-[2026-06-30 03:06:30]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:12]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 02:56:12] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 03:06:30]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:12]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 02:56:12] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 03:06:30]   ✅ Competitive Intel cron active
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:12]   ✅ Competitive Intel cron active
+[2026-07-01 02:56:12] 
 ✈️ Checking Travel Automation...
-[2026-06-30 03:06:30]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:12]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 02:56:12] 
 🤖 Checking Model Status...
-[2026-06-30 03:06:30]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 03:06:30] 
+[2026-07-01 02:56:12]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 02:56:12] 
 🖥️ Checking Host Health...
-[2026-06-30 03:06:31]   ✅ Host: mem avail 5529.6 MiB (70.9%), swap used 0.0%, OpenClaw RSS 729.6 MiB
-[2026-06-30 03:06:31] 
+[2026-07-01 02:56:12]   ✅ Host: mem avail 5462.4 MiB (70.0%), swap used 0.0%, OpenClaw RSS 728.5 MiB
+[2026-07-01 02:56:12] 
 ============================================================
-[2026-06-30 03:06:31] ✅ All systems operational
-[2026-06-30 03:06:31] ============================================================
-[2026-06-30 04:01:31] ============================================================
-[2026-06-30 04:01:31] SYSTEM HEALTH CHECK
-[2026-06-30 04:01:31] ============================================================
-[2026-06-30 04:01:31] 
+[2026-07-01 02:56:12] ✅ All systems operational
+[2026-07-01 02:56:12] ============================================================
+[2026-07-01 03:51:08] ============================================================
+[2026-07-01 03:51:08] SYSTEM HEALTH CHECK
+[2026-07-01 03:51:08] ============================================================
+[2026-07-01 03:51:08] 
 📋 Checking Todoist...
-[2026-06-30 04:01:32]   ✅ Todoist: 50 tasks
-[2026-06-30 04:01:32] 
+[2026-07-01 03:51:09]   ✅ Todoist: 50 tasks
+[2026-07-01 03:51:09] 
 📅 Checking Google Calendar...
-[2026-06-30 04:01:33]   ✅ Calendar: Token 0 days old
-[2026-06-30 04:01:33] 
+[2026-07-01 03:51:10]   ✅ Calendar: Token 0 days old
+[2026-07-01 03:51:10] 
 🌤️ Checking Weather...
-[2026-06-30 04:01:33]   ✅ Weather skill installed
-[2026-06-30 04:01:34]   🌡️ Current: los angeles: ☀️ 69°F 68% ↑9mph...
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:10]   ✅ Weather skill installed
+[2026-07-01 03:51:11]   🌡️ Current: los angeles: 🌤️ 68°F 65% ↗9mph...
+[2026-07-01 03:51:11] 
 💓 Checking Whoop...
-[2026-06-30 04:01:34]   ✅ Whoop configured
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:11]   ✅ Whoop configured
+[2026-07-01 03:51:11] 
 🏥 Checking Health Dashboard...
-[2026-06-30 04:01:34]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:11]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 03:51:11] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 04:01:34]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:11]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 03:51:11] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 04:01:34]   ✅ Competitive Intel cron active
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:11]   ✅ Competitive Intel cron active
+[2026-07-01 03:51:11] 
 ✈️ Checking Travel Automation...
-[2026-06-30 04:01:34]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:11]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 03:51:11] 
 🤖 Checking Model Status...
-[2026-06-30 04:01:34]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 04:01:34] 
+[2026-07-01 03:51:11]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 03:51:11] 
 🖥️ Checking Host Health...
-[2026-06-30 04:01:35]   ✅ Host: mem avail 5534.8 MiB (70.9%), swap used 0.0%, OpenClaw RSS 720.8 MiB
-[2026-06-30 04:01:35] 
+[2026-07-01 03:51:12]   ✅ Host: mem avail 5524.2 MiB (70.8%), swap used 0.0%, OpenClaw RSS 723.8 MiB
+[2026-07-01 03:51:12] 
 ============================================================
-[2026-06-30 04:01:35] ✅ All systems operational
-[2026-06-30 04:01:35] ============================================================
-[2026-06-30 04:56:03] ============================================================
-[2026-06-30 04:56:03] SYSTEM HEALTH CHECK
-[2026-06-30 04:56:03] ============================================================
-[2026-06-30 04:56:03] 
+[2026-07-01 03:51:12] ✅ All systems operational
+[2026-07-01 03:51:12] ============================================================
+[2026-07-01 04:46:07] ============================================================
+[2026-07-01 04:46:07] SYSTEM HEALTH CHECK
+[2026-07-01 04:46:07] ============================================================
+[2026-07-01 04:46:07] 
 📋 Checking Todoist...
-[2026-06-30 04:56:05]   ✅ Todoist: 50 tasks
-[2026-06-30 04:56:05] 
+[2026-07-01 04:46:09]   ✅ Todoist: 50 tasks
+[2026-07-01 04:46:09] 
 📅 Checking Google Calendar...
-[2026-06-30 04:56:06]   ✅ Calendar: Token 0 days old
-[2026-06-30 04:56:06] 
+[2026-07-01 04:46:10]   ✅ Calendar: Token 0 days old
+[2026-07-01 04:46:10] 
 🌤️ Checking Weather...
-[2026-06-30 04:56:06]   ✅ Weather skill installed
-[2026-06-30 04:56:07]   🌡️ Current: los angeles: ☀️ 67°F 71% ↑7mph...
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:10]   ✅ Weather skill installed
+[2026-07-01 04:46:11]   🌡️ Current: los angeles: ☀️ 66°F 70% ↗6mph...
+[2026-07-01 04:46:11] 
 💓 Checking Whoop...
-[2026-06-30 04:56:07]   ✅ Whoop configured
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Whoop configured
+[2026-07-01 04:46:11] 
 🏥 Checking Health Dashboard...
-[2026-06-30 04:56:07]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 04:46:11] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 04:56:07]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 04:46:11] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 04:56:07]   ✅ Competitive Intel cron active
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Competitive Intel cron active
+[2026-07-01 04:46:11] 
 ✈️ Checking Travel Automation...
-[2026-06-30 04:56:07]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 04:46:11] 
 🤖 Checking Model Status...
-[2026-06-30 04:56:07]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 04:46:11] 
 🖥️ Checking Host Health...
-[2026-06-30 04:56:07]   ✅ Host: mem avail 5488.6 MiB (70.3%), swap used 0.0%, OpenClaw RSS 736.1 MiB
-[2026-06-30 04:56:07] 
+[2026-07-01 04:46:11]   ✅ Host: mem avail 5521.3 MiB (70.7%), swap used 0.0%, OpenClaw RSS 699.3 MiB
+[2026-07-01 04:46:11] 
 ============================================================
-[2026-06-30 04:56:07] ✅ All systems operational
-[2026-06-30 04:56:07] ============================================================
-[2026-06-30 05:51:05] ============================================================
-[2026-06-30 05:51:05] SYSTEM HEALTH CHECK
-[2026-06-30 05:51:05] ============================================================
-[2026-06-30 05:51:05] 
+[2026-07-01 04:46:11] ✅ All systems operational
+[2026-07-01 04:46:11] ============================================================
+[2026-07-01 05:41:08] ============================================================
+[2026-07-01 05:41:08] SYSTEM HEALTH CHECK
+[2026-07-01 05:41:08] ============================================================
+[2026-07-01 05:41:08] 
 📋 Checking Todoist...
-[2026-06-30 05:51:06]   ✅ Todoist: 50 tasks
-[2026-06-30 05:51:06] 
+[2026-07-01 05:41:09]   ✅ Todoist: 50 tasks
+[2026-07-01 05:41:09] 
 📅 Checking Google Calendar...
-[2026-06-30 05:51:07]   ✅ Calendar: Token 0 days old
-[2026-06-30 05:51:07] 
+[2026-07-01 05:41:10]   ✅ Calendar: Token 0 days old
+[2026-07-01 05:41:10] 
 🌤️ Checking Weather...
-[2026-06-30 05:51:07]   ✅ Weather skill installed
-[2026-06-30 05:51:08]   🌡️ Current: los angeles: ☁️ 66°F 75% ↑6mph...
-[2026-06-30 05:51:08] 
+[2026-07-01 05:41:10]   ✅ Weather skill installed
+[2026-07-01 05:41:11]   🌡️ Current: los angeles: ☁️ 65°F 76% ↗4mph...
+[2026-07-01 05:41:11] 
 💓 Checking Whoop...
-[2026-06-30 05:51:08]   ✅ Whoop configured
-[2026-06-30 05:51:08] 
+[2026-07-01 05:41:11]   ✅ Whoop configured
+[2026-07-01 05:41:11] 
 🏥 Checking Health Dashboard...
-[2026-06-30 05:51:08]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 05:51:08] 
+[2026-07-01 05:41:11]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 05:41:11] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 05:51:08]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 05:51:08] 
+[2026-07-01 05:41:11]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 05:41:11] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 05:51:08]   ✅ Competitive Intel cron active
-[2026-06-30 05:51:08] 
+[2026-07-01 05:41:11]   ✅ Competitive Intel cron active
+[2026-07-01 05:41:11] 
 ✈️ Checking Travel Automation...
-[2026-06-30 05:51:09]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 05:51:09] 
+[2026-07-01 05:41:12]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 05:41:12] 
 🤖 Checking Model Status...
-[2026-06-30 05:51:09]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 05:51:09] 
+[2026-07-01 05:41:12]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 05:41:12] 
 🖥️ Checking Host Health...
-[2026-06-30 05:51:09]   ✅ Host: mem avail 5567.4 MiB (71.3%), swap used 0.0%, OpenClaw RSS 694.0 MiB
-[2026-06-30 05:51:09] 
+[2026-07-01 05:41:12]   ✅ Host: mem avail 5509.9 MiB (70.6%), swap used 0.0%, OpenClaw RSS 702.3 MiB
+[2026-07-01 05:41:12] 
 ============================================================
-[2026-06-30 05:51:09] ✅ All systems operational
-[2026-06-30 05:51:09] ============================================================
-[2026-06-30 06:46:04] ============================================================
-[2026-06-30 06:46:04] SYSTEM HEALTH CHECK
-[2026-06-30 06:46:04] ============================================================
-[2026-06-30 06:46:04] 
+[2026-07-01 05:41:12] ✅ All systems operational
+[2026-07-01 05:41:12] ============================================================
+[2026-07-01 06:36:06] ============================================================
+[2026-07-01 06:36:06] SYSTEM HEALTH CHECK
+[2026-07-01 06:36:06] ============================================================
+[2026-07-01 06:36:06] 
 📋 Checking Todoist...
-[2026-06-30 06:46:05]   ✅ Todoist: 50 tasks
-[2026-06-30 06:46:05] 
+[2026-07-01 06:36:08]   ✅ Todoist: 50 tasks
+[2026-07-01 06:36:08] 
 📅 Checking Google Calendar...
-[2026-06-30 06:46:07]   ✅ Calendar: Token 0 days old
-[2026-06-30 06:46:07] 
+[2026-07-01 06:36:09]   ✅ Calendar: Token 0 days old
+[2026-07-01 06:36:09] 
 🌤️ Checking Weather...
-[2026-06-30 06:46:07]   ✅ Weather skill installed
-[2026-06-30 06:46:07]   🌡️ Current: los angeles: ☁️ 66°F 75% ↑6mph...
-[2026-06-30 06:46:07] 
+[2026-07-01 06:36:09]   ✅ Weather skill installed
+[2026-07-01 06:36:10]   🌡️ Current: los angeles: ☁️ 65°F 76% ↗4mph...
+[2026-07-01 06:36:10] 
 💓 Checking Whoop...
-[2026-06-30 06:46:07]   ✅ Whoop configured
-[2026-06-30 06:46:07] 
+[2026-07-01 06:36:10]   ✅ Whoop configured
+[2026-07-01 06:36:10] 
 🏥 Checking Health Dashboard...
-[2026-06-30 06:46:07]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 06:46:07] 
+[2026-07-01 06:36:10]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
+[2026-07-01 06:36:10] 
 ⌚ Checking Watch Hunt...
-[2026-06-30 06:46:07]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 06:46:07] 
+[2026-07-01 06:36:10]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
+[2026-07-01 06:36:10] 
 🎯 Checking Competitive Intelligence...
-[2026-06-30 06:46:07]   ✅ Competitive Intel cron active
-[2026-06-30 06:46:07] 
+[2026-07-01 06:36:10]   ✅ Competitive Intel cron active
+[2026-07-01 06:36:10] 
 ✈️ Checking Travel Automation...
-[2026-06-30 06:46:08]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 06:46:08] 
+[2026-07-01 06:36:10]   ✅ Travel Automation: 0 tasks created
+[2026-07-01 06:36:10] 
 🤖 Checking Model Status...
-[2026-06-30 06:46:08]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 06:46:08] 
+[2026-07-01 06:36:10]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
+[2026-07-01 06:36:10] 
 🖥️ Checking Host Health...
-[2026-06-30 06:46:08]   ✅ Host: mem avail 5577.5 MiB (71.5%), swap used 0.0%, OpenClaw RSS 707.4 MiB
-[2026-06-30 06:46:08] 
+[2026-07-01 06:36:10]   ✅ Host: mem avail 5466.7 MiB (70.1%), swap used 0.0%, OpenClaw RSS 726.1 MiB
+[2026-07-01 06:36:10] 
 ============================================================
-[2026-06-30 06:46:08] ✅ All systems operational
-[2026-06-30 06:46:08] ============================================================
-[2026-06-30 07:41:06] ============================================================
-[2026-06-30 07:41:06] SYSTEM HEALTH CHECK
-[2026-06-30 07:41:06] ============================================================
-[2026-06-30 07:41:06] 
-📋 Checking Todoist...
-[2026-06-30 07:41:07]   ✅ Todoist: 50 tasks
-[2026-06-30 07:41:07] 
-📅 Checking Google Calendar...
-[2026-06-30 07:41:09]   ✅ Calendar: Token 0 days old
-[2026-06-30 07:41:09] 
-🌤️ Checking Weather...
-[2026-06-30 07:41:09]   ✅ Weather skill installed
-[2026-06-30 07:41:10]   🌡️ Current: los angeles: ☁️ 66°F 73% ↑5mph...
-[2026-06-30 07:41:10] 
-💓 Checking Whoop...
-[2026-06-30 07:41:10]   ✅ Whoop configured
-[2026-06-30 07:41:10] 
-🏥 Checking Health Dashboard...
-[2026-06-30 07:41:10]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 07:41:10] 
-⌚ Checking Watch Hunt...
-[2026-06-30 07:41:10]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 07:41:10] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 07:41:10]   ✅ Competitive Intel cron active
-[2026-06-30 07:41:10] 
-✈️ Checking Travel Automation...
-[2026-06-30 07:41:10]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 07:41:10] 
-🤖 Checking Model Status...
-[2026-06-30 07:41:10]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 07:41:10] 
-🖥️ Checking Host Health...
-[2026-06-30 07:41:10]   ✅ Host: mem avail 5532.2 MiB (70.9%), swap used 0.0%, OpenClaw RSS 706.8 MiB
-[2026-06-30 07:41:10] 
-============================================================
-[2026-06-30 07:41:10] ✅ All systems operational
-[2026-06-30 07:41:10] ============================================================
-[2026-06-30 08:36:07] ============================================================
-[2026-06-30 08:36:07] SYSTEM HEALTH CHECK
-[2026-06-30 08:36:07] ============================================================
-[2026-06-30 08:36:07] 
-📋 Checking Todoist...
-[2026-06-30 08:36:08]   ✅ Todoist: 50 tasks
-[2026-06-30 08:36:08] 
-📅 Checking Google Calendar...
-[2026-06-30 08:36:10]   ✅ Calendar: Token 0 days old
-[2026-06-30 08:36:10] 
-🌤️ Checking Weather...
-[2026-06-30 08:36:10]   ✅ Weather skill installed
-[2026-06-30 08:36:11]   🌡️ Current: los angeles: ☁️ 66°F 73% ↑5mph...
-[2026-06-30 08:36:11] 
-💓 Checking Whoop...
-[2026-06-30 08:36:11]   ✅ Whoop configured
-[2026-06-30 08:36:11] 
-🏥 Checking Health Dashboard...
-[2026-06-30 08:36:11]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 08:36:11] 
-⌚ Checking Watch Hunt...
-[2026-06-30 08:36:11]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 08:36:11] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 08:36:11]   ✅ Competitive Intel cron active
-[2026-06-30 08:36:11] 
-✈️ Checking Travel Automation...
-[2026-06-30 08:36:11]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 08:36:11] 
-🤖 Checking Model Status...
-[2026-06-30 08:36:11]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 08:36:11] 
-🖥️ Checking Host Health...
-[2026-06-30 08:36:11]   ✅ Host: mem avail 5571.7 MiB (71.4%), swap used 0.0%, OpenClaw RSS 694.5 MiB
-[2026-06-30 08:36:11] 
-============================================================
-[2026-06-30 08:36:11] ✅ All systems operational
-[2026-06-30 08:36:11] ============================================================
-[2026-06-30 09:31:33] ============================================================
-[2026-06-30 09:31:33] SYSTEM HEALTH CHECK
-[2026-06-30 09:31:33] ============================================================
-[2026-06-30 09:31:33] 
-📋 Checking Todoist...
-[2026-06-30 09:31:34]   ✅ Todoist: 50 tasks
-[2026-06-30 09:31:34] 
-📅 Checking Google Calendar...
-[2026-06-30 09:31:35]   ✅ Calendar: Token 0 days old
-[2026-06-30 09:31:36] 
-🌤️ Checking Weather...
-[2026-06-30 09:31:36]   ✅ Weather skill installed
-[2026-06-30 09:31:36]   🌡️ Current: los angeles: ☁️ 66°F 73% ↖5mph...
-[2026-06-30 09:31:36] 
-💓 Checking Whoop...
-[2026-06-30 09:31:36]   ✅ Whoop configured
-[2026-06-30 09:31:36] 
-🏥 Checking Health Dashboard...
-[2026-06-30 09:31:36]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 09:31:36] 
-⌚ Checking Watch Hunt...
-[2026-06-30 09:31:36]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 09:31:36] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 09:31:36]   ✅ Competitive Intel cron active
-[2026-06-30 09:31:36] 
-✈️ Checking Travel Automation...
-[2026-06-30 09:31:37]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 09:31:37] 
-🤖 Checking Model Status...
-[2026-06-30 09:31:37]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 09:31:37] 
-🖥️ Checking Host Health...
-[2026-06-30 09:31:37]   ✅ Host: mem avail 5568.1 MiB (71.3%), swap used 0.0%, OpenClaw RSS 705.0 MiB
-[2026-06-30 09:31:37] 
-============================================================
-[2026-06-30 09:31:37] ✅ All systems operational
-[2026-06-30 09:31:37] ============================================================
-[2026-06-30 10:26:05] ============================================================
-[2026-06-30 10:26:05] SYSTEM HEALTH CHECK
-[2026-06-30 10:26:05] ============================================================
-[2026-06-30 10:26:05] 
-📋 Checking Todoist...
-[2026-06-30 10:26:07]   ✅ Todoist: 50 tasks
-[2026-06-30 10:26:07] 
-📅 Checking Google Calendar...
-[2026-06-30 10:26:08]   ✅ Calendar: Token 0 days old
-[2026-06-30 10:26:08] 
-🌤️ Checking Weather...
-[2026-06-30 10:26:08]   ✅ Weather skill installed
-[2026-06-30 10:26:09]   🌡️ Current: los angeles: ☁️ 66°F 73% ↖5mph...
-[2026-06-30 10:26:09] 
-💓 Checking Whoop...
-[2026-06-30 10:26:09]   ✅ Whoop configured
-[2026-06-30 10:26:09] 
-🏥 Checking Health Dashboard...
-[2026-06-30 10:26:09]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 10:26:09] 
-⌚ Checking Watch Hunt...
-[2026-06-30 10:26:09]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 10:26:09] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 10:26:09]   ✅ Competitive Intel cron active
-[2026-06-30 10:26:09] 
-✈️ Checking Travel Automation...
-[2026-06-30 10:26:09]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 10:26:09] 
-🤖 Checking Model Status...
-[2026-06-30 10:26:09]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 10:26:09] 
-🖥️ Checking Host Health...
-[2026-06-30 10:26:10]   ✅ Host: mem avail 5563.5 MiB (71.3%), swap used 0.0%, OpenClaw RSS 710.7 MiB
-[2026-06-30 10:26:10] 
-============================================================
-[2026-06-30 10:26:10] ✅ All systems operational
-[2026-06-30 10:26:10] ============================================================
-[2026-06-30 11:21:05] ============================================================
-[2026-06-30 11:21:05] SYSTEM HEALTH CHECK
-[2026-06-30 11:21:05] ============================================================
-[2026-06-30 11:21:05] 
-📋 Checking Todoist...
-[2026-06-30 11:21:07]   ✅ Todoist: 50 tasks
-[2026-06-30 11:21:07] 
-📅 Checking Google Calendar...
-[2026-06-30 11:21:08]   ✅ Calendar: Token 0 days old
-[2026-06-30 11:21:08] 
-🌤️ Checking Weather...
-[2026-06-30 11:21:08]   ✅ Weather skill installed
-[2026-06-30 11:21:09]   🌡️ Current: los angeles: ☁️ 66°F 73% ↖5mph...
-[2026-06-30 11:21:09] 
-💓 Checking Whoop...
-[2026-06-30 11:21:09]   ✅ Whoop configured
-[2026-06-30 11:21:09] 
-🏥 Checking Health Dashboard...
-[2026-06-30 11:21:09]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 11:21:09] 
-⌚ Checking Watch Hunt...
-[2026-06-30 11:21:09]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 11:21:09] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 11:21:09]   ✅ Competitive Intel cron active
-[2026-06-30 11:21:09] 
-✈️ Checking Travel Automation...
-[2026-06-30 11:21:09]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 11:21:09] 
-🤖 Checking Model Status...
-[2026-06-30 11:21:09]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 11:21:09] 
-🖥️ Checking Host Health...
-[2026-06-30 11:21:09]   ✅ Host: mem avail 5555.9 MiB (71.2%), swap used 0.0%, OpenClaw RSS 709.3 MiB
-[2026-06-30 11:21:09] 
-============================================================
-[2026-06-30 11:21:09] ✅ All systems operational
-[2026-06-30 11:21:09] ============================================================
-[2026-06-30 12:16:33] ============================================================
-[2026-06-30 12:16:33] SYSTEM HEALTH CHECK
-[2026-06-30 12:16:33] ============================================================
-[2026-06-30 12:16:33] 
-📋 Checking Todoist...
-[2026-06-30 12:16:35]   ✅ Todoist: 50 tasks
-[2026-06-30 12:16:35] 
-📅 Checking Google Calendar...
-[2026-06-30 12:16:36]   ✅ Calendar: Token 0 days old
-[2026-06-30 12:16:36] 
-🌤️ Checking Weather...
-[2026-06-30 12:16:36]   ✅ Weather skill installed
-[2026-06-30 12:16:37]   🌡️ Current: los angeles: ☁️ 66°F 73% ↖5mph...
-[2026-06-30 12:16:37] 
-💓 Checking Whoop...
-[2026-06-30 12:16:37]   ✅ Whoop configured
-[2026-06-30 12:16:37] 
-🏥 Checking Health Dashboard...
-[2026-06-30 12:16:37]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 12:16:37] 
-⌚ Checking Watch Hunt...
-[2026-06-30 12:16:37]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 12:16:37] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 12:16:37]   ✅ Competitive Intel cron active
-[2026-06-30 12:16:37] 
-✈️ Checking Travel Automation...
-[2026-06-30 12:16:37]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 12:16:37] 
-🤖 Checking Model Status...
-[2026-06-30 12:16:37]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 12:16:37] 
-🖥️ Checking Host Health...
-[2026-06-30 12:16:37]   ✅ Host: mem avail 5587.9 MiB (71.6%), swap used 0.0%, OpenClaw RSS 711.8 MiB
-[2026-06-30 12:16:37] 
-============================================================
-[2026-06-30 12:16:37] ✅ All systems operational
-[2026-06-30 12:16:37] ============================================================
-[2026-06-30 13:11:06] ============================================================
-[2026-06-30 13:11:06] SYSTEM HEALTH CHECK
-[2026-06-30 13:11:06] ============================================================
-[2026-06-30 13:11:06] 
-📋 Checking Todoist...
-[2026-06-30 13:11:07]   ✅ Todoist: 50 tasks
-[2026-06-30 13:11:07] 
-📅 Checking Google Calendar...
-[2026-06-30 13:11:09]   ✅ Calendar: Token 0 days old
-[2026-06-30 13:11:09] 
-🌤️ Checking Weather...
-[2026-06-30 13:11:09]   ✅ Weather skill installed
-[2026-06-30 13:11:10]   🌡️ Current: los angeles: ☁️ 65°F 76% ↖5mph...
-[2026-06-30 13:11:10] 
-💓 Checking Whoop...
-[2026-06-30 13:11:10]   ✅ Whoop configured
-[2026-06-30 13:11:10] 
-🏥 Checking Health Dashboard...
-[2026-06-30 13:11:10]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 13:11:10] 
-⌚ Checking Watch Hunt...
-[2026-06-30 13:11:10]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 13:11:10] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 13:11:10]   ✅ Competitive Intel cron active
-[2026-06-30 13:11:10] 
-✈️ Checking Travel Automation...
-[2026-06-30 13:11:10]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 13:11:10] 
-🤖 Checking Model Status...
-[2026-06-30 13:11:10]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 13:11:10] 
-🖥️ Checking Host Health...
-[2026-06-30 13:11:10]   ✅ Host: mem avail 5539.5 MiB (71.0%), swap used 0.0%, OpenClaw RSS 709.0 MiB
-[2026-06-30 13:11:10] 
-============================================================
-[2026-06-30 13:11:10] ✅ All systems operational
-[2026-06-30 13:11:10] ============================================================
-[2026-06-30 14:06:04] ============================================================
-[2026-06-30 14:06:04] SYSTEM HEALTH CHECK
-[2026-06-30 14:06:04] ============================================================
-[2026-06-30 14:06:04] 
-📋 Checking Todoist...
-[2026-06-30 14:06:09]   ✅ Todoist: 50 tasks
-[2026-06-30 14:06:09] 
-📅 Checking Google Calendar...
-[2026-06-30 14:06:11]   ✅ Calendar: Token 0 days old
-[2026-06-30 14:06:11] 
-🌤️ Checking Weather...
-[2026-06-30 14:06:11]   ✅ Weather skill installed
-[2026-06-30 14:06:11]   🌡️ Current: los angeles: ☁️ 65°F 76% ↖5mph...
-[2026-06-30 14:06:11] 
-💓 Checking Whoop...
-[2026-06-30 14:06:11]   ✅ Whoop configured
-[2026-06-30 14:06:11] 
-🏥 Checking Health Dashboard...
-[2026-06-30 14:06:11]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 14:06:11] 
-⌚ Checking Watch Hunt...
-[2026-06-30 14:06:11]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 14:06:11] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 14:06:12]   ✅ Competitive Intel cron active
-[2026-06-30 14:06:12] 
-✈️ Checking Travel Automation...
-[2026-06-30 14:06:12]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 14:06:12] 
-🤖 Checking Model Status...
-[2026-06-30 14:06:12]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 14:06:12] 
-🖥️ Checking Host Health...
-[2026-06-30 14:06:12]   ✅ Host: mem avail 5445.1 MiB (69.8%), swap used 0.0%, OpenClaw RSS 710.1 MiB
-[2026-06-30 14:06:12] 
-============================================================
-[2026-06-30 14:06:12] ✅ All systems operational
-[2026-06-30 14:06:12] ============================================================
-[2026-06-30 15:01:09] ============================================================
-[2026-06-30 15:01:09] SYSTEM HEALTH CHECK
-[2026-06-30 15:01:09] ============================================================
-[2026-06-30 15:01:09] 
-📋 Checking Todoist...
-[2026-06-30 15:01:11]   ✅ Todoist: 50 tasks
-[2026-06-30 15:01:11] 
-📅 Checking Google Calendar...
-[2026-06-30 15:01:13]   ✅ Calendar: Token 0 days old
-[2026-06-30 15:01:13] 
-🌤️ Checking Weather...
-[2026-06-30 15:01:13]   ✅ Weather skill installed
-[2026-06-30 15:01:16]   🌡️ Current: los angeles: ☁️ 66°F 73% ↖5mph...
-[2026-06-30 15:01:16] 
-💓 Checking Whoop...
-[2026-06-30 15:01:16]   ✅ Whoop configured
-[2026-06-30 15:01:16] 
-🏥 Checking Health Dashboard...
-[2026-06-30 15:01:16]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 15:01:16] 
-⌚ Checking Watch Hunt...
-[2026-06-30 15:01:16]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 15:01:16] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 15:01:16]   ✅ Competitive Intel cron active
-[2026-06-30 15:01:16] 
-✈️ Checking Travel Automation...
-[2026-06-30 15:01:16]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 15:01:16] 
-🤖 Checking Model Status...
-[2026-06-30 15:01:16]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 15:01:16] 
-🖥️ Checking Host Health...
-[2026-06-30 15:01:16]   ✅ Host: mem avail 5524.9 MiB (70.8%), swap used 0.0%, OpenClaw RSS 711.2 MiB
-[2026-06-30 15:01:16] 
-============================================================
-[2026-06-30 15:01:16] ✅ All systems operational
-[2026-06-30 15:01:16] ============================================================
-[2026-06-30 15:56:05] ============================================================
-[2026-06-30 15:56:05] SYSTEM HEALTH CHECK
-[2026-06-30 15:56:05] ============================================================
-[2026-06-30 15:56:05] 
-📋 Checking Todoist...
-[2026-06-30 15:56:07]   ✅ Todoist: 50 tasks
-[2026-06-30 15:56:07] 
-📅 Checking Google Calendar...
-[2026-06-30 15:56:08]   ✅ Calendar: Token 0 days old
-[2026-06-30 15:56:08] 
-🌤️ Checking Weather...
-[2026-06-30 15:56:08]   ✅ Weather skill installed
-[2026-06-30 15:56:09]   🌡️ Current: los angeles: ☁️ 66°F 73% ↖5mph...
-[2026-06-30 15:56:09] 
-💓 Checking Whoop...
-[2026-06-30 15:56:09]   ✅ Whoop configured
-[2026-06-30 15:56:09] 
-🏥 Checking Health Dashboard...
-[2026-06-30 15:56:09]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 15:56:09] 
-⌚ Checking Watch Hunt...
-[2026-06-30 15:56:09]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 15:56:09] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 15:56:09]   ✅ Competitive Intel cron active
-[2026-06-30 15:56:09] 
-✈️ Checking Travel Automation...
-[2026-06-30 15:56:10]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 15:56:10] 
-🤖 Checking Model Status...
-[2026-06-30 15:56:10]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 15:56:10] 
-🖥️ Checking Host Health...
-[2026-06-30 15:56:10]   ✅ Host: mem avail 5520.2 MiB (70.7%), swap used 0.0%, OpenClaw RSS 713.5 MiB
-[2026-06-30 15:56:10] 
-============================================================
-[2026-06-30 15:56:10] ✅ All systems operational
-[2026-06-30 15:56:10] ============================================================
-[2026-06-30 16:51:08] ============================================================
-[2026-06-30 16:51:08] SYSTEM HEALTH CHECK
-[2026-06-30 16:51:08] ============================================================
-[2026-06-30 16:51:08] 
-📋 Checking Todoist...
-[2026-06-30 16:51:09]   ✅ Todoist: 50 tasks
-[2026-06-30 16:51:09] 
-📅 Checking Google Calendar...
-[2026-06-30 16:51:10]   ✅ Calendar: Token 0 days old
-[2026-06-30 16:51:10] 
-🌤️ Checking Weather...
-[2026-06-30 16:51:10]   ✅ Weather skill installed
-[2026-06-30 16:51:11]   🌡️ Current: los angeles: 🌤️ 66°F 73% ↑4mph...
-[2026-06-30 16:51:11] 
-💓 Checking Whoop...
-[2026-06-30 16:51:11]   ✅ Whoop configured
-[2026-06-30 16:51:11] 
-🏥 Checking Health Dashboard...
-[2026-06-30 16:51:11]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 16:51:11] 
-⌚ Checking Watch Hunt...
-[2026-06-30 16:51:11]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 16:51:11] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 16:51:11]   ✅ Competitive Intel cron active
-[2026-06-30 16:51:11] 
-✈️ Checking Travel Automation...
-[2026-06-30 16:51:11]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 16:51:11] 
-🤖 Checking Model Status...
-[2026-06-30 16:51:11]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 16:51:11] 
-🖥️ Checking Host Health...
-[2026-06-30 16:51:12]   ✅ Host: mem avail 5539.0 MiB (71.0%), swap used 0.0%, OpenClaw RSS 710.0 MiB
-[2026-06-30 16:51:12] 
-============================================================
-[2026-06-30 16:51:12] ✅ All systems operational
-[2026-06-30 16:51:12] ============================================================
-[2026-06-30 17:46:07] ============================================================
-[2026-06-30 17:46:07] SYSTEM HEALTH CHECK
-[2026-06-30 17:46:07] ============================================================
-[2026-06-30 17:46:07] 
-📋 Checking Todoist...
-[2026-06-30 17:46:08]   ✅ Todoist: 50 tasks
-[2026-06-30 17:46:08] 
-📅 Checking Google Calendar...
-[2026-06-30 17:46:09]   ✅ Calendar: Token 0 days old
-[2026-06-30 17:46:09] 
-🌤️ Checking Weather...
-[2026-06-30 17:46:09]   ✅ Weather skill installed
-[2026-06-30 17:46:12]   🌡️ Current: los angeles: ☁️ 68°F 64% ↑7mph...
-[2026-06-30 17:46:12] 
-💓 Checking Whoop...
-[2026-06-30 17:46:12]   ✅ Whoop configured
-[2026-06-30 17:46:12] 
-🏥 Checking Health Dashboard...
-[2026-06-30 17:46:12]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 17:46:12] 
-⌚ Checking Watch Hunt...
-[2026-06-30 17:46:12]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 17:46:12] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 17:46:12]   ✅ Competitive Intel cron active
-[2026-06-30 17:46:12] 
-✈️ Checking Travel Automation...
-[2026-06-30 17:46:12]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 17:46:12] 
-🤖 Checking Model Status...
-[2026-06-30 17:46:12]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 17:46:12] 
-🖥️ Checking Host Health...
-[2026-06-30 17:46:12]   ✅ Host: mem avail 5544.3 MiB (71.0%), swap used 0.0%, OpenClaw RSS 698.3 MiB
-[2026-06-30 17:46:12] 
-============================================================
-[2026-06-30 17:46:12] ✅ All systems operational
-[2026-06-30 17:46:12] ============================================================
-[2026-06-30 18:41:06] ============================================================
-[2026-06-30 18:41:06] SYSTEM HEALTH CHECK
-[2026-06-30 18:41:06] ============================================================
-[2026-06-30 18:41:06] 
-📋 Checking Todoist...
-[2026-06-30 18:41:07]   ✅ Todoist: 50 tasks
-[2026-06-30 18:41:07] 
-📅 Checking Google Calendar...
-[2026-06-30 18:41:09]   ✅ Calendar: Token 0 days old
-[2026-06-30 18:41:09] 
-🌤️ Checking Weather...
-[2026-06-30 18:41:09]   ✅ Weather skill installed
-[2026-06-30 18:41:10]   🌡️ Current: los angeles: ☁️ 68°F 64% ↑7mph...
-[2026-06-30 18:41:10] 
-💓 Checking Whoop...
-[2026-06-30 18:41:10]   ✅ Whoop configured
-[2026-06-30 18:41:10] 
-🏥 Checking Health Dashboard...
-[2026-06-30 18:41:10]   ✅ Health Dashboard: https://gclapp.github.io/health-dashboard/
-[2026-06-30 18:41:10] 
-⌚ Checking Watch Hunt...
-[2026-06-30 18:41:10]   ✅ Watch Hunt: https://gclapp.github.io/geoff-watch-hunt/
-[2026-06-30 18:41:10] 
-🎯 Checking Competitive Intelligence...
-[2026-06-30 18:41:10]   ✅ Competitive Intel cron active
-[2026-06-30 18:41:10] 
-✈️ Checking Travel Automation...
-[2026-06-30 18:41:10]   ✅ Travel Automation: 0 tasks created
-[2026-06-30 18:41:10] 
-🤖 Checking Model Status...
-[2026-06-30 18:41:10]   ✅ Model: moonshot/kimi-k2.7-code (Primary: moonshot/kimi-k2.7-code)
-[2026-06-30 18:41:10] 
-🖥️ Checking Host Health...
-[2026-06-30 18:41:10]   ✅ Host: mem avail 5520.5 MiB (70.7%), swap used 0.0%, OpenClaw RSS 708.5 MiB
-[2026-06-30 18:41:10] 
-============================================================
-[2026-06-30 18:41:10] ✅ All systems operational
-[2026-06-30 18:41:10] ============================================================
+[2026-07-01 06:36:10] ✅ All systems operational
+[2026-07-01 06:36:10] ============================================================

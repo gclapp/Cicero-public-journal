@@ -39,6 +39,14 @@
     "reason": "today's calendar: calabasas",
     "timezone": "America/Los_Angeles"
   },
+  "aero-travel-evening:2026-06-30:21:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
+    ],
+    "ran_at_utc": "2026-07-01T04:00:02.936418+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "aero-travel-morning:2026-06-25:09:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/aero_travel_cron.sh"
@@ -145,6 +153,14 @@
     "reason": "today's calendar: calabasas",
     "timezone": "America/Los_Angeles"
   },
+  "competitor-report-afternoon:2026-06-30:14:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
+    ],
+    "ran_at_utc": "2026-06-30T21:00:02.950928+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "competitor-report-morning:2026-06-25:07:00": {
     "command": [
       "/home/ubuntu/.openclaw/workspace/scripts/daily-competitor-report-v3.sh"
@@ -223,6 +239,14 @@
     ],
     "ran_at_utc": "2026-06-29T19:00:03.185832+00:00",
     "reason": "today's calendar: calabasas",
+    "timezone": "America/Los_Angeles"
+  },
+  "daily-github-sync-midday:2026-06-30:12:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/daily-github-sync.sh"
+    ],
+    "ran_at_utc": "2026-06-30T19:00:02.967843+00:00",
+    "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
   "daily-github-sync-night:2026-06-25:23:55": {
@@ -308,6 +332,15 @@
     ],
     "ran_at_utc": "2026-06-30T03:30:02.747836+00:00",
     "reason": "today's calendar: calabasas",
+    "timezone": "America/Los_Angeles"
+  },
+  "evening-checkin:2026-06-30:20:30": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/heartbeat_sender.py"
+    ],
+    "ran_at_utc": "2026-07-01T03:30:02.940422+00:00",
+    "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
   "loseit-sync:2026-06-25:10:00": {
@@ -573,6 +606,15 @@
     "reason": "today's calendar: calabasas",
     "timezone": "America/Los_Angeles"
   },
+  "stock-fetch:2026-06-30:18:00": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/ubuntu/.openclaw/workspace/scripts/fetch_stock_data.py"
+    ],
+    "ran_at_utc": "2026-07-01T01:05:02.389856+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "test-local-scheduler-run:2026-06-25:06:21": {
     "command": [
       "/bin/echo",
@@ -632,6 +674,16 @@
     "reason": "today's calendar: calabasas",
     "timezone": "America/Los_Angeles"
   },
+  "vitus-evening:2026-06-30:20:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py evening"
+    ],
+    "ran_at_utc": "2026-07-01T03:00:03.146775+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "vitus-midday:2026-06-25:12:00": {
     "command": [
       "bash",
@@ -682,6 +734,16 @@
     "reason": "today's calendar: calabasas",
     "timezone": "America/Los_Angeles"
   },
+  "vitus-midday:2026-06-30:12:00": {
+    "command": [
+      "bash",
+      "-lc",
+      "cd /home/ubuntu/.openclaw/workspace/agents/health-agent && python3 coach_engine.py midday"
+    ],
+    "ran_at_utc": "2026-06-30T19:05:02.867865+00:00",
+    "reason": "default home timezone",
+    "timezone": "America/Los_Angeles"
+  },
   "vitus-morning:2026-06-25:07:00:skipped-in-transit": {
     "reason": "aero in transit: DAL742 to KLAX",
     "skipped_at_utc": "2026-06-25T14:05:08.907454+00:00",
@@ -709,6 +771,14 @@
     ],
     "ran_at_utc": "2026-06-30T01:00:02.933459+00:00",
     "reason": "today's calendar: calabasas",
+    "timezone": "America/Los_Angeles"
+  },
+  "watch-hunt-evening:2026-06-30:18:00": {
+    "command": [
+      "/home/ubuntu/.openclaw/workspace/scripts/watch-hunt-cron.sh"
+    ],
+    "ran_at_utc": "2026-07-01T01:00:03.062918+00:00",
+    "reason": "default home timezone",
     "timezone": "America/Los_Angeles"
   },
   "watch-hunt-morning:2026-06-27:09:00": {

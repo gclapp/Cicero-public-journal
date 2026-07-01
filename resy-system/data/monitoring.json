@@ -280,222 +280,6 @@
   "bookings": [],
   "errors": [
     {
-      "timestamp": "2026-06-28T14:51:45.579097",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /shop/wp-includes/wlwmanifest.xml",
-      "details": {
-        "path": "/shop/wp-includes/wlwmanifest.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T14:51:45.746434",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp1/wp-includes/wlwmanifest.xml",
-      "details": {
-        "path": "/wp1/wp-includes/wlwmanifest.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T14:51:45.902014",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /test/wp-includes/wlwmanifest.xml",
-      "details": {
-        "path": "/test/wp-includes/wlwmanifest.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T14:51:46.027208",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /site/wp-includes/wlwmanifest.xml",
-      "details": {
-        "path": "/site/wp-includes/wlwmanifest.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T14:51:46.149996",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /cms/wp-includes/wlwmanifest.xml",
-      "details": {
-        "path": "/cms/wp-includes/wlwmanifest.xml",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:10.211373",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/hellopress/wp_filemanager.php",
-      "details": {
-        "path": "/wp-content/plugins/hellopress/wp_filemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:10.658957",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /this_is_a_new_hello_world.php",
-      "details": {
-        "path": "/this_is_a_new_hello_world.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:11.102612",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /water.php",
-      "details": {
-        "path": "/water.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:11.545435",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /3PJcpMFsD8B.php",
-      "details": {
-        "path": "/3PJcpMFsD8B.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:11.987821",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /sid4.php",
-      "details": {
-        "path": "/sid4.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:12.431668",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ortasekerli1.php",
-      "details": {
-        "path": "/ortasekerli1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:12.871168",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /academy.php",
-      "details": {
-        "path": "/academy.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:13.311041",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /100.php",
-      "details": {
-        "path": "/100.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:13.749922",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /s1.php",
-      "details": {
-        "path": "/s1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:14.198542",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp.php",
-      "details": {
-        "path": "/wp.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:14.640541",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /flox.php",
-      "details": {
-        "path": "/flox.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:15.078886",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /jj.php",
-      "details": {
-        "path": "/jj.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-06-28T17:28:15.518736",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /w.php",
-      "details": {
-        "path": "/w.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
       "timestamp": "2026-06-28T17:28:15.958349",
       "source": "web_ui",
       "error_type": "not_found",
@@ -2706,12 +2490,228 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.011478",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.126574",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xmlrpc.php",
+      "details": {
+        "path": "/xmlrpc.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.327931",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /blog/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/blog/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.439908",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /web/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/web/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.551969",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wordpress/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/wordpress/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.664300",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /website/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/website/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.776567",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/wp/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:38.900907",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /news/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/news/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.013315",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /2018/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/2018/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.126469",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /2019/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/2019/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.238846",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /shop/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/shop/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.350800",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp1/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/wp1/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.463254",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /test/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/test/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.575430",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /media/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/media/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.688042",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp2/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/wp2/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.799804",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /site/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/site/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:39.912335",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /cms/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/cms/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-01T00:40:40.027431",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sito/wp-includes/wlwmanifest.xml",
+      "details": {
+        "path": "/sito/wp-includes/wlwmanifest.xml",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
     "last_scan_time": "2026-06-30T13:57:08.449226",
     "last_booking_time": null,
-    "last_error_time": "2026-06-30T18:59:54.391076",
+    "last_error_time": "2026-07-01T00:40:40.027448",
     "total_scans": 24,
     "total_bookings": 0,
     "total_errors": 201,

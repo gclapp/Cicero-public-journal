@@ -1,0 +1,84 @@
+[2026-06-30 04:00:04] === Aero Travel Manager Starting ===
+[2026-06-30 04:00:04] ✅ FlightAware client initialized
+[2026-06-30 04:00:04] ======================================================================
+[2026-06-30 04:00:04] Aero Travel Manager: Creating Travel Tasks
+[2026-06-30 04:00:04] 2026-06-30 04:00:04
+[2026-06-30 04:00:04] ======================================================================
+[2026-06-30 04:00:04] Calendar loaded: 100 events
+[2026-06-30 04:00:04]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-06-30 04:00:04]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-06-30 04:00:04] Found 20 travel events in next 60 days
+[2026-06-30 04:00:04] Grouped into 2 trips
+[2026-06-30 04:00:04] 
+[2026-06-30 04:00:10] Found 18 existing tasks
+[2026-06-30 04:00:10] 
+[2026-06-30 04:00:10]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-06-30 04:00:10]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-30 04:00:10] ======================================================================
+[2026-06-30 04:00:10] SUMMARY: Created 0 tasks for 2 trips
+[2026-06-30 04:00:10] ======================================================================
+[2026-06-30 04:00:10] ======================================================================
+[2026-06-30 04:00:10] Aero: Day-of-Travel Monitoring
+[2026-06-30 04:00:10] ======================================================================
+[2026-06-30 04:00:10] 
+======================================================================
+[2026-06-30 04:00:10] Summary: 0 flights checked, 0 alerts sent
+[2026-06-30 04:00:10] ======================================================================
+[2026-06-30 04:00:10] ✅ Aero completed successfully
+running aero-travel-evening at 2026-06-29 21:00 PDT (America/Los_Angeles, today's calendar: calabasas)
+[2026-06-30 16:00:03] === Aero Travel Manager Starting ===
+[2026-06-30 16:00:03] ✅ FlightAware client initialized
+[2026-06-30 16:00:03] ======================================================================
+[2026-06-30 16:00:03] Aero Travel Manager: Creating Travel Tasks
+[2026-06-30 16:00:03] 2026-06-30 16:00:03
+[2026-06-30 16:00:03] ======================================================================
+[2026-06-30 16:00:03] Calendar loaded: 100 events
+[2026-06-30 16:00:03]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-06-30 16:00:03]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-06-30 16:00:03] Found 20 travel events in next 60 days
+[2026-06-30 16:00:03] Grouped into 2 trips
+[2026-06-30 16:00:03] 
+[2026-06-30 16:00:05] Found 0 existing tasks
+[2026-06-30 16:00:05] 
+[2026-06-30 16:00:05]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-06-30 16:00:05]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-30 16:00:05] ======================================================================
+[2026-06-30 16:00:05] SUMMARY: Created 0 tasks for 2 trips
+[2026-06-30 16:00:05] ======================================================================
+[2026-06-30 16:00:05] ======================================================================
+[2026-06-30 16:00:05] Aero: Day-of-Travel Monitoring
+[2026-06-30 16:00:05] ======================================================================
+[2026-06-30 16:00:05] 
+======================================================================
+[2026-06-30 16:00:05] Summary: 0 flights checked, 0 alerts sent
+[2026-06-30 16:00:05] ======================================================================
+[2026-06-30 16:00:06] ✅ Aero completed successfully
+running aero-travel-morning at 2026-06-30 09:00 PDT (America/Los_Angeles, default home timezone)
+[2026-06-30 16:05:02] === Aero Travel Manager Starting ===
+[2026-06-30 16:05:02] ✅ FlightAware client initialized
+[2026-06-30 16:05:02] ======================================================================
+[2026-06-30 16:05:02] Aero Travel Manager: Creating Travel Tasks
+[2026-06-30 16:05:02] 2026-06-30 16:05:02
+[2026-06-30 16:05:02] ======================================================================
+[2026-06-30 16:05:02] Calendar loaded: 100 events
+[2026-06-30 16:05:02]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-06-30 16:05:02]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-06-30 16:05:02] Found 20 travel events in next 60 days
+[2026-06-30 16:05:02] Grouped into 2 trips
+[2026-06-30 16:05:02] 
+[2026-06-30 16:05:06] Found 18 existing tasks
+[2026-06-30 16:05:06] 
+[2026-06-30 16:05:06]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-06-30 16:05:06]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-06-30 16:05:06] ======================================================================
+[2026-06-30 16:05:06] SUMMARY: Created 0 tasks for 2 trips
+[2026-06-30 16:05:06] ======================================================================
+[2026-06-30 16:05:06] ======================================================================
+[2026-06-30 16:05:06] Aero: Day-of-Travel Monitoring
+[2026-06-30 16:05:06] ======================================================================
+[2026-06-30 16:05:06] 
+======================================================================
+[2026-06-30 16:05:06] Summary: 0 flights checked, 0 alerts sent
+[2026-06-30 16:05:06] ======================================================================
+[2026-06-30 16:05:06] ✅ Aero completed successfully
+running aero-travel-morning at 2026-06-30 09:05 PDT (America/Los_Angeles, default home timezone)
