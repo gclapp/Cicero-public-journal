@@ -1,18 +1,20 @@
 {
-  "timestamp": "2026-07-02T06:26:14.166620",
+  "timestamp": "2026-07-02T18:21:07.090686",
   "checks": {
     "todoist": {
       "status": "ok",
       "tasks": 50
     },
     "calendar": {
-      "status": "ok",
-      "token_age_days": 0
+      "status": "auth_error",
+      "error": "Calendar auth token expired or revoked",
+      "action_required": true,
+      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&code_challenge=TFy0ZSv6rYC80nyhK2A8Gr8sYMQFYvPqafoO1d114JU&code_challenge_method=S256&prompt=consent&access_type=offline"
     },
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2601\ufe0f 66\u00b0F 75% \u21974mph",
+    "weather_data": "los angeles: \u2601\ufe0f 69\u00b0F 63% \u21916mph",
     "whoop": {
       "status": "configured"
     },
@@ -45,8 +47,8 @@
       "issues": [],
       "memory": {
         "total_mib": 7804.0,
-        "available_mib": 5510.7,
-        "available_pct": 70.6
+        "available_mib": 6096.0,
+        "available_pct": 78.1
       },
       "swap": {
         "total_mib": 2048.0,
@@ -56,60 +58,66 @@
       "dns_ok": true,
       "dns_error": null,
       "openclaw_running": true,
-      "openclaw_rss_mib": 734.1,
+      "openclaw_rss_mib": 734.5,
       "recent_events": [],
       "top_memory_processes": [
         {
           "pid": "5454",
           "command": "node",
-          "rss_mib": 734.1,
+          "rss_mib": 734.5,
           "args": "/usr/bin/node /home/ubuntu/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789"
-        },
-        {
-          "pid": "6538",
-          "command": "openclaw-tui",
-          "rss_mib": 324.6,
-          "args": "openclaw-tui"
-        },
-        {
-          "pid": "4339",
-          "command": "openclaw-onboar",
-          "rss_mib": 310.0,
-          "args": "openclaw-onboard"
         },
         {
           "pid": "10414",
           "command": "codex",
-          "rss_mib": 89.5,
+          "rss_mib": 88.4,
           "args": "/home/ubuntu/.openclaw/npm/projects/openclaw-codex-8902d781d4/node_modules/@openclaw/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex app-se"
         },
         {
           "pid": "1005",
           "command": "node",
-          "rss_mib": 74.1,
+          "rss_mib": 74.2,
           "args": "node /home/ubuntu/.npm-global/bin/ob sync --path /home/ubuntu/Obsidian/geoffclapp --continuous"
         },
         {
           "pid": "1092",
           "command": "dockerd",
-          "rss_mib": 62.7,
+          "rss_mib": 61.6,
           "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
         },
         {
           "pid": "185566",
           "command": "fail2ban-server",
-          "rss_mib": 49.2,
+          "rss_mib": 60.7,
           "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
         },
         {
           "pid": "154",
           "command": "systemd-journal",
-          "rss_mib": 43.9,
+          "rss_mib": 55.1,
           "args": "/usr/lib/systemd/systemd-journald"
+        },
+        {
+          "pid": "740",
+          "command": "snapd",
+          "rss_mib": 40.5,
+          "args": "/snap/snapd/current/usr/lib/snapd/snapd"
+        },
+        {
+          "pid": "1355",
+          "command": "gunicorn",
+          "rss_mib": 39.8,
+          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
         }
       ],
       "action_required": false
     }
   },
-  "action_required": []
+  "action_required": [
+    {
+      "service": "calendar",
+      "error": "Calendar auth token expired or revoked",
+      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&code_challenge=TFy0ZSv6rYC80nyhK2A8Gr8sYMQFYvPqafoO1d114JU&code_challenge_method=S256&prompt=consent&access_type=offline"
+    }
+  ]
 }

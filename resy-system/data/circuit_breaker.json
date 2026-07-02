@@ -2,10 +2,10 @@
   "venues": {
     "1501": {
       "venue_name": "4 Charles Prime Rib",
-      "failures": 2,
-      "last_failure": "2026-07-01T13:46:14.268109",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:30:50.425812",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:30:50.425828",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:30:49.945981",
@@ -14,16 +14,20 @@
         {
           "timestamp": "2026-07-01T13:46:14.268122",
           "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:30:50.425824",
+          "message": "HTTP 419: UNKNOWN"
         }
       ],
       "first_failure": "2026-04-13T05:00:03.726623"
     },
     "1478": {
       "venue_name": "Carbone",
-      "failures": 2,
-      "last_failure": "2026-07-01T13:48:33.228446",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:33:06.379689",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:33:06.379705",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:32:05.521080",
@@ -31,6 +35,10 @@
         },
         {
           "timestamp": "2026-07-01T13:48:33.228455",
+          "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:33:06.379700",
           "message": "HTTP 419: UNKNOWN"
         }
       ],
@@ -47,10 +55,10 @@
     },
     "1523": {
       "venue_name": "Torrisi",
-      "failures": 2,
-      "last_failure": "2026-07-01T13:50:06.181723",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:34:28.389624",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:34:28.389642",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:33:32.448118",
@@ -59,19 +67,31 @@
         {
           "timestamp": "2026-07-01T13:50:06.181733",
           "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:34:28.389638",
+          "message": "HTTP 419: UNKNOWN"
         }
       ],
       "first_failure": "2026-04-13T05:03:40.358145"
     },
     "1529": {
       "venue_name": "Saga",
-      "failures": 1,
-      "last_failure": "2026-07-01T13:51:55.777177",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:53:08.770974",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:53:08.770988",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:51:55.777212",
+          "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:36:31.780392",
+          "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:53:08.770984",
           "message": "HTTP 419: UNKNOWN"
         }
       ],
@@ -88,10 +108,10 @@
     },
     "1727": {
       "venue_name": "Estiatorio Milos",
-      "failures": 2,
-      "last_failure": "2026-07-01T13:55:58.793362",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:39:24.159705",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:39:24.159719",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:38:38.034473",
@@ -100,19 +120,27 @@
         {
           "timestamp": "2026-07-01T13:55:58.793372",
           "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:39:24.159715",
+          "message": "HTTP 419: UNKNOWN"
         }
       ],
       "first_failure": "2026-04-13T05:07:28.986132"
     },
     "1505": {
       "venue_name": "Keens Steakhouse",
-      "failures": 1,
-      "last_failure": "2026-07-01T13:57:44.028533",
+      "failures": 2,
+      "last_failure": "2026-07-02T13:42:12.479865",
       "circuit_open": false,
       "circuit_opened_at": null,
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:57:44.028543",
+          "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:42:12.479875",
           "message": "HTTP 419: UNKNOWN"
         }
       ],
@@ -120,10 +148,10 @@
     },
     "1512": {
       "venue_name": "Lilia",
-      "failures": 2,
-      "last_failure": "2026-07-01T14:02:00.753909",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:46:22.612761",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:46:22.612774",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:43:16.213019",
@@ -132,27 +160,23 @@
         {
           "timestamp": "2026-07-01T14:02:00.753919",
           "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:46:22.612770",
+          "message": "HTTP 419: UNKNOWN"
         }
       ],
       "first_failure": "2026-04-13T05:10:03.400411"
     },
     "1705": {
       "venue_name": "Semma",
-      "failures": 3,
-      "last_failure": "2026-07-01T13:45:30.608996",
-      "circuit_open": true,
-      "circuit_opened_at": "2026-07-01T13:45:30.609009",
+      "failures": 1,
+      "last_failure": "2026-07-02T14:01:18.755376",
+      "circuit_open": false,
+      "circuit_opened_at": null,
       "failure_messages": [
         {
-          "timestamp": "2026-06-30T13:46:59.906494",
-          "message": "HTTP 419: UNKNOWN"
-        },
-        {
-          "timestamp": "2026-06-30T13:57:08.398136",
-          "message": "HTTP 419: UNKNOWN"
-        },
-        {
-          "timestamp": "2026-07-01T13:45:30.609005",
+          "timestamp": "2026-07-02T14:01:18.755387",
           "message": "HTTP 419: UNKNOWN"
         }
       ],
@@ -160,10 +184,10 @@
     },
     "1399": {
       "venue_name": "Eleven Madison Park",
-      "failures": 2,
-      "last_failure": "2026-07-01T13:59:31.442728",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:44:19.778725",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:44:19.778740",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:41:16.382509",
@@ -172,24 +196,36 @@
         {
           "timestamp": "2026-07-01T13:59:31.442738",
           "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:44:19.778735",
+          "message": "HTTP 419: UNKNOWN"
         }
       ],
       "first_failure": "2026-04-18T19:03:08.437697"
     },
     "58528": {
       "venue_name": "The Naked Pig",
-      "failures": 1,
-      "last_failure": "2026-07-01T13:53:49.336346",
-      "circuit_open": false,
-      "circuit_opened_at": null,
+      "failures": 3,
+      "last_failure": "2026-07-02T13:54:48.717117",
+      "circuit_open": true,
+      "circuit_opened_at": "2026-07-02T13:54:48.717131",
       "failure_messages": [
         {
           "timestamp": "2026-07-01T13:53:49.336356",
+          "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:37:47.523829",
+          "message": "HTTP 419: UNKNOWN"
+        },
+        {
+          "timestamp": "2026-07-02T13:54:48.717128",
           "message": "HTTP 419: UNKNOWN"
         }
       ],
       "first_failure": "2026-06-29T13:38:54.144813"
     }
   },
-  "last_updated": "2026-07-01T14:02:00.753946"
+  "last_updated": "2026-07-02T14:01:18.755415"
 }
