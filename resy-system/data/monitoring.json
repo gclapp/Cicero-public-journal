@@ -321,238 +321,33 @@
       "reservations_made": 0,
       "details": "Scanned 1 trip(s), made 0 booking(s)",
       "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-07-03T13:35:03.857293",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Skipped - scanned 0.1h ago",
+      "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-07-03T14:04:54.082816",
+      "trip_dates": [
+        "2026-07-06",
+        "2026-07-07"
+      ],
+      "restaurants_checked": 20,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Scanned 1 trip(s), made 0 booking(s)",
+      "status": "no_bookings"
     }
   ],
   "bookings": [],
   "errors": [
-    {
-      "timestamp": "2026-07-02T07:19:40.199128",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /MARIJUANA.php",
-      "details": {
-        "path": "/MARIJUANA.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:40.887180",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /XxX.php",
-      "details": {
-        "path": "/XxX.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:41.228008",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /alexuse.php",
-      "details": {
-        "path": "/alexuse.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:41.563126",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /Sendemail.php",
-      "details": {
-        "path": "/Sendemail.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:41.910374",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /olu.php",
-      "details": {
-        "path": "/olu.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:42.297004",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /sad/about.php",
-      "details": {
-        "path": "/sad/about.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:42.633783",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/uploads/about.php",
-      "details": {
-        "path": "/wp-content/uploads/about.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:42.967491",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /goat.php",
-      "details": {
-        "path": "/goat.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:43.370669",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /alexusmailer 2.0.php",
-      "details": {
-        "path": "/alexusmailer 2.0.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:43.702959",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /rss.php",
-      "details": {
-        "path": "/rss.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:44.080161",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-file.php",
-      "details": {
-        "path": "/wp-file.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:44.439863",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wso2.php",
-      "details": {
-        "path": "/wso2.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:44.782208",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wso1.php",
-      "details": {
-        "path": "/wso1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:45.207156",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /olux.php",
-      "details": {
-        "path": "/olux.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:45.572593",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xl.php",
-      "details": {
-        "path": "/xl.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:45.956576",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-confiig.php",
-      "details": {
-        "path": "/wp-confiig.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:46.288928",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /file-manager.php",
-      "details": {
-        "path": "/file-manager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:46.720552",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /uploader.php",
-      "details": {
-        "path": "/uploader.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-02T07:19:47.079579",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /leafmailer.php",
-      "details": {
-        "path": "/leafmailer.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
     {
       "timestamp": "2026-07-02T07:19:47.544258",
       "source": "web_ui",
@@ -2735,491 +2530,263 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:30:03.191579",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:30:37.650725",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1501",
+      "details": {
+        "venue_id": "1501",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:33:00.817862",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1478",
+      "details": {
+        "venue_id": "1478",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:35:01.487698",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1523",
+      "details": {
+        "venue_id": "1523",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:37:38.080796",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1529",
+      "details": {
+        "venue_id": "1529",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:39:48.773298",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 58528",
+      "details": {
+        "venue_id": "58528",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:41:49.169214",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1727",
+      "details": {
+        "venue_id": "1727",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:43:34.877745",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1505",
+      "details": {
+        "venue_id": "1505",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:45:08.683419",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1399",
+      "details": {
+        "venue_id": "1399",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:46:46.921579",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1512",
+      "details": {
+        "venue_id": "1512",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:48:04.907572",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:48:51.340055",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1501",
+      "details": {
+        "venue_id": "1501",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:50:46.198057",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1478",
+      "details": {
+        "venue_id": "1478",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:52:06.557867",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1523",
+      "details": {
+        "venue_id": "1523",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:53:48.304556",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1529",
+      "details": {
+        "venue_id": "1529",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T13:55:27.492633",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 58528",
+      "details": {
+        "venue_id": "58528",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T14:00:46.603010",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1399",
+      "details": {
+        "venue_id": "1399",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T14:03:08.485163",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1512",
+      "details": {
+        "venue_id": "1512",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-03T14:04:54.033688",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-07-02T14:01:18.807866",
+    "last_scan_time": "2026-07-03T14:04:54.082830",
     "last_booking_time": null,
-    "last_error_time": "2026-07-03T01:57:12.670893",
-    "total_scans": 28,
+    "last_error_time": "2026-07-03T14:04:54.033704",
+    "total_scans": 30,
     "total_bookings": 0,
     "total_errors": 201,
-    "status": "critical"
+    "status": "healthy"
   },
   "attempts": [
-    {
-      "timestamp": "2026-05-10T13:03:23.098543",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:04:18.104995",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:04:18.469669",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:05:30.476273",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:05:30.828965",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:07:03.835645",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:07:04.155392",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:08:12.162407",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:09:00.410247",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "api_error",
-      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:09:00.418351",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:09:00.734678",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:09:56.742125",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:09:57.065746",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:11:08.072581",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:11:08.426578",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:12:30.433383",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:12:30.757228",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:14:09.764105",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:14:10.148339",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:15:32.155614",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:15:32.490894",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:16:46.497776",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:16:46.862569",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:17:46.869534",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:17:47.229276",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:18:49.236413",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:18:49.528438",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:20:31.535892",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:21:20.341981",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "api_error",
-      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:21:20.349776",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:21:20.689866",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:22:29.697139",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:22:30.019105",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:23:32.028105",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:23:32.373365",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:24:58.380737",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:24:58.678194",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:26:24.685433",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:26:25.023604",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:28:03.031101",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:28:03.350465",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:29:31.357756",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-10T13:29:31.660415",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
     {
       "timestamp": "2026-05-10T13:30:01.585358",
       "trip_date": "2026-05-10",
@@ -8239,6 +7806,479 @@
     {
       "timestamp": "2026-07-02T14:01:18.832007",
       "trip_date": "2026-07-02",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "complete",
+      "details": "Scan complete. Checked 20 restaurants, made 0 bookings.",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:30:02.943873",
+      "trip_date": "2026-07-03",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:30:03.504937",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:30:37.676581",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:32:14.700241",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:33:00.846661",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:34:14.870375",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:35:01.527372",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:35:03.832284",
+      "trip_date": "2026-07-03",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:36:27.559248",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:37:38.105489",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:39:15.130310",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:39:48.798575",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:41:14.821873",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:41:49.195362",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:42:49.218870",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:43:34.904617",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:44:34.929116",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:45:08.707905",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:46:00.730693",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:46:46.947447",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:47:30.971638",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:48:04.933130",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:48:04.960031",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:48:51.366906",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:49:58.391208",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:50:46.224717",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:51:20.264118",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:52:06.584766",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:53:02.609437",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:53:48.331101",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:54:53.355175",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:55:27.523377",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:56:49.547353",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:57:12.294464",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:58:35.320670",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:58:35.343829",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T13:59:56.367199",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T14:00:46.628991",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T14:02:22.653271",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T14:03:08.511956",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T14:04:18.537222",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T14:04:54.059471",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-03T14:04:54.106494",
+      "trip_date": "2026-07-03",
       "restaurant_name": "SYSTEM",
       "venue_id": "",
       "party_size": 0,
