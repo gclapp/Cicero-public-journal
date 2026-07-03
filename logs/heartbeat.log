@@ -1,65 +1,23 @@
-[2026-07-02 00:55:02 UTC] Heartbeat triggered
-[2026-07-02 00:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=17:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 00:55:02 UTC] Heartbeat complete
-[2026-07-02 01:55:01 UTC] Heartbeat triggered
-[2026-07-02 01:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=18:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 01:55:01 UTC] Heartbeat complete
-[2026-07-02 02:55:01 UTC] Heartbeat triggered
-[2026-07-02 02:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=19:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 02:55:01 UTC] Heartbeat complete
+[2026-07-03 00:55:01 UTC] Heartbeat triggered
+[2026-07-03 00:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=17:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 00:55:01 UTC] Heartbeat complete
+[2026-07-03 01:55:01 UTC] Heartbeat triggered
+[2026-07-03 01:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=18:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 01:55:01 UTC] Heartbeat complete
+[2026-07-03 02:55:01 UTC] Heartbeat triggered
+[2026-07-03 02:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=19:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 02:55:01 UTC] Heartbeat complete
 ✅ Evening check-in queued: 08:30 PM PDT (America/Los_Angeles)
-running evening-checkin at 2026-07-01 20:30 PDT (America/Los_Angeles, default home timezone)
-[2026-07-02 03:55:01 UTC] Heartbeat triggered
-[2026-07-02 03:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=20:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 03:55:01 UTC] Heartbeat complete
-[2026-07-02 04:55:01 UTC] Heartbeat triggered
-[2026-07-02 04:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=21:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 04:55:01 UTC] Heartbeat complete
-[2026-07-02 05:55:01 UTC] Heartbeat triggered
-[2026-07-02 05:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=22:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 05:55:01 UTC] Heartbeat complete
-[2026-07-02 06:55:02 UTC] Heartbeat triggered
-[2026-07-02 06:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-01 LOCAL_TIME=23:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 06:55:02 UTC] Heartbeat complete
-[2026-07-02 07:55:01 UTC] Heartbeat triggered
-[2026-07-02 07:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=00:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 07:55:01 UTC] Heartbeat complete
-[2026-07-02 08:55:01 UTC] Heartbeat triggered
-[2026-07-02 08:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=01:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 08:55:01 UTC] Heartbeat complete
-[2026-07-02 09:55:01 UTC] Heartbeat triggered
-[2026-07-02 09:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=02:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 09:55:01 UTC] Heartbeat complete
-[2026-07-02 10:55:02 UTC] Heartbeat triggered
-[2026-07-02 10:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=03:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 10:55:02 UTC] Heartbeat complete
-[2026-07-02 11:55:01 UTC] Heartbeat triggered
-[2026-07-02 11:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=04:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 11:55:01 UTC] Heartbeat complete
-[2026-07-02 12:55:01 UTC] Heartbeat triggered
-[2026-07-02 12:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=05:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 12:55:01 UTC] Heartbeat complete
-[2026-07-02 13:55:01 UTC] Heartbeat triggered
-[2026-07-02 13:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=06:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 13:55:01 UTC] Heartbeat complete
-✅ Morning check-in queued: 07:00 AM PDT (America/Los_Angeles)
-running morning-checkin at 2026-07-02 07:00 PDT (America/Los_Angeles, default home timezone)
-✅ Morning check-in queued: 07:05 AM PDT (America/Los_Angeles)
-running morning-checkin at 2026-07-02 07:05 PDT (America/Los_Angeles, default home timezone)
-✅ Morning check-in queued: 07:10 AM PDT (America/Los_Angeles)
-running morning-checkin at 2026-07-02 07:10 PDT (America/Los_Angeles, default home timezone)
-[2026-07-02 14:55:02 UTC] Heartbeat triggered
-[2026-07-02 14:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=07:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 14:55:02 UTC] Heartbeat complete
-[2026-07-02 15:55:02 UTC] Heartbeat triggered
-[2026-07-02 15:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=08:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 15:55:02 UTC] Heartbeat complete
-[2026-07-02 16:55:01 UTC] Heartbeat triggered
-[2026-07-02 16:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=09:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 16:55:01 UTC] Heartbeat complete
-[2026-07-02 17:55:02 UTC] Heartbeat triggered
-[2026-07-02 17:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=10:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 17:55:02 UTC] Heartbeat complete
-[2026-07-02 18:55:01 UTC] Heartbeat triggered
-[2026-07-02 18:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=11:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
-[2026-07-02 18:55:01 UTC] Heartbeat complete
+running evening-checkin at 2026-07-02 20:30 PDT (America/Los_Angeles, default home timezone)
+[2026-07-03 03:55:01 UTC] Heartbeat triggered
+[2026-07-03 03:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=20:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 03:55:01 UTC] Heartbeat complete
+[2026-07-03 04:55:01 UTC] Heartbeat triggered
+[2026-07-03 04:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=21:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 04:55:01 UTC] Heartbeat complete
+[2026-07-03 05:55:01 UTC] Heartbeat triggered
+[2026-07-03 05:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=22:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 05:55:01 UTC] Heartbeat complete
+[2026-07-03 06:55:01 UTC] Heartbeat triggered
+[2026-07-03 06:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-02 LOCAL_TIME=23:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
+[2026-07-03 06:55:01 UTC] Heartbeat complete
