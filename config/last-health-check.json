@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-04T06:06:07.223040",
+  "timestamp": "2026-07-04T18:56:07.196644",
   "checks": {
     "todoist": {
       "status": "ok",
@@ -14,7 +14,7 @@
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \u2600\ufe0f 65\u00b0F 84% \u21915mph",
+    "weather_data": "los angeles: \u2600\ufe0f 70\u00b0F 71% \u21974mph",
     "whoop": {
       "status": "configured"
     },
@@ -31,7 +31,7 @@
     },
     "travel_automation": {
       "status": "active",
-      "last_run_hours": 0.1,
+      "last_run_hours": 0.4,
       "tasks_created": 0,
       "log_file": "aero-monitor.log"
     },
@@ -47,8 +47,8 @@
       "issues": [],
       "memory": {
         "total_mib": 7804.0,
-        "available_mib": 6062.9,
-        "available_pct": 77.7
+        "available_mib": 5898.2,
+        "available_pct": 75.6
       },
       "swap": {
         "total_mib": 2048.0,
@@ -58,37 +58,25 @@
       "dns_ok": true,
       "dns_error": null,
       "openclaw_running": true,
-      "openclaw_rss_mib": 735.3,
+      "openclaw_rss_mib": 785.0,
       "recent_events": [],
       "top_memory_processes": [
         {
           "pid": "5454",
           "command": "node",
-          "rss_mib": 735.3,
+          "rss_mib": 785.0,
           "args": "/usr/bin/node /home/ubuntu/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789"
-        },
-        {
-          "pid": "154",
-          "command": "systemd-journal",
-          "rss_mib": 95.9,
-          "args": "/usr/lib/systemd/systemd-journald"
-        },
-        {
-          "pid": "185566",
-          "command": "fail2ban-server",
-          "rss_mib": 92.6,
-          "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
         },
         {
           "pid": "10414",
           "command": "codex",
-          "rss_mib": 87.9,
+          "rss_mib": 89.3,
           "args": "/home/ubuntu/.openclaw/npm/projects/openclaw-codex-8902d781d4/node_modules/@openclaw/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex app-se"
         },
         {
           "pid": "1005",
           "command": "node",
-          "rss_mib": 77.9,
+          "rss_mib": 78.2,
           "args": "node /home/ubuntu/.npm-global/bin/ob sync --path /home/ubuntu/Obsidian/geoffclapp --continuous"
         },
         {
@@ -98,16 +86,28 @@
           "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
         },
         {
+          "pid": "185566",
+          "command": "fail2ban-server",
+          "rss_mib": 43.2,
+          "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
+        },
+        {
           "pid": "537147",
           "command": "snapd",
-          "rss_mib": 40.3,
+          "rss_mib": 40.4,
           "args": "/snap/snapd/current/usr/lib/snapd/snapd"
         },
         {
           "pid": "1355",
           "command": "gunicorn",
-          "rss_mib": 39.8,
+          "rss_mib": 39.9,
           "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
+        },
+        {
+          "pid": "791",
+          "command": "containerd",
+          "rss_mib": 38.7,
+          "args": "/usr/bin/containerd"
         }
       ],
       "action_required": false

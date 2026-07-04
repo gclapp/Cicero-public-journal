@@ -319,3 +319,576 @@
 [2026-07-04 06:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
 [2026-07-04 06:30:03] [INFO] ======================================================================
 [2026-07-04 06:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 07:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 07:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 07:00:05] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 07:00:05] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 07:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.0h ago; config unchanged (130 days old)
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 07:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 07:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 07:00:05] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 07:00:05] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 07:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.0h ago; config unchanged (130 days old)
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 07:00:05] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 07:30:02] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 07:30:02] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 07:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.5h ago; config unchanged (130 days old)
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 07:30:02] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 07:30:02] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 07:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 14.5h ago; config unchanged (130 days old)
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 07:30:02] [INFO] ======================================================================
+[2026-07-04 07:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 08:00:03] [INFO] ======================================================================
+[2026-07-04 08:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 08:00:03] [INFO] ======================================================================
+[2026-07-04 08:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 08:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 08:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 08:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 08:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 08:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.0h ago; config unchanged (130 days old)
+[2026-07-04 08:00:04] [INFO] ======================================================================
+[2026-07-04 08:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 08:00:04] [INFO] ======================================================================
+[2026-07-04 08:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 08:00:03] [INFO] ======================================================================
+[2026-07-04 08:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 08:00:03] [INFO] ======================================================================
+[2026-07-04 08:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 08:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 08:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 08:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 08:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 08:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.0h ago; config unchanged (130 days old)
+[2026-07-04 08:00:04] [INFO] ======================================================================
+[2026-07-04 08:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 08:00:04] [INFO] ======================================================================
+[2026-07-04 08:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 08:30:03] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 08:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 08:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.5h ago; config unchanged (130 days old)
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 08:30:03] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 08:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 08:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 15.5h ago; config unchanged (130 days old)
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 08:30:03] [INFO] ======================================================================
+[2026-07-04 08:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 09:00:03] [INFO] ======================================================================
+[2026-07-04 09:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 09:00:03] [INFO] ======================================================================
+[2026-07-04 09:00:04] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 09:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 09:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 09:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 09:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 09:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 16.0h ago; config unchanged (130 days old)
+[2026-07-04 09:00:04] [INFO] ======================================================================
+[2026-07-04 09:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 09:00:04] [INFO] ======================================================================
+[2026-07-04 09:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 09:00:03] [INFO] ======================================================================
+[2026-07-04 09:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 09:00:03] [INFO] ======================================================================
+[2026-07-04 09:00:04] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 09:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 09:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 09:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 09:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 09:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 16.0h ago; config unchanged (130 days old)
+[2026-07-04 09:00:04] [INFO] ======================================================================
+[2026-07-04 09:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 09:00:04] [INFO] ======================================================================
+[2026-07-04 09:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 09:30:02] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 09:30:02] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 09:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 16.5h ago; config unchanged (130 days old)
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 09:30:02] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 09:30:02] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 09:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 16.5h ago; config unchanged (130 days old)
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 09:30:02] [INFO] ======================================================================
+[2026-07-04 09:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 10:00:03] [INFO] ======================================================================
+[2026-07-04 10:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 10:00:03] [INFO] ======================================================================
+[2026-07-04 10:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 10:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 10:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 10:00:05] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 10:00:05] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 10:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 17.0h ago; config unchanged (130 days old)
+[2026-07-04 10:00:05] [INFO] ======================================================================
+[2026-07-04 10:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 10:00:05] [INFO] ======================================================================
+[2026-07-04 10:00:05] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 10:00:03] [INFO] ======================================================================
+[2026-07-04 10:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 10:00:03] [INFO] ======================================================================
+[2026-07-04 10:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 10:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 10:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 10:00:05] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 10:00:05] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 10:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 17.0h ago; config unchanged (130 days old)
+[2026-07-04 10:00:05] [INFO] ======================================================================
+[2026-07-04 10:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 10:00:05] [INFO] ======================================================================
+[2026-07-04 10:00:05] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 10:30:03] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 10:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 10:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 17.5h ago; config unchanged (130 days old)
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 10:30:03] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 10:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 10:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 17.5h ago; config unchanged (130 days old)
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 10:30:03] [INFO] ======================================================================
+[2026-07-04 10:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 11:00:03] [INFO] ======================================================================
+[2026-07-04 11:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 11:00:03] [INFO] ======================================================================
+[2026-07-04 11:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 11:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 11:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 11:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 11:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 11:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 18.0h ago; config unchanged (130 days old)
+[2026-07-04 11:00:04] [INFO] ======================================================================
+[2026-07-04 11:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 11:00:04] [INFO] ======================================================================
+[2026-07-04 11:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 11:00:03] [INFO] ======================================================================
+[2026-07-04 11:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 11:00:03] [INFO] ======================================================================
+[2026-07-04 11:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 11:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 11:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 11:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 11:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 11:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 18.0h ago; config unchanged (130 days old)
+[2026-07-04 11:00:04] [INFO] ======================================================================
+[2026-07-04 11:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 11:00:04] [INFO] ======================================================================
+[2026-07-04 11:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 11:30:03] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 11:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 11:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 18.5h ago; config unchanged (130 days old)
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 11:30:03] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 11:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 11:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 18.5h ago; config unchanged (130 days old)
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 11:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 11:30:03] [INFO] ======================================================================
+[2026-07-04 12:00:03] [INFO] ======================================================================
+[2026-07-04 12:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 12:00:03] [INFO] ======================================================================
+[2026-07-04 12:00:04] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 12:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 12:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 12:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 12:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 12:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 19.0h ago; config unchanged (130 days old)
+[2026-07-04 12:00:04] [INFO] ======================================================================
+[2026-07-04 12:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 12:00:04] [INFO] ======================================================================
+[2026-07-04 12:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 12:00:03] [INFO] ======================================================================
+[2026-07-04 12:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 12:00:03] [INFO] ======================================================================
+[2026-07-04 12:00:04] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 12:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 12:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 12:00:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 12:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 12:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 19.0h ago; config unchanged (130 days old)
+[2026-07-04 12:00:04] [INFO] ======================================================================
+[2026-07-04 12:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 12:00:04] [INFO] ======================================================================
+[2026-07-04 12:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 12:30:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 12:30:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 12:30:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 19.5h ago; config unchanged (130 days old)
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 12:30:04] [INFO] ✅ Google Calendar: Token is 1 days old (healthy)
+[2026-07-04 12:30:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 12:30:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 19.5h ago; config unchanged (130 days old)
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 12:30:04] [INFO] ======================================================================
+[2026-07-04 12:30:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 13:00:03] [INFO] ======================================================================
+[2026-07-04 13:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 13:00:03] [INFO] ======================================================================
+[2026-07-04 13:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 13:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 13:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 13:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 13:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 13:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 20.0h ago; config unchanged (130 days old)
+[2026-07-04 13:00:04] [INFO] ======================================================================
+[2026-07-04 13:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 13:00:04] [INFO] ======================================================================
+[2026-07-04 13:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 13:00:03] [INFO] ======================================================================
+[2026-07-04 13:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 13:00:03] [INFO] ======================================================================
+[2026-07-04 13:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 13:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 13:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 13:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 13:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 13:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 20.0h ago; config unchanged (130 days old)
+[2026-07-04 13:00:04] [INFO] ======================================================================
+[2026-07-04 13:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 13:00:04] [INFO] ======================================================================
+[2026-07-04 13:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 13:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 13:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 13:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 20.5h ago; config unchanged (130 days old)
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 13:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 13:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 13:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 20.5h ago; config unchanged (130 days old)
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 13:30:03] [INFO] ======================================================================
+[2026-07-04 13:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 14:00:03] [INFO] ======================================================================
+[2026-07-04 14:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 14:00:03] [INFO] ======================================================================
+[2026-07-04 14:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 14:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 14:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 14:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 14:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 14:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 21.0h ago; config unchanged (130 days old)
+[2026-07-04 14:00:04] [INFO] ======================================================================
+[2026-07-04 14:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 14:00:04] [INFO] ======================================================================
+[2026-07-04 14:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 14:00:03] [INFO] ======================================================================
+[2026-07-04 14:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 14:00:03] [INFO] ======================================================================
+[2026-07-04 14:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 14:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 14:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 14:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 14:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 14:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 21.0h ago; config unchanged (130 days old)
+[2026-07-04 14:00:04] [INFO] ======================================================================
+[2026-07-04 14:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 14:00:04] [INFO] ======================================================================
+[2026-07-04 14:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 14:30:02] [INFO] ======================================================================
+[2026-07-04 14:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 14:30:02] [INFO] ======================================================================
+[2026-07-04 14:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 14:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 14:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 14:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 21.5h ago; config unchanged (130 days old)
+[2026-07-04 14:30:03] [INFO] ======================================================================
+[2026-07-04 14:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 14:30:03] [INFO] ======================================================================
+[2026-07-04 14:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 14:30:02] [INFO] ======================================================================
+[2026-07-04 14:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 14:30:02] [INFO] ======================================================================
+[2026-07-04 14:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 14:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 14:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 14:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 21.5h ago; config unchanged (130 days old)
+[2026-07-04 14:30:03] [INFO] ======================================================================
+[2026-07-04 14:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 14:30:03] [INFO] ======================================================================
+[2026-07-04 14:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 15:00:03] [INFO] ======================================================================
+[2026-07-04 15:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 15:00:03] [INFO] ======================================================================
+[2026-07-04 15:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 15:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 15:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 15:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 15:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 15:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 22.0h ago; config unchanged (130 days old)
+[2026-07-04 15:00:04] [INFO] ======================================================================
+[2026-07-04 15:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 15:00:04] [INFO] ======================================================================
+[2026-07-04 15:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 15:00:03] [INFO] ======================================================================
+[2026-07-04 15:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 15:00:03] [INFO] ======================================================================
+[2026-07-04 15:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 15:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 15:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 15:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 15:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 15:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 22.0h ago; config unchanged (130 days old)
+[2026-07-04 15:00:04] [INFO] ======================================================================
+[2026-07-04 15:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 15:00:04] [INFO] ======================================================================
+[2026-07-04 15:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 15:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 15:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 15:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 22.5h ago; config unchanged (130 days old)
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 15:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 15:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 15:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 22.5h ago; config unchanged (130 days old)
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 15:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 15:30:03] [INFO] ======================================================================
+[2026-07-04 16:00:03] [INFO] ======================================================================
+[2026-07-04 16:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 16:00:03] [INFO] ======================================================================
+[2026-07-04 16:00:04] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 16:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 16:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 16:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 16:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 16:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 23.0h ago; config unchanged (130 days old)
+[2026-07-04 16:00:04] [INFO] ======================================================================
+[2026-07-04 16:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 16:00:04] [INFO] ======================================================================
+[2026-07-04 16:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 16:00:03] [INFO] ======================================================================
+[2026-07-04 16:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 16:00:03] [INFO] ======================================================================
+[2026-07-04 16:00:04] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 16:00:04] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 16:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 16:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 16:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 16:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 23.0h ago; config unchanged (130 days old)
+[2026-07-04 16:00:04] [INFO] ======================================================================
+[2026-07-04 16:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 16:00:04] [INFO] ======================================================================
+[2026-07-04 16:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 16:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 16:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 16:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 23.5h ago; config unchanged (130 days old)
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 16:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 16:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 16:30:03] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 23.5h ago; config unchanged (130 days old)
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 16:30:03] [INFO] ======================================================================
+[2026-07-04 16:30:03] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 17:00:03] [INFO] ======================================================================
+[2026-07-04 17:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 17:00:03] [INFO] ======================================================================
+[2026-07-04 17:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 17:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 17:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 17:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 17:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 17:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 24.0h ago; config unchanged (130 days old)
+[2026-07-04 17:00:04] [INFO] ======================================================================
+[2026-07-04 17:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 17:00:04] [INFO] ======================================================================
+[2026-07-04 17:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 17:00:03] [INFO] ======================================================================
+[2026-07-04 17:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 17:00:03] [INFO] ======================================================================
+[2026-07-04 17:00:03] [INFO] 🔄 Whoop token valid but old (60 min) — refreshing...
+[2026-07-04 17:00:03] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 17:00:04] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 17:00:04] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 17:00:04] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 17:00:04] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 24.0h ago; config unchanged (130 days old)
+[2026-07-04 17:00:04] [INFO] ======================================================================
+[2026-07-04 17:00:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 17:00:04] [INFO] ======================================================================
+[2026-07-04 17:00:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 17:30:03] [INFO] ======================================================================
+[2026-07-04 17:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 17:30:03] [INFO] ======================================================================
+[2026-07-04 17:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 17:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 17:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 17:30:04] [INFO] ✅ Gmail SMTP: Login/NOOP verified; config is 130 days old
+[2026-07-04 17:30:04] [INFO] ======================================================================
+[2026-07-04 17:30:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 17:30:04] [INFO] ======================================================================
+[2026-07-04 17:30:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 17:30:03] [INFO] ======================================================================
+[2026-07-04 17:30:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 17:30:03] [INFO] ======================================================================
+[2026-07-04 17:30:03] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 17:30:03] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 17:30:03] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 17:30:04] [INFO] ✅ Gmail SMTP: Login/NOOP verified; config is 130 days old
+[2026-07-04 17:30:04] [INFO] ======================================================================
+[2026-07-04 17:30:04] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 17:30:04] [INFO] ======================================================================
+[2026-07-04 17:30:04] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 18:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 18:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 18:00:05] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 18:00:05] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 18:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 0.5h ago; config unchanged (130 days old)
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] 🔄 Whoop token invalid (60 min old) — refreshing...
+[2026-07-04 18:00:05] [INFO] Whoop refresh attempt 1/3...
+[2026-07-04 18:00:05] [SUCCESS] ✅ Whoop token refreshed and validated
+[2026-07-04 18:00:05] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 18:00:05] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 18:00:05] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 0.5h ago; config unchanged (130 days old)
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 18:00:05] [INFO] ======================================================================
+[2026-07-04 18:00:05] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 18:30:02] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 18:30:02] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 18:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 1.0h ago; config unchanged (130 days old)
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] ✅ Whoop token valid and fresh (30 min old)
+[2026-07-04 18:30:02] [INFO] ✅ Google Calendar: Token is 2 days old (healthy)
+[2026-07-04 18:30:02] [ERROR] 🔴 Google Docs: Token is 43 days old — CRITICAL
+[2026-07-04 18:30:02] [INFO] ✅ Gmail SMTP: Last login/NOOP verified 1.0h ago; config unchanged (130 days old)
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] Summary: 3 healthy | 0 warning | 1 critical
+[2026-07-04 18:30:02] [INFO] ======================================================================
+[2026-07-04 18:30:02] [INFO] Alert suppressed (rate limit): • Google Docs token expired — re-auth required...
+[2026-07-04 19:00:03] [INFO] ======================================================================
+[2026-07-04 19:00:03] [INFO] TOKEN HEALTH CHECK - Bulletproof v2
+[2026-07-04 19:00:03] [INFO] ======================================================================
