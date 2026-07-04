@@ -1,0 +1,6 @@
+Cache not found, attempting API fetch...
+Error fetching Whoop: 401 Client Error: Unauthorized for url: https://api.prod.whoop.com/developer/v2/recovery?limit=3
+Loaded fallback data from: /home/ubuntu/.openclaw/workspace/data/whoop/whoop-2026-07-02.json
+Evening briefing generated. Sending email...
+✅ Evening briefing sent successfully
+running vitus-evening at 2026-07-02 20:00 PDT (America/Los_Angeles, default home timezone)

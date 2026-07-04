@@ -38,5 +38,25 @@
     "progress_percent": 58,
     "altitude": null,
     "groundspeed": null
+  },
+  "DL939_20260705": {
+    "flight_number": "DAL939",
+    "airline": "DAL",
+    "origin": "KLAX",
+    "destination": "KJFK",
+    "scheduled_departure": "2026-07-05T18:20:00+00:00",
+    "estimated_departure": "2026-07-05T18:20:00+00:00",
+    "scheduled_arrival": "2026-07-05T23:55:00+00:00",
+    "estimated_arrival": "2026-07-05T23:44:00+00:00",
+    "departure_gate": null,
+    "arrival_gate": null,
+    "departure_terminal": null,
+    "arrival_terminal": null,
+    "status": "scheduled",
+    "aircraft_type": "A339",
+    "delay_minutes": 0,
+    "progress_percent": 0,
+    "altitude": null,
+    "groundspeed": null
   }
 }
