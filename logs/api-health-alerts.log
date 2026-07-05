@@ -1244,3 +1244,10 @@ Check complete. Alerts sent: 0
 [2026-07-05 23:10:03] ✅ Moonshot/Kimi: OK (endpoint reachable)
 [2026-07-05 23:10:03] 
 Check complete. Alerts sent: 0
+[2026-07-05 23:20:02] ============================================================
+[2026-07-05 23:20:02] API Health Monitor Check (Direct Probe Mode)
+[2026-07-05 23:20:02] ============================================================
+[2026-07-05 23:20:03] ✅ OpenAI: OK
+[2026-07-05 23:20:03] ✅ Moonshot/Kimi: OK (endpoint reachable)
+[2026-07-05 23:20:03] 
+Check complete. Alerts sent: 0
