@@ -17,6 +17,31 @@ TIMESTAMP=$(date '+%Y%m%d-%H%M%S')
 echo "[$DATE] Starting daily GitHub sync..." >> "$LOG_FILE"
 echo "[$DATE] Target repo: https://github.com/gclapp/Cicero-private-backup (private)" >> "$LOG_FILE"
 
+# Unlock git-crypt for encrypted credential backup
+if [ -f "$HOME/.openclaw/credentials/git-crypt-key" ]; then
+    git-crypt unlock "$HOME/.openclaw/credentials/git-crypt-key" >> "$LOG_FILE" 2>&1 || true
+fi
+
+# Refresh encrypted credential backup
+CRED_BACKUP_DIR="$WORKSPACE/credentials-backup"
+rm -rf "$CRED_BACKUP_DIR"
+mkdir -p "$CRED_BACKUP_DIR"
+for item in "$HOME/.openclaw/credentials"/*; do
+    [ -e "$item" ] || continue
+    basename=$(basename "$item")
+    case "$basename" in
+        git-crypt-key) continue ;;
+        whatsapp) continue ;;
+        *.bak.*) continue ;;
+    esac
+    if [ -f "$item" ]; then
+        cp -p "$item" "$CRED_BACKUP_DIR/"
+    elif [ -d "$item" ]; then
+        cp -r "$item" "$CRED_BACKUP_DIR/"
+    fi
+done
+echo "[$DATE] Refreshed credentials-backup" >> "$LOG_FILE"
+
 setup_git_auth() {
     if [ ! -r "$GITHUB_TOKEN_FILE" ]; then
         echo "[$DATE] GitHub token file not readable: $GITHUB_TOKEN_FILE" >> "$LOG_FILE"

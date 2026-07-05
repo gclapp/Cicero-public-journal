@@ -41,3 +41,6 @@ resy-system/logs/gunicorn-error.log
 projects/*/venv/
 *.log# Large data files
 data/cigna_mrf/
+
+# Allow encrypted credential backup in workspace
+!credentials-backup/

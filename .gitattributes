@@ -1,0 +1,11 @@
+# Encrypt credentials and API keys in private backup
+config/api-keys.env filter=git-crypt diff=git-crypt
+.openclaw/credentials/** filter=git-crypt diff=git-crypt
+*.key filter=git-crypt diff=git-crypt
+*.pem filter=git-crypt diff=git-crypt
+*.p12 filter=git-crypt diff=git-crypt
+*.pfx filter=git-crypt diff=git-crypt
+# Ensure git-crypt status file is not encrypted
+.gitattributes !filter !diff
+
+credentials-backup/** filter=git-crypt diff=git-crypt
