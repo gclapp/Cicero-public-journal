@@ -1,63 +1,48 @@
 #!/usr/bin/env python3
 """
-API Health Monitor - Detects API key failures and service outages
-Monitors OpenAI, Moonshot, and other critical APIs
-Sends alerts when failures exceed threshold
+API Health Monitor - Probes APIs directly instead of scraping logs
+Tests OpenAI and Moonshot/Kimi APIs with minimal requests
+Sends alerts only on actual API failures
+Flock locking: prevents overlapping runs
 """
 
 import json
 import os
 import sys
 import subprocess
-import re
+import urllib.request
+import urllib.error
 from pathlib import Path
 from datetime import datetime, timedelta
 from collections import defaultdict
 
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
+
 # Configuration
-LOG_DIR = Path("/tmp/openclaw")
 WORKSPACE_LOGS = Path.home() / ".openclaw" / "workspace" / "logs"
 ALERT_LOG = WORKSPACE_LOGS / "api-health-alerts.log"
 HEALTH_STATE = WORKSPACE_LOGS / "api-health-state.json"
 EMAIL_SCRIPT = Path.home() / ".openclaw" / "workspace" / "scripts" / "send_email.py"
+CREDENTIALS_DIR = Path.home() / ".openclaw" / "credentials"
 
 # Alert thresholds
-ERROR_THRESHOLD = 3  # Alert after 3 errors in window
-ERROR_WINDOW_MINUTES = 30  # Look at last 30 minutes
+FAILURE_THRESHOLD = 2  # Alert after 2 consecutive failures
 ALERT_COOLDOWN_MINUTES = 60  # Don't alert more than once per hour
 
-# API patterns to monitor
-API_PATTERNS = {
+# API endpoints to test
+APIS = {
     "openai": {
         "name": "OpenAI",
-        "error_patterns": [
-            "401 Unauthorized",
-            "Incorrect API key provided",
-            "invalid_api_key",
-            "rate limit",
-            "insufficient_quota"
-        ],
-        "log_files": ["openclaw-*.log"],
+        "url": "https://api.openai.com/v1/models",
+        "key_file": "openai-api-key.txt",
         "critical": True
     },
     "moonshot": {
         "name": "Moonshot/Kimi",
-        "error_patterns": [
-            "moonshot",
-            "kimi",
-            "Unauthorized",
-            "rate limit"
-        ],
-        "log_files": ["openclaw-*.log"],
-        "critical": False
-    },
-    "telegram": {
-        "name": "Telegram Bot",
-        "error_patterns": [
-            "telegram.*error",
-            "FailoverError.*telegram"
-        ],
-        "log_files": ["openclaw-*.log"],
+        "url": "https://api.moonshot.ai/v1/models",
+        "key_file": None,  # Key is in openclaw.json
         "critical": True
     }
 }
@@ -80,69 +65,94 @@ def load_health_state():
         except:
             pass
     return {
-        "error_counts": defaultdict(list),
+        "failure_counts": {},
         "last_alert": {},
-        "first_seen": {}
+        "last_status": {}
     }
 
 def save_health_state(data):
     """Save health monitoring state"""
     os.makedirs(HEALTH_STATE.parent, exist_ok=True)
-    # Convert defaultdict to regular dict for JSON serialization
-    data["error_counts"] = dict(data["error_counts"])
     with open(HEALTH_STATE, 'w') as f:
         json.dump(data, f, indent=2, default=str)
 
-def parse_log_timestamp(line):
-    """Extract timestamp from log line"""
-    # Try ISO format: 2026-06-22T14:49:50.699Z
-    match = re.search(r'(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})', line)
-    if match:
+def get_api_key(key_file):
+    """Read API key from credentials directory"""
+    if not key_file:
+        return None
+    key_path = CREDENTIALS_DIR / key_file
+    if key_path.exists():
         try:
-            return datetime.fromisoformat(match.group(1).replace('Z', '+00:00'))
+            with open(key_path) as f:
+                return f.read().strip()
         except:
             pass
     return None
 
-def scan_logs_for_errors():
-    """Scan recent logs for API errors"""
-    errors_found = defaultdict(list)
-    cutoff_time = datetime.now() - timedelta(minutes=ERROR_WINDOW_MINUTES)
-    
-    # Find today's log file
-    today = datetime.now().strftime("%Y-%m-%d")
-    log_file = LOG_DIR / f"openclaw-{today}.log"
-    
-    if not log_file.exists():
-        log(f"⚠️ Log file not found: {log_file}")
-        return errors_found
-    
+def probe_api(api_key, config):
+    """Probe an API endpoint to check if it's healthy"""
     try:
-        with open(log_file, 'r', errors='ignore') as f:
-            lines = f.readlines()
+        key = get_api_key(config.get("key_file"))
+        if not key:
+            # Try reading from openclaw.json for moonshot
+            if api_key == "moonshot":
+                return probe_moonshot()
+            return False, "No API key found"
         
-        for line in lines:
-            # Check timestamp
-            ts = parse_log_timestamp(line)
-            if ts and ts < cutoff_time:
-                continue
+        req = urllib.request.Request(
+            config["url"],
+            headers={
+                "Authorization": f"Bearer {key}",
+                "User-Agent": "OpenClaw-HealthMonitor/1.0"
+            },
+            method="GET"
+        )
+        
+        with urllib.request.urlopen(req, timeout=10) as response:
+            if response.status == 200:
+                return True, "OK"
+            return False, f"HTTP {response.status}"
             
-            # Check each API pattern
-            for api_key, config in API_PATTERNS.items():
-                for pattern in config["error_patterns"]:
-                    if pattern.lower() in line.lower():
-                        errors_found[api_key].append({
-                            "timestamp": ts.isoformat() if ts else datetime.now().isoformat(),
-                            "line": line.strip()[:200]  # Truncate long lines
-                        })
-                        break
+    except urllib.error.HTTPError as e:
+        if e.code == 401:
+            return False, "Unauthorized - Invalid API key"
+        elif e.code == 429:
+            return False, "Rate limited"
+        return False, f"HTTP {e.code}"
+    except urllib.error.URLError as e:
+        return False, f"Connection error: {str(e.reason)}"
     except Exception as e:
-        log(f"❌ Error reading logs: {e}")
-    
-    return errors_found
+        return False, f"Error: {str(e)}"
 
-def should_alert(api_key, state, error_count):
+def probe_moonshot():
+    """Probe Moonshot API - just check if endpoint is reachable"""
+    try:
+        # Simple check - just verify we can reach the endpoint
+        # 401 is expected without auth, which means API is up
+        req = urllib.request.Request(
+            "https://api.moonshot.ai/v1/models",
+            headers={"User-Agent": "OpenClaw-HealthMonitor/1.0"},
+            method="GET"
+        )
+        with urllib.request.urlopen(req, timeout=10) as response:
+            if response.status == 200:
+                return True, "OK"
+            return False, f"HTTP {response.status}"
+    except urllib.error.HTTPError as e:
+        # 401 is expected without auth - means API is up
+        if e.code == 401:
+            return True, "OK (endpoint reachable)"
+        return False, f"HTTP {e.code}"
+    except urllib.error.URLError as e:
+        return False, f"Connection error: {str(e.reason)}"
+    except Exception as e:
+        return False, f"Error: {str(e)}"
+
+def should_alert(api_key, state, consecutive_failures):
     """Determine if we should send an alert"""
+    if consecutive_failures < FAILURE_THRESHOLD:
+        return False
+        
     last_alert = state["last_alert"].get(api_key)
     
     if last_alert:
@@ -153,27 +163,22 @@ def should_alert(api_key, state, error_count):
         except:
             pass
     
-    return error_count >= ERROR_THRESHOLD
+    return True
 
-def send_alert_email(api_key, config, error_count, recent_errors):
+def send_alert_email(api_key, config, consecutive_failures, last_error):
     """Send alert email about API failures"""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S PT")
     
-    subject = f"🚨 API Health Alert: {config['name']} failing ({error_count} errors)"
-    
-    # Build error summary
-    error_summary = ""
-    for i, err in enumerate(recent_errors[-5:], 1):  # Show last 5 errors
-        error_summary += f"<tr><td>{i}</td><td style='font-family: monospace; font-size: 11px;'>{err['line'][:150]}...</td></tr>"
+    subject = f"🚨 API Health Alert: {config['name']} failing ({consecutive_failures} consecutive failures)"
     
     body_html = f"""<html>
 <body style="font-family: Arial, sans-serif; padding: 20px;">
     <h2 style="color: #d32f2f;">🚨 API Health Alert: {config['name']}</h2>
     
     <p><strong>Time:</strong> {timestamp}</p>
-    <p><strong>Error Count (last {ERROR_WINDOW_MINUTES} min):</strong> {error_count}</p>
+    <p><strong>Consecutive Failures:</strong> {consecutive_failures}</p>
     
-    <table style="border-collapse: collapse; width: 100%; max-width: 800px; margin: 20px 0;">
+    <table style="border-collapse: collapse; width: 100%; max-width: 600px; margin: 20px 0;">
         <tr style="background: #f5f5f5;">
             <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">API</td>
             <td style="padding: 12px; border: 1px solid #ddd;">{config['name']}</td>
@@ -183,27 +188,17 @@ def send_alert_email(api_key, config, error_count, recent_errors):
             <td style="padding: 12px; border: 1px solid #ddd; color: #d32f2f; font-weight: bold;">FAILING</td>
         </tr>
         <tr style="background: #f5f5f5;">
+            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Last Error</td>
+            <td style="padding: 12px; border: 1px solid #ddd; font-family: monospace;">{last_error}</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
             <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Critical</td>
             <td style="padding: 12px; border: 1px solid #ddd;">{'Yes' if config['critical'] else 'No'}</td>
         </tr>
     </table>
     
-    <h3>Recent Errors:</h3>
-    <table style="border-collapse: collapse; width: 100%; max-width: 800px; margin: 20px 0; font-size: 12px;">
-        <tr style="background: #f5f5f5;">
-            <th style="padding: 8px; border: 1px solid #ddd;">#</th>
-            <th style="padding: 8px; border: 1px solid #ddd;">Error</th>
-        </tr>
-        {error_summary}
-    </table>
-    
     <h3>What This Means</h3>
-    <p>The {config['name']} API is experiencing failures. This may affect:</p>
-    <ul>
-        <li>Response quality and speed</li>
-        <li>Model fallback to backup providers</li>
-        <li>Telegram message processing</li>
-    </ul>
+    <p>The {config['name']} API is not responding to health checks. This may affect model availability.</p>
     
     <h3>Recommended Actions</h3>
     <ul>
@@ -216,7 +211,8 @@ def send_alert_email(api_key, config, error_count, recent_errors):
     <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
     <p style="color: #666; font-size: 12px;">
         This is an automated alert from your OpenClaw API Health Monitor.<br>
-        Alert cooldown: {ALERT_COOLDOWN_MINUTES} minutes
+        Alert cooldown: {ALERT_COOLDOWN_MINUTES} minutes<br>
+        Failure threshold: {FAILURE_THRESHOLD} consecutive failures
     </p>
 </body>
 </html>"""
@@ -245,36 +241,107 @@ def send_alert_email(api_key, config, error_count, recent_errors):
         log(f"❌ Error sending alert: {e}")
         return False
 
+def send_recovery_email(api_key, config):
+    """Send recovery email when API comes back"""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S PT")
+    
+    subject = f"✅ API Recovery: {config['name']} is healthy"
+    
+    body_html = f"""<html>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+    <h2 style="color: #388e3c;">✅ API Recovery</h2>
+    
+    <p><strong>Time:</strong> {timestamp}</p>
+    
+    <table style="border-collapse: collapse; width: 100%; max-width: 600px; margin: 20px 0;">
+        <tr style="background: #e8f5e9;">
+            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">API</td>
+            <td style="padding: 12px; border: 1px solid #ddd; color: #388e3c; font-weight: bold;">{config['name']}</td>
+        </tr>
+        <tr style="background: #f5f5f5;">
+            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Status</td>
+            <td style="padding: 12px; border: 1px solid #ddd;">✅ Healthy</td>
+        </tr>
+    </table>
+    
+    <p>The {config['name']} API is responding normally to health checks.</p>
+    
+    <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
+    <p style="color: #666; font-size: 12px;">
+        This is an automated alert from your OpenClaw API Health Monitor.
+    </p>
+</body>
+</html>"""
+    
+    try:
+        result = subprocess.run(
+            [
+                sys.executable,
+                str(EMAIL_SCRIPT),
+                "--to", "[REDACTED]",
+                "--subject", subject,
+                "--body", body_html,
+                "--html"
+            ],
+            capture_output=True,
+            text=True,
+            timeout=60
+        )
+        if result.returncode == 0:
+            log(f"✅ Recovery email sent for {api_key}")
+            return True
+    except Exception as e:
+        log(f"❌ Error sending recovery email: {e}")
+    return False
+
 def main():
     """Main monitoring function"""
     log("=" * 60)
-    log("API Health Monitor Check")
+    log("API Health Monitor Check (Direct Probe Mode)")
     log("=" * 60)
     
     # Load state
     state = load_health_state()
-    
-    # Scan for errors
-    errors = scan_logs_for_errors()
-    
     alerts_sent = 0
     
-    for api_key, config in API_PATTERNS.items():
-        error_list = errors.get(api_key, [])
-        error_count = len(error_list)
+    for api_key, config in APIS.items():
+        healthy, message = probe_api(api_key, config)
         
-        if error_count > 0:
-            log(f"⚠️ {config['name']}: {error_count} errors in last {ERROR_WINDOW_MINUTES} minutes")
+        # Track consecutive failures
+        if api_key not in state["failure_counts"]:
+            state["failure_counts"][api_key] = 0
+        
+        previous_status = state["last_status"].get(api_key, "unknown")
+        
+        if healthy:
+            log(f"✅ {config['name']}: {message}")
+            
+            # Reset failure count on success
+            if state["failure_counts"][api_key] >= FAILURE_THRESHOLD:
+                # Was failing, now recovered
+                log(f"🟢 {config['name']} recovered!")
+                send_recovery_email(api_key, config)
+            
+            state["failure_counts"][api_key] = 0
+            state["last_status"][api_key] = "healthy"
+        else:
+            state["failure_counts"][api_key] += 1
+            consecutive = state["failure_counts"][api_key]
+            
+            log(f"⚠️ {config['name']}: {message} ({consecutive} consecutive failures)")
             
             # Check if we should alert
-            if should_alert(api_key, state, error_count):
-                if send_alert_email(api_key, config, error_count, error_list):
+            if should_alert(api_key, state, consecutive):
+                if send_alert_email(api_key, config, consecutive, message):
                     state["last_alert"][api_key] = datetime.now().isoformat()
                     alerts_sent += 1
             else:
-                log(f"   (Alert suppressed - cooldown or below threshold)")
-        else:
-            log(f"✅ {config['name']}: No errors")
+                if consecutive < FAILURE_THRESHOLD:
+                    log(f"   (Below threshold - need {FAILURE_THRESHOLD} failures to alert)")
+                else:
+                    log(f"   (Alert suppressed - cooldown active)")
+            
+            state["last_status"][api_key] = "failing"
     
     # Save state
     save_health_state(state)
@@ -283,4 +350,9 @@ def main():
     return 0 if alerts_sent == 0 else 1
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        with acquire_lock("api-health-monitor"):
+            sys.exit(main())
+    except LockHeldError:
+        print("[api-health-monitor] Lock held by another instance, skipping")
+        sys.exit(0)

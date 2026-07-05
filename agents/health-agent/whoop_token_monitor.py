@@ -2,12 +2,18 @@
 """
 Vitus - Whoop Token Monitor
 Proactively monitors Whoop token health and alerts when re-authentication is needed
+Flock locking: prevents overlapping runs
 """
 
 import requests
 import json
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
+
+# Add workspace scripts for flock utilities
+sys.path.insert(0, str(Path.home() / '.openclaw' / 'workspace' / 'scripts'))
+from flock_utils import acquire_lock, LockHeldError
 
 TOKEN_FILE = Path.home() / '.whoop_token'
 LOG_FILE = Path.home() / '.openclaw' / 'workspace' / 'logs' / 'whoop-token-monitor.log'
@@ -205,4 +211,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        with acquire_lock("whoop-token-monitor"):
+            main()
+    except LockHeldError:
+        print("[whoop-token-monitor] Lock held by another instance, skipping")

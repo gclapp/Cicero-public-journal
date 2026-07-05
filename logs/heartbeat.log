@@ -21,3 +21,55 @@ running evening-checkin at 2026-07-04 20:30 PDT (America/Los_Angeles, default ho
 [2026-07-05 06:55:01 UTC] Heartbeat triggered
 [2026-07-05 06:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-04 LOCAL_TIME=23:55 LOCAL_ABBR=PDT TZ_REASON=default home timezone IN_TRANSIT=0 
 [2026-07-05 06:55:01 UTC] Heartbeat complete
+[2026-07-05 07:55:01 UTC] Heartbeat triggered
+[2026-07-05 07:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=00:55 LOCAL_ABBR=PDT TZ_REASON=today's calendar: los angeles IN_TRANSIT=0 
+[2026-07-05 07:55:01 UTC] Heartbeat complete
+[2026-07-05 08:55:01 UTC] Heartbeat triggered
+[2026-07-05 08:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=01:55 LOCAL_ABBR=PDT TZ_REASON=today's calendar: los angeles IN_TRANSIT=0 
+[2026-07-05 08:55:01 UTC] Heartbeat complete
+[2026-07-05 09:55:02 UTC] Heartbeat triggered
+[2026-07-05 09:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=02:55 LOCAL_ABBR=PDT TZ_REASON=today's calendar: los angeles IN_TRANSIT=0 
+[2026-07-05 09:55:02 UTC] Heartbeat complete
+[2026-07-05 10:55:01 UTC] Heartbeat triggered
+[2026-07-05 10:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=03:55 LOCAL_ABBR=PDT TZ_REASON=today's calendar: los angeles IN_TRANSIT=0 
+[2026-07-05 10:55:01 UTC] Heartbeat complete
+[2026-07-05 11:55:02 UTC] Heartbeat triggered
+[2026-07-05 11:55:02 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=04:55 LOCAL_ABBR=PDT TZ_REASON=today's calendar: los angeles IN_TRANSIT=0 
+[2026-07-05 11:55:02 UTC] Heartbeat complete
+[2026-07-05 12:55:01 UTC] Heartbeat triggered
+[2026-07-05 12:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=05:55 LOCAL_ABBR=PDT TZ_REASON=aero pre-flight: DAL939 from KLAX IN_TRANSIT=0 
+[2026-07-05 12:55:01 UTC] Heartbeat complete
+[2026-07-05 13:55:01 UTC] Heartbeat triggered
+[2026-07-05 13:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=06:55 LOCAL_ABBR=PDT TZ_REASON=aero pre-flight: DAL939 from KLAX IN_TRANSIT=0 
+[2026-07-05 13:55:01 UTC] Heartbeat complete
+✅ Morning check-in queued: 07:00 AM PDT (America/Los_Angeles)
+running morning-checkin at 2026-07-05 07:00 PDT (America/Los_Angeles, aero pre-flight: DAL939 from KLAX)
+✅ Morning check-in queued: 07:05 AM PDT (America/Los_Angeles)
+running morning-checkin at 2026-07-05 07:05 PDT (America/Los_Angeles, aero pre-flight: DAL939 from KLAX)
+[2026-07-05 14:55:01 UTC] Heartbeat triggered
+[2026-07-05 14:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=07:55 LOCAL_ABBR=PDT TZ_REASON=aero pre-flight: DAL939 from KLAX IN_TRANSIT=0 
+[2026-07-05 14:55:01 UTC] Heartbeat complete
+[2026-07-05 15:55:01 UTC] Heartbeat triggered
+[2026-07-05 15:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=08:55 LOCAL_ABBR=PDT TZ_REASON=aero pre-flight: DAL939 from KLAX IN_TRANSIT=0 
+[2026-07-05 15:55:01 UTC] Heartbeat complete
+[2026-07-05 16:55:01 UTC] Heartbeat triggered
+[2026-07-05 16:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=09:55 LOCAL_ABBR=PDT TZ_REASON=aero pre-flight: DAL939 from KLAX IN_TRANSIT=0 
+[2026-07-05 16:55:01 UTC] Heartbeat complete
+[2026-07-05 17:55:01 UTC] Heartbeat triggered
+[2026-07-05 17:55:01 UTC] Local timezone context: TZ_NAME=America/Los_Angeles LOCAL_DATE=2026-07-05 LOCAL_TIME=10:55 LOCAL_ABBR=PDT TZ_REASON=aero pre-flight: DAL939 from KLAX IN_TRANSIT=0 
+[2026-07-05 17:55:01 UTC] Heartbeat complete
+[2026-07-05 18:55:01 UTC] Heartbeat triggered
+[2026-07-05 18:55:01 UTC] Local timezone context: TZ_NAME=America/New_York LOCAL_DATE=2026-07-05 LOCAL_TIME=14:55 LOCAL_ABBR=EDT TZ_REASON=aero in transit: DAL939 to KJFK IN_TRANSIT=1 
+[2026-07-05 18:55:01 UTC] Heartbeat complete
+[2026-07-05 19:55:01 UTC] Heartbeat triggered
+[2026-07-05 19:55:01 UTC] Local timezone context: TZ_NAME=America/New_York LOCAL_DATE=2026-07-05 LOCAL_TIME=15:55 LOCAL_ABBR=EDT TZ_REASON=aero in transit: DAL939 to KJFK IN_TRANSIT=1 
+[2026-07-05 19:55:01 UTC] Heartbeat complete
+[2026-07-05 20:55:01 UTC] Heartbeat triggered
+[2026-07-05 20:55:01 UTC] Local timezone context: TZ_NAME=America/New_York LOCAL_DATE=2026-07-05 LOCAL_TIME=16:55 LOCAL_ABBR=EDT TZ_REASON=aero in transit: DAL939 to KJFK IN_TRANSIT=1 
+[2026-07-05 20:55:01 UTC] Heartbeat complete
+[2026-07-05 21:55:01 UTC] Heartbeat triggered
+[2026-07-05 21:55:01 UTC] Local timezone context: TZ_NAME=America/New_York LOCAL_DATE=2026-07-05 LOCAL_TIME=17:55 LOCAL_ABBR=EDT TZ_REASON=aero in transit: DAL939 to KJFK IN_TRANSIT=1 
+[2026-07-05 21:55:01 UTC] Heartbeat complete
+[2026-07-05 22:55:02 UTC] Heartbeat triggered
+[2026-07-05 22:55:02 UTC] Local timezone context: TZ_NAME=America/New_York LOCAL_DATE=2026-07-05 LOCAL_TIME=18:55 LOCAL_ABBR=EDT TZ_REASON=aero in transit: DAL938 to KJFK IN_TRANSIT=1 
+[2026-07-05 22:55:02 UTC] Heartbeat complete

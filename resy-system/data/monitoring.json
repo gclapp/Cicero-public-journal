@@ -367,1234 +367,33 @@
       "reservations_made": 0,
       "details": "Scanned 1 trip(s), made 0 booking(s)",
       "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-07-05T13:35:03.154607",
+      "trip_dates": [],
+      "restaurants_checked": 0,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Skipped - scanned 0.1h ago",
+      "status": "no_bookings"
+    },
+    {
+      "timestamp": "2026-07-05T13:59:12.667675",
+      "trip_dates": [
+        "2026-07-06",
+        "2026-07-07"
+      ],
+      "restaurants_checked": 20,
+      "reservations_found": 0,
+      "reservations_attempted": 0,
+      "reservations_made": 0,
+      "details": "Scanned 1 trip(s), made 0 booking(s)",
+      "status": "no_bookings"
     }
   ],
   "bookings": [],
   "errors": [
-    {
-      "timestamp": "2026-07-04T14:31:41.729505",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /admin/index.php",
-      "details": {
-        "path": "/admin/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:42.545558",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /content.php",
-      "details": {
-        "path": "/content.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:43.083781",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /gg.php",
-      "details": {
-        "path": "/gg.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:44.033770",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /makeasmtp.php",
-      "details": {
-        "path": "/makeasmtp.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:44.650867",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /update/da222.php",
-      "details": {
-        "path": "/update/da222.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:45.234354",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/maint/",
-      "details": {
-        "path": "/wp-admin/maint/",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:45.773011",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/min.php",
-      "details": {
-        "path": "/wp-admin/min.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:46.357126",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-info.php",
-      "details": {
-        "path": "/wp-info.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:46.935900",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-wordfence-waf.php",
-      "details": {
-        "path": "/wp-wordfence-waf.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:47.454892",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ws49.php",
-      "details": {
-        "path": "/ws49.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:48.043672",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xxx.php",
-      "details": {
-        "path": "/xxx.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:48.744727",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /0x.php",
-      "details": {
-        "path": "/0x.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:49.281842",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /CDX1.php",
-      "details": {
-        "path": "/CDX1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:49.806907",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /s.php",
-      "details": {
-        "path": "/s.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:50.343423",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/wp-teest.php",
-      "details": {
-        "path": "/wp-admin/wp-teest.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:51.101776",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/ftde.php",
-      "details": {
-        "path": "/wp-content/plugins/ftde.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:51.611751",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/uploads/admin.php",
-      "details": {
-        "path": "/wp-content/uploads/admin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:52.129769",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /z.php",
-      "details": {
-        "path": "/z.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:52.637859",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /f35.php",
-      "details": {
-        "path": "/f35.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:53.150515",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /file61.php",
-      "details": {
-        "path": "/file61.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:53.879307",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /mah.php",
-      "details": {
-        "path": "/mah.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:54.502430",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /mini.php",
-      "details": {
-        "path": "/mini.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:55.128098",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /system_log.php",
-      "details": {
-        "path": "/system_log.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:55.623704",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /v.php",
-      "details": {
-        "path": "/v.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:56.164774",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ws80.php",
-      "details": {
-        "path": "/ws80.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:56.821955",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ww2.php",
-      "details": {
-        "path": "/ww2.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:57.485981",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /7logs.php",
-      "details": {
-        "path": "/7logs.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:57.974419",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ac.php",
-      "details": {
-        "path": "/ac.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:58.524791",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /assets/images/doc.php",
-      "details": {
-        "path": "/assets/images/doc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:59.117668",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ctex1.php",
-      "details": {
-        "path": "/ctex1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:59.595769",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /defaults.php",
-      "details": {
-        "path": "/defaults.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:00.223204",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /domains.php",
-      "details": {
-        "path": "/domains.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:00.804548",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /dropdown.php",
-      "details": {
-        "path": "/dropdown.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:01.507304",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /files/index.php",
-      "details": {
-        "path": "/files/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:02.856437",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /flower.php",
-      "details": {
-        "path": "/flower.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:03.582432",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /insc.php",
-      "details": {
-        "path": "/insc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:04.101498",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /4PJcpMFsD8B.php",
-      "details": {
-        "path": "/4PJcpMFsD8B.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:32:04.594948",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /X7ROOT.PHP",
-      "details": {
-        "path": "/X7ROOT.PHP",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:15.399909",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/hellopress/wp_filemanager.php",
-      "details": {
-        "path": "/wp-content/plugins/hellopress/wp_filemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:15.778378",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /this_is_a_new_hello_world.php",
-      "details": {
-        "path": "/this_is_a_new_hello_world.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:16.164085",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /x.php",
-      "details": {
-        "path": "/x.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:16.546138",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /j260624_13.php",
-      "details": {
-        "path": "/j260624_13.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:16.936931",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /d62.php",
-      "details": {
-        "path": "/d62.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:17.317107",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ups.php",
-      "details": {
-        "path": "/ups.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:17.705360",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /k.php",
-      "details": {
-        "path": "/k.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:18.093456",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /k2.php",
-      "details": {
-        "path": "/k2.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:18.484603",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /k3.php",
-      "details": {
-        "path": "/k3.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:18.864137",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /k4.php",
-      "details": {
-        "path": "/k4.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:19.244875",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /k5.php",
-      "details": {
-        "path": "/k5.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:19.625099",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /w.php",
-      "details": {
-        "path": "/w.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:20.009788",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /fpwch.php",
-      "details": {
-        "path": "/fpwch.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:20.394053",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /w2025.php",
-      "details": {
-        "path": "/w2025.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:20.773537",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /scxy.php",
-      "details": {
-        "path": "/scxy.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:21.170421",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /FWAZ.php",
-      "details": {
-        "path": "/FWAZ.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:21.550654",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /qterm.php",
-      "details": {
-        "path": "/qterm.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:21.931681",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /blurbs.php",
-      "details": {
-        "path": "/blurbs.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:22.313809",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /v543.php",
-      "details": {
-        "path": "/v543.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:22.694411",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /w3lls.php",
-      "details": {
-        "path": "/w3lls.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:23.074145",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-ws68.php",
-      "details": {
-        "path": "/wp-ws68.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:23.463591",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xyn.php",
-      "details": {
-        "path": "/xyn.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:23.844583",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /green3.php",
-      "details": {
-        "path": "/green3.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:24.223905",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ccs.php",
-      "details": {
-        "path": "/ccs.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:24.605127",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ccc.php",
-      "details": {
-        "path": "/ccc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:24.986483",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /get.php",
-      "details": {
-        "path": "/get.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:25.366822",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /images.php",
-      "details": {
-        "path": "/images.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:25.746745",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /alls.php",
-      "details": {
-        "path": "/alls.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:26.127171",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /yyu.php",
-      "details": {
-        "path": "/yyu.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:26.506709",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /by.php",
-      "details": {
-        "path": "/by.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:26.887707",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /FAQ.php",
-      "details": {
-        "path": "/FAQ.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:27.267588",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /coffexium.php",
-      "details": {
-        "path": "/coffexium.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:27.651122",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /red.php",
-      "details": {
-        "path": "/red.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:28.032515",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/sodium_compat/",
-      "details": {
-        "path": "/wp-includes/sodium_compat/",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:28.417111",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/css/colors/coffee/wp-adochan.php",
-      "details": {
-        "path": "/wp-admin/css/colors/coffee/wp-adochan.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:28.798165",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/Text/",
-      "details": {
-        "path": "/wp-includes/Text/",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:29.181967",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /footer.php",
-      "details": {
-        "path": "/footer.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:29.569564",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/uploads/",
-      "details": {
-        "path": "/wp-content/uploads/",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:29.948987",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/index.php",
-      "details": {
-        "path": "/wp-content/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:30.327992",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /zoro.php",
-      "details": {
-        "path": "/zoro.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:30.707690",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /admin.php",
-      "details": {
-        "path": "/admin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:31.087423",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /greap.php",
-      "details": {
-        "path": "/greap.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:31.467844",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /177.php",
-      "details": {
-        "path": "/177.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:31.847659",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /199.php",
-      "details": {
-        "path": "/199.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:32.227370",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /file52.php",
-      "details": {
-        "path": "/file52.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:32.606370",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /122.php",
-      "details": {
-        "path": "/122.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:32.987320",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /green1.php",
-      "details": {
-        "path": "/green1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:33.367804",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /biufile.php",
-      "details": {
-        "path": "/biufile.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:33.747369",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wpconf.php",
-      "details": {
-        "path": "/wpconf.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:34.126945",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /mosty.php",
-      "details": {
-        "path": "/mosty.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:34.520832",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /dejavu.php",
-      "details": {
-        "path": "/dejavu.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:34.901507",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /aaf.php",
-      "details": {
-        "path": "/aaf.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:35.281707",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /term.php",
-      "details": {
-        "path": "/term.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:35.661710",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ha.php",
-      "details": {
-        "path": "/ha.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:36.041230",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /hur.php",
-      "details": {
-        "path": "/hur.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:36.421783",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /h02ugyh.php",
-      "details": {
-        "path": "/h02ugyh.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:36.803172",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /seiso.php",
-      "details": {
-        "path": "/seiso.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:37.184260",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /155.php",
-      "details": {
-        "path": "/155.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:37.563864",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ppp.php",
-      "details": {
-        "path": "/ppp.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:37.944055",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /201.php",
-      "details": {
-        "path": "/201.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:38.330079",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ops.php",
-      "details": {
-        "path": "/ops.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:38.711645",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ingfo.php",
-      "details": {
-        "path": "/ingfo.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:39.091008",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /error_log.php",
-      "details": {
-        "path": "/error_log.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-05T04:11:39.470022",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xenon1337.php",
-      "details": {
-        "path": "/xenon1337.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
     {
       "timestamp": "2026-07-05T04:11:39.849611",
       "source": "web_ui",
@@ -2770,491 +1569,1255 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:30:03.363920",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to fetch user reservations from Resy",
+      "details": {
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:30:38.044179",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1501",
+      "details": {
+        "venue_id": "1501",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:34:47.180322",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1523",
+      "details": {
+        "venue_id": "1523",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:36:39.745587",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1529",
+      "details": {
+        "venue_id": "1529",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:39:14.375093",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1727",
+      "details": {
+        "venue_id": "1727",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:40:40.807587",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1505",
+      "details": {
+        "venue_id": "1505",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:45:14.492133",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-07-06",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:46:00.012655",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1501",
+      "details": {
+        "venue_id": "1501",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:47:40.189448",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1478",
+      "details": {
+        "venue_id": "1478",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:49:19.138324",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1523",
+      "details": {
+        "venue_id": "1523",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:51:14.355551",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1529",
+      "details": {
+        "venue_id": "1529",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:52:35.069852",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 58528",
+      "details": {
+        "venue_id": "58528",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:55:49.949624",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1399",
+      "details": {
+        "venue_id": "1399",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:57:39.186341",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1512",
+      "details": {
+        "venue_id": "1512",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T13:59:12.617303",
+      "source": "scanner",
+      "error_type": "api_error",
+      "message": "Failed to check availability for venue 1705",
+      "details": {
+        "venue_id": "1705",
+        "day": "2026-07-07",
+        "error": "HTTP 419: UNKNOWN"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:10.726640",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/plugins/hellopress/wp_filemanager.php",
+      "details": {
+        "path": "/wp-content/plugins/hellopress/wp_filemanager.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:10.795275",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /this_is_a_new_hello_world.php",
+      "details": {
+        "path": "/this_is_a_new_hello_world.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:10.864171",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /86.php",
+      "details": {
+        "path": "/86.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:10.944101",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bnn_.php",
+      "details": {
+        "path": "/bnn_.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.013313",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /35.php",
+      "details": {
+        "path": "/35.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.083894",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sidfile.php",
+      "details": {
+        "path": "/sidfile.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.153009",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /rum.php",
+      "details": {
+        "path": "/rum.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.225093",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /webdb.php",
+      "details": {
+        "path": "/webdb.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.295733",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /php8.php",
+      "details": {
+        "path": "/php8.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.365347",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-aoisuki.php",
+      "details": {
+        "path": "/wp-aoisuki.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.449197",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /naritai.php",
+      "details": {
+        "path": "/naritai.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.520375",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w2025.php",
+      "details": {
+        "path": "/w2025.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.595063",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /app.php",
+      "details": {
+        "path": "/app.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.663887",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /lib.php",
+      "details": {
+        "path": "/lib.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.732745",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /geaitasa.php",
+      "details": {
+        "path": "/geaitasa.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.804669",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /class-cc.php",
+      "details": {
+        "path": "/class-cc.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.873823",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /reze.php",
+      "details": {
+        "path": "/reze.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:11.943105",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /11092null.php",
+      "details": {
+        "path": "/11092null.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.011899",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ioxi-o2.php",
+      "details": {
+        "path": "/ioxi-o2.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.081569",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /166.php",
+      "details": {
+        "path": "/166.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.151079",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /by.php",
+      "details": {
+        "path": "/by.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.219755",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /zz8.php",
+      "details": {
+        "path": "/zz8.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.289037",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /s1.php",
+      "details": {
+        "path": "/s1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.359208",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ah21.php",
+      "details": {
+        "path": "/ah21.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.435058",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ah22.php",
+      "details": {
+        "path": "/ah22.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.504150",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ws38.php",
+      "details": {
+        "path": "/ws38.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.575148",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /uploaxa1.php",
+      "details": {
+        "path": "/uploaxa1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.644802",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-su.php",
+      "details": {
+        "path": "/wp-su.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.733829",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /rzzaq.php",
+      "details": {
+        "path": "/rzzaq.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.802909",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /abtpn.php",
+      "details": {
+        "path": "/abtpn.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.872125",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /my1.php",
+      "details": {
+        "path": "/my1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:12.940902",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /taktak.php",
+      "details": {
+        "path": "/taktak.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.010658",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sfcl.php",
+      "details": {
+        "path": "/sfcl.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.080320",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /worksec.php",
+      "details": {
+        "path": "/worksec.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.149265",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ypukprhr.php",
+      "details": {
+        "path": "/ypukprhr.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.218318",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /tcnyz.php",
+      "details": {
+        "path": "/tcnyz.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.287551",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /thebe.php",
+      "details": {
+        "path": "/thebe.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.358874",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sanity.php",
+      "details": {
+        "path": "/sanity.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.428606",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /anj.php",
+      "details": {
+        "path": "/anj.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.497644",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /baixy.php",
+      "details": {
+        "path": "/baixy.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.567924",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ioxi.php",
+      "details": {
+        "path": "/ioxi.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.637663",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aboutc.php",
+      "details": {
+        "path": "/aboutc.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.707291",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /8xyz.php",
+      "details": {
+        "path": "/8xyz.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.776414",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /zmia.php",
+      "details": {
+        "path": "/zmia.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.845620",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /edorxrr.php",
+      "details": {
+        "path": "/edorxrr.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.919217",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /doko.php",
+      "details": {
+        "path": "/doko.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:13.988589",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sst.php",
+      "details": {
+        "path": "/sst.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.058347",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /easy.php",
+      "details": {
+        "path": "/easy.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.127822",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-rss4.php",
+      "details": {
+        "path": "/wp-rss4.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.197066",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /nlvbr.php",
+      "details": {
+        "path": "/nlvbr.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.265638",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ah25.php",
+      "details": {
+        "path": "/ah25.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.335079",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /icoxp.php",
+      "details": {
+        "path": "/icoxp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.404295",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-set.php",
+      "details": {
+        "path": "/wp-set.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.474406",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /edit-tags.php",
+      "details": {
+        "path": "/edit-tags.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.543402",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /install.php",
+      "details": {
+        "path": "/install.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.611731",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /gettest.php",
+      "details": {
+        "path": "/gettest.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.680260",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /tempae.php",
+      "details": {
+        "path": "/tempae.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.749214",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /drfabyqp.php",
+      "details": {
+        "path": "/drfabyqp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.817828",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /f6.php",
+      "details": {
+        "path": "/f6.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.912439",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ty.php",
+      "details": {
+        "path": "/ty.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:14.981168",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /RIP.php",
+      "details": {
+        "path": "/RIP.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.054431",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bayss.php",
+      "details": {
+        "path": "/bayss.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.124646",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w1.php",
+      "details": {
+        "path": "/w1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.197162",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /dgdaolin.php",
+      "details": {
+        "path": "/dgdaolin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.269441",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /rrhbdzdz.php",
+      "details": {
+        "path": "/rrhbdzdz.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.339353",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /000.php",
+      "details": {
+        "path": "/000.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.409344",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /global.php",
+      "details": {
+        "path": "/global.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.480698",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /s.php",
+      "details": {
+        "path": "/s.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.550174",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /sf.php",
+      "details": {
+        "path": "/sf.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.663375",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-asudo.php",
+      "details": {
+        "path": "/wp-asudo.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.732565",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bwr.php",
+      "details": {
+        "path": "/bwr.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.845782",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /gmmda.php",
+      "details": {
+        "path": "/gmmda.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:15.959382",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /pom.php",
+      "details": {
+        "path": "/pom.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.031613",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vx.php",
+      "details": {
+        "path": "/vx.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.145629",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-ait.php",
+      "details": {
+        "path": "/wp-ait.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.258663",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /mans.php",
+      "details": {
+        "path": "/mans.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.329399",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wdone.php",
+      "details": {
+        "path": "/wdone.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.443796",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /c8qz67.php",
+      "details": {
+        "path": "/c8qz67.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.559212",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /krypton.php",
+      "details": {
+        "path": "/krypton.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.628785",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ku24ua.php",
+      "details": {
+        "path": "/ku24ua.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.744154",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /mig5mr.php",
+      "details": {
+        "path": "/mig5mr.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.857257",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /vdizeo.php",
+      "details": {
+        "path": "/vdizeo.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:16.929326",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /v3.php",
+      "details": {
+        "path": "/v3.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:17.043025",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ph33w.php",
+      "details": {
+        "path": "/ph33w.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:17.156388",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aa5.php",
+      "details": {
+        "path": "/aa5.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:17.226421",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-ver.php",
+      "details": {
+        "path": "/wp-ver.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T14:13:17.339447",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /zmia.php",
+      "details": {
+        "path": "/zmia.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
-    "last_scan_time": "2026-07-04T13:58:16.284489",
+    "last_scan_time": "2026-07-05T13:59:12.667691",
     "last_booking_time": null,
-    "last_error_time": "2026-07-05T04:12:17.493769",
-    "total_scans": 32,
+    "last_error_time": "2026-07-05T14:13:17.339463",
+    "total_scans": 34,
     "total_bookings": 0,
     "total_errors": 201,
     "status": "critical"
   },
   "attempts": [
-    {
-      "timestamp": "2026-05-11T05:07:17.146618",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:08:38.154504",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:08:38.498249",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:09:43.506207",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:09:43.908986",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:10:29.917736",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-17",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:11:18.914909",
-      "trip_date": "2026-05-17",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "api_error",
-      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:11:18.923595",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:11:19.294562",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:12:02.302318",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:12:02.608908",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:12:36.617778",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:12:36.928200",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:13:55.936559",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:13:56.294118",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:14:47.304671",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:14:47.668460",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:15:39.676735",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:15:40.003275",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:16:24.021547",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:16:24.436919",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:17:49.445637",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:17:49.758809",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:18:47.767296",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:18:48.160748",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Lilia",
-      "venue_id": "1512",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:19:49.169228",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-18",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:20:37.640822",
-      "trip_date": "2026-05-18",
-      "restaurant_name": "Semma",
-      "venue_id": "1705",
-      "party_size": 2,
-      "status": "api_error",
-      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:20:37.649646",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:20:37.953424",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "4 Charles Prime Rib",
-      "venue_id": "1501",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:22:17.963940",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:22:18.281108",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Carbone",
-      "venue_id": "1478",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:23:18.291178",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:23:18.609519",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Torrisi",
-      "venue_id": "1523",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:24:42.618328",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:24:42.982301",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Saga",
-      "venue_id": "1529",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:25:58.991331",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:25:59.294704",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "The Naked Pig",
-      "venue_id": "58528",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:27:24.303528",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:27:24.690192",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Estiatorio Milos",
-      "venue_id": "1727",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:28:17.698930",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:28:18.013284",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Keens Steakhouse",
-      "venue_id": "1505",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:29:04.022296",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "checked",
-      "details": "Checking availability for 2026-05-19",
-      "slots_found": 0,
-      "error_message": ""
-    },
-    {
-      "timestamp": "2026-05-11T05:29:04.323316",
-      "trip_date": "2026-05-19",
-      "restaurant_name": "Eleven Madison Park",
-      "venue_id": "1399",
-      "party_size": 2,
-      "status": "no_availability",
-      "details": "Restaurant has no tables available for this date",
-      "slots_found": 0,
-      "error_message": ""
-    },
     {
       "timestamp": "2026-05-11T05:29:58.332072",
       "trip_date": "2026-05-19",
@@ -8274,6 +7837,479 @@
     {
       "timestamp": "2026-07-04T13:58:16.307632",
       "trip_date": "2026-07-04",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "complete",
+      "details": "Scan complete. Checked 20 restaurants, made 0 bookings.",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:30:03.096635",
+      "trip_date": "2026-07-05",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:30:03.789152",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:30:38.070895",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:32:17.095320",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:32:39.239083",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:34:02.264508",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:34:47.205991",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:35:03.131049",
+      "trip_date": "2026-07-05",
+      "restaurant_name": "SYSTEM",
+      "venue_id": "",
+      "party_size": 0,
+      "status": "wake_up",
+      "details": "Scanner woke up and started processing",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:35:54.230240",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:36:39.773234",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:37:21.797053",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:37:45.507389",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:38:28.532402",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:39:14.400501",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:39:53.423766",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:40:40.833115",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:42:13.858360",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:42:36.257742",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:43:29.282697",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:43:52.567162",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "no_availability",
+      "details": "Restaurant has no tables available for this date",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:44:40.593357",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-06",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:45:14.517656",
+      "trip_date": "2026-07-06",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:45:14.540655",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:46:00.063939",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "4 Charles Prime Rib",
+      "venue_id": "1501",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:46:54.137434",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:47:40.215962",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Carbone",
+      "venue_id": "1478",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:48:33.240598",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:49:19.163990",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Torrisi",
+      "venue_id": "1523",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:50:40.188083",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:51:14.380397",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Saga",
+      "venue_id": "1529",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:51:49.403903",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:52:35.096671",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "The Naked Pig",
+      "venue_id": "58528",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:53:45.122325",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:53:45.159725",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Estiatorio Milos",
+      "venue_id": "1727",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:54:29.199992",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:54:29.223470",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Keens Steakhouse",
+      "venue_id": "1505",
+      "party_size": 2,
+      "status": "skipped",
+      "details": "Circuit breaker - venue temporarily disabled due to repeated errors",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:55:04.247037",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:55:49.976394",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Eleven Madison Park",
+      "venue_id": "1399",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:56:53.001418",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:57:39.214384",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Lilia",
+      "venue_id": "1512",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:58:27.239063",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "checked",
+      "details": "Checking availability for 2026-07-07",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:59:12.643629",
+      "trip_date": "2026-07-07",
+      "restaurant_name": "Semma",
+      "venue_id": "1705",
+      "party_size": 2,
+      "status": "api_error",
+      "details": "Resy API returned an error (HTTP 400/500 or network issue)",
+      "slots_found": 0,
+      "error_message": ""
+    },
+    {
+      "timestamp": "2026-07-05T13:59:12.691938",
+      "trip_date": "2026-07-05",
       "restaurant_name": "SYSTEM",
       "venue_id": "",
       "party_size": 0,

@@ -1,6 +1,12 @@
 #!/bin/bash
 # daily-github-sync.sh - Commit changes and sync journal entries
 # Runs at 11:59 AM and 11:59 PM PT daily
+# Flock locking: prevents overlapping runs
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "daily-github-sync" || exit 0
+setup_lock_cleanup
 
 WORKSPACE="/home/ubuntu/.openclaw/workspace"
 LOG_FILE="$WORKSPACE/logs/github-sync.log"
@@ -9,6 +15,7 @@ DATE=$(date '+%Y-%m-%d %H:%M:%S %Z')
 TIMESTAMP=$(date '+%Y%m%d-%H%M%S')
 
 echo "[$DATE] Starting daily GitHub sync..." >> "$LOG_FILE"
+echo "[$DATE] Target repo: https://github.com/gclapp/Cicero-private-backup (private)" >> "$LOG_FILE"
 
 setup_git_auth() {
     if [ ! -r "$GITHUB_TOKEN_FILE" ]; then

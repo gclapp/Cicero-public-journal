@@ -1,8 +1,14 @@
 #!/bin/bash
 # watch-hunt-cron.sh - Automated watch search and dashboard update
 # Runs twice daily via cron
+# Flock locking: prevents overlapping runs
 
 set -e
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "watch-hunt" || exit 0
+setup_lock_cleanup
 
 REPO_DIR="$HOME/.openclaw/workspace/dashboard"
 LOG_FILE="$HOME/.openclaw/workspace/logs/watch-hunt.log"

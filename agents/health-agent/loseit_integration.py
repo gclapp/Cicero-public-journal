@@ -2,16 +2,22 @@
 """
 Vitus - Lose It! Integration
 Fetches and parses nutrition data from daily Lose It! emails via IMAP
+Flock locking: prevents overlapping runs
 """
 
 import imaplib
 import email
 import json
 import re
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from bs4 import BeautifulSoup
 from typing import Dict, Optional, List
+
+# Add workspace scripts for flock utilities
+sys.path.insert(0, str(Path.home() / '.openclaw' / 'workspace' / 'scripts'))
+from flock_utils import acquire_lock, LockHeldError
 
 # Configuration
 IMAP_SERVER = 'imap.gmail.com'
@@ -381,8 +387,6 @@ class LoseItIntegration:
 
 def main():
     """CLI for testing Lose It! integration"""
-    import sys
-    
     integration = LoseItIntegration()
     
     if len(sys.argv) > 1:
@@ -422,4 +426,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        with acquire_lock("loseit-integration"):
+            main()
+    except LockHeldError:
+        print("[loseit-integration] Lock held by another instance, skipping")

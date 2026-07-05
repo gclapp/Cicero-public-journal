@@ -1,8 +1,14 @@
 #!/bin/bash
 # daily-competitor-report-v3.sh - Overhauled competitive intelligence
 # Run twice daily: 7 AM and 2 PM PT
+# Flock locking: prevents overlapping runs
 
 set -e
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "daily-competitor-report" || exit 0
+setup_lock_cleanup
 
 # Source centralized API keys
 source "$HOME/.openclaw/workspace/config/api-keys.env" 2>/dev/null || true

@@ -13,9 +13,12 @@ from typing import Dict, List, Optional, Any
 
 # Paths
 TOKEN_FILE = Path.home() / '.whoop_token'
+REFRESH_TOKEN_FILE = Path.home() / '.whoop_refresh_token'
 DATA_DIR = Path.home() / '.openclaw' / 'workspace' / 'data' / 'whoop'
 MEMORY_DIR = Path.home() / '.openclaw' / 'workspace' / 'agents' / 'health-agent' / 'memory'
 EMAIL_SCRIPT = Path.home() / '.openclaw' / 'workspace' / 'scripts' / 'send_email.py'
+
+BASE_URL = 'https://api.prod.whoop.com/developer/v2'
 
 class VitusHealthMonitor:
     def __init__(self):
@@ -28,6 +31,46 @@ class VitusHealthMonitor:
         if TOKEN_FILE.exists():
             return TOKEN_FILE.read_text().strip()
         return None
+    
+    def _refresh_token(self):
+        """Refresh expired access token using refresh token"""
+        if not REFRESH_TOKEN_FILE.exists():
+            print("❌ No refresh token found")
+            return False
+        
+        refresh_token = REFRESH_TOKEN_FILE.read_text().strip()
+        if not refresh_token:
+            print("❌ Refresh token is empty")
+            return False
+        
+        try:
+            # Refresh token endpoint
+            data = {
+                "grant_type": "refresh_token",
+                "refresh_token": refresh_token
+            }
+            
+            response = requests.post("https://api.prod.whoop.com/oauth/oauth2/token", data=data)
+            
+            if response.status_code == 200:
+                token_data = response.json()
+                new_access_token = token_data.get("access_token")
+                new_refresh_token = token_data.get("refresh_token")
+                
+                # Save new tokens
+                TOKEN_FILE.write_text(new_access_token)
+                if new_refresh_token:
+                    REFRESH_TOKEN_FILE.write_text(new_refresh_token)
+                
+                print("✅ Whoop token auto-refreshed successfully")
+                return True
+            else:
+                print(f"❌ Token refresh failed: {response.status_code} - {response.text[:200]}")
+                return False
+                
+        except Exception as e:
+            print(f"❌ Error refreshing token: {e}")
+            return False
     
     def fetch_whoop_data(self, days=14):
         """Fetch Whoop data - uses locally cached data from whoop_daily_fetch.py"""
@@ -54,6 +97,18 @@ class VitusHealthMonitor:
         
         try:
             recovery = requests.get(f'{BASE_URL}/recovery', headers=headers, params={'limit': days})
+            
+            # If 401, try to refresh token and retry once
+            if recovery.status_code == 401:
+                print("🔄 Token expired (401), attempting auto-refresh...")
+                if self._refresh_token():
+                    # Update headers with new token
+                    token = self.get_token()
+                    headers = {'Authorization': f'Bearer {token}'}
+                    recovery = requests.get(f'{BASE_URL}/recovery', headers=headers, params={'limit': days})
+                else:
+                    raise ValueError("Token refresh failed")
+            
             recovery.raise_for_status()
             
             sleep = requests.get(f'{BASE_URL}/activity/sleep', headers=headers, params={'limit': days})

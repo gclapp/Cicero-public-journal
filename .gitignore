@@ -1,8 +1,7 @@
 # Sensitive data
-MEMORY.md
-memory/
 .env*
 .env
+config/api-keys.env
 
 # Credentials
 *.key

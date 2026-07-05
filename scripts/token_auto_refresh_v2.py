@@ -2,15 +2,21 @@
 """
 Token Auto-Refresh System v2 - Bulletproof
 Refreshes tokens before they expire with retry logic and validation
+Flock locking: prevents overlapping runs
 """
 
 import os
+import sys
 import json
 import requests
 import time
 import smtplib
 from datetime import datetime, timedelta
 from pathlib import Path
+
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
 
 # Token file paths
 CREDENTIALS_DIR = Path.home() / ".openclaw" / "credentials"
@@ -207,23 +213,60 @@ def check_whoop_token():
         log(f"🔄 Whoop token invalid ({age_minutes:.0f} min old) — refreshing...")
         return refresh_whoop_with_retry()
 
+def test_google_token_api(token_path, name):
+    """Test if Google token actually works by making API call"""
+    try:
+        import pickle
+        from google.auth.transport.requests import Request
+        
+        with open(token_path, 'rb') as f:
+            creds = pickle.load(f)
+        
+        # Check if token is valid and not expired
+        if creds.valid:
+            return True, "Token valid and working"
+        
+        # Try to refresh if expired
+        if creds.expired and creds.refresh_token:
+            try:
+                creds.refresh(Request())
+                # Save refreshed token
+                with open(token_path, 'wb') as f:
+                    pickle.dump(creds, f)
+                return True, "Token refreshed successfully"
+            except Exception as e:
+                return False, f"Token refresh failed: {e}"
+        
+        if creds.expired:
+            return False, "Token expired and no refresh token available"
+        
+        return False, "Token invalid"
+        
+    except Exception as e:
+        return False, f"Error testing token: {e}"
+
 def check_google_token(name, config):
-    """Check Google token status (can't auto-refresh)"""
+    """Check Google token status - tests API functionality, not just age"""
     age_days = get_file_age_days(config["token"])
     
     if age_days is None:
         log(f"⚠️ {name}: Token file not found", "WARNING")
         return "missing"
     
-    if age_days >= config["max_age_days"]:
-        log(f"🔴 {name}: Token is {age_days} days old — CRITICAL", "ERROR")
-        return "critical"
-    elif age_days >= config["alert_days"]:
-        log(f"🟡 {name}: Token is {age_days} days old — needs refresh soon", "WARNING")
-        return "warning"
-    else:
-        log(f"✅ {name}: Token is {age_days} days old (healthy)")
+    # Test actual API functionality
+    works, message = test_google_token_api(config["token"], name)
+    
+    if works:
+        log(f"✅ {name}: {message} ({age_days} days old)")
         return "healthy"
+    else:
+        # Only alert if API actually fails
+        if "expired" in message.lower() or "refresh failed" in message.lower():
+            log(f"🔴 {name}: {message} — re-auth required", "ERROR")
+            return "critical"
+        else:
+            log(f"🟡 {name}: {message}", "WARNING")
+            return "warning"
 
 def check_gmail_smtp():
     """Check Gmail SMTP config with non-destructive login/NOOP validation."""
@@ -418,7 +461,12 @@ def run_health_check():
     return results
 
 if __name__ == "__main__":
-    results = run_health_check()
+    try:
+        with acquire_lock("token-auto-refresh"):
+            results = run_health_check()
+    except LockHeldError:
+        log("Another instance of token auto-refresh is running, skipping")
+        sys.exit(0)
     
     # Exit with error code if anything is critical
     critical_count = sum(1 for r in results.values() if r in [False, "critical", "missing"])

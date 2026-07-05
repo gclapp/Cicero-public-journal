@@ -6,6 +6,7 @@ Monitors for:
 - Model fallback errors on Telegram channel
 - API key failures affecting Telegram
 Sends alerts when issues detected
+Flock locking: prevents overlapping runs
 """
 
 import json
@@ -16,6 +17,10 @@ import sqlite3
 import html
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
+
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
 
 # Configuration
 STATE_DIR = Path.home() / ".openclaw" / "workspace" / "state"
@@ -345,4 +350,9 @@ def main():
     return 0 if total_failures < FAILED_MESSAGE_THRESHOLD else 1
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        with acquire_lock("telegram-health-monitor"):
+            sys.exit(main())
+    except LockHeldError:
+        print("[telegram-health-monitor] Lock held by another instance, skipping")
+        sys.exit(0)

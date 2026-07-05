@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-18T17:20:55.238Z",
+  "entries": {
+    "memory:memory/2026-02-23.md:1:15": {
+      "key": "memory:memory/2026-02-23.md:1:15",
+      "path": "memory/2026-02-23.md",
+      "startLine": 1,
+      "endLine": 15,
+      "source": "memory",
+      "snippet": "# Memory Log - 2026-02-23 ## Pending Tasks - [ ] Grant Cicero access to work Outlook calendar (requested by Geoff) - [x] Install and configure Todoist skill for OpenClaw ## Completed Today - [x] Google Calendar access granted - [x] Flight tracking setup (DL2130, DL1373) - [x] Competitive intel format updates (WIN Fertility, open role totals, Glassdoor table) ## Notes - Working at Four Seasons Scottsdale, Room 913 - Board meeting + travel to Portland tomorrow",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.35145710110664363,
+      "maxScore": 0.35145710110664363,
+      "firstRecalledAt": "2026-05-12T01:58:19.378Z",
+      "lastRecalledAt": "2026-05-12T01:58:19.378Z",
+      "queryHashes": [
+        "37f14b50cbac"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "log",
+        "pending",
+        "tasks",
+        "grant",
+        "cicero",
+        "access",
+        "outlook",
+        "calendar"
+      ]
+    },
+    "memory:memory/2026-03-13.md:34:73": {
+      "key": "memory:memory/2026-03-13.md:34:73",
+      "path": "memory/2026-03-13.md",
+      "startLine": 34,
+      "endLine": 73,
+      "source": "memory",
+      "snippet": "- `dashboard/watch-data.json` - Updated with localImagePath entries - `scripts/download_watch_images.py` - NEW: Downloads images via browser - `scripts/scrape_watch_images.py` - Helper for extracting URLs - `dashboard/index.html` - Uses localImagePath when available ### Fixes Applied (22:48 UTC) 1. Fixed relative path resolution - Added `./` prefix to local image paths 2. Added cache-busting query parameter (`?v=2`) to force browser refresh 3. Verified images are accessible (HTTP 200, valid JPEG files) ### Verification - ✅ Images accessible: `curl -I https://gclapp.github.io/geoff-watch-hunt/images/chrono24/watch_6.jpg` → HTTP 200 - ✅ Image valid: JPEG, 167KB, 1280x853 resolution - ✅ HTML",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.557205376934133,
+      "maxScore": 0.557205376934133,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "dashboard/watch-data.json",
+        "scripts/download-watch-images.py",
+        "scripts/scrape-watch-images.py",
+        "dashboard/index.html",
+        "cache-busting",
+        "dashboard",
+        "watch",
+        "data.json"
+      ]
+    },
+    "memory:memory/2026-03-19.md:43:106": {
+      "key": "memory:memory/2026-03-19.md:43:106",
+      "path": "memory/2026-03-19.md",
+      "startLine": 43,
+      "endLine": 106,
+      "source": "memory",
+      "snippet": "**Time:** 7:34 PM UTC **Issue:** Weather showing \"Data unavailable\" in health checks ### Problem `system_health_check.py` was calling `openclaw weather \"Los Angeles\"` but that CLI command doesn't exist — the weather skill only provides documentation. ### Solution Updated script to use `curl wttr.in` directly: ```python result = subprocess.run( ['curl', '-s', 'wttr.in/Los+Angeles?format=%l:+%c+%t+%h+%w'], capture_output=True, text=True, timeout=15 ) ``` ### Result Weather now displays: `los angeles: ☀️ +26°C 47% ↑5km/h` --- ## System Health Status **Time:** 7:34 PM UTC | System | Status | |--------|--------| | ✅ Todoist | 50 tasks (46 overdue) | | ✅ Google Calendar |",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5432986557705676,
+      "maxScore": 0.5432986557705676,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "system-health-check.py",
+        "wttr.in",
+        "subprocess.run",
+        "wttr.in/los",
+        "capture-output",
+        "5km/h",
+        "time",
+        "utc"
+      ]
+    },
+    "memory:memory/2026-03-19.md:93:135": {
+      "key": "memory:memory/2026-03-19.md:93:135",
+      "path": "memory/2026-03-19.md",
+      "startLine": 93,
+      "endLine": 135,
+      "source": "memory",
+      "snippet": "- Stocks: PGNY $17.87, AAPL $249.94, NVDA $180.40, OMDA $14.11 - Weather: Sunny, 56°F - Whoop: Recovery 47%, Sleep 6 hrs, Strain 4.97 **Delivered to:** [REDACTED] (CC: geoffrey.clapp@progyny.com) --- ## Weekly LCM Health Check Cron Job **Time:** 7:40 PM UTC **Schedule:** Every Saturday at 9:00 AM PT ### What It Does - Checks LCM database exists and is accessible - Queries conversation count and summary statistics - Verifies environment variables are set - Confirms lossless-claw plugin is registered - Monitors LCM log files for errors - Saves report to `config/lcm-weekly-report.json` - **Sends summary email to [REDACTED] (CC: geoffrey.clapp@progyny.com)** ### Fil",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5031337775051332,
+      "maxScore": 0.5031337775051332,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "17.87",
+        "249.94",
+        "180.40",
+        "14.11",
+        "4.97",
+        "geoff.clapp",
+        "gmail.com",
+        "geoffrey.clapp"
+      ]
+    },
+    "memory:memory/2026-03-13.md:65:117": {
+      "key": "memory:memory/2026-03-13.md:65:117",
+      "path": "memory/2026-03-13.md",
+      "startLine": 65,
+      "endLine": 117,
+      "source": "memory",
+      "snippet": "4. ✅ Whoop - Configuration status 5. ✅ Health Dashboard - Availability 6. ✅ Watch Hunt - Availability 7. ✅ Competitive Intelligence - Cron status **Updated `HEARTBEAT.md`** with mandatory protocol: - Must run system health check on every heartbeat - Must include all results in response - Must attempt auto-recovery before alerting - Must include weather in every update ### Current Status (as of 22:15 UTC) - ✅ Todoist: 50 tasks pending - 🔴 Calendar: Auth required (token expired) - 🌤️ Weather: ☀️ +85°F, 25% humidity, ↗6mph wind - ✅ Whoop: Configured - ✅ Health Dashboard: Available - ✅ Watch Hunt: Available (now with real images) - ✅ Competitive Intel: Active --- ## Watch Dashboard - New F",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.46917584516882604,
+      "maxScore": 0.46917584516882604,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "heartbeat.md",
+        "auto-recovery",
+        "whoop",
+        "configuration",
+        "status",
+        "health",
+        "dashboard",
+        "availability"
+      ]
+    },
+    "memory:memory/2026-05-12.md:101:156": {
+      "key": "memory:memory/2026-05-12.md:101:156",
+      "path": "memory/2026-05-12.md",
+      "startLine": 101,
+      "endLine": 156,
+      "source": "memory",
+      "snippet": "2. Fix any broken health integrations 3. Set up gog if needed 4. Test memory logging system 5. Add memory verification to daily routine ### This Week 1. Daily verification that memory files are created 2. Backfill any critical context from lost period 3. Document what was lost vs what can be recovered 4. Implement additional safeguards ### Ongoing 1. Check memory file exists at start of every session 2. Verify memory written at end of every session 3. Weekly review of memory system health --- ## Notes **This failure is unacceptable.** The memory system is core to maintaining continuity and trust. Losing 9 days of conversations, decisions, and context is a breach of that trust. **Root c",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4553724327034248,
+      "maxScore": 0.4553724327034248,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "fix",
+        "any",
+        "broken",
+        "health",
+        "integrations",
+        "set",
+        "gog",
+        "needed"
+      ]
+    },
+    "memory:memory/2026-03-27.md:1:45": {
+      "key": "memory:memory/2026-03-27.md:1:45",
+      "path": "memory/2026-03-27.md",
+      "startLine": 1,
+      "endLine": 45,
+      "source": "memory",
+      "snippet": "# Daily Log: March 27, 2026 (Friday) **Time:** 11:18 PM UTC (3:18 PM PT) **Location:** Traveling (returning to LA) --- ## Token Health Monitoring Fixes ### Issues Identified 1. **Google Docs token expired** - Cannot refresh, needs re-auth 2. **Whoop API token expired** - 401 errors, refresh failed 3. **Token health not in heartbeat** - Check-ins missing critical system status 4. **Gmail SMTP token** - 31 days old (over threshold) ### Fixes Applied **1. Updated token_health_check.py:** - Added Google Docs to monitored tokens - Added validation function for Google Docs (attempts auto-refresh) - Added validation logic to detect expired/unrefreshable tokens - All tokens now checked: Cale",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4467595089888229,
+      "maxScore": 0.4467595089888229,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "re-auth",
+        "check-ins",
+        "token-health-check.py",
+        "auto-refresh",
+        "expired/unrefreshable",
+        "log",
+        "march",
+        "friday"
+      ]
+    },
+    "memory:memory/2026-03-04.md:28:65": {
+      "key": "memory:memory/2026-03-04.md:28:65",
+      "path": "memory/2026-03-04.md",
+      "startLine": 28,
+      "endLine": 65,
+      "source": "memory",
+      "snippet": "- Scheduled iPhone Shortcuts setup for tomorrow 6 PM (with full step-by-step in task description) ### Calendar Integration ✅ - Daily refresh at 6:55 AM PT - 4x daily check-ins include calendar events - Travel detection active ### Competitive Intelligence ✅ - Daily RSS monitoring active - Reports emailing to work address ## Active Automations | Task | Schedule | Status | |------|----------|--------| | Watch hunt search | 9 AM & 6 PM PT | ✅ Running | | Calendar refresh | 6:55 AM PT | ✅ Running | | Check-in emails | 4x daily | ✅ Running | | IMAP email check | Every 15 min | ✅ Running | | Competitor report | Daily 2 PM PT | ✅ Running | | Security audit | Sundays 8 AM | ✅ Scheduled | | Reddit",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4286963619994436,
+      "maxScore": 0.4286963619994436,
+      "firstRecalledAt": "2026-05-12T04:21:37.196Z",
+      "lastRecalledAt": "2026-05-12T04:21:37.196Z",
+      "queryHashes": [
+        "762080cf4d1d"
+      ],
+      "recallDays": [
+        "2026-05-12"
+      ],
+      "conceptTags": [
+        "step-by-step",
+        "check-ins",
+        "check-in",
+        "scheduled",
+        "iphone",
+        "shortcuts",
+        "setup",
+        "tomorrow"
+      ]
+    },
+    "memory:memory/2026-05-03.md:1:44": {
+      "key": "memory:memory/2026-05-03.md:1:44",
+      "path": "memory/2026-05-03.md",
+      "startLine": 1,
+      "endLine": 44,
+      "source": "memory",
+      "snippet": "# 2026-05-03 - OpenClaw Update & Pending Tasks ## OpenClaw Update Initiated - **From:** 2026.4.9 - **To:** 2026.5.2 (available) - **Time:** 4:27 PM UTC / 9:27 AM PT - **Status:** Update started ## POST-RESTART TODO - CRITICAL ### 1. Skills Review & Updates **Status:** Scan interrupted during OpenClaw update **Action needed:** Re-run `clawhub update --all` after restart **Issues found so far:** | Skill | Issue | Action | |-------|-------|--------| | sag | Local changes | Decide: --force or keep local | | whoop-openclaw-skill | VirusTotal flag (suspicious) | Review before updating | | todoist | Local changes | Decide: --force or keep local | | capability-evolver | ❌ Not in registry (v1.32.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.39164696037769314,
+      "maxScore": 0.39164696037769314,
+      "firstRecalledAt": "2026-05-13T05:59:41.309Z",
+      "lastRecalledAt": "2026-05-13T05:59:41.309Z",
+      "queryHashes": [
+        "aad710f7e438"
+      ],
+      "recallDays": [
+        "2026-05-13"
+      ],
+      "conceptTags": [
+        "2026.4.9",
+        "2026.5.2",
+        "post-restart",
+        "re-run",
+        "whoop-openclaw-skill",
+        "capability-evolver",
+        "v1.32",
+        "openclaw"
+      ]
+    },
+    "memory:memory/2026-05-13.md:35:82": {
+      "key": "memory:memory/2026-05-13.md:35:82",
+      "path": "memory/2026-05-13.md",
+      "startLine": 35,
+      "endLine": 82,
+      "source": "memory",
+      "snippet": "└── daily/ # Auto-created daily notes Processed/ # (I move things here after handling) ``` #### Option B: Obsidian Skill - **Status:** Installed but \"needs setup\" - **Requirement:** `obsidian-cli` must run on same machine as vault (Geoff's Mac) - **Verdict:** Not suitable for cloud-based setup ### Decision Use **Git Bridge (Option A)** — more robust for cloud + multi-device setup. ## Setup Instructions (Saved) ### For Geoff (Mac) 1. Open terminal: ```bash cd \"~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Your Vault Name\" git clone https://github.com/gclapp/shared-inbox.git Inbox ``` 2. Install Obsidian Git plugin: - Settings → Communi",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3858180344104767,
+      "maxScore": 0.3858180344104767,
+      "firstRecalledAt": "2026-05-14T14:46:24.842Z",
+      "lastRecalledAt": "2026-05-14T14:46:24.842Z",
+      "queryHashes": [
+        "f31fd19b4d2e"
+      ],
+      "recallDays": [
+        "2026-05-14"
+      ],
+      "conceptTags": [
+        "auto-created",
+        "obsidian-cli",
+        "cloud-based",
+        "multi-device",
+        "library/mobile",
+        "documents/icloud",
+        "obsidian/documents/your",
+        "auto"
+      ]
+    },
+    "memory:memory/2026-05-13.md:78:102": {
+      "key": "memory:memory/2026-05-13.md:78:102",
+      "path": "memory/2026-05-13.md",
+      "startLine": 78,
+      "endLine": 102,
+      "source": "memory",
+      "snippet": "- `/home/ubuntu/.openclaw/workspace/shared-inbox/README.md` - `/home/ubuntu/.openclaw/workspace/shared-inbox/OBSIDIAN_SETUP.md` - `/home/ubuntu/.openclaw/workspace/shared-inbox/Inbox/ideas.md` - `/home/ubuntu/.openclaw/workspace/shared-inbox/Inbox/reading.md` - `/home/ubuntu/.openclaw/workspace/shared-inbox/Inbox/questions.md` - `/home/ubuntu/.openclaw/workspace/shared-inbox/Inbox/transcripts.md` ## Current Memory System Status - **Daily notes:** `memory/YYYY-MM-DD.md` (25 entries in 2026) - **Weekly summaries:** BROKEN since March (last was Week 9, March 3) - **Long-term memory:** `MEMORY.md` (curated) - **New input channel:** `shared-inbox/` (Obsidian → Git → Cicero) ## Next Steps 1. Geo",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.3559280186891556,
+      "maxScore": 0.3559280186891556,
+      "firstRecalledAt": "2026-05-14T14:46:24.842Z",
+      "lastRecalledAt": "2026-05-14T14:46:24.842Z",
+      "queryHashes": [
+        "f31fd19b4d2e"
+      ],
+      "recallDays": [
+        "2026-05-14"
+      ],
+      "conceptTags": [
+        "home/ubuntu",
+        "memory/yyyy-mm-dd.md",
+        "long-term",
+        "memory.md",
+        "shared-inbox",
+        "home",
+        "ubuntu",
+        "openclaw"
+      ]
+    },
+    "memory:memory/2026-03-10.md:80:130": {
+      "key": "memory:memory/2026-03-10.md:80:130",
+      "path": "memory/2026-03-10.md",
+      "startLine": 80,
+      "endLine": 130,
+      "source": "memory",
+      "snippet": "- deep-research-pro — Multi-source research - competitive-analysis — Competitive intelligence - product-roadmap — Visual roadmaps - notion — Knowledge management - jira — Issue tracking - mermaid-diagrams — Technical diagrams - ai-meeting-notes — Meeting transcription - figma — Design collaboration - todoist — Personal task management **Nice-to-Have (6):** - linear, airtable, github, continuous-user-research, startup-metrics, weekly-report-generator --- ## TODOs ### Watch Hunt - [ ] Monitor first few automated runs for any issues - [ ] Add more watch searches as needed via cover.html or CLI - [ ] Consider adding more sources (WatchBox, Hodinkee Shop, etc.) ### DALL-E - [ ] Generate cust",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.4634187109489408,
+      "maxScore": 0.4634187109489408,
+      "firstRecalledAt": "2026-05-14T15:06:21.469Z",
+      "lastRecalledAt": "2026-05-14T15:06:21.469Z",
+      "queryHashes": [
+        "adb02ad53fe5"
+      ],
+      "recallDays": [
+        "2026-05-14"
+      ],
+      "conceptTags": [
+        "deep-research-pro",
+        "multi-source",
+        "competitive-analysis",
+        "product-roadmap",
+        "mermaid-diagrams",
+        "ai-meeting-notes",
+        "nice-to-have",
+        "continuous-user-research"
+      ]
+    },
+    "memory:memory/2026-05-12.md:39:72": {
+      "key": "memory:memory/2026-05-12.md:39:72",
+      "path": "memory/2026-05-12.md",
+      "startLine": 39,
+      "endLine": 72,
+      "source": "memory",
+      "snippet": "4. ✅ Investigated Apple Health integration (found working but stale data) 5. ✅ Investigated Whoop API (tokens exist, need to verify connectivity) 6. ✅ Spawned health agent to fix Whoop and health integrations ### Travel Task System (Completed Today) - Fixed calendar travel checker script - Created 3 trips for May with proper subtasks: 1. **Palo Alto Trip (May 12-14)** - DL1430 outbound, DL1154 return 2. **NYC Trip (May 16-21)** - DL960 outbound, DL742 return 3. **Tahoe Trip (May 22-25)** - DL4099 outbound, DL3902 return - Each trip has: - `└── 🧳 Pack` (due day before) - `└── 🏢 Contact Marriott Ambassador` (due 7 days before) - `└── 🐕 Schedule Rover for Greta` (due immediately",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.5028197547137581,
+      "maxScore": 0.5028197547137581,
+      "firstRecalledAt": "2026-05-18T14:11:43.725Z",
+      "lastRecalledAt": "2026-05-18T14:11:43.725Z",
+      "queryHashes": [
+        "d688e55a2e9c"
+      ],
+      "recallDays": [
+        "2026-05-18"
+      ],
+      "conceptTags": [
+        "12-14",
+        "16-21",
+        "22-25",
+        "investigated",
+        "apple",
+        "health",
+        "integration",
+        "found"
+      ]
+    },
+    "memory:memory/2026-05-15.md:1:38": {
+      "key": "memory:memory/2026-05-15.md:1:38",
+      "path": "memory/2026-05-15.md",
+      "startLine": 1,
+      "endLine": 38,
+      "source": "memory",
+      "snippet": "# 2026-05-15 - Provider Directory Scraper Project ## Session Start **Time:** 05:04 UTC (10:04 PM PT - May 14) **Context:** Building provider directory scraper for Cigna and Healthgrades ## Cigna Credentials **CRITICAL - PROTECT THESE:** - **Login URL:** https://p.universal-login.cigna.com/u/login/ - **Email:** [REDACTED] - **Password:** [SECURED - stored in ~/.openclaw/credentials/cigna-credentials.json] - **Permissions:** 600 (owner read/write only) **Note from Geoff:** Prefer using public version of site for scraping - logged-in version defaults to providers near his address, which may complicate searches for other locations. ## Project Structure Created ``` provider-direct",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.35754158198833463,
+      "maxScore": 0.35754158198833463,
+      "firstRecalledAt": "2026-05-18T17:20:55.238Z",
+      "lastRecalledAt": "2026-05-18T17:20:55.238Z",
+      "queryHashes": [
+        "2237e7c33fca"
+      ],
+      "recallDays": [
+        "2026-05-18"
+      ],
+      "conceptTags": [
+        "geoff.clapp",
+        "gmail.com",
+        "read/write",
+        "logged-in",
+        "provider-direct",
+        "provider",
+        "directory",
+        "scraper"
+      ]
+    }
+  }
+}

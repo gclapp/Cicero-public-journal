@@ -1,0 +1,12 @@
+[2026-07-05 15:00:03] Starting security audit (timeout 90s)...
+cat: /tmp/security-audit-2026-07-05-raw.txt: input file is output file
+✅ Email sent successfully to [REDACTED]
+[2026-07-05 15:00:03] Security audit report emailed successfully (duration: 0s, exit: 127)
+[2026-07-05 15:00:03] Security audit script finished (duration: 0s, exit: 127)
+running weekly-security-audit at 2026-07-05 08:00 PDT (America/Los_Angeles, aero pre-flight: DAL939 from KLAX)
+[2026-07-05 15:05:03] Starting security audit (timeout 90s)...
+cat: /tmp/security-audit-2026-07-05-raw.txt: input file is output file
+✅ Email sent successfully to [REDACTED]
+[2026-07-05 15:05:03] Security audit report emailed successfully (duration: 0s, exit: 127)
+[2026-07-05 15:05:03] Security audit script finished (duration: 0s, exit: 127)
+running weekly-security-audit at 2026-07-05 08:05 PDT (America/Los_Angeles, aero pre-flight: DAL939 from KLAX)

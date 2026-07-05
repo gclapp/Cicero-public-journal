@@ -2,12 +2,18 @@
 """
 Whoop Health Alerts - Monitors recovery, HRV, sleep, and strain
 Sends alerts when thresholds are breached
+Flock locking: prevents overlapping runs
 """
 
 import json
+import sys
 import requests
 from pathlib import Path
 from datetime import datetime, timedelta
+
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
 
 # Config
 TOKEN_FILE = Path.home() / '.whoop_token'
@@ -282,4 +288,8 @@ def main():
     print("Done.")
 
 if __name__ == '__main__':
-    main()
+    try:
+        with acquire_lock("whoop-alerts"):
+            main()
+    except LockHeldError:
+        print("[whoop-alerts] Lock held by another instance, skipping")

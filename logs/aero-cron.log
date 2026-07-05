@@ -1,0 +1,105 @@
+[2026-07-05 04:00:03] === Aero Travel Manager Starting ===
+[2026-07-05 04:00:04] ✅ FlightAware client initialized
+[2026-07-05 04:00:04] ======================================================================
+[2026-07-05 04:00:04] Aero Travel Manager: Creating Travel Tasks
+[2026-07-05 04:00:04] 2026-07-05 04:00:04
+[2026-07-05 04:00:04] ======================================================================
+[2026-07-05 04:00:04] Calendar loaded: 100 events
+[2026-07-05 04:00:04]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-07-05 04:00:04]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-07-05 04:00:04] Found 20 travel events in next 60 days
+[2026-07-05 04:00:04] Grouped into 2 trips
+[2026-07-05 04:00:04] 
+[2026-07-05 04:00:10] Found 14 existing tasks
+[2026-07-05 04:00:10] 
+[2026-07-05 04:00:10]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-07-05 04:00:10]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-07-05 04:00:10] ======================================================================
+[2026-07-05 04:00:10] SUMMARY: Created 0 tasks for 2 trips
+[2026-07-05 04:00:10] ======================================================================
+[2026-07-05 04:00:10] ======================================================================
+[2026-07-05 04:00:10] Aero: Day-of-Travel Monitoring
+[2026-07-05 04:00:10] ======================================================================
+[2026-07-05 04:00:10] 
+✈️ Checking DL939 on 2026-07-05 11:20
+[2026-07-05 04:00:10]   Status: scheduled
+[2026-07-05 04:00:10]   Gate: 30A
+[2026-07-05 04:00:10]   Terminal: N/A
+[2026-07-05 04:00:10]   Delay: 0 minutes
+[2026-07-05 04:00:10]   ✓ No changes detected
+[2026-07-05 04:00:10] 
+======================================================================
+[2026-07-05 04:00:10] Summary: 1 flights checked, 0 alerts sent
+[2026-07-05 04:00:10] ======================================================================
+[2026-07-05 04:00:11] ✅ Aero completed successfully
+running aero-travel-evening at 2026-07-04 21:00 PDT (America/Los_Angeles, default home timezone)
+[2026-07-05 16:00:04] === Aero Travel Manager Starting ===
+[2026-07-05 16:00:05] ✅ FlightAware client initialized
+[2026-07-05 16:00:05] ======================================================================
+[2026-07-05 16:00:05] Aero Travel Manager: Creating Travel Tasks
+[2026-07-05 16:00:05] 2026-07-05 16:00:05
+[2026-07-05 16:00:05] ======================================================================
+[2026-07-05 16:00:05] Calendar loaded: 100 events
+[2026-07-05 16:00:06]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-07-05 16:00:06]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-07-05 16:00:06] Found 20 travel events in next 60 days
+[2026-07-05 16:00:06] Grouped into 2 trips
+[2026-07-05 16:00:06] 
+[2026-07-05 16:00:11] Found 14 existing tasks
+[2026-07-05 16:00:11] 
+[2026-07-05 16:00:11]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-07-05 16:00:11]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-07-05 16:00:11] ======================================================================
+[2026-07-05 16:00:11] SUMMARY: Created 0 tasks for 2 trips
+[2026-07-05 16:00:11] ======================================================================
+[2026-07-05 16:00:11] ======================================================================
+[2026-07-05 16:00:11] Aero: Day-of-Travel Monitoring
+[2026-07-05 16:00:11] ======================================================================
+[2026-07-05 16:00:11] 
+✈️ Checking DL939 on 2026-07-05 11:20
+[2026-07-05 16:00:11]   Status: cancelled
+[2026-07-05 16:00:11]   Gate: 32A
+[2026-07-05 16:00:11]   Terminal: N/A
+[2026-07-05 16:00:11]   Delay: 20 minutes
+[2026-07-05 16:00:11]   ✓ No changes detected
+[2026-07-05 16:00:11] 
+======================================================================
+[2026-07-05 16:00:11] Summary: 1 flights checked, 0 alerts sent
+[2026-07-05 16:00:11] ======================================================================
+[2026-07-05 16:00:11] ✅ Aero completed successfully
+running aero-travel-morning at 2026-07-05 09:00 PDT (America/Los_Angeles, aero pre-flight: DAL939 from KLAX)
+[2026-07-05 16:05:03] === Aero Travel Manager Starting ===
+[2026-07-05 16:05:03] ✅ FlightAware client initialized
+[2026-07-05 16:05:03] ======================================================================
+[2026-07-05 16:05:03] Aero Travel Manager: Creating Travel Tasks
+[2026-07-05 16:05:03] 2026-07-05 16:05:03
+[2026-07-05 16:05:03] ======================================================================
+[2026-07-05 16:05:03] Calendar loaded: 100 events
+[2026-07-05 16:05:03]   Skipping non-Geoff placeholder: Mackenzie Hotel (US Grant, San Diego)
+[2026-07-05 16:05:03]   Skipping non-Geoff placeholder: Stay at The US Grant, a Luxury Collection Hotel, San Diego
+[2026-07-05 16:05:03] Found 20 travel events in next 60 days
+[2026-07-05 16:05:03] Grouped into 2 trips
+[2026-07-05 16:05:03] 
+[2026-07-05 16:05:05] Found 14 existing tasks
+[2026-07-05 16:05:05] 
+[2026-07-05 16:05:05]   ✓ Trip already processed (state): Tasks for Tahoe Trip on Jul 05 - DL939 GH5NZL
+[2026-07-05 16:05:05]   ✓ Trip already processed (state): Tasks for San Francisco Trip on Aug 06 - DL1559
+[2026-07-05 16:05:05] ======================================================================
+[2026-07-05 16:05:05] SUMMARY: Created 0 tasks for 2 trips
+[2026-07-05 16:05:05] ======================================================================
+[2026-07-05 16:05:05] ======================================================================
+[2026-07-05 16:05:05] Aero: Day-of-Travel Monitoring
+[2026-07-05 16:05:05] ======================================================================
+[2026-07-05 16:05:05] 
+✈️ Checking DL939 on 2026-07-05 11:20
+[2026-07-05 16:05:05]   Status: cancelled
+[2026-07-05 16:05:05]   Gate: 32A
+[2026-07-05 16:05:05]   Terminal: N/A
+[2026-07-05 16:05:05]   Delay: 20 minutes
+[2026-07-05 16:05:05]   ✓ No changes detected
+[2026-07-05 16:05:05] 
+======================================================================
+[2026-07-05 16:05:05] Summary: 1 flights checked, 0 alerts sent
+[2026-07-05 16:05:05] ======================================================================
+[2026-07-05 16:05:05] ✅ Aero completed successfully
+running aero-travel-morning at 2026-07-05 09:05 PDT (America/Los_Angeles, aero pre-flight: DAL939 from KLAX)

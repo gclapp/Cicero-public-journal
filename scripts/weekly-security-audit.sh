@@ -2,8 +2,14 @@
 # Weekly Security Audit Report
 # Runs every Sunday at 8 AM Pacific
 # Sends summary email to [REDACTED]
+# Flock locking: prevents overlapping runs
 
 # Don't use set -e as we handle errors explicitly and always want to email a report.
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "weekly-security-audit" || exit 0
+setup_lock_cleanup
 
 WORKSPACE="/home/ubuntu/.openclaw/workspace"
 DATE=$(date +%Y-%m-%d)

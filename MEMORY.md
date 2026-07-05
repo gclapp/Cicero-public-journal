@@ -183,3 +183,45 @@ OAuth/auth setup alone is not complete. A real integration needs:
   - Raise OpenClaw bootstrap limits: fastest, but increases token cost and can still clip under large sessions.
   - More aggressive topic-file split: best long-term; keeps startup responsive.
   - Dedicated memory curator cron: useful, but only after this manual index pattern proves stable.
+
+## Operating Standards
+
+### Cron Job Flock Locking (MANDATORY DEFAULT)
+**Rule:** All long-running cron jobs MUST use flock locking to prevent overlapping executions.
+
+**What is flock locking?**
+`flock` (file lock) is a Linux system call that provides advisory locking on files. When a script acquires a lock, any subsequent attempt to run the same script will either wait or exit gracefully instead of creating multiple overlapping instances. This prevents:
+- Race conditions when the same job triggers before the previous run finishes
+- Resource exhaustion from piled-up processes
+- Data corruption from concurrent file/database writes
+- Log spam from duplicate job output
+
+**Implementation:**
+- **Bash scripts:** Source `scripts/flock_utils.sh` and call `acquire_lock "script-name" || exit 0`
+- **Python scripts:** Import `scripts/flock_utils.py` and use `with acquire_lock("script-name"):`
+- Lock directory: `/tmp/openclaw-locks/`
+- Lock files are automatically cleaned up on script exit
+
+**Jobs now protected:**
+- `daily-competitor-report-v3.sh` — Competitive intelligence
+- `watch-hunt-cron.sh` — Watch hunt automation
+- `aero_travel_cron.sh` / `aero_monitor_cron.sh` — Travel management
+- `progyny-intel-cron.sh` — Progyny intelligence
+- `weekly-security-audit.sh` — Security reports
+- `daily-github-sync.sh` — Git synchronization
+- `imap-check-cron.sh` — Email checking
+- `disk-monitor.sh` — Disk monitoring
+- `reddit-weekly-report.sh` — Reddit sentiment
+- `token_auto_refresh_v2.py` — Token refresh
+- `api_health_monitor.py` — API health checks
+- `model_fallback_monitor.py` — Model fallback tracking
+- `telegram_health_monitor.py` — Telegram health
+- `whoop_alerts.py` / `whoop_daily_fetch.py` — Whoop data
+- `heartbeat_sender.py` — Check-in emails
+- `fetch_stock_data.py` — Stock data
+- `calendar_reader.py` — Calendar sync
+- `coach_engine.py` (Vitus) — Health coaching
+- `loseit_integration.py` — Nutrition sync
+- `whoop_token_monitor.py` — Token monitoring
+
+**When creating new cron jobs:** Always add flock locking. Use the existing patterns in `scripts/flock_utils.sh` and `scripts/flock_utils.py`.

@@ -1,6 +1,12 @@
 #!/bin/bash
 # disk-monitor.sh - Monitor disk usage and alert when above threshold
 # Runs hourly via cron, logs to workspace/logs/, sends email alerts
+# Flock locking: prevents overlapping runs
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "disk-monitor" || exit 0
+setup_lock_cleanup
 
 THRESHOLD=60
 LOG_DIR="/home/ubuntu/.openclaw/workspace/logs"

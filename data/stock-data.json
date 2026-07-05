@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-05T03:30:08.628584",
+  "timestamp": "2026-07-05T22:05:03.349129",
   "stocks": {
     "PGNY": {
       "symbol": "PGNY",
@@ -7,7 +7,7 @@
       "change": 30.22,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:08.749316",
+      "timestamp": "2026-07-05T22:05:03.449998",
       "change_30d": {
         "price_30d_ago": 25.68,
         "change": 4.539999999999999,
@@ -21,7 +21,7 @@
       "change": 308.63,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:08.865791",
+      "timestamp": "2026-07-05T22:05:03.605561",
       "change_30d": {
         "price_30d_ago": 312.33,
         "change": -3.6999999999999886,
@@ -35,7 +35,7 @@
       "change": 194.83,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:09.010927",
+      "timestamp": "2026-07-05T22:05:03.707756",
       "change_30d": {
         "price_30d_ago": 212.36,
         "change": -17.53,
@@ -49,7 +49,7 @@
       "change": 22.39,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:09.073946",
+      "timestamp": "2026-07-05T22:05:03.769355",
       "change_30d": {
         "price_30d_ago": 18.1,
         "change": 4.289999999999999,
@@ -63,7 +63,7 @@
       "change": 368.76,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:09.242828",
+      "timestamp": "2026-07-05T22:05:03.967150",
       "change_30d": {
         "price_30d_ago": 371.47,
         "change": -2.7100000000000364,
@@ -79,7 +79,7 @@
       "change": 7483.24,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:09.369880"
+      "timestamp": "2026-07-05T22:05:04.030842"
     },
     "Dow Jones": {
       "symbol": "^DJI",
@@ -87,7 +87,7 @@
       "change": 52900.07,
       "change_percent": 0,
       "previous_close": 0,
-      "timestamp": "2026-07-05T03:30:09.429776"
+      "timestamp": "2026-07-05T22:05:04.114541"
     }
   }
 }

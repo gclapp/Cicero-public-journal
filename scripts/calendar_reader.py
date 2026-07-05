@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Calendar Reader - Device Auth Flow (No Browser Required)
+Flock locking: prevents overlapping runs
 """
 
 import os
@@ -14,6 +15,10 @@ from google.auth.exceptions import RefreshError
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
+
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
 
 CREDENTIALS_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-credentials.json"
 TOKEN_FILE = Path.home() / ".openclaw" / "credentials" / "calendar-token.pickle"
@@ -262,4 +267,8 @@ def main():
         print(f"\n💾 Saved to: {output_file}")
 
 if __name__ == "__main__":
-    main()
+    try:
+        with acquire_lock("calendar-reader"):
+            main()
+    except LockHeldError:
+        print("[calendar-reader] Lock held by another instance, skipping")

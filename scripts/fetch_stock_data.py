@@ -5,9 +5,14 @@ Run daily before morning check-in
 """
 
 import json
+import sys
 import urllib.request
 from pathlib import Path
 from datetime import datetime, timedelta
+
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
 
 DATA_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "stock-data.json"
 HISTORY_FILE = Path.home() / ".openclaw" / "workspace" / "data" / "stock-history.json"
@@ -268,26 +273,28 @@ def get_detailed_summary():
     return summary
 
 if __name__ == "__main__":
-    import sys
-    
-    # Check if --summary flag passed (for check-ins, use clean format)
-    is_summary = '--summary' in sys.argv
-    
-    # Fetch data (verbose only if not summary mode)
-    if not is_summary:
-        print("Fetching stock data with 30-day history...")
-    results = fetch_all_stocks(verbose=not is_summary)
-    
-    if is_summary:
-        # Clean format for check-in emails - just the essential data
-        print(get_stock_summary())
-    else:
-        # Full format for manual runs
-        print("\n" + "="*50)
-        print("Stock summary for check-in:")
-        print("="*50)
-        print(get_stock_summary())
-        print("\n" + "="*50)
-        print("Detailed summary:")
-        print("="*50)
-        print(get_detailed_summary())
+    try:
+        with acquire_lock("fetch-stock-data"):
+            # Check if --summary flag passed (for check-ins, use clean format)
+            is_summary = '--summary' in sys.argv
+            
+            # Fetch data (verbose only if not summary mode)
+            if not is_summary:
+                print("Fetching stock data with 30-day history...")
+            results = fetch_all_stocks(verbose=not is_summary)
+            
+            if is_summary:
+                # Clean format for check-in emails - just the essential data
+                print(get_stock_summary())
+            else:
+                # Full format for manual runs
+                print("\n" + "="*50)
+                print("Stock summary for check-in:")
+                print("="*50)
+                print(get_stock_summary())
+                print("\n" + "="*50)
+                print("Detailed summary:")
+                print("="*50)
+                print(get_detailed_summary())
+    except LockHeldError:
+        print("[fetch-stock-data] Lock held by another instance, skipping")

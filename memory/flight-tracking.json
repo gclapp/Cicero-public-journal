@@ -1,0 +1,35 @@
+{
+  "trip": "Scottsdale to Portland",
+  "date": "2026-02-25",
+  "flights": [
+    {
+      "airline": "Delta",
+      "flightNumber": "DL2130",
+      "route": "PHX-SLC",
+      "status": "scheduled",
+      "departure": null,
+      "arrival": null,
+      "gate": null,
+      "terminal": null,
+      "lastChecked": null,
+      "alerts": []
+    },
+    {
+      "airline": "Delta",
+      "flightNumber": "DL1373",
+      "route": "SLC-PDX",
+      "status": "scheduled",
+      "departure": null,
+      "arrival": null,
+      "gate": null,
+      "terminal": null,
+      "lastChecked": null,
+      "alerts": []
+    }
+  ],
+  "monitoring": {
+    "active": true,
+    "checkFrequency": "every 4 hours starting 12 hours before departure",
+    "alertOn": ["delay", "cancellation", "gate_change", "significant_schedule_change"]
+  }
+}

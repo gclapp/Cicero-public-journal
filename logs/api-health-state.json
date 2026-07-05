@@ -1,8 +1,11 @@
 {
-  "error_counts": {},
-  "last_alert": {
-    "openai": "2026-07-05T05:20:04.591754",
-    "moonshot": "2026-07-05T05:20:05.864434"
+  "failure_counts": {
+    "openai": 0,
+    "moonshot": 0
   },
-  "first_seen": {}
+  "last_alert": {},
+  "last_status": {
+    "openai": "healthy",
+    "moonshot": "healthy"
+  }
 }

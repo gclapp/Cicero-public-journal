@@ -1,0 +1,48 @@
+{
+  "people": [
+    {
+      "name": "Grace Keers",
+      "birthday": "07-22",
+      "halfBirthday": "01-22",
+      "relationship": "girlfriend",
+      "currentYearGift": {
+        "reminderSent": null,
+        "giftConfirmed": false,
+        "giftDescription": null
+      }
+    },
+    {
+      "name": "Mackenzie Clapp",
+      "birthday": "04-26",
+      "halfBirthday": "10-26",
+      "relationship": "oldest daughter",
+      "currentYearGift": {
+        "reminderSent": null,
+        "giftConfirmed": false,
+        "giftDescription": null
+      }
+    },
+    {
+      "name": "Oliver Clapp",
+      "birthday": "12-21",
+      "halfBirthday": "06-21",
+      "relationship": "son",
+      "currentYearGift": {
+        "reminderSent": null,
+        "giftConfirmed": false,
+        "giftDescription": null
+      }
+    },
+    {
+      "name": "Sophie Clapp",
+      "birthday": "09-25",
+      "halfBirthday": "03-25",
+      "relationship": "youngest daughter",
+      "currentYearGift": {
+        "reminderSent": null,
+        "giftConfirmed": false,
+        "giftDescription": null
+      }
+    }
+  ]
+}

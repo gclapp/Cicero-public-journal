@@ -2,14 +2,20 @@
 """
 Vitus 2.0 - World-Class Health Coaching Engine
 Gripping, actionable, visual coaching with color-coded risk levels
+Flock locking: prevents overlapping runs
 """
 
 import json
 import re
+import sys
 from pathlib import Path
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, asdict
+
+# Add workspace scripts for flock utilities
+sys.path.insert(0, str(Path.home() / '.openclaw' / 'workspace' / 'scripts'))
+from flock_utils import acquire_lock, LockHeldError
 
 from health_monitor import VitusHealthMonitor
 from data_collection import VitusDataCollection
@@ -1683,7 +1689,7 @@ class VitusCoachEngine:
         return result.returncode == 0
 
 
-if __name__ == '__main__':
+def main():
     import sys
     coach = VitusCoachEngine()
     
@@ -1715,3 +1721,11 @@ if __name__ == '__main__':
     else:
         briefing = coach.generate_morning_briefing()
         print(briefing)
+
+
+if __name__ == '__main__':
+    try:
+        with acquire_lock("vitus-coach-engine"):
+            main()
+    except LockHeldError:
+        print("[vitus-coach-engine] Lock held by another instance, skipping")

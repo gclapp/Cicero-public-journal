@@ -1,20 +1,18 @@
 {
-  "timestamp": "2026-07-05T06:51:06.171115",
+  "timestamp": "2026-07-05T20:54:49.685389",
   "checks": {
     "todoist": {
       "status": "ok",
       "tasks": 50
     },
     "calendar": {
-      "status": "auth_error",
-      "error": "Calendar auth token expired or revoked",
-      "action_required": true,
-      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&code_challenge=TFy0ZSv6rYC80nyhK2A8Gr8sYMQFYvPqafoO1d114JU&code_challenge_method=S256&prompt=consent&access_type=offline"
+      "status": "ok",
+      "token_age_days": 0
     },
     "weather_skill": {
       "status": "ok"
     },
-    "weather_data": "los angeles: \ud83c\udf2b\ufe0f 67\u00b0F 81% \u21976mph",
+    "weather_data": "los angeles: \u2600\ufe0f 83\u00b0F 45% \u21978mph",
     "whoop": {
       "status": "configured"
     },
@@ -47,77 +45,71 @@
       "issues": [],
       "memory": {
         "total_mib": 7804.0,
-        "available_mib": 6025.0,
-        "available_pct": 77.2
+        "available_mib": 6068.5,
+        "available_pct": 77.8
       },
       "swap": {
         "total_mib": 2048.0,
-        "free_mib": 2048.0,
-        "used_pct": 0.0
+        "free_mib": 2022.9,
+        "used_pct": 1.2
       },
       "dns_ok": true,
       "dns_error": null,
       "openclaw_running": true,
-      "openclaw_rss_mib": 806.0,
+      "openclaw_rss_mib": 797.1,
       "recent_events": [],
       "top_memory_processes": [
         {
-          "pid": "5454",
+          "pid": "873832",
           "command": "node",
-          "rss_mib": 806.0,
+          "rss_mib": 797.1,
           "args": "/usr/bin/node /home/ubuntu/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789"
-        },
-        {
-          "pid": "10414",
-          "command": "codex",
-          "rss_mib": 87.7,
-          "args": "/home/ubuntu/.openclaw/npm/projects/openclaw-codex-8902d781d4/node_modules/@openclaw/codex/node_modules/@openai/codex-linux-arm64/vendor/aarch64-unknown-linux-musl/bin/codex app-se"
         },
         {
           "pid": "1005",
           "command": "node",
-          "rss_mib": 78.3,
+          "rss_mib": 72.7,
           "args": "node /home/ubuntu/.npm-global/bin/ob sync --path /home/ubuntu/Obsidian/geoffclapp --continuous"
-        },
-        {
-          "pid": "1092",
-          "command": "dockerd",
-          "rss_mib": 61.5,
-          "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
-        },
-        {
-          "pid": "185566",
-          "command": "fail2ban-server",
-          "rss_mib": 50.9,
-          "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
         },
         {
           "pid": "154",
           "command": "systemd-journal",
-          "rss_mib": 44.2,
+          "rss_mib": 61.2,
           "args": "/usr/lib/systemd/systemd-journald"
         },
         {
-          "pid": "537147",
-          "command": "snapd",
-          "rss_mib": 40.5,
-          "args": "/snap/snapd/current/usr/lib/snapd/snapd"
+          "pid": "185566",
+          "command": "fail2ban-server",
+          "rss_mib": 52.8,
+          "args": "/usr/bin/python3 /usr/bin/fail2ban-server -xf start"
+        },
+        {
+          "pid": "1092",
+          "command": "dockerd",
+          "rss_mib": 47.9,
+          "args": "/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock"
         },
         {
           "pid": "1355",
           "command": "gunicorn",
-          "rss_mib": 39.9,
+          "rss_mib": 39.7,
+          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
+        },
+        {
+          "pid": "1390",
+          "command": "gunicorn",
+          "rss_mib": 36.4,
+          "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
+        },
+        {
+          "pid": "1347",
+          "command": "gunicorn",
+          "rss_mib": 36.3,
           "args": "/home/ubuntu/.openclaw/workspace/resy-system/venv/bin/python3 /home/ubuntu/.openclaw/workspace/resy-system/venv/bin/gunicorn -c gunicorn.conf.py app:app"
         }
       ],
       "action_required": false
     }
   },
-  "action_required": [
-    {
-      "service": "calendar",
-      "error": "Calendar auth token expired or revoked",
-      "auth_url": "https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=[REDACTED]&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&code_challenge=TFy0ZSv6rYC80nyhK2A8Gr8sYMQFYvPqafoO1d114JU&code_challenge_method=S256&prompt=consent&access_type=offline"
-    }
-  ]
+  "action_required": []
 }

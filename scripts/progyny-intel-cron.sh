@@ -1,8 +1,14 @@
 #!/bin/bash
 # Progyny Intelligence Daily Cron
 # Runs daily to collect and store Progyny mentions
+# Flock locking: prevents overlapping runs
 
 set -euo pipefail
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "progyny-intel" || exit 0
+setup_lock_cleanup
 
 cd /home/ubuntu/.openclaw/workspace
 

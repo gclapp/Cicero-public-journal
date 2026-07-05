@@ -69,6 +69,21 @@ bash scripts/cron-backup.sh restore
 ```
 - Current critical crons include heartbeat, watch hunt, calendar refresh, IMAP, competitor report, security audit, Reddit report, weekly email, stock tracker, token health, Whoop refresh/monitor, Vitus briefings, model fallback monitor, Aero travel.
 
+### Flock Locking (MANDATORY for Long-Running Jobs)
+**What:** `flock` (file lock) is a Linux advisory locking mechanism that prevents overlapping script executions.
+
+**Why:** Prevents race conditions, resource exhaustion, and data corruption when cron jobs overlap.
+
+**How:**
+- **Bash scripts:** `source "$(dirname "$0")/flock_utils.sh" && acquire_lock "script-name" || exit 0`
+- **Python scripts:** `from flock_utils import acquire_lock; with acquire_lock("script-name"):`
+
+**Utilities:**
+- Bash: `scripts/flock_utils.sh` — `acquire_lock()`, `acquire_lock_wait()`, `release_lock()`
+- Python: `scripts/flock_utils.py` — `acquire_lock()`, `FlockLock`, `@with_flock` decorator
+
+**Applied to:** All long-running cron jobs (competitor report, watch hunt, token refresh, health monitors, travel systems, GitHub sync, security audits, etc.)
+
 ## Calendar / Travel
 - Calendar refresh: `scripts/calendar_reader.py`, daily before morning check-in.
 - Cached events: `config/calendar-events.json`.

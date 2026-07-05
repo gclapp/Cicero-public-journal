@@ -1,0 +1,46 @@
+[2026-07-05 18:14:31] [INFO] ======================================================================
+[2026-07-05 18:14:31] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-07-05 18:14:31] [INFO] ======================================================================
+[2026-07-05 18:14:31] [INFO] Attempting to refresh Calendar token...
+[2026-07-05 18:14:31] [ERROR] ❌ Calendar token refresh failed: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})
+[2026-07-05 18:14:32] [INFO] GitHub token scopes: repo, write:packages
+[2026-07-05 18:14:32] [INFO] ----------------------------------------------------------------------
+[2026-07-05 18:14:32] [INFO] Calendar: ❌ Token refresh failed - manual re-auth required
+[2026-07-05 18:14:32] [INFO] Whoop: ✅ Token valid
+[2026-07-05 18:14:32] [INFO] GitHub: ✅ Token valid (gclapp)
+[2026-07-05 18:14:32] [INFO] ----------------------------------------------------------------------
+[2026-07-05 18:14:32] [INFO] 🚨 Sending alert for 1 failed service(s)...
+[2026-07-05 18:14:33] [SUCCESS] ✅ Alert email sent to [REDACTED]
+[2026-07-05 18:14:33] [INFO] Summary: 2 healthy, 1 failed
+[2026-07-05 18:14:33] [INFO] Services: Calendar (❌), Whoop (✅), GitHub (✅)
+[2026-07-05 18:14:33] [INFO] ======================================================================
+[2026-07-05 18:16:48] [INFO] ======================================================================
+[2026-07-05 18:16:48] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-07-05 18:16:48] [INFO] ======================================================================
+[2026-07-05 18:16:48] [INFO] Attempting to refresh Calendar token...
+[2026-07-05 18:16:49] [ERROR] ❌ Calendar token refresh failed: ('invalid_grant: Token has been expired or revoked.', {'error': 'invalid_grant', 'error_description': 'Token has been expired or revoked.'})
+[2026-07-05 18:16:49] [INFO] GitHub token scopes: repo, write:packages
+[2026-07-05 18:16:49] [INFO] ----------------------------------------------------------------------
+[2026-07-05 18:16:49] [INFO] Calendar: ❌ Token refresh failed - manual re-auth required
+[2026-07-05 18:16:49] [INFO] Whoop: ✅ Token valid
+[2026-07-05 18:16:49] [INFO] GitHub: ✅ Token valid (gclapp)
+[2026-07-05 18:16:49] [INFO] ----------------------------------------------------------------------
+[2026-07-05 18:16:49] [INFO] 🚨 Sending alert for 1 failed service(s)...
+[2026-07-05 18:16:50] [SUCCESS] ✅ Alert email sent to [REDACTED]
+[2026-07-05 18:16:50] [INFO] Summary: 2 healthy, 1 failed
+[2026-07-05 18:16:50] [INFO] Services: Calendar (❌), Whoop (✅), GitHub (✅)
+[2026-07-05 18:16:50] [INFO] ======================================================================
+[2026-07-05 18:19:06] [INFO] ======================================================================
+[2026-07-05 18:19:06] [INFO] TOKEN HEALTH MONITOR - Starting check
+[2026-07-05 18:19:06] [INFO] ======================================================================
+[2026-07-05 18:19:06] [INFO] Attempting to refresh Calendar token...
+[2026-07-05 18:19:06] [SUCCESS] ✅ Calendar token refreshed successfully
+[2026-07-05 18:19:07] [INFO] GitHub token scopes: repo, write:packages
+[2026-07-05 18:19:07] [INFO] ----------------------------------------------------------------------
+[2026-07-05 18:19:07] [INFO] Calendar: ✅ Token auto-refreshed successfully
+[2026-07-05 18:19:07] [INFO] Whoop: ✅ Token valid
+[2026-07-05 18:19:07] [INFO] GitHub: ✅ Token valid (gclapp)
+[2026-07-05 18:19:07] [INFO] ----------------------------------------------------------------------
+[2026-07-05 18:19:07] [INFO] Summary: 3 healthy, 0 failed
+[2026-07-05 18:19:07] [INFO] Services: Calendar (✅), Whoop (✅), GitHub (✅)
+[2026-07-05 18:19:07] [INFO] ======================================================================

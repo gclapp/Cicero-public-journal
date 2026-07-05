@@ -20,6 +20,10 @@ from pathlib import Path
 # Add workspace to path for imports
 sys.path.insert(0, '/home/ubuntu/.openclaw/workspace')
 
+# Add script directory for flock utilities
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
+
 TODOIST_PATH = '/home/ubuntu/.npm-global/bin/todoist'
 
 from scripts.user_timezone import local_now, resolve_timezone
@@ -1545,4 +1549,8 @@ def main():
     )
 
 if __name__ == "__main__":
-    main()
+    try:
+        with acquire_lock("heartbeat-sender"):
+            main()
+    except LockHeldError:
+        print("[heartbeat-sender] Lock held by another instance, skipping")

@@ -2,15 +2,22 @@
 """
 Whoop Daily Data Fetcher - Fetches all Whoop data and saves to file
 Run via cron daily at 7:30 AM PT
+Flock locking: prevents overlapping runs
 """
 
 import requests
 import json
 import os
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
+
 TOKEN_FILE = Path.home() / '.whoop_token'
+REFRESH_TOKEN_FILE = Path.home() / '.whoop_refresh_token'
 DATA_DIR = Path.home() / '.openclaw' / 'workspace' / 'data' / 'whoop'
 LOG_FILE = Path.home() / '.openclaw' / 'workspace' / 'logs' / 'whoop-fetch.log'
 
@@ -25,6 +32,44 @@ def get_token():
         return TOKEN_FILE.read_text().strip()
     return os.getenv('WHOOP_API_TOKEN', '')
 
+def refresh_token():
+    """Refresh expired access token using refresh token"""
+    if not REFRESH_TOKEN_FILE.exists():
+        log('❌ No refresh token found')
+        return False
+    
+    refresh_token_val = REFRESH_TOKEN_FILE.read_text().strip()
+    if not refresh_token_val:
+        log('❌ Refresh token is empty')
+        return False
+    
+    try:
+        data = {
+            "grant_type": "refresh_token",
+            "refresh_token": refresh_token_val
+        }
+        
+        response = requests.post("https://api.prod.whoop.com/oauth/oauth2/token", data=data)
+        
+        if response.status_code == 200:
+            token_data = response.json()
+            new_access_token = token_data.get("access_token")
+            new_refresh_token = token_data.get("refresh_token")
+            
+            TOKEN_FILE.write_text(new_access_token)
+            if new_refresh_token:
+                REFRESH_TOKEN_FILE.write_text(new_refresh_token)
+            
+            log('✅ Whoop token auto-refreshed successfully')
+            return True
+        else:
+            log(f'❌ Token refresh failed: {response.status_code} - {response.text[:200]}')
+            return False
+            
+    except Exception as e:
+        log(f'❌ Error refreshing token: {e}')
+        return False
+
 def fetch_whoop_data():
     token = get_token()
     if not token:
@@ -37,6 +82,17 @@ def fetch_whoop_data():
     try:
         # Fetch recovery (most recent 7 days)
         recovery_resp = requests.get(f'{BASE_URL}/recovery', headers=headers, params={'limit': 7})
+        
+        # If 401, try to refresh token and retry
+        if recovery_resp.status_code == 401:
+            log('🔄 Token expired (401), attempting auto-refresh...')
+            if refresh_token():
+                token = get_token()
+                headers = {'Authorization': f'Bearer {token}'}
+                recovery_resp = requests.get(f'{BASE_URL}/recovery', headers=headers, params={'limit': 7})
+            else:
+                raise ValueError("Token refresh failed")
+        
         recovery_resp.raise_for_status()
         recovery_data = recovery_resp.json()
         
@@ -137,9 +193,13 @@ def save_data(data):
     return True
 
 if __name__ == '__main__':
-    log('Starting Whoop daily fetch...')
-    data = fetch_whoop_data()
-    if data:
-        save_data(data)
-    else:
-        log('❌ Failed to fetch Whoop data')
+    try:
+        with acquire_lock("whoop-daily-fetch"):
+            log('Starting Whoop daily fetch...')
+            data = fetch_whoop_data()
+            if data:
+                save_data(data)
+            else:
+                log('❌ Failed to fetch Whoop data')
+    except LockHeldError:
+        print("[whoop-daily-fetch] Lock held by another instance, skipping")

@@ -2,8 +2,14 @@
 # Weekly Reddit Sentiment Report
 # Runs every Sunday at 9 AM Pacific
 # Generates competitive intelligence report comparing to baseline
+# Flock locking: prevents overlapping runs
 
 set -e
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "reddit-weekly-report" || exit 0
+setup_lock_cleanup
 
 WORKSPACE="/home/ubuntu/.openclaw/workspace"
 REPORTS_DIR="$WORKSPACE/reports"

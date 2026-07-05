@@ -3,6 +3,7 @@
 Model Fallback Monitor
 Tracks when OpenClaw falls back to backup models and sends email alerts
 Run this every 5 minutes via cron to detect fallback events
+Flock locking: prevents overlapping runs
 """
 
 import json
@@ -12,6 +13,10 @@ from pathlib import Path
 from datetime import datetime, timedelta
 import subprocess
 import re
+
+# Add script directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent))
+from flock_utils import acquire_lock, LockHeldError
 
 # Configuration
 LOG_FILE = Path.home() / ".openclaw" / "workspace" / "logs" / "model-fallbacks.json"
@@ -344,4 +349,8 @@ def main():
         save_fallback_log(data)
 
 if __name__ == "__main__":
-    main()
+    try:
+        with acquire_lock("model-fallback-monitor"):
+            main()
+    except LockHeldError:
+        print("[model-fallback-monitor] Lock held by another instance, skipping")

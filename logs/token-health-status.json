@@ -1,15 +1,15 @@
 {
-  "last_check": "2026-06-24T17:19:00.506522",
+  "last_check": "2026-07-05T18:19:07.295776",
   "results": {
     "calendar": {
       "service": "calendar",
       "name": "Google Calendar",
-      "status": "refresh_failed",
-      "valid": false,
+      "status": "refreshed",
+      "valid": true,
       "expires_soon": false,
-      "action_required": true,
-      "message": "\u274c Token refresh failed - manual re-auth required",
-      "checked_at": "2026-06-24T17:18:58.317521"
+      "action_required": false,
+      "message": "\u2705 Token auto-refreshed successfully",
+      "checked_at": "2026-07-05T18:19:06.621396"
     },
     "whoop": {
       "service": "whoop",
@@ -19,7 +19,7 @@
       "expires_soon": false,
       "action_required": false,
       "message": "\u2705 Token valid",
-      "checked_at": "2026-06-24T17:18:58.874719"
+      "checked_at": "2026-07-05T18:19:06.927501"
     },
     "github": {
       "service": "github",
@@ -29,7 +29,7 @@
       "expires_soon": false,
       "action_required": false,
       "message": "\u2705 Token valid (gclapp)",
-      "checked_at": "2026-06-24T17:18:59.029493"
+      "checked_at": "2026-07-05T18:19:07.070864"
     }
   }
 }

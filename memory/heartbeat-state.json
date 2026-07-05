@@ -1,0 +1,17 @@
+{
+  "lastChecks": {
+    "morning": "2026-03-01T15:12:00Z",
+    "afternoon": null,
+    "midday": null,
+    "evening": null
+  },
+  "lastDiscussed": "Journal/memory logs should be kept up to date",
+  "timezone": "America/Los_Angeles",
+  "checkInSchedule": {
+    "morning": "06:00-07:00 (local time)",
+    "midday": "12:00-14:00",
+    "afternoon": "16:00-18:00",
+    "evening": "20:00-22:00"
+  },
+  "timezoneAdaptive": true
+}

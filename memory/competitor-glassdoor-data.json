@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "last_updated": "2026-02-23",
+  "competitors": {
+    "maven": {
+      "name": "Maven Clinic",
+      "glassdoor_url": "https://www.glassdoor.com/Overview/Working-at-Maven-Clinic-EI_IE1476173.11,23.htm",
+      "metrics_history": [
+        {
+          "date": "2026-02-23",
+          "overall_rating": 3.6,
+          "total_reviews": 224,
+          "recommend_to_friend_pct": 47,
+          "ceo_approval_pct": null,
+          "source": "scraped"
+        }
+      ]
+    },
+    "pomelo": {
+      "name": "Pomelo Health",
+      "glassdoor_url": "",
+      "metrics_history": []
+    },
+    "carrot": {
+      "name": "Carrot Fertility",
+      "glassdoor_url": "https://www.glassdoor.com/Overview/Working-at-Carrot-Fertility-EI_IE3126849.11,25.htm",
+      "metrics_history": []
+    },
+    "kindbody": {
+      "name": "Kindbody",
+      "glassdoor_url": "https://www.glassdoor.com/Overview/Working-at-Kindbody-EI_IE2588469.11,19.htm",
+      "metrics_history": []
+    },
+    "win-fertility": {
+      "name": "WIN Fertility",
+      "glassdoor_url": "https://www.glassdoor.com/Overview/Working-at-WIN-Fertility-EI_IE2588469.11,23.htm",
+      "metrics_history": []
+    },
+    "midi": {
+      "name": "Midi Health",
+      "glassdoor_url": "",
+      "metrics_history": []
+    },
+    "geneev": {
+      "name": "Gennev",
+      "glassdoor_url": "",
+      "metrics_history": []
+    },
+    "evernow": {
+      "name": "Evernow",
+      "glassdoor_url": "",
+      "metrics_history": []
+    }
+  },
+  "metrics_schema": {
+    "date": "YYYY-MM-DD",
+    "overall_rating": "number (0-5)",
+    "total_reviews": "integer",
+    "recommend_to_friend_pct": "number (0-100)",
+    "ceo_approval_pct": "number (0-100)",
+    "source": "manual|scraped|api"
+  }
+}

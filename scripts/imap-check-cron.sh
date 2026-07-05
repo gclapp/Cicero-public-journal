@@ -1,6 +1,12 @@
 #!/bin/bash
 # IMAP Email Checker - runs every 15 minutes
 # Checks [REDACTED] for new emails
+# Flock locking: prevents overlapping runs
+
+# Acquire exclusive lock to prevent overlapping runs
+source "$(dirname "$0")/flock_utils.sh"
+acquire_lock "imap-check" || exit 0
+setup_lock_cleanup
 
 SCRIPT_DIR="/home/ubuntu/.openclaw/workspace/scripts"
 LOG_FILE="/home/ubuntu/.openclaw/workspace/logs/imap-checker.log"
