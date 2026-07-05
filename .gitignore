@@ -40,4 +40,5 @@ Thumbs.db
 # Large log files
 resy-system/logs/gunicorn-error.log
 projects/*/venv/
-*.log
+*.log# Large data files
+data/cigna_mrf/
