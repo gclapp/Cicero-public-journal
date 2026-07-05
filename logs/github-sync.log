@@ -165,3 +165,9 @@ To https://github.com/gclapp/Cicero-private-backup.git
 [2026-07-05 23:06:24 UTC] Content analytics collector not installed; skipping.
 [2026-07-05 23:06:24 UTC] Daily sync complete
 ---
+[2026-07-05 23:18:01 UTC] Starting daily GitHub sync...
+[2026-07-05 23:18:01 UTC] Target repo: https://github.com/gclapp/Cicero-private-backup (private)
+Error: Working directory not clean.
+Please commit your changes or 'git stash' them before running 'git-crypt unlock'.
+[2026-07-05 23:18:01 UTC] Refreshed credentials-backup
+[2026-07-05 23:18:01 UTC] Uncommitted changes found, committing...
