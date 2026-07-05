@@ -372,1959 +372,6 @@
   "bookings": [],
   "errors": [
     {
-      "timestamp": "2026-07-03T21:01:33.313620",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /alls.php",
-      "details": {
-        "path": "/alls.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:00.143995",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/hellopress/wp_filemanager.php",
-      "details": {
-        "path": "/wp-content/plugins/hellopress/wp_filemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:00.463298",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /this_is_a_new_hello_world.php",
-      "details": {
-        "path": "/this_is_a_new_hello_world.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:00.750868",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /x.php",
-      "details": {
-        "path": "/x.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:01.037951",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /file.php",
-      "details": {
-        "path": "/file.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:01.325051",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /error_log.php",
-      "details": {
-        "path": "/error_log.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:01.611531",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /aaa.php",
-      "details": {
-        "path": "/aaa.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:01.899400",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /155.php",
-      "details": {
-        "path": "/155.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:02.186717",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /7.php",
-      "details": {
-        "path": "/7.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:02.474349",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /get.php",
-      "details": {
-        "path": "/get.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:02.762242",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /puc.php",
-      "details": {
-        "path": "/puc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:03.051656",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /222.php",
-      "details": {
-        "path": "/222.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:03.339388",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /red.php",
-      "details": {
-        "path": "/red.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:03.626742",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /term.php",
-      "details": {
-        "path": "/term.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:03.915640",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /simple.php",
-      "details": {
-        "path": "/simple.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:04.203386",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /177.php",
-      "details": {
-        "path": "/177.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:04.491141",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /1.php",
-      "details": {
-        "path": "/1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:04.779025",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /122.php",
-      "details": {
-        "path": "/122.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:05.066610",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/admin.php",
-      "details": {
-        "path": "/wp-content/admin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:05.354825",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /abcd.php",
-      "details": {
-        "path": "/abcd.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:05.642332",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp_filemanager.php",
-      "details": {
-        "path": "/wp_filemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:05.931299",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /jsstrings.php",
-      "details": {
-        "path": "/jsstrings.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:06.219207",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /k.php",
-      "details": {
-        "path": "/k.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:06.506599",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /edit.php",
-      "details": {
-        "path": "/edit.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:06.794631",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /seiso.php",
-      "details": {
-        "path": "/seiso.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:07.082255",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /themes.php",
-      "details": {
-        "path": "/themes.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:07.369562",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /cgi-bin/index.php",
-      "details": {
-        "path": "/cgi-bin/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:07.656870",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /a2.php",
-      "details": {
-        "path": "/a2.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:07.944942",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/index.php",
-      "details": {
-        "path": "/wp-content/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:08.234829",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /bless.php",
-      "details": {
-        "path": "/bless.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:08.530993",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xwpg.php",
-      "details": {
-        "path": "/xwpg.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:08.818952",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wefile.php",
-      "details": {
-        "path": "/wefile.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:09.106793",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/ID3/about.php",
-      "details": {
-        "path": "/wp-includes/ID3/about.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:09.394239",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/js/",
-      "details": {
-        "path": "/wp-admin/js/",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:09.681830",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xxx.php",
-      "details": {
-        "path": "/xxx.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:09.969679",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /fpwch.php",
-      "details": {
-        "path": "/fpwch.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:10.257360",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /footer.php",
-      "details": {
-        "path": "/footer.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:10.546480",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /f35.php",
-      "details": {
-        "path": "/f35.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:10.833853",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /about.php",
-      "details": {
-        "path": "/about.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:11.122727",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xyn.php",
-      "details": {
-        "path": "/xyn.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:11.411312",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /dx.php",
-      "details": {
-        "path": "/dx.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:11.702036",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-load.php",
-      "details": {
-        "path": "/wp-load.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:12.256089",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /biufile.php",
-      "details": {
-        "path": "/biufile.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:12.543208",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /edit.php",
-      "details": {
-        "path": "/edit.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:12.829988",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /w3lls.php",
-      "details": {
-        "path": "/w3lls.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T08:33:13.116796",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /alls.php",
-      "details": {
-        "path": "/alls.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:30:03.640541",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to fetch user reservations from Resy",
-      "details": {
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:30:37.501405",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1501",
-      "details": {
-        "venue_id": "1501",
-        "day": "2026-07-06",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:31:47.502461",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1478",
-      "details": {
-        "venue_id": "1478",
-        "day": "2026-07-06",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:34:33.180983",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1529",
-      "details": {
-        "venue_id": "1529",
-        "day": "2026-07-06",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:40:12.878535",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1505",
-      "details": {
-        "venue_id": "1505",
-        "day": "2026-07-06",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:41:48.052568",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1399",
-      "details": {
-        "venue_id": "1399",
-        "day": "2026-07-06",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:44:44.342861",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1705",
-      "details": {
-        "venue_id": "1705",
-        "day": "2026-07-06",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:48:11.765538",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1523",
-      "details": {
-        "venue_id": "1523",
-        "day": "2026-07-07",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:50:49.443635",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 58528",
-      "details": {
-        "venue_id": "58528",
-        "day": "2026-07-07",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:51:58.560685",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1727",
-      "details": {
-        "venue_id": "1727",
-        "day": "2026-07-07",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T13:53:19.647888",
-      "source": "scanner",
-      "error_type": "api_error",
-      "message": "Failed to check availability for venue 1505",
-      "details": {
-        "venue_id": "1505",
-        "day": "2026-07-07",
-        "error": "HTTP 419: UNKNOWN"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:34.371966",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/hellopress/wp_filemanager.php",
-      "details": {
-        "path": "/wp-content/plugins/hellopress/wp_filemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:34.847571",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /this_is_a_new_hello_world.php",
-      "details": {
-        "path": "/this_is_a_new_hello_world.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:35.848737",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /test1.php",
-      "details": {
-        "path": "/test1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:36.523465",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /zoom1.php",
-      "details": {
-        "path": "/zoom1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:37.187986",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /lock360.php",
-      "details": {
-        "path": "/lock360.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:37.651703",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /r.php",
-      "details": {
-        "path": "/r.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:38.158603",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /sf.php",
-      "details": {
-        "path": "/sf.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:38.622012",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /t.php",
-      "details": {
-        "path": "/t.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:39.274803",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /7.php",
-      "details": {
-        "path": "/7.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:39.793035",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /b.php",
-      "details": {
-        "path": "/b.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:40.600505",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /buy.php",
-      "details": {
-        "path": "/buy.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:41.187082",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /config.php",
-      "details": {
-        "path": "/config.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:41.693807",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /num.php",
-      "details": {
-        "path": "/num.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:42.160214",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /areak1.php",
-      "details": {
-        "path": "/areak1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:42.648415",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /vc.php",
-      "details": {
-        "path": "/vc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:43.125004",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/admin.php",
-      "details": {
-        "path": "/wp-content/plugins/admin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:43.741441",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /core.php",
-      "details": {
-        "path": "/core.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:45.071331",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/min.php",
-      "details": {
-        "path": "/wp-content/min.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:45.580928",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/beteng88/ws83.php",
-      "details": {
-        "path": "/wp-content/plugins/beteng88/ws83.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:46.046055",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ws37.php",
-      "details": {
-        "path": "/ws37.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:46.595150",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /new.php",
-      "details": {
-        "path": "/new.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:47.176984",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /il.php",
-      "details": {
-        "path": "/il.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:47.678583",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /lite.php",
-      "details": {
-        "path": "/lite.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:48.190074",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /load.php",
-      "details": {
-        "path": "/load.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:48.790871",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-themes.php",
-      "details": {
-        "path": "/wp-themes.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:49.417853",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xda.php",
-      "details": {
-        "path": "/xda.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:50.402857",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /doc.php",
-      "details": {
-        "path": "/doc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:50.996337",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /storage/index.php",
-      "details": {
-        "path": "/storage/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:51.599886",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content.php",
-      "details": {
-        "path": "/wp-content.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:52.073914",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/min.php",
-      "details": {
-        "path": "/wp-includes/min.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:52.541670",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /cache.php",
-      "details": {
-        "path": "/cache.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:53.188458",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /filemanager.php",
-      "details": {
-        "path": "/filemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:53.728413",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-blog.php",
-      "details": {
-        "path": "/wp-blog.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:54.535375",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xmlrpc.php",
-      "details": {
-        "path": "/xmlrpc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:55.099648",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /cd.php",
-      "details": {
-        "path": "/cd.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:55.761861",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /css.php",
-      "details": {
-        "path": "/css.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:56.502490",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /lu4.php",
-      "details": {
-        "path": "/lu4.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:57.103552",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ant.php",
-      "details": {
-        "path": "/ant.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:57.679994",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /autoload_classmap.php",
-      "details": {
-        "path": "/autoload_classmap.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:58.282500",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /storage/rip.php",
-      "details": {
-        "path": "/storage/rip.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:58.919488",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /tinyfilemanager.php",
-      "details": {
-        "path": "/tinyfilemanager.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:30:59.390060",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /403.php",
-      "details": {
-        "path": "/403.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:00.145490",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /av.php",
-      "details": {
-        "path": "/av.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:01.011916",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /tool.php",
-      "details": {
-        "path": "/tool.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:01.638800",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/index.php",
-      "details": {
-        "path": "/wp-admin/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:02.273623",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/core-plugin/include.php",
-      "details": {
-        "path": "/wp-content/plugins/core-plugin/include.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:02.832117",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-trackback.php",
-      "details": {
-        "path": "/wp-trackback.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:03.296251",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /0.php",
-      "details": {
-        "path": "/0.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:03.977278",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /1index.php",
-      "details": {
-        "path": "/1index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:04.486077",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /autoload_classmap/function.php",
-      "details": {
-        "path": "/autoload_classmap/function.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:05.027014",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /dvve.php",
-      "details": {
-        "path": "/dvve.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:05.593877",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/PHPMailer/",
-      "details": {
-        "path": "/wp-includes/PHPMailer/",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:06.199175",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ws77.php",
-      "details": {
-        "path": "/ws77.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:07.366919",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /admin/function.php",
-      "details": {
-        "path": "/admin/function.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:08.195345",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/css/index.php",
-      "details": {
-        "path": "/wp-admin/css/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:08.917307",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xx.php",
-      "details": {
-        "path": "/xx.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:09.479449",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/about.php",
-      "details": {
-        "path": "/wp-content/about.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:10.241862",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/assets/index.php",
-      "details": {
-        "path": "/wp-includes/assets/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:11.125284",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-the.php",
-      "details": {
-        "path": "/wp-the.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:12.066506",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ws81.php",
-      "details": {
-        "path": "/ws81.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:13.338296",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /3.php",
-      "details": {
-        "path": "/3.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:14.015370",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /a1.php",
-      "details": {
-        "path": "/a1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:14.479149",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ca5.php",
-      "details": {
-        "path": "/ca5.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:15.191892",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /install.php",
-      "details": {
-        "path": "/install.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:15.781688",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /radio.php",
-      "details": {
-        "path": "/radio.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:16.275959",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-signin.php",
-      "details": {
-        "path": "/wp-signin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:16.938913",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /Ov-Simple1.php",
-      "details": {
-        "path": "/Ov-Simple1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:17.491303",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /fm.php",
-      "details": {
-        "path": "/fm.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:17.957286",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /hplfuns.php",
-      "details": {
-        "path": "/hplfuns.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:18.957420",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /log.php",
-      "details": {
-        "path": "/log.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:19.470854",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /test.php",
-      "details": {
-        "path": "/test.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:19.952572",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /txets.php",
-      "details": {
-        "path": "/txets.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:20.497919",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin.php",
-      "details": {
-        "path": "/wp-admin.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:21.467560",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-config-sample.php",
-      "details": {
-        "path": "/wp-config-sample.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:22.311213",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/packed.php",
-      "details": {
-        "path": "/wp-content/packed.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:24.311835",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /ahax.php",
-      "details": {
-        "path": "/ahax.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:24.840907",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /breads1.php",
-      "details": {
-        "path": "/breads1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:25.398911",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /must.php",
-      "details": {
-        "path": "/must.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:26.138944",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /up.php",
-      "details": {
-        "path": "/up.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:26.705296",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /upload.php",
-      "details": {
-        "path": "/upload.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:27.356566",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-update.php",
-      "details": {
-        "path": "/wp-update.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:27.842237",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /xmrlpc.php",
-      "details": {
-        "path": "/xmrlpc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:28.498390",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /about/function.php",
-      "details": {
-        "path": "/about/function.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:29.075943",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /an.php",
-      "details": {
-        "path": "/an.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:29.679547",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /asw.php",
-      "details": {
-        "path": "/asw.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:30.179519",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /item.php",
-      "details": {
-        "path": "/item.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:30.733072",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /jga.php",
-      "details": {
-        "path": "/jga.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:31.197776",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /mac.php",
-      "details": {
-        "path": "/mac.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:31.769374",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /system.php",
-      "details": {
-        "path": "/system.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:32.416034",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-access.php",
-      "details": {
-        "path": "/wp-access.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:32.920172",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/images/index.php",
-      "details": {
-        "path": "/wp-admin/images/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:33.441348",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/includes/index.php",
-      "details": {
-        "path": "/wp-admin/includes/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:33.941734",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-load.php",
-      "details": {
-        "path": "/wp-load.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:34.427269",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /zafir1.php",
-      "details": {
-        "path": "/zafir1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:35.033693",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /abc.php",
-      "details": {
-        "path": "/abc.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:35.503074",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /c1.php",
-      "details": {
-        "path": "/c1.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:36.560899",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /root.php",
-      "details": {
-        "path": "/root.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:37.294643",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /shell.php",
-      "details": {
-        "path": "/shell.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:37.918253",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-admin/user/index.php",
-      "details": {
-        "path": "/wp-admin/user/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:38.526679",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-block.php",
-      "details": {
-        "path": "/wp-block.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:39.048404",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-content/plugins/linkpreview/il.php",
-      "details": {
-        "path": "/wp-content/plugins/linkpreview/il.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:39.521826",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-header-json.php",
-      "details": {
-        "path": "/wp-header-json.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:40.139302",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /wp-includes/index.php",
-      "details": {
-        "path": "/wp-includes/index.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:40.713326",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /zup.php",
-      "details": {
-        "path": "/zup.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
-      "timestamp": "2026-07-04T14:31:41.232114",
-      "source": "web_ui",
-      "error_type": "not_found",
-      "message": "Page not found: /a9.php",
-      "details": {
-        "path": "/a9.php",
-        "method": "GET"
-      },
-      "user_email": null,
-      "resolved": false
-    },
-    {
       "timestamp": "2026-07-04T14:31:41.729505",
       "source": "web_ui",
       "error_type": "not_found",
@@ -2779,12 +826,1956 @@
       },
       "user_email": null,
       "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:15.399909",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/plugins/hellopress/wp_filemanager.php",
+      "details": {
+        "path": "/wp-content/plugins/hellopress/wp_filemanager.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:15.778378",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /this_is_a_new_hello_world.php",
+      "details": {
+        "path": "/this_is_a_new_hello_world.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:16.164085",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /x.php",
+      "details": {
+        "path": "/x.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:16.546138",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /j260624_13.php",
+      "details": {
+        "path": "/j260624_13.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:16.936931",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /d62.php",
+      "details": {
+        "path": "/d62.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:17.317107",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ups.php",
+      "details": {
+        "path": "/ups.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:17.705360",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /k.php",
+      "details": {
+        "path": "/k.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:18.093456",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /k2.php",
+      "details": {
+        "path": "/k2.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:18.484603",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /k3.php",
+      "details": {
+        "path": "/k3.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:18.864137",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /k4.php",
+      "details": {
+        "path": "/k4.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:19.244875",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /k5.php",
+      "details": {
+        "path": "/k5.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:19.625099",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w.php",
+      "details": {
+        "path": "/w.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:20.009788",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /fpwch.php",
+      "details": {
+        "path": "/fpwch.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:20.394053",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w2025.php",
+      "details": {
+        "path": "/w2025.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:20.773537",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /scxy.php",
+      "details": {
+        "path": "/scxy.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:21.170421",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /FWAZ.php",
+      "details": {
+        "path": "/FWAZ.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:21.550654",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /qterm.php",
+      "details": {
+        "path": "/qterm.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:21.931681",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /blurbs.php",
+      "details": {
+        "path": "/blurbs.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:22.313809",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /v543.php",
+      "details": {
+        "path": "/v543.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:22.694411",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w3lls.php",
+      "details": {
+        "path": "/w3lls.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:23.074145",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-ws68.php",
+      "details": {
+        "path": "/wp-ws68.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:23.463591",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xyn.php",
+      "details": {
+        "path": "/xyn.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:23.844583",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /green3.php",
+      "details": {
+        "path": "/green3.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:24.223905",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ccs.php",
+      "details": {
+        "path": "/ccs.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:24.605127",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ccc.php",
+      "details": {
+        "path": "/ccc.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:24.986483",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /get.php",
+      "details": {
+        "path": "/get.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:25.366822",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /images.php",
+      "details": {
+        "path": "/images.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:25.746745",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /alls.php",
+      "details": {
+        "path": "/alls.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:26.127171",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /yyu.php",
+      "details": {
+        "path": "/yyu.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:26.506709",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /by.php",
+      "details": {
+        "path": "/by.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:26.887707",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /FAQ.php",
+      "details": {
+        "path": "/FAQ.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:27.267588",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /coffexium.php",
+      "details": {
+        "path": "/coffexium.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:27.651122",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /red.php",
+      "details": {
+        "path": "/red.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:28.032515",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/sodium_compat/",
+      "details": {
+        "path": "/wp-includes/sodium_compat/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:28.417111",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/css/colors/coffee/wp-adochan.php",
+      "details": {
+        "path": "/wp-admin/css/colors/coffee/wp-adochan.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:28.798165",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/Text/",
+      "details": {
+        "path": "/wp-includes/Text/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:29.181967",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /footer.php",
+      "details": {
+        "path": "/footer.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:29.569564",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/uploads/",
+      "details": {
+        "path": "/wp-content/uploads/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:29.948987",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/index.php",
+      "details": {
+        "path": "/wp-content/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:30.327992",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /zoro.php",
+      "details": {
+        "path": "/zoro.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:30.707690",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /admin.php",
+      "details": {
+        "path": "/admin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:31.087423",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /greap.php",
+      "details": {
+        "path": "/greap.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:31.467844",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /177.php",
+      "details": {
+        "path": "/177.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:31.847659",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /199.php",
+      "details": {
+        "path": "/199.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:32.227370",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file52.php",
+      "details": {
+        "path": "/file52.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:32.606370",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /122.php",
+      "details": {
+        "path": "/122.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:32.987320",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /green1.php",
+      "details": {
+        "path": "/green1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:33.367804",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /biufile.php",
+      "details": {
+        "path": "/biufile.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:33.747369",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wpconf.php",
+      "details": {
+        "path": "/wpconf.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:34.126945",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /mosty.php",
+      "details": {
+        "path": "/mosty.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:34.520832",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /dejavu.php",
+      "details": {
+        "path": "/dejavu.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:34.901507",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aaf.php",
+      "details": {
+        "path": "/aaf.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:35.281707",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /term.php",
+      "details": {
+        "path": "/term.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:35.661710",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ha.php",
+      "details": {
+        "path": "/ha.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:36.041230",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /hur.php",
+      "details": {
+        "path": "/hur.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:36.421783",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /h02ugyh.php",
+      "details": {
+        "path": "/h02ugyh.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:36.803172",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /seiso.php",
+      "details": {
+        "path": "/seiso.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:37.184260",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /155.php",
+      "details": {
+        "path": "/155.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:37.563864",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ppp.php",
+      "details": {
+        "path": "/ppp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:37.944055",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /201.php",
+      "details": {
+        "path": "/201.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:38.330079",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ops.php",
+      "details": {
+        "path": "/ops.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:38.711645",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ingfo.php",
+      "details": {
+        "path": "/ingfo.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:39.091008",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /error_log.php",
+      "details": {
+        "path": "/error_log.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:39.470022",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xenon1337.php",
+      "details": {
+        "path": "/xenon1337.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:39.849611",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /test11.php",
+      "details": {
+        "path": "/test11.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:40.229630",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /koala.php",
+      "details": {
+        "path": "/koala.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:40.609353",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /mac.php",
+      "details": {
+        "path": "/mac.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:41.005115",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /25d653587fdfd1.php",
+      "details": {
+        "path": "/25d653587fdfd1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:41.385075",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wefile.php",
+      "details": {
+        "path": "/wefile.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:41.766290",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/blocks/post-comments-form/",
+      "details": {
+        "path": "/wp-includes/blocks/post-comments-form/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:42.146707",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/js/",
+      "details": {
+        "path": "/wp-admin/js/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:42.534062",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/css/colour.php",
+      "details": {
+        "path": "/wp-admin/css/colour.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:42.916079",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /2P.php",
+      "details": {
+        "path": "/2P.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:43.650076",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/ID3/about.php",
+      "details": {
+        "path": "/wp-includes/ID3/about.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:44.031493",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bob.php",
+      "details": {
+        "path": "/bob.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:44.411793",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/css/",
+      "details": {
+        "path": "/wp-admin/css/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:44.791176",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/css/colors/modern/",
+      "details": {
+        "path": "/wp-admin/css/colors/modern/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:45.174426",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /crgio.php",
+      "details": {
+        "path": "/crgio.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:45.571656",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /pucci.php",
+      "details": {
+        "path": "/pucci.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:45.950859",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/blocks/details/",
+      "details": {
+        "path": "/wp-includes/blocks/details/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:46.333060",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/blocks/audio/",
+      "details": {
+        "path": "/wp-includes/blocks/audio/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:46.713375",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-temp.php",
+      "details": {
+        "path": "/wp-temp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:47.093259",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/blocks/buttons/",
+      "details": {
+        "path": "/wp-includes/blocks/buttons/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:47.472553",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/js/index.php",
+      "details": {
+        "path": "/wp-admin/js/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:47.851780",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /puc.php",
+      "details": {
+        "path": "/puc.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:48.231851",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /themes.php",
+      "details": {
+        "path": "/themes.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:48.610923",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /dx.php",
+      "details": {
+        "path": "/dx.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:48.990167",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /p.php",
+      "details": {
+        "path": "/p.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:49.371776",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/Requests/",
+      "details": {
+        "path": "/wp-includes/Requests/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:49.751552",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bthil.php",
+      "details": {
+        "path": "/bthil.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:50.133515",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /7.php",
+      "details": {
+        "path": "/7.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:50.516235",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /8.php",
+      "details": {
+        "path": "/8.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:50.896715",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /1.php",
+      "details": {
+        "path": "/1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:51.282925",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /100.php",
+      "details": {
+        "path": "/100.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:51.665858",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /about.php",
+      "details": {
+        "path": "/about.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:52.055564",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /admin.php",
+      "details": {
+        "path": "/admin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:52.440420",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /edit.php",
+      "details": {
+        "path": "/edit.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:52.820380",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/admin.php",
+      "details": {
+        "path": "/wp-content/admin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:53.204144",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /f6.php",
+      "details": {
+        "path": "/f6.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:53.587279",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /inputs.php",
+      "details": {
+        "path": "/inputs.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:53.966591",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /av.php",
+      "details": {
+        "path": "/av.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:54.349179",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /classwithtostring.php",
+      "details": {
+        "path": "/classwithtostring.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:54.732809",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/themes/index.php",
+      "details": {
+        "path": "/wp-content/themes/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:55.112764",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-blog.php",
+      "details": {
+        "path": "/wp-blog.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:55.502691",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/js/jquery/",
+      "details": {
+        "path": "/wp-includes/js/jquery/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:55.881615",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/admin.php",
+      "details": {
+        "path": "/wp-content/admin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:56.273367",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /adminfuns.php",
+      "details": {
+        "path": "/adminfuns.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:56.652638",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /goods.php",
+      "details": {
+        "path": "/goods.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:57.035771",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ms-edit.php",
+      "details": {
+        "path": "/ms-edit.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:57.418034",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /222.php",
+      "details": {
+        "path": "/222.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:57.800872",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /cgi-bin/index.php",
+      "details": {
+        "path": "/cgi-bin/index.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:58.181121",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/css/dist/",
+      "details": {
+        "path": "/wp-includes/css/dist/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:58.561250",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /BDKR28WP.php",
+      "details": {
+        "path": "/BDKR28WP.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:58.941463",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/l10n/",
+      "details": {
+        "path": "/wp-includes/l10n/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:59.322296",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/uploads/",
+      "details": {
+        "path": "/wp-content/uploads/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:11:59.707920",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp.php",
+      "details": {
+        "path": "/wp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:00.124107",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /abcd.php",
+      "details": {
+        "path": "/abcd.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:00.514867",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /a1.php",
+      "details": {
+        "path": "/a1.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:00.904485",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/Text/Diff/Engine/about.php",
+      "details": {
+        "path": "/wp-includes/Text/Diff/Engine/about.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:01.283914",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w1php",
+      "details": {
+        "path": "/w1php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:01.664572",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w2php",
+      "details": {
+        "path": "/w2php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:02.049103",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /w3php",
+      "details": {
+        "path": "/w3php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:02.432218",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /cgi-bin/admin.php",
+      "details": {
+        "path": "/cgi-bin/admin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:02.830662",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /gettest.php",
+      "details": {
+        "path": "/gettest.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:03.214741",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-content/",
+      "details": {
+        "path": "/wp-content/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:03.604977",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /simple.php",
+      "details": {
+        "path": "/simple.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:03.984509",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xxx.php",
+      "details": {
+        "path": "/xxx.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:04.368320",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /hypo.php",
+      "details": {
+        "path": "/hypo.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:04.748670",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/css/colors/blue/",
+      "details": {
+        "path": "/wp-admin/css/colors/blue/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:05.142540",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /chosen.php",
+      "details": {
+        "path": "/chosen.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:05.522856",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/block-bindings/",
+      "details": {
+        "path": "/wp-includes/block-bindings/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:05.916769",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /als.php",
+      "details": {
+        "path": "/als.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:06.296353",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /pol.php",
+      "details": {
+        "path": "/pol.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:06.675769",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file5.php",
+      "details": {
+        "path": "/file5.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:07.055087",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /4PJcpMFsD8B.php",
+      "details": {
+        "path": "/4PJcpMFsD8B.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:07.434416",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file.php",
+      "details": {
+        "path": "/file.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:07.815793",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /cfile.php",
+      "details": {
+        "path": "/cfile.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:08.214180",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /class-wp.php",
+      "details": {
+        "path": "/class-wp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:08.614749",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /admin.php",
+      "details": {
+        "path": "/admin.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:08.995942",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aa2.php",
+      "details": {
+        "path": "/aa2.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:09.392738",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /ccou.php",
+      "details": {
+        "path": "/ccou.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:09.773129",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /dr.php",
+      "details": {
+        "path": "/dr.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:10.157705",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xamp.php",
+      "details": {
+        "path": "/xamp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:10.551271",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /bless.php",
+      "details": {
+        "path": "/bless.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:10.931150",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file46.php",
+      "details": {
+        "path": "/file46.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:11.310728",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /eee.php",
+      "details": {
+        "path": "/eee.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:11.690914",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file25.php",
+      "details": {
+        "path": "/file25.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:12.082092",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file48.php",
+      "details": {
+        "path": "/file48.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:12.462152",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file6.php",
+      "details": {
+        "path": "/file6.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:12.860046",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /a2.php",
+      "details": {
+        "path": "/a2.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:13.253846",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /file15.php",
+      "details": {
+        "path": "/file15.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:13.641534",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /jp.php",
+      "details": {
+        "path": "/jp.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:14.020703",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /f35.php",
+      "details": {
+        "path": "/f35.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:14.407039",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-load.php",
+      "details": {
+        "path": "/wp-load.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:14.811825",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xwpg.php",
+      "details": {
+        "path": "/xwpg.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:15.192754",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-includes/assets/",
+      "details": {
+        "path": "/wp-includes/assets/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:15.578771",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/css/colors/sunrise/",
+      "details": {
+        "path": "/wp-admin/css/colors/sunrise/",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:15.958016",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /waf.php",
+      "details": {
+        "path": "/waf.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:16.349783",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /xstelth.php",
+      "details": {
+        "path": "/xstelth.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:16.735078",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-links.php",
+      "details": {
+        "path": "/wp-links.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:17.115342",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /wp-admin/network/plugins.php",
+      "details": {
+        "path": "/wp-admin/network/plugins.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
+    },
+    {
+      "timestamp": "2026-07-05T04:12:17.493754",
+      "source": "web_ui",
+      "error_type": "not_found",
+      "message": "Page not found: /aaa.php",
+      "details": {
+        "path": "/aaa.php",
+        "method": "GET"
+      },
+      "user_email": null,
+      "resolved": false
     }
   ],
   "system_health": {
     "last_scan_time": "2026-07-04T13:58:16.284489",
     "last_booking_time": null,
-    "last_error_time": "2026-07-04T14:32:04.594963",
+    "last_error_time": "2026-07-05T04:12:17.493769",
     "total_scans": 32,
     "total_bookings": 0,
     "total_errors": 201,

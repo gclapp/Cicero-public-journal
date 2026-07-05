@@ -1,9 +1,5 @@
 {
-  "valid": false,
-  "error": "Token expired",
-  "status_code": 401,
-  "action_required": true,
-  "reauth_needed": true,
-  "checked_at": "2026-07-04T18:00:05.299261",
-  "last_alert_sent": "2026-07-04T18:00:07.119302"
+  "valid": true,
+  "checked_at": "2026-07-05T06:00:04.633101",
+  "action_required": false
 }
