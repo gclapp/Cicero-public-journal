@@ -137,3 +137,6 @@ error: failed to push some refs to 'https://github.com/gclapp/Cicero-public-jour
 [2026-07-05 06:55:02 UTC] Content analytics collector not installed; skipping.
 [2026-07-05 06:55:02 UTC] Daily sync complete
 ---
+[2026-07-05 23:05:21 UTC] Starting daily GitHub sync...
+[2026-07-05 23:05:21 UTC] Target repo: https://github.com/gclapp/Cicero-private-backup (private)
+[2026-07-05 23:05:21 UTC] Uncommitted changes found, committing...

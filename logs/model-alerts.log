@@ -1675,3 +1675,9 @@
 [2026-07-05 23:00:02] Detected model: moonshot/kimi-k2.7-code
 [2026-07-05 23:00:02] Expected primary: moonshot/kimi-k2.7-code
 [2026-07-05 23:00:02] ✅ Running on primary model (moonshot/kimi-k2.7-code)
+[2026-07-05 23:05:02] ============================================================
+[2026-07-05 23:05:02] Model Fallback Monitor Check
+[2026-07-05 23:05:02] ============================================================
+[2026-07-05 23:05:02] Detected model: moonshot/kimi-k2.7-code
+[2026-07-05 23:05:02] Expected primary: moonshot/kimi-k2.7-code
+[2026-07-05 23:05:02] ✅ Running on primary model (moonshot/kimi-k2.7-code)
